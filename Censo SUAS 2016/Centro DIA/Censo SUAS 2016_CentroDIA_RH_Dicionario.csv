@@ -1,0 +1,56 @@
+Variável;Descrição
+IBGE;Código IBGE do Município
+IBGE7;Código do IBGE (7 dígitos)
+UF;UF
+uf_s;UF
+Nome_UF;UF
+Região;Grande Região
+Município;Município
+Area;Área Territorial do município (Km2) - 2010
+Capital;
+RM;Municípios localizados em regiões metropolitanas_2010
+Qual_RM;Classificação da região metropolitana_2010
+Nome_RM;Nome da região metropolitana_2010
+amazonia_legal;Municípios que pertencem à região da Amazônia Legal_2014
+Semi_arido;Municipios do semi-árido brasileiro_2007
+fronteira_internacional;Municípios que tocam a  fronteira internacional_2010
+costa_litoranea;Municípios que tocam a  costa litorânea_2010
+Cod_RegiaoRural;Municípios classificados em Regiões Rurais - código_2015
+Nome_RegiaoRural;Municípios classificados em Regiões Rurais - nome_2015
+Mesorregião;Mesorregião (código)_2010
+Nome_Mesorregião;Mesorregião (nome)_2010
+Pop_Total2010_MESO;População Total (mesorregião)_2010
+Microrregião;Microrregião (código)_2010
+Nome_Microrregião;Microrregião (nome)_2010
+Pop_Total2010_MICRO;População Total (microrregião)_2010
+Pop_total_2010;Pop_total_2010_População total - Censo 2010
+Pop_Urbana2010;População urbana - Censo 2010
+Pop_Rural2010;População rural - Censo 2010
+Porte_pop2010;Porte SUAS_população 2010
+Estimativa_PerfilCadÚnico_Censo2010;Estimativa de Famílias de baixa renda - Perfil Cadastro Único (Censo 2010) - Estimativa de Famílias de baixa renda
+Estimativa_PerfilBolsaFamília_Censo2010;Estimativa de famílias pobres - Perfil Bolsa Família (CENSO 2010) - Estimativa de famílias pobres - Perfil Bolsa Família (CENSO 2010)
+NU_IDENTIFICADOR;Número Identificador da Unidade
+q28.2;Data de Nascimento DD/MM/AAAA
+q28.3;Sexo
+q28.9;Escolaridade
+q28.10;Profissão
+q28.11;Vínculo
+q28.12;Função
+q28.13;Carga horária SEMANAL
+q28.14;Início do exercício da função
+d28.2;d28.2.Idade em anos (data ref. 31-12-2017)
+d28.9;d28.9.recode_Níveis de escolaridade
+d28.11;d28.11_Tipo de vínculo
+d28.9bin1;d28.9bin1_Nível fundamental - trabalhadores que possuem até o nível médio (inclui aqueles sem escolaridade)
+d28.9bin2;d28.9bin2_Nível médio - trabalhadores com ensino superior incompleto e ensino médio completo
+d28.9bin3;d28.9bin3_Nível superior - inclui trabalhadores graduados, com especialização, mestrado ou doutorado
+d28.10bin1;d28.10bin1_Pedagogo
+d28.10bin2;d28.10bin2_Assistente Social
+d28.10bin3;d28.10bin3_Antropólogo
+d28.10bin4;d28.10bin4_Advogado
+d28.10bin5;d28.10bin5_Psicólogo
+d28.11bin1;d28.11bin1_Servidor Estatutário
+d28.11bin2;d28.11bin2_Empregado Público (CLT)
+d28.11bin3;d28.11bin3_Comissionado
+d28.11bin4;"d28.11bin4_Outros vínculos não permanentes - inclui Trabalhador de Empresas/Cooperativa/Entidade Prestadora de Serviços; Voluntários; Servidor Temporário; Sem vínculo; Terceirizado e Outro vínculo não permanente"
+d28.2_categoria;d28.2_Idade (faixas etárias)

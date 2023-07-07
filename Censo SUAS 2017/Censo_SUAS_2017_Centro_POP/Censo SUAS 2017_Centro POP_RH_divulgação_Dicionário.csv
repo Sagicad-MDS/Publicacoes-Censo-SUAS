@@ -1,0 +1,44 @@
+Variável ;Descrição
+IBGE7;Código IBGE com Dígito Verificador
+IBGE;Código IBGE
+Região;Grande Região
+UF;Unidade da Federação
+uf_s;Unidade da Federação
+Município;Nome do Município_Censo IBGE 2010
+Municipio_2013;Nome do Município_atualizado 2014
+area;Área Territorial Km2
+Pop_Total2010;População Total - Censo IBGE 2010
+Pop_Urbana2010;População Urbana - Censo IBGE 2010
+Pop_Rural2010;População Rural - Censo IBGE 2010
+Porte_pop2010;Porte Populacional SUAS - Censo IBGE 2010
+id_creas_pop;id_creas_pop
+q44.2;q44.2.Data de nascimento
+q44.3;q44.3.Sexo
+q44.7;q44.7.Escolaridade
+q44.8;q44.8.Profissão
+q44.9;q44.9.Vínculo
+q44.10;q44.10.Função
+q44.11;q44.11.Carga horária Semanal
+q44.12;q44.12.Início do exercício da função
+q44.13.1;q44.13.1.Serviços/Atividade a qual o profissional está vinculado - Principal serviço/atividade
+q44.13.2;q44.13.2.Serviços/Atividade a qual o profissional está vinculado - Segundo principal serviço/atividade
+q44.13.3;q44.13.3.Serviços/Atividade a qual o profissional está vinculado - Terceiro principal serviço/atividade
+q44.13.1.original;q44.13.1.Serviços/Atividade a qual o profissional está vinculado - Principal serviço/atividade
+q44.13.2.original;q44.13.2.Serviços/Atividade a qual o profissional está vinculado - Segundo principal serviço/atividade
+q44.13.3.original;q44.13.3.Serviços/Atividade a qual o profissional está vinculado - Terceiro principal serviço/atividade
+D44.2;Idade em anos (data ref. 31-12-2016)
+D44.2categoria;D44.2.Idade (faixas etárias)
+D44.7;D44.7.Níveis de escolaridade
+D44.9;D44.9.Tipo de vínculo
+D44.7bin1;D44.7bin1.Nível fundamental - trabalhadores que possuem até o nível médio (inclui aqueles sem escolaridade)
+D44.7bin2;D44.7bin2.Nível médio - trabalhadores com ensino superior incompleto e ensino médio completo
+D44.7bin3;D44.7bin3.Nível superior - inclui trabalhadores graduados, com especialização, mestrado ou doutorado
+D44.8bin1;D44.8bin1.Pedagogo
+D44.8bin2;D44.8bin2.Assistente Social
+D44.8bin3;D44.8bin3.Antropólogo
+D44.8bin4;D44.8bin4.Advogado
+D44.8bin5;D44.8bin5.Psicólogo
+D44.9bin1;D44.9bin1.Servidor Estatutário
+D44.9bin2; D44.9bin2.Empregado Público (CLT)
+D44.9bin3;D44.9bin3.Comissionado
+D44.9bin4;"D44.9bin4.Outros vínculos não permanentes - inclui Trabalhador de Empresas/Cooperativa/Entidade Prestadora de Serviços; Voluntários; Servidor Temporário; Sem vínculo; Terceirizado e Outro vínculo não permanente"

@@ -1,0 +1,305 @@
+Variável;Descrição
+IBGE;Código IBGE do estado
+UF;UF
+Região;Grande Região
+Pop_Total2010;População total do estado - Censo IBGE 2010
+Quant_municipios;Quantidade de municípios
+Ident_1;Ident_1_Nome que identifica o órgão gestor
+Ident_2;Ident_2_Selecione o Tipo de Logradouro (avenida, rua, etc)
+Ident_3;Ident_3_Endereço
+Ident_4;Ident_4_Número
+Ident_5;Ident_5_Complemento
+Ident_6;Ident_6_Bairro
+Ident_7;Ident_7_Ponto de Referência
+Ident_8;Ident_8_CEP
+Ident_9;Ident_9_Municipio
+Ident_10;Ident_10_UF
+Ident_11;Ident_11_E-mail
+Ident_12;Ident_12_DDD - Telefone
+Ident_13;Ident_13_Ramal
+Ident_14;Ident_14_Fax
+p_latitude;Latitude
+p_longitude;Longitude
+q1;q1_De acordo com a estrutura administrativa do estado a Secretaria Estadual da Assistência Social caracteriza-se como
+q2_1;q2_1_Educação
+q2_2;q2_2_Planejamento
+q2_3;q2_3_Saúde
+q2_4;q2_4_Habitação
+q2_5;q2_5_Segurança Alimentar
+q2_6;q2_6_Trabalho e/ou Emprego
+q2_7;q2_7_Direitos Humanos
+q2_99;q2_99_Outra
+q2_qual;q2_qual_A que secretaria ou setor a assistência social está associada ou subordinada? Qual?
+q3_1;q3_1_Áreas ligadas à Gestão - Gestão do SUAS
+q3_2;q3_2_Áreas ligadas à Gestão - Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)
+q3_3;q3_3_ Áreas ligadas à Gestão - Gestão do Trabalho
+q3_4;q3_4_ Áreas ligadas à Gestão - Regulação do Suas
+q3_5;q3_5_ Áreas ligadas à Gestão - Gestão Financeira e Orçamentária
+q3_6;q3_6_ Áreas de Serviços e Benefícios - Proteção Social Básica
+q3_7;q3_7_ Áreas de Serviços e Benefícios - Proteção Social Especial
+q3_8;q3_8_ Áreas de Serviços e Benefícios - Gestão do Cadastro Único e Programa Bolsa Família
+q3_9;q3_9_ Áreas de Serviços e Benefícios - Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais)
+q4;q4_ A Secretaria Estadual de Assistência Social possui estruturas administrativas descentralizadas (escritórios regionais ou similares)?
+q5;q5_ Quantos são os escritórios regionais (ou similares) da Assistência Social no Estado?
+q6;q6_ Em que ano ocorreu a última atualização da Lei Estadual de Regulamentação do Sistema Único da Assistência Social – SUAS?
+q6_99;q6_99_Não Possui Lei Estadual de Regulamentação do SUAS
+q7;q7_Em que ano ocorreu a última atualização do Plano Estadual de Assistência Social (PEAS) com a respectiva aprovação pelo CEAS?
+q7_99;q7_99_Não possui Plano Estadual de Assistência Social
+q8;q8_Em que ano ocorreu a última atualização do Plano Estadual de Capacitação?
+q8_99;q8_99_Não possui Plano Estadual de Capacitação
+q9_1_1;q9_1_1_Gestão do SUAS – Profissionais de Nível Superior - Exclusivos
+q9_1_2;q9_1_2_Gestão do SUAS – Profissionais de Nível Superior - Compartilhados
+q9_1_3;q9_1_3_Gestão do SUAS – Profissionais de Nível Médio - Exclusivos
+q9_1_4;q9_1_4_Gestão do SUAS – Profissionais de Nível Médio - Compartilhados
+q9_2_1;q9_2_1_Vigilância Socioassistencial – Profissionais de Nível Superior - Exclusivos
+q9_2_2;q9_2_2_Vigilância Socioassistencial – Profissionais de Nível Superior - Compartilhados
+q9_2_3;q9_2_3_Vigilância Socioassistencial – Profissionais de Nível Médio - Exclusivos
+q9_2_4;q9_2_4_Vigilância Socioassistencial – Profissionais de Nível Médio - Compartilhados
+q9_3_1;q9_3_1_Gestão do Trabalho – Profissionais de Nível Superior - Exclusivos
+q9_3_2;q9_3_2_Gestão do Trabalho – Profissionais de Nível Superior - Compartilhados
+q9_3_3;q9_3_3_Gestão do Trabalho – Profissionais de Nível Médio - Exclusivos
+q9_3_4;q9_3_4_Gestão do Trabalho – Profissionais de Nível Médio - Compartilhados
+q9_4_1;q9_4_1_Regulação do SUAS – Profissionais de Nível Superior - Exclusivos
+q9_4_2;q9_4_2_Regulação do SUAS – Profissionais de Nível Superior - Compartilhados
+q9_4_3;q9_4_3_Regulação do SUAS – Profissionais de Nível Médio - Exclusivos
+q9_4_4;q9_4_4_Regulação do SUAS – Profissionais de Nível Médio - Compartilhados
+q9_5_1;q9_5_1_Gestão Financeira e Orçamentária – Profissionais de Nível Superior - Exclusivos
+q9_5_2;q9_5_2_Gestão Financeira e Orçamentária – Profissionais de Nível Superior - Compartilhados
+q9_5_3;q9_5_3_Gestão Financeira e Orçamentária – Profissionais de Nível Médio - Exclusivos
+q9_5_4;q9_5_4_Gestão Financeira e Orçamentária – Profissionais de Nível Médio - Compartilhados
+q9_6_1;q9_6_1_Proteção Social Básica – Profissionais de Nível Superior - Exclusivos
+q9_6_2;q9_6_2_Proteção Social Básica – Profissionais de Nível Superior - Compartilhados
+q9_6_3;q9_6_3_Proteção Social Básica – Profissionais de Nível Médio - Exclusivos
+q9_6_4;q9_6_4_Proteção Social Básica – Profissionais de Nível Médio - Compartilhados
+q9_7_1;q9_7_1_Proteção Social Especial de Média Complexidade – Profissionais de Nível Superior - Exclusivos
+q9_7_2;q9_7_2_Proteção Social Especial de Média Complexidade – Profissionais de Nível Superior - Compartilhados
+q9_7_3;q9_7_3_Proteção Social Especial de Média Complexidade – Profissionais de Nível Médio - Exclusivos
+q9_7_4;q9_7_4_Proteção Social Especial de Média Complexidade – Profissionais de Nível Médio - Compartilhados
+q9_8_1;q9_8_1_Proteção Social Especial de Alta Complexidade – Profissionais de Nível Superior - Exclusivos
+q9_8_2;q9_8_2_Proteção Social Especial de Alta Complexidade – Profissionais de Nível Superior - Compartilhados
+q9_8_3;q9_8_3_Proteção Social Especial de Alta Complexidade – Profissionais de Nível Médio - Exclusivos
+q9_8_4;q9_8_4_Proteção Social Especial de Alta Complexidade – Profissionais de Nível Médio - Compartilhados
+q9_9_1;q9_9_1_Gestão do Cadastro Único e Programa Bolsa Família – Profissionais de Nível Superior - Exclusivos
+q9_9_2;q9_9_2_Gestão do Cadastro Único e Programa Bolsa Família – Profissionais de Nível Superior - Compartilhados
+q9_9_3;q9_9_3_Gestão do Cadastro Único e Programa Bolsa Família – Profissionais de Nível Médio - Exclusivos
+q9_9_4;q9_9_4_Gestão do Cadastro Único e Programa Bolsa Família – Profissionais de Nível Médio - Compartilhados
+q9_10_1;q9_1_1_Gestão de Benefícios Assistenciais – Profissionais de Nível Superior - Exclusivos
+q9_10_2;q9_10_2_Gestão de Benefícios Assistenciais – Profissionais de Nível Superior - Compartilhados
+q9_10_3;q9_10_3_Gestão de Benefícios Assistenciais – Profissionais de Nível Médio - Exclusivos
+q9_10_4;q9_10_4_Gestão de Benefícios Assistenciais – Profissionais de Nível Médio - Compartilhados
+q10_1_1;q10_1_1_Estatutários - Ensino Fundamental - Sede
+q10_1_2;q10_1_2_Estatutários - Ensino Médio - Sede
+q10_1_3;q10_1_3_Estatutários - Ensino Superior - Sede
+q10_1_4;q10_1_4_Estatutários - Total - Sede
+q10_2_1;q10_2_1_Celetistas - Ensino Fundamental - Sede
+q10_2_2;q10_2_2_Celetistas - Ensino Médio - Sede
+q10_2_3;q10_2_3_Celetistas - Ensino Superior - Sede
+q10_2_4;q10_2_4_Celetistas - Total - Sede
+q10_3_1;q10_3_1_Somente Comissionados - Ensino Fundamental - Sede
+q10_3_2;q10_3_2_Somente Comissionados - Ensino Médio - Sede
+q10_3_3;q10_3_3_Somente Comissionados - Ensino Superior - Sede
+q10_3_4;q10_3_4_ Somente Comissionados - Total - Sede
+q10_4_1;q10_4_1_Outros Vínculos - Ensino Fundamental - Sede
+q10_4_2;q10_4_2_Outros Vínculos - Ensino Médio - Sede
+q10_4_3;q10_4_3_Outros Vínculos - Ensino Superior - Sede
+q10_4_4;q10_4_4_Outros vínculos - Total - Sede
+q10_5_1;q10_5_1_Total - Ensino Fundamental - Sede
+q10_5_2;q10_5_2_Total - Ensino Médio - Sede
+q10_5_3;q10_5_3_Total - Ensino Superior - Sede
+q10_5_4;q10_5_4_Total - Total - Sede
+q11_1_1;q11_1_1_Estatutários - Ensino Fundamental - Total da Secretaria Estadual de Assistencia
+q11_1_2;q11_1_2_Estatutários - Ensino Médio - Total da Secretaria Estadual de Assistencia
+q11_1_3;q11_1_3_Estatutários - Ensino Superior - Total da Secretaria Estadual de Assistencia
+q11_1_4;q11_1_4_Estatutários - Total - Total da Secretaria Estadual de Assistencia
+q11_2_1;q11_2_1_Celetistas - Ensino Fundamental - Total da Secretaria Estadual de Assistencia
+q11_2_2;q11_2_2_Celetistas - Ensino Médio - Total da Secretaria Estadual de Assistencia
+q11_2_3;q11_2_3_Celetistas - Ensino Superior - Total da Secretaria Estadual de Assistencia
+q11_2_4;q11_2_4_Celetistas - Total - Total da Secretaria Estadual de Assistencia
+q11_3_1;q11_3_1_Somente Comissionados - Ensino Fundamental - Total da Secretaria Estadual de Assistencia
+q11_3_2;q11_3_2_Somente Comissionados - Ensino Médio - Total da Secretaria Estadual de Assistencia
+q11_3_3;q11_3_3_Somente Comissionados - Ensino Superior - Total da Secretaria Estadual de Assistencia
+q11_3_4;q11_3_4_Somente Comissionados - Total - Total da Secretaria Estadual de Assistencia
+q11_4_1;q11_4_1_Outros Vínculos - Ensino Fundamental - Total da Secretaria Estadual de Assistencia
+q11_4_2;q11_4_2_Outros Vínculos - Ensino Médio - Total da Secretaria Estadual de Assistencia
+q11_4_3;q11_4_3_Outros Vínculos - Ensino Superior - Total da Secretaria Estadual de Assistencia
+q11_4_4;q11_4_4_Outros Vínculos - Total - Total da Secretaria Estadual de Assistencia
+q11_5_1;q11_5_1_Total - Ensino Fundamental - Total da Secretaria Estadual de Assistencia
+q11_5_2;q11_5_2_Total - Ensino Médio - Total da Secretaria Estadual de Assistencia
+q11_5_3;q11_5_3_Total - Ensino Superior - Total da Secretaria Estadual de Assistencia
+q11_5_4;q11_5_4_Total - Total - Total da Secretaria Estadual de Assistencia
+q12_1;q12_1_Assistente Social
+q12_2;q12_2_Psicólogo(a)
+q12_3;q12_3_Pedagogo(a)
+q12_4;q12_4_Advogado(a)
+q12_5;q12_5_Antropólogo(a)
+q12_6;q12_6_Sociólogo(a)
+q12_7;q12_7_Terapeuta Ocupacional
+q12_8;q12_8_Contador(a)
+q12_9;q12_9_Estatístico
+q12_10;q12_10_Economista
+q12_11;q12_11_Economista Doméstico
+q12_12;q12_12_Musicoterapeuta
+q12_13;q12_13_Geógrafo
+q12_14;q12_14_Administrador(a)
+q12_15;q12_15_Administrador Público/Gestão Pública
+q12_16;q12_16_Profissional de Educação Física
+q12_17;q12_17_Outros
+q12_18;q12_18_Total de trabalhadores de Ensino Superior
+q13;q13_Os servidores do órgão gestor de assistência social possuem Plano de Cargos, Carreiras e Salários (PCCS)?
+q14;q14_O plano de Cargos, Carreiras e Salários dos servidores do órgão gestor da assistência social (PCCS) pertence a qual órgão do estado?
+q14_1;q14_1_Qual?
+q15;q15_Qual o ano da última atualização deste PCCS?
+q16_1_1;q16_1_1_Nível Superior - Realizou Concurso?
+q16_1_2;q16_1_2_Nível Superior - Quantidade de vagas
+q16_1_3;q16_1_3_Nível Superior - O concurso já foi homologado?
+q16_1_4;q16_1_4_Nível Superior - Data de Homologação do Concurso
+q16_1_5;q16_1_5_Nível Superior - Quantidade de trabalhadores que tomaram posse
+q16_2_1;q16_2_1_Nível Médio - Realizou Concurso?
+q16_2_2;q16_2_2_Nível Médio - Quantidade de vagas
+q16_2_3;q16_2_3_Nível Médio - O concurso já foi homologado?
+q16_2_4;q16_2_4_Nível Médio - Data da homologação do concurso
+q16_2_5;q16_2_5_Nível Médio - Quantidade de Trabalhadores que tomaram posse
+q17;q17_Os recursos aplicados na Assistência Social no estado são alocados na unidade Orçamentária do Fundo Estadual de Assistência Social
+q18;q18_O ordenador de despesa do FEAS é?
+q19;q19_No ano de 2016, com que frequência o Órgão Gestor Estadual apresentou ao Conselho Estadual de Assistência Social relatório de execução física e financeira das ações de assistência social:
+q20_1;q20_1_Valor alocado referente aos recursos próprios do estado (exceto repasses e transferências a municípios) 2016
+q20_2;q20_2_Valor da despesa realizada com recursos próprios do estado - 2016
+q21_1;q21_1_A Secretaria Estadual de Assistência Social executa diretamente algum serviço socioassistencial da Proteção Social Básica?1: Serviço de Proteção e Atendimento Integral à Família - PAIF
+q21_2;q21_2_Serviço de Convivência e Fortalecimento de Vínculos
+q21_3;q21_3_ Serviço de Proteção Social Básica no domicílio para pessoas com deficiência e idosas
+q21_1_0;q21_1_0_Não executa diretamente os Serviços de Proteção Social Básica
+q21_2_1;q21_2_1_A Secretaria Estadual de Assistência Social executa diretamente algum serviço da Proteção Social Especial de Média Complexidade1: Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos - PAEFI?
+q21_2_2;q21_2_2_Serviço Especializado em Abordagem Social
+q21_2_3;q21_2_3_Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida - LA, e de Prestação de Serviços à Comunidade - PSC
+q21_2_4;q21_2_4_Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosos(as) e suas Famílias
+q21_2_5;q21_2_5_Serviço Especializado para Pessoas em Situação de Rua
+q21_2_0;q21_2_0_Não executa diretamente os Serviços de Proteção Social Especial de Média Complexidade
+q21_3_1;"q21_3_1_A Secretaria Estadual de Assistência Social executa diretamente algum serviço de Proteção Social Especial de Alta Complexidade?1: Serviço de Acolhimento Institucional (Abrigo Institucional; Casa-lar; Casa de Passagem)"
+q21_3_2;q21_3_2_Serviço de Acolhimento em República
+q21_3_3;q21_3_3_Serviço de Acolhimento em Família Acolhedora
+q21_3_4;q21_3_4_Serviço de Proteção em Situações de Calamidades Públicas e de Emergências
+q21_3_0;q21_3_0_Não executa diretamente os Serviços de Proteção Social Especial de Alta Complexidade
+q22_0;q22_0_A Secretaria Estadual de Assistência Social possui convênios com entidades para prestação de serviços socioassistenciais?0: Não possui convênios celebrados com entidades
+q22_1;q22_1_Sim, para serviços de Proteção Social Básica
+q22_1_1;q22.1_Sim, para serviços de Proteção Social Básica - Qual?
+q22_2;q22_2_Sim, para serviços de Proteção Social Especial de Média Complexidade
+q22_2_1;q22.2_Sim, para serviços de Proteção Social Especial de Média Complexidade - Qual?
+q22_3;q22_3_Sim, para serviços de Proteção Social Especial de Alta Complexidade
+q22_3_1;q22.3_Sim, para serviços de Proteção Social Especial de Alta Complexidade - Qual?
+q23;q23_Quantidade total de entidades que recebem recurso da Secretaria Estadual de Assistência Social por convênio:
+q24_1;q24_1_Entidades que prestam serviços de Proteção Social Básica
+q24_2;q24_2_Entidades que prestam serviços de Proteção Social Especial de Média Complexidade
+q24_3;q24_3_Entidades que prestam serviços de Proteção Social Especial de Alta Complexidade
+q25;q25_O estado realiza diretamente concessão de Benefícios Eventuais da Assistência Social?
+q26_1;q26_1_Caso sim, quais são os Benefícios Eventuais concedidos?1: Auxílio Funeral
+q26_2;q26_2_Auxílio Natalidade
+q26_3;q26_3_Benefício Eventual para situação de calamidade pública
+q26_99;q26_99_Outros
+q26_99_1;q26.1_Quais?
+q27;q27_O Governo do Estado possui algum Programa PRÓPRIO de Transferência de Renda (transferência de recursos estaduais de forma constante a um público específico)?
+q28;q28_Quantos beneficiários havia nesse Programa próprio de Transferência de Renda no mês de agosto de 2017?
+q29;q29_Informe o valor total transferido pelo Estado para os beneficiários, no mês de Agosto de 2017
+q30;q30_Atualmente está em funcionamento no estado algum serviço/unidade de caráter REGIONAL de Proteção Social Especial de Média Complexidade?
+q31_1;q31_1_Caso oferte Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos (PAEFI) de caráter REGIONAL, como é, atualmente a forma de execução destas unidades1: Execução direta do serviço pelo governo estadual por meio de CREAS Regional (Mo
+q31_2;q31_2_Repasse de recursos do estado para CREAS municipal regionalizado (Modelo II)
+q31_1_1;q31_1_1_CREAS Regional (Modelo I) - Quantidade de unidades
+q31_2_1;q31_2_1_CREAS Municipal Regionalizado (Modelo II) - Quantidade de Unidades
+q32_1;q32_1_Indique as ações de apoio técnico e monitoramento desenvolvidas pelo Estado com os CREAS municipais de caráter regional (Modelo II)1: Realiza orientação técnica à distância (por telefone ou e-mail)
+q32_2;q32_2_Realiza orientação técnica presencial (visitas técnicas)
+q32_3;q32_3_Realiza capacitação das equipes de referência
+q32_4;q32_4_Estabelece fluxos e protocolos entre os serviços e a rede intersetorial
+q32_5;q32_5_Estabelece fluxos e protocolos entre os serviços e o Sistema de Justiça
+q32_6;q32_6_Acompanha e monitora a aplicação dos recursos transferidos
+q32_7;q32_7_Monitora a composição das equipes técnicas, de acordo com a NOB-RH/SUAS
+q32_8;q32_8_Orienta sobre o preenchimento, a utilização e a atualização de sistemas de informações do SUAS (RMA, CadSUAS, Censo SUAS)
+q32_99;q32_99_Outras
+q32_99_1;q32.1_Quais?
+q33;q33. Atualmente, está em funcionamento no estado algum serviço/unidade de caráter REGIONAL de proteção social especial de alta complexidade?
+q34_1;q34_1_Quais serviços de alta complexidade de caráter REGIONAL são ofertados no Estado?1: Unidades de Acolhimento Institucional para crianças e adolescente
+q34_2;q34_2_Unidades de Acolhimento Institucional para idosos
+q34_3;q34_3_Unidades de Acolhimento Institucional para pessoas em situação de rua
+q34_4;q34_4_Unidades de Acolhimento Institucional para pessoas com deficiência
+q34_5;q34_5_Unidades de Acolhimento Institucional para mulheres vítimas de violência
+q34_6;q34_6_Unidades de Acolhimento em República para jovens (maiores de 18 anos)
+q34_7;q34_7_Unidades de Acolhimento em República para adultos em processo de saída das ruas
+q34_8;q34_8_Unidades de Acolhimento em República para idosos
+q34_9;q34_9-Família Acolhedora
+q35_1;q35_1_Caso oferte Unidades de Acolhimento para crianças e adolescentes e/ou jovens de caráter REGIONAL, como é, atualmente, a forma de execução destas unidades?1: Execução direta do serviço pelo governo estadual
+q35_1_1;q35_1_1Execução direta do serviço pelo governo estadual - Quantidade de Unidades
+q35_2;q35_2_Repasse direto do estado para entidade da rede privada
+q35_2_1;q35_2_1 Repasse direto do estado para entidade da rede privada - Quantidade de Unidades
+q35_3;q35_3_Repasse de recursos do estado para os municípios-sede
+q35_3_1;q35_3_1 Repasse de recursos do estado para os municípios-sede - Quantidade de Unidades
+q35_4;q35_4_ Consórcio Público
+q35_4_1;q35_4_1 Consórcio Público - Quantidade de Unidades
+q36;q36_O planejamento de apoio técnico aos municípios foi pactuado na CIB?
+q37_1;q37_1_O apoio técnico do Estado aos municípios inclui1: Produção e distribuição de material técnico
+q37_2;q37_2_Elaboração, pelo Estado, de normativas e instruções operacionais para orientação dos municípios
+q37_3;q37_3_Capacitações presenciais
+q37_4;q37_4_Capacitações à distância
+q37_5;q37_5_Assessoramento técnico de forma presencial no município
+q37_6;q37_6_Assessoramento técnico à distância
+q37_99;q37_99_Outras formas
+q37_99_1;37.1. Especifique:
+q38;q38. Quantos municípios do estado receberam visitas técnicas da Secretaria Estadual de Assistência Social no ano de 2016?
+q39;q39. O estado realiza algum cofinanciamento aos municípios?
+q40;q40. Existe Decreto ou Lei estadual que regulamenta o repasse fundo-a-fundo?
+q41;q41. Como é organizado o cofinanciamento fundo-a-fundo para os serviços socioassistencias?
+q41_1;q41_1_Qual?
+q42;q42_Com que frequência, geralmente, é feito o repasse fundo-a-fundo do Estado para o município?
+q43_1;q43_1_O cofinanciamento realizado é destinado a:1: Serviço de Proteção Social Básica
+q43_2;q43_2_Serviço de Proteção Social Especial de Média Complexidade
+q43_3;q43_3_Serviço de Proteção Social Especial de Alta Complexidade
+q43_4;q44_4_Benefícios Eventuais
+q43_5;q44_5_Incentivo financeiro para Gestão do SUAS
+q44;q44. O cofinanciamento realizado permite pagamento de pessoal (recursos humanos)?
+q45;q45. No ano de 2016 o estado construiu ou financiou a construção e/ou reforma de unidades municipais da Assistência Social (CRAS/CREAS/etc.)?
+q46_1_1;q46_1_1_Total de Municípios cofinanciados - Total de municípios com cofinanciamento estadual (convênio e/ou fundo-a-fundo)
+q46_1_2;q46_1_2_Total de Municípios cofinanciados - Quantidade de municípios que possuem cofinanciamento estadual fundo-a-fundo
+q46_1_3;q46_1_3_Total de Municípios cofinanciados - Quantidade de municípios que possuem cofinanciamento estadual por meio de convênio
+q46_2_1;q46_2_1_Cofinanciamento para Proteção Social Básica - Total de municípios com cofinanciamento estadual (convênio e/ou fundo-a-fundo)
+q46_2_2;q46_2_2_Cofinanciamento para Proteção Social Básica - Quantidade de municípios que possuem cofinanciamento estadual fundo-a-fundo
+q46_2_3;q46_2_3_Cofinanciamento para Proteção Social Básica - Quantidade de municípios que possuem cofinanciamento estadual por meio de convênio
+q46_3_1;q46_3_1_Cofinanciamento para Proteção Social Especial de Média Complexidade - Total de municípios com cofinanciamento estadual (convênio e/ou fundo-a-fundo)
+q46_3_2;q46_3_2_Cofinanciamento para Proteção Social Especial de Média Complexidade - Quantidade de municípios que possuem cofinanciamento estadual fundo-a-fundo
+q46_3_3;q46_3_3_Cofinanciamento para Proteção Social Especial de Média Complexidade - Quantidade de municípios que possuem cofinanciamento estadual por meio de convênio
+q46_4_1;q46_4_1_Cofinanciamento para Proteção Social Especial de Alta Complexidade - Total de municípios com cofinanciamento estadual (convênio e/ou fundo-a-fundo)
+q46_4_2;q46_4_2_Cofinanciamento para Proteção Social Especial de Alta Complexidade - Quantidade de municípios que possuem cofinanciamento estadual fundo-a-fundo
+q46_4_3;q46_4_3_Cofinanciamento para Proteção Social Especial de Alta Complexidade - Quantidade de municípios que possuem cofinanciamento estadual por meio de convênio
+q47_1;q47_1_Total de Municípios cofinanciados - Quantidade total de municípios com cofinanciamento estadual (fundo-a-fundo e/ou convênio) destinado aos Benefícios Eventuais
+q47_2;q47_2_Total de Municípios cofinanciados - Quantidade total de municípios com cofinanciamento estadual fundo-a-fundo destinado aos Benefícios Eventuais
+q47_3;q47_3_Total de Municípios cofinanciados - Quantidade total de municípios com cofinanciamento estadual por meio de convênio destinado aos Benefícios Eventuais
+q48_1;q48_1_Especifique o total de recursos próprios repassados aos municípios em 2016 - fundo-a-fundo
+q48_2;q48_2_Especifique o total de recursos próprios repassados aos municípios em 2016 - Convênio
+q49_1_1;q49_1_1_Representantes da Gestão Estadual - Quantidade de Titulares
+q49_1_2;q49_1_2_Representantes da Gestão Estadual - Quantidade de Suplentes
+q49_2_1;q49_1_Representantes de Municípios de Pequeno Porte I - Quantidade de Titulares
+q49_2_2;q49_2_2_Representantes de Municípios de Pequeno Porte I - Quantidade de Suplentes
+q49_3_1;q49_3_1_Representantes de Municípios de Pequeno Porte II - Quantidade de Titulares
+q49_3_2;q49_3_2_Representantes de Municípios de Pequeno Porte II - Quantidade de Suplentes
+q49_4_1;q49_4_1_Representantes de Municípios de Médio Porte - Quantidade de Titulares
+q49_4_2;q49_4_2_Representantes de Municípios de Médio Porte - Quantidade de Suplentes
+q49_5_1;q49_5_1_Representantes de Municípios de Grande Porte - Quantidade de Titulares
+q49_5_2;q49_5_2_Representantes de Municípios de Grande Porte - Quantidade de Suplentes
+q49_6_1;q49_6_1_Representantes de Municípios de Metrópoles/capitais - Quantidade de Titulares
+q49_6_2;q49_6_2_Representantes de Municípios de Metrópoles/capitais - Quantidade de Suplentes
+q50;q50_Existe algum critério de representação regional na CIB?
+q51;q51_Se sim, há rotatividade na representação por região do Estado?
+q52;q52_Os gestores municipais foram indicados pelo Colegiado Estadual de Gestores Municipais de Assistência Social (COEGEMAS ou similar)?
+q53;q53_A CIB pactuou o calendário de reuniões ordinárias anual?
+q54;q54_Com qual periodicidade a CIB se reuniu no ano de 2016?
+q55;q55_Quantas reuniões a CIB realizou no ano de 2016?
+q56;q56_ Quantas reuniões descentralizadas a CIB realizou no ano de 2016?
+q57;q57_O orçamento da assistência social no Estado prevê recursos específicos para o CEAS (ou CAS/DF)
+q58;q58_A Secretaria fornece ajuda de custo (passagens e diárias) para os conselheiros participarem das reuniões do CEAS (ou CAS/DF) e das Conferências Estaduais?
+q59_1_1;q59_1_1_Capacitação presencial para os conselheiros estaduais:
+q59_1_2;q59_1_2_Capacitação presencial para os conselheiros estaduais - número de conselheiros capacitados
+q59_2_1;q59_2_1_Capacitação à distância para os conselheiros estaduais:
+q59_2_2;q59_2_2_Capacitação à distância para os conselheiros estaduais - número de conselheiros capacitados
+q59_3_1;q59_3_1_Capacitação presencial para os conselheiros municipais
+q59_3_2;q59_3_2_Capacitação presencial para os conselheiros municipais - número de conselheiros capacitados
+q59_4_1;q59_4_1_Capacitação à distância para os conselheiros municipais.
+q59_4_2;q59_4_2_Capacitação à distância para os conselheiros municipais - número de conselheiros capacitados
+q61_4;q61_4_Cargo/Função:
+q62_1;q62_1_Representante Vigilância - Não há representante da Vigilância designado no estado0: Não há representante da Vigilância designado no estado
+q62_4;q62_4_Cargo/Função - Representante Vigilância

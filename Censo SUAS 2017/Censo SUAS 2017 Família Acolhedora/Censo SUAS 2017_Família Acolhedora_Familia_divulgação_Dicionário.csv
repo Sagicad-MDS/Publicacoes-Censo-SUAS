@@ -1,0 +1,51 @@
+Variável;Descrição
+IBGE7;Código IBGE com Dígito Verificador
+IBGE;Código IBGE do Município
+Região;Grande Região
+UF;Unidade da Federação
+uf_s;Unidade da Federação
+Município;Nome do Município_Censo IBGE 2010
+Municipio_2013;Nome do Município_atualizado 2014
+area;Área Territorial Km2
+Pop_Total2010;População Total - Censo IBGE 2010
+Pop_Urbana2010;População Urbana - Censo IBGE 2010
+Pop_Rural2010;População Rural - Censo IBGE 2010
+Porte_pop2010;Porte Populacional SUAS - Censo IBGE 2010
+Pop_Total2010_MICRO;
+NºIDENTIFICADOR;Número Identificador da Unidade
+q.28.2;Data de Nascimento da(o) responsável familiar
+idade;Idade da(o) responsável familiar
+q.28.3;Sexo
+q.28.9;Escolaridade
+q.28.10;Profissão
+q.28.11;Vínculo
+q.28.12;Função
+q.28.13;Início do exercício da função
+D28.2.FaixasEtarias;Faixas Etárias dos Profissionais dos CRAS
+D28.9;D30.9_Níveis de escolaridade
+D28.11;D30.11_Tipo de vínculo
+D28.9bin1;D30.9bin1_Nível fundamental - trabalhadores que possuem até o nível médio (inclui aqueles sem escolaridade)
+D28.9bin2;D30.9bin2_Nível médio - trabalhadores com ensino superior incompleto e ensino médio completo
+D28.9bin3;D30.9bin3_Nível superior - inclui trabalhadores graduados, com especialização, mestrado ou doutorado
+D28.10bin1;D30.10bin1_Pedagogo
+D28.10bin2;D30.10bin2_Assistente Social
+D28.10bin3;D30.10bin3_Antropólogo
+D28.10bin4;D30.10bin4_Advogado
+D28.10bin5;D30.10bin5_Psicólogo
+D28.11bin1;D30.11bin1_Servidor Estatutário
+D28.11bin2;D30.11bin2_Empregado Público (CLT)
+D28.11bin3;D30.11bin3_Comissionado
+D28.11bin4;"D30.11bin4_Outros vínculos não permanentes - inclui Trabalhador de Empresas/Cooperativa/Entidade Prestadora de Serviços; Voluntários; Servidor Temporário; Sem vínculo; Terceirizado e Outro vínculo não permanente"
+D28.9bin1_sum;D28.9bin1_Número de trabalhadores de Nível fundamental (inclui trabalhadores sem escolaridade, fundamental incompleto e ensino médio incompleto)
+D28.9bin2_sum;D28.9bin2_Número de trabalhadores de Nível médio (inclui trabalhadores com ensino superior incompleto)
+D28.9bin3_sum;D28.9bin3_Número de trabalhadores de Nível superior (inclui trabalhadores com especialização, mestrado e doutorado)
+D28.10bin1_sum;D28.10bin1_sum_Número de Pedagogos
+D28.10bin2_sum;D28.10bin2_sum_Número de Assistentes Sociais
+D28.10bin3_sum;D28.10bin3_sum_Número de Antropólogos
+D28.10bin4_sum;D28.10bin4_sum_Número de Advogados
+D28.10bin5_sum;D28.10bin5_sum_Número de Psicólogos
+D28.11bin1_sum;D28.11bin1_Número de Servidores Estatutários
+D28.11bin2_sum;D28.11bin2_Número de Empregados Públicos(CLT)
+D28.11bin3_sum;D28.11bin3_Número de Comissionados
+D28.11bin4_sum;D28.11bin4_Número de profissionais com outros vínculos não permanentes (inclui Trabalhador de Empresas/Cooperativa/Entidade Prestadora de Serviços/Voluntários/Ser. Temporário/Sem vínculo/Terceirizado e Outro vínculo não permanente)
+nu_trabalhadores;Número de trabalhadoras(es)

@@ -1,0 +1,414 @@
+Variável;Descrição
+IBGE7;Código IBGE com Dígito Verificador
+IBGE;Código IBGE do Município
+Região;Grande Região
+UF;Unidade da Federação
+uf_s;Unidade da Federação
+Município;Nome do Município_Censo IBGE 2010
+Municipio_2013;Nome do Município_atualizado 2014
+area;Área Territorial Km2
+Pop_Total2010;População Total - Censo IBGE 2010
+Pop_Urbana2010;População Urbana - Censo IBGE 2010
+Pop_Rural2010;População Rural - Censo IBGE 2010
+Porte_pop2010;Porte Populacional SUAS - Censo IBGE 2010
+Capital;
+RM;Municípios localizados em regiões metropolitanas_2010
+Qual_RM;Classificação da região metropolitana_2010
+Nome_RM;Nome da região metropolitana_2010
+NºIDENTIFICADOR;Número Identificador da Unidade
+ident.1.Nome;ident_1Nome que identifica o CRAS:
+ident.2.TPLog;ident_2Selecione o Tipo de Logradouro (avenida, rua, etc):
+ident.3.Endereço;ident_3Endereço:
+ident.4.Núm;ident_4Número:
+ident.5.Comp;ident_5Complemento:
+ident.6.Bairro;ident_6Bairro:
+ident.7.PTRef;ident_7Ponto de Referência:
+ident.8.CEP;ident_8CEP:
+ident.9.Município;ident_9Município:
+ident.10.UF;ident_10UF:
+ident.11.Email;ident_11E-mail:
+ident.12.Tel;ident_12DDD - telefone
+ident.13.Ramal;ident_13Ramal:
+ident.14.FAX;ident_14FAX:
+ident.15.DTImp;Data de implantação do CRAS
+q1; q1 Localização:
+q2; q2 Este CRAS é uma unidade com capacidade de referenciamento para até:
+q3.1; q3.1 Horário de Funcionamento_Dias por Semana
+q3.2; q3.2 Horário de Funcionamento_Horas por dia
+Latitude; Latitude Latitude:
+Longitude; Longitude Longitude:
+q4; q4 Situação do imóvel onde se localiza o CRAS
+q5; q5 O imóvel de funcionamento deste CRAS é compartilhado
+q6.1; q6.1 Compartilha Imóvel_Secretaria da Assistência Social ou congênere
+q6.2; q6.2 Compartilha Imóvel_Outra unidade administrativa (Sede de Prefeitura, Administração Regional, Sub-prefeitura, etc)
+q6.3; q6.3 Compartilha Imóvel_Conselho Municipal de Assistência Social
+q6.4; q6.4 Compartilha Imóvel_Conselho Tutelar
+q6.5; q6.5 Compartilha Imóvel_CREAS? Centro de Referência Especializado de Assistência Social
+q6.6; q6.6 Compartilha Imóvel_Outra unidade pública de serviços da Assistência Social
+q6.7; q6.7 Compartilha Imóvel_Unidade de Saúde
+q6.8; q6.8 Compartilha Imóvel_Escola
+q6.9; q6.9 Compartilha Imóvel_Associação Comunitária
+q6.10; q6.10 Compartilha Imóvel_Entidades privadas/ONG
+q6.11; q6.11 Compartilha Imóvel_Praça do CEU (esporte e/ou cultura)
+q6.12; q6.12 Compartilha Imóvel_Conselho Municipal de Direitos da Criança e do Adolescente CMDCA
+q6.99; q6.99 Compartilha Imóvel_Outros
+q6.qual; q6.qual Compartilha Imóvel_Outros_Especifique o tipo de unidade com a qual este CRAS compartilha seu imóvel. - Qual?
+q7.1; q7.1 Espaços Compartilhados_Apenas o endereço é o mesmo, mas todos os espaços do CRAS são independentes e de uso exclusivo, inclusive a entrada
+q7.2; q7.2 Espaços Compartilhados_Entrada / Porta de Acesso
+q7.3; q7.3 Espaços Compartilhados_Recepção
+q7.4; q7.4 Espaços Compartilhados_Cozinha
+q7.5; q7.5 Espaços Compartilhados_Algumas salas de atendimento particularizado
+q7.6; q7.6 Espaços Compartilhados_Todas as salas de atendimento particularizado
+q7.7; q7.7 Espaços Compartilhados_Algumas salas de atendimento coletivo
+q7.8; q7.8 Espaços Compartilhados_Todas as salas de atendimento coletivo
+q7.9; q7.9 Espaços Compartilhados_Salas administrativas
+q7.10; q7.10 Espaços Compartilhados_Banheiros
+q7.11; q7.11 Espaços Compartilhados_Área Externa
+q7.12; q7.12 Espaços Compartilhados_Almoxarifado ou similar
+q8.1; q8.1 Quantidade de salas com capacidade máxima para 5 pessoas
+q8.2; q8.2 Quantidade de salas com capacidade para 6 a 14 pessoas
+q8.3; q8.3 Quantidade de salas com capacidade para 15 a 29 pessoas
+q8.4; q8.4 Quantidade de salas com capacidade para 30 ou mais pessoas
+q8.5; q8.5 Salas exclusivas de Coordenação, equipe técnica ou administração (não são salas de atendimento!)
+q8.6; q8.6 Quantidade total de banheiros
+q8.7; q8.7 Possui Recepção
+q8.8; q8.8 Possui Cozinha/Copa
+q8.9; q8.9 Possui Almoxarifado
+q8.10; q8.10 Possui Espaço externo no CRAS para atividades de convívio
+q9.1; q9.1 Acessibilidade_Acesso principal adaptado com rampas e rota acessível desde a calçada até a recepção do CRAS
+q9.2; q9.2 Acessibilidade_Rota acessível aos espaços do CRAS (recepção, salas de atendimento e espaços de uso coletivo)
+q9.3; q9.3 Acessibilidade_Rota acessível ao banheiro
+q9.4; q9.4 Acessibilidade_Banheiro adaptado para pessoas com deficiência
+q10.1; q10.1 Acessibilidade_Sim, suporte de profissional com conhecimento em LIBRAS
+q10.2; q10.2 Acessibilidade_Sim, suporte de material em braille
+q10.3; q10.3 Acessibilidade_Sim, suporte para leitores de telas de computador para pessoas com deficiência visual
+q10.4; q10.4 Acessibilidade_Outra_Sim, outras adaptações e tecnologias assistivas para deficiência física
+q10.5; q10.5 Acessibilidade_Outra_Sim, outras adaptações e tecnologias assistivas para deficiência intelectual e autismo
+q10.6; q10.6 Acessibilidade_Sim, pisos especiais com relevos para sinalização voltados pessoa com deficiência visual
+q10.7; q10.7 Acessibilidade_Não há outras adaptações
+q10.4.qual; q10.4.qual Acessibilidade_Qual_Qual(is)adaptações e tecnologias assistivas para deficiência física
+q10.5.qual; q10.5.qual Acessibilidade_Qual_Qual(is) adaptações e tecnologias assistivas para deficiência intelectual e autismo.
+q11.1; q11.1 Equipamentos Disponíveis_Telefone de uso exclusivo
+q11.2; q11.2 Equipamentos Disponíveis_Telefone de uso compartilhado
+q11.3; q11.3 Equipamentos Disponíveis_Impressora
+q11.4; q11.4 Equipamentos Disponíveis_Máquina copiadora
+q11.5; q11.5 Equipamentos Disponíveis_Televisão (TV)
+q11.6; q11.6 Equipamentos Disponíveis_Equipamento de som
+q11.7; q11.7 Equipamentos Disponíveis_DVD
+q11.8; q11.8 Equipamentos Disponíveis_Datashow
+q11.9; q11.9 Equipamentos Disponíveis_Veículo de uso exclusivo
+q11.10; q11.10 Equipamentos Disponíveis_Veículo de uso compartilhado
+q11.11; q11.11 Equipamentos Disponíveis_Embarcação
+q11.12; q11.12 Equipamentos Disponíveis_Acervo bibliográfico
+q11.13; q11.13 Equipamentos Disponíveis_Brinquedoteca
+q11.14; q11.14 Equipamentos Disponíveis_Brinquedos
+q11.15; q11.15 Equipamentos Disponíveis_Materiais pedagógicos, culturais e esportivos
+q12.1; q12.1 Quantidade total de computadores na unidade:
+q12.2; q12.2 Destes, quantos estão conectados à internet?
+q13; q13 Este CRAS possui placa de identificação?
+q14.1; q14.1 Atividades PAIF_Acolhida em Grupo realizada por profissional de nível superior
+q14.2; q14.2 Atividades PAIF_Acolhida Particularizada realizada por técnico de nível superior
+q14.3; q14.3 Atividades PAIF_Acompanhamento de famílias
+q14.4; q14.4 Atividades PAIF_Acompanhamento dos encaminhamentos realizados
+q14.5; q14.5 Atividades PAIF_Atendimento particularizado de famílias ou indivíduos
+q14.6; q14.6 Atividades PAIF_Registro do acompanhamento familiar em prontuário
+q14.7; q14.7 Atividades PAIF_Elaboração do Plano de Acompanhamento Familiar
+q14.8; q14.8 Atividades PAIF_Grupo/oficina com famílias
+q14.9; q14.9 Atividades PAIF_Visitas Domiciliares
+q14.10; q14.10 Atividades PAIF_Palestras
+q14.11; q14.11 Atividades PAIF_Campanhas ou eventos comunitários
+q14.12; q14.12 Atividades PAIF_Apoio para obtenção de Documentação pessoal
+q14.13; q14.13 Atividades PAIF_Encaminhamento de famílias ou indivíduos para a rede de serviço socioassistencial
+q14.14; q14.14 Atividades PAIF_Encaminhamento de famílias ou indivíduos para outras políticas públicas (educação, habitação, trabalho, etc.)
+q14.15; q14.15 Atividades PAIF_Encaminhamento para obtenção de Benefícios Eventuais
+q14.16; q14.16 Atividades PAIF_Encaminhamento para inserção/atualização de famílias no Cadastro Único
+q15.1; q15.1 A.1. Total de famílias em acompanhamento pelo PAIF em Agosto de 2017
+q15.2; q15.2 A.2. Quantidade de novas famílias inseridas em acompanhamento no PAIF durante o mês de referência de Agosto de 2017
+q16; q16 Este CRAS executa diretamente o Serviço de Convivência e Fortalecimento de Vínculos?
+q17.1; q17.1 Oferta Direta SCFV_Crianças de 0 a 6 anos de idade
+q17.2; q17.2 Oferta Direta SCFV_Crianças de 7 a 14 anos de idade
+q17.3; q17.3 Oferta Direta SCFV_Adolescentes de 15 a 17 anos de idade
+q17.4; q17.4 Oferta Direta SCFV_Jovens de 18 a 29 anos de idade
+q17.5; q17.5 Oferta Direta SCFV_Adultos de 30 a 59 anos de idade
+q17.6; q17.6 Oferta Direta SCFV_Idosos (60 anos ou mais)
+q18.1; q18.1 Rede Referenciada SCFV_Sim, realizado por outra unidade pública
+q18.2; q18.2 Rede Referenciada SCFV_Sim, realizado por entidade conveniada
+q18.3; q18.3 Rede Referenciada SCFV_Sim, realizado por entidade não conveniada
+q18.0; q18.0 Rede Referenciada SCFV_Não
+q19.1; q19.1 Oferta Rede Referenciada SCFV_Crianças de 0 a 6 anos de idade
+q19.2; q19.2 Oferta Rede Referenciada SCFV_Crianças de 7 a 14 anos de idade
+q19.3; q19.3 Oferta Rede Referenciada SCFV_Adolescentes de 15 a 17 anos de idade
+q19.4; q19.4 Oferta Rede Referenciada SCFV_Jovens de 18 a 29 anos de idade
+q19.5; q19.5 Oferta Rede Referenciada SCFV_Adultos de 30 a 59 anos de idade
+q19.6; q19.6 Oferta Rede Referenciada SCFV_Idosos (60 anos ou mais)
+q20; q20 Em relação às vagas de SCFV da rede referenciada:
+q21; q21 Com que frequência o técnico de referência do CRAS realiza visitas aos SCFV executados fora do CRAS
+q22.1; q22.1 Acompanhamento Rede Referenciada SCFV_Participação no planejamento das atividades que serão desenvolvidas
+q22.2; q22.2 Acompanhamento Rede Referenciada SCFV_Reuniões periódicas com a equipe técnica da rede referenciada
+q22.3; q22.3 Acompanhamento Rede Referenciada SCFV_Supervisão dos orientadores sociais
+q22.4; q22.4 Acompanhamento Rede Referenciada SCFV_Capacitação dos orientadores sociais
+q22.5; q22.5 Acompanhamento Rede Referenciada SCFV_Acompanhamento periódico dos grupos
+q22.6; q22.6 Acompanhamento Rede Referenciada SCFV_Verificação da inclusão dos usuários no SCFV encaminhados pelo CRAS
+q22.7; q22.7 Acompanhamento Rede Referenciada SCFV_Encaminhamento dos usuários para o SCFV
+q22.8; q22.8 Acompanhamento Rede Referenciada SCFV_Avaliação e monitoramento das atividades realizadas
+q22.9; q22.9 Acompanhamento Rede Referenciada SCFV_Discussão conjunta dos casos em acompanhamento
+q22.0; q22.0 Acompanhamento Rede Referenciada SCFV_Nenhum dos itens anteriores
+q23; q23 São desenvolvidas atividades com familiares/responsáveis dos participantes dos grupos do SCFV?
+q24.1; q24.1 Atividades SCFV_Atendimentos coletivos periódicos
+q24.2; q24.2 Atividades SCFV_Atendimentos coletivos eventuais
+q24.3; q24.3 Atividades SCFV_Atendimentos individualizados periódicos
+q24.4; q24.4 Atividades SCFV_Atendimentos individualizados eventuais
+q25; q25 Este CRAS possui equipe técnica adicional (além do número previsto pela NOB-RH/SUAS) específica para deslocamento visando o atendimento à população em territórios extensos e áreas isoladas?
+q26; q26 Normalmente, com que frequência a equipe volante se desloca para realizar atendimento nestas áreas/comunidades?
+q27; q27 O(s) território(s) atendido(s) por esta equipe volante estão localizados em:
+q28; q28 Nos territórios atendidos pela equipe volante, quantas famílias estão em acompanhamento familiar sistemático pelo PAIF (mês de referência ? agosto 2017)?
+q29.1; q29.1 Atendimento particularizado de famílias ou indivíduos
+q29.2; q29.2 Atendimento em atividade coletiva de caráter continuado
+q29.3; q29.3 Atendimento em atividade coletiva de caráter não-continuado
+q29.4; q29.4 Cadastramento/Atualização cadastral
+q29.5; q29.5 Concessão de benefício eventual
+q29.6; q29.6 Benefícios Concedidos_Ações para obtenção de Documentação Pessoal
+q29.0; q29.0 Benefícios Concedidos_Nenhum dos itens
+q29.99; q29.99 Benefícios Concedidos_Outros_Outros
+q29.qual; q29.qual Benefícios Concedidos_Qual_Qual?
+q30; q30 É feita concessão de Benefícios Eventuais neste CRAS?
+q31.1; q31.1 Benefícios Concedidos1_Benefício Eventual em situação de morte
+q31.2; q31.2 Benefícios Concedidos1_Benefício Eventual em situação de natalidade
+q31.3; q31.3 Benefícios Concedidos1_Benefício Eventual em situação de calamidade
+q31.4; q31.4 Benefícios Concedidos1_Benefício Eventual em situação de vulnerabilidade social
+q32.1; q32.1 Benefícios Concedidos1_Colchões/Colchonetes
+q32.2; q32.2 Benefícios Concedidos1_Cobertores/Lençóis/Roupas de Cama
+q32.3; q32.3 Benefícios Concedidos1_Vestimentas/Roupas
+q32.4; q32.4 Benefícios Concedidos1_Material de Limpeza e Higiene
+q32.5; q32.5 Benefícios Concedidos1_Cesta Básica
+q32.6; q32.6 Benefícios Concedidos1_ Água
+q32.99; q32.99 Benefícios Concedidos1_Outros_Outros
+q32.qual; q32.qual Benefícios Concedidos1_Quais_Quais?
+q33.1; q33.1 Auxílio_Auxílio relacionado à segurança alimentar (cesta básica, entre outros)
+q33.2; q33.2 Auxílio_Auxílio para deslocamento/passagens
+q33.3; q33.3 Auxílio_Auxílio/Inseção para retirada de documentação
+q33.4; q33.4 Auxílio_Aluguel Social
+q33.5; q33.5 Auxílio_Material de Construção
+q33.6; q33.6 Auxílio_Pagamento/Isenção de contas de água e luz
+q33.7; q33.7 Auxílio_Auxílio gás
+q33.8; q33.8 Auxílio_Vestimentas/ Roupas
+q33.99; q33.99 Auxílio_Outros_Outros
+q33.1.qual; q33.1.qual Auxílio_Quais_Quais?
+q34.1; q34.1 BPC_Identificação de possíveis beneficiários do BPC
+q34.2; q34.2 BPC_Busca ativa dos beneficiários do BPC para inclusão no CadÚnico
+q34.3; q34.3 BPC_Orientação/acompanhamento para inserção no BPC
+q34.4; q34.4 BPC_Acompanhamento das pessoas com deficiência do BPC com idade escolar que esteja fora da escola
+q34.5; q34.5 BPC_Acompanhamento das pessoas com deficiência do BPC em idade produtiva para o mundo do trabalho
+q34.0; q34.0 BPC_Nenhuma das atividades
+q34.99; q34.99 BPC_Outros_Outros
+q34.1.qual; q34.1.qual BPC_Qual_Qual?
+q35; q35 Este CRAS realiza cadastramento ou atualização do CadÚnico?
+q36; q36 Como é feito o registro das informações
+q37.1; q37.1 Reuniões de planejamento entre a equipe técnica e os coordenadores do CRAS
+q37.2; q37.2 A equipe técnica realiza reunião para discussão de casos
+q37.3; q37.3 Elaboração de relatórios técnicos
+q37.4; q37.4 Planejamento de atividades coletivas
+q38; q38 Dos bairros que constituem o território de abrangência deste CRAS, quantos estão situados na zona rural?
+q39; q39 Há participação dos usuários nas atividades de planejamento deste CRAS?
+q40.1; q40.1 Mecanismos Participação_Convida os usuários para as reuniões de planejamento desta unidade
+q40.2; q40.2 Mecanismos Participação_Apoio financeiro para a participação de reuniões de planejamento junto a esta unidade
+q40.3; q40.3 Mecanismos Participação_Existência de representante de usuários junto à unidade
+q40.4; q40.4 Mecanismos Participação_Eleição para representante de usuários junto à unidade
+q40.5; q40.5 Mecanismos Participação_Estimula a formação de coletivo/comitê de usuários
+q40.6; q40.6 Mecanismos Participação_Realiza questionário de satisfação/pesquisa de opinião
+q40.7; q40.7 Mecanismos Participação_Realiza reuniões/entrevistas específicas a fim de coletar a demanda dos usuários
+q40.8; q40.8 Mecanismos Participação_O CRAS possui ouvidoria estruturada
+q40.9; q40.9 Mecanismos Participação_Os usuários escolhem os temas a serem trabalhados nas ações coletivas da unidade
+q40.99; q40.99 Mecanismos Participação_Outros_Outros
+q40.qual; q40.qual Mecanismos Participação_Quais_Quais mecanismos de participação são utilizados nesta unidade?- Quais?
+q41.1; q41.1 Território Abrangência_Faixa de fronteira internacional
+q41.2; q41.2 Território Abrangência_Assentamento ou acampamento
+q41.3; q41.3 Território Abrangência_Área com risco de desabamento
+q41.4; q41.4 Território Abrangência_Área com risco de alagamento
+q41.5; q41.5 Território Abrangência_Contornos geográficos que dificultam a mobilidade (rios, montanhas, etc.)
+q41.6; q41.6 Território Abrangência_Moradias irregulares como favelas, invasões, grotas, cortiços, e/ou similares
+q41.7; q41.7 Território Abrangência_Presença de altos índices de criminalidade
+q41.8; q41.8 Território Abrangência_Presença de conflito/violência vinculado ao tráfico de drogas
+q41.9; q41.9 Território Abrangência_Presença de conflito agrário
+q41.10; q41.10 Território Abrangência_Presença de exploração sexual de crianças e adolescentes
+q41.99; q41.99 Território Abrangência_Outras_Outras características que contribuem para a vulnerabilidade das famílias
+q41.qual; q41.qual Território Abrangência_Quais_No território de abrangência deste CRAS, há presença de:- Quais?
+q42; q42 Há povos e comunidades tradicionais no território de abrangência deste CRAS?
+q43.1; q43.1 Povos Tradicionais_Povos Indígenas
+q43.2; q43.2 Povos Tradicionais_Comunidade Quilombola
+q43.3; q43.3 Povos Tradicionais_Comunidade Ribeirinha
+q43.4; q43.4 Povos Tradicionais_Povos Ciganos
+q43.5; q43.5 Povos Tradicionais_Povos de Matriz Africana
+q43.99; q43.99 Povos Tradicionais_Outros_Outros povos e comunidades tradicionais
+q43.qual; q43.qual Povos Tradicionais_Quais_Caso sim, indique quais os povos e comunidades tradicionais existentes no território de abrangência: - Quais?
+q44.0; q44.0 Não Atendeu Povos Tradicionais_Não atendeu
+q44.1; q44.1 Atendeu Povos Tradicionais_Sim, atendeu Povos Indígenas
+q44.2; q44.2 Atendeu Povos Tradicionais_Sim, atendeu Comunidade Quilombola
+q44.3; q44.3 Atendeu Povos Tradicionais_Sim, atendeu Comunidade Ribeirinha
+q44.4; q44.4 Atendeu Povos Tradicionais_Sim, atendeu Povos Ciganos
+q44.5; q44.5 Atendeu Povos Tradicionais_Sim, atendeu Povos de Matriz Africana
+q44.99; q44.99 Atendeu Povos Tradicionais_Sim, atendeu outros povos e comunidades tradicionais
+q45.1; q45.1 Por meio de equipe volante
+q45.2; q45.2 Forma de Atendimento Povos_Por meio de visitas domiciliares da equipe técnica
+q45.3; q45.3 Forma de Atendimento Povos_Por meio de ação realizada na comunidade
+q45.4; q45.4 Forma de Atendimento Povos_Os usuários se deslocaram até a unidade
+q45.99; q45.99 Forma de Atendimento Povos_Outros_Outros
+q45.qual; q45.qual Forma de Atendimento Povos_Qual_Quais?
+q46; q46 Este CRAS utiliza o Prontuário SUAS em meio papel?
+q47; q47 Este CRAS utiliza o modelo informatizado de Prontuário?
+q47.qual; q47.qual Qual?
+q48.1.1; q48.1.1 Unidades Públicas da Básica_Possui dados de localização (endereço, telefone, etc.)
+q48.1.2; q48.1.2 Unidades Públicas da Básica_Recebe usuários encaminhados por este CRAS
+q48.1.3; q48.1.3 Unidades Públicas da Básica_Encaminha usuários para este CRAS
+q48.1.4; q48.1.4 Unidades Públicas da Básica_Acompanha os encaminhamentos
+q48.1.5; q48.1.5 Unidades Públicas da Básica_Realiza reuniões periódicas
+q48.1.6; q48.1.6 Unidades Públicas da Básica_Troca informações
+q48.1.7; q48.1.7 Unidades Públicas da Básica_Realiza estudos de caso em conjunto
+q48.1.8; q48.1.8 Unidades Públicas da Básica_Desenvolve ativiades em parceria
+q48.1.0; q48.1.0 Unidades Públicas da Básica_Não tem nenhuma articulação
+q48.1.9; q48.1.9 Unidades Públicas da Básica_Serviço ou instituição não existente no Município ou no DF
+q48.2.1; q48.2.1 Unidades Conveniadas da Básica_Possui dados de localização (endereço, telefone, etc.)
+q48.2.2; q48.2.2 Unidades Conveniadas da Básica_Recebe usuários encaminhados por este CRAS
+q48.2.3; q48.2.3 Unidades Conveniadas da Básica_Encaminha usuários para este CRAS
+q48.2.4; q48.2.4 Unidades Conveniadas da Básica_Acompanha os encaminhamentos
+q48.2.5; q48.2.5 Unidades Conveniadas da Básica_Realiza reuniões periódicas
+q48.2.6; q48.2.6 Unidades Conveniadas da Básica_Troca informações
+q48.2.7; q48.2.7 Unidades Conveniadas da Básica_Realiza estudos de caso em conjunto
+q48.2.8; q48.2.8 Unidades Conveniadas da Básica_Desenvolve ativiades em parceria
+q48.2.0; q48.2.0 Unidades Conveniadas da Básica_Não tem nenhuma articulação
+q48.2.9; q48.2.9 Unidades Conveniadas da Básica_Serviço ou instituição não existente no Município ou no DF
+q48.3.1; q48.3.1 Unidades da Especial_Possui dados de localização (endereço, telefone, etc.)
+q48.3.2; q48.3.2 Unidades da Especial_Recebe usuários encaminhados por este CRAS
+q48.3.3; q48.3.3 Unidades da Especial_Encaminha usuários para este CRAS
+q48.3.4; q48.3.4 Unidades da Especial_Acompanha os encaminhamentos
+q48.3.5; q48.3.5 Unidades da Especial_Realiza reuniões periódicas
+q48.3.6; q48.3.6 Unidades da Especial_Troca informações
+q48.3.7; q48.3.7 Unidades da Especial_Realiza estudos de caso em conjunto
+q48.3.8; q48.3.8 Unidades da Especial_Desenvolve ativiades em parceria
+q48.3.0; q48.3.0 Unidades da Especial_Não tem nenhuma articulação
+q48.3.9; q48.3.9 Unidades da Especial_Serviço ou instituição não existente no Município ou no DF
+q48.4.1; q48.4.1 Serviços de Saúde_Possui dados de localização (endereço, telefone, etc.)
+q48.4.2; q48.4.2 Serviços de Saúde_Recebe usuários encaminhados por este CRAS
+q48.4.3; q48.4.3 Serviços de Saúde_Encaminha usuários para este CRAS
+q48.4.4; q48.4.4 Serviços de Saúde_Acompanha os encaminhamentos
+q48.4.5; q48.4.5 Serviços de Saúde_Realiza reuniões periódicas
+q48.4.6; q48.4.6 Serviços de Saúde_Troca informações
+q48.4.7; q48.4.7 Serviços de Saúde_Realiza estudos de caso em conjunto
+q48.4.8; q48.4.8 Serviços de Saúde_Desenvolve ativiades em parceria
+q48.4.0; q48.4.0 Serviços de Saúde_Não tem nenhuma articulação
+q48.4.9; q48.4.9 Serviços de Saúde_Serviço ou instituição não existente no Município ou no DF
+q48.5.1; q48.5.1 Serviços de Educação_Possui dados de localização (endereço, telefone, etc.)
+q48.5.2; q48.5.2 Serviços de Educação_Recebe usuários encaminhados por este CRAS
+q48.5.3; q48.5.3 Serviços de Educação_Encaminha usuários para este CRAS
+q48.5.4; q48.5.4 Serviços de Educação_Acompanha os encaminhamentos
+q48.5.5; q48.5.5 Serviços de Educação_Realiza reuniões periódicas
+q48.5.6; q48.5.6 Serviços de Educação_Troca informações
+q48.5.7; q48.5.7 Serviços de Educação_Realiza estudos de caso em conjunto
+q48.5.8; q48.5.8 Serviços de Educação_Desenvolve ativiades em parceria
+q48.5.0; q48.5.0 Serviços de Educação_Não tem nenhuma articulação
+q48.5.9; q48.5.9 Serviços de Educação_Serviço ou instituição não existente no Município ou no DF
+q48.6.1; q48.6.1 Serviços Trabalho/Emprego_Possui dados de localização (endereço, telefone, etc.)
+q48.6.2; q48.6.2 Serviços Trabalho/Emprego_Recebe usuários encaminhados por este CRAS
+q48.6.3; q48.6.3 Serviços Trabalho/Emprego_Encaminha usuários para este CRAS
+q48.6.4; q48.6.4 Serviços Trabalho/Emprego_Acompanha os encaminhamentos
+q48.6.5; q48.6.5 Serviços Trabalho/Emprego_Realiza reuniões periódicas
+q48.6.6; q48.6.6 Serviços Trabalho/Emprego_Troca informações
+q48.6.7; q48.6.7 Serviços Trabalho/Emprego_Realiza estudos de caso em conjunto
+q48.6.8; q48.6.8 Serviços Trabalho/Emprego_Desenvolve ativiades em parceria
+q48.6.0; q48.6.0 Serviços Trabalho/Emprego_Não tem nenhuma articulação
+q48.6.9; q48.6.9 Serviços Trabalho/Emprego_Serviço ou instituição não existente no Município ou no DF
+q48.7.1; q48.7.1 Movimentos/Associações Comunitárias_Possui dados de localização (endereço, telefone, etc.)
+q48.7.2; q48.7.2 Movimentos/Associações Comunitárias_Recebe usuários encaminhados por este CRAS
+q48.7.3; q48.7.3 Movimentos/Associações Comunitárias_Encaminha usuários para este CRAS
+q48.7.4; q48.7.4 Movimentos/Associações Comunitárias_Acompanha os encaminhamentos
+q48.7.5; q48.7.5 Movimentos/Associações Comunitárias_Realiza reuniões periódicas
+q48.7.6; q48.7.6 Movimentos/Associações Comunitárias_Troca informações
+q48.7.7; q48.7.7 Movimentos/Associações Comunitárias_Realiza estudos de caso em conjunto
+q48.7.8; q48.7.8 Movimentos/Associações Comunitárias_Desenvolve ativiades em parceria
+q48.7.0; q48.7.0 Movimentos/Associações Comunitárias_Não tem nenhuma articulação
+q48.7.9; q48.7.9 Movimentos/Associações Comunitárias_Serviço ou instituição não existente no Município ou no DF
+q48.8.1; q48.8.1 Conselho Tutelar_Possui dados de localização (endereço, telefone, etc.)
+q48.8.2; q48.8.2 Conselho Tutelar_Recebe usuários encaminhados por este CRAS
+q48.8.3; q48.8.3 Conselho Tutelar_Encaminha usuários para este CRAS
+q48.8.4; q48.8.4 Conselho Tutelar_Acompanha os encaminhamentos
+q48.8.5; q48.8.5 Conselho Tutelar_Realiza reuniões periódicas
+q48.8.6; q48.8.6 Conselho Tutelar_Troca informações
+q48.8.7; q48.8.7 Conselho Tutelar_Realiza estudos de caso em conjunto
+q48.8.8; q48.8.8 Conselho Tutelar_Desenvolve ativiades em parceria
+q48.8.0; q48.8.0 Conselho Tutelar_Não tem nenhuma articulação
+q48.8.9; q48.8.9 Conselho Tutelar_Serviço ou instituição não existente no Município ou no DF
+q48.9.1; q48.9.1 Judiciário_Possui dados de localização (endereço, telefone, etc.)
+q48.9.2; q48.9.2 Judiciário_Recebe usuários encaminhados por este CRAS
+q48.9.3; q48.9.3 Judiciário_Encaminha usuários para este CRAS
+q48.9.4; q48.9.4 Judiciário_Acompanha os encaminhamentos
+q48.9.5; q48.9.5 Judiciário_Realiza reuniões periódicas
+q48.9.6; q48.9.6 Judiciário_Troca informações
+q48.9.7; q48.9.7 Judiciário_Realiza estudos de caso em conjunto
+q48.9.8; q48.9.8 Judiciário_Desenvolve ativiades em parceria
+q48.9.0; q48.9.0 Judiciário_Serviço ou instituição não existente no Município ou no DF
+q48.9.9; q48.9.9
+q49.1; q49.1 Capacitação_Deficiência
+q49.2; q49.2 Capacitação_Gênero
+q49.3; q49.3 Capacitação_População em situação de rua
+q49.4; q49.4 Capacitação_População LGBTI (lésbicas, gays, bissexuais, transgêneros e intersexuais)
+q49.5; q49.5 Capacitação_Povos e comunidades tradicionais (indígenas, quilombolas, ribeirinhos, extrativistas, dentre outros)
+q49.6; q49.6 Capacitação_Álcool e outras drogas
+q49.7; q49.7 Capacitação_Raça e etnia
+q49.8; q49.8 Capacitação_Violências e violações de direitos
+q49.9; q49.9 Capacitação_Trabalho Infantil
+q49.10; q49.10 Capacitação_Infância/Juventude
+q49.11; q49.11 Capacitação_Envelhecimento
+q49.12; q49.12 Capacitação_Sistema Socioeducativo/Medida Socioeducativa/SINASE
+q49.0; q49.0 Capacitação_Não participou de capacitação
+q49.99; q49.99 Capacitação_Outros_Outros
+q49.qual; q49.qual Capacitação_Qual_Especifique:
+q50; q50 Nesta unidade, algum profissional já participou de algum curso do CAPACITASUAS?
+q50.quantos; q50.quantos Quantos?
+q51; q51 O coordenador deste CRAS:
+resp.cargo; resp.cargo Responsável_Responsável - Cargo/Função:
+respgestao.cargo; respgestao.cargo Responsável Órgão Gestor_Responsável Órgão Gestor - Cargo/Função:
+d3.horas.por.semana.categoria; d3.horas.por.semana.categoria d3.horas.por.semana.categoria.Total de horas por semana que o CRAS encontra-se em funcionamento
+d8.total.salas.atend; d8.total.salas.atend d8.Total de salas utilizadas para atendimento individual ou coletivo
+d8.sl.atend.categoria; d8.sl.atend.categoria d8.categórica.Total de salas utilizadas para atendimento individual ou coletivo
+d8.total.salas.adm.e.atend; d8.total.salas.adm.e.atend d8.Total de salas utilizadas para atendimento e para atividades administrativas
+d8.total.salas.adm.e.atend.categoria; d8.total.salas.adm.e.atend.categoria d8.categórica.Total de salas utilizadas para atendimento e para atividades administrativas
+d8.6.banheiros; d8.6.banheiros d8.6.banheiros.Quantidade total de banheiros
+d11.telefone; d11.telefone d11.telefone.Telefone (exclusivo ou compartilhado)
+d11.veiculo; d11.veiculo d11.veiculo.Veículo (exclusivo ou compartilhado)
+d12.1; d12.1 d12.1.Quantidade de computadores, em perfeito funcionamento, existentes no CRAS
+d12.2; d12.2 d12.2.Quantidade de computadores conectados à internet no CRAS
+d15.2; d15.2 d15.2. Total de famílias em acompanhamento pelo PAIF em Agosto 2017
+d28; d28 d28.Nos territórios atendidos pela equipe volante, quantas famílias estão em acompanhamento sistemático pelo PAIF (Ago/2015)?
+q52.1; q52.1 Nome Completo
+co.seq.dirigente; co.seq.dirigente co_seq_dirigente
+D52.9bin1_sum;D52.9bin1_Número de trabalhadores de Nível fundamental (inclui trabalhadores sem escolaridade, fundamental incompleto e ensino médio incompleto)
+D52.9bin2_sum;D52.9bin2_Número de trabalhadores de Nível médio (inclui trabalhadores com ensino superior incompleto)
+D52.9bin3_sum;D52.9bin3_Número de trabalhadores de Nível superior (inclui trabalhadores com especialização, mestrado e doutorado)
+D52.10bin1_sum;D52.10bin1_sum_Número de Pedagogos
+D52.10bin2_sum;D52.10bin2_sum_Número de Assistentes Sociais
+D52.10bin3_sum;D52.10bin3_sum_Número de Antropólogos
+D52.10bin4_sum;D52.10bin4_sum_Número de Advogados
+D52.10bin5_sum;D52.10bin5_sum_Número de Psicólogos
+D52.11bin1_sum;D52.11bin1_Número de Servidores Estatutários
+D52.11bin2_sum;D52.11bin2_Número de Empregados Públicos(CLT)
+D52.11bin3_sum;D52.11bin3_Número de Comissionados
+D52.11bin4_sum;D52.11bin4_Número de profissionais com outros vínculos não permanentes (inclui Trabalhador de Empresas/Cooperativa/Entidade Prestadora de Serviços/Voluntários/Ser. Temporário/Sem vínculo/Terceirizado e Outro vínculo não permanente)
+D52.15bin_Gestão_sum;D52.15bin_Gestão - Principal serviço/atividade
+D52.15bin_PAIF_sum;D52.15bin_PAIF - Principal serviço/atividade
+D52.15bin_SCFV_sum;D52.15bin_SCFV - Principal serviço/atividade
+D52.15bin_Cadastramento_sum;D52.15bin_Cadastramento- Principal serviço/atividade
+D52.15bin_CriancaFeliz_sum;D52.15bin_CriancaFeliz - Principal serviço/atividade
+D52.15bin_Outros_sum;D52.15bin_Outros - Principal serviço/atividade
+D52.16bin_Gestão_sum;D52.16bin_Gestão - Segundo principal serviço/atividade
+D52.16bin_PAIF_sum;D52.16bin_PAIF - Segundo principal serviço/atividade
+D52.16bin_SCFV_sum;D52.16bin_SCFV - Segundo principal serviço/atividade
+D52.16bin_Cadastramento_sum;D52.16bin_Cadastramento- Segundo serviço/atividade
+D52.16bin_CriancaFeliz_sum;D52.16bin_CriancaFeliz - Principal serviço/atividade
+D52.16bin_Outros_sum;D52.16bin_Outros - Principal serviço/atividade
+D52.17bin_Gestão_sum;D52.17bin_Gestão - Terceiro principal serviço/atividade
+D52.17bin_PAIF_sum;D52.17bin_PAIF - Terceiro principal serviço/atividade
+D52.17bin_SCFV_sum;D52.17bin_SCFV - Terceiro principal serviço/atividade
+D52.17bin_Cadastramento_sum;D52.17bin_Cadastramento - Terceiro principal serviço/atividade
+D52.17bin_CriancaFeliz_sum;D52.17bin_CriancaFeliz - Principal serviço/atividade
+D52.17bin_Outros_sum;D52.17bin_Outros - Principal serviço/atividade
+nu_trabalhadores;Número de trabalhadores no CRAS

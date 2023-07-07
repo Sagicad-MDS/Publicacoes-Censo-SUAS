@@ -1,0 +1,72 @@
+Variável;Descrição
+IBGE7;Código IBGE com Dígito Verificador
+IBGE;Código IBGE do Município
+Região;Grande Região
+UF;Unidade da Federação
+uf_s;Unidade da Federação
+Município;Nome do Município_Censo IBGE 2010
+Municipio_2013;Nome do Município_atualizado 2014
+area;Área Territorial Km2
+Pop_Total2010;População Total - Censo IBGE 2010
+Pop_Urbana2010;População Urbana - Censo IBGE 2010
+Pop_Rural2010;População Rural - Censo IBGE 2010
+Porte_pop2010;Porte Populacional SUAS - Censo IBGE 2010
+NU_identificador;
+q62.1;q62.1 Nome
+co_seq_dirigente;Código do Dirigente
+q62.2;q62.2 Data de Nascimento
+q62.3;q62.3 Sexo
+q62.4;q62.4 Número do CPF
+q62.5.1;q62.5.1 RG - Número
+q62.5.2;q62.5.2 RG - Órgão Emissor
+q62.6;q62.6 Escolaridade:
+q62.7;q62.7 Profissão
+q62.8;q62.8 Vinculo
+q62.9;q62.9 Função
+q62.10;q62.10 Carga Horária Semanal
+q62.11;q62.11 Inicio do exercício da função
+q62.12.1;q62.12.1 Principal serviço/atividade
+q62.12.2;q62.12.2 Segundo principal serviço/atividade
+q62.12.3;q62.12.3 Terceiro principal serviço/atividade
+num_data;
+q62.2data;q62.2_Data de nascimento -formato data
+D62_2;Idade em anos (data ref. 31-12-2017)
+D62_2_categoria;Idade (faixas etárias)
+D62_8bin1;D62_8bin1_Nível fundamental - trabalhadores que possuem até o nível médio (inclui aqueles sem escolaridade)
+D62_8bin2;D62_8bin2_Nível médio - trabalhadores com ensino superior incompleto e ensino médio completo
+D62_8bin3;D62_8bin3_Nível superior - inclui trabalhadores graduados, com especialização, mestrado ou doutorado
+D62_9bin1;D62_9bin1_Pedagogo
+D62_9bin2;D62_9bin2_Assistente Social
+D62_9bin3;D62_9bin3_Antropólogo
+D62_9bin4;D62_9bin4_Advogado
+D62_9bin5;D62_9bin5_Psicologo
+D62_10bin1;D62_10bin1_Servidor Estatutário
+D62_10bin2; D62_10bin2_Empregado Público (CLT)
+D62_10bin3;D62_10bin3_Comissionado
+D62_10bin4;"D62_10bin4_Outros vínculos não permanentes - inclui Trabalhador de Empresas/Cooperativa/Entidade Prestadora de Serviços; Voluntários; Servidor Temporário; Sem vínculo; Terceirizado e Outro vínculo não permanente"
+D62_14_1bin_Gestão;D62_14_1bin_Gestão - Principal serviço/atividade
+D62_14_1bin_PAEFI;D62_14_1bin_PAEFI - Principal serviço/atividade
+D62_14_1bin_MSE;D62_14_1bin_MSE - Principal serviço/atividade
+D62_14_1bin_Abordagem; D62_14_1bin_Abordagem- Principal serviço/atividade
+D62_14_1bin_Cadastramento;D62_14_1bin_Cadastramento - Principal serviço/atividade
+D62_14_1bin_Outros;D62_14_1bin_Outros - Principal serviço/atividade
+D62_14_2bin_Gestão;D62_14_2bin_Gestão - Segundo principal serviço/atividade
+D62_14_2bin_PAEFI;D62_14_2bin_PAEFI - Segundo principal serviço/atividade
+D62_14_2bin_MSE;D62_14_2bin_MSE - Segundo principal serviço/atividade
+D62_14_2bin_Abordagem; D62_14_2bin_Abordagem - Segundo principal serviço/atividade
+D62_14_2bin_Cadastramento;D62_14_2bin_Cadastramento - Principal serviço/atividade
+D62_14_2bin_Outros;D62_14_2bin_Outros - Principal serviço/atividade
+D62_14_3bin_Gestão;D62_14_3bin_Gestão - Terceiro principal serviço/atividade
+D62_14_3bin_PAEFI;D62_14_3bin_PAEFI - Terceiro principal serviço/atividade
+D62_14_3bin_MSE;D62_14_3bin_MSE - Terceiro principal serviço/atividade
+D62_14_3bin_Abordagem; D62_14_3bin_Abordagem - Terceiro principal serviço/atividade
+D62_14_3bin_Cadastramento;D62_14_3bin_Cadastramento - Principal serviço/atividade
+D62_14_3bin_Outros;D62_14_3bin_Outros - Principal serviço/atividade
+Gestao;Atividades de Gestão - mencionada, no minimo, 1 vez
+PAEFI;PAEFI - mencionado, no mínimo, 1 vez
+MSE;MSE - mencionado, no mínimo, 1 vez
+Abordagem;Abordagem social - mencionada, no mínimo, 1 vez
+Cadastramento;Cadastramento e/ou atualização cadastral (CadÚnico)
+Outros;Outras atividades - mencionadas, no mínimo, 1 vez
+D62_8;Níveis de escolaridade
+D62_10;D62_10_Tipo de vínculo

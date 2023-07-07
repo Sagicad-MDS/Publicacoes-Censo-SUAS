@@ -1,0 +1,140 @@
+Variável;Descrição
+IBGE7;Código IBGE com Dígito Verificador
+IBGE;Código IBGE
+Região;Grande Região
+UF;Unidade da Federação
+uf_s;Unidade da Federação
+Município;Nome do Município_Censo IBGE 2010
+Municipio_2013;Nome do Município_atualizado 2014
+area;Área Territorial Km2
+Pop_Total2010_MICRO;
+Porte_pop2010;Porte Populacional SUAS - Censo IBGE 2010
+Pop_Total2010;População Total - Censo IBGE 2010
+Pop_Urbana2010;População Urbana - Censo IBGE 2010
+Pop_Rural2010;População Rural - Censo IBGE 2010
+NºIDENTIFICADOR;Número Identificador da Unidade
+ident.0.1;Nome da Unidade:
+ident.0.2;Informe o Tipo de Logradouro (rua, avenida, praça, rodovia, etc.):
+ident.0.3;Endereço (nome da rua, da avenida, etc.):
+ident.0t.4;Número:
+ident.0.5;Complemento:
+ident.0.6;Bairro:
+ident.0.7;Ponto de Referência:
+ident.0.8;CEP:
+ident.0.9;Município:
+ident.0.10;UF:
+ident.0.11;E-mail:
+ident.0.12;DDD – Telefone:
+ident.0.13;Ramal:
+ident.0.14;FAX:
+ident.0.15;Data de Implantação da Unidade:
+ident.0.16;Modalidade da unidade:
+Latitude;Latitude:
+Longitude;Longitude:
+q.1;Indique o público atendido:
+q.2;Indique a Natureza da Unidade:
+q.3;Em caso de Entidade Não Governamental/Organização da Sociedade Civil, indique o CNPJ:
+q.4.1;Esta entidade possui convênio/termo de parceria ou outra forma de contratualização com o poder público? 1: Sim, com o Estado (governo estadual)
+q.4.2;Esta entidade possui convênio/termo de parceria ou outra forma de contratualização com o poder público? 2: Sim, com o município no qual esta unidade se localiza (com a prefeitura na qual a sede da unidade se localiza)
+q.4.3;Esta entidade possui convênio/termo de parceria ou outra forma de contratualização com o poder público? 3: Sim, com outros municípios
+q.4.0;Esta entidade possui convênio/termo de parceria ou outra forma de contratualização com o poder público? 0: Não
+q.4.99;Esta entidade possui convênio/termo de parceria ou outra forma de contratualização com o poder público? 99: Não sabe informar
+q.5.1;Assinale o(s) Conselho(s) no(s) qual(is) a entidade possui inscrição/registro: 1: Conselho de Assistência Social
+q.5.2;Assinale o(s) Conselho(s) no(s) qual(is) a entidade possui inscrição/registro: 2: Conselho de Direitos da Criança e Adolescente
+q.5.99;Assinale o(s) Conselho(s) no(s) qual(is) a entidade possui inscrição/registro: 99: Outros
+q.5.0;Assinale o(s) Conselho(s) no(s) qual(is) a entidade possui inscrição/registro: 0: Em nenhum dos citados acima
+q.5.99.1;Assinale o(s) Conselho(s) no(s) qual(is) a entidade possui inscrição/registro: 5.1. Qual?
+q.6;Dados provenientes da gestão estadual ou municipal:
+q.7;Em caso de unidades estaduais, esta unidade possui municípios vinculados conforme os parâmetros estabelecidos pela Resolução CIT nº 31/2013?
+q.9.1;Provisão da estrutura física da Unidade (imóvel)
+q.9.2;Provisão de equipamentos e materiais
+q.9.3;Provisão de recursos humanos - equipe de referência
+q.9.4;Provisão de transporte (veículo ou ajuda de custo)
+q.10;Este Serviço é regulamentado?
+q.11;Em que ano este Serviço de Acolhimento em Família Acolhedora foi implantado?
+q.12;Existe repasse de subsídio financeiro para as famílias acolhedoras deste serviço?
+q.13;Qual é o valor do subsídio financeiro repassado às famílias?
+q.13.1;Não sabe
+q.14;Nos últimos 12 meses, quantas crianças/adolescentes foram acolhidas por meio deste Serviço de Família Acolhedora?
+q.14.99;Não sabe
+q.15;Atualmente, quantas crianças/adolescentes estão sendo acolhidas por meio deste Serviço de Família Acolhedora?
+q.16.1.1;Masculino - 0 a 2
+q.16.1.2;Masculino - 3 a 5
+q.16.1.3;Masculino - 6 a 11
+q.16.1.4;Masculino - 12 a 13
+q.16.1.5;Masculino - 14 a 15
+q.16.1.6;Masculino - 16 a 17
+q.16.1.7;Masculino - Total
+q.16.2.1;Feminino - 0 a 2
+q.16.2.2;Feminino - 3 a 5
+q.16.2.3;Feminino - 6 a 11
+q.16.2.4;Feminino - 12 a 13
+q.16.2.5;Feminino - 14 a 15
+q.16.2.6;Feminino - 16 a 17
+q.16.2.7;Feminino - Total
+q.17;Nos últimos 12 meses, quantas crianças/adolescentes desta unidade retornaram as suas famílias de origem?
+q.17.99;Não Sabe – Nos últimos 12 meses, quantas crianças/adolescentes desta unidade retornaram as suas famílias de origem?
+q.18.1;Crianças/Adolescentes, mediante REINTEGRAÇÃO
+q.18.1.99;Não Sabe - Crianças/Adolescentes, mediante REINTEGRAÇÂO
+q.18.2;Crianças/Adolescentes, mediante ADOÇÃO
+q.18.2.99;Não Sabe - Crianças/Adolescentes, mediante ADOÇÃO
+q.19;Das pessoas atualmente acolhidas, quantas delas vieram encaminhadas de outro município?
+q.19.99;Não Sabe - Das pessoas atualmente acolhidas, quantas delas vieram encaminhadas de outro município?
+q.20;Indique se entre os usuários acolhidos nesta unidade existem pessoas com deficiência que sejam beneficiários do Benefício de Prestação Continuada – BPC?
+q.21.1;Qtd de Crianças/Adolescentes – Menos de 1 Mês
+q.21.2;Qtd de Crianças/Adolescentes – De 1 a 3 meses
+q.21.3;Qtd de Crianças/Adolescentes – De 4 a 6 meses
+q.21.4;Qtd de Crianças/Adolescentes – De 7 a 12 meses
+q.21.5;Qtd de Crianças/Adolescentes – De 13 a 24 meses
+q.21.6;Qtd de Crianças/Adolescentes – De 25 a 48 meses
+q.21.7;Qtd de Crianças/Adolescentes – De 49 a 72 meses
+q.21.8;Qtd de Crianças/Adolescentes – Mais de 72 meses (mais de 6 anos)
+q.21.9;Qtd de Crianças/Adolescentes – Total de Pessoas Acolhidas
+q.22;O Serviço possui critérios de sexo para admissão de usuários?
+q.23;Independentemente da existência de critérios de sexo e idade, o serviço acolhe grupo de usuários com vínculos de parentesco?
+q.24;O Serviço elabora, para cada criança/adolescentes, Plano Individual de Atendimento (PIA)?
+q.25.1;Atividades de mobilização, tais como anúncios, panfletos, entre outros
+q.25.2;Palestras/oficinas
+q.25.3;Seleção e Preparação das famílias candidatas
+q.25.4;Capacitação das famílias
+q.25.5;Identificação da família extensa ou ampliada
+q.25.6;Estudo diagnóstico das crianças/adolescentes para inclusão no serviço
+q.25.7;Encaminhamento para retirada de documentos
+q.25.8;Preparação da criança/adolescente para entrada no serviço
+q.25.9;Aproximação supervisionada entre a criança/adolescente e família acolhedora
+q.25.10;Atendimento psicossocial individualizado da criança/adolescente
+q.25.11;Acompanhamento escolar
+q.25.12;Acompanhamento na saúde
+q.25.13;Viabilização de encontro com a família de origem quando autorizado
+q.25.14;Construção de um plano de acompanhamento da família acolhedora
+q.25.15;Atendimento psicossocial individualizado da família acolhedora
+q.25.16;Reuniões em grupo com as famílias acolhedoras
+q.25.17;Construção de um plano de acompanhamento da família de origem
+q.25.18;Atendimento psicossocial individualizado da família de origem
+q.25.19;Reuniões em grupo com as famílias de origem
+q.25.20;Visitas domiciliares
+q.25.21;Elaboração de relatórios técnicos
+q.25.22;Envio de relatório semestral para o Judiciário
+q.25.23;Estudo de caso pela equipe do serviço
+q.25.24;Encaminhamento para a rede (socioassistencial ou setorial)
+q.25.25;Discussão de casos com outros profissionais da rede
+q.25.0;Não realiza nenhuma das atividades acima
+q.26.1;A própria unidade/serviço de acolhimento
+q.26.2;O CRAS
+q.26.3;O CREAS
+q.26.98;Outro
+q.26.99;Não sabe informar
+q.26.0;Não é realizado acompanhamento de egressos
+q.26.98.1;Qual?
+q.27;Por quanto tempo, em média, o usuário é acompanhado após seu desligamento?
+q.28.0;O serviço ainda não possui nenhuma família acolhedora habilitada
+q.29;O coordenador deste Serviço:
+q.31.4;Responsável – Cargo/Função
+q.32.4;Responsável Órgão Gestor – Cargo/Função
+D.5.99.1.recod;D.5.99.1.recod
+D.16.1.6.recod;D.16.1.6.recod
+D.16.2.7.recod;D.16.2.7.recod
+D.21.9.recod;D.21.9.recod
+D.13.faixa;D.13.faixa
+D.14.faixa;D.14.faixa
+D.15.faixa;D.15.faixa

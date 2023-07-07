@@ -1,0 +1,60 @@
+Variável;Descrição
+IBGE;Código IBGE do Município
+IBGE7;Código do IBGE (7 dígitos)
+UF;UF
+uf_s;UF
+Nome_UF;UF
+Região;Grande Região
+Município;Município
+Criado2012;Municípios criados em 2012
+Area;Área Territorial do município (Km2) - 2010
+Capital;
+RM;Municípios localizados em regiões metropolitanas_2010
+Qual_RM;Classificação da região metropolitana_2010
+Nome_RM;Nome da região metropolitana_2010
+amazonia_legal;Municípios que pertencem à região da Amazônia Legal_2014
+Semi_arido;Municipios do semi-árido brasileiro_2007
+fronteira_internacional;Municípios que tocam a  fronteira internacional_2010
+costa_litoranea;Municípios que tocam a  costa litorânea_2010
+Cod_RegiaoRural;Municípios classificados em Regiões Rurais - código_2015
+Nome_RegiaoRural;Municípios classificados em Regiões Rurais - nome_2015
+Mesorregião;Mesorregião (código)_2010
+Nome_Mesorregião;Mesorregião (nome)_2010
+Pop_Total2010_MESO;População Total (mesorregião)_2010
+Microrregião;Microrregião (código)_2010
+Nome_Microrregião;Microrregião (nome)_2010
+Pop_Total2010_MICRO;População Total (microrregião)_2010
+Pop_total_2010;Pop_total_2010_População total - Censo 2010
+Pop_Urbana2010;População urbana - Censo 2010
+Pop_Rural2010;População rural - Censo 2010
+Porte_pop2010;Porte SUAS_população 2010
+Estimativa_PerfilCadÚnico_Censo2010;Estimativa de Famílias de baixa renda - Perfil Cadastro Único (Censo 2010) - Estimativa de Famílias de baixa renda
+Estimativa_PerfilBolsaFamília_Censo2010;Estimativa de famílias pobres - Perfil Bolsa Família (CENSO 2010) - Estimativa de famílias pobres - Perfil Bolsa Família (CENSO 2010)
+NU_IDENTIFICADOR;Número Identificador da Unidade
+q40_2;q40_2_Data de Nascimento DD/MM/AAAA
+q40_3;q40_3_Sexo
+q40_8;q40_8_Escolaridade
+q40_9;q40_9_Profissão
+q40_10;q40_10_Vínculo
+q40_11;q40_11_Função
+q40_12;q40_12_Carga horária SEMANAL
+q40_13;q40_13_Início do exercício da função
+Duplicado;Trabalhadores com duplicações
+q40_11_original;Original - q40_11_Função
+q40_9_original;Original - q40_9_Profissão
+d40_2;d40_2_Idade em anos (data ref. 31-12-2016)
+d40_2_categoria;d40_2_categoria_Idade (faixas etárias)
+d40_8;d40_8_Níveis de escolaridade
+d40_10;d40_10_Tipo de vínculo
+d40_8bin1;d40_8bin1_Nível fundamental - trabalhadores que possuem até o nível médio (inclui aqueles sem escolaridade)
+d40_8bin2;d40_8bin2_Nível médio - trabalhadores com ensino superior incompleto e ensino médio completo
+d40_8bin3;d40_8bin3_Nível superior - inclui trabalhadores graduados, com especialização, mestrado ou doutorado
+d40_9bin1;d40_9bin1_Pedagogo
+d40_9bin2;d40_9bin2_Assistente Social
+d40_9bin3;d40_9bin3_Antropólogo
+d40_9bin4;d40_9bin4_Advogado
+d40_9bin5;d40_9bin5_Psicólogo
+d40_10bin1;d40_10bin1_Servidor Estatutário
+d40_10bin2;d40_10bin2_Empregado Público (CLT)
+d40_10bin3;d40_10bin3_Comissionado
+d40_10bin4;"d40_10bin4_Outros vínculos não permanentes - inclui Trabalhador de Empresas/Cooperativa/Entidade Prestadora de Serviços; Voluntários; Servidor Temporário; Sem vínculo; Terceirizado e Outro vínculo não permanente"

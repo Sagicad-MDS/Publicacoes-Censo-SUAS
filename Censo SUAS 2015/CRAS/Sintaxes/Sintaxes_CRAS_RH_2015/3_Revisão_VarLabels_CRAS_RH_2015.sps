@@ -1,0 +1,21 @@
+VARIABLE LABELS
+CD_IBGE'Código IBGE do Município'
+NU_IDENTIFICADOR'Número Identificador da Unidade'
+q55_1'q55_1_Nome Completo'
+q55_2'q55_2_Data de nascimento'
+q55_3'q55_3_Sexo'
+q55_4'q55_4_Número do CPF'
+q55_5_1'q55_5_1_Numero RG'
+q55_5_2'q55_5_2_Dados do RG - Órgão Emissor'
+q55_5_3'q55_5_3_Dados do RG - UF'
+q55_6'q55_6_Escolaridade'
+q55_7'q55_7_Profissão'
+q55_8'q55_8_Vínculo'
+q55_9'q55_9_Função'
+q55_10'q55_10_Carga horária SEMANAL'
+q55_11'q55_11_Início do exercício da função'
+q55_12_1'q55_12_1_Serviços/Atividade a qual o profissional está vinculado - Principal serviço/atividade'
+q55_12_2'q55_12_2_Serviços/Atividade a qual o profissional está vinculado - Segundo principal serviço/atividade'
+q55_12_3'q55_12_3_Serviços/Atividade a qual o profissional está vinculado - Terceiro principal serviço/atividade'
+.
+execute.

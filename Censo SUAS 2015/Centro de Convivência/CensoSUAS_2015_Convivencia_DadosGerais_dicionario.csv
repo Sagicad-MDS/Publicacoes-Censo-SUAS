@@ -1,0 +1,198 @@
+Variável;Descrição
+IBGE;Código IBGE do Município
+IBGE7;Código do IBGE (7 dígitos)
+Região;Grande Região
+UF;UF
+uf_s;uf_s
+Município;Nome do Município_Censo IBGE 2010
+Pop_Total2010;Total
+Porte_pop2010;Porte SUAS_população 2010
+NU_IDENTIFICADOR;Número Identificador da Unidade
+ident_1;ident_1_Nome que identifica a unidade:
+ident_2;ident_2_Selecione o Tipo de Logradouro (avenida, rua, etc):
+ident_3;ident_3_Endereço:
+ident_4;ident_4_Número:
+ident_5;ident_5_Complemento:
+ident_6;ident_6_Bairro:
+ident_7;ident_7_CEP:
+ident_8;ident_8_Município
+ident_9;ident_9_UF
+ident_11;ident_11_DDD - Telefone:
+ident_12;ident_12_Ramal:
+ident_13;ident_13_FAX:
+ident_14;ident_14_Data de Implantação da Unidade (dd/mm/aaaa):
+q1;q1_Localização:
+q2;q2_Indique a natureza desta unidade:
+q3;q3_A entidade possui convênio com o poder público municipal para repasse de recursos financeiros, visando à manutenção do Serviço de Convivência e Fortalecimento de Vínculos?
+q4_0;q4_0_Formas de Apoio_Não recebe nenhuma outra forma de apoio do poder público municipal
+q4_1;q4_1_Formas de Apoio_Cessão de recursos humanos
+q4_2;q4_2_Formas de Apoio_Cessão imobiliária
+q4_3;q4_3_Formas de Apoio_Pagamento de aluguel
+q4_4;q4_4_Formas de Apoio_Pagamento de contas de água
+q4_5;q4_5_Formas de Apoio_Pagamento de contas de luz e/ou telefone
+q4_6;q4_6_Formas de Apoio_Fornecimento de gêneros alimentícios
+q4_7;q4_7_Formas de Apoio_Fornecimento de materiais de higiene e limpeza
+q4_8;q4_8_Formas de Apoio_Fornecimento de materiais didáticos
+q4_9;q4_9_Formas de Apoio_Isenção de taxas ou tributos municipais
+q4_10;q4_10_Formas de Apoio_Treinamento e capacitação de trabalhadores da entidade
+q4_99;q4_99_Formas de Apoio_Outros
+q4_qual;q4_qual_Formas de Apoio_Quais?
+q5;q5_A entidade participou da realização de edital/chamamento público pelo poder público municipal para prestação do SCFV?
+q6_1;q6_1_Informe o horário de funcionamento do SCFV na unidade - dias por semana
+q6_2;q6_2_Informe o horário de funcionamento do SCFV na unidade - horas por dia
+Latitude;Latitude:
+Longitude;Longitude:
+q7;q7_Situação do imóvel onde se localiza a Unidade/Serviço:
+q8;q8_Este imóvel é utilizado exclusivamente para oferta do Serviço de Convivência e Fortalecimento de Vínculos?
+q9_0;q9_0_São prestados outros serviços/programas_Não
+q9_1;q9_1_São prestados outros serviços/programas_Sim, serviço de proteção social básica no domicílio para pessoas com deficiência e idosas
+q9_2;q9_2_São prestados outros serviços/programas_Sim, serviço especializado em Abordagem Social
+q9_3;q9_3_São prestados outros serviços/programas_Sim, serviço de Proteção Social Especial para Pessoas com Deficiência, Idosas e suas Famílias
+q9_4;q9_4_São prestados outros serviços/programas_Sim, serviço Especializado para Pessoas em Situação de Rua
+q9_5;q9_5_São prestados outros serviços/programas_Sim, Acessuas Trabalho
+q9_6;q9_6_São prestados outros serviços/programas_Sim, Serviço de acolhimento
+q9_7;q9_7_São prestados outros serviços/programas_Sim, Serviços de Medidas Socioeducativas (MSE)
+q9_8;q9_8_São prestados outros serviços/programas_Cadastro Único
+q9_9;q9_9_São prestados outros serviços/programas_Sim, Serviço de Acolhimento
+q9_99;q9_99_São prestados outros serviços/programas_Sim, outro
+q9_qual;q9_qual_São prestados outros serviços/programas_Qual?
+q10;q10_Caso esta unidade oferte serviço de acolhimento, o serviço de convivência é ofertado exclusivamente para os indivíduos acolhidos na unidade?
+q11_0;q11_0_São prestados outros serviços/atividades de outras políticas_Não
+q11_1;q11_1_São prestados outros serviços/atividades de outras políticas_Sim, educação (creche, reforço escolar, entre outros)
+q11_2;q11_2_São prestados outros serviços/atividades de outras políticas_Sim, saúde (terapia ocupacional, clínica psicológica, entre outros)
+q11_3;q11_3_São prestados outros serviços/atividades de outras políticas_Sim, esporte (políticas específicas do esporte como
+q11_4;q11_4_São prestados outros serviços/atividades de outras políticas_Sim, cultura (teatro, música)
+q11_5;q11_5_São prestados outros serviços/atividades de outras políticas_Sim, trabalho e inclusão produtiva (cursos profissionalizantes, qualificação profissional, Jovem Aprendiz)
+q11_99;q11_99_São prestados outros serviços/atividades de outras políticas_Sim, outra
+q11_qual;q11_qual_São prestados outros serviços/atividades de outras políticas_Qual?
+q12;q12_O imóvel no qual funciona esta Unidade/Serviço é compartilhado?
+q13_1;q13_1_Compartilha seu imóvel_Secretaria da Assistência Social ou congênere
+q13_2;q13_2_Compartilha seu imóvel_Outra unidade administrativa (Sede de Prefeitura, Administração Regional, Sub-Prefeitura etc)
+q13_3;q13_3_Compartilha seu imóvel_Conselho Municipal de Assistência Social
+q13_4;q13_4_Compartilha seu imóvel_Conselho Tutelar
+q13_5;q13_5_Compartilha seu imóvel_CRAS - Centro de Referência da Assistência Social
+q13_6;q13_6_Compartilha seu imóvel_CREAS ? Centro de Referência Especializado de Assistência Social
+q13_7;q13_7_Compartilha seu imóvel_Outra unidade pública de serviços da Assistência Social
+q13_8;q13_8_Compartilha seu imóvel_Escola
+q13_9;q13_9_Compartilha seu imóvel_Unidade de Saúde
+q13_10;q13_10_Compartilha seu imóvel_Igreja/Templo
+q13_11;q13_11_Compartilha seu imóvel_Associação Comunitária
+q13_12;q13_12_Compartilha seu imóvel_Entidades privadas /ONG
+q13_99;q13_99_Compartilha seu imóvel_Outros
+q13_qual;q13_qual_Compartilha seu imóvel_Qual?
+q14_1;q14_1_Espaços compartilhado com outra unidade_Apenas o endereço é o mesmo, mas todos os espaços do Centro de Convivência são independentes e de uso exclusivo, inclusive a entrada
+q14_2;q14_2_Espaços compartilhado com outra unidade_Entrada / Porta de Acesso
+q14_3;q14_3_Espaços compartilhado com outra unidade_Recepção
+q14_4;q14_4_Espaços compartilhado com outra unidade_Cozinha
+q14_5;q14_5_Espaços compartilhado com outra unidade_Algumas salas de atendimento coletivo
+q14_6;q14_6_Espaços compartilhado com outra unidade_Todas as salas de atendimento coletivo
+q14_7;q14_7_Espaços compartilhado com outra unidade_Salas administrativas
+q14_8;q14_8_Espaços compartilhado com outra unidade_Banheiros
+q14_9;q14_9_Espaços compartilhado com outra unidade_Área externa
+q14_10;q14_10_Espaços compartilhado com outra unidade_Almoxarifado ou similar
+q15_1;q15_1_Espaço físico_Quantidade de salas com capacidade máxima para 5 pessoas
+q15_2;q15_2_Espaço físico_Quantidade de salas com capacidade para 6 a 14 pessoas
+q15_3;q15_3_Espaço físico_Quantidade de salas com capacidade para 15 a 29 pessoas
+q15_4;q15_4_Espaço físico_Quantidade de salas com capacidade para 30 ou mais pessoas
+q15_5;q15_5_Espaço físico_Salas exclusivas de Coordenação, equipe técnica ou administração (não são salas de atendimento!)
+q15_6;q15_6_Espaço físico_Quantidade total de banheiros
+q15_7;q15_7_Espaço físico_Possui Recepção?
+q15_8;q15_8_Espaço físico_Possui Cozinha/Copa?
+q15_9;q15_9_Espaço físico_Possui Refeitório?
+q15_10;q15_10_Espaço físico_Possui espaço externo para atividades de convívio?
+q15_11;q15_11_Espaço físico_Possui piscina?
+q15_12;q15_12_Espaço físico_Possui quadra esportiva?
+q15_13;q15_13_Espaço físico_Possui Almoxarifado ou similar?
+q16_1;q16_1_Condições de acessibilidade_Acesso principal adaptado com rampas e rota acessível desde a calçada até a recepção da Unidade
+q16_2;q16_2_Condições de acessibilidade_Rota acessível aos espaços da unidade (recepção, salas de atendimento e espaços de uso coletivo)
+q16_3;q16_3_Condições de acessibilidade_Rota acessível ao banheiro
+q16_4;q16_4_Condições de acessibilidade_Banheiro adaptado para pessoas com deficiência
+q17_1;q17_1_Equipamentos em perfeito funcionamento_Telefone de uso exclusivo
+q17_2;q17_2_Equipamentos em perfeito funcionamento_Telefone de uso compartilhado
+q17_3;q17_3_Equipamentos em perfeito funcionamento_Impressora
+q17_4;q17_4_Equipamentos em perfeito funcionamento_Televisão (TV)
+q17_5;q17_5_Equipamentos em perfeito funcionamento_Equipamento de som
+q17_6;q17_6_Equipamentos em perfeito funcionamento_DVD/Vídeo Cassete
+q17_7;q17_7_Equipamentos em perfeito funcionamento_Datashow
+q17_8;q17_8_Equipamentos em perfeito funcionamento_Câmera Fotográfica
+q17_9;q17_9_Equipamentos em perfeito funcionamento_Filmadora
+q17_10;q17_10_Equipamentos em perfeito funcionamento_Veículo de uso exclusivo
+q17_11;q17_11_Equipamentos em perfeito funcionamento_Veículo de uso compartilhado
+q17_12;q17_12_Equipamentos em perfeito funcionamento_Acervo bibliográfico
+q17_13;q17_13_Equipamentos em perfeito funcionamento_Brinquedoteca
+q17_14;q17_14_Equipamentos em perfeito funcionamento_Brinquedos
+q17_15;q17_15_Equipamentos em perfeito funcionamento_Materiais pedagógicos, culturais e esportivos
+q18_1;q18_1_Quantidade total de computadores na unidade:
+q18_2;q18_2_Destes, quantos estão conectados à internet?
+q19_1;q19_1_Quantidade de computadores para utilização pelos usuários:
+q19_2;q19_2_Destes, quantos estão conectados à internet?
+q20_1;q20_1_oferta SCFV_Crianças de 0 a 6 anos de idade - Oferta o Serviço?
+q20_2;q20_2_oferta SCFV_Crianças de 7 a 14 anos de idade - Oferta o Serviço?
+q20_3;q20_3_oferta SCFV_Jovens de 15 a 17 anos de idade - Oferta o Serviço?
+q20_4;q20_4_oferta SCFV_Adultos de 18 a 29 anos de idade - Oferta o Serviço?
+q20_5;q20_5_oferta SCFV_Adultos de 30 a 59 anos de idade - Oferta o Serviço?
+q20_6;q20_6_oferta SCFV_Idosos (60 anos ou mais) - Oferta o Serviço?
+q21;q21_Qual a capacidade máxima para o atendimento (número de vagas no Serviço de Convivência) desta unidade?
+q22;q22_Quantidade total de grupos ativos do SCFV nesta unidade ?
+q23;q23_A unidade possui critérios de sexo para admissão dos usuários?
+q24;q24_Por quanto tempo, em média, o usuário participa do Serviço de Convivência e Fortalecimento de Vínculos?
+q25_1;q25_1_Atividades promovidas_Visitas domiciliares da equipe técnica da Unidade à família do usuário
+q25_2;q25_2_Atividades promovidas_Reuniões com grupos de famílias dos usuários
+q25_3;q25_3_Atividades promovidas_Palestras
+q25_4;q25_4_Atividades promovidas_Oficinas
+q25_5;q25_5_Atividades promovidas_Reforço Escolar
+q25_6;q25_6_Atividades promovidas_Atividades recreativas
+q25_7;q25_7_Atividades promovidas_Discussão de casos com outros profissionais da rede
+q25_8;q25_8_Atividades promovidas_Atividades com participação da Comunidade
+q25_0;q25_0_Atividades promovidas_Não realiza nenhuma das atividades acima
+q26;q26_Esta unidade está referenciada a um Centro de Referência de Assistência Social?
+q26_qual;q26_qual_Qual?
+q27_1;q27_1_Desenvolve atividades com familiares_Sim, por esta unidade
+q27_2;q27_2_Desenvolve atividades com familiares_Sim, pela equipe do CRAS de referência
+q27_3;q27_3_Desenvolve atividades com familiares_Sim, pela equipe do Órgão gestor da Assistência Social
+q27_4;q27_4_Desenvolve atividades com familiares_Sim, por outra equipe
+q27_0;q27_0_Desenvolve atividades com familiares_Não
+q27_qual;q27_qual_Desenvolve atividades com familiares_Qual ?
+q28_1;q28_1_Quais atividades realizadas_Atendimentos coletivos periódicos
+q28_2;q28_2_Quais atividades realizadas_Atendimentos coletivos eventuais (palestras, reunião, grupo eventual)
+q28_3;q28_3_Quais atividades realizadas_Atendimentos individualizados periódicos
+q28_4;q28_4_Quais atividades realizadas_Atendimentos individualizados eventuais
+q29;q29_As atividades desenvolvidas pelo SCFV desta unidade possuem uma orientação religiosa?
+q30_0;q30_0_Comunidades ou povos tradicionais_Não atendeu
+q30_1;q30_1_Comunidades ou povos tradicionais_Sim, povos indígenas
+q30_2;q30_2_Comunidades ou povos tradicionais_Sim, Comunidade Quilombola
+q30_3;q30_3_Comunidades ou povos tradicionais_Sim, Comunidade Ribeirinha
+q30_4;q30_4_Comunidades ou povos tradicionais_Sim, Povos Ciganos
+q30_5;q30_5_Comunidades ou povos tradicionais_Sim, Comunidades Extrativistas
+q30_99;q30_99_Comunidades ou povos tradicionais_Sim, outros povos e comunidades tradicionais
+q32;q32_Indique a forma pela qual as informações deste questionário foram coletadas:
+resp_data;resp_data_Data
+resp_cargo;resp_cargo_Cargo/Função:
+respgestao_data;respgestao_data_Data de Validação:
+respgestao_cargo;respgestao_cargo_Cargo/Função:
+Incompletos;Preenchimentos Incompletos
+d6_horas_por_semana_categoria;d6_horas_por_semana_categoria_Total de horas por semana que a unidade encontra-se em funcionamento
+d15_1_total_salas_atend;d15_1_Total de salas utilizadas para atendimento individual ou coletivo
+d15_1_sl_atend_categoria;d15_1_categórica_Total de salas utilizadas para atendimento individual ou coletivo
+d15_2_total_salas_adm_e_atend;d15_2_Total de salas utilizadas para atendimento e para atividades administrativas
+d15_2_total_salas_adm_e_atend_categoria;d15_2_categórica_Total de salas utilizadas para atendimento e para atividades administrativas
+d15_6;d15_6_Quantidade total de banheiros
+D17_telefone;D17_telefone_Telefone (exclusivo ou compartilhado)
+D17_veiculo;D17_veiculo_Veículo (exclusivo ou compartilhado)
+D18_1;D18_1_Quantidade de computadores, em perfeito funcionamento, existentes na unidade
+D18_2;D18_2_Quantidade de computadores, em perfeito funcionamento, conectados à internet na unidade
+D19_1;D19_1_Quantidade de computadores na unidade disponíveis para utilização pelos usuários
+D19_2;D19_2_Quantidade de computadores na unidade, conectados à internet, disponíveis para utilização pelos usuários
+d31_8bin1_sum;d31_8bin1_Número de trabalhadores de Nível fundamental (inclui trabalhadores sem escolaridade, fundamental incompleto e ensino médio incompleto)
+d31_8bin2_sum;d31_8bin2_Número de trabalhadores de Nível médio (inclui trabalhadores com ensino superior incompleto)
+d31_8bin3_sum;d31_8bin3_Número de trabalhadores de Nível superior (inclui trabalhadores com especialização, mestrado e doutorado)
+d31_9bin1_sum;d31_9bin1_sum_Número de Pedagogos
+d31_9bin2_sum;d31_9bin2_sum_Número de Assistentes Sociais
+d31_9bin3_sum;d31_9bin3_sum_Número de Antropólogos
+d31_9bin4_sum;d31_9bin4_sum_Número de Advogados
+d31_9bin5_sum;d31_9bin5_sum_Número de Psicólogos
+d31_10bin1_sum;d31_10bin1_Número de Servidores Estatutários
+d31_10bin2_sum;d31_10bin2_Número de Empregados Públicos(CLT)
+d31_10bin3_sum;d31_10bin3_Número de Comissionados
+d31_10bin4_sum;"d31_10bin4_Número de profissionais com outros vínculos não permanentes (inclui Trabalhador de Empresas/Cooperativa/Entidade Prestadora de Serviços; Voluntários; Ser. Temporário; Sem vínculo; Terceirizado e Outro vínculo não permanente)"
+nu_trabalhadores;Número de trabalhadores no CRAS

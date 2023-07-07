@@ -1,0 +1,767 @@
+Variável;Descrição
+IBGE7;Código IBGE com Dígito Verificador
+IBGE;Código IBGE
+Região;Grande Região
+UF;Unidade da Federação
+uf_s;Unidade da Federação
+Município;Nome do Município_Censo IBGE 2010
+Municipio_2013;Nome do Município_atualizado 2014
+area;Área Territorial Km2
+Pop_Total2010;População Total - Censo IBGE 2010
+Pop_Urbana2010;População Urbana - Censo IBGE 2010
+Pop_Rural2010;População Rural - Censo IBGE 2010
+Porte_pop2010;Porte Populacional SUAS - Censo IBGE 2010
+NU_identificador;NU_identificador
+ident1;ident1.Nome que identifica o CREAS:
+ident2;ident2.Selecione/Indique o Tipo de Logradouro (avenida, rua, etc):
+ident3;ident3.Endereço:
+ident4;ident4.Número:
+ident5;ident5.Complemento:
+ident6;ident6.Bairro:
+ident7;ident7.Ponto de Referência:
+ident8;ident8.CEP:
+ident9;ident9.Município:
+ident10;ident10.UF:
+ident11;ident11.E-mail:
+ident12;ident12.DDD - Telefone:
+ident13;ident13.Ramal:
+ident14;ident14.Fax:
+ident15;ident15.Data de Implantação do CREAS:
+q1;q1.Localização:
+q2;q2.Tipo de CREAS:
+q2.3.1.1; q2.3.1.1 Indique como está organizada a gestão administrativa do CREAS:Estado
+q2.3.1.2; q2.3.1.2 Indique como está organizada a gestão administrativa do CREAS:Município Sede
+q2.3.1.3; q2.3.1.3 Indique como está organizada a gestão administrativa do CREAS:Município Vínculado
+q2.3.1.0; q2.3.1.0 Indique como está organizada a gestão administrativa do CREAS:Não possui/Não se aplica
+q2.3.2.1; q2.3.2.1 Indique como está organizada a gestão administrativa do CREAS:Estado
+q2.3.2.2; q2.3.2.2 Indique como está organizada a gestão administrativa do CREAS:Município Sede
+q2.3.2.3; q2.3.2.3 Indique como está organizada a gestão administrativa do CREAS:Município Vínculado
+q2.3.2.0; q2.3.2.0 Indique como está organizada a gestão administrativa do CREAS:Não possui/Não se aplica
+q2.3.3.1; q2.3.3.1 Indique como está organizada a gestão administrativa do CREAS:Estado
+q2.3.3.2; q2.3.3.2 Indique como está organizada a gestão administrativa do CREAS:Município Sede
+q2.3.3.3; q2.3.3.3 Indique como está organizada a gestão administrativa do CREAS:Município Vínculado
+q2.3.3.0; q2.3.3.0 Indique como está organizada a gestão administrativa do CREAS:Não possui/Não se aplica
+q2.3.4.1; q2.3.4.1 Indique como está organizada a gestão administrativa do CREAS:Estado
+q2.3.4.2; q2.3.4.2 Indique como está organizada a gestão administrativa do CREAS:Município Sede
+q2.3.4.3; q2.3.4.3 Indique como está organizada a gestão administrativa do CREAS:Município Vínculado
+q2.3.4.0; q2.3.4.0 Indique como está organizada a gestão administrativa do CREAS:Não possui/Não se aplica
+q.2.4;q.2.4 Indique abaixo como se dá o repasse de recursos financeiros pelo Estado para manutenção e funcionamento dos serviços deste CREAS Regional:
+q2.5;q2.5 Em caso de deslocamento das famílias/indivíduos para a sede deste CREAS Regional, existe apoio para este deslocamento?
+p_latitude;Latitude:
+p_longitude;Longitude:
+q3.1;q3.1 Horário de funcionamento - Dias por semana:
+q3.2;q3.2 Horário de funcionamento - Horas por dia:
+q4;q4 Situação do imóvel onde se localiza o CREAS:
+q5;q5 O imóvel de funcionamento deste CREAS é compartilhado?
+q6.1;q6.1 Especifique o tipo de unidade com a qual este CREAS compartilha o Imóvel1 Secretaria da Assistência Social ou congênere
+q6.2;q6.2 Especifique o tipo de unidade com a qual este CREAS compartilha o Imóvel2 Outra unidade administrativa (Sede de Prefeitura, Administração Regional, Sub-Prefeitura, etc.)
+q6.3;q6.3 Especifique o tipo de unidade com a qual este CREAS compartilha o Imóvel3 Conselho Municipal de Assistência Social
+q6.4;q6.4 Especifique o tipo de unidade com a qual este CREAS compartilha o Imóvel4 CRAS ? Centro de Referência de Assistência Social
+q6.5;q6.5 Especifique o tipo de unidade com a qual este CREAS compartilha o Imóvel5 Centro POP - Centro de Referência Especializado para População em Situação de Rua
+q6.6;q6.6 Especifique o tipo de unidade com a qual este CREAS compartilha o Imóvel6 Unidade de Acolhimento institucional (Abrigo)
+q6.7;q6.7 Especifique o tipo de unidade com a qual este CREAS compartilha o Imóvel7 Outra unidade pública de serviços da Assistência Social
+q6.8;q6.8 Especifique o tipo de unidade com a qual este CREAS compartilha o Imóvel8 Unidade de Saúde
+q6.9;q6.9 Especifique o tipo de unidade com a qual este CREAS compartilha o Imóvel9 Centro de Referência de Atendimento à Mulher (CRAM)
+q6.10;q6.10 Especifique o tipo de unidade com a qual este CREAS compartilha o Imóvel10 ONG/Entidade/ Associação Comunitária
+q6.11;q6.11 Especifique o tipo de unidade com a qual este CREAS compartilha o Imóvel11 Conselho Tutelar
+q6.12;q6.12 Especifique o tipo de unidade com a qual este CREAS compartilha o Imóvel12 Delegacia Especializada
+q6.13;q6.13 Especifique o tipo de unidade com a qual este CREAS compartilha o Imóvel13 Outro órgão de defesa de direitos (Ministério Público, Defensoria Pública, Poder Judiciário, etc.)
+q6.14;q6.14 Especifique o tipo de unidade com a qual este CREAS compartilha o Imóvel14 NAI - Núcleo de Atendimento Integrado
+q6.99;q6.99 Especifique o tipo de unidade com a qual este CREAS compartilha o Imóvel99 Outros
+q6.99.1;q6.99.1 Qual?
+q7.1;q7.1 1- Apenas o endereço é o mesmo, mas todos os espaços do CREAS são independentes e de uso exclusivo, inclusive a entrada
+q7.2;q7.2 2- Entrada / Porta de Acesso
+q7.3;q7.3 3- Recepção
+q7.4;q7.4 4- Algumas salas de atendimento individualizado
+q7.5;q7.5 5- Todas as salas de atendimento individualizado
+q7.6;q7.6 6- Algumas salas de atendimento coletivo
+q7.7;q7.7 7- Todas as salas de atendimento coletivo
+q7.8;q7.8 8- Salas administrativas
+q7.9;q7.9 9- Banheiros
+q7.10;q7.10 10- Copa/cozinha
+q7.11;q7.11 11- Área Externa
+q7.12;q7.12 12- Almoxarifado ou similar
+q8.1;q8.1 Quantidade de salas com capacidade máxima para 5 pessoas
+q8.2;q8.2 Quantidade de salas com capacidade para 6 a 14 pessoas
+q8.3;q8.3 Quantidade de salas com capacidade para 15 a 29 pessoas
+q8.4;q8.4 Quantidade de salas com capacidade para 30 ou mais pessoas
+q8.5;q8.5 Salas específicas para uso da Coordenação, equipe técnica ou administração (Não são salas de atendimento!)
+q8.6;q8.6 Quantidade total de banheiros
+q8.7;q8.7 Possui Recepção?
+q8.8;q8.8 Possui Cozinha/Copa?
+q8.9;q8.9 Possui Almoxarifado ou similar?
+q8.10;q8.10 Possui Espaço externo no CREAS para atividades de convívio?
+q9.1;q9.1 Acesso principal adaptado com rampas e rota acessível desde a calçada até a recepção do CREAS
+q9.2;q9.2 Rota acessível aos principais espaços do CREAS (recepção, sala(s) de atendimento e sala(s) de uso coletivo)
+q9.3;q9.3 Rota acessível ao banheiro
+q9.4;q9.4 Banheiro adaptado para pessoas com mobilidade reduzida (idosos, pessoas com deficiência, etc.)
+q10.1; q10.1 1- Sim, suporte de profissional com conhecimento em LIBRAS
+q10.2; q10.2 2- Sim, suporte de material em braille
+q10.3; q10.3 3- Sim, suporte para leitores de telas de computador para pessoas com deficiência visual
+q10.4; q10.4 4- Sim, outras adaptações e tecnologias assistivas para deficiência física
+q10.5; q10.5 5- Sim, outras adaptações e tecnologias assistivas para deficiência intelectual e autismo
+q10.6; q10.6 6- Sim, pisos especiais com relevos para sinalização voltados para pessoas com deficiência visual
+q10.0; q10.0 0- Não há outras adaptações
+q10.4.qual; q10.4.qual
+q10.5.qual; q10.5.qual
+q11.1;q11.1 1 Telefone
+q11.2;q11.2 2 Impressora
+q11.3;q11.3 3 Televisão (TV)
+q11.4;q11.4 4 Equipamento de som
+q11.5;q11.5 5 DVD/Blu-Ray/Vídeo Cassete
+q11.6;q11.6 6 Datashow
+q11.9;q11.9 9 Veículo de uso exclusivo
+q11.10;q11.10 10 Veículo de uso compartilhado
+q11.11;q11.11 11 Acervo bibliográfico
+q11.12;q11.12 12 Mobiliário/materiais para atender crianças (mesa infantil, tapete emborrachado, brinquedos, etc.)
+q11.13; q11.13 13 Materiais pedagógicos, culturais e esportivos
+q12;q12 Quantidade total de computadores no CREAS
+q13;q13 Quantos estão conectados à internet no CREAS
+q14;q14 Este CREAS possui placa de identificação?
+q15.1;q15.1 1 Acolhida Particularizada realizada por técnico de nível superior
+q15.2;q15.2 2 Acompanhamento individual/familiar
+q15.3;q15.3 3 Acompanhamento dos encaminhamentos realizados
+q15.4;q15.4 4 Registro do acompanhamento individual/familiar em prontuário
+q15.5;q15.5 5 Elaboração do Plano de Acompanhamento Familiar
+q15.6;q15.6 6 Elaboração de relatórios técnicos sobre casos em acompanhamento
+q15.7;q15.7 7 Elaboração de relatórios técnicos para o sistema de justiça
+q15.8;q15.8 8  Grupo/oficina com famílias ou indivíduos
+q15.9;q15.9 9 Orientação jurídico-social
+q15.10;q15.10 10 Visitas domiciliares
+q15.11;q15.11 11 Palestras
+q15.12;q15.12 12 Ações de mobilização e sensibilização para o enfrentamento das situações de violação de direitos
+q15.13;q15.13 13 Apoio para obtenção de documentação pessoal
+q15.14;q15.14 14 Orientação/acompanhamento para inserção no BPC
+q15.15;q15.15 15 Encaminhamento para o CRAS
+q15.16;q15.16 16 Encaminhamento de famílias ou indivíduos para a rede de serviço socioassistencial
+q15.17;q15.17 17 Encaminhamento para serviços da rede de saúde
+q15.18;q15.18 18 Encaminhamento de famílias ou indivíduos para outras políticas públicas (educação, habitação, trabalho,
+q15.19;q15.19 19 Encaminhamento para o Conselho Tutelar
+q15.20;q15.20 20 Encaminhamento para órgãos de defesa e responsabilização (Defensoria Pública, Promotoria, Ministério Pú
+q15.21;q15.21 21 Encaminhamento para obtenção de Benefícios Eventuais
+q15.22;q15.22 22 Encaminhamento para inserção/atualização de famílias no Cadastro Único
+q15.99;q15.99 99 Outros
+q15.99.1;q15.99.1 Quais?
+q16.1.1;q16.1.1 1 Crianças e adolescentes
+q16.1.2;q16.1.2 2 Mulheres adultas
+q16.1.3;q16.1.3 3 Homens adultos
+q16.1.4;q16.1.4 4 Idosos
+q16.1.5;q16.1.5 5 Não atende este tipo de situação
+q16.2.1;q16.2.1 1 Crianças e adolescentes
+q16.2.2;q16.2.2 2 Mulheres adultas
+q16.2.3;q16.2.3 3 Homens adultos
+q16.2.4;q16.2.4 4 Idosos
+q16.2.5;q16.2.5 5 Não atende este tipo de situação
+q16.3.1;q16.3.1 1 Crianças e adolescentes
+q16.3.2;q16.3.2 2 Mulheres adultas
+q16.3.3;q16.3.3 3 Homens adultos
+q16.3.4;q16.3.4 4 Idosos
+q16.3.5;q16.3.5 5 Não atende este tipo de situação
+q16.4.1;q16.4.1 1 Crianças e adolescentes
+q16.4.2;q16.4.2 2 Mulheres adultas
+q16.4.3;q16.4.3 3 Homens adultos
+q16.4.4;q16.4.4 4 Idosos
+q16.4.5;q16.4.5 5 Não atende este tipo de situação
+q16.5.1;q16.5.1 1 Crianças e adolescentes
+q16.5.4;q16.5.4 4 Idosos
+q16.5.5;q16.5.5 5 Não atende este tipo de situação
+q16.6.4;q16.6.4 4 Idosos
+q16.6.5;q16.6.5 5 Não atende este tipo de situação
+q16.7.1;q16.7.1 1 Crianças e adolescentes
+q16.7.2;q16.7.2 2 Mulheres adultas
+q16.7.3;q16.7.3 3 Homens adultos
+q16.7.4;q16.7.4 4 Idosos
+q16.7.5;q16.7.5 5 Não atende este tipo de situação
+q16.8.1;q16.8.1 1 Crianças e adolescentes
+q16.8.5;q16.8.5 5 Não atende este tipo de situação
+q16.9.1;q16.9.1 1 Crianças e adolescentes
+q16.9.2;q16.9.2 2 Mulheres adultas
+q16.9.3;q16.9.3 3 Homens adultos
+q16.9.4;q16.9.4 4 Idosos
+q16.9.5;q16.9.5 5 Não atende este tipo de situação
+q16.10.1;q16.10.1 1 Crianças e adolescentes
+q16.10.2;q16.10.2 2 Mulheres adultas
+q16.10.3;q16.10.3 3 Homens adultos
+q16.10.4;q16.10.4 4 Idosos
+q16.10.5;q16.10.5 5 Não atende este tipo de situação
+q16.11.1;q16.11.1 1 Crianças e adolescentes
+q16.11.2;q16.11.2 2 Mulheres adultas
+q16.11.3;q16.11.3 3 Homens adultos
+q16.11.4;q16.11.4 4 Idosos
+q16.11.5;q16.11.5 5 Não atende este tipo de situação
+q16.12.1;q16.12.1 1 Crianças e adolescentes
+q16.12.2;q16.12.2 2 Mulheres adultas
+q16.12.3;q16.12.3 3 Homens adultos
+q16.12.4;q16.12.4 4 Idosos
+q16.12.5;q16.12.5 5 Não atende este tipo de situação
+q16.13.1;q16.13.1 1 Crianças e adolescentes
+q16.13.2;q16.13.2 2 Mulheres adultas
+q16.13.3;q16.13.3 3 Homens adultos
+q16.13.4;q16.13.4 4 Idosos
+q16.13.5;q16.13.5 5 Não atende este tipo de situação
+q16.14.1;q16.14.1 1 Crianças e adolescentes
+q16.14.5;q16.14.5 5 Não atende este tipo de situação
+q16.15.2;q16.15.2 2 Mulheres adultas
+q16.15.3;q16.15.3 3 Homens adultos
+q16.15.4;q16.15.4 4 Idosos
+q16.15.5;q16.15.5 5 Não atende este tipo de situação
+q16.16.2;q16.16.2 2 Mulheres adultas
+q16.16.3;q16.16.3 3 Homens adultos
+q16.16.4;q16.16.4 4 Idosos
+q16.16.5;q16.16.5 5 Não atende este tipo de situação
+q17.1.1;q17.1.1 1 Oficinas com ações preventivas
+q17.1.2;q17.1.2 2 Apoio à reinserção social
+q17.1.99;q17.1.99 99 Outras atividades de atendimento / acompanhamento
+q17.1.0;q17.1.0 0 Não realiza atendimento ou acompanhamento
+q17.2.1;q17.2.1 1 Oficinas com ações preventivas
+q17.2.2;q17.2.2  2  Apoio à reinserção social
+q17.2.99;q17.2.99 99 Outras atividades de atendimento / acompanhamento
+q17.2.0;q17.2.0 0 Não realiza atendimento ou acompanhamento
+q17.3.1;q17.3.1 1 Oficinas com ações preventivas
+q17.3.2;q17.3.2 2 Apoio à reinserção social
+q17.3.3;q17.3.3 3 Encaminhamento monitorado para a rede de saúde
+q17.3.99;q17.3.99 99 Outras atividades de atendimento / acompanhamento
+q17.3.0;q17.3.0 0 Não realiza atendimento ou acompanhamento
+q18.1;q18.1 A.1. Total de casos (famílias ou indivíduos) em acompanhamento pelo PAEFI
+q19.1;q19.1 Quantos casos são referentes a famílias residentes no município sede de CREAS?
+q19.2;q19.2 Quantos casos são referentes a famílias residentes em outros municípios?
+q20;q20 Este CREAS realiza o Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC)
+q21;q21 Informe o total de adolescentes em cumprimento de Medidas Socioeducativas (LA e/ou PSC)
+q22; q22 Deste total, quantos adolescentes tem suas famílias acompanhadas pelo Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos (PAEFI) deste CREAS?
+q23.1; q23.1 Todas as famílias de adolescentes em MSE sao acompanhadas pelo PAEFI
+q23.2; q23.2 Quando a famílias possui algum membro, além do adolescente em MSE, com direito violado
+q23.3; q23.3 Apenas quando a família dos adolescentes em MSE solicita acompanhamento
+q23.99; q23.99 Outros
+q23.qual; q23.quais Quais?
+q24;q24 Desse total, de quantos adolescentes há informações sobre o ato infracional que gerou a medida?
+q25.1.1;q25.1.1 Furto - 12 e 13 anos
+q25.1.2;q25.1.2 Furto - 14 e 15 anos
+q25.1.3;q25.1.3 Furto - 16 e 17 anos
+q25.1.4;q25.1.4 Furto - 18 a 21 anos
+q25.1.5;q25.1.5 Furto - Total
+q25.2.1;q25.2.1 Roubo - 12 e 13 anos
+q25.2.2;q25.2.2 Roubo - 14 e 15 anos
+q25.2.3;q25.2.3 Roubo - 16 e 17 anos
+q25.2.4;q25.2.4 Roubo - 18 a 21 anos
+q25.2.5;q25.2.5 Roubo - Total
+q25.3.1;q25.3.1 Tráfico - 12 e 13 anos
+q25.3.2;q25.3.2 Tráfico - 14 e 15 anos
+q25.3.3;q25.3.3 Tráfico - 16 e 17 anos
+q25.3.4;q25.3.4 Tráfico - 18 a 21 anos
+q25.3.5;q25.3.5 Tráfico - Total
+q25.4.1;q25.4.1 Agressão/Briga - 12 e 13 anos
+q25.4.2;q25.4.2 Agressão/Briga - 14 e 15 anos
+q25.4.3;q25.4.3 Agressão/Briga - 16 e 17 anos
+q25.4.4;q25.4.4 Agressão/Briga - 18 a 21 anos
+q25.4.5;q25.4.5 Agressão/Briga - Total
+q25.5.1;q25.5.1 Homicídio - 12 e 13 anos
+q25.5.2;q25.5.2 Homicídio - 14 e 15 anos
+q25.5.3;q25.5.3 Homicídio - 16 e 17 anos
+q25.5.4;q25.5.4 Homicídio - 18 e 21 anos
+q25.5.5;q25.5.5 Total Homicídio
+q25.6.1;q25.6.1 Tentativa de Homicídio - 12 e 13 anos
+q25.6.2;q25.6.2 Tentativa de Homicídio - 14 a 15 anos
+q25.6.3;q25.6.3 Tentativa de Homicídio - 16 a 17 anos
+q25.6.4;q25.6.4 Tentativa de Homicídio - 18 a 21 anosl
+q25.6.5;q25.6.5 Tentativa de Homicídio - Total
+q25.7.1;q25.7.1 Dano ao Patrimônio - 12 e 13 anos
+q25.7.2;q25.7.2 Dano ao Patrimônio - 14 e 15 anos
+q25.7.3;q25.7.3 Dano ao Patrimônio - 16 e 17 anos
+q25.7.4;q25.7.4 Dano ao Patrimônio - 18 a 21 anos
+q25.7.5;q25.7.5 Dano ao Patrimônio - Total
+q25.8.1;q25.8.1 Crime de trânsito/dirigir sem habilitação - 12 e 13 anos
+q25.8.2;q25.8.2 Crime de trânsito/dirigir sem habilitação - 14 e 15 anos
+q25.8.3;q25.8.3 Crime de trânsito/dirigir sem habilitação - 16 e 17 anos
+q25.8.4;q25.8.4 Crime de trânsito/dirigir sem habilitação - 18 a 21 anos
+q25.8.5;q25.8.5 Crime de trânsito/dirigir sem habilitação - Total
+q25.9.1;q25.9.1 Porte/uso de drogas - 12 e 13 anos
+q25.9.2;q25.9.2 Porte/uso de drogas - 14 e 15 anos
+q25.9.3;q25.9.3 Porte/uso de drogas - 16 e 17 anos
+q25.9.4;q25.9.4 Porte/uso de drogas - 18 a 21 anos
+q25.9.5;q25.9.5 Porte/uso de drogas - Total
+q25.10.1;q25.10.1 Lesão Corporal - 12 e 13 anos
+q25.10.2;q25.10.2 Lesão Corporal - 14 e 15 anos
+q25.10.3;q25.10.3 Lesão Corporal - 16 e 17 anos
+q25.10.4;q25.10.4 Lesão Corporal - 18 a 21 anos
+q25.10.5;q25.10.5 Lesão Corporal - Total
+q25.11.1;q25.11.1 Outros - 12 e 13 anos
+q25.11.2;q25.11.2 Outros - 14 e 15 anos
+q25.11.3;q25.11.3 Outros - 16 e 17 anos
+q25.11.4;q25.11.4 Outros - 18 a 21 anos
+q25.11.5;q25.11.5 Outros - Total
+q25.12.1;q25.12.1 Total - 12 e 13 anos
+q25.12.2;q25.12.2 Total - 14 e 15 anos
+q25.12.3;q25.12.3 Total - 16 e 17 anos
+q25.12.4;q25.12.4 Total - 18 a 21 anos
+q25.12.5;q25.12.5 Total - Total
+q25.99.1;q25.99.1 Qual(is) outro(s) ato(s) infacional(is)?
+q26.1;q26.1 Liberdade Assistida
+q26.1.1;q26.1.199 Não Sabe Liberdade Assistida
+q26.2;q26.2 Prestação de Serviços à Comunidade
+q26.2.1;q26.2.1 99 Não Sabe Prestação a comunidade
+q27;q27 A equipe técnica responsável pelo Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa (MSE) de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC) é exclusiva deste serviço?
+q28;q28Indique abaixo a frequência com que, normalmente, cada adolescente em cumprimento de medida socioeducativa de Liberdade Assistida (LA) é atendido neste CREAS
+q29.1;q29.1 1 Elaboração do Plano Individual de Atendimento (PIA) do adolescente
+q29.2;q29.2 2 Atendimento individual do adolescente
+q29.3;q29.3 3 Atendimento do adolescente em grupos
+q29.4;q29.4 4 Atendimento da família do adolescente em cumprimento de medida de Liberdade Assistida (LA)
+q29.5;q29.5 5 Atendimento com grupos de famílias do adolescente em cumprimento de medida de Liberdade Assistida (LA)
+q29.6;q29.6 6 Visita domiciliar
+q29.7;q29.7 7 Encaminhamento do adolescente para o sistema educacional
+q29.8;q29.8 8 Acompanhamento da frequência escolar do adolescente
+q29.9;q29.9 9 Encaminhamento para os Serviços de Convivência e Fortalecimento de Vínculos
+q29.10;q29.10 10 Encaminhamento do adolescente e sua família para outros serviços e programas da rede socioassistencial
+q29.11;q29.11 11 Encaminhamento para serviços da rede de saúde para atendimento de usuários/dependentes de substâncias psicoativas
+q29.12;q29.12 12 Encaminhamento de famílias ou indivíduos para outros serviços da rede de saúde
+q29.13;q29.13 13 Encaminhamento do adolescente e sua família para serviços de outras políticas setoriais
+q29.14;q29.14 14 Encaminhamento do adolescente para cursos profissionalizantes
+q29.15;q29.15 15 Elaboração e encaminhamento de relatório para a Justiça da Infância e da Juventude ou Ministério Público
+q29.16;q29.16 16 Elaboração e encaminhamento de relatórios periódicos para o órgão gestor da assistência social no município
+q29.17;q29.17 17 Registro do acompanhamento em prontuário
+q29.18;q29.18 18 Encaminhamento da família e/ou adolescente ao PAEFI
+q29.19;q29.19 19 Discussão de caso com outros profissionais da rede
+q30;q30 Indique abaixo a frequência com que, normalmente, cada adolescente em cumprimento de medida socioeducativa de Prestação de Serviço de Comunidade (PSC) é atendido neste CREAS
+q31.1;q31.1 1 Rede de Saúde
+q31.2;q31.2 2 Rede Educacional
+q31.3;q31.3 3 Rede socioassistencial pública
+q31.4;q31.4 4 Rede socioassistencial privada (ONGs/entidade/associação comunitária)
+q31.5;q31.5 5 Outras Unidades da administração pública (Ex.: Corpo de Bombeiros, sede da administração municipal, etc.)
+q31.99;q31.99 99 Outros
+q31.99.1;q31.99.1Qual(is)?
+q32.1;q32.1 1 Elaboração do Plano Individual de Atendimento (PIA) do adolescente
+q32.2;q32.2 2 Encaminhamento do adolescente para os locais de prestação de serviços comunitários
+q32.3;q32.3 3 Atendimento individual do adolescente
+q32.4;q32.4 4 Atendimento do adolescente em grupos
+q32.5;q32.5 5 Atendimento da família do adolescente em cumprimento de medida de Prestação de Serviços à Comunidade (PSC)
+q32.6;q32.6 6 Atendimento com grupos de famílias do adolescente em cumprimento de medida de Prestação de Serviço à Comunidade
+q32.7;q32.7 7 Visita domiciliar
+q32.8;q32.8 8 Visitas técnicas aos locais de prestação do serviço à comunidade
+q32.9;q32.9 9 Encaminhamento do adolescente para o sistema educacional
+q32.10;q32.10 10 Encaminhamento da família e/ou do adolescente ao PAEFI
+q32.11;q32.11 11 Discussão de caso com outros profissionais da rede
+q32.12;q32.12 12 Acompanhamento da freqüência escolar do adolescente
+q32.13;q32.13 13 Encaminhamento para o Serviço de Convivência e Fortalecimento de Vínculos
+q32.14;q32.14 14 Encaminhamento do adolescente e sua família para outros serviços e programas da rede socioassistencial
+q32.15;q32.15 15 Encaminhamento para serviços da rede de saúde para atendimento de usuários/dependentes de substâncias psicoativas
+q32.16;q32.16 16 Encaminhamento de famílias ou indivíduos para outros serviços da rede de saúde
+q32.17;q32.17 17 Encaminhamento do adolescente e sua família para serviços de outras políticas setoriais
+q32.18;q32.18 18 Encaminhamento do adolescente para cursos profissionalizantes
+q32.19;q32.19 19 Elaboração e encaminhamento de relatório para a Justiça da Infância e da Juventude ou Ministério Público
+q32.20;q32.20 20 Elaboração e encaminhamento de relatórios periódicos para o órgão gestor da assistência social no município
+q32.99;q32.99 99 Outros
+q33.1; q33.1 CRAS
+q33.2; q33.2 CREAS
+q33.98; q33.98 Outro
+q33.99; q33.99 Não sabe Informar
+q33.0; q33.0 Não é realizado acompanhamento de egressos
+q33.98.1; q33.98.1 Qual?
+q34; q34Por quanto tempo, em média, o adolescente é acompanhado após seu desligamento?
+q35.1; q35.1 1  As equipes realizam estudos de casos em conjunto
+q35.2; q35.2 2  A equipe do PAEFI participa do processo de planejamento das atividades de MSE
+q35.3; q35.3 3  A equipe do PAEFI participa na elaboração do PIA
+q35.4; q35.4 4  As equipes constroem estratégias metodológicas de intervenção junto aos adolescentes em conjunto
+q35.5; q35.5 5  As equipes possuem fluxos internos dos casos
+q35.6; q35.6 6  As equipes utilizam o mesmo Prontuário de atendimento das famílias
+q35.99; q35.99 99  Outro
+q35.99.1; q35.99.1 Qual?
+q36;q36 Este CREAS realiza o Serviço Especializado em Abordagem Social?
+q37.1;q37.1 1. Cumpre função de coordenador do Serviço referenciado
+q37.2;q37.2  2. Coleta/recebe periodicamente informações sobre dados de atendimento do Serviço
+q37.3;q37.3 3. Realiza reuniões periódicas para avaliação do Serviço com a unidade referenciada
+q37.4;q37.4 4. Participa do processo de planejamento das atividades do Serviço
+q37.5;q37.5 5. Acompanha cotidianamente as atividades do Serviço
+q37.6;q37.6 6. Constrói estratégias metodológicas do Serviço
+q37.7;q37.7 7. Elabora relatórios técnicos específicos sobre casos atendidos/acompanhados pelo Serviço
+q37.8;q37.8 8. Realiza estudos de caso em parceria com o Serviço
+q37.9;q37.9 9. Define procedimentos comuns e/ou complementares ao Serviço
+q37.10;q37.10 10. Possui fluxos de encaminhamentos e trocas de informações com o Serviço
+q37.11;q37.11 11. Articula com a rede de serviços socioassistenciais
+q37.12;q37.12 12. Articula com a rede dos serviços das políticas públicas setoriais
+q37.13;q37.13 13. Articula orgãos do Sistema de Justiça
+q37.14;q37.14 14. Articula com os órgãos do de defesa de direitos (defensoria publica, Ministerio Publico, Conselho Tutelar
+q37.99;q37.99 99. Não realiza nenhuma das atividades acima
+q38.1;q38.1 1 Identificação de situações de risco pessoal e social com direitos violados
+q38.2;q38.2 2 Conhecimento do Território
+q38.3;q38.3 3 Informação, comunicação e defesa de direitos
+q38.4;q38.4 4 Escuta e orientação
+q38.10;q38.10 10 Elaboração de relatórios
+q38.5;q38.5 5 Encaminhamentos sobre/para a rede de serviços locais
+q38.6;q38.6 6 Articulação da rede de serviços socioassistenciais
+q38.7;q38.7 7 Articulação com os serviços de políticas públicas setoriais
+q38.8;q38.8 8 Articulação interinstitucional com os demais órgãos do Sistema de Garantia de Direitos
+q38.9;q38.9 9 Elaboração de relatórios
+q38.11;q38.11 11 Ações de sensibilização para divulgação do trabaho realizado
+q38.12;q38.12 12 Ações para fortalecimento de vinculos familiares e cominitários
+q39.1;q39.1 1 Conhecimento prévio dos técnicos do Serviço
+q39.2;q39.2 2 A partir de diagnósticos socioterritoriais realizados pelo órgão gestor de Assistência Social
+q39.5;q39.3 3 A partir de diagnósticos socioterritoriais realizados pela equipe que executa o serviço
+q39.3;q39.4 4 Demanda dos órgãos de defesa de direitos
+q39.4;q39.5 5 Denúncias/Solicitações da população
+q39.99;q39.99 99 Outros
+q39.99.1;q39.99.1 Qual?
+q40;q40 Quantos dias por semana a abordagem social é realizada:
+q41;q41  Em quais períodos do dia costuma ser realizada a abordagem social:
+q42.1;q42.1 1  A abordagem é realizada exclusivamente pela equipe do CREAS
+q42.2;q42.2 2  Equipes de atenção básica de saúde
+q42.10;q42.10 10  Equipes de saúde mental
+q42.3;q42.3 3  Equipes de serviços de acolhimento
+q42.4;q42.4 4  Equipes do Centro POP
+q42.5;q42.5 5  Equipes de outras unidades públicas da rede socioassistencial
+q42.6;q42.6 6  Equipes de entidades da rede socioassistencial privada
+q42.7;q42.7 7  Integrantes de movimentos sociais
+q42.8;q42.8 8  Guarda Municipal
+q42.9;q42.9 9  Polícia Militar
+q42.11;q42.11 11  Equipes do sistema de justiça
+q42.99;q42.99 99: Outros
+q43;q43 Esta Unidade oferta o Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosas e suas Famílias
+q44;q44 O Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosas e suas Famílias é executado:
+q45;q45 O Serviço de Proteção Social Especial para Pessoas Com Deficiência, Idosas e suas Famílias, ofertado nesta Unidade, possui capacidade para atender quantos usuários por turno
+q46;q46 Em média, quantos dias por semana os usuários frequentam este serviço
+q47;q47 Em média, quantas horas por dia os usuários do Serviço permanecem na Unidade (nos dias em que este utiliza o serviço)?
+q48.1;q48.1 1 Acolhida e escuta inicial
+q48.2;q48.2 2 Estudo social
+q48.3;q48.3 3 Orientação sobre acesso ao BPC e outros benefícios
+q48.4;q48.4 4 Orientação e apoio para obtenção de documento pessoal
+q48.5;q48.5 5 Orientação para realização de cadastro no CadÚnico
+q48.6;q48.6 6 Elaboração de Plano de Acompanhamento Individual e/ou Familia
+q48.7;q48.7 7 Oficinas e atividades coletivas de convívio e socialização
+q48.8;q48.8 8 Encaminhamento para a rede de serviços socioassistenciais
+q48.9;q48.9 9 Encaminhamento para os serviços da rede de saúde
+q48.10;q48.10 10 Encaminhamento para política de educação
+q48.11;q48.11 11 Encaminhamento para serviços/Unidades das demais políticas publicas
+q48.12;q48.12 12 Encaminhamento para órgãos de defesa de direitos (Defensorria Publica, Ministério Publico,  Conselho Tutelar)
+q48.13;q48.13 13 Acompanhamento dos usuários encaminhados para a rede
+q48.14;q48.14 14 Registro de informações em prontuário
+q48.15;q48.15 15 Elaboração de relatórios sobre casos em acompanhamento
+q48.16;q48.16 16 Visitas Domiciliares
+q48.17;q48.17 17 Atividades com a família do usuário
+q48.18;q48.18 18 Mobilização dos usuários para acesso ao serviço
+q48.19;q48.19 19 Apoio e orientação aos cuidadores familiares
+q48.20;q48.20 20 Orientação sobre tecnologias assistivas
+q48.21;q48.21 21 Orientação e apoio nos autocuidados
+q48.22;q48.22 22 Palestras e Oficinas envolvendo a comunidade
+q48.23;q48.23 23 Provimento de bens materiais
+q49;q49 O território de abrangência deste CREAS compreende:
+q50.0;q50.0 0. Não atendeu
+q50.1;q50.1 1. Sim, atendeu Povos Indígenas
+q50.2;q50.2 2. Sim, atendeu Comunidade Quilombola
+q50.3;q50.3 3. Sim, atendeu Comunidade Ribeirinha
+q50.4;q50.4 4. Sim, atendeu Povos Ciganos
+q50.5;q50.5 5. Sim, atendeu Comunidades Extrativistas
+q50.6;q50.6 6. Sim, atendeu outros povos e comunidades tradicionais
+q51.1; q51.1 1. Povos indígenas
+q51.2; q51.2 2. Povos e comunidades tradicionais (quilombolas, ciganos, ribeirinhos, etc.)
+q51.3; q51.3 3. População LGBTI
+q51.4; q51.4 4. População de rua
+q51.5; q51.5 5. Pessoas com deficiência
+q51.6; q51.6 6. Migrantes
+q52.1.1;q52.1.1 Consultas a comunidades/povo/liderença 1  Indígenas
+q52.1.2;q52.1.2 Consultas a comunidades/povo/liderença 2  Demais povos e comunidades Tradicionais (quilombolas, ciganos, ribeirinhos, extrativistas, etc.)
+q52.1.3;q52.1.3 Consultas a comunidades/povo/liderença 3  População LGBTI
+q52.1.4;q52.1.4 Consultas a comunidades/povo/liderença 4  População em situação de rua /Migrantes
+q52.2.1;q52.2.1 Deslocamento para territórios desses povos 1  Indígenas
+q52.2.2;q52.2.2 Deslocamento para territórios desses povos 2  Demais povos e comunidades Tradicionais (quilombolas, ciganos, ribeirinhos, extrativistas, etc.)
+q52.3.1;q52.3.1 Metodologia especifica de acompanhamento 1  Indígenas
+q52.3.2;q52.3.2 Metodologia especifica de acompanhamento 2  Demais povos e comunidades Tradicionais (quilombolas, ciganos, ribeirinhos, extrativistas, etc.)
+q52.3.3;q52.3.3 Metodologia especifica de acompanhamentos 3  População LGBTI
+q52.3.4;q52.3.4 População em situação de rua /Migrantes
+q52.4.1;q52.4.1 Articulação com organizações  de promoção e defesa dos direitos 1  Indígenas
+q52.4.2;q52.4.2 Articulação com organizações  de promoção e defesa dos direitos 2  Demais povos e comunidades Tradicionais (quilombolas, ciganos, ribeirinhos, extrativistas, etc.)
+q52.4.3;q52.4.3 Articulação com organizações  de promoção e defesa dos direitos 3  População LGBTI
+q52.4.4;q52.4.4 Articulação com organizações  de promoção e defesa dos direitos 4  População em situação de rua /Migrantes
+q52.5.1;q52.5.1 Articulação local com orgãos governamentais com atuação junto a esse público 1  Indígenas
+q52.5.2;q52.5.2 Articulação local com orgãos governamentais com atuação junto a esse público 2  Demais povos e comunidades Tradicionais (quilombolas, ciganos, ribeirinhos, extrativistas, etc.)
+q52.5.3;q52.5.3 Articulação local com orgãos governamentais com atuação junto a esse público 3  População LGBTI
+q52.5.4;q52.5.4 Articulação local com orgãos governamentais com atuação junto a esse público 4  População em situação de rua /Migrantes
+q52.6.1;q52.6.1 Articulação com conselho tutelar  1  Indígenas
+q52.6.2;q52.6.2 Articulação com conselho tutelar  2  Demais povos e comunidades Tradicionais (quilombolas, ciganos, ribeirinhos, extrativistas, etc.)
+q52.6.3;q52.6.3 Articulação com conselho tutelar  3  População LGBTI
+q52.6.4;q52.6.4 Articulação com conselho tutelar  4  População em situação de rua /Migrantes
+q52.7.1;q52.7.1 Ações e mobilização e sensibilização para enfrentamento de situações de violação 1  Indígenas
+q52.7.2;q52.7.2 Ações e mobilização e sensibilização para enfrentamento de situações de violação 2  Demais povos e comunidades Tradicionais (quilombolas, ciganos, ribeirinhos, extrativistas, etc.)
+q52.7.3;q52.7.3 Ações e mobilização e sensibilização para enfrentamento de situações de violação 3  População LGBTI
+q52.7.4;q52.7.4 Ações e mobilização e sensibilização para enfrentamento de situações de violação 4  População em situação de rua /Migrantes
+q52.outro.99;q.52.outro.99 Outra
+q.52.outro.1;q.52.outro.1 Outras 1  Indígenas
+q.52.outro.2;q.52.outro.2 Outras 2  Demais povos e comunidades Tradicionais (quilombolas, ciganos, ribeirinhos, extrativistas, etc.)
+q.52.outro.3;q.52.outro.3 Outras 3  População LGBTI
+q.52.outro.4;q.52.outro.4 Outras 4  População em situação de rua /Migrantes
+q52.qual;q52.qual Informe qual:
+q53;q53 Este CREAS realiza cadastramento da população em situação de rua no CadÚnico?
+q54;q54 Há participação dos usuários nas atividades de planejamento deste CREAS?
+q55.1;q55.1 1  Convida os usuários para as reuniões de planejamento desta unidade
+q55.2;q55.2 2  Apoio financeiro para a participação de reuniões de planejamento junto a esta unidade
+q55.3;q55.3 3  Existência de representante de usuários junto à unidade
+q55.4;q55.4 4  Eleição para representante de usuários junto à unidade
+q55.5;q55.5 5  Estimula a formação de coletivo/comitê de usuários
+q55.6;q55.6 6  Realiza questionário de satisfação/ pesquisa de opinião
+q55.7;q55.7 7  Realiza reuniões/entrevistas especificas a fim de coletar a demanda dos usuários
+q55.8;q55.8 8  O CREAS possui ouvidoria estruturada
+q55.9;q55.9 9  Os usuários escolhem os temas a serem trabalhados nas ações coletivas da unidade
+q55.99;q55.99 99  Outros
+q55.99.1;q55.99.1Quais?
+q56;q56 Este CREAS utiliza o Prontuário SUAS em meio papel?
+q57;q57 Este CREAS utiliza modelo informatizado de Prontuário?
+q57.qual;q57.qual Qual?
+q58.1.1;q58.1.1 1 Possui dados da localização (endereço, telefone, etc.)
+q58.1.2;q58.1.2 2 Recebe usuários encaminhados por este CREAS
+q58.1.3;q58.1.3 3 Encaminha usuários para este CREAS
+q58.1.4;q58.1.4 4 Acompanha os encaminhamentos
+q58.1.5;q58.1.5 5 Realiza reuniões periódicas
+q58.1.6;q58.1.6 6 Troca Informações
+q58.1.7;q58.1.7 7 Realiza estudos de caso em conjunto
+q58.1.8;q58.1.8 8 Desenvolve atividades em parceria
+q58.1.0;q58.1.0 0 Não tem nenhuma articulação
+q58.1.99;q58.1.99 99 Serviço ou instituição não existente no Município
+q58.2.1;q58.2.1 1 Possui dados da localização (endereço, telefone, etc.)
+q58.2.2;q58.2.2 2 Recebe usuários encaminhados por este CREAS
+q58.2.3;q58.2.3 3 Encaminha usuários para este CREAS
+q58.2.4;q58.2.4 4 Acompanha os encaminhamentos
+q58.2.5;q58.2.5 5 Realiza reuniões periódicas
+q58.2.6;q58.2.6 6 Troca Informações
+q58.2.7;q58.2.7 7 Realiza estudos de caso em conjunto
+q58.2.8;q58.2.8 8 Desenvolve atividades em parceria
+q58.2.0;q58.2.0 0 Não tem nenhuma articulação
+q58.2.99;q58.2.99 99 Serviço ou instituição não existente no Município
+q58.3.1;q58.3.1 1 Possui dados da localização (endereço, telefone, etc.)
+q58.3.2;q58.3.2 2 Recebe usuários encaminhados por este CREAS
+q58.3.3;q58.3.3 3 Encaminha usuários para este CREAS
+q58.3.4;q58.3.4 4 Acompanha os encaminhamentos
+q58.3.5;q58.3.5 5 Realiza reuniões periódicas
+q58.3.6;q58.3.6 6 Troca Informações
+q58.3.7;q58.3.7 7 Realiza estudos de caso em conjunto
+q58.3.8;q58.3.8 8 Desenvolve atividades em parceria
+q58.3.0;q58.3.0 0 Não tem nenhuma articulação
+q58.3.99;q58.3.99 99 Serviço ou instituição não existente no Município
+q58.4.1;q58.4.1 1 Possui dados da localização (endereço, telefone, etc.)
+q58.4.2;q58.4.2 2 Recebe usuários encaminhados por este CREAS
+q58.4.3;q58.4.3 3 Encaminha usuários para este CREAS
+q58.4.4;q58.4.4 4 Acompanha os encaminhamentos
+q58.4.5;q58.4.5 5 Realiza reuniões periódicas
+q58.4.6;q58.4.6 6 Troca Informações
+q58.4.7;q58.4.7 7 Realiza estudos de caso em conjunto
+q58.4.8;q58.4.8 8 Desenvolve atividades em parceria
+q58.4.0;q58.4.0 0 Não tem nenhuma articulação
+q58.4.99;q58.4.99 99 Serviço ou instituição não existente no Município
+q58.5.1;q58.5.1 1 Possui dados da localização (endereço, telefone, etc.)
+q58.5.2;q58.5.2 2 Recebe usuários encaminhados por este CREAS
+q58.5.3;q58.5.3 3 Encaminha usuários para este CREAS
+q58.5.4;q58.5.4 4 Acompanha os encaminhamentos
+q58.5.5;q58.5.5 5 Realiza reuniões periódicas
+q58.5.6;q58.5.6 6 Troca Informações
+q58.5.7;q58.5.7 7 Realiza estudos de caso em conjunto
+q58.5.8;q58.5.8 8 Desenvolve atividades em parceria
+q58.5.0;q58.5.0 0 Não tem nenhuma articulação
+q58.5.99;q58.5.99 99 Serviço ou instituição não existente no Município
+q58.6.1;q58.6.1 1 Possui dados da localização (endereço, telefone, etc.)
+q58.6.2;q58.6.2 2 Recebe usuários encaminhados por este CREAS
+q58.6.3;q58.6.3 3 Encaminha usuários para este CREAS
+q58.6.4;q58.6.4 4 Acompanha os encaminhamentos
+q58.6.5;q58.6.5 5 Realiza reuniões periódicas
+q58.6.6;q58.6.6 6 Troca Informações
+q58.6.7;q58.6.7 7 Realiza estudos de caso em conjunto
+q58.6.8;q58.6.8 8 Desenvolve atividades em parceria
+q58.6.0;q58.6.0 0 Não tem nenhuma articulação
+q58.6.99;q58.6.99 99 Serviço ou instituição não existente no Município
+q58.7.1;q58.7.1 1 Possui dados da localização (endereço, telefone, etc.)
+q58.7.2;q58.7.2 2 Recebe usuários encaminhados por este CREAS
+q58.7.3;q58.7.3 3 Encaminha usuários para este CREAS
+q58.7.4;q58.7.4 4 Acompanha os encaminhamentos
+q58.7.5;q58.7.5 5 Realiza reuniões periódicas
+q58.7.6;q58.7.6 6 Troca Informações
+q58.7.7;q58.7.7 7 Realiza estudos de caso em conjunto
+q58.7.8;q58.7.8 8 Desenvolve atividades em parceria
+q58.7.0;q58.7.0 0 Não tem nenhuma articulação
+q58.7.99;q58.7.99 99 Serviço ou instituição não existente no Município
+q58.8.1;q58.8.1 1 Possui dados da localização (endereço, telefone, etc.)
+q58.8.2;q58.8.2 2 Recebe usuários encaminhados por este CREAS
+q58.8.3;q58.8.3 3 Encaminha usuários para este CREAS
+q58.8.4;q58.8.4 4 Acompanha os encaminhamentos
+q58.8.5;q58.8.5 5 Realiza reuniões periódicas
+q58.8.6;q58.8.6 6 Troca Informações
+q58.8.7;q58.8.7 7 Realiza estudos de caso em conjunto
+q58.8.8;q58.8.8 8 Desenvolve atividades em parceria
+q58.8.0;q58.8.0 0 Não tem nenhuma articulação
+q58.8.99;q58.8.99 99 Serviço ou instituição não existente no Município
+q58.9.1;q58.9.1 1 Possui dados da localização (endereço, telefone, etc.)
+q58.9.2;q58.9.2 2 Recebe usuários encaminhados por este CREAS
+q58.9.3;q58.9.3 3 Encaminha usuários para este CREAS
+q58.9.4;q58.9.4 4 Acompanha os encaminhamentos
+q58.9.5;q58.9.5 5 Realiza reuniões periódicas
+q58.9.6;q58.9.6 6 Troca Informações
+q58.9.7;q58.9.7 7 Realiza estudos de caso em conjunto
+q58.9.8;q58.9.8 8 Desenvolve atividades em parceria
+q58.9.0;q58.9.0 0 Não tem nenhuma articulação
+q58.9.99;q58.9.99 99 Serviço ou instituição não existente no Município
+q58.10.1;q58.10.1 1 Possui dados da localização (endereço, telefone, etc.)
+q58.10.2;q58.10.2 2 Recebe usuários encaminhados por este CREAS
+q58.10.3;q58.10.3 3 Encaminha usuários para este CREAS
+q58.10.4;q58.10.4 4 Acompanha os encaminhamentos
+q58.10.5;q58.10.5 5 Realiza reuniões periódicas
+q58.10.6;q58.10.6 6 Troca Informações
+q58.10.7;q58.10.7 7 Realiza estudos de caso em conjunto
+q58.10.8;q58.10.8 8 Desenvolve atividades em parceria
+q58.10.0;q58.10.0 0 Não tem nenhuma articulação
+q58.10.99;q58.10.99 99 Serviço ou instituição não existente no Município
+q58.11.1;q58.11.1 1 Possui dados da localização (endereço, telefone, etc.)
+q58.11.2;q58.11.2 2 Recebe usuários encaminhados por este CREAS
+q58.11.3;q58.11.3 3 Encaminha usuários para este CREAS
+q58.11.4;q58.11.4 4 Acompanha os encaminhamentos
+q58.11.5;q58.11.5 5 Realiza reuniões periódicas
+q58.11.6;q58.11.6 6 Troca Informações
+q58.11.7;q58.11.7 7 Realiza estudos de caso em conjunto
+q58.11.8;q58.11.8 8 Desenvolve atividades em parceria
+q58.11.0;q58.11.0 0 Não tem nenhuma articulação
+q58.11.99;q58.11.99 99 Serviço ou instituição não existente no Município
+q58.12.1;q58.12.1 1 Possui dados da localização (endereço, telefone, etc.)
+q58.12.2;q58.12.2 2 Recebe usuários encaminhados por este CREAS
+q58.12.3;q58.12.3 3 Encaminha usuários para este CREAS
+q58.12.4;q58.12.4 4 Acompanha os encaminhamentos
+q58.12.5;q58.12.5 5 Realiza reuniões periódicas
+q58.12.6;q58.12.6 6 Troca Informações
+q58.12.7;q58.12.7 7 Realiza estudos de caso em conjunto
+q58.12.8;q58.12.8 8 Desenvolve atividades em parceria
+q58.12.0;q58.12.0 0 Não tem nenhuma articulação
+q58.12.99;q58.12.99 99 Serviço ou instituição não existente no Município
+q58.13.1;q58.13.1 1 Possui dados da localização (endereço, telefone, etc.)
+q58.13.2;q58.13.2 2 Recebe usuários encaminhados por este CREAS
+q58.13.3;q58.13.3 3 Encaminha usuários para este CREAS
+q58.13.4;q58.13.4 4 Acompanha os encaminhamentos
+q58.13.5;q58.13.5 5 Realiza reuniões periódicas
+q58.13.6;q58.13.6 6 Troca Informações
+q58.13.7;q58.13.7 7 Realiza estudos de caso em conjunto
+q58.13.8;q58.13.8 8 Desenvolve atividades em parceria
+q58.13.0;q58.13.0 0 Não tem nenhuma articulação
+q58.13.99;q58.13.99 99 Serviço ou instituição não existente no Município
+q58.14.1;q58.14.1 1 Possui dados da localização (endereço, telefone, etc.)
+q58.14.2;q58.14.2 2 Recebe usuários encaminhados por este CREAS
+q58.14.3;q58.14.3 3 Encaminha usuários para este CREAS
+q58.14.4;q58.14.4 4 Acompanha os encaminhamentos
+q58.14.5;q58.14.5 5 Realiza reuniões periódicas
+q58.14.6;q58.14.6 6 Troca Informações
+q58.14.7;q58.14.7 7 Realiza estudos de caso em conjunto
+q58.14.8;q58.14.8 8 Desenvolve atividades em parceria
+q58.14.0;q58.14.0 0 Não tem nenhuma articulação
+q58.14.99;q58.14.99 99 Serviço ou instituição não existente no Município
+q58.15.1;q58.15.1 1 Possui dados da localização (endereço, telefone, etc.)
+q58.15.2;q58.15.2 2 Recebe usuários encaminhados por este CREAS
+q58.15.3;q58.15.3 3 Encaminha usuários para este CREAS
+q58.15.4;q58.15.4 4 Acompanha os encaminhamentos
+q58.15.5;q58.15.5 5 Realiza reuniões periódica
+q58.15.6;q58.15.6 6 Troca Informações
+q58.15.7;q58.15.7 7 Realiza estudos de caso em conjunto
+q58.15.8;q58.15.8 8 Desenvolve atividades em parceria
+q58.15.0;q58.15.0 0 Não tem nenhuma articulação
+q58.15.99;q58.15.99 99 Serviço ou instituição não existente no Município
+q58.16.1;q58.16.1 1 Possui dados da localização (endereço, telefone, etc.)
+q58.16.2;q58.16.2 2 Recebe usuários encaminhados por este CREAS
+q58.16.3;q58.16.3 3 Encaminha usuários para este CREAS
+q58.16.4;q58.16.4 4 Acompanha os encaminhamentos
+q58.16.5;q58.16.5 5 Realiza reuniões periódicas
+q58.16.6;q58.16.6 6 Troca Informações
+q58.16.7;q58.16.7 7 Realiza estudos de caso em conjunto
+q58.16.8;q58.16.8 8 Desenvolve atividades em parceria
+q58.16.0;q58.16.0 0 Não tem nenhuma articulação
+q58.16.99;q58.16.99 99 Serviço ou instituição não existente no Município
+q58.17.1;q58.17.1 1 Possui dados da localização (endereço, telefone, etc.)
+q58.17.2;q58.17.2 2 Recebe usuários encaminhados por este CREAS
+q58.17.3;q58.17.3 3 Encaminha usuários para este CREAS
+q58.17.4;q58.17.4 4 Acompanha os encaminhamentos
+q58.17.5;q58.17.5 5 Realiza reuniões periódicas
+q58.17.6;q58.17.6 6 Troca Informações
+q58.17.7;q58.17.7 7 Realiza estudos de caso em conjunto
+q58.17.8;q58.17.8 8 Desenvolve atividades em parceria
+q58.17.0;q58.17.0 0 Não tem nenhuma articulação
+q58.17.99;q58.17.99 99 Serviço ou instituição não existente no Município
+q58.18.1;q58.18.1 1 Possui dados da localização (endereço, telefone, etc.)
+q58.18.2;q58.18.2 2 Recebe usuários encaminhados por este CREAS
+q58.18.3;q58.18.3 3 Encaminha usuários para este CREAS
+q58.18.4;q58.18.4 4 Acompanha os encaminhamentos
+q58.18.5;q58.18.5 5 Realiza reuniões periódicas
+q58.18.6;q58.18.6 6 Troca Informações
+q58.18.7;q58.18.7 7 Realiza estudos de caso em conjunto
+q58.18.8;q58.18.8 8 Desenvolve atividades em parceria
+q58.18.0;q58.18.0 0 Não tem nenhuma articulação
+q58.18.99;q58.18.99 99 Serviço ou instituição não existente no Município
+q58.19.1;q58.19.1 1 Possui dados da localização (endereço, telefone, etc.)
+q58.19.2;q58.19.2 2 Recebe usuários encaminhados por este CREAS
+q58.19.3;q58.19.3 3 Encaminha usuários para este CREAS
+q58.19.4;q58.19.4 4 Acompanha os encaminhamentos
+q58.19.5;q58.19.5 5 Realiza reuniões periódicas
+q58.19.6;q58.19.6 6 Troca Informações
+q58.19.7;q58.19.7 7 Realiza estudos de caso em conjunto
+q58.19.8;q58.19.8 8 Desenvolve atividades em parceria
+q58.19.0;q58.19.0 0 Não tem nenhuma articulação
+q58.19.99;q58.19.99 99 Serviço ou instituição não existente no Município
+q58.20.1;q58.20.1 1 Possui dados da localização (endereço, telefone, etc.)
+q58.20.2;q58.20.2 2 Recebe usuários encaminhados por este CREAS
+q58.20.3;q58.20.3 3 Encaminha usuários para este CREAS
+q58.20.4;q58.20.4 4 Acompanha os encaminhamentos
+q58.20.5;q58.20.5 5 Realiza reuniões periódicas
+q58.20.6;q58.20.6 6 Troca Informações
+q58.20.7;q58.20.7 7 Realiza estudos de caso em conjunto
+q58.20.8;q58.20.8 8 Desenvolve atividades em parceria
+q58.20.0;q58.20.0 0 Não tem nenhuma articulação
+q58.20.99;q58.20.99 99 Serviço ou instituição não existente no Município
+q59.1;q59.1 1 Pessoa com Deficiência
+q59.2;q59.2 2 Questões de Gênero
+q59.3;q59.3 3 População em situação de rua
+q59.4;q59.4 4 População LGBT
+q59.5;q59.5 5 Povos e comunidades tradicionais (indígenas, quilombolas, ribeirinhos, extrativistas, dentre outros)
+q59.6;q59.6 6 Álcool e outras drogas
+q59.7;q59.7 7 Cor, Raça e etnia
+q59.8;q59.8 8 Violências e violações de direitos
+q59.12;q59.12 12 Trabalho Infantil
+q59.10;q59.10 10 Pessoa Idosa
+q59.11;q59.11 11 Tráfico de Seres Humanos
+q59.9;q59.9 9 Sistema Socioeducativo - SINASE (inclusive MSE)
+q59.99;q59.99 99 Outros
+q59.0;q59.0 0 Não participou de capacitação
+q59.99.1;q59.99.1 Especifique:
+q60;q60 Nesta unidade, algum profissional já participou de algum curso do CAPACITASUAS?
+q60.quantos;q60.quantos Quantos?
+q61;q61 O coordenador deste CREAS:
+q62.4;q62.4 Cargo/Função:
+q62.4.1;q62.4.1 Especifique:
+q63.4;q63.4 Cargo/Função:
+q63.4.1;q63.4.1 Especifique:
+D3_horas_por_semana_categoria;D3_horas_por_semana_categoria_Total de horas por semana que o CREAS encontra-se em funcionamento
+D8_1_total_salas_atend;D8_1_Total de salas utilizadas para atendimento individual ou coletivo
+D8_1_sl_atend_categoria;D8a_sl_atend_categoria_Total de salas utilizadas para atendimento individual ou coletivo
+D8_2_total_salas_adm_e_atend;D8_2_Total de salas utilizadas para atendimento e para atividades administrativas
+D8_2_total_salas_adm_e_atend_categoria;D8b_total_salas_adm_e_atend_categoria_Total de salas utilizadas para atendimento e atividades administrativas
+D8_6;D8_6_Quantidade total de banheiros
+D12;D12_Quantidade de computadores no CREAS
+D13;D13_Quantidade de computadores conectados à internet no CREAS
+D62_8bin1_sum;D62_8bin1_Número de trabalhadores de Nível fundamental (inclui trabalhadores sem escolaridade, fundamental incompleto e ensino médio incompleto)
+D62_8bin2_sum;D62_8bin2_Número de trabalhadores de Nível médio (inclui trabalhadores com ensino superior incompleto)
+D62_8bin3_sum;D62_8bin3_Número de trabalhadores de Nível superior (inclui trabalhadores com especialização, mestrado e doutorado)
+D62_9bin1_sum;D62_9bin1_sum_Número de Pedagogos
+D62_9bin2_sum;D62_9bin2_sum_Número de Assistentes Sociais
+D62_9bin3_sum;D62_9bin3_sum_Número de Antropólogos
+D62_9bin4_sum;D62_9bin4_sum_Número de Advogados
+D62_9bin5_sum;D62_9bin5_sum_Número de Psicólogos
+D62_10bin1_sum;D62_10bin1_Número de Servidores Estatutários
+D62_10bin2_sum;D62_10bin2_Número de Empregados Públicos(CLT)
+D62_10bin3_sum;D62_10bin3_Número de Comissionados
+D62_10bin4_sum;"Número de profissionais com outros vínculos não permanentes (inclui Trabalhador de Empresas/Cooperativa/Entidade Prestadora de Serviços; Voluntários; Ser. Temporário; Sem vínculo; Terceirizado e Outro vínculo não permanente)"
+nu_trabalhadores;Número de trabalhdores no CREAS
+D62_14_1bin_Gestão_sum;D62_14_1bin_Gestão - Principal serviço/atividade
+D62_14_1bin_PAEFI_sum;D62_14_1bin_PAEFI - Principal serviço/atividade
+D62_14_1bin_MSE_sum;D62_14_1bin_MSE - Principal serviço/atividade
+D62_14_1bin_Abordagem_sum;D62_14_1bin_Abordagem - Principal serviço/atividade
+D62_14_1bin_Cadastramento_sum;D62_14_1bin_Cadastramento - Principal serviço/atividade
+D62_14_1bin_Outros_sum;D62_14_1bin_Outros - Principal serviço/atividade
+D62_14_2bin_Gestão_sum;D62_14_2bin_Gestão - Segundo principal serviço/atividade
+D62_14_2bin_PAEFI_sum;D62_14_2bin_PAEFI - Segundo principal serviço/atividade
+D62_14_2bin_MSE_sum;D62_14_2bin_MSE - Segundo principal serviço/atividade
+D62_14_2bin_Abordagem_sum;D62_14_2bin_Abordagem- Segundo serviço/atividade
+D62_14_2bin_Cadastramento_sum;D62_14_2bin_Cadastramento - Principal serviço/atividade
+D62_14_2bin_Outros_sum;D62_14_2bin_Outros - Principal serviço/atividade
+D62_14_3bin_Gestão_sum;D62_14_3bin_Gestão - Terceiro principal serviço/atividade
+D62_14_3bin_PAEFI_sum;D62_14_3bin_PAEFI - Terceiro principal serviço/atividade
+D62_14_3bin_MSE_sum;D62_14_3bin_MSE - Terceiro principal serviço/atividade
+D62_14_3bin_Abordagem_sum;D62_14_3bin_Abordagem - Terceiro principal serviço/atividade
+D62_14_3bin_Cadastramento_sum;D62_14_3bin_Cadastramento - Principal serviço/atividade
+D62_14_3bin_Outros_sum;D62_14_3bin_Outros - Principal serviço/atividade
+nu_trabalhadores_serviços;

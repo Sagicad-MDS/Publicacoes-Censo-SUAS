@@ -1,0 +1,791 @@
+
+FREQUENCIES VARIABLES=Porte_pop2010
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=Região
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=uf
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q1
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q2
+  /ORDER=ANALYSIS.
+
+DESCRIPTIVES VARIABLES=q3
+  /STATISTICS=MEAN SUM MIN MAX.
+
+FREQUENCIES VARIABLES=q4
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q6
+  /FORMAT=DVALUE
+  /ORDER=ANALYSIS.
+
+MULT RESPONSE GROUPS=$Q7 'Recebe outras formas de apoio municipal' (q7_1 q7_2 q7_3 q7_4 q7_5 q7_6 
+    q7_7 q7_8 q7_9 q7_10 q7_11 q7_12 (1))
+  /FREQUENCIES=$Q7.
+
+MULT RESPONSE GROUPS=$q8 'Conselhos Municipais possui inscrição' (q8_1 q8_2 q8_3 q8_4 (1))
+  /FREQUENCIES=$q8.
+
+FREQUENCIES VARIABLES=q9
+  /FORMAT=DVALUE
+  /ORDER=ANALYSIS.
+
+DESCRIPTIVES VARIABLES=q10
+  /STATISTICS=MEAN SUM STDDEV MIN MAX.
+
+FREQUENCIES VARIABLES=D10
+  /FORMAT=DVALUE
+  /ORDER=ANALYSIS.
+
+DESCRIPTIVES VARIABLES=q11
+  /STATISTICS=MEAN SUM STDDEV MIN MAX.
+
+FREQUENCIES VARIABLES=D11
+  /FORMAT=DVALUE
+  /ORDER=ANALYSIS.
+
+DESCRIPTIVES VARIABLES=q12
+  /STATISTICS=MEAN SUM STDDEV MIN MAX.
+
+FREQUENCIES VARIABLES=D12
+  /ORDER=ANALYSIS.
+
+DESCRIPTIVES VARIABLES=q13
+  /STATISTICS=MEAN SUM STDDEV MIN MAX.
+
+FREQUENCIES VARIABLES=q13_ns
+  /ORDER=ANALYSIS.
+
+**Questão 14
+
+COMPUTE q14a_9_recode=q14a_9.
+EXECUTE.
+
+COMPUTE q14a_10_recode=q14a_10.
+EXECUTE.
+
+COMPUTE q14b_1_recode=q14b_1.
+EXECUTE.
+
+COMPUTE q14b_2_recode=q14b_2.
+EXECUTE.
+
+COMPUTE q14b_3_recode=q14b_3.
+EXECUTE.
+
+COMPUTE q14b_4_recode=q14b_4.
+EXECUTE.
+
+COMPUTE q14b_5_recode=q14b_5.
+EXECUTE.
+
+COMPUTE q14b_6_recode=q14b_6.
+EXECUTE.
+
+COMPUTE q14b_7_recode=q14b_7.
+EXECUTE.
+
+COMPUTE q14b_8_recode=q14b_8.
+EXECUTE.
+
+COMPUTE q14b_9_recode=q14b_9.
+EXECUTE.
+
+COMPUTE q14b_10_recode=q14b_10.
+EXECUTE.
+
+
+COMPUTE q14c_1_recode=D14_1.
+EXECUTE.
+
+COMPUTE q14c_2_recode=D14_2.
+EXECUTE.
+
+COMPUTE q14c_3_recode=D14_3.
+EXECUTE.
+
+COMPUTE q14c_4_recode=D14_4.
+EXECUTE.
+
+COMPUTE q14c_5_recode=D14_5.
+EXECUTE.
+
+COMPUTE q14c_6_recode=D14_6.
+EXECUTE.
+
+COMPUTE q14c_7_recode=D14_7.
+EXECUTE.
+
+COMPUTE q14c_8_recode=D14_8.
+EXECUTE.
+
+COMPUTE q14c_9_recode=D14_9.
+EXECUTE.
+
+COMPUTE q14c_10_recode=D14_10.
+EXECUTE.
+
+
+RECODE q14a_1_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q14a_2_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q14a_3_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q14a_4_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q14a_5_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q14a_6_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q14a_7_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q14a_8_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q14a_9_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q14a_10_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q14b_1_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q14b_2_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q14b_3_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q14b_4_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q14b_5_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q14b_6_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q14b_7_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q14b_8_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q14b_9_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q14b_10_recode(0=SYSMIS).
+EXECUTE.
+
+
+RECODE q14c_1_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q14c_2_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q14c_3_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q14c_4_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q14c_5_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q14c_6_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q14c_7_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q14c_8_recode(0=SYSMIS).
+EXECUTE.
+
+
+RECODE q14c_9_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q14c_10_recode(0=SYSMIS).
+EXECUTE.
+
+
+var labels q14a_1_recode "q14a_1_Masculino - 0 a 2 anos"
+/q14a_2_recode "q14a_2_Masculino - 3 a 5 anos"
+/q14a_3_recode "q14a_3_Masculino - 6 a 11 anos"
+/q14a_4_recode "q14a_4_Masculino - 12 a 13 anos"
+/q14a_5_recode "q14a_5_Masculino - 14 a 15 anos"
+/q14a_6_recode "q14a_6_Masculino - 16 a 17 anos"
+/q14a_7_recode "q14a_7_Masculino - 18 a 21 anos"
+/q14a_8_recode "q14a_8_Masculino - 22 a 59 anos"
+/q14a_9_recode "q14a_9_Masculino - 60 a 79 anos"
+/q14a_10_recode "q14a_10_Masculino - 80 anos ou mais"
+/q14b_1_recode "q14b_1_Feminino - 0 a 2 anos"
+/q14b_2_recode "q14b_2_Feminino - 3 a 5 anos"
+/q14b_3_recode "q14b_3_Feminino - 6 a 11 anos"
+/q14b_4_recode "q14b_4_Feminino - 12 a 13 anos"
+/q14b_5_recode "q14b_5_Feminino - 14 a 15 anos"
+/q14b_6_recode "q14b_6_Feminino - 16 a 17 anos"
+/q14b_7_recode "q14b_7_Feminino - 18 a 21 anos"
+/q14b_8_recode "q14b_8_Feminino - 22 a 59 anos"
+/q14b_9_recode "q14b_9_Feminino - 60 a 79 anos"
+/q14b_10_recode "q14b_10_Feminino - 80 anos ou mais"
+/q14c_1_recode "q14c_1_Total - 0 a 2 anos"
+/q14c_2_recode "q14c_2_Total- 3 a 5 anos"
+/q14c_3_recode "q14c_3_Total- 6 a 11 anos"
+/q14c_4_recode "q14c_4_Total- 12 a 13 anos"
+/q14c_5_recode "q14c_5_Total- 14 a 15 anos"
+/q14c_6_recode "q14c_6_Total- 16 a 17 anos"
+/q14c_7_recode "q14c_7_Total- 18 a 21 anos"
+/q14c_8_recode "q14c_8_Total- 22 a 59 anos"
+/q14c_9_recode "q14c_9_Total- 60 a 79 anos"
+/q14c_10_recode "q14c_10_Total- 80 anos ou mais".
+
+execute.
+
+DESCRIPTIVES VARIABLES=q14a_1_recode q14a_2_recode q14a_3_recode q14a_4_recode q14a_5_recode q14a_6_recode q14a_7_recode q14a_8_recode q14a_9_recode q14a_10_recode
+  /STATISTICS=MEAN SUM MIN MAX.
+
+DESCRIPTIVES VARIABLES=q14b_1_recode q14b_2_recode q14b_3_recode q14b_4_recode q14b_5_recode q14b_6_recode q14b_7_recode q14b_8_recode q14b_9_recode q14b_10_recode
+  /STATISTICS=MEAN SUM MIN MAX.
+
+DESCRIPTIVES VARIACLES=q14c_1_recode q14c_2_recode q14c_3_recode q14c_4_recode q14c_5_recode q14c_6_recode q14c_7_recode q14c_8_recode q14c_9_recode q14c_10_recode
+  /STATISTICS=MEAN SUM MIN MAX.
+
+DELETE VARIABLES
+q14a_1_recode
+q14a_2_recode
+q14a_3_recode
+q14a_4_recode
+q14a_5_recode
+q14a_6_recode
+q14a_7_recode
+q14a_8_recode
+q14a_9_recode
+q14a_10_recode.
+execute.
+
+DELETE VARIABLES
+q14b_1_recode
+q14b_2_recode
+q14b_3_recode
+q14b_4_recode
+q14b_5_recode
+q14b_6_recode
+q14b_7_recode
+q14b_8_recode
+q14b_9_recode
+q14b_10_recode.
+execute.
+
+DELETE VARIABLES
+q14c_1_recode
+q14c_2_recode
+q14c_3_recode
+q14c_4_recode
+q14c_5_recode
+q14c_6_recode
+q14c_7_recode
+q14c_8_recode
+q14c_9_recode
+q14c_10_recode.
+execute.
+
+***** Questão 15
+
+COMPUTE q15_1_recode=q15_1.
+EXECUTE.
+
+COMPUTE q15_2_recode=q15_2.
+EXECUTE.
+
+RECODE q15_1_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q15_2_recode(0=SYSMIS).
+EXECUTE.
+
+var labels q15_1_recode "q15_1_Indique se entre os usuários acolhidos nesta unidade existem idosos que sejam beneficiários do BPC. Caso não haja beneficiários do BPC informe zero"
+/q15_2_recode "q15_2_Indique se entre os usuários acolhidos nesta unidade existem pessoas com deficiência que sejam beneficiários do BPC. Caso não haja beneficiários do BPC informe zero".
+
+
+DESCRIPTIVES VARIABLES=q15_1_recode
+  /STATISTICS=MEAN SUM STDDEV MIN MAX.
+
+DESCRIPTIVES VARIABLES=q15_2_recode
+  /STATISTICS=MEAN SUM STDDEV MIN MAX.
+
+DELETE VARIABLES
+q15_1_recode
+q15_2_recode.
+execute.
+
+***
+
+FREQUENCIES VARIABLES=q16
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=D17a
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=D17b
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q17a_2 q17b_2
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q18
+  /ORDER=ANALYSIS.
+
+
+*** Questão 19
+COMPUTE q19_1_recode=q19_1.
+EXECUTE.
+
+COMPUTE q19_2_recode=q19_2.
+EXECUTE.
+
+COMPUTE q19_3_recode=q19_3.
+EXECUTE.
+
+COMPUTE q19_4_recode=q19_4.
+EXECUTE.
+
+COMPUTE q19_5_recode=q19_5.
+EXECUTE.
+
+COMPUTE q19_6_recode=q19_6.
+EXECUTE.
+
+COMPUTE q19_7_recode=q19_7.
+EXECUTE.
+
+COMPUTE q19_8_recode=q19_8.
+EXECUTE.
+
+RECODE q19_1_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q19_2_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q19_3_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q19_4_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q19_5_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q19_6_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q19_7_recode(0=SYSMIS).
+EXECUTE.
+
+RECODE q19_8_recode(0=SYSMIS).
+EXECUTE.
+
+var labels q19_1_recode "q19_1_Menos de 1 Mês"
+/q19_2_recode "q19_2_De 1 a 3 meses"
+/q19_3_recode "q19_3_De 4 a 6 meses"
+/q19_4_recode "q19_4_De 7 a 12 meses"
+/q19_5_recode "q19_5_De 13 a 24 meses"
+/q19_6_recode "q19_6_De 25 a 48 meses"
+/q19_7_recode "q19_7_De 49 a 72 meses"
+/q19_8_recode "q19_8_Mais de 72 meses (mais de 6 anos)". 
+
+DESCRIPTIVES VARIABLES=q19_1_recode q19_2_recode q19_3_recode q19_4_recode q19_5_recode q19_6_recode q19_7_recode q19_8_recode
+  /STATISTICS=MEAN SUM STDDEV MIN MAX.
+
+DELETE VARIABLES
+q19_1_recode
+q19_2_recode
+q19_3_recode
+q19_4_recode
+q19_5_recode
+q19_6_recode
+q19_7_recode
+q19_8_recode.
+execute.
+
+***Questão 20
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q20a_1 q20b_1 q20c_1 q20d_1 q20e_1 q20f_1 q20g_1 
+    DISPLAY=LABEL
+  /TABLE q20a_1 [S][SUM] + q20b_1 [S][SUM] + q20c_1 [S][SUM] + q20d_1 [S][SUM] + q20e_1 [S][SUM] + q20f_1 [S][SUM] + q20g_1 [S][SUM]
+  /TITLES
+    TITLE='Quantidade de pessoas acolhidas hoje nas unidades, segundo características abaixo'.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES= q20a_2 q20b_2 q20c_2 q20d_2 q20e_2 q20f_2 q20g_2 
+    DISPLAY=LABEL
+  /TABLE q20a_2 [S][SUM] + q20b_2 [S][SUM] + q20c_2 [S][SUM] + q20d_2 [S][SUM] + q20e_2 [S][SUM] + q20f_2 [S][SUM] + q20g_2 [S][SUM]
+ /TITLES
+    TITLE='Quantidade de unidades que recebem pessoas com as seguintes características'.
+
+FREQUENCIES VARIABLES=q21
+  /FORMAT=DVALUE
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q23
+  /ORDER=ANALYSIS.
+
+MULT RESPONSE GROUPS=$q22 'Informações que constam no Plano Individual de Atendimento (PIA)' (q22_1 q22_2 q22_3 q22_4 q22_5 q22_6 q22_7 q22_8 (1))
+  /FREQUENCIES=$q22.
+
+MULT RESPONSE GROUPS=$q24 'Atividades promovidas sistematicamente pela Unidade' (q24_1 q24_2 q24_3 q24_4 q24_5 q24_6 q24_7 q24_8 q24_9 q24_10 q24_11 
+    q24_12 q24_13 q24_14 q24_15 (1))
+  /FREQUENCIES=$q24.
+
+MULT RESPONSE GROUPS=$q25 'Quem realiza o acompanhamento dos usuários após o seu desligamento da Unidade de Acolhimento?' (q25_1 q25_2 q25_3 q25_4 q25_5 q25_6(1))
+  /FREQUENCIES=$q25.
+
+MULT RESPONSE GROUPS=$q26 'Órgãos que realizaram visita, inspeção ou supervisão na Unidade nos últimos 12 meses' (q26_1 q26_2 q26_3 q26_4 q26_5 q26_6 q26_7 q26_8 q26_9 q26_10(1))
+  /FREQUENCIES=$q26.
+
+
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q27a_1 q27a_2 q27a_3 q27a_4 q27a_5 q27a_6 q27a_7 q27a_8 q27a_9 q27a_10 
+    DISPLAY=LABEL
+  /TABLE BY q27a_1 [C][COUNT F40.0] + q27a_2 [C][COUNT F40.0] + q27a_3 [C][COUNT F40.0] + q27a_4 
+    [C][COUNT F40.0] + q27a_5 [C][COUNT F40.0] + q27a_6 [C][COUNT F40.0] + q27a_7 [C][COUNT F40.0] + 
+    q27a_8 [C][COUNT F40.0] + q27a_9 [C][COUNT F40.0] + q27a_10 [C][COUNT F40.0]
+  /CATEGORIES VARIABLES=q27a_1 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27a_2 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27a_3 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27a_4 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27a_5 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27a_6 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27a_7 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27a_8 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27a_9 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27a_10 [1] EMPTY=INCLUDE
+  /TITLES
+    TITLE='Tipo de articulação que a unidade/instituição possui com o Conselho Tutelar'.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q27b_1 q27b_2 q27b_3 q27b_4 q27b_5 q27b_6 q27b_7 q27b_8 q27b_9 q27b_10 
+    DISPLAY=LABEL
+  /TABLE BY q27b_1 [C][COUNT F40.0] + q27b_2 [C][COUNT F40.0] + q27b_3 [C][COUNT F40.0] + q27b_4 
+    [C][COUNT F40.0] + q27b_5 [C][COUNT F40.0] + q27b_6 [C][COUNT F40.0] + q27b_7 [C][COUNT F40.0] + 
+    q27b_8 [C][COUNT F40.0] + q27b_9 [C][COUNT F40.0] + q27b_10 [C][COUNT F40.0]
+  /CATEGORIES VARIABLES=q27b_1 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27b_2 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27b_3 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27b_4 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27b_5 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27b_6 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27b_7 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27b_8 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27b_9 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27b_10 [1] EMPTY=INCLUDE
+  /TITLES
+    TITLE='Tipo de articulação que a unidade/instituição possui com o Poder Judiciário'.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q27c_1 q27c_2 q27c_3 q27c_4 q27c_5 q27c_6 q27c_7 q27c_8 q27c_9 q27c_10 
+    DISPLAY=LABEL
+  /TABLE BY q27c_1 [C][COUNT F40.0] + q27c_2 [C][COUNT F40.0] + q27c_3 [C][COUNT F40.0] + q27c_4 
+    [C][COUNT F40.0] + q27c_5 [C][COUNT F40.0] + q27c_6 [C][COUNT F40.0] + q27c_7 [C][COUNT F40.0] + 
+    q27c_8 [C][COUNT F40.0] + q27c_9 [C][COUNT F40.0] + q27c_10 [C][COUNT F40.0]
+  /CATEGORIES VARIABLES=q27c_1 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27c_2 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27c_3 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27c_4 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27c_5 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27c_6 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27c_7 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27c_8 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27c_9 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27c_10 [1] EMPTY=INCLUDE
+  /TITLES
+    TITLE='Tipo de articulação que a unidade/instituição possui com o Ministério Público'.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q27d_1 q27d_2 q27d_3 q27d_4 q27d_5 q27d_6 q27d_7 q27d_8 q27d_9 q27d_10 
+    DISPLAY=LABEL
+  /TABLE BY q27d_1 [C][COUNT F40.0] + q27d_2 [C][COUNT F40.0] + q27d_3 [C][COUNT F40.0] + q27d_4 
+    [C][COUNT F40.0] + q27d_5 [C][COUNT F40.0] + q27d_6 [C][COUNT F40.0] + q27d_7 [C][COUNT F40.0] + 
+    q27d_8 [C][COUNT F40.0] + q27d_9 [C][COUNT F40.0] + q27d_10 [C][COUNT F40.0]
+  /CATEGORIES VARIABLES=q27d_1 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27d_2 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27d_3 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27d_4 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27d_5 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27d_6 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27d_7 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27d_8 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27d_9 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27d_10 [1] EMPTY=INCLUDE
+  /TITLES
+    TITLE='Tipo de articulação que a unidade/instituição possui com o Defensoria Pública'.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q27e_1 q27e_2 q27e_3 q27e_4 q27e_5 q27e_6 q27e_7 q27e_8 q27e_9 q27e_10 
+    DISPLAY=LABEL
+  /TABLE BY q27e_1 [C][COUNT F40.0] + q27e_2 [C][COUNT F40.0] + q27e_3 [C][COUNT F40.0] + q27e_4 
+    [C][COUNT F40.0] + q27e_5 [C][COUNT F40.0] + q27e_6 [C][COUNT F40.0] + q27e_7 [C][COUNT F40.0] + 
+    q27e_8 [C][COUNT F40.0] + q27e_9 [C][COUNT F40.0] + q27e_10 [C][COUNT F40.0]
+  /CATEGORIES VARIABLES=q27e_1 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27e_2 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27e_3 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27e_4 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27e_5 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27e_6 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27e_7 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27e_8 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27e_9 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27e_10 [1] EMPTY=INCLUDE
+  /TITLES
+    TITLE='Tipo de articulação que a unidade/instituição possui com a Secretaria Municipal de Assistência Social'.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q27f_1 q27f_2 q27f_3 q27f_4 q27f_5 q27f_6 q27f_7 q27f_8 q27f_9 q27f_10 
+    DISPLAY=LABEL
+  /TABLE BY q27f_1 [C][COUNT F40.0] + q27f_2 [C][COUNT F40.0] + q27f_3 [C][COUNT F40.0] + q27f_4 
+    [C][COUNT F40.0] + q27f_5 [C][COUNT F40.0] + q27f_6 [C][COUNT F40.0] + q27f_7 [C][COUNT F40.0] + 
+    q27f_8 [C][COUNT F40.0] + q27f_9 [C][COUNT F40.0] + q27f_10 [C][COUNT F40.0]
+  /CATEGORIES VARIABLES=q27f_1 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27f_2 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27f_3 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27f_4 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27f_5 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27f_6 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27f_7 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27f_8 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27f_9 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27f_10 [1] EMPTY=INCLUDE
+  /TITLES
+    TITLE='Tipo de articulação que a unidade/instituição possui com o CRAS'.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q27g_1 q27g_2 q27g_3 q27g_4 q27g_5 q27g_6 q27g_7 q27g_8 q27g_9 q27g_10 
+    DISPLAY=LABEL
+  /TABLE BY q27g_1 [C][COUNT F40.0] + q27g_2 [C][COUNT F40.0] + q27g_3 [C][COUNT F40.0] + q27g_4 
+    [C][COUNT F40.0] + q27g_5 [C][COUNT F40.0] + q27g_6 [C][COUNT F40.0] + q27g_7 [C][COUNT F40.0] + 
+    q27g_8 [C][COUNT F40.0] + q27g_9 [C][COUNT F40.0] + q27g_10 [C][COUNT F40.0]
+  /CATEGORIES VARIABLES=q27g_1 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27g_2 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27g_3 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27g_4 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27g_5 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27g_6 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27g_7 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27g_8 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27g_9 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27g_10 [1] EMPTY=INCLUDE
+  /TITLES
+    TITLE='Tipo de articulação que a unidade/instituição possui com o CREAS'.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q27h_1 q27h_2 q27h_3 q27h_4 q27h_5 q27h_6 q27h_7 q27h_8 q27h_9 q27h_10 
+    DISPLAY=LABEL
+  /TABLE BY q27h_1 [C][COUNT F40.0] + q27h_2 [C][COUNT F40.0] + q27h_3 [C][COUNT F40.0] + q27h_4 
+    [C][COUNT F40.0] + q27h_5 [C][COUNT F40.0] + q27h_6 [C][COUNT F40.0] + q27h_7 [C][COUNT F40.0] + 
+    q27h_8 [C][COUNT F40.0] + q27h_9 [C][COUNT F40.0] + q27h_10 [C][COUNT F40.0]
+  /CATEGORIES VARIABLES=q27h_1 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27h_2 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27h_3 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27h_4 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27h_5 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27h_6 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27h_7 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27h_8 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27h_9 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27h_10 [1] EMPTY=INCLUDE
+  /TITLES
+    TITLE='Tipo de articulação que a unidade/instituição possui com o Centro POP'.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q27i_1 q27i_2 q27i_3 q27i_4 q27i_5 q27i_6 q27i_7 q27i_8 q27i_9 q27i_10 
+    DISPLAY=LABEL
+  /TABLE BY q27i_1 [C][COUNT F40.0] + q27i_2 [C][COUNT F40.0] + q27i_3 [C][COUNT F40.0] + q27i_4 
+    [C][COUNT F40.0] + q27i_5 [C][COUNT F40.0] + q27i_6 [C][COUNT F40.0] + q27i_7 [C][COUNT F40.0] + 
+    q27i_8 [C][COUNT F40.0] + q27i_9 [C][COUNT F40.0] + q27i_10 [C][COUNT F40.0]
+  /CATEGORIES VARIABLES=q27i_1 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27i_2 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27i_3 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27i_4 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27i_5 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27i_6 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27i_7 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27i_8 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27i_9 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27i_10 [1] EMPTY=INCLUDE
+  /TITLES
+    TITLE='Tipo de articulação que a unidade/instituição possui com Outras Unidades de Acolhimento'.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q27j_1 q27j_2 q27j_4 q27j_5 q27j_6 q27j_7 q27j_8 q27j_9 q27j_10 
+    DISPLAY=LABEL
+  /TABLE BY q27j_1 [C][COUNT F40.0] + q27j_2 [C][COUNT F40.0] + q27j_4 [C][COUNT F40.0] + q27j_5 [C][COUNT F40.0] + q27j_6 [C][COUNT F40.0] + q27j_7 [C][COUNT F40.0] + 
+    q27j_8 [C][COUNT F40.0] + q27j_9 [C][COUNT F40.0] + q27j_10 [C][COUNT F40.0]
+  /CATEGORIES VARIABLES=q27j_1 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27j_2 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27j_4 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27j_5 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27j_6 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27j_7 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27j_8 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27j_9 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27j_10 [1] EMPTY=INCLUDE
+  /TITLES
+    TITLE='Tipo de articulação que a unidade/instituição possui com Serviços de Saúde'.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q27k_1 q27k_2 q27k_4 q27k_5 q27k_6 q27k_7 q27k_8 q27k_9 q27k_10 
+    DISPLAY=LABEL
+  /TABLE BY q27k_1 [C][COUNT F40.0] + q27k_2 [C][COUNT F40.0] + q27k_4 [C][COUNT F40.0] + q27k_5 [C][COUNT F40.0] + q27k_6 [C][COUNT F40.0] + q27k_7 [C][COUNT F40.0] + 
+    q27k_8 [C][COUNT F40.0] + q27k_9 [C][COUNT F40.0] + q27k_10 [C][COUNT F40.0]
+  /CATEGORIES VARIABLES=q27k_1 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27k_2 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27k_4 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27k_5 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27k_6 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27k_7 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27k_8 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27k_9 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27k_10 [1] EMPTY=INCLUDE
+  /TITLES
+    TITLE='Tipo de articulação que a unidade/instituição possui com Unidades Educacionais (creches/escolas/universidade)'.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q27l_1 q27l_2 q27l_4 q27l_5 q27l_6 q27l_7 q27l_8 q27l_9 q27l_10 
+    DISPLAY=LABEL
+  /TABLE BY q27l_1 [C][COUNT F40.0] + q27l_2 [C][COUNT F40.0] + q27l_4 [C][COUNT F40.0] + q27l_5 [C][COUNT F40.0] + q27l_6 [C][COUNT F40.0] + q27l_7 [C][COUNT F40.0] + 
+    q27l_8 [C][COUNT F40.0] + q27l_9 [C][COUNT F40.0] + q27l_10 [C][COUNT F40.0]
+  /CATEGORIES VARIABLES=q27l_1 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27l_2 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27l_4 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27l_5 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27l_6 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27l_7 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27l_8 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27l_9 [1] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q27l_10 [1] EMPTY=INCLUDE
+  /TITLES
+    TITLE='Tipo de articulação que a unidade/instituição possui com Órgãos/Serviços/Programas relacionados a Trabalho e Renda'.
+
+FREQUENCIES VARIABLES=q28
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q29
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q30
+  /ORDER=ANALYSIS.
+
+
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q32_10 q32_11 q32_12 q32_13 q32_14 q32_15 DISPLAY=LABEL
+  /TABLE q32_10 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q32_11 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q32_12 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q32_13 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q32_14 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q32_15 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1]
+  /CLABELS ROWLABELS=OPPOSITE
+  /CATEGORIES VARIABLES=q32_10 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q32_11 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q32_12 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q32_13 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q32_14 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q32_15 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /TITLES
+    TITLE='Espaços existentes na estrutura física da Unidade'.
+
+MULT RESPONSE GROUPS=$q33 'Equipamentos e materiais disponíveis, e em perfeito funcionamento, nas Unidades' (q33_1 q33_2 q33_3 q33_4 q33_5 q33_6 q33_7 q33_8 q33_9 q33_10 q33_11 
+    q33_12 q33_13 q33_14 q33_15 q33_16_1 q33_17_1 q33_18 q33_19 q33_20 q33_21 q33_22 q33_23 q33_24 
+    q33_25_1 (1))
+  /FREQUENCIES=$q33.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q34a_1 q34a_2 q34b_1 q34b_2 DISPLAY=LABEL
+  /TABLE q34a_1 [SUM] + q34a_2 [SUM] + q34b_1 [SUM] + q34b_2 [SUM]
+  /TITLES
+    TITLE='Quantidade de computadores, em perfeito funcionamento, existentes nas Unidades'.
+
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q35_1 q35_2 q35_3 q35_4 DISPLAY=LABEL
+  /TABLE q35_1 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q35_2 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q35_3 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q35_4 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1]
+  /CLABELS ROWLABELS=OPPOSITE
+  /CATEGORIES VARIABLES=q35_1 q35_2 q35_3 q35_4 [1, 0, OTHERNM] EMPTY=INCLUDE
+  /TITLES
+    TITLE='Condições de acessibilidade das Unidades'.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q14a_1 q14a_2 q14a_3 q14a_4 q14a_5 q14a_6 q14a_7 q14a_8 q14a_9 q14a_10 
+    DISPLAY=LABEL
+  /TABLE BY q14a_1 [SUM] + q14a_2 [SUM] + q14a_3 [SUM] + q14a_4 [SUM] + q14a_5 [SUM] + q14a_6 [SUM] 
+    + q14a_7 [SUM] + q14a_8 [SUM] + q14a_9 [SUM] + q14a_10 [SUM]
+  /TITLES
+    TITLE='Quantidade de pessoas acolhidas, do sexo masculino, por faixa etária'.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q14b_1 q14b_2 q14b_3 q14b_4 q14b_5 q14b_6 q14b_7 q14b_8 q14b_9 q14b_10 
+    DISPLAY=LABEL
+  /TABLE BY q14b_1 [SUM] + q14b_2 [SUM] + q14b_3 [SUM] + q14b_4 [SUM] + q14b_5 [SUM] + q14b_6 [SUM] 
+    + q14b_7 [SUM] + q14b_8 [SUM] + q14b_9 [SUM] + q14b_10 [SUM]
+  /TITLES
+    TITLE='Quantidade de pessoas acolhidas, do sexo feminino, por faixa etária'.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=D14_1 D14_2 D14_3 D14_4 D14_5 D14_6 D14_7 D14_8 D14_9 D14_10 
+    DISPLAY=LABEL
+  /TABLE BY D14_1 [SUM] + D14_2 [SUM] + D14_3 [SUM] + D14_4 [SUM] + D14_5 [SUM] + D14_6 [SUM] + 
+    D14_7 [SUM] + D14_8 [SUM] + D14_9 [SUM] + D14_10 [SUM]
+  /TITLES
+    TITLE='Quantidade total de pessoas acolhidas, por faixa etária'.
+
+
+FREQUENCIES VARIABLES=D14_total
+  /FORMAT=NOTABLE
+  /STATISTICS=STDDEV MEAN SUM
+  /ORDER=ANALYSIS.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q15_1 q15_2 DISPLAY=LABEL
+  /TABLE q15_1 [SUM] + q15_2 [SUM]
+  /TITLES
+    TITLE='Quantidade de idosos ou pessoas com deficiência acolhidos nas unidades e que são '+
+    'beneficiárias do BPC '.

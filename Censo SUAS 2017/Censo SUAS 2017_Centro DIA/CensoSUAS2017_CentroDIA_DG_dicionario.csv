@@ -1,0 +1,271 @@
+Variável;Descrição
+NU_IDENTIFICADOR;Número Identificador da Unidade no CadSUAS
+IBGE;Código IBGE do Município
+IBGE7;Código IBGE com Dígito Verificador
+Região;Grande Região
+UF;Unidade da Federação
+uf_s;Unidade da Federação
+Município;Nome do Município_Censo IBGE 2010
+Municipio_2013;Nome do Município_atualizado 2014
+area;Área Territorial Km2
+Pop_Total2010;População Total - Censo IBGE 2010
+Pop_Urbana2010;População Urbana - Censo IBGE 2010
+Pop_Rural2010;População Rural - Censo IBGE 2010
+Porte_pop2010;Porte Populacional SUAS - Censo IBGE 2010
+ident_nome;ident_nome - Nome que identifica a unidade:
+ident_tplog;ident_tplog - Selecione o Tipo de Logradouro (avenida, rua, etc):
+ident_log;ident_log - Endereço:
+ident_numero;ident_numero - Número:
+ident_comp;ident_comp - Complemento:
+ident_bairro;ident_bairro - Bairro:
+ident_cep;ident_cep - CEP:
+ident_municipio;ident_municipio - Município:
+ident_uf;ident_uf - UF:
+ident_tel;ident_tel - DDD - Telefone:
+ident_ramal;ident_ramal - Ramal:
+ident_fax;ident_fax - Fax:
+ident_dt_imp;ident_dt_imp - Data de Implantação desta Unidade:
+coord_latitude;Coordenadas Geográficas - Latitude:
+coord_longitude;Coordenadas Geográficas - Longitude:
+q1;q1 - Dados provenientes da gestão estadual ou municipal:
+q2_1;q2_1 - Público atendido - Criança/Adolescentes com deficiência e com algum grau de dependência e suas famílias
+q2_2;q2_2 - Público atendido - Adultos com deficiência e com algum grau de dependência e suas famílias
+q2_3;q2_3 - Público atendido - Idosos com deficiência e suas famílias
+q2_4;q2_4 - Público atendido - Idosos com algum grau de dependência (sem deficiência) e suas famílias
+q3_1;q3_1 - Horário de funcionamento: dias por semana
+q3_2;q3_2 - Horário de funcionamento: horas por dia
+q4;q4 - Indique a Natureza desta Unidade:
+q6;q6 - Esta entidade faz parte de alguma rede/federação nacional, estadual ou regional de entidades de defesa e apoio às pessoas com deficiência e suas famílias?
+q7;q7 - Rede ou Federação Nacional - Caso sim, informe qual:
+q7_qual;q7_qual - Rede ou Federação Nacional - Outras - Qual?
+q8;q8 - A entidade recebe recursos financeiros do poder público visando à manutenção desse Centro Dia?
+q9_0;q9_0 - Entidade outras formas de apoio - Não recebe nenhuma outra forma de apoio do poder público municipal
+q9_1;q9_1 - Entidade outras formas de apoio - Cessão de recursos humanos
+q9_2;q9_2 - Entidade outras formas de apoio - Cessão imobiliária
+q9_3;q9_3 - Entidade outras formas de apoio - Pagamento de aluguel
+q9_4;q9_4 - Entidade outras formas de apoio - Pagamento de contas de água
+q9_5;q9_5 - Entidade outras formas de apoio - Pagamento de contas de luz ou telefone
+q9_6;q9_6 - Entidade outras formas de apoio - Fornecimento de gêneros alimentícios
+q9_7;q9_7 - Entidade outras formas de apoio - Fornecimento de materiais de higiene e limpeza
+q9_8;q9_8 - Entidade outras formas de apoio - Fornecimento de materiais pedagógicos, culturais, esportivos e outros
+q9_9;q9_9 - Entidade outras formas de apoio - Isenção de taxas ou tributos municipais
+q9_10;q9_10 - Entidade outras formas de apoio - Treinamento e capacitação de trabalhadores da entidade
+q9_outros;q9_outros - Entidade outras formas de apoio - Outros
+q10_1;q10_1 - Unidade possui inscrição - Conselho Municipal, Estadual ou do Distrito Federal de Assistência Social
+q10_2;q10_2 - Unidade possui inscrição - Conselho Municipal, Estadual ou do Distrito Federal de Direitos da Criança e Adolescente
+q10_3;q10_3 - Unidade possui inscrição - Conselho Municipal, Estadual ou do Distrito Federal de Direitos do Idoso
+q10_4;q10_4 - Unidade possui inscrição - Conselho Municipal, Estadual ou do Distrito Federal de Direitos da Pessoa com Deficiência
+q10_outros;q10_outros - Unidade possui inscrição - Outros
+q10_0;q10_0 - Unidade possui inscrição - Em nenhum dos citados acima
+q10_qual;q10_qual - Unidade possui inscrição - Outros - Qual?
+q11;q11 - Este Centro DIA está referenciado a um Centro de Referência Especializado de Assistência Social (CREAS)?
+q11_qual;q11_qual - CREAS de Referência - Qual? Número de Identificação:
+q12_1;q12_1 - Atividades de Referenciamento - Coleta/recebe periodicamente informações sobre dados de atendimento do Serviço
+q12_2;q12_2 - Atividades de Referenciamento - Realiza reuniões periódicas para avaliação do Serviço com o Centro Dia
+q12_3;q12_3 - Atividades de Referenciamento - Participa do processo de planejamento das atividades do Serviço
+q12_4;q12_4 - Atividades de Referenciamento - Acompanha cotidianamente as atividades do Serviço
+q12_5;q12_5 - Atividades de Referenciamento - Constrói estratégias metodológicas do Serviço
+q12_6;q12_6 - Atividades de Referenciamento - Elabora relatórios técnicos específicos sobre casos atendidos/acompanhados pelo Serviço
+q12_7;q12_7 - Atividades de Referenciamento - Realiza estudos de caso em parceria com o Serviço
+q12_8;q12_8 - Atividades de Referenciamento - Define procedimentos comuns e/ou complementares ao Serviço
+q12_9;q12_9 - Atividades de Referenciamento - Possui fluxos de encaminhamentos e trocas de informações com o Serviço
+q12_10;q12_10 - Atividades de Referenciamento - Articula com a rede de serviços socioassistenciais
+q12_11;q12_11 - Atividades de Referenciamento - Articula com a rede dos serviços das políticas públicas setoriais
+q12_12;q12_12 - Atividades de Referenciamento - Articula com os demais órgãos do Sistema de Garantia de Direitos
+q12_0;q12_0 - Atividades de Referenciamento - Não realiza nenhuma das atividades acima
+q13;q13 - Situação do imóvel onde se localiza a Unidade/Serviço:
+q14_1;q14_1 - Espaço Físico - Quantidade de Salas com capacidade máxima de 5 pessoas
+q14_2;q14_2 - Espaço Físico - Quantidade de Salas com capacidade para 6 a 14 pessoas
+q14_3;q14_3 - Espaço Físico - Quantidade de Salas com capacidade de 15 a 29 pessoas
+q14_4;q14_4 - Espaço Físico - Quantidade de Salas com capacidade para 30 ou mais pessoas
+q14_5;q14_5 - Espaço Físico - Quantidade de Salas (Atenção! Não são salas utilizadas para atendimento!):
+q14_6;q14_6 - Espaço Físico - Banheiros de uso exclusivo dos trabalhadores
+q14_7;q14_7 - Espaço Físico - Banheiros para uso dos usuários
+q14_8;q14_8 - Espaço Físico - Recepção
+q14_9;q14_9 - Espaço Físico - Cozinha/Copa
+q14_10;q14_10 - Espaço Físico - Refeitório
+q14_11;q14_11 - Espaço Físico - Almoxarifado ou similar
+q14_12;q14_12 - Espaço Físico - Piscina
+q14_13;q14_13 - Espaço Físico - Quadra esportiva
+q14_14;q14_14 - Espaço Físico - Espaço externo para atividades de convívio ou recreação (exceto quadra e piscina)
+q14_15;q14_15 - Espaço Físico - Área de descanso para o usuário
+q15_1;q15_1 - Acessibilidade - Acesso principal adaptado com rampas e rota acessível desde a calçada até a recepção no interior da unidade
+q15_2;q15_2 - Acessibilidade - Rota acessível aos espaços da Unidade (recepção, salas de atendimento e espaços de uso coletivo)
+q15_3;q15_3 - Acessibilidade - Rota acessível ao banheiro
+q15_4;q15_4 - Acessibilidade - Banheiro adaptado para pessoas com deficiência e/ou mobilidade reduzida
+q16_1;q16_1 - Adaptações para acessibilidade - Sim, suporte de profissional com conhecimento em LIBRAS
+q16_2;q16_2 - Adaptações para acessibilidade - Sim, suporte de material em Braille
+q16_3;q16_3 - Adaptações para acessibilidade - Sim, suporte para leitores de telas de computador para pessoas com deficiência visual
+q16_4;q16_4 - Adaptações para acessibilidade - Sim, outras adaptações e tecnologias assistivas para deficiência física
+q16_5;q16_5 - Adaptações para acessibilidade - Sim, outras adaptações e tecnologias assistivas para deficiência intelectual e autismo
+q16_6;q16_6 - Adaptações para acessibilidade - Sim, pisos especiais com relevos para sinalização voltados pessoa com deficiência visual
+q16_0;q16_0 - Adaptações para acessibilidade - Não há outras adaptações
+q16_4_qual;q16_4_qual - Adaptações para acessibilidade - Sim, outras adaptações e tecnologias assistivas para deficiência física - Qual?
+q16_5_qual;q16_5_qual - Adaptações para acessibilidade - Sim, outras adaptações e tecnologias assistivas para deficiência intelectual e autismo - Qual?
+q17_1;q17_1 - Equipamentos e materiais - Telefone uso exclusivo
+q17_2;q17_2 - Equipamentos e materiais - Telefone uso compartilhado
+q17_3;q17_3 - Equipamentos e materiais - Impressora
+q17_4;q17_4 - Equipamentos e materiais - Televisão (TV)
+q17_5;q17_5 - Equipamentos e materiais - Equipamento de som
+q17_6;q17_6 - Equipamentos e materiais - DVD
+q17_7;q17_7 - Equipamentos e materiais - Datashow
+q17_8;q17_8 - Equipamentos e materiais - Veículo de uso exclusivo
+q17_9;q17_9 - Equipamentos e materiais - Veículo de uso compartilhado
+q17_10;q17_10 - Equipamentos e materiais - Veículo adaptado para o transporte de cadeirantes
+q17_11;q17_11 - Equipamentos e materiais - Acervo bibliográfico (Livros)
+q17_12;q17_12 - Equipamentos e materiais - Brinquedos
+q17_13;q17_13 - Equipamentos e materiais - Materiais pedagógicos, culturais e esportivos
+q17_14;q17_14 - Equipamentos e materiais - Armários individualizados para guarda de pertences
+q17_15;q17_15 - Equipamentos e materiais - Artigos de higiene pessoal
+q17_16;q17_16 - Equipamentos e materiais - Cadeira de rodas
+q17_17;q17_17 - Equipamentos e materiais - Cadeiras para banho
+q17_18;q17_18 - Equipamentos e materiais - Geladeira
+q17_19;q17_19 - Equipamentos e materiais - Freezer
+q17_20;q17_20 - Equipamentos e materiais - Fogão
+q17_21;q17_21 - Equipamentos e materiais - Micro-ondas
+q17_22;q17_22 - Equipamentos e materiais - Máquina de lavar roupa
+q17_23;q17_23 - Equipamentos e materiais - Secadora de roupa
+q17_24;q17_24 - Equipamentos e materiais - Camas/Colchonetes
+q17_25;q17_25 - Equipamentos e materiais - Sofás/Poltronas/Cadeiras
+q17_24_quantos;q17_24_quantos - Equipamentos e materiais - Camas/Colchonetes - Quantidade:
+q18_1;q18_1 - Ações e atividades - Acolhida e escuta inicial
+q18_2;q18_2 - Ações e atividades - Estudo social
+q18_3;q18_3 - Ações e atividades - Orientação sobre acesso ao BPC
+q18_4;q18_4 - Ações e atividades - Orientação sobre o acesso a outros benefícios
+q18_5;q18_5 - Ações e atividades - Orientação e apoio para obtenção de documentação pessoal
+q18_6;q18_6 - Ações e atividades - Orientação para realização de cadastro no CadÚnico
+q18_7;q18_7 - Ações e atividades - Elaboração de Plano de Acompanhamento Individual e/ou Familiar
+q18_8;q18_8 - Ações e atividades - Oficinas e atividades coletivas de convívio e socialização
+q18_9;q18_9 - Ações e atividades - Encaminhamento para a rede de serviços socioassistenciais
+q18_10;q18_10 - Ações e atividades - Encaminhamento para os serviços da rede de saúde
+q18_11;q18_11 - Ações e atividades - Encaminhamento para política de educação
+q18_12;q18_12 - Ações e atividades - Encaminhamento para serviços/Unidades das demais políticas públicas
+q18_13;q18_13 - Ações e atividades - Encaminhamento para órgãos de defesa de direitos (Defensoria Pública, Ministério Público, Conselho Tutelar etc.)
+q18_14;q18_14 - Ações e atividades - Acompanhamento dos usuários encaminhados para a rede
+q18_15;q18_15 - Ações e atividades - Registro de informações em prontuário
+q18_16;q18_16 - Ações e atividades - Elaboração de relatórios sobre casos em acompanhamento
+q18_17;q18_17 - Ações e atividades - Visitas Domiciliares
+q18_18;q18_18 - Ações e atividades - Atividades com a família do usuário
+q18_19;q18_19 - Ações e atividades - Mobilização dos usuários para acesso ao serviço
+q18_20;q18_20 - Ações e atividades - Apoio e orientação aos cuidadores familiares
+q18_21;q18_21 - Ações e atividades - Orientação sobre tecnologias assistivas
+q18_22;q18_22 - Ações e atividades - Orientação e apoio nos autocuidados
+q18_23;q18_23 - Ações e atividades - Palestras e Oficinas envolvendo a comunidade
+q18_24;q18_24 - Ações e atividades - Provimento de bens materiais
+q19_1;q19_1 - Demais atividades - Alfabetização
+q19_2;q19_2 - Demais atividades - Escolarização Formal
+q19_3;q19_3 - Demais atividades - Reforço Escolar
+q19_4;q19_4 - Demais atividades - Ensino do método Braille de leitura
+q19_5;q19_5 - Demais atividades - Ensino de Libras
+q19_6;q19_6 - Demais atividades - Atendimentos Médicos
+q19_7;q19_7 - Demais atividades - Atendimento Odontológico
+q19_8;q19_8 - Demais atividades - Terapia Ocupacional
+q19_9;q19_9 - Demais atividades - Fisioterapia
+q19_10;q19_10 - Demais atividades - Fonoaudiologia
+q19_11;q19_11 - Demais atividades - Atendimento Clínico em Psicologia
+q19_12;q19_12 - Demais atividades - Atividades Esportivas
+q19_13;q19_13 - Demais atividades - Atividades Artísticas e Culturais (musicalização, dança, teatro, entre outros)
+q19_14;q19_14 - Demais atividades - Artesanato
+q19_15;q19_15 - Demais atividades - Provisão de Órtese e Prótese
+q19_outros;q19_outros - Demais atividades - Outras atividades
+q19_0;q19_0 - Demais atividades - Nenhuma das atividades acima
+q19_qual;q19_qual - Demais atividades - Quais?
+q20;q20 - A unidade possui Plano Individual e/ou Familiar de Atendimento para cada usuário?
+q21_1;q21_1 - Composição do PIA - Identificação e perfil do usuário
+q21_2;q21_2 - Composição do PIA - Informações sobre as deficiências e grau de dependência do usuário
+q21_3;q21_3 - Composição do PIA - Identificação e perfil da família
+q21_4;q21_4 - Composição do PIA - Caraterísticas socioeconômicas do usuário e sua família (renda, condições de moradia, trabalho, etc.)
+q21_5;q21_5 - Composição do PIA - Identificação e perfil das condições de cuidados familiares do usuário
+q21_6;q21_6 - Composição do PIA - Habilidades e capacidades para cuidar e ser cuidado
+q21_7;q21_7 - Composição do PIA - Serviços frequentados pelo usuário no território
+q21_8;q21_8 - Composição do PIA - Potencialidades e características da rede de atenção e apoio no território
+q21_9;q21_9 - Composição do PIA - Pactuações entre o serviços, usuários e/ou família sobre o período de permanência do usuário no serviço (turno/dia/semana/mês)
+q21_10;q21_10 - Composição do PIA - Plano de atividades a serem realizadas
+q21_11;q21_11 - Composição do PIA - Avaliação periódica do alcance dos objetivos do Serviço com o usuário e/ou suas famílias e proposição de adequações necessárias
+q22_1;q22_1 - Construção do PIA - Os usuários e/ou os membros da sua família
+q22_2;q22_2 - Construção do PIA - O(s) técnico(s) de referência do usuário
+q22_3;q22_3 - Construção do PIA - O coordenador do Centro Dia
+q22_4;q22_4 - Construção do PIA - O(s) técnico(s) do CREAS de referência
+q22_5;q22_5 - Construção do PIA - Equipes de outras áreas nas quais o usuário é atendido
+q22_outros;q22_outros - Construção do PIA - Outros
+q22_qual;q22_qual - Construção do PIA - Outros - Quais?
+q23;q23 - O Serviço de Proteção Social Especial Para Pessoas Com Deficiência, Idosas e suas Famílias, ofertado nesta Unidade, possui capacidade para atender quantos usuários por turno?
+q24;q24 - Em média, quantos dias por semana, os usuários da unidade frequentam este serviço?
+q25;q25 - Em média, quantas horas por dia os usuários da unidade permanecem na Unidade (nos dias em que este utiliza o serviço)?
+q26_1;q26_1 - Pessoas com Dependência - Crianças de 0 a 6 anos, com deficiência
+q26_2;q26_2 - Pessoas com Dependência - Crianças de 7 a 14 anos, com deficiência
+q26_3;q26_3 - Pessoas com Dependência - Adolescentes de 15 a 17 anos, com deficiência
+q26_4;q26_4 - Pessoas com Dependência - Adultos (18 a 59 anos) com deficiência
+q26_5;q26_5 - Pessoas com Dependência - Idosos (60 anos ou mais) com deficiência
+q26_6;q26_6 - Pessoas com Dependência - Idosos (60 anos ou mais) dependentes pela idade, sem deficiência
+q26_total;q26_total - Pessoas com Dependência - Total de pessoas atendidas no Serviço no mês de Agosto de 2017
+q26_total_ns;q26_total_ns - Pessoas com Dependência - Total - Não sabe
+q27_1;q27_1 - Quantidade de Idosos beneficiários do BPC
+q27_1_ns;q27_1_ns - Quantidade Idosos BPC - Não sabe informar
+q27_2;q27_2 - Quantidade de Pessoas com Deficiência beneficiárias do BPC
+q27_2_ns;q27_2_ns - Quantidade PCD BPC - Não sabe informar
+q28;q28 - Quantidade de famílias beneficiárias do PBF
+q28_ns;q28_ns - Quantidade Famílias PBF - Não sabe informar
+q29_1;q29_1 - Alimentação para Usuários - Lanches/Café da manhã
+q29_2;q29_2 - Alimentação para Usuários - Almoço
+q29_3;q29_3 - Alimentação para Usuários - Lanche/ Café da Tarde
+q29_4;q29_4 - Alimentação para Usuários - Jantar
+q29_5;q29_5 - Alimentação para Usuários - Lanche/Café da Noite
+q29_0;q29_0 - Alimentação para Usuários - Não oferta alimentação
+q30;q30 - Existe apoio para o deslocamento das famílias/indivíduos para a sede dessa Unidade?
+q31;q31 - Apoio Deslocamento - Como se dá esse apoio?
+q31_qual;q31_qual - Apoio Deslocamento - Outros - Quais?
+q32_1;q32_1 - Capacitação - Tema: Deficiência
+q32_2;q32_2 - Capacitação - Tema: Gênero
+q32_3;q32_3 - Capacitação - Tema: População em situação de rua
+q32_4;q32_4 - Capacitação - Tema: População LGBTI (Lésbicas, gays, bissexuais, transgêneros e intersexuais)
+q32_5;q32_5 - Capacitação - Tema: População e comunidades tradicionais (indígenas, quilombolas, ribeirinhos, extrativistas, dentre outros)
+q32_6;q32_6 - Capacitação - Tema: Álcool e outras drogas
+q32_7;q32_7 - Capacitação - Tema: Raça e etnia
+q32_8;q32_8 - Capacitação - Tema: Violências e violações de direitos
+q32_9;q32_9 - Capacitação - Tema: Trabalho Infantil
+q32_10;q32_10 - Capacitação - Tema: Infância/Juventude
+q32_11;q32_11 - Capacitação - Tema: Envelhecimento
+q32_12;q32_12 - Capacitação - Tema: Sistema Socioeducativo/Medida Socioeducativa/SINASE
+q32_outros;q32_outros - Capacitação - Tema: Outros
+q32_0;q32_0 - Capacitação - Não participou de capacitação
+q32_qual;q32_qual - Capacitação - Outros Temas - Especifique:
+q33;q33 - Nesta unidade, algum profissional já participou de algum curso do CAPACITASUAS?
+q33_quantos;q33_quantos - Profissionais CapacitaSUAS - Quantos?
+q34;q34 - O coordenador desta Unidade:
+resp_data;resp_data - Responsável - Data:
+resp_cargo;resp_cargo - Responsável - Cargo/Função:
+resp_cargo_qual;resp_cargo_qual - Responsável - Especifique:
+respgestao_data;respgestao_data - Responsável Órgão Gestor - Data:
+respgestao_cargo;respgestao_cargo - Responsável Órgão Gestor - Cargo/Função:
+respgestao_cargo_qual;respgestao_cargo_qual - Responsável Órgão Gestor - Especifique:
+Incompletos;Questionário Incompleto adicionado à base
+d3_horas_semana_cat;d3_horas_semana_cat - Total de horas por semana que o CRAS encontra-se em funcionamento
+q7_qual_original;q7_Qual - q7_qual_Original - Rede ou Federação Nacional - Outras - Qual? - Original
+d7_qual_cat;d7_qual_cat - Rede ou Federação Nacional - Outras - Qual? - Categorizada
+d14_total_salas_atend;d14_Total de salas utilizadas para atendimento individual ou coletivo
+d14_salas_atend_cat;d14_salas_atend_cat - Categórica: Total de salas utilizadas para atendimento individual ou coletivo
+d14_total_salas_adm_e_atend;d14 - Total de salas utilizadas para atendimento e para atividades administrativas
+d14_total_salas_adm_e_atend_cat;d14 - Categórica: Total de salas utilizadas para atendimento e para atividades administrativas
+d14_total_banheiros;d14_Total de banheiros
+d14_total_banheiros_cat;d14 - Categórica: Total de banheiros
+d14_6_cat;d14_6_cat - Categórica: Banheiros dos trabalhadores
+d14_7_cat;d14_7_cat - Categórica: Banheiros dos usuários
+d14_6_quartil;d14_6_quartil banheiros trabalhadores
+d14_7_quartil;d14_7_quartil banheiros usuários
+d17_telefone;d17 - Possui Telefone (exclusivo ou compartilhado)
+d17_veiculo;d17 - Possui Veículo (exclusivo, compartilhado ou adaptado)
+d23_cap_atend_cat;d23_Capacidade de atendimento por categoria
+d35_nv_fund_qtd_trab;d35_nv_fund - Quantidade de trabalhadores de Nível fundamental (inclui trabalhadores sem escolaridade, fundamental incompleto e ensino médio incompleto)
+d35_nv_med_qtd_trab;d35_nv_med - Quantidade de trabalhadores de Nível médio (inclui trabalhadores com ensino superior incompleto)
+d35_nv_sup_qtd_trab;d35_nv_sup - Quantidade de trabalhadores de Nível superior (inclui trabalhadores com especialização, mestrado e doutorado)
+d35_pedagogo_qtd_trab;d35_pedagogo_qtd_trab - Quantidade de Pedagogos
+d35_ass_social_qtd_trab;d35_ass_social_qtd_trab - Quantidade de Assistentes Sociais
+d35_antropologo_qtd_trab;d35_antropologo_qtd_trab - Quantidade de Antropólogos
+d35_advogado_qtd_trab;d35_advogado_qtd_trab - Quantidade de Advogados
+d35_psicologo_qtd_trab;d35_psicologo_qtd_trab - Quantidade de Psicólogos
+d35_estatutario_qtd_trab;d35_estatutario_qtd_trab - Quantidade de Servidores Estatutários
+d35_clt_publico_qtd_trab;d35_clt_publico_qtd_trab - Quantidade de Empregados Públicos (CLT)
+d35_comissionado_qtd_trab;d35_comissionado_qtd_trab - Quantidade de Comissionados
+d35_outros_vinc_qtd_trab;d35_outros_vinc_qtd_trab - Quantidade de profissionais com outros vínculos não permanentes
+d35_qtd_total_trab;d35 - Quantidade Total de Trabalhdores na Unidade

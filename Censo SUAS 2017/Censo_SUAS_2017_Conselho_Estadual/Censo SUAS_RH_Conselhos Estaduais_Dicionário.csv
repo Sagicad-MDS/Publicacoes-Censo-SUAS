@@ -1,0 +1,44 @@
+Variável;Descrição
+IBGE;Código IBGE do estado
+UF_n;UF
+Região;Região
+Pop_Total2010;População total do estado
+Quant_municipios;Quantidade de municípios do estado
+q81.3; q81.3 Sexo
+q81.5; q81.5 d81.5.Níveis de escolaridade
+q81.6; q81.6 Representação
+q81.7; q81.7 Função
+q81.8; q81.8 Data de Início do mandato
+q81.9; q81.9 Data de término do mandato
+Idade;Idade
+Faixas.etarias;Faixas etárias dos Conselheiros
+TempoMandato;Tempo de mandato dos Conselheiros
+d81.5;d81.5.Níveis de escolaridade
+d81.5bin1;d81.5bin1.Nível fundamental - trabalhadores que possuem até o nível médio (inclui aqueles sem escolaridade)
+d81.5bin2;d81.5bin2.Nível médio - trabalhadores com ensino superior incompleto e ensino médio completo
+d81.5bin3;d81.5bin3.Nível superior - inclui trabalhadores graduados, com especialização, mestrado ou doutorado
+d81.6bin1;d81.6bin1.Representante de usuários e organização de usuários
+d81.6bin2;d81.6bin2.Representante de Entidades de Assistência Social
+d81.6bin3;d81.6bin3.Representante de organização dos trabalhadores
+d81.6bin4;d81.6bin4.Representante do Governo
+d81.6bin1.TIT;d81.6bin1.TIT.Representante Titular de usuários e organização de usuários
+d81.6bin1.SUPL;d81.6bin1.SUPL.Representante Suplente de usuários e organização de usuários
+d81.6bin2.TIT;d81.6bin2.TIT.Representante Titular de Entidades de Assistência Social
+d81.6bin2.SUPL;d81.6bin2.SUPL.Representante Suplente de Entidades de Assistência Social
+d81.6bin3.TIT;d81.6bin3.TIT.Representante Titular de organização dos trabalhadores
+d81.6bin3.SUPL;d81.6bin3.SUPL.Representante Suplente de organização dos trabalhadores
+d81.6bin4.TIT;d81.6bin4.TIT.Representante Titular do Governo
+d81.6bin4.SUPL;d81.6bin4.SUPL.Representante Suplente do Governo
+d81.6bin1.sum;d81.6bin1.sum.Representante de usuários e organização de usuários
+d81.6bin2.sum;d81.6bin2.sum.Representante de Entidades de Assistência Social
+d81.6bin3.sum;d81.6bin3.sum.Representante de organização dos trabalhadores
+d81.6bin4.sum;d81.6bin4.sum.Representante do Governo
+d81.6bin1.TIT.sum;d81.6bin1.TIT.sum.Representante Titular de usuários e organização de usuários
+d81.6bin1.SUPL.sum;d81.6bin1.SUPL.sum.Representante Suplente de usuários e organização de usuários
+d81.6bin2.TIT.sum;d81.6bin2.TIT.sum.Representante Titular de Entidades de Assistência Social
+d81.6bin2.SUPL.sum;d81.6bin2.SUPL.sum.Representante Suplente de Entidades de Assistência Social
+d81.6bin3.TIT.sum;d81.6bin3.TIT.sum.Representante Titular de organização dos trabalhadores
+d81.6bin3.SUPL.sum;d81.6bin3.SUPL.sum.Representante Suplente de organização dos trabalhadores
+d81.6bin4.TIT.sum;d81.6bin4.TIT.sum.Representante Titular do Governo
+d81.6bin4.SUPL.sum;d81.6bin4.SUPL.sum.Representante Suplente do Governo
+nu.conselheiros;Quantidade de conselheiros

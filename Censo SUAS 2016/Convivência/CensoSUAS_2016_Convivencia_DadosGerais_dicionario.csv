@@ -1,0 +1,137 @@
+Variável;Descrição
+NU_IDENTIFICADOR;id_convivencia
+IBGE;Código IBGE do Município
+IBGE7;Código IBGE com Dígito Verificador
+Região;Grande Região
+UF;Unidade da Federação
+area;Área Territorial Km2
+Pop_Total2010;População Total - Censo IBGE 2010
+Pop_Urbana2010;População Urbana - Censo IBGE 2010
+Pop_Rural2010;População Rural - Censo IBGE 2010
+Porte_pop2010;Porte Populacional SUAS - Censo IBGE 2010
+ident_1;Nome que identifica a unidade:
+ident_2;Selecione o Tipo de Logradouro (avenida, rua, etc):
+ident_3;Endereço:
+ident_4;Número:
+ident_5;Complemento:
+ident_6;Bairro:
+ident_7;CEP:
+ident_8;Município
+ident_9;UF
+ident_11;DDD - Telefone:
+ident_12;Ramal:
+ident_13;FAX:
+ident_14;Data de Implantação da Unidade (dd/mm/aaaa):
+Latitude;Latitude:
+Longitude;Longitude:
+q1;Dados provenientes da gestão estadual ou municipal:
+q2;Natureza desta unidade:
+q3;Em caso de Entidade Não Governamental, indique o CNPJ:
+CNPJ_2;CNPJ
+q4;Localização:
+q5_1;dias por semana
+q5_2;horas por dia
+q6_1;Crianças de 0 a 6 anos de idade
+q6_2;Crianças e adolescentes de 7 a 14 anos de idade
+q6_3;Jovens de 15 a 17 anos de idade
+q6_4;Adultos de 18 a 29 anos de idade
+q6_5;Adultos de 30 a 59 anos de idade
+q6_6;Idosos (60 anos ou mais)
+q7;A entidade possui convênio com o poder público municipal para repasse de recursos financeiros, visando à manutenção do Serviço de Convivência e Fortalecimento de Vínculos?
+q8;Esta unidade está referenciada a um Centro de Referência de Assistência Social?
+q8_1; Erro ao buscar os Centros de Convivência do Município na base do CADSUAS
+q9;Este imóvel é utilizado exclusivamente para oferta do Serviço de Convivência e Fortalecimento de Vínculos?
+q10_0;0 Não
+q10_1;1 Sim, Serviço de proteção social básica no domicílio para pessoas com deficiência e idosas
+q10_2;2 Sim, Serviço especializado em Abordagem Social
+q10_3;3 Sim, Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosas e suas Famílias
+q10_4;4 Sim, Serviço Especializado para Pessoas em Situação de Rua
+q10_5;5 Sim, Acessuas Trabalho
+q10_6;6 Sim, Serviços de Medidas Socioeducativas (MSE)
+q10_7;7 Sim, Cadastro Único
+q10_8;8 Sim, Serviço de acolhimento
+q10_99;99 Sim, outro.
+q10_qual;Qual?
+q11;Caso esta unidade oferte Serviço de Acolhimento, o serviço de convivência é ofertado exclusivamente para os indivíduos acolhidos na unidade?
+q12_0;0 Não
+q12_1;1 Sim, educação (creche, reforço escolar, entre outros)
+q12_2;2 Sim, saúde (terapia ocupacional, clínica psicológica, entre outros)
+q12_3;"3 Sim, esporte (políticas específicas do esporte como ""segundo tempo"", ""recreio nas férias"", entre outras)"
+q12_4;4 Sim, cultura (teatro, música)
+q12_5;5 Sim, trabalho e inclusão produtiva (cursos profissionalizantes, qualificação profissional, Jovem Aprendiz)
+q12_99;99 Sim, outra
+q12_qual;Qual?
+q13;O imóvel no qual funciona esta Unidade/Serviço é compartilhado?
+q14_1;1 Secretaria da Assistência Social ou congênere
+q14_2;2 Outra unidade administrativa (Sede de Prefeitura, Administração Regional, Sub-Prefeitura etc)
+q14_3;3 Conselho Municipal de Assistência Social
+q14_4;4 Conselho Tutelar
+q14_5;5 CRAS - Centro de Referência da Assistência Social
+q14_6;6 CREAS ? Centro de Referência Especializado de Assistência Social
+q14_7;7 Outra unidade pública de serviços da Assistência Social
+q14_8;8 Escola
+q14_9;9 Unidade de Saúde
+q14_10;10 Igreja/Templo
+q14_11;11 Associação Comunitária
+q14_12;12 Entidades privadas /ONG
+q14_99;99 Outros
+q14_qual;Qual?
+q15;As atividades desenvolvidas pelo SCFV desta unidade possuem uma orientação religiosa?
+q16_1;1 Visitas domiciliares da equipe técnica da Unidade à família do usuário
+q16_2;2 Reuniões com grupos de famílias dos usuários
+q16_3;3 Palestras
+q16_4;4 Oficinas
+q16_5;5 Reforço Escolar
+q16_6;6 Atividades recreativas
+q16_7;7 Discussão de casos com outros profissionais da rede
+q16_8;8 Atividades com participação da Comunidade
+q16_0;0 Não realiza nenhuma das atividades acima
+q17_1;1 Sim, por esta unidade
+q17_2;2 Sim, pela equipe do CRAS de referência
+q17_3;3 Sim, pela equipe do órgão gestor da Assistência Social
+q17_4;4 Sim, por outra equipe
+q17_0;0 Não
+q17_qual;Qual?
+q18_0;0 Não atendeu
+q18_1;1 Sim, povos indígenas
+q18_2;2 Sim, Comunidade Quilombola
+q18_3;3 Sim, Comunidade Ribeirinha
+q18_4;4 Sim, Povos Ciganos
+q18_5;5 Sim, Comunidades Extrativistas
+q18_99;99 Sim, outros povos e comunidades tradicionais
+q19;Qual a capacidade máxima para o atendimento (número de vagas no Serviço de Convivência) desta unidade?
+q20;Por quanto tempo, em média, o usuário participa do Serviço de Convivência e Fortalecimento de Vínculos?
+q21_1;Quantidade de salas com capacidade máxima para 5 pessoas
+q21_2;Quantidade de salas com capacidade para 6 a 14 pessoas
+q21_3;Quantidade de salas com capacidade para 15 a 29 pessoas
+q21_4;Quantidade de salas com capacidade para 30 ou mais pessoas
+q21_5;Salas exclusivas de Coordenação, equipe técnica ou administração (não são salas de atendimento!)
+q21_6;Quantidade total de banheiros
+q22_1;Acesso principal adaptado com rampas e rota acessível desde a calçada até a recepção da Unidade
+q22_2;Rota acessível aos espaços da unidade (recepção, salas de atendimento e espaços de uso coletivo)
+q22_3;Rota acessível ao banheiro
+q22_4;Banheiro adaptado para pessoas com deficiência
+q24;Indique a forma pela qual as informações deste questionário foram coletadas:
+resp_data;Data:
+resp_cargo;Cargo/Função:
+respgestao_data;Agente_Data de Validação:
+respgestao_cargo;Agente_Responsável Órgão Gestor ? Cargo/Função:
+d21_1_total_salas_atend;d21_1_Total de salas utilizadas para atendimento individual ou coletivo
+d21_1_sl_atend_categoria;d21_1_categórica_Total de salas utilizadas para atendimento individual ou coletivo
+d21_2_total_salas_adm_e_atend;d21_2_Total de salas utilizadas para atendimento e para atividades administrativas
+d21_2_total_salas_adm_e_atend_categoria;d21_2_categórica_Total de salas utilizadas para atendimento e para atividades administrativas
+d21_6;d21_6_Quantidade total de banheiros
+d23_9bin1_sum;d23_9bin1_Número de trabalhadores de Nível fundamental (inclui trabalhadores sem escolaridade, fundamental incompleto e ensino médio incompleto)
+d23_9bin2_sum;d23_9bin2_Número de trabalhadores de Nível médio (inclui trabalhadores com ensino superior incompleto)
+d23_9bin3_sum;d23_9bin3_Número de trabalhadores de Nível superior (inclui trabalhadores com especialização, mestrado e doutorado)
+d23_10bin1_sum;d23_10bin1_sum_Número de Pedagogos
+d23_10bin2_sum;d23_10bin2_sum_Número de Assistentes Sociais
+d23_10bin3_sum;d23_10bin3_sum_Número de Antropólogos
+d23_10bin4_sum;d23_10bin4_sum_Número de Advogados
+d23_10bin5_sum;d23_10bin5_sum_Número de Psicólogos
+d23_11bin1_sum;d23_11bin1_Número de Servidores Estatutários
+d23_11bin2_sum;d23_11bin2_Número de Empregados Públicos(CLT)
+d23_11bin3_sum;d23_11bin3_Número de Comissionados
+d23_11bin4_sum;"d23_11bin4_Número de profissionais com outros vínculos não permanentes (inclui Trabalhador de Empresas/Cooperativa/Entidade Prestadora de Serviços; Voluntários; Ser. Temporário; Sem vínculo; Terceirizado e Outro vínculo não permanente)"
+nu_trabalhadores;Número de trabalhadores
+d5_horas_por_semana_categoria;d5_horas_por_semana_categoria_Total de horas por semana que a unidade encontra-se em funcionamento.

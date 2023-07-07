@@ -1,0 +1,21 @@
+Variável;Descrição
+id_acolhimento;ID Acolhimento
+IBGE7_sede;Código IBGE com Dígito Verificador do município sede da Unidade
+IBGE_sede;Código IBGE do Município do município sede da Unidade
+Região_sede;Grande Região do município sede da Unidade
+UF_sede;Unidade da Federação do município sede da Unidade
+Município_sede;Nome do Município_Censo IBGE 2010 do município sede da Unidade
+Municipio_2013_sede;Nome do Município_atualizado 2014 do município sede da Unidade
+area_sede;Área Territorial Km2 do município sede da Unidade
+Pop_Total2010_sede;População Total - Censo IBGE 2010 do município sede da Unidade
+Porte_pop2010_sede;Porte Populacional SUAS - Censo IBGE 2010 do município sede da Unidade
+q9.IBGE;q9_Caso sim, com quais municípios existe acordo/parceria para acolhimento nesta unidade?
+q9.IBGE7;Código IBGE com Dígito Verificador
+q9.UF;Unidade da Federação
+q9.Município;Nome do Município_Censo IBGE 2010
+q9.Municipio_2013;Nome do Município_atualizado 2014
+q9.area;Área Territorial Km2
+q9.Pop_Total2010;População Total - Censo IBGE 2010
+q9.Pop_Urbana2010;População Urbana - Censo IBGE 2010
+q9.Pop_Rural2010;População Rural - Censo IBGE 2010
+q9.Porte_pop2010;Porte Populacional SUAS - Censo IBGE 2010

@@ -1,0 +1,567 @@
+Variável;Descrição
+IBGE7;Código IBGE com Dígito Verificador
+IBGE;Código IBGE
+UF;Unidade da Federação
+Município;Nome do Município.Censo IBGE 2010
+Região;Grande Região
+UF.S;Unidade da Federação
+Pop.Total2010;População Total - Censo IBGE 2010
+Pop.Urbana2010;População Urbana - Censo IBGE 2010
+Pop.Rural2010;População Rural - Censo IBGE 2010
+Porte.pop2010;Porte Populacional SUAS - Censo IBGE 2010
+ident1.nome;ident1.Nome que identifica o órgão gestor:
+ident2.tplog;ident2.Selecione o Tipo de Logradouro (avenida, rua, etc):
+ident3.endereco;ident3.Endereço:
+ident4.num;ident4.Número:
+ident5.comp;ident5.Complemento:
+ident6.bairro;ident6.Bairro:
+ident7.ptref;ident7.Ponto de Referência:
+ident8.cep;ident8.CEP:
+ident9.mun;ident9.Município
+ident10.uf;ident10.UF
+ident11.email;ident11.Email:
+ident12.tel;ident12.DDD - Telefone:
+ident13.fax;ident13.FAX:
+ident14.ramal;ident14.Ramal
+coord.latitude;CoordenadasLatitude:
+coord.longitude;CoordenadasLongitude:
+q1;q1.De acordo com a estrutura administrativa do município o órgão gestor da assistência social caracteriza-se como:
+q2.1;q2.1.Secretaria Associada.Educação
+q2.2;q2.2.Secretaria Associada.Planejamento
+q2.3;q2.3.Secretaria Associada.Saúde
+q2.4;q2.4.Secretaria Associada.Habitação
+q2.5;q2.5.Secretaria Associada.Segurança Alimentar
+q2.6;q2.6.Secretaria Associada.Trabalho e/ou Emprego
+q2.7;q2.7.Secretaria Associada.Direitos Humanos
+q2.99;q2.99.Secretaria Associada.Outra
+q2.qual;q2.qual.Secretaria Associada.Qual?
+q3.1;q3.1.Subdivisões.Gestão do SUAS
+q3.2;q3.2.Subdivisões.Vigilância Socioassistencial (Inclusive áreas de monitoramento e avaliação)
+q3.3;q3.3.Subdivisões.Gestão do Trabalho
+q3.4;q3.4.Subdivisões.Regulação do SUAS
+q3.5;q3.5.Subdivisões.Gestão Financeira e Orçamentária
+q3.6;q3.6.Subdivisões.Proteção Social Básica
+q3.7;q3.7.Subdivisões.Proteção Social Especial
+q3.8;q3.8.Subdivisões.Gestão do Cadastro Único e Programa Bolsa Família
+q3.9;q3.9.Subdivisões.Gestão de Benefícios Assistenciais (Bolsa Família, BPC, Benefícios Eventuais)
+q4;q4.No caso de haver subdivisão administrativa de Proteção Social Especial, ela é desmembrada entre Alta e Média Complexidade?
+q5.1;q5.1.Estruturas Comunicação.Política de Comunicação da Prefeitura e/ou Órgão Gestor
+q5.2;q5.2.Estruturas Comunicação.Plano de Comunicação da Prefeitura e/ou Órgão Gestor
+q5.3;q5.3.Estruturas Comunicação.Carta de Serviço ao Cidadão
+q5.4;q5.4.Estruturas Comunicação.Equipe própria de comunicação no órgão gestor
+q5.5;q5.5.Estruturas Comunicação.Orçamento específico destinado a ações de comunicação
+q5.6;q5.6.Estruturas Comunicação.Ouvidoria
+q5.7;q5.7.Estruturas Comunicação.Central de Relacionamento
+q5.99;q5.99.Estruturas Comunicação.Nenhum dos mecanismos acima
+q6;q6.Em que ano ocorreu a última atualização da Lei Municipal de regulamentação do Sistema Único de Assistência Social ? SUAS?
+q6.0;q6.0.Não possui Lei Municipal de Regulamentação do SUAS
+q7.1;q7.1.Conteúdo Lei.Conceituação da assistência social
+q7.2;q7.2.Conteúdo Lei.Funções da assistência social (Vigilância Socioassistencial, Proteção Social, Defesa de Direitos)
+q7.3;q7.3.Conteúdo Lei.Princípios pelos quais a Assistência Social é regida
+q7.4;q7.4.Conteúdo Lei.Diretrizes para organização da Assistência Social
+q7.5;q7.5.Conteúdo Lei.Organização da assistência social por níveis de Proteção Social
+q7.6;q7.6.Conteúdo Lei.Conceituação e Objetivos do SUAS
+q7.7;q7.7.Conteúdo Lei.Público destinatário do SUAS
+q7.8;q7.8.Conteúdo Lei.Previsão do financiamento dos serviços
+q7.9;q7.9.Conteúdo Lei.Previsão do financiamento dos programas e projetos
+q7.10;q7.10.Conteúdo Lei.Previsão do financiamento dos benefícios socioassistenciais
+q7.11;q7.11.Conteúdo Lei.Especificação do órgão da Administração Pública responsável pela coordenação da Política de Assistência Social
+q7.12;q7.12.Conteúdo Lei.Previsão de prazo para regulamentação do funcionamento do Fundo de Assistência Social
+q7.13;q7.13.Conteúdo Lei.Especificação e conceituação dos equipamentos públicos estatais CRAS e CREAS
+q7.14;q7.14.Conteúdo Lei.Especificação e conceituação dos serviços socioassistenciais
+q7.15;q7.15.Conteúdo Lei.Especificação e conceituação dos benefícios eventuais
+q7.16;q7.16.Conteúdo Lei.Criação do Conselho Municipal de Assistência Social
+q7.17;q7.17.Conteúdo Lei.Criação do Fundo Municipal de Assistência Social
+q7.18;q7.18.Conteúdo Lei.Instituição do Plano Municipal de Assistência Social
+q7.99;q7.99.Conteúdo Lei.Outros
+q7.qual;q7.qual.Conteúdo Lei.Qual?
+q8;q8.Em que ano ocorreu a última atualização do Plano Municipal de Assistência Social (PMAS)?
+q8.ns;q8.ns.Ano Atualização PMAS.Não sabe
+q9;q9.O Plano Municipal de Assistência Social (PMAS) serviu como instrumento político de referência para os debates na construção do Plano Plurianual ? PPA 2018-2021?
+q10;"q10.O Plano Plurianual do município PPA 2018-2021 contém ""Programa/Plano de Ação"" exclusivo para a área de Assistência Social?"
+q11.1;q11.1.Estimativa Recursos PPA.Ampliação/expansão da cobertura dos serviços de Proteção Social Básica
+q11.2;q11.2.Estimativa Recursos PPA.Ampliação/expansão da cobertura dos serviços de Proteção Social Especial de Média Complexidade
+q11.3;q11.3.Estimativa Recursos PPA.Ampliação/expansão da cobertura dos serviços de Proteção Social Especial de Alta Complexidade
+q11.4;q11.4.Estimativa Recursos PPA.Ampliação/expansão dos benefícios socioassistenciais (inclusive transferências de renda direta às famílias)
+q11.5;q11.5.Estimativa Recursos PPA.Construção de CRAS
+q11.6;q11.6.Estimativa Recursos PPA.Construção de CREAS
+q11.7;q11.7.Estimativa Recursos PPA.Construção de outras unidades de serviços da Assistência Social
+q11.8;q11.8.Estimativa Recursos PPA.Realização de Concurso Público para a Assistência Social
+q11.9;q11.9.Estimativa Recursos PPA.Nenhum dos itens acima
+q11.99;q11.99.Estimativa Recursos PPA.Não sabe
+q12;q12.O órgão gestor possui levantamento ou pesquisa nos últimos doze meses que aponte o número de pessoas em situação de rua no município?
+q13;q13.Situação de Rua.Caso sim, quantas pessoas?
+q14;q14.Situação de Rua.Este quantitativo considera:
+q15;q15.Situação de Rua.Como foi realizado este levantamento ou pesquisa?
+q16;q16.Em quantas reuniões da CIB (Comissão Intergestores Bipartite), em 2016, houve participação de algum representante do município?
+q17;q17.Nos últimos 12 meses, quantas vezes os técnicos ou gestores municipais da assistência social participaram de atividades de orientação e apoio técnico promovido pelo Estado?
+q18.1;q18.1.Apoio Técnico.Produção e distribuição de material técnico
+q18.2;q18.2.Apoio Técnico.Elaboração, pelo Estado, de normativas e instruções operacionais para orientação dos municípios
+q18.3;q18.3.Apoio Técnico.Capacitações presenciais
+q18.4;q18.4.Apoio Técnico.Capacitações à distância
+q18.5;q18.5.Apoio Técnico.Assessoramento técnico de forma presencial no município
+q18.6;q18.6.Apoio Técnico.Assessoramento técnico à distância
+q18.99;q18.99.Apoio Técnico.Outras formas
+q18.qual;q18.qual.Apoio Técnico.Especifique
+q19;q19.Nos últimos 12 meses, quantas visitas de técnicos da Secretaria Estadual de Assistência Social (SEAS) o município recebeu?
+q20;q20.O ordenador de despesa do FMAS é?
+q21.1;q21.1.Recursos Estaduais.Proteção Social Básica
+q21.2;q21.2.Recursos Estaduais.Proteção Social Especial de Média Complexidade
+q21.3;q21.3.Recursos Estaduais.Proteção Social Especial de Alta Complexidade
+q21.4;q21.4.Recursos Estaduais.Benefícios Eventuais
+q21.5;q21.5.Recursos Estaduais.Incentivo à Gestão
+q22.1;q22.1.Valor alocado referente aos recursos próprios do município
+q22.2;q22.2.Valor recebido do governo estadual (Fundo a Fundo e Convênios)
+q22.3;q22.3.Valor da despesa realizada com recursos próprios do município
+q22.4;q22.4.Valor da despesa realizada com recursos repassados pelo governo estadual
+q23;q23.O órgão gestor municipal faz transferência de recursos por convênio/termo de parceria para ONG?s, Organizações da Sociedade Civil ou Entidades de Assistência Social no município?
+q24;q24.Quantas entidades recebem recurso do órgão gestor municipal por convênio/termo de parceria?
+q25;q25.O órgão gestor utiliza sistema de informação próprio para gerenciar a política de Assistência Social?
+q26.1;q26.1.Recursos Sistemas.Registrar repasses de recursos para entidades
+q26.2;q26.2.Recursos Sistemas.Registrar prestação de contas das entidades
+q26.3;q26.3.Recursos Sistemas.Registrar execução física/atendimentos
+q26.4;q26.4.Recursos Sistemas.Registrar unidades da rede socioassistencial pública
+q26.5;q26.5.Recursos Sistemas.Registrar unidades da rede socioassistencial privada
+q26.6;q26.6.Recursos Sistemas.Elaborar e armazenar Prontuário Eletrônico dos usuários dos Serviços Socioassistenciais
+q26.99;q26.99.Recursos Sistemas.Outros
+q26.qual;q26.qual.Recursos Sistemas.Especifique:
+q27.1.1;q27.1.1.Gestão do SUAS - Profissionais de Nível Superior - Exclusivos
+q27.1.2;q27.1.2.Gestão do SUAS - Profissionais de Nível Superior - Compartilhados
+q27.1.3;q27.1.3.Gestão do SUAS - Profissionais de Nível Médio - Exclusivos
+q27.1.4;q27.1.4.Gestão do SUAS - Profissionais de Nível Médio - Compartilhados
+q27.2.1;q27.2.1.Vigilância Socioassistencial - Profissionais de Nível Superior - Exclusivos
+q27.2.2;q27.2.2.Vigilância Socioassistencial - Profissionais de Nível Superior - Compartilhados
+q27.2.3;q27.2.3.Vigilância Socioassistencial - Profissionais de Nível Médio - Exclusivos
+q27.2.4;q27.2.4.Vigilância Socioassistencial - Profissionais de Nível Médio - Compartilhados
+q27.3.1;q27.3.1.Gestão do Trabalho - Profissionais de Nível Superior - Exclusivos
+q27.3.2;q27.3.2.Gestão do Trabalho - Profissionais de Nível Superior - Compartilhados
+q27.3.3;q27.3.3.Gestão do Trabalho - Profissionais de Nível Médio - Exclusivos
+q27.3.4;q27.3.4.Gestão do Trabalho - Profissionais de Nível Médio - Compartilhados
+q27.4.1;q27.4.1.Regulação do SUAS - Profissionais de Nível Superior - Exclusivos
+q27.4.2;q27.4.2.Regulação do SUAS - Profissionais de Nível Superior - Compartilhados
+q27.4.3;q27.4.3.Regulação do SUAS - Profissionais de Nível Médio - Exclusivos
+q27.4.4;q27.4.4.Regulação do SUAS - Profissionais de Nível Médio - Compartilhados
+q27.5.1;q27.5.1.Gestão Financeira - Orçamentária - Profissionais de Nível Superior - Exclusivos
+q27.5.2;q27.5.2.Gestão Financeira - Orçamentária - Profissionais de Nível Superior - Compartilhados
+q27.5.3;q27.5.3.Gestão Financeira - Orçamentária - Profissionais de Nível Médio - Exclusivos
+q27.5.4;q27.5.4.Gestão Financeira - Orçamentária - Profissionais de Nível Médio - Compartilhados
+q27.6.1;q27.6.1.Proteção Social Básica - Profissionais de Nível Superior - Exclusivos
+q27.6.2;q27.6.2.Proteção Social Básica - Profissionais de Nível Superior - Compartilhados
+q27.6.3;q27.6.3.Proteção Social Básica - Profissionais de Nível Médio - Exclusivos
+q27.6.4;q27.6.4.Proteção Social Básica - Profissionais de Nível Médio - Compartilhados
+q27.7.1;q27.7.1.Proteção Social Especial de Média Complexidade - Profissionais de Nível Superior - Exclusivos
+q27.7.2;q27.7.2.Proteção Social Especial de Média Complexidade - Profissionais de Nível Superior - Compartilhados
+q27.7.3;q27.7.3.Proteção Social Especial de Média Complexidade - Profissionais de Nível Médio - Exclusivos
+q27.7.4;q27.7.4.Proteção Social Especial de Média Complexidade - Profissionais de Nível Médio - Compartilhados
+q27.8.1;q27.8.1.Proteção Social Especial de Alta Complexidade - Profissionais de Nível Superior - Exclusivos
+q27.8.2;q27.8.2.Proteção Social Especial de Alta Complexidade - Profissionais de Nível Superior - Compartilhados
+q27.8.3;q27.8.3.Proteção Social Especial de Alta Complexidade - Profissionais de Nível Médio - Exclusivos
+q27.8.4;q27.8.4.Proteção Social Especial de Alta Complexidade - Profissionais de Nível Médio - Compartilhados
+q27.9.1;q27.9.1.Gestão do Cadastro Único - Programa Bolsa Família - Profissionais de Nível Superior - Exclusivos
+q27.9.2;q27.9.2.Gestão do Cadastro Único - Programa Bolsa Família - Profissionais de Nível Superior - Compartilhados
+q27.9.3;q27.9.3.Gestão do Cadastro Único - Programa Bolsa Família - Profissionais de Nível Médio - Exclusivos
+q27.9.4;q27.9.4.Gestão do Cadastro Único - Programa Bolsa Família - Profissionais de Nível Médio - Compartilhados
+q27.10.1;q27.10.1.Gestão de Benefícios Assistenciais - Profissionais de Nível Superior - Exclusivos
+q27.10.2;q27.10.2.Gestão de Benefícios Assistenciais - Profissionais de Nível Superior - Compartilhados
+q27.10.3;q27.10.3.Gestão de Benefícios Assistenciais - Profissionais de Nível Médio - Exclusivos
+q27.10.4;q27.10.4.Gestão de Benefícios Assistenciais - Profissionais de Nível Médio - Compartilhados
+q27.11.1;q27.11.1.AcesSUAS Trabalho - Profissionais de Nível Superior - Exclusivos
+q27.11.2;q27.11.2.AcesSUAS Trabalho - Profissionais de Nível Superior - Compartilhados
+q27.11.3;q27.11.3.AcesSUAS Trabalho - Profissionais de Nível Médio - Exclusivos
+q27.11.4;q27.11.4.AcesSUAS Trabalho - Profissionais de Nível Médio - Compartilhados
+q27.12.1;q27.12.1.Programa de Erradicação do Trabalho Infantil (PETI) - Profissionais de Nível Superior - Exclusivos
+q27.12.2;q27.12.2.Programa de Erradicação do Trabalho Infantil (PETI) - Profissionais de Nível Superior - Compartilhados
+q27.12.3;q27.12.3.Programa de Erradicação do Trabalho Infantil (PETI) - Profissionais de Nível Médio - Exclusivos
+q27.12.4;q27.12.4.Programa de Erradicação do Trabalho Infantil (PETI) - Profissionais de Nível Médio - Compartilhados
+q28.1.1;q28.1.1.Estatutário - Ensino Fundamental
+q28.1.2;q28.1.2.Estatutário - Ensino Médio
+q28.1.3;q28.1.3.Estatutários - Ensino Superior
+q28.1.4;q28.1.4.Estatutários - Total
+q28.2.1;q28.2.1.Empregados Públicos Celetistas - Ensino Fundamental
+q28.2.2;q28.2.2.Empregados Públicos Celetistas - Ensino Médio
+q28.2.3;q28.2.3.Empregados Públicos Celetistas - Ensino Superior
+q28.2.4;q28.2.4.Empregados Públicos Celetistas - Total
+q28.3.1;q28.3.1.Somente Comissionados - Ensino Fundamental
+q28.3.2;q28.3.2.Somente Comissionados - Ensino Médio
+q28.3.3;q28.3.3.Somente Comissionados - Ensino Superior
+q28.3.4;q28.3.4.Somente Comissionados - Total
+q28.4.1;q28.4.1.Outros Vínculos - Ensino Fundamental
+q28.4.2;q28.4.2.Outros Vínculos - Ensino Médio
+q28.4.3;q28.4.3.Outros Vínculos - Ensino Superior
+q28.4.4;q28.4.4.Outros Vínculos - Total
+q28.5.1;q28.5.1.Ensino Fundamental - Total
+q28.5.2;q28.5.2.Ensino Médio - Total
+q28.5.3;q28.5.3.Ensino Superior - Total
+q28.5.4;q28.5.4.Trabalhadores.Total
+q29.1;q29.1.Assistente Social
+q29.2;q29.2.Psicólogo
+q29.3;q29.3.Pedagogo
+q29.4;q29.4.Advogado
+q29.5;q29.5.Antropólogo
+q29.6;q29.6.Sociólogo
+q29.7;q29.7.Terapeuta Ocupacional
+q29.8;q29.8.Contador
+q29.9;q29.9.Administrador
+q29.10;q29.10.Economista
+q29.11;q29.11.Economista Doméstico
+q29.12;q29.12.Estatístico
+q29.13;q29.13.Musicoterapeuta
+q29.14;q29.14.Geógrafo
+q29.15;q29.15.Administrador Público/Gestão Pública
+q29.16;q29.16.Profissional de Educação Física
+q29.99;q29.99.Trab Nível Superior.Outros
+q29.total;q29.total.Total de trabalhadores com Ensino Superior
+q30.1.1;q30.1.1.Realizou concurso em 2016 - Nível Superior
+q30.1.2;q30.1.2.Realizou concurso em 2016 - Nível Superior - Quantidade de vagas
+q30.1.3;q30.1.3.Realizou concurso em 2016 - Nível Superior - Data de homologação
+q30.1.4;q30.1.4.Realizou concurso em 2016 - Nível Superior - Quantidade de trabalhadores que tomaram posse
+q30.2.1;q30.2.1.Realizou concurso em 2016 - Nível Médio
+q30.2.2;q30.2.2.Realizou concurso em 2016 - Nível Médio - Quantidade de vagas
+q30.2.3;q30.2.3.Realizou concurso em 2016 - Nível Médio - Data de homologação do concurso
+q30.2.4;q30.2.4.Realizou concurso em 2016 - Nível Médio - Quantidade de trabalhadores que tomaram posse
+q31;q31.O município possui Plano de Capacitação e Educação Permanente?
+q32;q32.Em que ano ocorreu a última atualização do Plano de Capacitação e Educação Permanente?
+q32.ns;q32.ns.Ano Atualização Plano Capacitação.Não sabe
+q33;q33.Para o ano de 2017, qual foi a previsão de quantidade de trabalhadores capacitados no plano?
+q33.0;q33.0.Qtd Trab Capacitados.Não há previsão
+q34.1;q34.1.Informações Plano Capacitação.Diretrizes do plano
+q34.2;q34.2.Informações Plano Capacitação.Diagnóstico da situação de profissionais no município
+q34.3;q34.3.Informações Plano Capacitação.Levantamento de demandas por capacitação
+q34.4;q34.4.Informações Plano Capacitação.Percursos formativos
+q34.5;q34.5.Informações Plano Capacitação.Metas de profissionais a serem capacitados
+q34.6;q34.6.Informações Plano Capacitação.Modalidades de oferta dos cursos
+q34.7;q34.7.Informações Plano Capacitação.Formas de monitoramento
+q34.8;q34.8.Informações Plano Capacitação.Estratégias de multiplicação (formação de multiplicadores)
+q34.99;q34.99.Informações Plano Capacitação.Outros
+q34.qual;q34.qual.Informações Plano Capacitação.Quais?
+q35;q35.O município realizou ações de capacitação e formação para os trabalhadores/conselheiros da política de assistência social no ano de 2017?
+q36.1;q36.1.Profissionais capacitados
+q36.1.ns;q36.1.ns.Qtd Profissionais Capacitados.Não sabe
+q36.2;q36.2.Conselheiros capacitados
+q36.2.ns;q36.2.ns.Qtd Conselheiros Capacitados.Não sabe
+q37.1;q37.1.Qtd Capacitados.Introdução
+q37.2;q37.2.Qtd Capacitados.Atualização
+q37.3;q37.3.Qtd Capacitados.Supervisão Técnica
+q37.4;q37.4.Qtd Capacitados.Curso Técnico
+q37.5;q37.5.Qtd Capacitados.Aperfeiçoamento
+q37.6;q37.6.Qtd Capacitados.Especialização
+q37.7;q37.7.Qtd Capacitados.Mestrado
+q37.8;q37.8.Qtd Capacitados.Presencial
+q37.9;q37.9.Qtd Capacitados.À distância
+q37.10;q37.10.Qtd Capacitados.Semipresencial
+q38;q38.No município, algum trabalhador da Assistência Social (SEDE E UNIDADES PÚBLICAS) já participou de algum curso do CAPACITASUAS?
+q39.1;q39.1.Cursos CapacitaSUAS.Total de profissionais
+q39.1.ns;q39.1.ns.Cursos CapacitaSUAS.Total.Não sabe
+q39.2;q39.2.Cursos CapacitaSUAS.Curso de Introdução ao Provimento dos Serviços e Benefícios Socioassistenciais do SUAS
+q39.2.ns;q39.2.ns.Cursos CapacitaSUAS.Serviços e Benefícios.Não sabe
+q39.3;q39.3.Cursos CapacitaSUAS.Curso de Atualização em Indicadores para diagnóstico e acompanhamento do SUAS
+q39.3.ns;q39.3.ns.Cursos CapacitaSUAS.Indicadores para Diagnóstico.Não sabe
+q39.4;q39.4.Cursos CapacitaSUAS.Curso de Atualização em Gestão Financeira e Orçamentária do SUAS
+q39.4.ns;q39.4.ns.Cursos CapacitaSUAS.Gestão Financeira e Orçamentária.Não sabe
+q39.5;q39.5.Cursos CapacitaSUAS.Curso de Introdução ao Exercício do Controle Social do SUAS
+q39.5.ns;q39.5.ns.Cursos CapacitaSUAS.Controle Social.Não sabe
+q39.6;q39.6.Cursos CapacitaSUAS.Curso de Atualização para Elaboração de Planos de Assistência Social
+q39.6.ns;q39.6.ns.Cursos CapacitaSUAS.Elaboração de Planos.Não sabe
+q39.7;q39.7.Cursos CapacitaSUAS.Curso de Atualização em Vigilância Socioassistencial do SUAS
+q39.7.ns;q39.7.ns.Cursos CapacitaSUAS.Vigilância Socioassistencial.Não sabe
+q39.8;q39.8.Cursos CapacitaSUAS.Curso de Atualização sobre Especificidades e Interfaces da Proteção Social Básica do SUAS
+q39.8.ns;q39.8.ns.Cursos CapacitaSUAS.Especificidades e Interfaces PSB.Não sabe
+q39.9;q39.9.Cursos CapacitaSUAS.Curso de Atualização sobre Organização e Oferta dos Serviços da Proteção Social Especial
+q39.9.ns;q39.9.ns.Cursos CapacitaSUAS.Organização e Oferta PSE.Não sabe
+q40;q40.O município possui Mesa de Negociação do Sistema Único de Assistência Social (SUAS)?
+q41;q41.Com qual frequência ocorrem as reuniões ordinárias da Mesa de Negociação do SUAS?
+q42;q42.O órgão gestor da Assistência Social aporta recursos para realização de reuniões da Mesa de Negociação do SUAS (sala, equipamentos, pessoal, passagens, etc.)?
+q43.1;q43.1.Aporte Mesa Negociação.Cessão de espaço físico
+q43.2;q43.2.Aporte Mesa Negociação.Cessão de recursos humanos
+q43.3;q43.3.Aporte Mesa Negociação.Custeio de passagens
+q43.4;q43.4.Aporte Mesa Negociação.Disponibilização de equipamentos (computadores, telefones)
+q43.99;q43.99.Aporte Mesa Negociação.Outros
+q43.qual;q43.qual.Aporte Mesa Negociação.Quais?
+q44;q44.Os servidores do órgão gestor de assistência social possuem Plano de Cargos, Carreiras e Salários (PCCS)?
+q45;q45.O Plano de Cargos, Carreiras e Salários dos servidores do órgão gestor da assistência social (PCCS) pertence a qual órgão do município?
+q45.qual;q45.qual.Órgão PCCS.Qual?
+q46;q46.Qual o ano da última atualização deste PCCS?
+q47;q47.O município oferta Serviço de Proteção Social Básica no Domicílio para Pessoas com Deficiência e Pessoas Idosas?
+q48;q48.Em que unidade e com que equipe o Serviço é ofertado?
+q49.1;q49.1.Profissionais Domicílio.Assistente Social
+q49.2;q49.2.Profissionais Domicílio.Psicólogo(a)
+q49.3;q49.3.Profissionais Domicílio.Terapeuta Ocupacional
+q49.4;q49.4.Profissionais Domicílio.Cuidadores Sociais
+q49.5;q49.5.Profissionais Domicílio.Outros Profissionais
+q49.total;q49.total.Profissionais Domicílio.TOTAL
+q50;q50.Em média, quantos dias por semana os usuários acessam/recebem este serviço?
+q51.1;q51.1.Atendimento Violações.Atende no CREAS do município
+q51.2;q51.2.Atendimento Violações.Encaminha para o CREAS de outro município
+q51.3;q51.3.Atendimento Violações.Encaminha para o CREAS Regional ao qual está vinculado
+q51.4;q51.4.Atendimento Violações.Encaminha para o CRAS
+q51.5;q51.5.Atendimento Violações.Encaminha para alguma entidade conveniada/parceira no município
+q51.6;q51.6.Atendimento Violações.É atendido pela equipe de referência da proteção social especial do órgão gestor
+q51.99;q51.99.Atendimento Violações.Outro
+q51.0;q51.0.Atendimento Violações.Não atende
+q51.qual;q51.qual.Atendimento Violações.Qual?
+q52.1;q52.1.Atividades PSE.Atendimento/acompanhamento direto às famílias e indivíduos
+q52.2;q52.2.Atividades PSE.Elaboração dos Planos de Acompanhamento Familiar ou Individual
+q52.3;q52.3.Atividades PSE.Elaboração de relatórios técnicos sobre as famílias/indivíduos em acompanhamento
+q52.4;q52.4.Atividades PSE.Registro do atendimento/acompanhamento em prontuário
+q52.5;q52.5.Atividades PSE.Encaminhamento dos usuários para a rede de serviços local
+q52.6;q52.6.Atividades PSE.Articulação da rede de políticas setoriais do município
+q52.7;q52.7.Atividades PSE.Articulação com os órgãos do sistema de justiça do município
+q52.8;q52.8.Atividades PSE.Busca ativa
+q52.9;q52.9.Atividades PSE.Realização de reuniões periódicas com a equipe do CREAS de outro município/CREAS Regional
+q52.10;q52.10.Atividades PSE.Realização de estudos de caso em conjunto com o CREAS de outro município/CREAS Regional
+q52.11;q52.11.Atividades PSE.Participação na construção do plano de trabalho do CREAS de outro município/CREAS Regional
+q52.12;q52.12.Atividades PSE.Acompanhamento das unidades de acolhimento que possuam acolhidos no município
+q52.0;q52.0.Atividades PSE.Nenhuma das anteriores
+q53.1;q53.1.Locais Atendimento PSE.Na sede do órgão gestor municipal
+q53.2;q53.2.Locais Atendimento PSE.No CRAS
+q53.3;q53.3.Locais Atendimento PSE.Em unidade pública da rede socioassistencial
+q53.4;q53.4.Locais Atendimento PSE.Em entidade socioassistencial da rede privada
+q53.5;q53.5.Locais Atendimento PSE.Em unidade da rede de outras políticas públicas
+q53.6;q53.6.Locais Atendimento PSE.No domicílio das famílias
+q53.99;q53.99.Locais Atendimento PSE.Outro
+q53.3.qual;q53.3.qual.Locais Atendimento PSE.Unidade Pública - Qual?
+q53.5.qual;q53.5.qual.Locais Atendimento PSE.Unidade de Outras Políticas Públicas - Qual?
+q53.99.qual;q53.99.qual.Locais Atendimento PSE.Outro - Qual?
+q54.1;q54.1.Atendimento MSE.Atende no CREAS do município
+q54.2;q54.2.Atendimento MSE.Encaminha para o CREAS de outro município
+q54.3;q54.3.Atendimento MSE.Encaminha para o CREAS Regional ao qual está vinculado
+q54.4;q54.4.Atendimento MSE.Executa no CRAS
+q54.5;q54.5.Atendimento MSE.Executa em entidade conveniada/parceira no município
+q54.6;q54.6.Atendimento MSE.Executa em outra unidade pública (exceto CREAS) de acompanhamento de adolescentes em cumprimento de Medida Socioeducativa (LA ou PSC) do município
+q54.7;q54.7.Atendimento MSE.É atendido pela equipe de referência da proteção social especial do município (órgão gestor).
+q54.99;q54.99.Atendimento MSE.Outro
+q54.0;q54.0.Atendimento MSE.Não atende
+q54.5.1;q54.5.1.Atendimento MSE.Se sim, quantas unidades? - Entidade Conveniada/Parceira
+q54.6.1;q54.6.1.Atendimento MSE.Se sim, quantas unidades? - Outra Unidade Pública
+q55;q55.O município oferta Serviço especializado em abordagem social?
+q56.1;q56.1.Oferta Abordagem.No(s) CREAS
+q56.2;q56.2.Oferta Abordagem.No(s) Centro POP
+q56.3;q56.3.Oferta Abordagem.Na sede/órgão gestor do município (considerar nesta opção estruturas descentralizadas, como regionais ou similares)
+q56.4;q56.4.Oferta Abordagem.Em outra unidade pública
+q56.5;q56.5.Oferta Abordagem.Em entidade conveniada/parceira
+q56.4.1;q56.4.1.Oferta Abordagem.Se sim, quantas unidades? - Unidade Pública
+q56.5.1;q56.5.1.Oferta Abordagem.Se sim, quantas unidades? - Entidade Conveniada/Parceira
+q57;q57.O município possui Serviço de Acolhimento em Família Acolhedora para Criança e Adolescente?
+q58;q58.O município possui programa de guarda subsidiada, no qual a família extensa ou com vínculos afetivos tenha subsídio financeiro para a guarda da criança?
+q59;q59.Caso sim, o Programa de Guarda Subsidiada é regulamentado por lei municipal?
+q60;q60.Guarda Subsidiada.Qual é o valor médio de repasse a estas famílias?
+q61;q61.Guarda Subsidiada.Atualmente, quantas famílias recebem recursos pelo Programa?
+q62.1;q62.1.Atividades Guarda Subsidiada.Visitas domiciliares da equipe técnica do Programa à família
+q62.2;q62.2.Atividades Guarda Subsidiada.Reuniões com grupos de famílias
+q62.3;q62.3.Atividades Guarda Subsidiada.Atendimento psicossocial individualizado
+q62.4;q62.4.Atividades Guarda Subsidiada.Palestras/Oficinas
+q62.5;q62.5.Atividades Guarda Subsidiada.Elaboração de relatórios técnicos sobre casos em acompanhamento
+q62.6;q62.6.Atividades Guarda Subsidiada.Envio de relatórios para o Judiciário
+q62.0;q62.0.Atividades Guarda Subsidiada.Não realiza nenhuma das atividades acima
+q63;q63.O município faz parte de consórcio público com outros municípios para oferta de serviços de acolhimento?
+q64.1;q64.1.Público Consórcio Acolhimento.Crianças/Adolescentes
+q64.2;q64.2.Público Consórcio Acolhimento.Jovens egressos de serviços de acolhimento
+q64.3;q64.3.Público Consórcio Acolhimento.Exclusivamente crianças/adolescentes com deficiência
+q64.4;q64.4.Público Consórcio Acolhimento.Exclusivamente pessoas adultas com deficiência
+q64.5;q64.5.Público Consórcio Acolhimento.Adultos e Famílias
+q64.6;q64.6.Público Consórcio Acolhimento.Mulheres em situação de violência
+q64.7;q64.7.Público Consórcio Acolhimento.Pessoas idosas
+q65.1;q65.1.Atividades Monitoramento.Controla o acesso às vagas (controle da porta de entrada), sendo responsável por indicar a Unidade de Acolhimento que receberá a criança/adolescente
+q65.2;q65.2.Atividades Monitoramento.Acompanha/monitora o fluxo de entradas e saídas de crianças e adolescentes nas Unidades
+q65.3;q65.3.Atividades Monitoramento.Centraliza as informações das medidas de acolhimento determinadas pelo poder Judiciário
+q65.4;q65.4.Atividades Monitoramento.Centraliza as informações dos acolhimentos emergenciais realizados pelo Conselho Tutelar
+q65.5;q65.5.Atividades Monitoramento.Promove a articulação dos serviços de acolhimento com os demais serviços da rede socioassistencial
+q65.6;q65.6.Atividades Monitoramento.Promove a articulação dos serviços de acolhimento com as demais políticas públicas e órgãos de defesa de direitos
+q65.7;q65.7.Atividades Monitoramento.Realiza supervisão e suporte técnico aos serviços de acolhimento
+q65.8;q65.8.Atividades Monitoramento.Monitora o tempo de permanência das crianças e adolescentes nos serviços de acolhimento
+q65.9;q65.9.Atividades Monitoramento.Fiscaliza a qualidade dos serviços
+q65.0;q65.0.Atividades Monitoramento.Não realiza nenhuma das atividades listadas acima
+q66;q66.Nos últimos 12 (doze) meses a Assistência Social do município abrigou em alojamentos provisórios pessoas atingidas por situações de emergência ou de calamidade pública?
+q67;q67.O município utiliza embarcação/lancha para o desenvolvimento de atividades/serviços da Assistência Social?
+q68.1;q68.1.Equipe Embarcação.Equipe do CRAS
+q68.2;q68.2.Equipe Embarcação.Equipe do CREAS ou da Proteção Social Especial
+q68.3;q68.3.Equipe Embarcação.Equipe do Cadastro Único
+q68.4;q68.4.Equipe Embarcação.Equipes do órgão gestor da Assistência Social
+q68.99;q68.99.Equipe Embarcação.Outros
+q68.qual;q68.qual.Equipe Embarcação.Quais?
+q69;q69.Atualmente o município executa o programa ACESSUAS Trabalho?
+q70.1;q70.1.Responsável AcesSUAS Trabalho.Secretaria de Assistência Social
+q70.2;q70.2.Responsável AcesSUAS Trabalho.O CRAS
+q70.3;q70.3.Responsável AcesSUAS Trabalho.Outras unidades públicas
+q70.4;q70.4.Responsável AcesSUAS Trabalho.Entidade conveniada
+q70.99;q70.99.Responsável AcesSUAS Trabalho.Outro
+q70.qual;q70.qual.Responsável AcesSUAS Trabalho.Qual?
+q71.1;q71.1.Atividades AcesSUAS Trabalho.Identificação e sensibilização do público do programa
+q71.2;q71.2.Atividades AcesSUAS Trabalho.Mapeamento de oportunidades no território
+q71.3;q71.3.Atividades AcesSUAS Trabalho.Realização de ciclo de oficinas/encontros com os usuários, a fim de desenvolver habilidades e orientar sobre questões afetas ao mundo do trabalho
+q71.4;q71.4.Atividades AcesSUAS Trabalho.Mobilização dos profissionais dos serviços socioassistenciais a fim de informá-los a respeito do programa Acessuas Trabalho
+q71.5;q71.5.Atividades AcesSUAS Trabalho.Mobilização dos usuários da assistência social a fim de informá-los sobre as ações do Acessuas Trabalho
+q71.6;q71.6.Atividades AcesSUAS Trabalho.Articulação com serviços socioassistenciais
+q71.7;q71.7.Atividades AcesSUAS Trabalho.Articulação e encaminhamento para outras políticas públicas como Saúde e Educação
+q71.8;q71.8.Atividades AcesSUAS Trabalho.Articulação e encaminhamento para oportunidades de inclusão produtiva e cursos de capacitação profissional
+q71.9;q71.9.Atividades AcesSUAS Trabalho.Monitoramento do percurso do usuário
+q71.99;q71.99.Atividades AcesSUAS Trabalho.Outras
+q72.1;q72.1.Encaminha Usuários.Serviço Nacional do Emprego - SINE
+q72.2;q72.2.Encaminha Usuários.Cursos do PRONATEC-BSM
+q72.3;q72.3.Encaminha Usuários.Demais cursos do PRONATEC
+q72.4;q72.4.Encaminha Usuários.Cursos técnicos de instituições municipais/estaduais
+q72.5;q72.5.Encaminha Usuários.Cooperativas
+q72.6;q72.6.Encaminha Usuários.Microcrédito
+q72.7;q72.7.Encaminha Usuários.Micro empreendedorismo individual
+q72.99;q72.99.Encaminha Usuários.Outros
+q72.qual;q72.qual.Encaminha Usuários.Quais?
+q73;q73.O município aderiu ao Criança Feliz?
+q74.1;q74.1.Criança Feliz.Realizou diagnóstico das famílias a serem visitadas pelo programa
+q74.2;q74.2.Criança Feliz.Definiu os CRAS que irão referenciar o programa
+q74.3;q74.3.Criança Feliz.Contratou os supervisores
+q74.4;q74.4.Criança Feliz.Realizou a capacitação dos supervisores
+q74.5;q74.5.Criança Feliz.Realizou reuniões de planejamento do trabalho com a equipe de referência do CRAS
+q74.6;q74.6.Criança Feliz.Contratou os visitadores
+q74.7;q74.7.Criança Feliz.Realizou a capacitação dos visitadores
+q74.8;q74.8.Criança Feliz.Busca ativa das famílias com o perfil do programa
+q74.9;q74.9.Criança Feliz.Realizou visitas domiciliares do programa
+q74.10;q74.10.Criança Feliz.Informou no Prontuário Eletrônico do SUAS as visitas realizadas
+q75;q75.Como se dá a oferta da visita domiciliar no território?
+q76.1;q76.1.Público Visitas Domiciliares.Gestantes beneficiárias do Programa Bolsa Família
+q76.2;q76.2.Público Visitas Domiciliares.Crianças com até três anos beneficiárias do Programa Bolsa Família
+q76.3;q76.3.Público Visitas Domiciliares.Crianças com deficiência até seis anos beneficiárias do BPC
+q77.1;q77.1.Trabalho Infantil.Realiza campanhas, mobilização e sensibilização
+q77.2;q77.2.Trabalho Infantil.Realiza atividades de abordagem social em espaços públicos
+q77.3;q77.3.Trabalho Infantil.Realiza busca ativa de famílias com situação de trabalho infantil para inclusão no Cadúnico
+q77.4;q77.4.Trabalho Infantil.Encaminha/inclui crianças e adolescentes em trabalho infantil para os Serviços de Convivência
+q77.5;q77.5.Trabalho Infantil.Encaminha/inclui famílias com situação de trabalho infantil para PAIF/CRAS
+q77.6;q77.6.Trabalho Infantil.Encaminha/inclui famílias com situação de trabalho infantil para o PAEFI/CREAS
+q77.7;q77.7.Trabalho Infantil.Encaminha famílias e indivíduos para a aplicação de medidas protetivas à família
+q77.8;q77.8.Trabalho Infantil.Encaminha famílias com situação de trabalho infantil para programas e projetos de capacitação profissional
+q77.9;q77.9.Trabalho Infantil.Encaminha famílias com situação de trabalho infantil para programas e projetos de inclusão produtiva e/ou geração de trabalho e renda
+q77.10;q77.10.Trabalho Infantil.Encaminha famílias com situação de trabalho infantil para atendimento em outras políticas públicas
+q77.11;q77.11.Trabalho Infantil.Encaminha famílias com situação de trabalho infantil para os órgãos de defesa e responsabilização
+q77.12;q77.12.Trabalho Infantil.Elabora estudos e diagnósticos sobre o trabalho infantil no município
+q77.0;q77.0.Trabalho Infantil.Não realiza atividades listadas acima
+q78;q78.A Assistência Social desenvolve ações relativas ao Benefício de Prestação Continuada (BPC)?
+q79.1;q79.1.Ações BPC.Realizar estudos sobre as condições de vulnerabilidade das famílias com idosos e pessoas com deficiência
+q79.2;q79.2.Ações BPC.Orientar a população usuária sobre seus direitos e procedimentos para acesso ao BPC
+q79.3;q79.3.Ações BPC.Apoiar e acompanhar o processo de concessão do BPC
+q79.4;q79.4.Ações BPC.Distribuir aos CRAS e CREAS do município listas territorializadas das famílias com beneficiários do BPC
+q79.5;q79.5.Ações BPC.Articular com outros setores a inserção dos beneficiários nas diversas políticas sociais
+q79.6;q79.6.Ações BPC.Realizar e acompanhar a inserção e atualização dos beneficiários do BPC no Cadastro Único
+q79.7;q79.7.Ações BPC.Articular ações com INSS acerca do requerimento e manutenção do BPC
+q79.8;q79.8.Ações BPC.Realizar e acompanhar a inserção de crianças e adolescentes com deficiência beneficiárias do BPC na escola, em articulação com o Grupo Gestor Local
+q79.9;q79.9.Ações BPC.Acompanhar a inserção de jovens e adultos com deficiência beneficiários do BPC no mundo do trabalho
+q79.0;q79.0.Ações BPC.Nenhuma das anteriores
+q80.1.1;q80.1.1.Benefício Eventual por Situação de Morte - O Benefício é concedido no município?
+q80.1.2;q80.1.2.Benefício Eventual por Situação de Morte - O Benefício é regulamentado?
+q80.1.3;q80.1.3.Benefício Eventual por Situação de Morte - Ano da última atualização da regulamentação:
+q80.1.4;q80.1.4.Benefício Eventual por Situação de Morte - Local onde o Benefício é concedido:
+q80.2.1;q80.2.1.Benefício Eventual por Situação de Natalidade - O Benefício é concedido no município?
+q80.2.2;q80.2.2.Benefício Eventual por Situação de Natalidade - O Benefício é regulamentado?
+q80.2.3;q80.2.3.Benefício Eventual por Situação de Natalidade - Ano da última atualização da regulamentação:
+q80.2.4;q80.2.4.Benefício Eventual por Situação de Natalidade - Local onde o Benefício é concedido:
+q80.3.1;q80.3.1.Benefício Eventual para Situação de Calamidade Pública - O Benefício é concedido no município?
+q80.3.2;q80.3.2.Benefício Eventual para Situação de Calamidade Pública - O Benefício é regulamentado?
+q80.3.3;q80.3.3.Benefício Eventual para Situação de Calamidade Pública - Ano da última atualização da regulamentação:
+q80.3.4;q80.3.4.Benefício Eventual para Situação de Calamidade Pública - Local onde o Benefício é concedido:
+q80.4.1;q80.4.1.Outros Benefícios Eventuais para famílias em situação de vulnerabilidade temporária - O Benefício é concedido no município?
+q80.4.2;q80.4.2.Outros Benefícios Eventuais para famílias em situação de vulnerabilidade temporária - O Benefício é regulamentado?
+q80.4.3;q80.4.3.Outros benefícios eventuais para famílias em situação de vulnerabilidade temporária - Ano da última atualização da regulamentação:
+q80.4.4;q80.4.4.Outros Benefícios Eventuais para famílias em situação de vulnerabilidade temporária - Local onde o Benefício é concedido:
+q81.1.1;q81.1.1.CadÚnico.Sede do Órgão Gestor.Entrevista para Inclusão Cadastral
+q81.1.2;q81.1.2.CadÚnico.Sede do Órgão Gestor.Entrevista para Atualização Cadastral
+q81.1.3;q81.1.3.CadÚnico.Sede do Órgão Gestor.Digitação dos dados das famílias no Sistema de Cadastro Único
+q81.1.4;q81.1.4.CadÚnico.Sede do Órgão Gestor.Fornecimento de comprovante de cadastramento por demanda das famílias
+q81.1.0;q81.1.0.CadÚnico.Sede do Órgão Gestor.Não realiza.Cadastramento e Atualização
+q81.2.1;q81.2.1.CadÚnico.Nos CRAS.Entrevista para Inclusão Cadastral
+q81.2.2;q81.2.2.CadÚnico.Nos CRAS.Entrevista para Atualização Cadastral
+q81.2.3;q81.2.3.CadÚnico.Nos CRAS.Digitação dos dados das famílias no Sistema de Cadastro Único
+q81.2.4;q81.2.4.CadÚnico.Nos CRAS.Fornecimento de comprovante de cadastramento por demanda das famílias
+q81.2.0;q81.2.0.CadÚnico.Nos CRAS.Não realiza.Cadastramento e Atualização
+q81.3.1;q81.3.1.CadÚnico.Postos Exclusivos.Entrevista para Inclusão Cadastral
+q81.3.2;q81.3.2.CadÚnico.Postos Exclusivos.Entrevista para Atualização Cadastral
+q81.3.3;q81.3.3.CadÚnico.Postos Exclusivos.Digitação dos dados das famílias no Sistema de Cadastro Único
+q81.3.4;q81.3.4.CadÚnico.Postos Exclusivos.Fornecimento de comprovante de cadastramento por demanda das famílias
+q81.3.0;q81.3.0.CadÚnico.Postos Exclusivos.Não realiza.Cadastramento e Atualização
+q81.4.1;q81.4.1.CadÚnico.Postos Temporários.Entrevista para Inclusão Cadastral
+q81.4.2;q81.4.2.CadÚnico.Postos Temporários.Entrevista para Atualização Cadastral
+q81.4.3;q81.4.3.CadÚnico.Postos Temporários.Digitação dos dados das famílias no Sistema de Cadastro Único
+q81.4.4;q81.4.4.CadÚnico.Postos Temporários.Fornecimento de comprovante de cadastramento por demanda das famílias
+q81.4.0;q81.4.0.CadÚnico.Postos Temporários.Não realiza.Cadastramento e Atualização
+q81.5.1;q81.5.1.CadÚnico.Outras Unidades.Entrevista para Inclusão Cadastral
+q81.5.2;q81.5.2.CadÚnico.Outras Unidades.Entrevista para Atualização Cadastral
+q81.5.3;q81.5.3.CadÚnico.Outras Unidades.Digitação dos dados das famílias no Sistema de Cadastro Único
+q81.5.4;q81.5.4.CadÚnico.Outras Unidades.Fornecimento de comprovante de cadastramento por demanda das famílias
+q81.5.0;q81.5.0.CadÚnico.Outras Unidades.Não realiza.Cadastramento e Atualização
+q81.6.1;q81.6.1.CadÚnico.Outras Políticas.Entrevista para Inclusão Cadastral
+q81.6.2;q81.6.2.CadÚnico.Outras Políticas.Entrevista para Atualização Cadastral
+q81.6.3;q81.6.3.CadÚnico.Outras Políticas.Digitação dos dados das famílias no Sistema de Cadastro Único
+q81.6.4;q81.6.4.CadÚnico.Outras Políticas.Fornecimento de comprovante de cadastramento por demanda das famílias
+q81.6.0;q81.6.0.CadÚnico.Outras Políticas.Não realiza.Cadastramento e Atualização
+q81.7.1;q81.7.1.CadÚnico.Domicílio das Famílias.Entrevista para Inclusão Cadastral
+q81.7.2;q81.7.2.CadÚnico.Domicílio das Famílias.Entrevista para Atualização Cadastral
+q81.7.3;q81.7.3.CadÚnico.Domicílio das Famílias.Digitação dos dados das famílias no Sistema de Cadastro Único
+q81.7.4;q81.7.4.CadÚnico.Domicílio das Famílias.Fornecimento de comprovante de cadastramento por demanda das famílias
+q81.7.0;q81.7.0.CadÚnico.Domicílio das Famílias.Não realiza.Cadastramento e Atualização
+q81.8.1;q81.8.1.CadÚnico.Outros Locais.Entrevista para Inclusão Cadastral
+q81.8.2;q81.8.2.CadÚnico.Outros Locais.Entrevista para Atualização Cadastral
+q81.8.3;q81.8.3.CadÚnico.Outros Locais.Digitação dos dados das famílias no Sistema de Cadastro Único
+q81.8.4;q81.8.4.CadÚnico.Outros Locais.Fornecimento de comprovante de cadastramento por demanda das famílias
+q81.8.0;q81.8.0.CadÚnico.Outros Locais.Não realiza.Cadastramento e Atualização
+q82;q82.Como é feito o registro das informações da entrevista no sistema do Cadastro Único?
+q83;q83.Em média, após a entrevista, quanto tempo leva para que os dados coletados no formulário em papel sejam inseridos no sistema?
+q84;q84.Neste município, há exigência de agendamento prévio para a realização da entrevista para inclusão/atualização cadastral?
+q85;q85.Em média, após quantos dias ela consegue ser atendida?
+q86.1;q86.1.Estratégias Participação.Estimula a participação de usuários nas reuniões do Conselho
+q86.2;q86.2.Estratégias Participação.Estimula a participação dos usuários no âmbito das unidades socioassistenciais
+q86.3;q86.3.Estratégias Participação.Estimula a formação de coletivo/comitê de usuários da política (como por exemplo o Fórum Municipal de Usuários do SUAS)
+q86.4;q86.4.Estratégias Participação.Apoio financeiro a coletivo de usuários da política
+q86.5;q86.5.Estratégias Participação.Realiza reuniões/entrevistas específicas a fim de coletar a demanda dos usuários
+q86.6;q86.6.Estratégias Participação.Possui mecanismo de ouvidoria/central de relacionamento para recebimento de demandas de usuários
+q86.7;q86.7.Estratégias Participação.Realiza pesquisa de opinião/questionários juntos aos usuários da política
+q86.8;q86.8.Estratégias Participação.Realiza audiências públicas sobre temas da Assistência Social
+q86.99;q86.99.Estratégias Participação.Outros
+q86.qual;q86.qual.Estratégias Participação.Quais?
+q87.0;q87.0.Comunicação dos Usuários.Não há contato entre equipe de gestão e os usuários
+q87.1;q87.1.Comunicação dos Usuários.Contato pessoal
+q87.2;q87.2.Comunicação dos Usuários.Telefone gratuito
+q87.3;q87.3.Comunicação dos Usuários.Telefone não gratuito
+q87.4;q87.4.Comunicação dos Usuários.Mensagens de texto por celular (SMS)
+q87.5;q87.5.Comunicação dos Usuários.E-mail
+q87.6;q87.6.Comunicação dos Usuários.Chat em Blog/Site
+q87.7;q87.7.Comunicação dos Usuários.Aplicativo de mensagens (WhatsApp/Telegram)
+q87.8;q87.8.Comunicação dos Usuários.Redes Sociais (Facebook)
+q87.99;q87.99.Comunicação dos Usuários.Outro
+q87.qual;q87.qual.Comunicação dos Usuários.Qual?
+q88;q88.O órgão gestor de Assistência Social produziu alguma ação de comunicação (campanha/mobilização/sensibilização) com foco no usuário em 2017?
+q89.1;q89.1.Temas de Comunicação.Informação sobre direitos dos usuários do SUAS
+q89.2;q89.2.Temas de Comunicação.BPC
+q89.3;q89.3.Temas de Comunicação.Programa Bolsa Família
+q89.4;q89.4.Temas de Comunicação.Cadastro Único
+q89.5;q89.5.Temas de Comunicação.População de Rua
+q89.6;q89.6.Temas de Comunicação.Trabalho Infantil
+q89.7;q89.7.Temas de Comunicação.Violência Doméstica
+q89.8;q89.8.Temas de Comunicação.Desigualdade de Gênero
+q89.9;q89.9.Temas de Comunicação.Divulgação de eventos técnicos
+q89.10;q89.10.Temas de Comunicação.Divulgação de Orientações Técnicas
+q89.11;q89.11.Temas de Comunicação.Divulgação de Normativas
+q89.12;q89.12.Temas de Comunicação.Campanhas temáticas (Trabalho Infantil, Violência Doméstica, Gênero, etc.)
+q89.13;q89.13.Temas de Comunicação.Mobilização Social
+q89.14;q89.14.Temas de Comunicação.Controle Social
+q89.99;q89.99.Temas de Comunicação.Outros
+q89.qual;q89.qual.Temas de Comunicação.Quais?
+resp.cargo;Responsável.Cargo/Função:
+rep.vig.n.possui;Não há representante da Vigilância designado no município
+rep.vig.cargo;Representante da Vigilância - Cargo/Função:
+d6;d6.Ano da Lei Municipal de regulamentação do SUAS
+d8;d8.Ano do Plano Municipal de Assistência Social
+d13;d13.Quantidade de Pessoas em Situação de Rua
+d24;d24.Quantidade de Entidades Conveniadas
+d28.5.4;d29.total.Quantidade de Trabalhadores - Total
+d29.total;d29.total.Quantidade Total de Trabalhadores de Ensino Superior
+d27.1;d27.1.Total de Profissionais da Gestão do SUAS
+d27.2;d27.2.Total de Profissionais da Vigilância Socioassistencial
+d27.3;d27.3.Total de Profissionais da Gestão do Trabalho
+d27.4;d27.4.Total de Profissionais da Regulação do SUAS
+d27.5;d27.5.Total de Profissionais da Gestão Financeira e Orçamentária
+d27.6;d27.6.Total de Profissionais da Proteção Social Básica
+d27.7;d27.7.Total de Profissionais da Proteção Social Especial de Média Complexidadel
+d27.8;d27.8.Total de Profissionais da Proteção Social Especial de Alta Complexidade
+d27.9;d27.9.Total de Profissionais da Gestão do Cadastro Único
+d27.10;d27.10.Total de Profissionais da Gestão de Benefícios Assistenciais
+d27.11;d27.11.Total de Profissionais do AcesSUAS trabalho
+d27.12;d27.12.Total do PETI
+d46;d46.Ano da última atualização do PCCS
+d61;d61.Famílias que recebem recursos pelo Programa de Guarda Subsidiada

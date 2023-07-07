@@ -1,0 +1,43 @@
+Variável;Descrição
+id_acolhimento;id_acolhimento
+IBGE7;Código IBGE com Dígito Verificador
+IBGE;Código IBGE do Município
+codigo_ibge;codigo_ibge
+Região;Grande Região
+UF;Unidade da Federação
+uf_s;Unidade da Federação
+Município;Nome do Município_Censo IBGE 2010
+Municipio_2013;Nome do Município_atualizado 2014
+area;Área Territorial Km2
+Pop_Total2010;População Total - Censo IBGE 2010
+Pop_Urbana2010;População Urbana - Censo IBGE 2010
+Pop_Rural2010;População Rural - Censo IBGE 2010
+Porte_pop2010;Porte Populacional SUAS - Censo IBGE 2010
+q42.2;Data de nascimento
+q42.3;SEXO
+q42.9;Escolaridade
+q42.10;Profissão
+q42.11;Vínculo
+q42.12;Função
+q42.13;Carga horária
+q42.14;Inicio do exercício da função
+D42;
+D42.2;D42.2_Idade em anos (data ref. 31-12-2017)
+D42.2.categoria;D42.2.categoria_Idade (faixas etárias)
+D42.9bin1;D42.9bin1_Quantidade de trabalhadores - Nível Fundamental
+D42.9bin2;D42.9bin2_Quantidade de trabalhadores - Nível Médio
+D42.9bin3;D42.9bin3_Quantidade de trabalhadores - Nível Superior
+D42.10bin1;D42.10bin1_Quantidade de trabalhadores - Assistente Social
+D42.10bin2;D42.10bin2_Quantidade de trabalhadores - Psicólogo
+D42.10bin3;D42.10bin3_Quantidade de trabalhadores - Pedagógo
+D42.10bin4;D42.10bin4_Quantidade de trabalhadores - Enfermeiro
+D42.10bin5;D42.10bin5_Quantidade de trabalhadores - Médico
+D42.10bin6;D42.10bin6_Quantidade de trabalhadores - Administrador
+D42.10bin7;D42.10bin7_Quantidade de trabalhadores - Advogado
+D42.10bin8;D42.10bin8_Quantidade de trabalhadores - Fisiterapeuta/Terapia Ocupacional
+D42.11bin1;D42.11bin1_Quantidade de trabalhadores - Servidor Público ou Comissionado
+D42.11bin2;D42.11bin2_Quantidade de trabalhadores - Empregado Celetista
+D42.11bin3;D42.11bin3_Quantidade de trabalhadores - Voluntario ou Sem Vínculo
+D42.11bin4;D42.11bin4_Quantidade de trabalhadores - Tercerizado ou Trabalhador de Empresa, Cooperativa ou Entidade Prestadora de serviços
+D42.11bin5;D42_9bin5_Quantidade de trabalhadores - Outro vínculo não permanente
+D42.14;D42.14_Tempo de vínculo em anos (data ref. 31-12-2017)

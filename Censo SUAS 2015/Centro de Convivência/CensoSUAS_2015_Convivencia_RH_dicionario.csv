@@ -1,0 +1,37 @@
+Variável;Descrição
+IBGE;Código IBGE do Município
+IBGE7;Código do IBGE (7 dígitos)
+Região;Grande Região
+UF;UF
+uf_s;uf_s
+Município;Nome do Município_Censo IBGE 2010
+area;Área Territorial Km2
+Pop_Total2010;Total
+Pop_Urbana2010;
+Pop_Rural2010;
+Porte_pop2010;Porte SUAS_população 2010
+NU_IDENTIFICADOR;Número Identificador da Unidade
+q31_2;q31_2_Data de nascimento
+q31_3;q31_3_SEXO
+q31_8;q31_8_Escolaridade
+q31_9;q31_9_Profissão
+q31_10;q31_10_Vínculo
+q31_11;q31_11_Função
+q31_12;q31_12_Carga horária SEMANAL
+q31_13;q31_13_Início do exercício da função
+d31_2;d31_2_Idade em anos (data ref. 31-12-2015)
+d31_2_categoria;d31_2_categoria_Idade (faixas etárias)
+d31_8;d31_8_Níveis de escolaridade
+d31_10;d31_10_Tipo de vínculo
+d31_8bin1;d31_8bin1_Nível fundamental - trabalhadores que possuem até o nível médio (inclui aqueles sem escolaridade)
+d31_8bin2;d31_8bin2_Nível médio - trabalhadores com ensino superior incompleto e ensino médio completo
+d31_8bin3;d31_8bin3_Nível superior - inclui trabalhadores graduados, com especialização, mestrado ou doutorado
+d31_9bin1;d31_9bin1_Pedagogo
+d31_9bin2;d31_9bin2_Assistente Social
+d31_9bin3;d31_9bin3_Antropólogo
+d31_9bin4;d31_9bin4_Advogado
+d31_9bin5;d31_9bin5_Psicólogo
+d31_10bin1;d31_10bin1_Servidor Estatutário
+d31_10bin2;d31_10bin2_Empregado Público (CLT)
+d31_10bin3;d31_10bin3_Comissionado
+d31_10bin4;"d31_10bin4_Outros vínculos não permanentes - inclui Trabalhador de Empresas/Cooperativa/Entidade Prestadora de Serviços; Voluntários; Servidor Temporário; Sem vínculo; Terceirizado e Outro vínculo não permanente"

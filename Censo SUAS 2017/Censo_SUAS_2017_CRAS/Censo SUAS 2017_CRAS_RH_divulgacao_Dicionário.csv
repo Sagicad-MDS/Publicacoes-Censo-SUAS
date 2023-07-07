@@ -1,0 +1,88 @@
+Variável;Descrição
+IBGE7;Código IBGE com Dígito Verificador
+IBGE;Código IBGE do Município
+Região;Grande Região
+UF;Unidade da Federação
+uf_s;Unidade da Federação
+Municipio_2013;Nome do Município_atualizado 2014
+area;Área Territorial Km2
+Pop_Total2010;População Total - Censo IBGE 2010
+Pop_Urbana2010;População Urbana - Censo IBGE 2010
+Pop_Rural2010;População Rural - Censo IBGE 2010
+Porte_pop2010;Porte Populacional SUAS - Censo IBGE 2010
+NºIDENTIFICADOR;
+q52.3;Sexo
+q52.9;Escolaridade
+q52.10;Profissão
+q52.11;Vínculo
+q52.12;Função
+q52.13;Carga horária SEMANAL
+q52.14;Início do exercício da função
+q52.15;Serviços/Atividade a qual o profissional está vinculado - Principal serviço/atividade
+q52.16;Serviços/Atividade a qual o profissional está vinculado - Segundo principal serviço/atividade
+q52.17;Serviços/Atividade a qual o profissional está vinculado - Terceiro principal serviço/atividade
+D52.2;d52.2.Idade em anos (data ref. 31-12-2017)
+D52.2.FaixasEtarias;Faixas Etárias dos Profissionais dos CRAS
+D52.9;D52.9_Níveis de escolaridade
+D52.11;D52.11_Tipo de vínculo
+D52.9bin1;D52.9bin1_Nível fundamental - trabalhadores que possuem até o nível médio (inclui aqueles sem escolaridade)
+D52.9bin2;D52.9bin2_Nível médio - trabalhadores com ensino superior incompleto e ensino médio completo
+D52.9bin3;D52.9bin3_Nível superior - inclui trabalhadores graduados, com especialização, mestrado ou doutorado
+D52.10bin1;D52.10bin1_Pedagogo
+D52.10bin2;D52.10bin2_Assistente Social
+D52.10bin3;D52.10bin3_Antropólogo
+D52.10bin4;D52.10bin4_Advogado
+D52.10bin5;D52.10bin5_Psicólogo
+D52.11bin1;D52.11bin1_Servidor Estatutário
+D52.11bin2;D52.11bin2_Empregado Público (CLT)
+D52.11bin3;D52.11bin3_Comissionado
+D52.11bin4;"D52.11bin4_Outros vínculos não permanentes - inclui Trabalhador de Empresas/Cooperativa/Entidade Prestadora de Serviços; Voluntários; Servidor Temporário; Sem vínculo; Terceirizado e Outro vínculo não permanente"
+D52.15bin_Gestão;D52.15bin_Gestão - Principal serviço/atividade
+D52.15bin_PAIF;D52.15bin_PAIF - Principal serviço/atividade
+D52.15bin_SCFV;D52.15bin_SCFV - Principal serviço/atividade
+D52.15bin_Cadastramento;D52.15bin_Cadastramento - Principal serviço/atividade
+D52.15bin_CriancaFeliz;D52.15bin_CriancaFeliz - Principal serviço/atividade
+D52.15bin_Outros;D52.15bin_Outros - Principal serviço/atividade
+D52.16bin_Gestão;D52.16bin_Gestão - Segundo principal serviço/atividade
+D52.16bin_PAIF;D52.16bin_PAIF - Segundo principal serviço/atividade
+D52.16bin_SCFV;D52.16bin_SCFV - Segundo principal serviço/atividade
+D52.16bin_Cadastramento;D52.16bin_Cadastramento - Segundo principal serviço/atividade
+D52.16bin_CriancaFeliz;D52.16bin_CriancaFeliz - Principal serviço/atividade
+D52.16bin_Outros;D52.16bin_Outros - Principal serviço/atividade
+D52.17bin_Gestão;D52.17bin_Gestão - Terceiro principal serviço/atividade
+D52.17bin_PAIF;D52.17bin_PAIF - Terceiro principal serviço/atividade
+D52.17bin_SCFV;D52.17bin_SCFV - Terceiro principal serviço/atividade
+D52.17bin_Cadastramento;D52.17bin_Cadastramento - Terceiro principal serviço/atividade
+D52.17bin_CriancaFeliz;D52.17bin_CriancaFeliz - Principal serviço/atividade
+D52.17bin_Outros;D52.17bin_Outros - Principal serviço/atividade
+D52.9bin1_sum;D52.9bin1_Número de trabalhadores de Nível fundamental (inclui trabalhadores sem escolaridade, fundamental incompleto e ensino médio incompleto)
+D52.9bin2_sum;D52.9bin2_Número de trabalhadores de Nível médio (inclui trabalhadores com ensino superior incompleto)
+D52.9bin3_sum;D52.9bin3_Número de trabalhadores de Nível superior (inclui trabalhadores com especialização, mestrado e doutorado)
+D52.10bin1_sum;D52.10bin1_sum_Número de Pedagogos
+D52.10bin2_sum;D52.10bin2_sum_Número de Assistentes Sociais
+D52.10bin3_sum;D52.10bin3_sum_Número de Antropólogos
+D52.10bin4_sum;D52.10bin4_sum_Número de Advogados
+D52.10bin5_sum;D52.10bin5_sum_Número de Psicólogos
+D52.11bin1_sum;D52.11bin1_Número de Servidores Estatutários
+D52.11bin2_sum;D52.11bin2_Número de Empregados Públicos(CLT)
+D52.11bin3_sum;D52.11bin3_Número de Comissionados
+D52.11bin4_sum;D52.11bin4_Número de profissionais com outros vínculos não permanentes (inclui Trabalhador de Empresas/Cooperativa/Entidade Prestadora de Serviços/Voluntários/Ser. Temporário/Sem vínculo/Terceirizado e Outro vínculo não permanente)
+D52.15bin_Gestão_sum;D52.15bin_Gestão - Principal serviço/atividade
+D52.15bin_PAIF_sum;D52.15bin_PAIF - Principal serviço/atividade
+D52.15bin_SCFV_sum;D52.15bin_SCFV - Principal serviço/atividade
+D52.15bin_Cadastramento_sum;D52.15bin_Cadastramento- Principal serviço/atividade
+D52.15bin_CriancaFeliz_sum;D52.15bin_CriancaFeliz - Principal serviço/atividade
+D52.15bin_Outros_sum;D52.15bin_Outros - Principal serviço/atividade
+D52.16bin_Gestão_sum;D52.16bin_Gestão - Segundo principal serviço/atividade
+D52.16bin_PAIF_sum;D52.16bin_PAIF - Segundo principal serviço/atividade
+D52.16bin_SCFV_sum;D52.16bin_SCFV - Segundo principal serviço/atividade
+D52.16bin_Cadastramento_sum;D52.16bin_Cadastramento- Segundo serviço/atividade
+D52.16bin_CriancaFeliz_sum;D52.16bin_CriancaFeliz - Principal serviço/atividade
+D52.16bin_Outros_sum;D52.16bin_Outros - Principal serviço/atividade
+D52.17bin_Gestão_sum;D52.17bin_Gestão - Terceiro principal serviço/atividade
+D52.17bin_PAIF_sum;D52.17bin_PAIF - Terceiro principal serviço/atividade
+D52.17bin_SCFV_sum;D52.17bin_SCFV - Terceiro principal serviço/atividade
+D52.17bin_Cadastramento_sum;D52.17bin_Cadastramento - Terceiro principal serviço/atividade
+D52.17bin_CriancaFeliz_sum;D52.17bin_CriancaFeliz - Principal serviço/atividade
+D52.17bin_Outros_sum;D52.17bin_Outros - Principal serviço/atividade
+nu_trabalhadores;Número de trabalhadores no CRAS

@@ -1,0 +1,926 @@
+************** TABELAS CREAS 2013 **********************
+
+FREQUENCIES VARIABLES=Região
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=Porte_pop2010
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q1
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q2
+  /ORDER=ANALYSIS.
+
+MULT RESPONSE GROUPS=$mr2_2 'Quais critérios foram utilizados para definir o município Sede?' (q2_2_1 q2_2_2 q2_2_3 q2_2_4 q2_2_5 q2_2_6 q2_2_7 (1))
+ /FREQUENCIES=$mr2_2.
+
+FREQUENCIES VARIABLES=q2_2_7_especif
+  /ORDER=ANALYSIS.
+
+MULT RESPONSE GROUPS=$mr2_3 'Quais critérios foram utilizados para definir os municípios vinculados ao CREAS Regional?' (q2_3_1 q2_3_2 q2_3_3 q2_3_4 q2_3_5 q2_3_6 q2_3_7 q2_3_8 q2_3_9 q2_3_10 q2_3_11 (1))
+ /FREQUENCIES=$mr2_3.
+
+
+FREQUENCIES VARIABLES=q2_3_11_especif
+ /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q2_4
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q2_5
+  /FORMAT=DVALUE
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q2_6
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q2_7
+  /ORDER=ANALYSIS.
+
+MULT RESPONSE GROUPS=$mr2_8 'Estratégias utilizadas para o atendimento/acompanhamento das famílias e indivíduos pela equipe do CREAS Regional' (q2_8_1 q2_8_2 q2_8_3(1))
+ /FREQUENCIES=$mr2_8.
+
+FREQUENCIES VARIABLES=q2_8_3_especif
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q2_9_1
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q2_9_2
+  /ORDER=ANALYSIS.
+
+MULT RESPONSE GROUPS=$mr2_9_3 'Em qual(is) local(is) a equipe do CREAS realiza o atendimento às famílias e indivíduos nos municípios ninculados' (q2_9_3_1 q2_9_3_2 q2_9_3_3 q2_9_3_4 q2_9_3_5 q2_9_3_6 q2_9_3_7 q2_9_3_8 (1))
+ /FREQUENCIES=$mr2_9_3.
+
+FREQUENCIES VARIABLES=q2_10
+  /ORDER=ANALYSIS.
+
+CTABLES
+  /VLABELS VARIABLES=q2_11_1 q2_11_2 q2_11_3 DISPLAY=LABEL
+  /TABLE q2_11_1 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q2_11_2 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q2_11_3 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1]
+  /CLABELS ROWLABELS=OPPOSITE
+  /CATEGORIES VARIABLES=q2_11_1 [1, 2, 3, 4, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q2_11_2 [1, 2, 3, 4, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q2_11_3 [1, 2, 3, 4, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+ /TITLES
+    TITLE='Indique com que atores é realizada a articulação/interlocução do CREAS Regional com a Assistência Social nos municípios vinculados '.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q3_1 q3_2 q3_3 q3_4 q3_5 DISPLAY=LABEL
+  /TABLE q3_1 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q3_2 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q3_3 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q3_4 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q3_5 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1]
+  /CLABELS ROWLABELS=OPPOSITE
+  /CATEGORIES VARIABLES=q3_1 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q3_2 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q3_3 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q3_4 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q3_5 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /TITLES
+    TITLE='Fontes de Financiamento do CREAS'.
+
+
+FREQUENCIES VARIABLES=q4_1 q4_2
+  /ORDER=ANALYSIS.
+
+IF (q4_1 * q4_2 < 30) D4_horas_por_semana_categoria = 0 .
+IF (q4_1 * q4_2  >= 30 & q4_1 * q4_2   < 40) D4_horas_por_semana_categoria = 1 .
+IF (q4_1 * q4_2  >= 40 & q4_1 * q4_2   < 50) D4_horas_por_semana_categoria = 2 .
+IF (q4_1 * q4_2 > 49) D4_horas_por_semana_categoria = 3 .
+EXECUTE .
+
+VALUE LABELS
+D4_horas_por_semana_categoria  0 "Menos de 30 horas/semana"  1 "De 30 a 39 horas/semana"  2 "De 40 a 49 horas/semana"  3 "Mais de 49 horas/semana".
+EXECUTE .
+  
+VARIABLE LABELS
+D4_horas_por_semana_categoria	D4_horas_por_semana_categoria_Total de horas por semana que o CREAS encontra-se em funcionamento.
+EXECUTE.
+
+FREQUENCIES VARIABLES=D4_horas_por_semana_categoria
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q5
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q6
+  /FORMAT=DVALUE
+  /ORDER=ANALYSIS.
+
+
+MULT RESPONSE GROUPS=$mr7 'Tipos de unidade com as quais os CREAS compartilham o imóvel?' (q7_1 q7_2 q7_3 q7_4 q7_5 q7_6 q7_7 q7_8 q7_9 q7_10 q7_11 q7_12 q7_99 (1))
+ /FREQUENCIES=$mr7.
+
+MULT RESPONSE GROUPS=$mr8 'Espaços que são compartilhados entre o CREAS e a(s) outra(s) Unidade(s)' (q8_1 q8_2 q8_3 q8_4 q8_5 q8_6 q8_7 q8_8 q8_9 q8_10(1))
+ /FREQUENCIES=$mr8.
+
+
+FREQUENCIES VARIABLES=D9a_sl_atend_categoria
+  /ORDER=ANALYSIS.
+
+
+FREQUENCIES VARIABLES=D9b_total_salas_adm_e_atend_categoria
+  /ORDER=ANALYSIS.
+
+
+FREQUENCIES VARIABLES=D9f
+  /ORDER=ANALYSIS.
+
+CTABLES
+  /VLABELS VARIABLES=q9g q9h q9i q9j DISPLAY=LABEL
+  /TABLE q9g [COUNT F40.0, ROWPCT.COUNT PCT40.1] + q9h [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + 
+ q9i [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q9j [C][COUNT F40.0, ROWPCT.COUNT PCT40.1]
+  /CLABELS ROWLABELS=OPPOSITE
+  /CATEGORIES VARIABLES=q9g q9h q9i q9j [1, 0, OTHERNM] EMPTY=INCLUDE
+/TITLES
+ TITLE= 'Demais espaços físicos desponíveis no CREAS'.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q10a q10b q10c q10d DISPLAY=LABEL
+  /TABLE q10a [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q10b [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q10c [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q10d [C][COUNT 
+    F40.0, ROWPCT.COUNT PCT40.1]
+  /CLABELS ROWLABELS=OPPOSITE
+  /CATEGORIES VARIABLES=q10a [0, 1, 2, OTHERNM] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q10b [0, 1, 2, OTHERNM] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q10c [0, 1, 2, OTHERNM] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q10d [0, 1, 2, OTHERNM] EMPTY=INCLUDE
+  /TITLES
+    TITLE='Condições de acessiblidade para pessoas com mibilidade reduzida (idosos, pessoas com deficiência, etc.) que o CREAS possui'.
+
+MULT RESPONSE GROUPS=$mr_11 'Equipamentos e materiais disponíveis para o desenvolvimento dos serviços no CREAS' (q11_1 q11_2 q11_3 q11_4 q11_5 q11_6 q11_7 q11_8 q11_9 q11_10 q11_11 q11_12 q11_13 q11_14 q11_15(1))
+/FREQUENCIES=$mr_11.
+
+*** Quantidade de Computadores***
+
+RECODE
+  q12
+(0=0) (1=1)  (2=2)  (3=3)  (4=4)  (5=5)  (6 thru 10=10)  (11 thru Highest=11) INTO  D12 .
+EXECUTE .
+
+VALUE LABELS
+D12 0"0" 1"1" 2"2" 3"3" 4"4" 5"5" 10"De 6 a 10" 11"Mais de 10".
+EXECUTE.
+
+VARIABLE LABELS
+D12	D12_Quantidade de computadores no CREAS.
+EXECUTE.
+
+RECODE
+  q13
+(0=0) (1=1)  (2=2)  (3=3)  (4=4)  (5=5)  (6 thru 10=10)  (11 thru Highest=11) INTO  D13 .
+EXECUTE .
+
+VALUE LABELS
+D13 0"0" 1"1" 2"2" 3"3" 4"4" 5"5" 10"De 6 a 10" 11"Mais de 10".
+EXECUTE.
+
+VARIABLE LABELS
+D13	D13_Quantidade de computadores conectados à internet no CREAS.
+EXECUTE.
+
+FREQUENCIES VARIABLES=D12
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=D13
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q14 
+  /ORDER=ANALYSIS.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q15a_1 q15a_2 q15a_3 q15a_4 q15a_5 DISPLAY=LABEL
+  /TABLE q15a_1 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q15a_2 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q15a_3 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q15a_4 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q15a_5 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1]
+  /CLABELS ROWLABELS=OPPOSITE
+  /CATEGORIES VARIABLES=q15a_1 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15a_2 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15a_3 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15a_4 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15a_5 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /TITLES
+    TITLE='O CREAS atende situações de violência física, no âmbito do PAEFI, para os seguintes ciclos de vida?'.
+
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q15b_1 q15b_2 q15b_3 q15b_4 q15b_5 DISPLAY=LABEL
+  /TABLE q15b_1 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q15b_2 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q15b_3 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q15b_4 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q15b_5 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1]
+  /CLABELS ROWLABELS=OPPOSITE
+  /CATEGORIES VARIABLES=q15b_1 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15b_2 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15b_3 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15b_4 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15b_5 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /TITLES
+    TITLE='O CREAS atende situações de violência psicológica, no âmbito do PAEFI, para os seguintes ciclos de vida?'.
+
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q15c_1 q15c_2 q15c_3 q15c_4 q15c_5 DISPLAY=LABEL
+  /TABLE q15c_1 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q15c_2 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q15c_3 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q15c_4 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q15c_5 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1]
+  /CLABELS ROWLABELS=OPPOSITE
+  /CATEGORIES VARIABLES=q15c_1 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15c_2 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15c_3 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15c_4 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15c_5 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /TITLES
+    TITLE='O CREAS atende situações de abuso sexual, no âmbito do PAEFI, para os seguintes ciclos de vida?'.
+
+
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q15d_1 q15d_2 q15d_3 q15d_4 q15d_5 DISPLAY=LABEL
+  /TABLE q15d_1 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q15d_2 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q15d_3 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q15d_4 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q15d_5 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1]
+  /CLABELS ROWLABELS=OPPOSITE
+  /CATEGORIES VARIABLES=q15d_1 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15d_2 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15d_3 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15d_4 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15d_5 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /TITLES
+    TITLE='O CREAS atende situações de exploração sexual, no âmbito do PAEFI, para os seguintes ciclos de vida?'.
+
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q15e_1 q15e_4 q15e_5 DISPLAY=LABEL
+  /TABLE q15e_1 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q15e_4 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q15e_5 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1]
+  /CLABELS ROWLABELS=OPPOSITE
+  /CATEGORIES VARIABLES=q15e_1 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15e_4 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15e_5 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /TITLES
+    TITLE='O CREAS atende situações de negligência ou abandono, no âmbito do PAEFI, para os seguintes ciclos de vida?'.
+
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q15f_1 q15f_2 q15f_3 q15f_4 q15f_5 DISPLAY=LABEL
+  /TABLE q15f_1 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q15f_2 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q15f_3 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q15f_4 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q15f_5 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1]
+  /CLABELS ROWLABELS=OPPOSITE
+  /CATEGORIES VARIABLES=q15f_1 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15f_2 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15f_3 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15f_4 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15f_5 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /TITLES
+    TITLE='O CREAS atende situações de tráfico de pessoas, no âmbito do PAEFI, para os seguintes ciclos de vida?'.
+
+
+FREQUENCIES VARIABLES=q15g_1 q15g_5
+  /ORDER=ANALYSIS.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q15h_1 q15h_2 q15h_3 q15h_4 q15h_5 DISPLAY=LABEL
+  /TABLE q15h_1 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q15h_2 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q15h_3 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q15h_4 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q15h_5 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1]
+  /CLABELS ROWLABELS=OPPOSITE
+  /CATEGORIES VARIABLES=q15h_1 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15h_2 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15h_3 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15h_4 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15h_5 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /TITLES
+    TITLE='O CREAS atende situações de rua, no âmbito do PAEFI, para os seguintes ciclos de vida?'.
+
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q15i_1 q15i_2 q15i_3 q15i_4 q15i_5 DISPLAY=LABEL
+  /TABLE q15i_1 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q15i_2 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q15i_3 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q15i_4 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q15i_5 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1]
+  /CLABELS ROWLABELS=OPPOSITE
+  /CATEGORIES VARIABLES=q15i_1 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15i_2 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15i_3 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15i_4 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15i_5 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /TITLES
+    TITLE='O CREAS atende situações de discriminação em decorrência da orientação sexual, no âmbito do PAEFI, para os seguintes ciclos de vida?'.
+
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q15j_1 q15j_2 q15j_3 q15j_4 q15j_5 DISPLAY=LABEL
+  /TABLE q15j_1 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q15j_2 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q15j_3 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q15j_4 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q15j_5 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1]
+  /CLABELS ROWLABELS=OPPOSITE
+  /CATEGORIES VARIABLES=q15j_1 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15j_2 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15j_3 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15j_4 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15j_5 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /TITLES
+    TITLE='O CREAS atende situações de discriminação em decorrência da raça/etnia, no âmbito do PAEFI, para os seguintes ciclos de vida?'.
+
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q15k_1 q15k_2 q15k_3 q15k_4 q15k_5 DISPLAY=LABEL
+  /TABLE q15k_1 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q15k_2 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q15k_3 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q15k_4 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q15k_5 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1]
+  /CLABELS ROWLABELS=OPPOSITE
+  /CATEGORIES VARIABLES=q15k_1 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15k_2 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15k_3 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15k_4 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15k_5 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /TITLES
+    TITLE='O CREAS atende situações de famílias com crianças, adolescentes, pessoas com deficiência e/ou idosos(as) afastados do convívio familiar, no âmbito do PAEFI, para os seguintes ciclos de vida?'.
+
+CTABLES
+  /VLABELS VARIABLES=q15m_1 q15m_5 DISPLAY=LABEL
+  /TABLE q15m_1 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q15m_5 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] 
+  /CLABELS ROWLABELS=OPPOSITE
+  /CATEGORIES VARIABLES=q15m_1 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15m_5 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /TITLES
+    TITLE='O CREAS atende situações de famílias com crianças, adolescentes, pessoas com deficiência e/ou idosos(as) afastados do convívio familiar, no âmbito do PAEFI, para os seguintes ciclos de vida?'.
+
+CTABLES
+  /VLABELS VARIABLES=q15l_1 q15l_5 DISPLAY=LABEL
+  /TABLE q15l_1 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q15l_5 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] 
+  /CLABELS ROWLABELS=OPPOSITE
+  /CATEGORIES VARIABLES=q15l_1 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15l_5 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /TITLES
+    TITLE='O CREAS atende situações de famílias com descumprimento de condicionalidades do PBF em decorrência de violação de direitos, no âmbito do PAEFI?'.
+
+CTABLES
+  /VLABELS VARIABLES=q15m_1 q15m_5 DISPLAY=LABEL
+  /TABLE q15m_1 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q15m_5 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] 
+  /CLABELS ROWLABELS=OPPOSITE
+  /CATEGORIES VARIABLES=q15m_1 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q15m_5 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /TITLES
+    TITLE='O CREAS atende situações de famílias com adolescentes em cumprimento de Medida Socioeducativa, no âmbito do PAEFI?'.
+
+MULT RESPONSE GROUPS=$mr16 'Ações e atividades realizadas pelos profissionais dos CREAS no âmbito do PAEFI' (q16_1 q16_2 q16_3 q16_4 q16_5 q16_6 q16_7 q16_8 q16_9 q16_10 q16_11
+q16_12 q16_13 q16_14 q16_15 q16_16 q16_17 q16_18 q16_19 q16_20 q16_21 q16_22 q16_23 q16_24 (1))
+ /FREQUENCIES=$mr16.
+
+MULT RESPONSE GROUPS=$mr17 'No acompanhamento pelo PAEFI, o CREAS desenvolve atividades com autores de agressão de violência intrafamiliar?' (q17_1 q17_2 q17_3 q17_4 q17_5 (1))
+ /FREQUENCIES=$mr17.
+
+CTABLES
+  /VLABELS VARIABLES=q18a q18b q18c q18d q18e q18f q18g  q18h q18i q18j q18k q18l q18m q18n q18o q18p q18q q18r q18s q18t DISPLAY=LABEL
+  /TABLE q18a [S][SUM, MEAN, VALIDN F40.0] + q18b [S][SUM, MEAN, VALIDN F40.0] +q18c [S][SUM, MEAN, VALIDN F40.0] +q18d [S][SUM, MEAN, VALIDN F40.0] +
+q18e [S][SUM, MEAN, VALIDN F40.0] +q18f [S][SUM, MEAN, VALIDN F40.0] +q18g [S][SUM, MEAN, VALIDN F40.0] +q18h [S][SUM, MEAN, VALIDN F40.0] +q18i [S][SUM, MEAN, VALIDN F40.0] +
+q18j [S][SUM, MEAN, VALIDN F40.0] +q18k [S][SUM, MEAN, VALIDN F40.0] + q18l [S][SUM, MEAN, VALIDN F40.0] +q18m [S][SUM, MEAN, VALIDN F40.0] +q18n [S][SUM, MEAN, VALIDN F40.0] +q18o [S][SUM, MEAN, VALIDN F40.0] +
+q18p [S][SUM, MEAN, VALIDN F40.0] +q18q [S][SUM, MEAN, VALIDN F40.0] + q18r [S][SUM, MEAN, VALIDN F40.0] + q18s [S][SUM, MEAN, VALIDN F40.0] + q18t [S][SUM, MEAN, VALIDN F40.0]
+/TITLES
+    TITLE='Volume total de casos em acompahnamento pelo PAEFI no CREAS, no ano de 2012'.
+
+FREQUENCIES VARIABLES=q18b_ns q18c_ns q18d_ns q18e_ns q18f_ns q18g_ns q18h_ns q18i_ns q18j_ns 
+    q18k_ns q18l_ns q18m_ns q18n_ns q18o_ns q18p_ns q18q_ns q18r_ns q18s_ns q18t_ns
+  /ORDER=ANALYSIS.
+
+DESCRIPTIVES VARIABLES=q18a q18b q18c q18d q18e q18f q18g q18h q18i q18j q18k q18l q18m q18n q18o 
+    q18p q18q q18r q18s q18t
+  /STATISTICS=MEAN SUM MIN MAX.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q19 DISPLAY=LABEL
+  /TABLE q19 [S][MEAN, STDDEV, VALIDN F40.0]
+ /TITLES
+    TITLE='Volume de famílias em acompanhamento pelo PAEFI em Agosto de 2013'.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES= q20a DISPLAY=LABEL
+  /TABLE q20a [S][SUM, MEAN, STDDEV, VALIDN F40.0]
+  /TITLES
+    TITLE='Novos casos (Famílias ou indivíduos) inseridos no acompanhamento do PAEFI no mês de Agosto de 2013'.
+
+CTABLES
+  /VLABELS VARIABLES=q20b q20c q20d q20e DISPLAY=LABEL
+  /TABLE q20b [S][SUM, MEAN, STDDEV,  VALIDN F40.0] + q20c [S][SUM, MEAN, STDDEV,  VALIDN F40.0] + q20d [S][SUM, MEAN, STDDEV,  VALIDN F40.0] + q20e [S][SUM, MEAN, STDDEV,  VALIDN F40.0]
+/TITLES
+    TITLE='Perfil das famílias ou indivíduos inseridos no acompanhamento do PAEFI durante o mês de agosto de 2013'.
+
+CTABLES
+  /VLABELS VARIABLES=q21_1a_1_1  q21_1a_1_2 q21_1a_2_1 q21_1a_2_2 DISPLAY=LABEL
+  /TABLE q21_1a_1_1 [S][SUM, VALIDN F40.0] + q21_1a_1_2 [S][SUM, VALIDN F40.0] + q21_1a_2_1 [S][SUM, VALIDN F40.0] + q21_1a_2_2 [S][SUM, VALIDN F40.0]
+/TITLES
+    TITLE='Novos casos de crianças ou adolescentes vítimas de violência intrafamiliar (física/psicológica) - mês de referência: Agosto de 2012'.
+
+CTABLES
+  /VLABELS VARIABLES=q21_1b_1_1  q21_1b_1_2 q21_1b_2_1 q21_1b_2_2 DISPLAY=LABEL
+  /TABLE q21_1b_1_1 [S][SUM, VALIDN F40.0] + q21_1b_1_2 [S][SUM, VALIDN F40.0] + q21_1b_2_1 [S][SUM, VALIDN F40.0] + q21_1b_2_2 [S][SUM, VALIDN F40.0]
+/TITLES
+    TITLE='Novos casos de crianças ou adolescentes vítimas de abuso sexual - mês de referência: Agosto de 2012'.
+
+CTABLES
+  /VLABELS VARIABLES=q21_1c_1_1  q21_1c_1_2 q21_1c_2_1 q21_1c_2_2 DISPLAY=LABEL
+  /TABLE q21_1c_1_1 [S][SUM, VALIDN F40.0] + q21_1c_1_2 [S][SUM, VALIDN F40.0] + q21_1c_2_1 [S][SUM, VALIDN F40.0] + q21_1c_2_2 [S][SUM, VALIDN F40.0]
+/TITLES
+    TITLE='Novos casos de crianças ou adolescentes vítimas de exploração sexual - mês de referência: Agosto de 2012'.
+
+CTABLES
+  /VLABELS VARIABLES=q21_1d_1_1  q21_1d_1_2 q21_1d_2_1 q21_1d_2_2 DISPLAY=LABEL
+  /TABLE q21_1d_1_1 [S][SUM, VALIDN F40.0] + q21_1d_1_2 [S][SUM, VALIDN F40.0] + q21_1d_2_1 [S][SUM, VALIDN F40.0] + q21_1d_2_2 [S][SUM, VALIDN F40.0]
+/TITLES
+    TITLE='Novos casos de crianças ou adolescentes vítimas de negligência ou abandono - mês de referência: Agosto de 2012'.
+
+CTABLES
+  /VLABELS VARIABLES=q21_1e_1_1  q21_1e_1_2 q21_1e_2_1 q21_1e_2_2 DISPLAY=LABEL
+  /TABLE q21_1e_1_1 [S][SUM, VALIDN F40.0] + q21_1e_1_2 [S][SUM, VALIDN F40.0] + q21_1e_2_1 [S][SUM, VALIDN F40.0] + q21_1e_2_2 [S][SUM, VALIDN F40.0]
+/TITLES
+    TITLE='Novos casos de crianças ou adolescentes em situação de trabalho infantil (até 15 anos) - mês de referência: Agosto de 2012'.
+
+CTABLES
+  /VLABELS VARIABLES=q21_2a_1_1  q21_2a_1_2 DISPLAY=LABEL
+  /TABLE q21_2a_1_1 [S][SUM, VALIDN F40.0] + q21_2a_1_2 [S][SUM, VALIDN F40.0]
+/TITLES
+    TITLE='Novos casos de idosos (60 anos ou mais) vítimas de violência intrafamiliar (física, psicológica ou sexual) - mês de referência: Agosto de 2012'.
+
+CTABLES
+  /VLABELS VARIABLES=q21_2b_1_1  q21_2b_1_2 DISPLAY=LABEL
+  /TABLE q21_2b_1_1 [S][SUM, VALIDN F40.0] + q21_2b_1_2 [S][SUM, VALIDN F40.0]
+/TITLES
+    TITLE='Novos casos de idosos (60 anos ou mais) vítimas de negligência ou abandono - mês de referência: Agosto de 2012'.
+
+CTABLES
+  /VLABELS VARIABLES=q21_3a_1_1  q21_3a_1_2  q21_3a_2_1  q21_3a_2_2  q21_3a_3_1 q21_3a_3_2 q21_3a_4_1 q21_3a_4_2 DISPLAY=LABEL
+  /TABLE q21_3a_1_1 [S][SUM, VALIDN F40.0] + q21_3a_1_2 [S][SUM, VALIDN F40.0] + q21_3a_2_1 [S][SUM, VALIDN F40.0] + q21_3a_2_2 [S][SUM, VALIDN F40.0] + q21_3a_3_1 [S][SUM, VALIDN F40.0]
+ + q21_3a_3_2 [S][SUM, VALIDN F40.0] + q21_3a_4_1 [S][SUM, VALIDN F40.0] + q21_3a_4_2 [S][SUM, VALIDN F40.0]
+/TITLES
+    TITLE='Novos casos de pessoas com deficiência vítimas de violência intrafamiliar (física, psicológica ou sexual) - mês de referência: Agosto de 2012'.
+
+CTABLES
+  /VLABELS VARIABLES=q21_3b_1_1  q21_3b_1_2  q21_3b_2_1  q21_3b_2_2  q21_3b_3_1 q21_3b_3_2 q21_3b_4_1 q21_3b_4_2 DISPLAY=LABEL
+  /TABLE q21_3b_1_1 [S][SUM, VALIDN F40.0] + q21_3b_1_2 [S][SUM, VALIDN F40.0] + q21_3b_2_1 [S][SUM, VALIDN F40.0] + q21_3b_2_2 [S][SUM, VALIDN F40.0] + q21_3b_3_1 [S][SUM, VALIDN F40.0]
+ + q21_3b_3_2 [S][SUM, VALIDN F40.0] + q21_3b_4_1 [S][SUM, VALIDN F40.0] + q21_3b_4_2 [S][SUM, VALIDN F40.0]
+/TITLES
+    TITLE='Novos casos de pessoas com deficiência vítimas de negligência ou abandono - mês de referência: Agosto de 2012'.
+
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q21_4 DISPLAY=LABEL
+  /TABLE q21_4 [S][SUM, VALIDN F40.0]
+  /TITLES
+    TITLE='Mulheres adultas vítimas de violência intrafamiliar atendidas pelo PAEFI'.
+
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q21_5_1_1 q21_5_2_1 q21_5_3_1 q21_5_4_1 q21_5_1_2 q21_5_2_2 q21_5_3_2 
+    q21_5_4_2 
+    DISPLAY=LABEL
+  /TABLE q21_5_1_1 [SUM, VALIDN F40.0] + q21_5_2_1 [SUM, VALIDN F40.0] 
+    + q21_5_3_1 [SUM, VALIDN F40.0] + q21_5_4_1 [SUM, VALIDN F40.0] + 
+    q21_5_1_2 [SUM, VALIDN F40.0] + q21_5_2_2 [SUM, VALIDN F40.0] + 
+    q21_5_3_2 [SUM, VALIDN F40.0] + q21_5_4_2 [SUM, VALIDN F40.0]
+  /TITLES
+    TITLE='Pessoas vítimas de tráfico de seres humanos atendidos no PAEFI'.
+
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q21_6 DISPLAY=LABEL
+  /TABLE q21_6 [S][SUM, VALIDN F40.0]
+  /TITLES
+    TITLE='Pessoas vítimas de discriminação por orientação sexual atendidas na PAEFI'.
+
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q21_7_1_1 q21_7_2_1 q21_7_3_1 q21_7_4_1 q21_7_1_2 q21_7_2_2 q21_7_3_2 
+    q21_7_4_2 
+    DISPLAY=LABEL
+  /TABLE q21_7_1_1 [SUM, VALIDN F40.0] + q21_7_2_1 [SUM, VALIDN F40.0] 
+    + q21_7_3_1 [SUM, VALIDN F40.0] + q21_7_4_1 [SUM, VALIDN F40.0] + 
+    q21_7_1_2 [SUM, VALIDN F40.0] + q21_7_2_2 [SUM, VALIDN F40.0] + 
+    q21_7_3_2 [SUM, VALIDN F40.0] + q21_7_4_2 [SUM, VALIDN F40.0]
+  /TITLES
+    TITLE='Pessoas em situação de rua atendidas pelo PAEFI'.
+
+FREQUENCIES VARIABLES=q22
+   /ORDER=ANALYSIS.
+
+CTABLES
+  /VLABELS VARIABLES=q23_1 q23_2 DISPLAY=LABEL
+  /TABLE q23_1 [S][SUM, VALIDN F40.0] + q23_2 [S][SUM, VALIDN F40.0]
+/TITLES
+    TITLE='Dentre os casos (famílias/ individuos) acompanhados pelo PAEFI, no mês de agosto (q19), indique a quantidade'.
+
+CTABLES
+  /VLABELS VARIABLES=q23_1_ns q23_2_ns 
+    DISPLAY=LABEL
+  /TABLE q23_1_ns  [C][COUNT F40.0] + q23_2_ns [C][COUNT F40.0]
+  /CLABELS ROWLABELS=OPPOSITE
+  /CATEGORIES VARIABLES=q23_1_ns [0, 99, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q23_2_ns [0, 99, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER.
+
+CTABLES
+  /VLABELS VARIABLES=q24_1 q24_2 DISPLAY=LABEL
+  /TABLE q24_1 [S][SUM, VALIDN F40.0] + q24_2 [S][SUM, VALIDN F40.0]
+/TITLES
+    TITLE='Dentre os casos (famílias/ individuos) acompanhados pelo PAEFI, indique a quantidade em que se identificou uso abusivo ou dependência de substâncias psicoativas'.
+
+CTABLES
+  /VLABELS VARIABLES=q24_1_ns q24_2_ns 
+    DISPLAY=LABEL
+  /TABLE q24_1_ns  [C][COUNT F40.0] + q24_2_ns [C][COUNT F40.0]
+  /CLABELS ROWLABELS=OPPOSITE
+  /CATEGORIES VARIABLES=q24_1_ns [0, 99, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q24_2_ns [0, 99, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER.
+
+
+FREQUENCIES VARIABLES=q25
+  /FORMAT=DVALUE
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q26
+  /FORMAT=DVALUE
+  /ORDER=ANALYSIS.
+
+MULT RESPONSE GROUPS=$mr27 'Quais atividades especificas realizadas para usuários/dependentes de subtâncias psicoativas?'  (q27_1 q27_2 q27_3 q27_4 q27_5 q27_6
+q27_7 (1))
+ /FREQUENCIES=$mr27.
+
+FREQUENCIES VARIABLES=q28
+  /ORDER=ANALYSIS.
+
+MULT RESPONSE GROUPS=$mr29 'Quais as atividades realizadas pelo Serviço Especializado de Abordagem Social?'  (q29_1 q29_2 q29_3 q29_4 q29_5 q29_6
+q29_7 (1))
+ /FREQUENCIES=$mr29.
+
+FREQUENCIES VARIABLES=q30 q30_semfreq
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q31
+  /FORMAT=DVALUE
+  /ORDER=ANALYSIS.
+
+MULT RESPONSE GROUPS=$mr32 'Quais atividades especificas realizadas para usuários/dependentes de subtâncias psicoativas?'  (q32_1 q32_2 q32_3 q32_4 q32_5 q32_6 q32_7 q32_8 q32_9 q32_99(1))
+ /FREQUENCIES=$mr32.
+
+CTABLES
+  /VLABELS VARIABLES=q33a_1 q33a_3 q33a_4 DISPLAY=LABEL
+  /TABLE q33a_1 [S][SUM, MEAN STDDEV VALIDN F40.0] +  q33a_3 [S][SUM, MEAN STDDEV VALIDN F40.0] + q33a_4 [S][SUM, MEAN  STDDEV VALIDN F40.0]
+/TITLES
+    TITLE='Do total de pessoas identificadas/atendidas pelo Serviço Especializado em Abordagem Social no mês de agosto de 2013, indique a quantidade'.
+
+CTABLES
+  /VLABELS VARIABLES=q33b_1 q33b_3 q33b_4 DISPLAY=LABEL
+  /TABLE q33b_1 [S][SUM, MEAN  STDDEV  VALIDN F40.0] +  q33b_3 [S][SUM, MEAN  STDDEV  VALIDN F40.0] + q33b_4 [S][SUM, MEAN  STDDEV VALIDN F40.0]
+/TITLES
+    TITLE='Do total de pessoas identificadas/atendidas pelo Serviço Especializado em Abordagem Social no mês de agosto de 2013, indique a quantidade'.
+
+CTABLES
+  /VLABELS VARIABLES=q33c_1 q33c_3 q33c_4 DISPLAY=LABEL
+  /TABLE q33c_1 [S][SUM, MEAN  STDDEV VALIDN F40.0] +  q33c_3 [S][SUM, MEAN  STDDEV  VALIDN F40.0] + q33c_4 [S][SUM, MEAN  STDDEV  VALIDN F40.0]
+/TITLES
+    TITLE='Do total de pessoas identificadas/atendidas pelo Serviço Especializado em Abordagem Social no mês de agosto de 2013, indique a quantidade'.
+
+CTABLES
+  /VLABELS VARIABLES=q33d_1 q33d_3 q33d_4 DISPLAY=LABEL
+  /TABLE q33d_1 [S][SUM, MEAN  STDDEV  VALIDN F40.0] +  q33d_3 [S][SUM, MEAN  STDDEV VALIDN F40.0] + q33d_4 [S][SUM, MEAN  STDDEV  VALIDN F40.0]
+/TITLES
+    TITLE='Do total de pessoas identificadas/atendidas pelo Serviço Especializado em Abordagem Social no mês de agosto de 2013, indique a quantidade'.
+
+CTABLES
+  /VLABELS VARIABLES=q33e_1 q33e_3 q33e_4 DISPLAY=LABEL
+  /TABLE q33e_1 [S][SUM, MEAN  STDDEV  VALIDN F40.0] +  q33e_3 [S][SUM, MEAN  STDDEV  VALIDN F40.0] + q33e_4 [S][SUM, MEAN  STDDEV  VALIDN F40.0]
+/TITLES
+    TITLE='Do total de pessoas identificadas/atendidas pelo Serviço Especializado em Abordagem Social no mês de agosto de 2013, indique a quantidade'.
+
+
+FREQUENCIES VARIABLES=q33a_ns q33a_2 q33b_ns q33b_2 q33c_ns q33c_2 q33d_ns q33d_2 q33e_ns q33e_2
+  /ORDER=ANALYSIS.
+
+
+CTABLES
+  /VLABELS VARIABLES=q34_1 q33e_3 q34_2 DISPLAY=LABEL
+  /TABLE q34_1 [S][SUM, MEAN  STDDEV  VALIDN F40.0] +  q34_2 [S][SUM, MEAN  STDDEV  VALIDN F40.0]
+/TITLES
+    TITLE='Do total de pessoas identificadas/atendidas pelo Serviço Especializado em Abordagem Social no mês de agosto de 2013, indique a quantidade conforme as seguintes situações específicas'.
+
+FREQUENCIES VARIABLES=q34_1_ns q34_2_ns
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q35
+  /ORDER=ANALYSIS.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q36a_0 q36a_1 q36a_2 q36a_ns DISPLAY=LABEL
+  /TABLE q36a_0 [S][SUM, MEAN  STDDEV  VALIDN F40.0] + q36a_1 [S][SUM, MEAN  STDDEV  VALIDN F40.0] +  q36a_2 [S][SUM, MEAN  STDDEV  VALIDN F40.0] + q36a_ns [S][SUM, MEAN  STDDEV  VALIDN F40.0]
+  /TITLES
+    TITLE='Total de adolescentes acompanhados no Serviço de Proteção Social a Adolescentes '+
+    'em Cumprimento de Medida Socieducativa (LA e PSC) no ano de 2012'.
+
+CTABLES
+  /VLABELS VARIABLES=q36b_0 q36b_1 q36b_2 q36b_ns DISPLAY=LABEL
+  /TABLE q36b_0 [S][SUM, MINIMUM MAXIMUM MEAN VALIDN F40.0] + q36b_1 [S][SUM, MINIMUM MAXIMUM MEAN VALIDN F40.0] +  q36b_2 [S][SUM, MINIMUM MAXIMUM MEAN VALIDN F40.0] + q36b_ns [S][SUM, MINIMUM MAXIMUM MEAN VALIDN F40.0]
+  /TITLES
+    TITLE='Quantidade de adolescentes em cumprimento de LA no ano de 2012'.
+
+CTABLES
+  /VLABELS VARIABLES=q36c_0 q36c_1 q36c_2 q36c_ns DISPLAY=LABEL
+  /TABLE q36c_0 [S][SUM, MEAN  STDDEV  VALIDN F40.0] + q36c_1 [S][SUM, MEAN  STDDEV  VALIDN F40.0] +  q36c_2 [S][SUM, MEAN  STDDEV  VALIDN F40.0] + q36c_ns [S][SUM, MEAN  STDDEV  VALIDN F40.0]
+  /TITLES
+    TITLE='Quantidade de adolescentes em cumprimento PSC no ano de 2012'.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q37a q37b q37c DISPLAY=LABEL
+  /TABLE q37a [S][SUM, MEAN VALIDN F40.0] + q37b [S][SUM, MEAN VALIDN F40.0] + q37c [S][SUM, MEAN, VALIDN F40.0]
+/TITLES
+    TITLE='Volume de adolescentes em cumprimento de Medidas Socioeducativas - Mês de Referência: Agosto de 2013'.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q37d_1 q37d_2 q37e_1 q37e_2 q37f_1 q37f_2 DISPLAY=LABEL
+  /TABLE q37d_1 [S][SUM, MEAN VALIDN F40.0] + q37d_2 [S][SUM, MEAN VALIDN F40.0] + q37e_1 [S][SUM, MEAN
+    VALIDN F40.0] + q37e_2 [S][SUM, MEAN VALIDN F40.0] + q37f_1 [S][SUM, MEAN VALIDN F40.0] + q37f_2 
+    [S][SUM, MEAN VALIDN F40.0]
+/TITLES
+    TITLE='q37_Quantidade de adolescentes acompanhados no Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socieducativa (LA e PSC) - Mês de Referência: Agosto de 2013, por sexo'.
+
+FREQUENCIES VARIABLES=q38
+  /FORMAT=DVALUE
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q39
+  /FORMAT=DVALUE
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q40
+  /ORDER=ANALYSIS.
+
+MULT RESPONSE GROUPS=$mr41 'Ações e atividades realizadas pelos profissionais no âmbito da Liberdade Assistida?' (q41_1 q41_2 q41_3 q41_4 q41_5 q41_6 q41_7 q41_8 q41_9 q41_10
+q41_11 q41_12 q41_13 q41_14 q41_15 q41_16 (1))
+ /FREQUENCIES=$mr41.
+
+FREQUENCIES VARIABLES=q42
+  /ORDER=ANALYSIS.
+
+MULT RESPONSE GROUPS=$mr43 'Principais locais onde o adolescente presta serviço à comunidade?' (q43_1 q43_2 q43_3 q43_4 q43_5 q43_6 (1))
+ /FREQUENCIES=$mr43.
+
+MULT RESPONSE GROUPS=$mr44 'Ações e atividades realizadas pelos profissionais no âmbito da Liberdade Assistida?' (q44_1 q44_2 q44_3 q44_4 q44_5 q44_6 q44_7 q44_8 q44_9 q44_10
+q44_11 q44_12 q44_13 q44_14 q44_15 q44_16 q44_17 (1))
+ /FREQUENCIES=$mr44.
+
+MULT RESPONSE GROUPS=$mr45 'Ações e atividades realizadas pelos profissionais no âmbito da Liberdade Assistida?' (q45_0 q45_1 q45_2 q45_3 q45_4 q45_5 q45_6 q45_7 (1))
+ /FREQUENCIES=$mr45.
+
+FREQUENCIES VARIABLES=q46
+  /ORDER=ANALYSIS.
+
+CTABLES
+  /VLABELS VARIABLES=q47_1  q47_2 q47_3 q47_4 q47_5 q47_6 DISPLAY=LABEL
+  /TABLE q47_1   [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q47_2 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q47_3   [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q47_4  [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q47_5 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1]
+  /CLABELS ROWLABELS=OPPOSITE
+  /CATEGORIES VARIABLES=q47_1 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q47_2 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q47_3 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q47_4 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=q47_5 [1, 0, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER
+  /TITLES
+    TITLE='Como a equipe do CREAS avalia o Prontuário SUAS?'.
+
+DESCRIPTIVES VARIABLES=q48
+  /STATISTICS=MEAN SUM MIN MAX.
+
+MULT RESPONSE GROUPS=$mr49 'Qual o motivo da não utilização do Prontuário SUAS?' (q49_1 q49_2 q49_3 q49_4 q49_5 q49_99(1))
+ /FREQUENCIES=$mr49.
+
+FREQUENCIES VARIABLES=q49_99_espefic
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q50 q51
+ /ORDER=ANALYSIS.
+
+CTABLES
+  /VLABELS VARIABLES=q52_1 q52_2 q52_3 q52_4 q52_5 q52_6 q52_7 q52_8 q52_9 q52_10 q52_11 q52_12
+    DISPLAY=LABEL
+  /TABLE q52_1 [C][COUNT F40.0, COLPCT.COUNT PCT40.1] + q52_2 [C][COUNT F40.0, COLPCT.COUNT 
+    PCT40.1] + q52_3 [C][COUNT F40.0, COLPCT.COUNT PCT40.1] + q52_4 [C][COUNT F40.0, COLPCT.COUNT 
+    PCT40.1] + q52_5 [C][COUNT F40.0, COLPCT.COUNT PCT40.1] + q52_6 [C][COUNT F40.0, COLPCT.COUNT 
+    PCT40.1] + q52_7 [C][COUNT F40.0, COLPCT.COUNT PCT40.1] + q52_8 [C][COUNT F40.0, COLPCT.COUNT 
+    PCT40.1] + q52_9 [C][COUNT F40.0, COLPCT.COUNT PCT40.1] + q52_10 [C][COUNT F40.0, COLPCT.COUNT 
+    PCT40.1] + q52_11 [C][COUNT F40.0, COLPCT.COUNT PCT40.1] + q52_12 [C][COUNT F40.0, COLPCT.COUNT 
+    PCT40.1]
+  /CATEGORIES VARIABLES=q52_1 q52_2 q52_3 q52_4 q52_5 q52_6 q52_7 q52_8 q52_9 q52_10 q52_11 q52_12
+    ORDER=A KEY=VALUE EMPTY=EXCLUDE
+/TITLES
+    TITLE='Enumere as cinco principais origens de encaminhamento das famílias/indivíduos para o PAEFI/CREAS, ordenando-as de 1 a 5'.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q53a_1 q53a_2 q53a_3 DISPLAY=LABEL
+  /TABLE BY q53a_1 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q53a_2 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q53a_3 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1]
+  /CATEGORIES VARIABLES=q53a_1 [1, 0] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q53a_2 [1, 0] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q53a_3 [1, 0] EMPTY=INCLUDE
+/TITLES
+    TITLE='O CREAS tem acesso ao CadÚnico?'.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q53b_1 q53b_2 q53b_3 DISPLAY=LABEL
+  /TABLE BY q53b_1 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q53b_2 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q53b_3 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1]
+  /CATEGORIES VARIABLES=q53b_1 [1, 0]EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q53b_2 [1, 0]EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q53b_3 [1, 0]EMPTY=INCLUDE
+/TITLES
+    TITLE='O CREAS tem acesso ao SICON - Sistema Integrado de Gestão de Condicionalidades do Programa Bolsa Família?'.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q53c_1 q53c_2 q53c_3 DISPLAY=LABEL
+  /TABLE BY q53c_1 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q53c_2 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q53c_3 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1]
+  /CATEGORIES VARIABLES=q53c_1 [1, 0] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q53c_2 [1, 0] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q53c_3 [1, 0] EMPTY=INCLUDE
+/TITLES
+    TITLE= 'O CREAS tem acesso BPC na Escola?'.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q53d_0 q53d_1 q53d_2 DISPLAY=LABEL
+  /TABLE BY q53d_0 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q53d_1 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q53d_2 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1]
+  /CATEGORIES VARIABLES=q53d_0 [1, 0]EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q53d_1 [1, 0]EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q53d_2 [1, 0]EMPTY=INCLUDE
+/TITLES
+    TITLE='O CREAS tem acesso a Carteira do Idoso - Sistema de Emissão da Carteira do Idoso (SUASWEB)?'.
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q53e_1 q53e_2 q53e_3 DISPLAY=LABEL
+  /TABLE BY q53e_1 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1] + q53e_2 [C][COUNT F40.0, ROWPCT.VALIDN 
+    PCT40.1] + q53e_3 [C][COUNT F40.0, ROWPCT.VALIDN PCT40.1]
+  /CATEGORIES VARIABLES=q53e_1 [1, 0] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q53e_2 [1, 0] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q53e_3 [1, 0] EMPTY=INCLUDE
+/TITLES
+    TITLE='O CREAS tem acesso ao Registro Mensal de Atendimentos - RMA?'.
+
+FREQUENCIES VARIABLES=q54
+    /ORDER=ANALYSIS.
+
+MULT RESPONSE GROUPS=$mr55 'Ações e atividades relativas à gestão realizadas no CREAS' (q55_1 q55_2 q55_3 q55_4 q55_5 q55_6 q55_7 q55_8 q55_9 q55_10 q55_11 q55_12
+q55_13 q55_14 q55_15 q55_16 q55_17 q55_18 (1))
+ /FREQUENCIES=$mr55.
+
+MULT RESPONSE GROUPS=$mr56_1 'Serviços de acolhimento (abrigos e outros)' (q56a_1 q56a_2 q56a_3 q56a_4 q56a_5 q56a_6 q56a_7 q56a_8 q56a_0 q56a_99 (1))
+ /FREQUENCIES=$mr56_1.
+
+MULT RESPONSE GROUPS=$mr56_2 'CREAS POP - Centro de Referência Especializado para população de rua' (q56b_1 q56b_2 q56b_3 q56b_4 q56b_5 q56b_6 q56b_7 q56b_8 q56b_0 q56b_99 (1))
+ /FREQUENCIES=$mr56_2.
+
+MULT RESPONSE GROUPS=$mr56_3 'CRAS - Centro de Referência de Assistência Social' (q56c_1 q56c_2 q56b_3 q56c_4 q56c_5 q56c_6 q56c_7 q56c_8 q56c_0 q56c_99 (1))
+ /FREQUENCIES=$mr56_3.
+
+MULT RESPONSE GROUPS=$mr56_4  'PETI - Programa de Erradicação do Trabalho Infantil' (q56d_1 q56d_2 q56d_3 q56d_4 q56d_5 q56d_6 q56b_7 q56d_8 q56d_0 q56d_99 (1))
+ /FREQUENCIES=$mr56_4.
+
+MULT RESPONSE GROUPS=$mr56_5 'Demais serviços da rede socioassistencial' (q56e_1 q56e_2 q56e_3 q56e_4 q56e_5 q56e_6 q56e_7 q56e_8 q56e_0 q56e_99 (1))
+ /FREQUENCIES=$mr56_5.
+
+MULT RESPONSE GROUPS=$mr56_6 'Centro Dia para pessoas com deficiência'  (q56f_1 q56f_2 q56f_3 q56f_4 q56f_5 q56f_6 q56f_7 q56f_8 q56f_0 q56f_99 (1))
+ /FREQUENCIES=$mr56_6.
+
+MULT RESPONSE GROUPS=$mr56g 'Serviço de Saúde Mental (CAPSi, CAPSad, ambulatórios, etc.)'  (q56g_1 q56g_2 q56g_3 q56g_4 q56g_5 q56g_6 q56g_7 q56g_8 q56g_0 q56g_99 (1))
+ /FREQUENCIES=$mr56g.
+
+MULT RESPONSE GROUPS=$mr56h 'Demais Serviços de Saúde'  (q56h_1 q56h_2 q56h_3 q56h_4 q56h_5 q56h_6 q56h_7 q56h_8 q56h_0 q56h_99 (1))
+ /FREQUENCIES=$mr56h.
+
+MULT RESPONSE GROUPS=$mr56_9 'Serviços de Educação'  (q56i_1 q56i_2 q56i_3 q56i_4 q56i_5 q56i_6 q56i_7 q56i_8 q56i_0 q56i_99 (1))
+ /FREQUENCIES=$mr56_9.
+
+MULT RESPONSE GROUPS=$mr56_10 'Serviços de outras políticas públicas'  (q56j_1 q56j_2 q56j_3 q56j_4 q56j_5 q56j_6 q56j_7 q56j_8 q56j_0 q56j_99 (1))
+ /FREQUENCIES=$mr56_10.
+
+MULT RESPONSE GROUPS=$mr56_11 'Órgãos responsáveis pela aquisição de documentação civil básica'  (q56k_1 q56k_2 q56k_3 q56k_4 q56k_5 q56k_6 q56k_7 q56k_8 q56k_0 q56k_99 (1))
+ /FREQUENCIES=$mr56_11.
+
+MULT RESPONSE GROUPS=$mr56_12 'Serviços/ Programas de Segurança Alimentar'  (q56l_1 q56l_2 q56l_3 q56l_4 q56l_5 q56l_6 q56l_7 q56l_8 q56l_0 q56l_99 (1))
+ /FREQUENCIES=$mr56_12.
+
+MULT RESPONSE GROUPS=$mr56_13 'Poder Judiciário' (q56m_1 q56m_2 q56m_3 q56m_4 q56m_5 q56m_6 q56m_7 q56m_8 q56m_0 q56m_99 (1))
+ /FREQUENCIES=$mr56_13.
+
+MULT RESPONSE GROUPS=$mr56_14 'Ministério Público' (q56n_1 q56n_2 q56n_3 q56n_4 q56n_5 q56n_6 q56n_7 q56n_8 q56n_0 q56n_99 (1))
+ /FREQUENCIES=$mr56_14.
+
+MULT RESPONSE GROUPS=$mr56_15 'Defensoria Pública' (q56o_1 q56o_2 q56o_3 q56o_4 q56o_5 q56o_6 q56o_7 q56o_8 q56o_0 q56o_99 (1))
+ /FREQUENCIES=$mr56_15.
+
+MULT RESPONSE GROUPS=$mr56_16 'Delegacias/ Delegacias Especializadas'  (q56p_1 q56p_2 q56p_3 q56p_4 q56p_5 q56p_6 q56p_7 q56p_8 q56p_0 q56p_99 (1))
+ /FREQUENCIES=$mr56_16.
+
+MULT RESPONSE GROUPS=$mr56_17 'ONGs que atuam com defesa de direitos'  (q56q_1 q56q_2 q56q_3 q56q_4 q56q_5 q56q_6 q56q_7 q56q_8 q56q_0 q56q_99 (1))
+ /FREQUENCIES=$mr56_17.
+
+MULT RESPONSE GROUPS=$mr56_18 'ONGs que realizam projetos sociais'  (q56r_1 q56r_2 q56r_3 q56r_4 q56r_5 q56r_6 q56r_7 q56r_8 q56r_0 q56r_99 (1))
+ /FREQUENCIES=$mr56_18.
+
+MULT RESPONSE GROUPS=$mr56_19 'Instituições de Ensino e Pesquisa'  (q56s_1 q56s_2 q56s_3 q56s_4 q56s_5 q56s_6 q56s_7 q56s_8 q56s_0 q56s_99 (1))
+ /FREQUENCIES=$mr56_19.
+
+MULT RESPONSE GROUPS=$mr56_20 'Unidades/ Serviços de outros municípios' (q56t_1 q56t_2 q56t_3 q56t_4 q56t_5 q56t_6 q56t_7 q56t_8 q56t_0 q56t_99 (1))
+ /FREQUENCIES=$mr56_20.
+
+MULT RESPONSE GROUPS=$mr56_21 'Conselho Tutelar'  (q56u_1 q56u_2 q56u_3 q56u_4 q56u_5 q56u_6 q56u_7 q56u_8 q56u_0 q56u_99 (1))
+ /FREQUENCIES=$mr56_21.
+
+FREQUENCIES VARIABLES=q57
+  /ORDER=ANALYSIS.
+
+
+**** VARIÁVEIS DERIVADAS****
+
+FREQUENCIES VARIABLES=D58_8bin1_sum D58_8bin2_sum D58_8bin3_sum 
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES= D58_9bin1_sum D58_9bin2_sum D58_9bin3_sum D58_9bin4_sum D58_9bin5_sum 
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES= D58_10bin1_sum D58_10bin2_sum D58_10bin3_sum D58_10bin4_sum 
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES= nu_trabalhadores
+  /ORDER=ANALYSIS.
+
+MEANS TABLES=D58_8bin1_sum D58_8bin2_sum D58_8bin3_sum nu_trabalhadores BY Região Porte_pop2010
+  /CELLS SUM.
+
+MEANS TABLES=D58_9bin1_sum D58_9bin2_sum D58_9bin3_sum D58_9bin4_sum D58_9bin5_sum nu_trabalhadores BY Região Porte_pop2010
+  /CELLS SUM.
+
+MEANS TABLES=D58_10bin1_sum D58_10bin2_sum D58_10bin3_sum D58_10bin4_sum nu_trabalhadores BY Região Porte_pop2010
+  /CELLS SUM.
+ 
+MEANS TABLES=nu_trabalhadores BY Região Porte_pop2010
+  /CELLS SUM.
+
+
+***TABELAS PARA SEREM RODADAS NA BASE DO RH******
+
+FREQUENCIES VARIABLES=q58_3
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q58_6
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q58_7
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q58_8
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q58_9
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES=q58_10 q58_11 q58_12
+  /ORDER=ANALYSIS.
+
+
+****COMANDO PARA EXPORTAR AS TABELAS PARA O EXCEL****
+
+OUTPUT EXPORT  
+/CONTENTS  EXPORT=ALL  LAYERS=PRINTSETTING  MODELVIEWS=PRINTSETTING  
+/XLS  DOCUMENTFILE='\\mds036870\Nucleo_Monitoramento\CENSO 2012\CREAS\Bases de dados_CREAS_2012\TABELAS_CREAS_2012.xlsx'  OPERATION=CREATEFILE     LOCATION=LASTCOLUMN  NOTESCAPTIONS=YES. 
+
+
+

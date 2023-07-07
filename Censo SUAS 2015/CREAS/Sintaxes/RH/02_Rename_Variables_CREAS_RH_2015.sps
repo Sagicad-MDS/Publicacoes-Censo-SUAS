@@ -1,0 +1,20 @@
+RENAME VARIABLES
+codigo_ibge = IBGE6
+id_creas = NU_identificador
+co_seq_dirigente = nu_ordem
+v10581 =q47_1
+v10582 = q47_2
+v10583 = q47_3
+v10584 = q47_4
+v10585 = q47_5
+v10586 = q47_6
+v10587 = q47_7
+v10588 = q47_8
+v10589 = q47_9
+v10590 = q47_10
+v10591 = q47_11
+v10592 = q47_12
+v10593 = q47_13
+v10594 = q47_14_1
+v10595 = q47_14_2
+v10596 = q47_14_3.

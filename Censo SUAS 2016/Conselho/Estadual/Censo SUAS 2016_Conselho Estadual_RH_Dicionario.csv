@@ -1,0 +1,45 @@
+Variável;Descrição
+UF;codigo_UF
+Região;
+Pop_Total2010;
+Quant_municipios;
+q53_2;q53_2_Data de Nascimento:
+q53_3;q53_3_Sexo
+q53_4;q53_4_Escolaridade
+q53_5;q53_5_Representação
+q53_6;q53_6_Função
+q53_7;q53_7_Vínculo
+q53_8;q53_8_Data de Início do mandato
+q53_9;q53_9_Data de término do mandato
+REPRESENTAÇÃO;
+D53_2;Idade em anos (data ref. 31-12-2015)
+D53_2_categoria;D53_2_categoria_Idade (faixas etárias)
+D53_4;D53_4_Níveis de escolaridade
+D53_4bin1;D53_4bin1_Nível fundamental - trabalhadores que possuem até o nível médio (inclui aqueles sem escolaridade)
+D53_4bin2;D53_4bin2_Nível médio - trabalhadores com ensino superior incompleto e ensino médio completo
+D53_4bin3;D53_4bin3_Nível superior - inclui trabalhadores graduados, com especialização, mestrado ou doutorado
+D53_5bin1;D53_5bin1_Representante de usuários e organização de usuários
+D53_5bin2;D53_5bin2_Representante de Entidades de Assistência Social
+D53_5bin3;D53_5bin3_Representante de organização dos trabalhadores
+D53_5bin4;D53_5bin4_Representante do Governo
+D53_5bin1_TIT;D53_5bin1_TIT_Representante Titular de usuários e organização de usuários
+D53_5bin1_SUPL;D53_5bin1_SUPL_Representante Suplente de usuários e organização de usuários
+D53_5bin2_TIT;D53_5bin2_TIT_Representante Titular de Entidades de Assistência Social
+D53_5bin2_SUPL;D53_5bin2_SUPL_Representante Suplente de Entidades de Assistência Social
+D53_5bin3_TIT;D53_5bin3_TIT_Representante Titular de organização dos trabalhadores
+D53_5bin3_SUPL;D53_5bin3_SUPL_Representante Suplente de organização dos trabalhadores
+D53_5bin4_TIT;D53_5bin4_TIT_Representante Titular do Governo
+D53_5bin4_SUPL;D53_5bin4_SUPL_Representante Suplente do Governo
+D53_5bin1_sum;Representante de usuários e organização de usuários
+D53_5bin2_sum;Representante de Entidades de Assistência Social
+D53_5bin3_sum;Representante de organização dos trabalhadores
+D53_5bin4_sum;Representante do Governo
+D53_5bin1_TIT_sum;Representante Titular de usuários e organização de usuários
+D53_5bin1_SUPL_sum;Representante Suplente de usuários e organização de usuários
+D53_5bin2_TIT_sum;Representante Titular de Entidades de Assistência Social
+D53_5bin2_SUPL_sum;Representante Suplente de Entidades de Assistência Social
+D53_5bin3_TIT_sum;Representante Titular de organização dos trabalhadores
+D53_5bin3_SUPL_sum;Representante Suplente de organização dos trabalhadores
+D53_5bin4_TIT_sum;Representante Titular do Governo
+D53_5bin4_SUPL_sum;Representante Suplente do Governo
+nu_conselheiros;Quantidade de conselheiros

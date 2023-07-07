@@ -1,0 +1,532 @@
+Variável;Descrição
+NU_IDENTIFICADOR;Id CREAS
+IBGE;Código IBGE
+IBGE7;Código IBGE com Dígito Verificador
+Região;Grande Região
+UF;Unidade da Federação
+uf_s;Unidade da Federação
+Município;Nome do Município_Censo IBGE 2010
+Municipio_2013;Nome do Município_atualizado 2014
+area;Área Territorial Km2
+Pop_Total2010;População Total - Censo IBGE 2010
+Pop_Urbana2010;População Urbana - Censo IBGE 2010
+Pop_Rural2010;População Rural - Censo IBGE 2010
+Porte_pop2010;Porte Populacional SUAS - Censo IBGE 2010
+ident.1;q0.1. Nome que identifica o Centro POP:
+ident.2;q0.2. Selecione/Indique o Tipo de Logradouro (avenida, rua, etc):
+ident.3;q0.3. Endereço:
+ident.4;q0.4. Número:
+ident.5;q0.5. Complemento:
+ident.6;q0.6. Bairro:
+ident.7;q0.7. Ponto de Referência:
+ident.8;q0.8. CEP:
+ident.9;q0.9. Município:
+ident.10;q0.10. UF:
+ident.11;q0.11. E-mail:
+ident.12;q0.12. DDD - Telefone:
+ident.13;q0.13. Ramal:
+ident.14;q0.14. Fax:
+ident.15;q0.15. Data de implantação do Centro POP:
+p.latitude;qLatitude
+p.longitude;qLongitude
+q1.1;q1.1. Horário de funcionamento - Dias por semana:
+q1.2;q1.2. Horário de funcionamento - Horas por dia:
+q2;q2. Situação do imóvel onde se localiza a unidade:
+q3;q3. O imóvel de funcionamento desta Unidade é compartilhado?
+q4.1;q1: Secretaria da Assistência Social ou congênere
+q4.2;q2: Outra unidade administrativa (Sede de Prefeitura, Administração Regional, Sub-Prefeitura etc)
+q4.3;q3: Conselho Municipal de Assistência Social
+q4.4;q4: CRAS – Centro de Referência de Assistência Social
+q4.5;q5: CREAS – Centro de Referência Especializado de Assistência Social
+q4.6;q6: Unidade de Acolhimento institucional (Abrigo)
+q4.7;q7: Outra unidade pública de serviços da Assistência Social
+q4.8;q8: ONG/Entidade/Associação Comunitária
+q4.99;q99: Outros
+q4.qual;q4.1. Qual?
+q5.1;q1: Apenas o endereço é o mesmo, mas todos os espaços do Centro de Referência para População em Situação de Rua são independentes e de uso exclusivo, inclusive a entrada
+q5.2;q2: Entrada / Porta de Acesso
+q5.3;q3: Recepção
+q5.4;q4: Algumas salas de atendimento
+q5.5;q5: Todas as salas de atendimento
+q5.6;q6: Salas administrativas
+q5.7;q7: Espaço para atividades coletivas
+q5.8;q8: Banheiros
+q5.9;q9: Copa/cozinha
+q5.10;q10: Área Externa
+q5.11;q11: Almoxarifado ou similar
+q5.12;q12: Refeitório
+q5.13;q13: Lavanderia
+q5.14;q14: Espaço para guarda de pertences
+q5.99;q99: Outros
+q6.1;q6.1. Quantidade de Salas com capacidade máxima de 5 pessoas
+q6.2;q6.2. Quantidade de Salas com capacidade para 6 a 14 pessoas
+q6.3;q6.3. Quantidade de Salas com capacidade para 15 a 29 pessoas
+q6.4;q6.4. Quantidade de Salas com capacidade para 30 ou mais pessoas
+q6.5;q6.5. Salas exclusivas de Coordenação, equipe técnica ou administração (não são salas de atendimento!)
+q6.6;q6.6. Banheiro de uso exclusivo dos trabalhadores do Centro POP
+q6.7;q6.7. Banheiro para uso dos usuários do Centro POP
+q6.8;q6.8. Espaço para higiene pessoal (Box com chuveiros individualizados)
+q6.9;q6.9. Possui Recepção?
+q6.10;q6.10. Possui Cozinha/Copa?
+q6.11;q6.11. Possui Almoxarifado ou similar?
+q6.12;q6.12. Possui espaço externo para atividades coletivas e/ou comunitárias?
+q6.13;q6.13. Possui Refeitório?
+q6.14;q6.14. Possui Lavanderia?
+q6.15;q6.15. Possui espaço para guarda de pertences?
+q6.16;q6.16. Possui espaço para animais de estimação?
+q7.1;q7.1. Acesso principal adaptado com rampas e rota acessível desde a calçada até a recepção da Unidade
+q7.2;q7.2. Rota acessível aos principais espaços da Unidade (recepção, sala de atendimentos e espaço(s) para atividades coletivas)
+q7.3;q7.3. Rota acessível ao banheiro
+q7.4;q7.4. Banheiro adaptado para pessoas com dificuldades de locomoção
+q8.1;q1: Sim, suporte de profissional com conhecimento em LIBRAS
+q8.2;q2: Sim, suporte de material em braille
+q8.3;q3: Sim, suporte para leitores de telas de computador para pessoas com deficiência visual
+q8.4;q4: Sim, outras adaptações e tecnologias assistivas para deficiência física
+q8.5;q5: Sim, outras adaptações e tecnologias assistivas para deficiência intelectual e autismo
+q8.6;q6: Sim, pisos especiais com relevos para sinalização voltados pessoa com deficiência visual
+q8.7;q7: Não há outras adaptações
+q8.4.qual;q8.1. Qual? - Tecnologias Assistivas para Deficiência Física
+q8.5.qual;q8.2. Qual? - Tecnologias Assistivas para Deficiência Intelectual e Autismo
+q9.1.1;q9.1.1. Telefone - Disponível na Unidade
+q9.1.2;q9.1.2. Telefone - Disponível aos Usuários
+q9.2.1;q9.2.1. Impressora - Disponível na Unidade
+q9.2.2;q9.2.2. Impressora - Disponível aos Usuários
+q9.3.1;q9.3.1. Máquina Copiadora - Disponível na Unidade
+q9.3.2;q9.3.2. Máquina Copiadora - Disponível aos Usuários
+q9.4.1;q9.4.1. Televisão (TV) - Disponível na Unidade
+q9.4.2;q9.4.2. Televisão (TV) - Disponível aos Usuários
+q9.5.1;q9.5.1. Equipamento de Som - Disponível na Unidade
+q9.5.2;q9.5.2. Equipamento de Som - Disponível aos Usuários
+q9.6.1;q9.6.1. DVD/Vídeo Cassete - Disponível na Unidade
+q9.6.2;q9.6.2. DVD/Vídeo Cassete - Disponível aos Usuários
+q9.7.1;q9.8.1. Datashow - Disponível na Unidade
+q9.7.2;q9.8.2. Datashow - Disponível aos Usuários
+q9.8.1;q9.10.1. Livros - Disponível na Unidade
+q9.8.2;q9.10.2. Livros - Disponível aos Usuários
+q9.9.1;q9.11.1. Materiais socioeducativos - Disponível na Unidade
+q9.9.2;q9.11.2. Materiais Socioeducativos - Disponível aos Usuários
+q9.10.1;q9.12.1. Armários individualizados para guarda de pertences - Disponível na Unidade
+q9.10.2;q9.12.2. Armários individualizados para guarda de pertences - Disponível aos Usuários
+q9.11.1;q9.13.1. Artigos de higiene pessoal - Disponível na Unidade
+q9.11.2;q9.13.2. Artigos de higiene pessoal - Disponível aos Usuários
+q9.12.1;q9.14.1. Geladeira - Disponível na Unidade
+q9.12.2;q9.14.2. Geladeira - Disponível aos Usuários
+q9.13.1;q9.15.1. Freezer - Disponível na Unidade
+q9.13.2;q9.15.2. Freezer - Disponível aos Usuários
+q9.14.1;q9.16.1. Fogão - Disponível na Unidade
+q9.14.2;q9.16.2. Fogão - Disponível aos Usuários
+q9.15.1;q9.17.1. Micro-ondas - Disponível na Unidade
+q9.15.2;q9.17.2. Micro-ondas - Disponível aos Usuários
+q9.16.1;q9.18.1. Máquina de lavar roupa - Disponível na Unidade
+q9.16.2;q9.18.2. Máquina de lavar roupa - Disponível aos Usuários
+q9.17.1;q9.19.1. Secadora de roupa - Disponível na Unidade
+q9.17.2;q9.19.2. Secadora de roupa - Disponível aos Usuários
+q9.18.1;q9.20.1. Tanque de lavar roupas - Disponível na Unidade
+q9.18.2;q9.20.2. Tanque de lavar roupas - Disponível aos Usuários
+q9.19.1;q9.21.1. Veículo de uso exclusivo - Disponível na Unidade
+q9.19.2;q9.22.1. Veículo de uso compartilhado - Disponível na Unidade
+q10.1;q10.1. Máquina de lavar roupa/Tanquinho
+q10.2;q10.2. Tanque
+q10.3;q10.3. Armários individualizados para guarda de pertences
+q11.1;q11.1. Quantidade total de computadores na unidade:
+q11.2;q11.2. Destes, quantos estão conectados à internet?
+q11.3;q11.3. Quantidade de computadores para utilização pelos usuários:
+q11.4;q11.4. Destes, quantos estão conectados à internet?
+q12;q12. Este Centro de Referência para População em Situação de Rua facilita o acesso ou oferece alimentação aos usuários?
+q13.1.1;q13.1.1. Refeições oferecidas - Lanche/Café da Manhã
+q13.1.2.1;q1: Restaurante Popular
+q13.1.2.2;q2: Em outra unidade pública ou privada
+q13.1.2.3;q3: No espaço deste Centro POP
+q13.2.1;q13.2.1. Refeições oferecidas - Almoço
+q13.2.2.1;q1: Restaurante Popular
+q13.2.2.2;q2: Em outra unidade pública ou privada
+q13.2.2.3;q3: No espaço deste Centro POP
+q13.3.1;q13.3.1. Refeições oferecidas - Lanche/Café da Tarde
+q13.3.2.1;q1: Restaurante Popular
+q13.3.2.2;q2: Em outra unidade pública ou privada
+q13.3.2.3;q3: No espaço deste Centro POP
+q13.4.1;q13.4.1. Refeições oferecidas - Jantar
+q13.4.2.1;q1: Restaurante Popular
+q13.4.2.2;q2: Em outra unidade pública ou privada
+q13.4.2.3;q3: No espaço deste Centro POP
+q13.5.1;q13.5.1. Refeições oferecidas - Lanche/Café da Noite
+q13.5.2.1;q1: Restaurante Popular
+q13.5.2.2;q2: Em outra unidade pública ou privada
+q13.5.2.3;q3: No espaço deste Centro POP
+q14;q14. Esta Unidade possui placa de identificação?
+q15.1;q1: Acolhida em Grupo realizada por profissional de nível superior
+q15.2;q2: Acolhida Particularizada realizada por técnico de nível superior
+q15.3;q3: Acompanhamento particularizado de famílias ou indivíduos
+q15.4;q4: Orientação socio-jurídica
+q15.5;q5: Apoio para obtenção de documentação pessoal
+q15.6;q6: Orientação e encaminhamento para acesso ao BPC
+q15.7;q7: Orientação e encaminhamento para acesso a benefícios eventuais
+q15.8;q8: Elaboração de Plano de Acompanhamento Individual e/ou Familiar
+q15.9;q9: Ações de mobilização e participação social
+q15.10;q10: Mobilização de família extensa ou ampliada
+q15.11;q11: Mobilização e fortalecimento do convívio e de redes sociais de apoio
+q15.12;q12: Encaminhamento para a rede de serviço socioassistencial público
+q15.13;q13: Encaminhamento para a rede de serviço socioassistencial privado
+q15.14;q14: Encaminhamento de usuários/dependentes de substâncias psicoativas para serviços da rede de saúde
+q15.15;q15: Encaminhamento para outros serviços da rede de saúde
+q15.16;q16: Encaminhamento para políticas de educação (jovens e adultos, etc.)
+q15.17;q17: Encaminhamento para órgãos de defesa de direitos (Defensoria Pública, Poder Judiciário, Ministério Público, Conselho Tutelar etc.)
+q15.18;q18: Ações de mobilização e sensibilização para o enfrentamento das situações de violação de direitos
+q15.19;q19: Encaminhamento de famílias ou indivíduos para demais políticas (trabalho, habitação, etc.)
+q15.20;q20: Acompanhamento dos usuários encaminhados para rede
+q15.21;q21: Registro dos atendimentos/acompanhamentos em prontuário
+q15.22;q22: Elaboração de relatórios técnicos sobre casos em atendimento
+q15.23;q23: Estudo de Caso/Discussão de casos em equipe
+q15.24;q24: Palestras
+q15.99;q99: Outras
+q15.quais;q15.1. Quais?
+q16;q16. Este Centro realiza oficinas/atividades em grupo com temas transversais no âmbito do Serviço Especializado para Pessoas em Situação de Rua nesta Unidade?
+q17.1;q1: Direitos e programas sociais
+q17.2;q2: Segurança alimentar e nutricional
+q17.3;q3: Envelhecimento
+q17.4;q4: Infância e Juventude
+q17.5;q5: Deficiência
+q17.6;q6: Saúde mental (depressão, sofrimento mental, etc.)
+q17.7;q7: Tuberculose
+q17.8;q8: Uso de álcool e outras drogas
+q17.9;q9: Outros cuidados com a saúde (DST, doenças crônicas, etc.)
+q17.10;q10: Promoção dos direitos das mulheres
+q17.11;q11: LGBTI (orientação sexual e identidade de gênero)
+q17.12;q12: Diversidade étnico-racial (negros, indígenas, comunidades tradicionais, etc.)
+q17.13;q13: Migração
+q17.14;q14: Violência e violação de direitos
+q17.15;q15: Sistema de garantias de direitos
+q17.16;q16: Inclusão digital
+q17.17;q17: Arte/cultura (dança, teatro, música, etc.)
+q17.18;q18: Envolvimento dos usuários em espaços de participação social, como conselhos e outros
+q17.19;q19: Organização dos usuários em associações e comitês
+q17.99;q99: Outros
+q17.qual;q17.1. Outros - Qual?
+q18.1;q1: Encaminhamento para capacitação profissional/curso profissionalizante
+q18.2;q2: Cessão de espaço físico para realização de cursos de capacitação profissional ofertados por outras instituições
+q18.3;q3: Cadastramento para participação em programas de qualificação profissional
+q18.4;q4: Encaminhamento para programas de geração de trabalho e renda
+q18.5;q5: Assessoramento para formação de cooperativas ou associações (unidades produtivas)
+q18.6;q6: Informações atualizadas sobre vagas disponíveis no mercado de trabalho
+q18.99;q99: Outros
+q19.1;q1: Encaminha para uma unidade de acolhimento da rede Socioassistencial pública
+q19.2;q2: Encaminha para uma unidade de acolhimento da rede Socioassistencial privada
+q19.3;q3: Encaminha para uma unidade de outra política pública
+q19.99;q99: Outro
+q19.0;q0: Não encaminha para acolhimento provisório
+q19.3.qual;q19.1. Qual? - Encaminha para uma unidade de outra política pública
+q19.99.qual;q19.2. Qual? - Outro
+q20.1;q20.1. República para adultos em processo de saída das ruas - Esta unidade possui serviço de referência para encaminhar os usuários?
+q20.1.1;q20.1.1. República para adultos em processo de saída das ruas - Com que frequência há o encaminhamento?
+q20.1.2;q20.1.2. República para adultos em processo de saída das ruas - Quais as dificuldades enfrentadas pela população encaminhada no acesso a estes serviços?
+q20.1.2.qual;q20.1.2.1. República para adultos em processo de saída das ruas - Qual?
+q20.2;q20.2. Programas de Aluguel Social - Esta unidade possui serviço de referência para encaminhar os usuários?
+q20.2.1;q20.2.1. Programas de Aluguel Social - Com que frequência há o encaminhamento?
+q20.2.2;q20.2.2. Programas de Aluguel Social - Quais as dificuldades enfrentadas pela população encaminhada no acesso a estes serviços?
+q20.2.2.qual;q20.2.2.1. Programas de Aluguel Social - Qual?
+q20.3;q20.3. Programas de Habitação Popular - Esta unidade possui serviço de referência para encaminhar os usuários?
+q20.3.1;q20.3.1. Programas de Habitação Popular - Com que frequência há o encaminhamento?
+q20.3.2;q20.3.2. Programas de Habitação Popular - Quais as dificuldades enfrentadas pela população encaminhada no acesso a estes serviços?
+q20.3.2.qual;q20.3.2.1. Programas de Habitação Popular - Qual?
+q21.1;q21.1. A.1 Quantidade e perfil das pessoas em situação de rua atendidas no mês de referência - Total
+q21.2.1;q21.2.1. A.1 Quantidade e perfil das pessoas em situação de rua atendidas no mês de referência - Masculino - 0 a 12 anos
+q21.2.2;q21.2.2. A.1 Quantidade e perfil das pessoas em situação de rua atendidas no mês de referência - Masculino - 13 a 17 anos
+q21.2.3;q21.2.3. A.1 Quantidade e perfil das pessoas em situação de rua atendidas no mês de referência - Masculino - 18 a 39 anos
+q21.2.4;q21.2.4. A.1 Quantidade e perfil das pessoas em situação de rua atendidas no mês de referência - Masculino - 40 a 59 anos
+q21.2.5;q21.2.5. A.1 Quantidade e perfil das pessoas em situação de rua atendidas no mês de referência - Masculino - 60 anos ou mais
+q21.3.1;q21.3.1. A.1 Quantidade e perfil das pessoas em situação de rua atendidas no mês de referência - Feminino - 0 a 12 anos
+q21.3.2;q21.3.2. A.1 Quantidade e perfil das pessoas em situação de rua atendidas no mês de referência - Feminino - 13 a 17 anos
+q21.3.3;q21.3.3. A.1 Quantidade e perfil das pessoas em situação de rua atendidas no mês de referência - Feminino - 18 a 39 anos
+q21.3.4;q21.3.4. A.1 Quantidade e perfil das pessoas em situação de rua atendidas no mês de referência - Feminino - 40 a 59 anos
+q21.3.5;q21.3.5. A.1 Quantidade e perfil das pessoas em situação de rua atendidas no mês de referência - Feminino - 60 anos ou mais
+q22;q22. Este Centro POP realiza o Serviço Especializado em Abordagem Social?
+q23.1;q1: Cumpre função de coordenador do Serviço referenciado
+q23.2;q2: Coleta/recebe periodicamente informações sobre dados de atendimento do Serviço
+q23.3;q3: Realiza reuniões periódicas para avaliação do Serviço com a Unidade referenciada
+q23.4;q4: Participa do processo de planejamento das atividades do Serviço
+q23.5;q5: Acompanha cotidianamente as atividades do Serviço
+q23.6;q6: Constrói estratégias metodológicas do Serviço
+q23.7;q7: Elabora relatórios técnicos específicos sobre casos atendidos/acompanhados pelo Serviço
+q23.8;q8: Realiza estudos de caso em parceria com o Serviço
+q23.9;q9: Define procedimentos comuns e/ou complementares ao Serviço
+q23.10;q10: Possui fluxos de encaminhamentos e trocas de informações com o Serviço
+q23.11;q11: Articula com a rede de serviços socioassistenciais
+q23.12;q12: Articula com a rede dos serviços das políticas públicas setoriais
+q23.13;q13: Articula com os órgãos do Sistema de Justiça
+q23.14;q14: Articula com os órgãos de defesa de direitos (Defensoria Pública, Ministério Público, Conselho Tutelar, etc.)
+q23.0;q0: Não realiza nenhuma das atividades acima
+q.24.1;q1: Identificação de situações de risco pessoal e social com direitos violados
+q.24.2;q2: Conhecimento/mapeamento do território
+q.24.3;q3: Informação, comunicação e defesa de direitos
+q.24.4;q4: Escuta e orientação
+q.24.5;q5: Construção de vínculo entre a equipe de referência e os usuários
+q.24.6;q6: Encaminhamentos para a rede de serviços locais
+q.24.7;q7: Articulação da rede de serviços socioassistenciais
+q.24.8;q8: Articulação com os serviços de políticas públicas setoriais
+q.24.9;q9: Articulação com os demais órgãos do Sistema de Garantia de Direitos
+q.24.10;q10: Articulação com os órgãos do Sistema de Justiça
+q.24.11;q11: Registro de atendimento dos usuários
+q.24.12;q12: Elaboração de relatórios
+q.24.13;q13: Ações de sensibilização para divulgação do trabalho realizado
+q.24.14;q14: Ações para fortalecimento de vínculos familiares e comunitários
+q25.1;q1: Conhecimento prévio dos técnicos do Serviço
+q25.2;q2: A partir de diagnósticos socioterritoriais realizados pelo órgão gestor de Assistência Social
+q25.3;q3: A partir de diagnósticos socioterritoriais realizados pela equipe que executa o serviço
+q25.4;q4: Demanda dos órgãos de defesa de diretos
+q25.5;q5: Denúncias da população
+q25.99;q99: Outros
+q25.99.qual;q25.1. Qual?
+q26;q26. Quantos dias por semana a abordagem social é realizada:
+q27;q27. Em quais períodos do dia costuma ser realizada a abordagem social?
+q28.1;q1: A Abordagem é realizada exclusivamente pela equipe do Centro Pop
+q28.2;q2: Equipes da atenção básica de saúde
+q28.3;q3: Equipes de saúde mental
+q28.4;q4: Equipes de serviços de acolhimento
+q28.5;q5: Equipes do CREAS
+q28.6;q6: Equipes de outras unidades públicas da rede socioassistencial
+q28.7;q7: Equipes de entidades da rede socioassistencial privada
+q28.8;q8: Integrantes de movimentos sociais
+q28.9;q9: Guarda municipal
+q28.10;q10: Polícia militar
+q28.11;q11: Equipes do sistema de justiça
+q28.99;q99: Outros
+q29;q29. O território de abrangência deste Centro compreende:
+q30;q30. Para implantação e/ou para o desenvolvimento das atividades deste Centro, foi elaborado diagnóstico socioterritorial sobre a incidência e característica da população em situação de rua na localidade?
+q31.1;q1: Informações sobre as áreas de concentração e trânsito da população em situação de rua no município/DF
+q31.2;q2: Dados e informações relativas ao perfil e às especificidades da população em situação de rua no município/DF
+q31.3;q3: Mapeamento da rede de articulação do Centro de Referência Especializado para População em Situação de Rua
+q31.99;q99: Outros dados e informações
+q32;q32. Este Centro possui estimativa do número de pessoas em situação de rua em sua área de abrangência?
+q33;q33. Caso sim, quantas pessoas?
+q34;q34. Esta Unidade desenvolve alguma atividade específica relativa ao uso de substâncias psicoativas?
+q35.1;q1: Oficinas com ações preventivas
+q35.2;q2: Encaminhamentos/Articulação com a rede de saúde para acompanhamento dos casos
+q35.3;q3: Discussão de casos com a saúde
+q35.99;q99: Outras
+q36;q36. Este Centro realiza cadastramento da população em situação de rua no CadÚnico?
+q37;q37. Há participação dos usuários nas atividades de planejamento deste CentroPOP?
+q38.1;q1: Convida os usuários para as reuniões de planejamento desta unidade
+q38.2;q2: Apoio financeiro para a participação de reuniões de planejamento junto a esta unidade
+q38.3;q3: Existência de representante de usuários junto à unidade
+q38.4;q4: Eleição para representante de usuários junto à unidade
+q38.5;q5: Estimula a formação de coletivo/comitê de usuários
+q38.6;q6: Realiza questionário de satisfação/ pesquisa de opinião
+q38.7;q7: Realiza reuniões/entrevistas especificas a fim de coletar a demanda dos usuários
+q38.8;q8: O Centro POP possui ouvidoria estruturada
+q38.9;q9: Os usuários escolhem os temas a serem trabalhados nas ações coletivas da unidade
+q38.99;q99: Outros
+q38.99.quais;q38.1. Quais mecanismos de participação são utilizados nesta unidade? - Qual(is)?
+q39.1;q1: Resistência da vizinhança desta unidade em relação às atividades realizadas
+q39.2;q2: Dificuldade de priorização da população de rua em outras políticas públicas
+q39.3;q3: Insegurança no local de oferta do serviço
+q39.4;q4: Dificuldades para encaminhar crianças/adolescentes encontrados em situação de rua desacompanhados
+q39.5;q5: Ausência de Documentação da população
+q39.6;q6: Falta de condições para o atendimento de usuários com transtorno mental
+q39.7;q7: Abuso de álcool e outras drogas
+q39.8;q8: Falta de compreensão de alguns agentes públicos sobre a escolha do atendimento ou não por parte do usuário (caráter não-compulsório do Serviço)
+q39.9;q9: Insuficiência/falta de preparo da equipe técnica
+q39.10;q10: Limitações de infraestrutura da unidade
+q39.99;q99: Outros
+q39.99.qual;q39.1. Qual?
+q40.1.1;q1: Serviço Especializado em Abordagem Social - Possui dados de localização (endereço, telefone, etc.)
+q40.1.2;q2: Serviço Especializado em Abordagem Social - Recebe usuários encaminhados por este Centro de Referência
+q40.1.3;q3: Serviço Especializado em Abordagem Social - Encaminha usuários para este Centro de Referência
+q40.1.4;q4: Serviço Especializado em Abordagem Social - Acompanha os encaminhamentos
+q40.1.5;q5: Serviço Especializado em Abordagem Social  - Realiza reuniões periódicas
+q40.1.6;q6: Serviço Especializado em Abordagem Social  - Troca Informações
+q40.1.7;q7: Serviço Especializado em Abordagem Social - Realiza estudos de caso em conjunto
+q40.1.8;q8: Serviço Especializado em Abordagem Social - Desenvolve atividades em parceria
+q40.1.9;q9: Serviço Especializado em Abordagem Social - Possui fluxo/protocolo de articulação
+q40.1.0;q0: Serviço Especializado em Abordagem Social - Não tem nenhuma articulação
+q40.1.99;q99: Serviço Especializado em Abordagem Social - Serviço ou instituição não existente no Município/DF
+q40.2.1;q1: Serviços de Acolhimento - Possui dados de localização (endereço, telefone, etc.)
+q40.2.2;q2: Serviços de Acolhimento - Recebe usuários encaminhados por este Centro de Referência
+q40.2.3;q3: Serviços de Acolhimento - Encaminha usuários para este Centro de Referência
+q40.2.4;q4: Serviços de Acolhimento - Acompanha os encaminhamentos
+q40.2.5;q5: Serviços de Acolhimento - Realiza reuniões periódicas
+q40.2.6;q6: Serviços de Acolhimento - Troca Informações
+q40.2.7;q7: Serviços de Acolhimento - Realiza estudos de caso em conjunto
+q40.2.8;q8: Serviços de Acolhimento - Desenvolve atividades em parceria
+q40.2.9;q9: Serviços de Acolhimento - Possui fluxo/protocolo de articulação
+q40.2.0;q0: Serviços de Acolhimento - Não tem nenhuma articulação
+q40.2.99;q99: Serviços de Acolhimento - Serviço ou instituição não existente no Município/DF
+q40.3.1;q1: CRAS - Possui dados de localização (endereço, telefone, etc.)
+q40.3.2;q2: CRAS - Recebe usuários encaminhados por este Centro de Referência
+q40.3.3;q3: CRAS - Encaminha usuários para este Centro de Referência
+q40.3.4;q4: CRAS - Acompanha os encaminhamentos
+q40.3.5;q5: CRAS - Realiza reuniões periódicas
+q40.3.6;q6: CRAS - Troca Informações
+q40.3.7;q7: CRAS - Realiza estudos de caso em conjunto
+q40.3.8;q8: CRAS - Desenvolve atividades em parceria
+q40.3.9;q9: CRAS - Possui fluxo/protocolo de articulação
+q40.3.0;q0: CRAS - Não tem nenhuma articulação
+q40.3.99;q99: CRAS - Serviço ou instituição não existente no Município/DF
+q40.4.1;q1: CREAS - Possui dados de localização (endereço, telefone, etc.)
+q40.4.2;q2: CREAS - Recebe usuários encaminhados por este Centro de Referência
+q40.4.3;q3: CREAS - Encaminha usuários para este Centro de Referência
+q40.4.4;q4: CREAS - Acompanha os encaminhamentos
+q40.4.5;q5: CREAS - Realiza reuniões periódicas
+q40.4.6;q6: CREAS - Troca Informações
+q40.4.7;q7: CREAS - Realiza estudos de caso em conjunto
+q40.4.8;q8: CREAS - Desenvolve atividades em parceria
+q40.4.9;q9: CREAS - Possui fluxo/protocolo de articulação
+q40.4.0;q0: CREAS - Não tem nenhuma articulação
+q40.4.99;q99: CREAS - Serviço ou instituição não existente no Município/DF
+q40.5.1;q1: Serviços de Saúde Mental - Possui dados de localização (endereço, telefone, etc.)
+q40.5.2;q2: Serviços de Saúde Mental - Recebe usuários encaminhados por este Centro de Referência
+q40.5.3;q3: Serviços de Saúde Mental - Encaminha usuários para este Centro de Referência
+q40.5.4;q4: Serviços de Saúde Mental - Acompanha os encaminhamentos
+q40.5.5;q5: Serviços de Saúde Mental - Realiza reuniões periódicas
+q40.5.6;q6: Serviços de Saúde Mental - Troca Informações
+q40.5.7;q7: Serviços de Saúde Mental - Realiza estudos de caso em conjunto
+q40.5.8;q8: Serviços de Saúde Mental - Desenvolve atividades em parceria
+q40.5.9;q9: Serviços de Saúde Mental - Possui fluxo/protocolo de articulação
+q40.5.0;q0: Serviços de Saúde Mental - Não tem nenhuma articulação
+q40.5.99;q99: Serviços de Saúde Mental - Serviço ou instituição não existente no Município/DF
+q40.6.1;q1: Equipes de Saúde que atuem no espaço da rua - Possui dados de localização (endereço, telefone, etc.)
+q40.6.2;q2: Equipes de Saúde que atuem no espaço da rua - Recebe usuários encaminhados por este Centro de Referência
+q40.6.3;q3: Equipes de Saúde que atuem no espaço da rua - Encaminha usuários para este Centro de Referência
+q40.6.4;q4: Equipes de Saúde que atuem no espaço da rua - Acompanha os encaminhamentos
+q40.6.5;q5: Equipes de Saúde que atuem no espaço da rua - Realiza reuniões periódicas
+q40.6.6;q6: Equipes de Saúde que atuem no espaço da rua - Troca Informações
+q40.6.7;q7: Equipes de Saúde que atuem no espaço da rua - Realiza estudos de caso em conjunto
+q40.6.8;q8: Equipes de Saúde que atuem no espaço da rua - Desenvolve atividades em parceria
+q40.6.9;q9: Equipes de Saúde que atuem no espaço da rua - Possui fluxo/protocolo de articulação
+q40.6.0;q0: Equipes de Saúde que atuem no espaço da rua - Não tem nenhuma articulação
+q40.6.99;q99: Equipes de Saúde que atuem no espaço da rua - Serviço ou instituição não existente no Município/DF
+q40.7.1;q1: Serviços de saúde voltados à internação - Possui dados de localização (endereço, telefone, etc.)
+q40.7.2;q2: Serviços de saúde voltados à internação - Recebe usuários encaminhados por este Centro de Referência
+q40.7.3;q3: Serviços de saúde voltados à internação - Encaminha usuários para este Centro de Referência
+q40.7.4;q4: Serviços de saúde voltados à internação - Acompanha os encaminhamentos
+q40.7.5;q5: Serviços de saúde voltados à internação - Realiza reuniões periódicas
+q40.7.6;q6: Serviços de saúde voltados à internação - Troca Informações
+q40.7.7;q7: Serviços de saúde voltados à internação - Realiza estudos de caso em conjunto
+q40.7.8;q8: Serviços de saúde voltados à internação - Desenvolve atividades em parceria
+q40.7.9;q9: Serviços de saúde voltados à internação - Possui fluxo/protocolo de articulação
+q40.7.0;q0: Serviços de saúde voltados à internação - Não tem nenhuma articulação
+q40.7.99;q99: Serviços de saúde voltados à internação - Serviço ou instituição não existente no Município/DF
+q40.8.1;q1: Comunidades Terapêuticas - Possui dados de localização (endereço, telefone, etc.)
+q40.8.2;q2: Comunidades Terapêuticas - Recebe usuários encaminhados por este Centro de Referência
+q40.8.3;q3: Comunidades Terapêuticas - Encaminha usuários para este Centro de Referência
+q40.8.4;q4: Comunidades Terapêuticas - Acompanha os encaminhamentos
+q40.8.5;q5: Comunidades Terapêuticas - Realiza reuniões periódicas
+q40.8.6;q6: Comunidades Terapêuticas - Troca Informações
+q40.8.7;q7: Comunidades Terapêuticas - Realiza estudos de caso em conjunto
+q40.8.8;q8: Comunidades Terapêuticas - Desenvolve atividades em parceria
+q40.8.9;q9: Comunidades Terapêuticas - Possui fluxo/protocolo de articulação
+q40.8.0;q0: Comunidades Terapêuticas - Não tem nenhuma articulação
+q40.8.99;q99: Comunidades Terapêuticas - Serviço ou instituição não existente no Município/DF
+q40.9.1;q1: Órgãos responsáveis pela emissão de documentação civil básica - Possui dados de localização (endereço, telefone, etc.)
+q40.9.2;q2: Órgãos responsáveis pela emissão de documentação civil básica - Recebe usuários encaminhados por este Centro de Referência
+q40.9.3;q3: Órgãos responsáveis pela emissão de documentação civil básica - Encaminha usuários para este Centro de Referência
+q40.9.4;q4: Órgãos responsáveis pela emissão de documentação civil básica - Acompanha os encaminhamentos
+q40.9.5;q5: Órgãos responsáveis pela emissão de documentação civil básica - Realiza reuniões periódicas
+q40.9.6;q6: Órgãos responsáveis pela emissão de documentação civil básica - Troca Informações
+q40.9.7;q7: Órgãos responsáveis pela emissão de documentação civil básica - Realiza estudos de caso em conjunto
+q40.9.8;q8: Órgãos responsáveis pela emissão de documentação civil básica - Desenvolve atividades em parceria
+q40.9.9;q9: Órgãos responsáveis pela emissão de documentação civil básica - Possui fluxo/protocolo de articulação
+q40.9.0;q0: Órgãos responsáveis pela emissão de documentação civil básica - Não tem nenhuma articulação
+q40.9.99;q99: Órgãos responsáveis pela emissão de documentação civil básica - Serviço ou instituição não existente no Município/DF
+q40.10.1;q1: Serviços/Programas de Segurança Alimentar - Possui dados de localização (endereço, telefone, etc.)
+q40.10.2;q2: Serviços/Programas de Segurança Alimentar - Recebe usuários encaminhados por este Centro de Referência
+q40.10.3;q3: Serviços/Programas de Segurança Alimentar - Encaminha usuários para este Centro de Referência
+q40.10.4;q4: Serviços/Programas de Segurança Alimentar - Acompanha os encaminhamentos
+q40.10.5;q5: Serviços/Programas de Segurança Alimentar - Realiza reuniões periódicas
+q40.10.6;q6: Serviços/Programas de Segurança Alimentar - Troca Informações
+q40.10.7;q7: Serviços/Programas de Segurança Alimentar - Realiza estudos de caso em conjunto
+q40.10.8;q8: Serviços/Programas de Segurança Alimentar - Desenvolve atividades em parceria
+q40.10.9;q9: Serviços/Programas de Segurança Alimentar - Possui fluxo/protocolo de articulação
+q40.10.0;q0: Serviços/Programas de Segurança Alimentar - Não tem nenhuma articulação
+q40.10.99;q99: Serviços/Programas de Segurança Alimentar - Serviço ou instituição não existente no Município/DF
+q40.11.1;q1: Serviços/Programas de Habitação - Possui dados de localização (endereço, telefone, etc.)
+q40.11.2;q2: Serviços/Programas de Habitação - Recebe usuários encaminhados por este Centro de Referência
+q40.11.3;q3: Serviços/Programas de Habitação - Encaminha usuários para este Centro de Referência
+q40.11.4;q4: Serviços/Programas de Habitação - Acompanha os encaminhamentos
+q40.11.5;q5: Serviços/Programas de Habitação - Realiza reuniões periódicas
+q40.11.6;q6: Serviços/Programas de Habitação - Troca Informações
+q40.11.7;q7: Serviços/Programas de Habitação - Realiza estudos de caso em conjunto
+q40.11.8;q8: Serviços/Programas de Habitação - Desenvolve atividades em parceria
+q40.11.9;q9: Serviços/Programas de Habitação - Possui fluxo/protocolo de articulação
+q40.11.0;q0: Serviços/Programas de Habitação - Não tem nenhuma articulação
+q40.11.99;q99: Serviços/Programas de Habitação - Serviço ou instituição não existente no Município/DF
+q40.12.1;q1: Serviços/Programas de Geração de Trabalho e Renda - Possui dados de localização (endereço, telefone, etc.)
+q40.12.2;q2: Serviços/Programas de Geração de Trabalho e Renda - Recebe usuários encaminhados por este Centro de Referência
+q40.12.3;q3: Serviços/Programas de Geração de Trabalho e Renda - Encaminha usuários para este Centro de Referência
+q40.12.4;q4: Serviços/Programas de Geração de Trabalho e Renda - Acompanha os encaminhamentos
+q40.12.5;q5: Serviços/Programas de Geração de Trabalho e Renda - Realiza reuniões periódicas
+q40.12.6;q6: Serviços/Programas de Geração de Trabalho e Renda - Troca Informações
+q40.12.7;q7: Serviços/Programas de Geração de Trabalho e Renda - Realiza estudos de caso em conjunto
+q40.12.8;q8: Serviços/Programas de Geração de Trabalho e Renda - Desenvolve atividades em parceria
+q40.12.9;q9: Serviços/Programas de Geração de Trabalho e Renda - Possui fluxo/protocolo de articulação
+q40.12.0;q0: Serviços/Programas de Geração de Trabalho e Renda - Não tem nenhuma articulação
+q40.12.99;q99: Serviços/Programas de Geração de Trabalho e Renda - Serviço ou instituição não existente no Município/DF
+q40.13.1;q1: Órgãos de Defesa de Direitos - Possui dados de localização (endereço, telefone, etc.)
+q40.13.2;q2: Órgãos de Defesa de Direitos - Recebe usuários encaminhados por este Centro de Referência
+q40.13.3;q3: Órgãos de Defesa de Direitos - Encaminha usuários para este Centro de Referência
+q40.13.4;q4: Órgãos de Defesa de Direitos - Acompanha os encaminhamentos
+q40.13.5;q5: Órgãos de Defesa de Direitos - Realiza reuniões periódicas
+q40.13.6;q6: Órgãos de Defesa de Direitos - Troca Informações
+q40.13.7;q7: Órgãos de Defesa de Direitos - Realiza estudos de caso em conjunto
+q40.13.8;q8: Órgãos de Defesa de Direitos - Desenvolve atividades em parceria
+q40.13.9;q9: Órgãos de Defesa de Direitos - Possui fluxo/protocolo de articulação
+q40.13.0;q0: Órgãos de Defesa de Direitos - Não tem nenhuma articulação
+q40.13.99;q99: Órgãos de Defesa de Direitos - Serviço ou instituição não existente no Município/DF
+q40.14.1;q1: Movimentos organizados da população em situação de rua - Possui dados de localização (endereço, telefone, etc.)
+q40.14.2;q2: Movimentos organizados da população em situação de rua - Recebe usuários encaminhados por este Centro de Referência
+q40.14.3;q3: Movimentos organizados da população em situação de rua - Encaminha usuários para este Centro de Referência
+q40.14.4;q4: Movimentos organizados da população em situação de rua - Acompanha os encaminhamentos
+q40.14.5;q5: Movimentos organizados da população em situação de rua - Realiza reuniões periódicas
+q40.14.6;q6: Movimentos organizados da população em situação de rua - Troca Informações
+q40.14.7;q7: Movimentos organizados da população em situação de rua - Realiza estudos de caso em conjunto
+q40.14.8;q8: Movimentos organizados da população em situação de rua - Desenvolve atividades em parceria
+q40.14.9;q9: Movimentos organizados da população em situação de rua - Possui fluxo/protocolo de articulação
+q40.14.0;q0: Movimentos organizados da população em situação de rua - Não tem nenhuma articulação
+q40.14.99;q99: Movimentos organizados da população em situação de rua - Serviço ou instituição não existente no Município/DF
+q41.1;q1: Pessoa com Deficiência
+q41.2;q2: Gênero
+q41.3;q3: População em situação de rua
+q41.4;q4: População LGBT (Lésbicas, gays, bissexuais, transgêneros e intersexuais)
+q41.5;q5: População e comunidades tradicionais (indígenas, quilombolas, ribeirinhos, extrativistas, dentre outros)
+q41.6;q6: Álcool e outras drogas
+q41.7;q7: Raça e etnia
+q41.8;q8: Violências e violações de direitos
+q41.9;q9: Trabalho infantil
+q41.10;q10: Infância/Juventude
+q41.11;q11: Envelhecimento
+q41.12;q12: Sistema socioeducativo/Medida Socioeducativa/SINASE
+q41.99;q99: Outros
+q41.0;q0: Não participou de capacitação
+q41.99.qual;q41.1. Especifique:
+q42;q42. Nesta unidade, algum profissional já participou de algum curso do CAPACITASUAS?
+q42.1;q42.1. Quantos?
+q43;q43. O coordenador desta Unidade:
+q45.4;q45.4. Cargo/Função:
+q45.4.1;q45.4.1. Cargo/Função Especifique:
+q46.4;q46.4. Cargo/Função:
+q46.4.1;q46.4.1. Cargo/Função Especifique:
+D44.7bin1.sum;qD44.7bin1.Número de trabalhadores de Nível fundamental (inclui trabalhadores sem escolaridade, fundamental incompleto e ensino médio incompleto)
+D44.7bin2.sum;qD44.7bin2.Número de trabalhadores de Nível médio (inclui trabalhadores com ensino superior incompleto)
+D44.7bin3.sum;qD44.7bin3.Número de trabalhadores de Nível superior (inclui trabalhadores com especialização, mestrado e doutorado)
+D44.8bin1.sum;qD44.8bin1.sum.Número de Pedagogos
+D44.8bin2.sum;qD44.8bin2.sum.Número de Assistentes Sociais
+D44.8bin3.sum;qD44.8bin3.sum.Número de Antropólogos
+D44.8bin4.sum;qD44.8bin4.sum.Número de Advogados
+D44.8bin5.sum;qD44.8bin5.sum.Número de Psicólogos
+D44.9bin1.sum;qD44.9bin1.Número de Servidores Estatutários
+D44.9bin2.sum;qD44.9bin2.Número de Empregados Públicos(CLT)
+D44.9bin3.sum;qD44.9bin3.Número de Comissionados
+D44.9bin4.sum;"qD44.9bin4.Número de profissionais com outros vínculos não permanentes(inclui Trabalhador de Empresas/Cooperativa/Entidade Prestadora de Serviços; Voluntários;Temporário; Sem vínculo; Terceirizado e Outro vínculo não permanente)"
+nu.trabalhadores;Número de trabalhadores no Centro POP
+D1.horas.por.semana.fx;D1.horas.por.semana.fx.Total de horas por semana que o CENTRO POP encontra-se em funcionamento
+D6.total.salas.atend;D6.Total de salas utilizadas para atendimento individual ou coletivo
+D6.total.salas.adm.e.atend;D6.Total de salas utilizadas para atendimento e para atividades administrativas
+D6.Salas.atend.fx;D6.Salas.atend.fx.Número de salas utilizadas para atendimento individual ou coletivo
+D6.total.salas.adm.e.atend.fx;D6.Total de salas utilizadas para atendimento e para atividades administrativas.fx
+D6.6;D6.6.Quantidade de banheiros de uso exclusivo dos trabalhadores do Centro POP
+D6.7;D6.7.Quantidade de banheiros para uso dos usuários do Centro POP
+D6.8;D6.8.Quantidade de espaços para higiene pessoal (Box com chuveiros individualizados)
+D11.1;D11.1.Quantidade de computadores no CENTRO POP
+D11.2;D9.2.Quantidade de computadores conectados à internet no CENTRO POP
+D11.3;D11.3.Quantidade de computadores para utilização pelos usuários
+D11.4;D11.4.Quantidade de computadores concectados à internet, para utilização pelos usuários
+D33.fx;D29.fx.estimativa de pessoas em situação de rua em sua área de abrangência

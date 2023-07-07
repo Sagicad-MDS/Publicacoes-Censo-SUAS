@@ -1,0 +1,17 @@
+Variável;Descrição
+id_acolhimento;id_acolhimento
+IBGE_sede;Código do IBGE_sede
+Região_sede;Grande Região_sede
+UF_sede;UF_sede
+Municipio_sede;Nome do Município_SEDE DA UNIDADE
+area_sede;Área Territorial Km2_sede
+Pop_Total2010_sede;População Total_sede
+Porte_pop2010_sede;Porte SUAS_sede
+q10_IBGE;Código do IBGE_parceiro
+q10_UF;UF_parceiro
+q10;Nome do Município_MUNICIPIO PARCEIRO
+q10_area;Área Territorial Km2_parceiro
+q10_Pop_Total2010;População Total_parceiro
+q10_Pop_Urbana2010;População Urbana_parceiro
+q10_Pop_Rural2010;População Rural_parceiro
+q10_Porte_pop2010;Porte SUAS_parceiro

@@ -1,0 +1,42 @@
+Variável;Descrição
+IBGE;Código IBGE do Município
+IBGE7;Código IBGE com Dígito Verificador
+Região;Grande Região
+UF;Unidade da Federação
+uf_s;Unidade da Federação
+Município;Nome do Município_Censo IBGE 2010
+Municipio_2013;Nome do Município_atualizado 2014
+area;Área Territorial Km2
+Pop_Total2010;População Total - Censo IBGE 2010
+Pop_Urbana2010;População Urbana - Censo IBGE 2010
+Pop_Rural2010;População Rural - Censo IBGE 2010
+Porte_pop2010;Porte Populacional SUAS - Censo IBGE 2010
+NU_IDENTIFICADOR;Número Identificador da Unidade no CadSUAS
+q35_dt_nasc;q35_dt_nasc - Data de Nascimento
+q35_sexo;q35_sexo - Sexo
+q35_esc;q35_esc - Escolaridade
+q35_prof;q35_prof - Profissão
+q35_vinc;q35_vinc - Vínculo
+q35_func;q35_func - Função
+q35_carga_horaria;q35_carga_horaria - Carga horária SEMANAL
+q35_dt_func;q35_dt_func - Início do exercício da função
+Incompletos;Questionário Incompleto adicionado à base
+Duplicado;Trabalhadores com duplicações
+q35_func_original;Original - q35_func - Função
+q35_prof_original;Original - q35_prof.Profissão
+d35_idade;d35_idade - Idade em anos (data ref. 31/12/2017)
+d35_idade_categoria;d35_idade_Idade (faixas etárias)
+d35_esc;d35_esc - Níveis de escolaridade
+d35_vinc;d35_vinc - Tipo de vínculo
+d35_nv_fund;d35_nv_fund - Nível fundamental - trabalhadores que possuem até o nível médio (inclui aqueles sem escolaridade)
+d35_nv_med;d35_nv_med - Nível médio - trabalhadores com ensino superior incompleto e ensino médio completo
+d35_nv_sup;d35_nv_sup - Nível superior - inclui trabalhadores graduados, com especialização, mestrado ou doutorado
+d35_pedagogo;d35_pedagogo - Pedagogo
+d35_ass_social;d35_ass_social - Assistente Social
+d35_antropologo;d35_antropologo - Antropólogo
+d35_advogado;d35_advogado - Advogado
+d35_psicologo;d35_psicologo - Psicólogo
+d35_estatutario;d35_estatutario - Servidor Estatutário
+d35_clt_publico;d35_clt_publico - Empregado Público (CLT)
+d35_comissionado;d35_comissionado - Comissionado
+d35_outros_vinc;"d35_outros_vinc - Outros vínculos não permanentes - inclui Trabalhador de Empresas/Cooperativa/Entidade Prestadora de Serviços; Voluntários; Servidor Temporário; Sem vínculo; Terceirizado e Outro vínculo não permanente"

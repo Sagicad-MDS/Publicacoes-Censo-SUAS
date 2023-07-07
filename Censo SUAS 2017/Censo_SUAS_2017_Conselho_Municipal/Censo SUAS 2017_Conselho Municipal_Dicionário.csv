@@ -1,0 +1,364 @@
+Variável;Descrição
+IBGE; Código IBGE
+IBGE7;Código IBGE com Dígito Verificador
+Região;Grande Região
+UF;Unidade da Federação
+uf_s;Unidade da Federação
+Município;Nome do Município_Censo IBGE 2010
+Municipio_2013;Nome do Município_atualizado 2014
+area;Área Territorial Km2
+Pop_Total2010;População Total - Censo IBGE 2010
+Pop_Urbana2010;População Urbana - Censo IBGE 2010
+Pop_Rural2010;População Rural - Censo IBGE 2010
+Porte_pop2010;Porte Populacional SUAS - Censo IBGE 2010
+munic; Município:
+ident.9; UF:
+ident.1; Nome que identifica o Conselho:
+ident.2; Selecione o Tipo de Logradouro (avenida, rua, etc):
+ident.3; Endereço:
+ident.4; Número:
+ident.5; Complemento:
+ident.6; Bairro:
+ident.7; Ponto de Referência:
+ident.8; CEP:
+ident.10; E-mail:
+ident.11; DDD - Telefone:
+ident.12; Ramal:
+ident.13; FAX:
+p.latitude; p.latitude
+p.longitude; p.longitude
+q1;  q1  Informe o ano de publicação da Lei que criou o Conselho:
+q1.99;  q1.99  Não está criado em Lei
+q2;  q2  Houve alteração da Lei original por alguma Lei posteriormente aprovada?
+q3;  q3  Caso sim, informe o ano da Lei que alterou a Lei original de criação do Conselho:
+q4;  q4  Esse conselho possui regimento interno?
+q5;  q5  Caso sim, informe o ano da última atualização do Regimento:
+q6.1.1;  q6.1.1  Lei do Conselho
+q6.1.2;  q6.1.2  Regimento Interno
+q6.1.3;  q6.1.3  Outras normativas
+q6.1.0;  q6.1.0  Não está normatizado
+q6.2.1;  q6.2.1  Lei do Conselho
+q6.2.2;  q6.2.2  Regimento Interno
+q6.2.3;  q6.2.3  Outras normativas
+q6.2.0;  q6.2.0  Não está normatizado
+q6.3.1;  q6.3.1  Lei do Conselho
+q6.3.2;  q6.3.2  Regimento Interno
+q6.3.3;  q6.3.3  Outras normativas
+q6.3.0;  q6.3.0  Não está normatizado
+q6.4.1;  q6.4.1  Lei do Conselho
+q6.4.2;  q6.4.2  Regimento Interno
+q6.4.3;  q6.4.3  Outras normativas
+q6.4.0;  q6.4.0  Não está normatizado
+q6.5.1;  q6.5.1  Lei do Conselho
+q6.5.2;  q6.5.2  Regimento Interno
+q6.5.3;  q6.5.3  Outras normativas
+q6.5.0;  q6.5.0  Não está normatizado
+q6.6.1;  q6.6.1  Lei do Conselho
+q6.6.2;  q6.6.2  Regimento Interno
+q6.6.3;  q6.6.3  Outras normativas
+q6.6.0;  q6.6.0  Não está normatizado
+q6.7.1;  q6.7.1  Lei do Conselho
+q6.7.2;  q6.7.2  Regimento Interno
+q6.7.3;  q6.7.3  Outras normativas
+q6.7.0;  q6.7.0  Não está normatizado
+q6.8.1;  q6.8.1  Lei do Conselho
+q6.8.2;  q6.8.2  Regimento Interno
+q6.8.3;  q6.8.3  Outras normativas
+q6.8.0;  q6.8.0  Não está normatizado
+q6.9.1;  q6.9.1  Lei do Conselho
+q6.9.2;  q6.9.2  Regimento Interno
+q6.9.3;  q6.9.3  Outras normativas
+q6.9.0;  q6.9.0  Não está normatizado
+q6.10.1;  q6.10.1  Lei do Conselho
+q6.10.2;  q6.10.2  Regimento Interno
+q6.10.3;  q6.10.3  Outras normativas
+q6.10.0;  q6.10.0  Não está normatizado
+q6.12.1;  q6.12.1  Lei do Conselho
+q6.12.2;  q6.12.2  Regimento Interno
+q6.12.3;  q6.12.3  Outras normativas
+q6.12.0;  q6.12.0  Não está normatizado
+q6.13.1;  q6.13.1  Lei do Conselho
+q6.13.2;  q6.13.2  Regimento Interno
+q6.13.3;  q6.13.3  Outras normativas
+q6.13.0;  q6.13.0  Não está normatizado
+q6.14.1;  q6.14.1  Lei do Conselho
+q6.14.2;  q6.14.2  Regimento Interno
+q6.14.3;  q6.14.3  Outras normativas
+q6.14.0;  q6.14.0  Não está normatizado
+q6.15.1;  q6.15.1  Lei do Conselho
+q6.15.2;  q6.15.2  Regimento Interno
+q6.15.3;  q6.15.3  Outras normativas
+q6.15.0;  q6.15.0  Não está normatizado
+q7;  q7  O Conselho possui local/sede específico para o seu funcionamento?
+q8;  q8  No prédio em que se localiza o Conselho funcionam outras instituições ou unidades?
+q9.1;  q9.1  Secretaria de Assistência Social ou congênere
+q9.2;  q9.2  Outra unidade administrativa (Sede de Prefeiruta, Sede de Governo, Administração Regional, etc.)
+q9.3;  q9.3  CRAS - Centro de Referência de Assistência Social
+q9.4;  q9.4  CREAS - Centro de Referência Especializado de Assistência Social
+q9.5;  q9.5  Outra unidade pública de serviços da Assistência Social
+q9.6;  q9.6  Unidade de Saúde
+q9.7;  q9.7  Escola
+q9.8;  q9.8  Associação Comunitária
+q9.9;  q9.9  ONG/Entidade/Organização da Sociedade Civil
+q9.10;  q9.10  Conselho Tutelar
+q9.11;  q9.11  Outros Conselhos
+q9.12;  q9.12  Outros
+q10.1;  q10.1  Salas de uso exclusivo - Quantidade de Salas com capacidade de no máximo 15 pessoas
+q10.2;  q10.2  Salas de uso exclusivo - Quantidade de Salas para mais de 15 pessoas
+q10.3;  q10.3  Salas de uso compartilhado - Quantidade de Salas com capacidade de no máximo 15 pessoas
+q10.4;  q10.4  Salas de uso compartilhado - Quantidade de Salas para mais de 15 pessoas
+q10.5;  q10.5  Quantidade de banheiros
+q10.6;  q10.6  Recepção
+q11.1;  q11.1  Telefone de uso exclusivo do Conselho
+q11.2;  q11.2  Telefone de uso compartilhado
+q11.3;  q11.3  Material de Escritório
+q11.4;  q11.4  Equipamento de som
+q11.5;  q11.5  Televisão (TV)
+q11.6;  q11.6  DVD
+q11.7;  q11.7  Datashow
+q11.8;  q11.8  Veículo de uso exclusivo
+q11.9;  q11.9  Veículo de uso compartilhado
+q11.10;  q11.10  Acervo bibliográfico
+q11.11;  q11.11  Máquina Copiadora
+q11.12;  q11.12  Impressora
+q11.13;  q11.13
+q11.14;  q11.14
+q12.1;  q12.1  Quantidade total de computadores de uso exclusivo do Conselho:
+q12.2;  q12.2  Quantos dos computadores de uso exclusivo do Conselho estão conectados à internet
+q12.3;  q12.3  Quantidade total de computadores de uso compartilhado:
+q12.4;  q12.4  Quantos dos computadores de uso compartilhado estão conectados à internet:
+q13;  q13  O Conselho possui Secretaria Executiva (unidade de apoio para seu funcionamento)?
+q14;  q14  O(a) Secretário(a) Executivo(a) trabalha exclusivamente no Conselho?
+q15.1;  q15.1  Funcionários exclusivos da Secretaria Executiva do Conselho
+q15.2;  q15.2  Funcionários não exclusivos da Secretaria Executiva do Conselho
+q16.1;  q16.1  Horário de funcionamento do Conselho - Dias por semana:
+q16.2;  q16.2  Horário de funcionamento do Conselho - Horas por dia:
+q17;  q17  Na lei orçamentária de 2017, há previsão de recursos específicos do órgão gestor destinados à manutenção e funcionamento do conselho?
+q18;  q18  Os 3% dos Índices de Gestão Descentralizada  (IGD?Bolsa Família e IGD?SUAS) são destinados a custear despesas do funcionamento do Conselho?
+q19;  q19  Houve alteração no aporte dos recursos da Gestão Municipal para este Conselho se comparado esse ano ao ano anterior?
+q20;  q20  Em qual faixa percentual o conselho executou o aporte financeiro disponibilizado para o seu funcionamento?
+q21.1;  q21.1  Deslocamento dos conselheiros para as reuniões ordinárias
+q21.2;  q21.2  Hospedagem/Alimentação dos conselheiros para reuniões ordinárias
+q21.3;  q21.3  Deslocamento dos conselheiros para reuniões descentralizadas
+q21.4;  q21.4  Hospedagem/Alimentação aos conselheiros para reuniões descentralizadas
+q21.5;  q21.5  Deslocamento para fiscalização de entidades
+q21.6;  q21.6  Gastos com pagamento de água, luz, telefone e outras contas
+q21.7;  q21.7  Material de Escritório
+q21.8;  q21.8  Gastos com a compra de equipamentos (computadores, impressoras, entre outros)
+q22;  q22  O Conselho acompanhou o cumprimento das deliberações da Conferência Municipal (ou Estadual, no caso de CEAS, ou CAS/DF) de Assistência Social de 2015?
+q23;  q23  O orçamento do órgão gestor do ano de 2017 previu recursos específicos para a realização da Conferência Municipal (ou Estadual, no caso de CEAS, ou CAS/DF) de 2017?
+q24;  q24  O Conselho realizou a Conferência Municipal (ou Estadual, no caso de CEAS, ou CAS/DF) de Assistência Social no ano de 2017?
+q25;  q25  O Conselho realizou reuniões de mobilização para a conferência do ano de 2017?
+q26.1;  q26.1  Delegados
+q26.2;  q26.2  Observadores
+q33;  q33  O Conselho tem calendário anual de reuniões ordinárias estabelecido?
+q34;  q34  Considerando todas as reuniões plenárias do Conselho (ordinárias e extraordinárias), quantas reuniões foram realizadas no ano de 2016?
+q35.0;  q35.0  Não são publicizadas
+q35.1;  q35.1  Ficam no Conselho em local de livre acesso para a população usuária
+q35.2;  q35.2  São enviados aos Conselheiros e/ou suas entidades
+q35.3;  q35.3  São enviados às entidades de Assistência Social que não estão representadas no conselho
+q35.4;  q35.4  São enviados aos representantes e organizações de usuários que não estão representadas no conselho
+q35.5;  q35.5  São enviados às organizações e entidades de trabalhadores do setor que não estão representadas no conselho
+q35.6;  q35.6  Disponibilizados no site do Conselho
+q35.7;  q35.7  Em Boletins produzidos pela área de assistência social
+q36;  q36  As deliberações/resoluções do Conselho são publicadas em diário oficial?
+q37;  q37  O município (ou estado no caso de CEAS, ou DF no caso do CAS/DF), tem Plano de Assistência Social?
+q38;  q38  O Conselho deliberou sobre o Plano de Assistência Social do município (ou do Estado no caso do CEAS, ou do DF no caso do CAS/DF)?
+q39;  q39  Qual foi o ano da aprovação do último Plano de Assistência Social por este Conselho?
+q40.1;  q40.1  Plano de Ação
+q40.2;  q40.2  Demonstrativo de Execução Físico-Financeira
+q40.3;  q40.3  Plano de Assistência Social
+q40.4;  q40.4  Plano Plurianual (PPA), Lei de Diretrizes Orçamentárias (LDO) e/ou Lei Orçamentária Anual (LOA)
+q40.5;  q40.5  Deliberações da(s) Conferência(s)
+q40.6;  q40.6  Planejamento das atividades do Conselho
+q40.7;  q40.7  Acompanhamento do Programa Bolsa Família
+q40.8;  q40.8  Acompanhamento do Benefício de Prestação Continuada
+q40.9;  q40.9  Benefícios eventuais
+q40.10;  q40.10  Financiamento, implantação, organização e oferta de Serviços Socioassistenciais, programas, projetos e benefícios de Proteção Social Básica
+q40.11;  q40.11  Financiamento, implantação, organização e oferta de Serviços Socioassistenciais, programas, projetos e benefícios de Proteção Social Especial
+q40.12;  q40.12  Inscrição de entidades de assistência social
+q40.13;  q40.13  Fiscalização das ofertas prestadas pelos equipamentos públicos da assistência social
+q40.14;  q40.14  Fiscalização das ofertas prestadas pelas entidades de assistência social
+q40.15;  q40.15  Intersetorialidade e transversalidade na Política de Assistência Social
+q40.16;  q40.16  Participação popular e mobilização social
+q40.17;  q40.17  Capacitação para trabalhadores, gestores ou conselheiros
+q40.18;  q40.18  Utilização de no mínimo 3% dos recursos do IGD-SUAS e IGD-PBF para o desenvolvimento das atividades do Conselho
+q40.19;  q40.19  Avaliação da evolução do SUAS no âmbito municipal ou estadual
+q40.20;  q40.20  Denúncias
+q40.21;  q40.21  Plano Decenal
+q40.22;  q40.22  Acompanhamento de programas e projetos da política de assistência social nacional e local
+q40.23;  q40.23  Mobilização de usuários da Assistência Social para integração ao mundo do trabalho
+q40.24;  q40.24  Grupos Populacionais Tradicionais e Específicos (indígenas, quilombolas, ribeirinhos, ciganos e outros)
+q40.25;  q40.25  Inserção de crianças e adolescentes com deficiência beneficiários do BPC na escola
+q40.99.1;  q40.99.1  Outros
+q40.99.2;  q40.99.2  Quais?
+q41;  q41  O Conselho conhece e acompanha as metas do pacto de aprimoramento em seu município (ou no Estado no caso de CEAS, ou no DF no caso do CAS/DF)?
+q42;  q42  O Conselho deliberou sobre a proposta anual de orçamento do executivo para o ano de 2017?
+q43;  q43  Com que frequência o conselho aprecia o relatório de aplicação dos recursos dos Fundos de Assistência Social?
+q44;  q44  O Conselho já regulamentou por meio de resolução própria os Benefícios Eventuais concedidos no âmbito da Assistência Social? (Decreto nº 6.307/07 e Resolução CNAS nº 39/10)
+q45;  q45  O Conselho acompanha os processos de pactuação da Comissão Intergestores Bipartite ? CIB e da Comissão Intergestores Tripartite ? CIT?
+q46;  q46  O Conselho acompanha os processos de deliberação  do Conselho Nacional de Assistência Social e do Conselho Estadual de Assistência Social, no caso de municípios.
+q47;  q47  O Conselho é a Instância de Controle Social do Programa Bolsa Família?
+q48;  q48  O Conselho fiscaliza e acompanha a execução do Programa Bolsa Família?
+q49.1.1;  q49.1.1  Possui dados de localização (endereço, telefone, etc.)
+q49.1.2;  q49.1.2  Realiza reuniões periódicas
+q49.1.3;  q49.1.3  Troca Informações
+q49.1.4;  q49.1.4  Desenvolve atividades em parceria
+q49.1.0;  q49.1.0  Não tem nenhuma articulação
+q49.1.99;  q49.1.99  Não existe este Conselho no Município ou no DF
+q49.2.1;  q49.2.1  Possui dados de localização (endereço, telefone, etc.)
+q49.2.2;  q49.2.2  Realiza reuniões periódicas
+q49.2.3;  q49.2.3  Troca Informações
+q49.2.4;  q49.2.4  Desenvolve atividades em parceria
+q49.2.0;  q49.2.0  Não tem nenhuma articulação
+q49.2.99;  q49.2.99  Não existe este Conselho no Município ou no DF
+q49.3.1;  q49.3.1  Possui dados de localização (endereço, telefone, et.3.)
+q49.3.2;  q49.3.2  Realiza reuniões periódicas
+q49.3.3;  q49.3.3  Troca Informações
+q49.3.4;  q49.3.4  Desenvolve atividades em parceria
+q49.3.0;  q49.3.0  Não tem nenhuma articulação
+q49.3.99;  q49.3.99  Não existe este Conselho no Município ou no DF
+q49.4.1;  q49.4.1  Possui dados de localização (endereço, telefone, etc.)
+q49.4.2;  q49.4.2  Realiza reuniões periódicas
+q49.4.3;  q49.4.3  Troca Informações
+q49.4.4;  q49.4.4  Desenvolve atividades em parceria
+q49.4.0;  q49.4.0  Não tem nenhuma articulação
+q49.4.99;  q49.4.99  Não existe este Conselho no Município ou no DF
+q49.5.1;  q49.5.1  Possui dados de localização (endereço, telefone, etc.)
+q49.5.2;  q49.5.2  Realiza reuniões periódicas
+q49.5.3;  q49.5.3  Troca Informações
+q49.5.4;  q49.5.4  Desenvolve atividades em parceria
+q49.5.0;  q49.5.0  Não tem nenhuma articulação
+q49.5.99;  q49.5.99  Não existe este Conselho no Município ou no DF
+q50.1;  q50.1  Recebe Denúncia
+q50.2;  q50.2  Realiza reuniões ampliadas (com participação, também, de membros da sociedade civil que não sejam conselheiros)
+q50.3;  q50.3  Realiza reuniões descentralizadas (realizadas em bairros/distritos/municípios, fora da sede do Conselho)
+q50.4;  q50.4  Realiza ações de mobilização social
+q50.5;  q50.5  Acompanha votações/discussões do Poder Legislativo local
+q51;  q51  O Conselho fiscaliza os serviços, programas, projetos e benefícios socioassistenciais do SUAS?
+q52;  q52  Se sim, informe como a fiscalização é realizada:
+q53;  q53  O conselho tem planejamento das fiscalizações realizadas anualmente?
+q54.1;  q54.1  Visitas a unidades públicas da rede socioassistencial
+q54.1.99;  q54.1.99  Visitas a unidades públicas da rede socioassistencial - Não Sabe
+q54.2;  q54.2  Visitas a entidades/organizações da sociedade civil
+q54.2.99;  q54.2.99  Visitas a entidades/organizações da sociedade civil - Não Sabe
+q54.3;  q54.3  Total de visitas
+q54.3.99;  q54.3.99  Total de visitas - Não Sabe
+q55;  q55  O Conselho delibera sobre os critérios de repasse de recursos para entidades?
+q56;  q56  O Conselho regulamentou, por meio de resolução própria (do CMAS/CEAS/CAS/DF), a inscrição das entidades e organizações de assistência social, bem como dos serviços, programas, projetos e benefícios socioassistenciais?
+q57.1;  q57.1  Qual o número desta Resolução?
+q57.2;  q57.2  De que ano?
+q58.1;  q58.1  Caracterização das entidades/organizações
+q58.2;  q58.2  Documentação exigida
+q58.3;  q58.3  Local para entrega da documentação
+q58.4;  q58.4  Tempo para deferimento/indeferimento
+q58.5;  q58.5  Procedimentos e análise do processo de Inscrição
+q58.6;  q58.6  Condições para visita às unidades
+q58.7;  q58.7  Pedido de reconsideração/recurso
+q58.8;  q58.8  Cancelamento da inscrição
+q58.9;  q58.9  Acompanhamento e fiscalização das entidades
+q58.99;  q58.99  Outros
+q58.99.1;  q58.99.1  Quais?
+q59;  q59  Atualmente, quantas Entidades possuem Inscrição no Conselho?
+q60;  q60  Quantos pedidos de inscrição de entidades foram recebidos por este Conselho em 2017 (De 1º de janeiro a 31 de agosto de 2017)?
+q60.99;  q60.99  Não sabe
+q61;  q61  Quantos pedidos foram deferidos em 2017 (De 1º de janeiro a 31 de agosto de 2017)?
+q61.99;  q61.99  Não sabe
+q62;  q62  Quantos cancelamentos foram realizados em 2017 (De 1º de janeiro a 31 de agosto de 2017)?
+q62.99;  q62.99  Não sabe
+q63.1;  q63.1  Falta de documentação
+q63.2;  q63.2  As entidades não ofertam serviços de Assistência Social
+q63.99.1;  q63.99.1  Outros
+q63.0;  q63.0  Não houve indeferimentos
+q63.99.2;  q63.99.2  Quais?
+q64.1;  q64.1  Quanto tempo, em média, leva do momento que a entidade faz o pedido de inscrição até o seu deferimento/indeferimento?
+q64.2.99;  q64.2.99  Não sabe
+q65.1;  q65.1  Quantas Audiências públicas para apresentação das entidades inscritas foram realizadas no último ano?
+q65.2.99;  q65.2.99  Não houve
+q66;  q66  O Conselho já estabeleceu, por meio de resolução, o Plano de Acompanhamento e Fiscalização das entidades e organizações da Sociedade Civil inscritas, com os respectivos critérios?
+q67;  q67  O Conselho acompanha a execução dos Planos de Ação apresentados pelas entidades e organizações da Sociedade Civil inscritas no conselho?
+q68;  q68  Qual o tempo de mandato dos Conselheiros desse Conselho?
+q69;  q69  Quantas vezes cada Conselheiro pode ser reconduzido (por igual período ao mandato)?
+q70;  q70  O Presidente e Vice-presidente do Conselho são eleitos em reunião plenária do Conselho?
+q71;  q71  Há alternância na presidência entre os representantes do governo e os representantes da sociedade civil?
+q72;  q72  Os representantes da sociedade civil no Conselho são:
+q73.1;  q73.1  O próprio usuário
+q73.2;  q73.2  Os representantes e organizações de usuários
+q73.0;  q73.0  Este Conselho não possui representantes de usuários
+q74.1;  q74.1  Beneficiários do Programa Bolsa Família
+q74.2;  q74.2  Beneficiário ou família de beneficiários do BPC – Benefício de Prestação Continuada
+q74.3;  q74.3  Usuário de serviços socioassistenciais de Proteção Social Básica
+q74.4;  q74.4  Usuário de serviços socioassistenciais de Proteção Social Especial
+q74.5;  q74.5  Representante de associação comunitária ou de moradores
+q74.6;  q74.6  Representante de fórum ou coletivo de usuários
+q74.99.1;  q74.99.1  Outros
+q74.99.2;  q74.99.2  Quais?
+q75.1;  q75.1  Representante de sindicato de trabalhadores
+q75.2;  q75.2  Representante de conselho de classe profissional (Conselho Regional de Serviço Social – CRESS,Conselho Regional de Psicologia – CFP, outros conselhos de classe)
+q75.3;  q75.3  Representante de associação, fórum ou coletivo de trabalhadores
+q75.99.1;  q75.99.1  Outros
+q75.99.2;  q75.99.2  Quais?
+q76;  q76  O conselho tem comissões permanentes?
+q77.1;  q77.1  Comissão de normas
+q77.2;  q77.2  Comissão de política
+q77.3;  q77.3  Comissão de financiamento
+q77.4;  q77.4  Comissão de acompanhamento de conselhos (esta opção só pode ser respondida pelos CEAS)
+q77.5;  q77.5  Comissão de ética
+q77.6;  q77.6  Comissão de acompanhamento de benefícios e transferência de renda (BPC, Programa Bolsa Família, etc.)
+q77.7;  q77.7  Comissão de fiscalização/monitoramento/cadastro de entidades
+q77.8;  q77.8  Comissão de comunicação
+q77.99.1;  q77.99.1  Outros
+q77.99.2;  q77.99.2  Quais?
+q78.1;  q78.1  Conselheiros Titulares
+q78.2;  q78.2  Conselheiros Suplentes
+q79.1;  q79.1  Conselheiros representantes do governo
+q79.2;  q79.2  Conselheiros representantes da sociedade civil
+q80.1;  q80.1  Algum Conselheiro já participou de algum curso do CAPACITASUAS?
+q80.2;  q80.2  Quantos Conselheiros?
+d1;d1.Ano de publicação da Lei que criou o Conselho
+d3;d3.Caso sim, informe o ano da Lei que alterou a Lei original de criação do Conselho
+d5;q5.Caso sim, informe o ano da última atualização do Regimento
+d10.exclusivas;d10.Total de salas de uso exclusivo do Conselho
+d10.exclusivas.categoria;d10.exclusivas.categoria.Total de salas de uso exclusivo do Conselho - Categoria
+d10.compartilhadas;d10.Total de salas de uso compartilhado do Conselho
+d10.compartilhadas.categoria;d10.Total de salas compartilhadas do Conselho - Categoria
+d10.maximo15;d10.Total de salas (compartilhadas e exclusivas) com capacidade máxima de 15 pessoas
+d10.maximo15.categoria;d10.Total de salas (compartilhadas e exclusivas) com capacidades máxima de 15 pessoas - Categoria
+d10.mais15;d10.Total de salas (compartilhadas e exclusivas) com capacidade para mais de 15 pessoas
+d10.mais15.categoria;d10.Mais de 15 salas
+d10.total;d10.Total de salas de uso do Conselho - Exclusivas e Compartilhadas
+d10.total.categoria;d10.Total de salas de uso do Conselho - Categoria
+d12.exclusivos;d12.Total de computadores exclusivos do Conselho
+d12.exclusivos.categoria;d21.Total de computadores exclusivos do Conselho - Categoria
+d12.compartilhados;d12.Total de computadores compartilhados do Conselho
+d12.compartilhados.categoria;d12.Total de computadores compartilhados do Conselho - Categoria
+d12.internet;d12.Computadores de uso exclusivo e compartilhado que estão contectados à internet
+d12.internet.categoria;d12.Total de computadores contectados à internet - Categoria
+d12.total;d12.Total de computadores de uso (compartilhado e exclusivo) dos Conselhos
+d12.total.categoria;d12.Total de computadores
+d16.2;d16.2.Horário de funcionamento do Conselho - Horas por dia
+d39;d39.Qual foi o ano da aprovação do último Plano de Assistência Social por este Conselho?
+d54.1;d54.1.Visitas a unidades públicas da rede socioassistencial
+d54.2;d54.2.Visitas a entidades/organizações da sociedade civil
+d54.3;d54.3.Total de visitas
+d57.2;d57.2.De que ano é a Resolução?
+d59;d59.Atualmente, quantas Entidades possuem Inscrição no Conselho?
+d60;d60.Quantos pedidos de inscrição de entidades foram recebidos por este conselho em 2017?
+d61;d61.Quantos pedidos foram deferidos em 2017?
+d62;d62.Quantos cancelamentos foram realizados em 2017?
+d64.1;d64.1.Quanto tempo, em média, leva do momento que a entidade faz o pedido de inscrição até o seu deferimento/indeferimento? - em meses
+d65.1;d65.1.Quantas audiências públicas para apresentação das entidades inscritas foram realizadas no último ano?
+d80.2;d80.2.Quantos Conselheiros participaram de algum curso do CAPACITASUAS
+d81.6bin1.sum; d81.6bin1.sum.Representante de usuários e organização de usuários
+d81.6bin2.sum; d81.6bin2.sum.Representante de Entidades de Assistência Social
+d81.6bin3.sum; d81.6bin3.sum.Representante de organização dos trabalhadores
+d81.6bin4.sum; d81.6bin4.sum.Representante do Governo
+d81.6bin1.TIT.sum; d81.6bin1.TIT.sum.Representante Titular de usuários e organização de usuários
+d81.6bin1.SUPL.sum; d81.6bin1.SUPL.sum.Representante Suplente de usuários e organização de usuários
+d81.6bin2.TIT.sum; d81.6bin2.TIT.sum.Representante Titular de Entidades de Assistência Social
+d81.6bin2.SUPL.sum; d81.6bin2.SUPL.sum.Representante Suplente de Entidades de Assistência Social
+d81.6bin3.TIT.sum; d81.6bin3.TIT.sum.Representante Titular de organização dos trabalhadores
+d81.6bin3.SUPL.sum; d81.6bin3.SUPL.sum. Representante Suplente de organização dos trabalhadores
+d81.6bin4.TIT.sum; d81.6bin4.TIT.sum.Representante Titular do Governo
+d81.6bin4.SUPL.sum; d81.6bin4.SUPL.sum.Representante Suplente do Governo
+nu.conselheiros; nu.conselheiros.Quantidade de conselheiros

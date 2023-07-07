@@ -1,0 +1,57 @@
+Variável;Descrição
+IBGE;Código IBGE
+IBGE7;Código do IBGE (7 dígitos)
+Região;Grande Região
+UF;UF
+uf_s;uf_s
+Município;Nome do Município_Censo IBGE 2010
+area;Área Territorial Km2
+Pop_Total2010;População Total Censo IBGE 2010
+Pop_Urbana2010;População Urbana Censo IBGE 2010
+Pop_Rural2010;População Rural Censo IBGE 2010
+Porte_pop2010;Porte SUAS_população 2010
+Criado2012;Municípios criados em 2012
+Capital;
+RM;Municípios localizados em regiões metropolitanas_2010
+Qual_RM;Classificação da região metropolitana_2010
+Nome_RM;Nome da região metropolitana_2010
+amazonia_legal;Municípios que pertencem à região da Amazônia Legal_2014
+Semi_arido;Municipios do semi-árido brasileiro_2007
+fronteira_internacional;Municípios que tocam a  fronteira internacional_2010
+costa_litoranea;Municípios que tocam a  costa litorânea_2010
+Cod_RegiaoRural;Municípios classificados em Regiões Rurais - código_2015
+Nome_RegiaoRural;Municípios classificados em Regiões Rurais - nome_2015
+Mesorregião;Mesorregião (código)_2010
+Nome_Mesorregião;Mesorregião (nome)_2010
+Pop_Total2010_MESO;População Total (mesorregião)_2010
+Microrregião;Microrregião (código)_2010
+Nome_Microrregião;Microrregião (nome)_2010
+Pop_Total2010_MICRO;População Total (microrregião)_2010
+Pop_total_2010;Pop_total_2010_População total - Censo 2010
+Estimativa_PerfilCadÚnico_Censo2010;Estimativa de Famílias de baixa renda - Perfil Cadastro Único (Censo 2010) - Estimativa de Famílias de baixa renda
+Estimativa_PerfilBolsaFamília_Censo2010;Estimativa de famílias pobres - Perfil Bolsa Família (CENSO 2010) - Estimativa de famílias pobres - Perfil Bolsa Família (CENSO 2010)
+q63_3;q63_3_Sexo
+q63_4;q63_4_Escolaridade
+q63_5;q63_5_Representação
+q63_6;q63_6_Função
+q63_7;q63_7_Vínculo
+q63_8;q63_8_Data de Início do mandato
+q63_9;q63_9_Data de término do mandato
+D63_2;D63_2_Idade em anos (data ref. 31-12-2015)
+D63_2_categoria;D63_2_categoria_Idade (faixas etárias)
+D63_4;D63_4_Níveis de escolaridade
+D63_4bin1;D63_4bin1_Nível fundamental - trabalhadores que possuem até o nível médio (inclui aqueles sem escolaridade)
+D63_4bin2;D63_4bin2_Nível médio - trabalhadores com ensino superior incompleto e ensino médio completo
+D63_4bin3;D63_4bin3_Nível superior - inclui trabalhadores graduados, com especialização, mestrado ou doutorado
+D63_5bin1;D63_5bin1_Representante de usuários e organização de usuários
+D63_5bin2;D63_5bin2_Representante de Entidades de Assistência Social
+D63_5bin3;D63_5bin3_Representante de organização dos trabalhadores
+D63_5bin4;D63_5bin4_Representante do Governo
+D63_5bin1_TIT;D63_5bin1_TIT_Representante Titular de usuários e organização de usuários
+D63_5bin1_SUPL;D63_5bin1_SUPL_Representante Suplente de usuários e organização de usuários
+D63_5bin2_TIT;D63_5bin2_TIT_Representante Titular de Entidades de Assistência Social
+D63_5bin2_SUPL;D63_5bin2_SUPL_Representante Suplente de Entidades de Assistência Social
+D63_5bin3_TIT;D63_5bin3_TIT_Representante Titular de organização dos trabalhadores
+D63_5bin3_SUPL;D63_5bin3_SUPL_Representante Suplente de organização dos trabalhadores
+D63_5bin4_TIT;D63_5bin4_TIT_Representante Titular do Governo
+D63_5bin4_SUPL;D63_5bin4_SUPL_Representante Suplente do Governo

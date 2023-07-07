@@ -1,0 +1,41 @@
+Variável;Descrição
+id_acolhimento;id_acolhimento
+IBGE;Código do IBGE
+IBGE7;Código do IBGE (7 dígitos)
+Região;Grande Região
+UF;UF
+Municipio_2013;Nome do Município
+area;Área Territorial Km2
+Pop_Total2010;Total
+Porte_pop2010;Porte SUAS_população 2010
+ident_1;ident_1_Nome da unidade
+q1;q1_Dados provenientes da gestão estadual ou municipal (esfera)
+q2;q2_Indique o principal público atendido nesta Unidade de Acolhimento
+q3;q3_Indique o tipo de Unidade
+q5;q5_Indique a natureza desta unidade
+q34;q34_Indique se a Unidade esta localizada em
+q44_3;q44_3_Sexo
+q44_8;q44_8_Escolaridade
+q44_9;q44_9_Profissão
+q44_10;q44_10_Vínculo
+q44_11;q44_11_Função
+q44_12;q44_12_Carga horária SEMANAL (Horas por Semana)
+q44_13;q44_13_Início do Exercício da Função
+D44_2;D44_2_Idade em anos (data ref. 31-12-2014)
+D44_2_categoria;D44_2_categoria_Idade (faixas etárias)
+D44_8bin1;D44_8bin1_Quantidade de trabalhadores - Nível Fundamental
+D44_8bin2;D44_8bin2_Quantidade de trabalhadores - Nível Médio
+D44_8bin3;D44_8bin3_Quantidade de trabalhadores - Nível Superior
+D44_9bin1;D44_9bin1_Quantidade de trabalhadores - Assistente Social
+D44_9bin2;D44_9bin2_Quantidade de trabalhadores - Psicólogo
+D44_9bin3;D44_9bin3_Quantidade de trabalhadores - Pedagógo
+D44_9bin4;D44_9bin4_Quantidade de trabalhadores - Enfermeiro
+D44_9bin5;D44_9bin5_Quantidade de trabalhadores - Médico
+D44_9bin6;D44_9bin6_Quantidade de trabalhadores - Administrador
+D44_9bin7;D44_9bin7_Quantidade de trabalhadores - Advogado
+D44_9bin8;D44_9bin8_Quantidade de trabalhadores - Fisiterapeuta/Terapia Ocupacional
+D44_10bin1;D44_10bin1_Quantidade de trabalhadores - Servidor Público ou Comissionado
+D44_10bin2;D44_10bin2_Quantidade de trabalhadores - Empregado Celetista
+D44_10bin3;D44_10bin3_Quantidade de trabalhadores - Voluntario ou Sem Vínculo
+D44_10bin4;D44_10bin4_Quantidade de trabalhadores - Tercerizado ou Trabalhador de Empresa, Cooperativa ou Entidade Prestadora de serviços
+D44_10bin5;D44_10bin5_Quantidade de trabalhadores - Outro vínculo não permanente

@@ -1,0 +1,195 @@
+Variável;Descrição
+NU_IDENTIFICADOR;Número Identificador da Unidade no CadSUAS
+IBGE;Código IBGE do Município
+IBGE7;Código IBGE com Dígito Verificador
+Região;Grande Região
+UF;Unidade da Federação
+uf_s;Unidade da Federação
+Município;Nome do Município_Censo IBGE 2010
+Municipio_2013;Nome do Município_atualizado 2014
+area;Área Territorial Km2
+Pop_Total2010;População Total - Censo IBGE 2010
+Pop_Urbana2010;População Urbana - Censo IBGE 2010
+Pop_Rural2010;População Rural - Censo IBGE 2010
+Porte_pop2010;Porte Populacional SUAS - Censo IBGE 2010
+ident_nome;ident_nome - Nome que identifica a unidade
+ident_tplog;ident_tplog - Selecione o Tipo de Logradouro (avenida, rua, etc)
+ident_log;ident_log - Endereço
+ident_numero;ident_numero - Número
+ident_comp;ident_comp - Complemento
+ident_bairro;ident_bairro - Bairro
+ident_cep;ident_cep - CEP
+ident_municipio;ident_municipio - Município
+ident_uf;ident_uf - UF
+ident_tel;ident_tel - DDD - Telefone
+ident_ramal;ident_ramal - Ramal
+ident_fax;ident_fax - FAX
+ident_dt_imp;ident_dt_imp - Data de Implantação da Unidade
+coord_latitude;Coordenadas Geográficas - Latitude
+coord_longitude;Coordenadas Geográficas - Longitude
+q1;q1 - Dados provenientes da gestão estadual ou municipal:
+q2;q2 - Natureza desta unidade:
+q4;q4 - A entidade possui Convênio/Termo de Parceria com o poder público municipal para repasse de recursos financeiros, visando à manutenção do Serviço de Convivência e Fortalecimento de Vínculos?
+q5;q5 - Localização:
+q6_1;q6_1 - Informe o horário de funcionamento do SCFV na unidade - dias por semana
+q6_2;q6_2 - Informe o horário de funcionamento do SCFV na unidade - horas por dia
+q7_1;q7_1 - Crianças de 0 a 6 anos de idade - Oferta o Serviço?
+q7_2;q7_2 - Crianças e adolescentes de 7 a 14 anos de idade - Oferta o Serviço?
+q7_3;q7_3 - Jovens de 15 a 17 anos de idade - Oferta o Serviço?
+q7_4;q7_4 - Adultos de 18 a 29 anos de idade - Oferta o Serviço?
+q7_5;q7_5 - Adultos de 30 a 59 anos de idade - Oferta o Serviço?
+q7_6;q7_6 - Idosos (60 anos ou mais) - Oferta o Serviço?
+q8;q8 - Este imóvel é utilizado exclusivamente para oferta do Serviço de Convivência e Fortalecimento de Vínculos?
+q9_0;q9_0 - Local de funcionamento outro serviço de Assistência Social - Não
+q9_1;q9_1 - Local de funcionamento outro serviço de Assistência Social - Sim - Proteção básica para pessoas com deficiência e idosas
+q9_2;q9_2 - Local de funcionamento outro serviço de Assistência Social - Sim - Serviço especializado em Abordagem Social
+q9_3;q9_3 - Local de funcionamento outro serviço de Assistência Social - Sim - Proteção especial para pessoas com deficiência, idosas e suas famílias
+q9_4;q9_4 - Local de funcionamento outro serviço de Assistência Social - Sim - Serviço Especializado para Pessoas em Situação de Rua
+q9_5;q9_5 - Local de funcionamento outro serviço de Assistência Social - Sim - Acessuas Trabalho
+q9_6;q9_6 - Local de funcionamento outro serviço de Assistência Social - Sim - Serviços de Medidas Socioeducativas (MSE)
+q9_7;q9_7 - Local de funcionamento outro serviço de Assistência Social - Sim - Cadastro Único
+q9_8;q9_8 - Local de funcionamento outro serviço de Assistência Social - Sim - Serviço de acolhimento
+q9_9;q9_9 - Local de funcionamento outro serviço de Assistência Social - Sim - Primeira Infância no SUAS/Programa Criança Feliz
+q9_10;q9_10 - Local de funcionamento outro serviço de Assistência Social - Sim - Serviço de Proteção e Atendimento Integral à Família – PAIF/CRAS
+q9_outro;q9_outro - Local de funcionamento outro serviço de Assistência Social - Sim - Outro
+q9_qual;q9_qual - No local de funcionamento desta unidade/serviço são prestados outros serviços/programas da Assistência Social? - Qual?
+q10_0;q10_0 - Local de funcionamento serviço de outras políticas públicas - Não
+q10_1;q10_1 - Local de funcionamento serviço de outras políticas públicas - Sim - Educação
+q10_2;q10_2 - Local de funcionamento serviço de outras políticas públicas - Sim - Saúde
+q10_3;q10_3 - Local de funcionamento serviço de outras políticas públicas - Sim - Esporte
+q10_4;q10_4 - Local de funcionamento serviço de outras políticas públicas - Sim - Cultura
+q10_5;q10_5 - Local de funcionamento serviço de outras políticas públicas - Sim - Trabalho
+q10_outro;q10_outro - Local de funcionamento serviço de outras políticas públicas - Sim - Outro
+q10_qual;q10_qual - No local de funcionamento desta Unidade/Serviço são prestados serviços/atividades de outras políticas públicas (saúde, educação, esporte, entre outros)?-  Qual?
+q11;q11 - O imóvel no qual funciona esta Unidade/Serviço é compartilhado?
+q12_1;q12_1 - Imóvel compartilhado - Secretaria da Assistência Social ou congênere
+q12_2;q12_2 - Imóvel compartilhado - Outra unidade administrativa (Sede de Prefeitura, Administração Regional, Sub-Prefeitura, etc.)
+q12_3;q12_3 - Imóvel compartilhado - Conselho Municipal de Assistência Social
+q12_4;q12_4 - Imóvel compartilhado - Conselho Tutelar
+q12_5;q12_5 - Imóvel compartilhado - CRAS - Centro de Referência da Assistência Social
+q12_6;q12_6 - Imóvel compartilhado - CREAS – Centro de Referência Especializado de Assistência Social
+q12_7;q12_7 - Imóvel compartilhado - Outra unidade pública de serviços da Assistência Social
+q12_8;q12_8 - Imóvel compartilhado - Escola
+q12_9;q12_9 - Imóvel compartilhado - Unidade de Saúde
+q12_10;q12_10 - Imóvel compartilhado - Igreja/Templo
+q12_11;q12_11 - Imóvel compartilhado - Associação Comunitária
+q12_12;q12_12 - Imóvel compartilhado - Entidades privadas /ONG
+q12_outro;q12_outro - Imóvel compartilhado - Outros
+q12_qual;q12_qual - Imóvel Compartilhado - Qual?
+q13_1;q13_1 - Outros espaços - Uso apenas da sede
+q13_2;q13_2 - Outros espaços - Em outras unidades/equipamentos públicos da Assistência Social
+q13_3;q13_3 - Outros espaços - Em espaços de entidades não governamentais conveniadas com a Assistência Social
+q13_4;q13_4 - Outros espaços - Em espaços cedidos por organizações comunitárias locais não conveniadas com a Assistência Social (Igrejas, Associação de Moradores, Ongs não conveniadas, etc)
+q13_5;q13_5 - Outros espaços - Em unidades/equipamentos públicos da área de Educação
+q13_6;q13_6 - Outros espaços - Em unidades/equipamentos públicos da área de Saúde
+q13_7;q13_7 - Outros espaços - Em unidades/equipamentos públicos de outras políticas públicas
+q13_8;q13_8 - Outros espaços - Em praças, beira de rio, terreno da comunidade, etc
+q13_outro;q13_outro - Outros espaços - Outro
+q13_qual;q13_qual - Outros Espaços - Qual?
+q14;q14 - As atividades desenvolvidas pelo SCFV desta unidade possuem uma orientação religiosa?
+q15_1;q15_1 - Atividades promovidas - Visitas domiciliares da equipe técnica da Unidade à família do usuário
+q15_2;q15_2 - Atividades promovidas - Reuniões com grupos de famílias dos usuários
+q15_3;q15_3 - Atividades promovidas - Palestras
+q15_4;q15_4 - Atividades promovidas - Oficinas
+q15_5;q15_5 - Atividades promovidas - Reforço Escolar
+q15_6;q15_6 - Atividades promovidas - Atividades recreativas
+q15_7;q15_7 - Atividades promovidas - Discussão de casos com outros profissionais da rede
+q15_8;q15_8 - Atividades promovidas - Atividades com participação da Comunidade
+q15_9;q15_9 - Atividades promovidas - Planejamento de atividades
+q15_0;q15_0 - Atividades promovidas - Não realiza nenhuma das atividades acima
+q16;q16 - Esta unidade está referenciada a um Centro de Referência de Assistência Social?
+q17_1;q17_1 - Atividades técnicos - Participa no planejamento das atividades que serão desenvolvidas
+q17_2;q17_2 - Atividades técnicos - Participa de reuniões periódicas com a Equipe Técnica desta unidade
+q17_3;q17_3 - Atividades técnicos - Supervisiona os orientadores sociais
+q17_4;q17_4 - Atividades técnicos - Capacita os orientadores sociais
+q17_5;q17_5 - Atividades técnicos - Acompanha periodicamento os grupos
+q17_6;q17_6 - Atividades técnicos - Verifica a inclusão dos usuários encaminhados pelo CRAS
+q17_7;q17_7 - Atividades técnicos - Acompanha os usuários encaminhados do SCFV para o CRAS
+q17_8;q17_8 - Atividades técnicos - Avalia e monitora as atividades realizadas
+q17_9;q17_9 - Atividades técnicos - Discute casos em conjunto com o SCFV
+q17_0;q17_0 - Atividades técnicos - Nenhum dos itens anteriores
+q18_1;q18_1 - Atividades com familiares - Sim, por esta unidade
+q18_2;q18_2 - Atividades com familiares - Sim, pela equipe do CRAS de referência
+q18_3;q18_3 - Atividades com familiares - Sim, pela equipe do órgão gestor da Assistência Social
+q18_4;q18_4 - Atividades com familiares - Sim, por outra equipe
+q18_0;q18_0 - Atividades com familiares - Não
+q18_qual;q18_qual - Atividades com familiares - Outra Equipe - Qual?
+q19_0;q19_0 - Atendimento comunidades e/ou povos tradicionais - Não atendeu
+q19_1;q19_1 - Atendimento comunidades e/ou povos tradicionais - Sim, Povos Indígenas
+q19_2;q19_2 - Atendimento comunidades e/ou povos tradicionais - Sim, Comunidade Quilombola
+q19_3;q19_3 - Atendimento comunidades e/ou povos tradicionais - Sim, Comunidade Ribeirinha
+q19_4;q19_4 - Atendimento comunidades e/ou povos tradicionais - Sim, Povos Ciganos
+q19_5;q19_5 - Atendimento comunidades e/ou povos tradicionais - Sim, Povos de Matriz Africana
+q19_outro;q19_outro - Atendimento comunidades e/ou povos tradicionais - Sim, outros povos e comunidades tradicionais (pesqueiros/terreiros)
+q20;q20 - Qual a capacidade máxima para o atendimento (número de vagas no Serviço de Convivência) desta unidade?
+q21;q21 - Por quanto tempo, em média, o usuário participa do Serviço de Convivência e Fortalecimento de Vínculos?
+q22;q22 - Em média, quantos dias por semana os usuários da unidade frequentam este serviço?
+q23;q23 - Em média, quantas horas por dia os usuários da unidade permanecem na Unidade (nos dias em que este utiliza o serviço)?
+q24_1;q24_1 - Atividades - Usuários - Oficinas sobre temas transversais (saúde, meio ambiente, cultura, esporte, etc.)
+q24_2;q24_2 - Atividades - Usuários - Oficinas sobre direitos e programas sociais
+q24_3;q24_3 - Atividades - Usuários - Oficinas, seminários, palestras dentre outras ações que abordem a temática da segurança alimentar e nutricional
+q24_4;q24_4 - Atividades - Usuários - Atividades intergeracionais
+q24_5;q24_5 - Atividades - Usuários - Atividades com participação da comunidade
+q24_6;q24_6 - Atividades - Usuários - Atividades voltadas à promoção dos direitos das mulheres e questões de gênero
+q24_7;q24_7 - Atividades - Usuários - Atividade de afirmação étnico-cultural
+q24_8;q24_8 - Atividades - Usuários - Atividades físicas (esportes, ginástica)
+q24_9;q24_9 - Atividades - Usuários - Atividades de arte e cultura (dança, teatro, música e etc)
+q24_10;q24_10 - Atividades - Usuários - Artesanato (bijuterias, pintura em tecido, bordado, crochê, etc.)
+q24_11;q24_11 - Atividades - Usuários - Atividades recreativas e/ou lúdicas
+q24_12;q24_12 - Atividades - Usuários - Atividades de inclusão digital
+q24_13;q24_13 - Atividades - Usuários - Exibição de filmes ou documentários
+q24_14;q24_14 - Atividades - Usuários - Orientações sobre higiene e cuidados pessoais
+q24_15;q24_15 - Atividades - Usuários - Passeios
+q24_16;q24_16 - Atividades - Usuários - Reforço escolar
+q24_17;q24_17 - Atividades - Usuários - Atividades de qualificação profissional
+q26;q26 - Salas exclusivas de Coordenação, equipe técnica ou administração (não são salas de atendimento!)
+q27_1;q27_1 - Acessibilidade - Sim, suporte de profissional com conhecimento em LIBRAS
+q27_2;q27_2 - Acessibilidade - Sim, suporte de material em braille
+q27_3;q27_3 - Acessibilidade - Sim, suporte para leitores de telas de computador para pessoas com deficiência visual
+q27_4;q27_4 - Acessibilidade - Sim, outras adaptações e tecnologias assistivas para deficiência física
+q27_5;q27_5 - Acessibilidade - Sim, outras adaptações e tecnologias assistivas para deficiência intelectual e autismo
+q27_6;q27_6 - Acessibilidade - Sim, pisos especiais com relevos para sinalização voltados pessoa com deficiência visual
+q27_0;q27_0 - Acessibilidade - Não há outras adaptações
+q27_4_qual;q27_4_qual - Acessibilidade - Sim, outras adaptações e tecnologias assistivas para deficiência física. Qual?
+q27_5_qual;q27_5_qual - Acessibilidade - Sim, outras adaptações e tecnologias assistivas para deficiência intelectual e autismo. Qual?
+q28_1;q28_1 - Capacitação - Deficiência
+q28_2;q28_2 - Capacitação - Gênero
+q28_3;q28_3 - Capacitação - População em situação de rua
+q28_4;q28_4 - Capacitação - População LGBTI (lésbicas, gays, bissexuais, transgêneros e intersexuais)
+q28_5;q28_5 - Capacitação - População e comunidades tradicionais (indígenas, quilombolas, ribeirinhos, extrativistas, dentre outros)
+q28_6;q28_6 - Capacitação - Álcool e outras drogas
+q28_7;q28_7 - Capacitação - Raça e etnia
+q28_8;q28_8 - Capacitação - Violências e violações de direitos
+q28_9;q28_9 - Capacitação - Trabalho Infantil
+q28_10;q28_10 - Capacitação - Infância/Juventude
+q28_11;q28_11 - Capacitação - Envelhecimento
+q28_12;q28_12 - Capacitação - Sistema Socioeducativo/Medida Socioeducativa/SINASE
+q28_outro;q28_outro - Capacitação - Outros
+q28_0;q28_0 - Capacitação - Não participou de capacitação
+q28_qual;q28_qual - Capacitação - Especifique:
+q29;q29 - Nesta unidade, algum profissional já participou de algum curso do CAPACITASUAS?
+q29_quantos;q29_quantos - Profissionais CAPACITASUAS - Quantos?
+q30;q30 - O coordenador desta Unidade:
+q32;q32 - Indique a forma pela qual as informações deste questionário foram coletadas:
+resp_data;resp_data - Responsável - Data
+resp_cargo;resp_cargo - Responsável - Cargo/Função
+respgestao_data;respgestao_data - Responsável Órgão Gestor - Data de Validação
+respgestao_cargo;respgestao_cargo - Responsável Órgão Gestor - Cargo/Função
+Incompletos;Questionário Incompleto adicionado à base
+d6_horas_semana_cat;d6_horas_semana_cat - Total de horas por semana que a unidade encontra-se em funcionamento.
+d20_cat;d20_categórica - Capacidade máxima para o atendimento (Vagas)
+d26_sl_coord_cat;d26_categórica - Salas exclusivas de Coordenação, equipe técnica ou administração
+d29_cat;d29_categórica - Quantos profissionais já participaram de algum curso do CAPACITASUAS?
+d31_nv_fund_qtd_trab;d31_nv_fund - Quantidade de trabalhadores de Nível fundamental (inclui trabalhadores sem escolaridade, fundamental incompleto e ensino médio incompleto)
+d31_nv_med_qtd_trab;d31_nv_med - Quantidade de trabalhadores de Nível médio (inclui trabalhadores com ensino superior incompleto)
+d31_nv_sup_qtd_trab;d31_nv_sup - Quantidade de trabalhadores de Nível superior (inclui trabalhadores com especialização, mestrado e doutorado)
+d31_pedagogo_qtd_trab;d31_pedagogo_qtd_trab - Quantidade de Pedagogos
+d31_ass_social_qtd_trab;d31_ass_social_qtd_trab - Quantidade de Assistentes Sociais
+d31_antropologo_qtd_trab;d31_antropologo_qtd_trab - Quantidade de Antropólogos
+d31_advogado_qtd_trab;d31_advogado_qtd_trab - Quantidade de Advogados
+d31_psicologo_qtd_trab;d31_psicologo_qtd_trab - Quantidade de Psicólogos
+d31_estatutario_qtd_trab;d31_estatutario - Quantidade de Servidores Estatutários
+d31_clt_publico_qtd_trab;d31_clt_publico - Quantidade de Empregados Públicos(CLT)
+d31_comissionado_qtd_trab;d31_comissionado - Quantidade de Comissionados
+d31_outros_vinc_qtd_trab;"d31_outros_vinc - Quantidade de profissionais com outros vínculos não permanentes (inclui Trabalhador de Empresas/Cooperativa/Entidade Prestadora de Serviços; Voluntários;Ser. Temporário; Sem vínculo; Terceirizado e Outro vínculo não permanente)"
+d31_qtd_total_trab;d35 - Quantidade Total de Trabalhadores na Unidade

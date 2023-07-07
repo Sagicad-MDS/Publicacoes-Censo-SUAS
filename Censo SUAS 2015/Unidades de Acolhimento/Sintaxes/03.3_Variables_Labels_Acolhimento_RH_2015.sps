@@ -1,0 +1,93 @@
+*** Sintaxe Censo SUAS 2015 - Acolhimento Estadual ***
+
+VARIABLE LABELS
+id_acolhimento'id_acolhimento'
+codigo_ibge'codigo_ibge'
+uf'UF'
+co_seq_dirigente'Código do Dirigente'
+q44_1'q44_1_Nome'
+q44_2'q44_2_Data de nascimento'
+q44_3'q44_3_Sexo'
+q44_4'q44_4_CPF'
+q44_5'q44_5_RG - Número'
+q44_6'q44_6_RG - Órgão Emissor'
+q44_7'q44_7_RG - UF'
+q44_8'q44_8_Escolaridade'
+q44_9 'q44_9_Profissão'
+q44_10'q44_10_Vínculo'
+q44_11'q44_11_Função'
+q44_12'q44_12_Carga horária SEMANAL (Horas por Semana)'
+q44_13'q44_13_Início do Exercício da Função'.
+
+EXECUTE.
+
+
+VALUE LABELS
+/q44_3
+1 'Feminino'
+2 'Masculino'
+/q44_8
+0 'Sem Escolaridade'
+1 'Fundamental Incompleto'
+2 'Fundamental Completo'
+3 'Médio Incompleto'
+4 'Médio Completo'
+5 'Superior Incompleto'
+6 'Superior Completo'
+7 'Especialização'
+8 'Mestrado'
+9 'Doutorado'
+/q44_9
+273 'Assistente Social'
+274 'Psicólogo'
+275 'Pedagogo'
+232 'Advogado'
+235 'Administrador'
+234 'Antropólogo'
+276 'Sociólogo'
+278 'Fisioterapeuta'
+283 'Cientista Político'
+279 'Nutricionista'
+282 'Médico'
+233 'Terapeuta Ocupacional'
+236 'Economista'
+281 'Enfermeiro'
+240 'Analista de Sistema'
+241 'Programador'
+237 'Outras formações de nível superior'
+238 'Profissional de nível médio'
+239 'Sem formação profissional'
+/q44_10
+139 'Empregado Público (CLT)'
+142 'Outro vínculo não permanente'
+291 'Sem vínculo'
+266 'Servidor Temporário'
+138 'Servidor Estatutário'
+293 'Terceirizado'
+264 'Trabalhador de Empresa, Cooperativa ou Entidade Prestadora de Serviços'
+265 'Voluntário'
+362 'Empregado Celetista do Setor Privado'
+292 'Comissionado'
+/q44_11
+21 'Coordenador(a)'
+218 'Técnico(a) de Nível Superior'
+349 'Cuidador(a)'
+350 'Cuidador(a) Residente'
+217 'Educador(a) Social'
+216 'Apoio Administrativo'
+253 'Estagiário(a)'
+371 'Cozinheiro(a)'
+372 'Motorista'
+220 'Serviços Gerais'
+254 'Outros'
+30 'Diretor'
+368 'Auxiliar de Cuidador(a)'
+169 'Agente Administrativo'
+/q44_12
+1 'Menor que 20 horas semanais'
+2 '20 horas semanais'
+3 '30 horas semanais'
+4 '40 horas semanais'
+5 'Maior que 40 horas semanais'
+.
+EXECUTE.

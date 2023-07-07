@@ -1,0 +1,324 @@
+Variável;Descrição
+IBGE;Código IBGE
+IBGE7;Código do IBGE (7 dígitos)
+UF;UF
+uf_s;UF
+Nome_UF;UF
+Região;Grande Região
+Município;Município
+Criado2012;Municípios criados em 2012
+Area;Área Territorial do município (Km2) - 2010
+Capital;
+RM;Municípios localizados em regiões metropolitanas_2010
+Qual_RM;Classificação da região metropolitana_2010
+Nome_RM;Nome da região metropolitana_2010
+amazonia_legal;Municípios que pertencem à região da Amazônia Legal_2014
+Semi_arido;Municipios do semi-árido brasileiro_2007
+fronteira_internacional;Municípios que tocam a  fronteira internacional_2010
+costa_litoranea;Municípios que tocam a  costa litorânea_2010
+Cod_RegiaoRural;Municípios classificados em Regiões Rurais - código_2015
+Nome_RegiaoRural;Municípios classificados em Regiões Rurais - nome_2015
+Mesorregião;Mesorregião (código)_2010
+Nome_Mesorregião;Mesorregião (nome)_2010
+Pop_Total2010_MESO;População Total (mesorregião)_2010
+Microrregião;Microrregião (código)_2010
+Nome_Microrregião;Microrregião (nome)_2010
+Pop_Total2010_MICRO;População Total (microrregião)_2010
+Pop_total_2010;Pop_total_2010_População total - Censo 2010
+Pop_Urbana2010;População urbana - Censo 2010
+Pop_Rural2010;População rural - Censo 2010
+Porte_pop2010;Porte SUAS_população 2010
+Estimativa_PerfilCadÚnico_Censo2010;Estimativa de Famílias de baixa renda - Perfil Cadastro Único (Censo 2010) - Estimativa de Famílias de baixa renda
+Estimativa_PerfilBolsaFamília_Censo2010;Estimativa de famílias pobres - Perfil Bolsa Família (CENSO 2010) - Estimativa de famílias pobres - Perfil Bolsa Família (CENSO 2010)
+ident_1;ident_1_Nome que identifica o Conselho:
+ident_2;ident_2_Selecione o Tipo de Logradouro (avenida, rua, etc):
+ident_3;ident_3_Endereço:
+ident_4;ident_4_Número:
+ident_5;ident_5_Complemento:
+ident_6;ident_6_Bairro:
+ident_7;ident_7_Ponto de Referência:
+ident_8;ident_8_CEP:
+munic;munic_Município:
+ident_9;ident_9_UF:
+ident_11;ident_11_Telefone:
+ident_12;ident_12_Ramal:
+ident_13;ident_13_FAX:
+q1;q1_Informe o ano de publicação da Lei que criou o Conselho:
+q1_0;q1_0_Informe o ano de publicação da Lei que criou o Conselho_Não está criado em Lei
+q2;q2_Houve alteração da Lei original por alguma Lei posteriormente aprovada?
+q3;q3_Caso sim, informe o ano da Lei que alterou a Lei original de criação do Conselho:
+q4;q4_Esse conselho possui regimento interno?
+q5;q5_Caso sim, informe o ano da última atualização do Regimento:
+q6a_1;q6a_1_Conteúdos previstos_Processo de eleição da Presidência e Vice-Presidência_Lei do Conselho
+q6a_2;q6a_2_Conteúdos previstos_Processo de eleição da Presidência e Vice-Presidência_Regimento Interno
+q6a_3;q6a_3_Conteúdos previstos_Processo de eleição da Presidência e Vice-Presidência_Outras Normativas
+q6a_0;q6a_0_Conteúdos previstos_Processo de eleição da Presidência e Vice-Presidência_Não está normatizado
+q6b_1;q6b_1_Conteúdos previstos_Processo de eleição dos conselheiros representantes da sociedade civil _Lei do Conselho
+q6b_2;q6b_2_Conteúdos previstos_Processo de eleição dos conselheiros representantes da sociedade civil_Regimento Interno
+q6b_3;q6b_3_Conteúdos previstos_Processo de eleição dos conselheiros representantes da sociedade civil_Outras Normativas
+q6b_0;q6b_0_Conteúdos previstos_Processo de eleição dos conselheiros representantes da sociedade civil_Não está normatizado
+q6c_1;q6c_1_Conteúdos previstos_Alternância na Presidência do Conselho entre representantes do governo e da sociedade civil _Lei do Conselho
+q6c_2;q6c_2_Conteúdos previstos_Alternância na Presidência do Conselho entre representantes do governo e da sociedade civil_Regimento Interno
+q6c_3;q6c_3_Conteúdos previstos_Alternância na Presidência do Conselho entre representantes do governo e da sociedade civil_Outras Normativas
+q6c_0;q6c_0_Conteúdos previstos_Alternância na Presidência do Conselho entre representantes do governo e da sociedade civil_Não está normatizado
+q6d_1;q6d_1_Conteúdos previstos_Trâmites para substituição de conselheiros e perda de mandatos_Lei do Conselho
+q6d_2;q6d_2_Conteúdos previstos_Trâmites para substituição de conselheiros e perda de mandatos _Regimento Interno
+q6d_3;q6d_3_Conteúdos previstos_Trâmites para substituição de conselheiros e perda de mandatos_Outras Normativas
+q6d_0;q6d_0_Conteúdos previstos_Trâmites para substituição de conselheiros e perda de mandatos_Não está normatizado
+q6e_1;q6e_1_Conteúdos previstos_Atribuições da Presidência do Conselho__Lei do Conselho
+q6e_2;q6e_2_Conteúdos previstos_Atribuições da Presidência do Conselho_Regimento Interno
+q6e_3;q6e_3_Conteúdos previstos_Atribuições da Presidência do Conselho_Outras Normativas
+q6e_0;q6e_0_Conteúdos previstos_Atribuições da Presidência do Conselho_Não está normatizado
+q6f_1;q6f_1_Conteúdos previstos_Atribuições da Vice-Presidência do Conselho _Lei do Conselho
+q6f_2;q6f_2_Conteúdos previstos_Atribuições da Vice-Presidência do Conselho _Regimento Interno
+q6f_3;q6f_3_Conteúdos previstos_Atribuições da Vice-Presidência do Conselho _Outras Normativas
+q6f_0;q6f_0_Conteúdos previstos_Atribuições da Vice-Presidência do Conselho _Não está normatizado
+q6g_1;q6g_1_Conteúdos previstos_Atribuições da Secretaria Executiva do Conselho _Lei do Conselho
+q6g_2;q6g_2_Conteúdos previstos_Atribuições da Secretaria Executiva do Conselho_Regimento Interno
+q6g_3;q6g_3_Conteúdos previstos_Atribuições da Secretaria Executiva do Conselho_Outras Normativas
+q6g_0;q6g_0_Conteúdos previstos_Atribuições da Secretaria Executiva do Conselho_Não está normatizado
+q6h_1;q6h_1_Conteúdos previstos_Quantidade de vagas destinadas a representantes de usuários ou de organizações de usuários da assistência social na representação da sociedade civil_Lei do Conselho
+q6h_2;q6h_2_Conteúdos previstos_Quantidade de vagas destinadas a representantes de usuários ou de organizações de usuários da assistência social na representação da sociedade civil_Regimento Interno
+q6h_3;q6h_3_Conteúdos previstos_Quantidade de vagas destinadas a representantes de usuários ou de organizações de usuários da assistência social na representação da sociedade civil_Outras Normativas
+q6h_0;q6h_0_Conteúdos previstos_Quantidade de vagas destinadas a representantes de usuários ou de organizações de usuários da assistência social na representação da sociedade civil_Não está normatizado
+q6i_1;q6i_1_Conteúdos previstos_Quantidade de vagas destinadas a representantes de trabalhadores ou de organizações de trabalhadores da assistência social na representação da sociedade civil _Lei do Conselho
+q6i_2;q6i_2_Conteúdos previstos_Quantidade de vagas destinadas a representantes de trabalhadores ou de organizações de trabalhadores da assistência social na representação da sociedade civil _Regimento Interno
+q6i_3;q6i_3_Conteúdos previstos_Quantidade de vagas destinadas a representantes de trabalhadores ou de organizações de trabalhadores da assistência social na representação da sociedade civil _Outras Normativas
+q6i_0;q6i_0_Conteúdos previstos_Quantidade de vagas destinadas a representantes de trabalhadores ou de organizações de trabalhadores da assistência social na representação da sociedade civil _Não está normatizado
+q6j_1;q6j_1_Conteúdos previstos_Quantidade de vagas destinadas a representantes de entidades de assistência social na representação da sociedade civil _Lei do Conselho
+q6j_2;q6j_2_Conteúdos previstos_Quantidade de vagas destinadas a representantes de entidades de assistência social na representação da sociedade civil_Regimento Interno
+q6j_3;q6j_3_Conteúdos previstos_Quantidade de vagas destinadas a representantes de entidades de assistência social na representação da sociedade civil_Outras Normativas
+q6j_0;q6j_0_Conteúdos previstos_Quantidade de vagas destinadas a representantes de entidades de assistência social na representação da sociedade civil_Não está normatizado
+q6l_1;q6l_1_Conteúdos previstos_Quantidade de vagas destinadas a representantes de gestores municipais de assistência social na representação do governo a serem escolhidos no COEGEMAS_Lei do Conselho
+q6l_2;q6l_2_Conteúdos previstos_Quantidade de vagas destinadas a representantes de gestores municipais de assistência social na representação do governo a serem escolhidos no COEGEMAS_Regimento Interno
+q6l_3;q6l_3_Conteúdos previstos_Quantidade de vagas destinadas a representantes de gestores municipais de assistência social na representação do governo a serem escolhidos no COEGEMAS_Outras Normativas
+q6l_0;q6l_0_Conteúdos previstos_Quantidade de vagas destinadas a representantes de gestores municipais de assistência social na representação do governo a serem escolhidos no  COEGEMAS_Não está normatizado
+q6m_1;q6m_1_Conteúdos previstos_Periodicidade das reuniões ordinárias do Plenário _Lei do Conselho
+q6m_2;q6m_2_Conteúdos previstos_Periodicidade das reuniões ordinárias do Plenário_Regimento Interno
+q6m_3;q6m_3_Conteúdos previstos_Periodicidade das reuniões ordinárias do Plenário_Outras Normativas
+q6m_0;q6m_0_Conteúdos previstos_Periodicidade das reuniões ordinárias do Plenário_Não está normatizado
+q6n_1;q6n_1_Conteúdos previstos_Procedimentos para criação de grupos de trabalho temporários e permanentes_Lei do Conselho
+q6n_2;q6n_2_Conteúdos previstos_Procedimentos para criação de grupos de trabalho temporários e permanentes_Regimento Interno
+q6n_3;q6n_3_Conteúdos previstos_Procedimentos para criação de grupos de trabalho temporários e permanentes _Outras Normativas
+q6n_0;q6n_0_Conteúdos previstos_Procedimentos para criação de grupos de trabalho temporários e permanentes _Não está normatizado
+q6o_1;q6o_1_Conteúdos previstos_Formas de funcionamento das comissões permanentes _Lei do Conselho
+q6o_2;q6o_2_Conteúdos previstos_Formas de funcionamento das comissões permanentes _Regimento Interno
+q6o_3;q6o_3_Conteúdos previstos_Formas de funcionamento das comissões permanentes _Outras Normativas
+q6o_0;q6o_0_Conteúdos previstos_Formas de funcionamento das comissões permanentes _Não está normatizado
+q6p_1;q6p_1_Conteúdos previstos_Antecedência de divulgação da pauta das reuniões ordinárias _Lei do Conselho
+q6p_2;q6p_2_Conteúdos previstos_Antecedência de divulgação da pauta das reuniões ordinárias _Regimento Interno
+q6p_3;q6p_3_Conteúdos previstos_Antecedência de divulgação da pauta das reuniões ordinárias _Outras Normativas
+q6p_0;q6p_0_Conteúdos previstos_Antecedência de divulgação da pauta das reuniões ordinárias _Não está normatizado
+q6q_1;q6q_1_Conteúdos previstos_Forma de publicização (modo pelo qual a sociedade pode tomar conhecimento da informação pública) das atas do Conselho _Lei do Conselho
+q6q_2;q6q_2_Conteúdos previstos_Forma de publicização (modo pelo qual a sociedade pode tomar conhecimento da informação pública) das atas do Conselho _Regimento Interno
+q6q_3;q6q_3_Conteúdos previstos_Forma de publicização (modo pelo qual a sociedade pode tomar conhecimento da informação pública) das atas do Conselho _Outras Normativas
+q6q_0;q6q_0_Conteúdos previstos_Forma de publicização (modo pelo qual a sociedade pode tomar conhecimento da informação pública) das atas do Conselho _Não está normatizado
+q6r_1;q6r_1_Conteúdos previstos_Meio em que são publicadas as resoluções do Conselho (diário oficial, jornal etc) _Lei do Conselho
+q6r_2;q6r_2_Conteúdos previstos_Meio em que são publicadas as resoluções do Conselho (diário oficial, jornal etc) _Regimento Interno
+q6r_3;q6r_3_Conteúdos previstos_Meio em que são publicadas as resoluções do Conselho (diário oficial, jornal etc)_Outras normativas
+q6r_0;q6r_0_Conteúdos previstos_Meio em que são publicadas as resoluções do Conselho (diário oficial, jornal etc) _Não está normatizado
+q6s_1;q6s_1_Conteúdos previstos_Os temas que devem ser regulados por meio de Resolução desse conselho _Lei do Conselho
+q6s_2;q6s_2_Conteúdos previstos_Os temas que devem ser regulados por meio de Resolução desse conselho _Regimento Interno
+q6s_3;q6s_3_Conteúdos previstos_Os temas que devem ser regulados por meio de Resolução desse conselho _Outras Normativas
+q6s_0;q6s_0_Conteúdos previstos_Os temas que devem ser regulados por meio de Resolução desse conselho _Não está normatizado
+q6t_1;q6t_1_Conteúdos previstos_A indicação das condições que devem ser seguidas para alterar o Regimento Interno_Lei do Conselho
+q6t_2;q6t_2_Conteúdos previstos_A indicação das condições que devem ser seguidas para alterar o Regimento Interno _Regimento Interno
+q6t_3;q6t_3_Conteúdos previstos_A indicação das condições que devem ser seguidas para alterar o Regimento Interno _Outras Normativas
+q6t_0;q6t_0_Conteúdos previstos_A indicação das condições que devem ser seguidas para alterar o Regimento Interno _Não está normatizado
+q7;q7_Na lei orçamentária de 2015 há previsão de recursos específicos do órgão gestor destinados à manutenção e funcionamento do conselho?
+q8;q8_Os 3% dos Índices de Gestão Descentralizada (IGD?Bolsa Família e IGD?SUAS) são destinados a custear despesas do funcionamento do Conselho?
+q9;q9_O Conselho possui local/sede específico para o seu funcionamento?
+q10;q10_No prédio em que se localiza o Conselho funcionam outras instituições ou unidades?
+q11a;q11a_Instituições que funcionam no mesmo prédio do Conselho_Secretaria de Assistência Social ou congênere
+q11b;q11b_Instituições que funcionam no mesmo prédio do Conselho_Outra unidade administrativa (Sede de Prefeitura, Sede de Governo, Administração Regional, etc)
+q11c;q11c_Instituições que funcionam no mesmo prédio do Conselho_CRAS_Centro de Referência de Assistência Social
+q11d;q11d_Instituições que funcionam no mesmo prédio do Conselho_CREAS_Centro de Referência Especializado de Assistência Social
+q11e;q11e_Instituições que funcionam no mesmo prédio do Conselho_Outra unidade pública de serviços da Assistência Social
+q11f;q11f_Instituições que funcionam no mesmo prédio do Conselho_Unidade de Saúde
+q11g;q11g_Instituições que funcionam no mesmo prédio do Conselho_Escola
+q11h;q11h_Instituições que funcionam no mesmo prédio do Conselho_Associação Comunitária
+q11i;q11i_Instituições que funcionam no mesmo prédio do Conselho_ONG/Entidade
+q11j;q11j_Instituições que funcionam no mesmo prédio do Conselho_Conselho Tutelar
+q11l;q11l_Instituições que funcionam no mesmo prédio do Conselho_Outros Conselhos
+q11m;q11m_Instituições que funcionam no mesmo prédio do Conselho_Outros
+q12a;q12a_Salas_Quantidade de Salas exclusivas com capacidade de no máximo 15 pessoas
+q12b;q12b_Quantidade de Salas exclusivas para mais de 15 pessoas
+q12c;q12c_Quantidade de Salas compartilhadas com capacidade de no máximo 15 pessoas
+q12d;q12d_Quantidade de Salas compartilhadas do Conselho para mais de 15 pessoas
+q12e;q12e_Quantidade total de banheiros
+q12f;q12f_Recepção
+q13a;q13a_Acessibilidade_Acesso principal adaptado com rampas e rota acessível desde a calçada até as salas do Conselho
+q13b;q13b_Acessibilidade_Rota acessível aos espaços do Conselho (recepção, salas de reunião e espaços de uso coletivo)
+q13c;q13c_Acessibilidade_Rota acessível ao banheiro
+q13d;q13d_Acessibilidade_Banheiro adaptado para pessoas com deficiência
+q14a;q14a_Equipamentos_Telefone de uso exclusivo do Conselho
+q14b;q14b_Equipamentos_Telefone de uso compartilhado
+q14c;q14c_Equipamentos_Material de Escritório
+q14d;q14d_Equipamentos_Equipamento de som
+q14e;q14e_Equipamentos_Televisão (TV)
+q14f;q14f_Equipamentos_DVD/Vídeo Cassete
+q14g;q14g_Equipamentos_Fax
+q14h;q14h_Equipamentos_Datashow
+q14i;q14i_Equipamentos_Máquina Fotográfica
+q14j;q14j_Equipamentos_Veículo de uso exclusivo
+q14l;q14l_Equipamentos_Veículo de uso compartilhado
+q14m;q14m_Equipamentos_Acervo bibliográfico
+q14n;q14n_Equipamentos_Máquina Copiadora
+q14o;q14o_Equipamentos_Filmadora
+q14p;q14p_Equipamentos_Impressora
+q15a;q15a_Indique a quantidade total de computadores de uso exclusivo do Conselho:
+q15b;q15b_Quantos dos computadores de uso exclusivo do Conselho estão conectados à internet
+q15c;q15c_Indique a quantidade total de computadores de uso compartilhado:
+q15d;q15d_Quantos dos computadores de uso compartilhado estão conectados à internet:
+q16;q16_O Conselho possui Secretaria Executiva (unidade de apoio para seu funcionamento)?
+q17_1;q17_1_Quantidade de funcionários exclusivos da Secretaria Executiva do Conselho
+q17_2;q17_2_Quantidade de funcionários não exclusivos da Secretaria Executiva do Conselho
+q18;q18_Atualmente, há uma pessoa designada para ocupar o cargo de Secretário Executivo do Conselho?
+q19;q19_O(a) Secretário(a) Executivo(a) trabalha exclusivamente no Conselho?
+q20;q20_Qual a escolaridade do responsável pela Secretaria Executiva?
+q21_1;q21_1_Horário de funcionamento - Dias por semana:
+q21_2;q21_2_Horário de funcionamento - Horas por dia:
+q22;q22_O Conselho tem calendário anual de reuniões ordinárias estabelecido?
+q23;q23_Considerando todas as reuniões plenárias do Conselho (ordinárias e extraordinárias), quantas reuniões foram realizadas no ano de 2014? (não considerar as reuniões realizadas apenas por Comissões Temáticas e Grupos de Trabalho - ...
+q24;q24_As reuniões (ordinárias e extraordinárias) do Conselho são registradas em ata?
+q25a;q25a_Forma como as atas são publicizadas_Não são publicizadas
+q25b;q25b_Forma como as atas são publicizadas_Ficam no Conselho em local de livre acesso para a população usuária
+q25c;q25c_Forma como as atas são publicizadas_São enviados aos Conselheiros e/ou suas entidades
+q25d;q25d_Forma como as atas são publicizadas_São enviados às entidades de Assistência Social que não estão representadas no conselho
+q25e;q25e_Forma como as atas são publicizadas_São enviados aos representantes e organizações de usuários que não estão representadas no conselho
+q25f;q25f_Forma como as atas são publicizadas_São enviados às organizações e entidades de trabalhadores do setor que não estão representadas no conselho
+q25g;q25g_Forma como as atas são publicizadas_Disponibilizados no site do Conselho
+q25h;q25h_Forma como as atas são publicizadas_Em Boletins produzidos pela área de assistência social
+q26;q26_As deliberações/resoluções do Conselho são publicadas em diário oficial?
+q27;q27_O município (ou estado no caso de CEAS, ou DF no caso do CAS/DF), tem Plano de Assistência Social?
+q28;q28_O Conselho deliberou sobre o Plano de Assistência Social do município (ou do Estado no caso do CEAS, ou do DF no caso do CAS/DF)?
+q29a;q29a_Temas discutidos em 2015_Plano de Ação
+q29b;q29b_Temas_Demonstrativo de Execução Físico-Financeira
+q29c;q29c_Temas_Plano de Assistência Social
+q29d;q29d_Temas_Plano Plurianual (PPA), Lei de Diretrizes Orçamentárias (LDO) e Lei Orçamentária Anual (LOA)
+q29e;q29e_Temas_Deliberações da(s) Conferência(s)
+q29f;q29f_Temas_Planejamento das atividades do Conselho
+q29g;q29g_Temas_Acompanhamento do Programa Bolsa Família
+q29h;q29h_Temas_Acompanhamento do Benefício de Prestação Continuada
+q29i;q29i_Temas_Benefícios eventuais
+q29j;q29j_Temas_Financiamento, implantação, organização e oferta de Serviços Socioassistenciais, programas, projetos e benefícios de Proteção Social Básica
+q29l;q29l_Temas_Financiamento, implantação, organização e oferta de Serviços Socioassistenciais, programas, projetos e benefícios de Proteção Social Especial
+q29m;q29m_Temas_Inscrição de entidades de assistência social
+q29n;q29n_Temas_Fiscalização da oferta de serviços públicos e privados de assistência social
+q29o;q29o_Temas_Intersetorialidade e transversalidade na Política de Assistência Social
+q29p;q29p_Temas_Participação popular e mobilização social
+q29q;q29q_Temas_Capacitação para trabalhadores, gestores ou conselheiros
+q29r;q29r_Temas_Utilização de no mínimo 3% dos recursos do IGD-SUAS e IGD-PBF para o desenvolvimento das atividades do Conselho
+q29s;q29s_Temas_Avaliação da evolução do SUAS no âmbito municipal ou estadual
+q29t;q29t_Temas_Denúncias
+q29u;q29u_Temas_Plano Decenal
+q29v;q29v_Temas_Acompanhamento de programas e projetos da política de assistência social nacional e local
+q29x;q29x_Temas_Outros
+q30;q30_Frequência_O Conselho conhece e acompanha as metas do pacto de aprimoramento em seu município (ou no Estado no caso de CEAS, ou no DF no caso do CAS/DF)?
+q31;q31_O Conselho deliberou sobre a proposta anual de orçamento do executivo para o ano de 2015?
+q32;q32_O Conselho fiscaliza os serviços, programas, projetos e benefícios socioassistenciais do SUAS?
+q33;q33_Se sim, informe como a fiscalização é realizada:
+q34;q34_O conselho tem planejamento das fiscalizações realizadas anualmente?
+q35;q35_Com que frequência o conselho aprecia o relatório de aplicação dos recursos dos Fundos de Assistência Social?
+q36;q36_O Conselho delibera sobre os critérios de repasse de recursos para entidades?
+q37;q37_O Conselho delibera sobre os critérios de repasse de recursos para municípios?
+q38;q38_O Conselho já regulamentou por meio de resolução própria os Benefícios Eventuais concedidos no âmbito da Assistência Social? (Decreto nº 6.307/07 e Resolução CNAS nº 39/10)
+q39;q39_O Conselho é a Instância de Controle Social do Programa Bolsa Família?
+q40;q40_O Conselho fiscaliza e acompanha a execução do Programa Bolsa Família?
+q41;q41_O Conselho acompanha os processos de pactuação da Comissão Intergestora Bipartite ? CIB e da Comissão Intergestora Tripartite ? CIT?
+q42;q42_O Conselho acompanha os processos de pactuação do Conselho Nacional de Assistência Social e do Conselho Estadual de Assistência Social, no caso de municípios.
+q43a;q43a_Frequencia_Recebe Denúncia
+q43b;q43b_Frequencia_Realiza reuniões ampliadas (com participação, também, de membros da sociedade civil que não sejam conselheiros)
+q43c;q43c_Frequencia_Realiza reuniões descentralizadas (realizadas em bairros/distritos/municípios, fora da sede do Conselho)
+q43d;q43d_Frequencia_Realiza ações de mobilização social
+q43e;q43e_Frequencia_Realiza visitas nas unidades da rede socioassistencial
+q43f;q43f_Frequencia_Acompanha votações/discussões do Poder Legislativo local
+q44;q44_Atualmente, quantas Entidades possuem Inscrição no Conselho?
+q45a;q45a_O Conselho regulamentou, por meio de resolução própria (do CMAS/CEAS/CAS/DF), a inscrição das entidades e organizações de assistência social, bem como dos serviços, programas, projetos e benefícios socioassistenciais?
+q45b;q45b_O Conselho já estabeleceu, por meio de resolução, o Plano de Acompanhamento e Fiscalização das entidades e organizações de assistência social, bem como dos serviços, programas, projetos e benefícios socioassistenciais inscritos,...
+q45c;q45c_O Conselho acompanha a execução dos Planos de Ação apresentados pelas entidades e organizações de assistência social, bem como dos serviços, programas, projetos e benefícios socioassistenciais inscritas no conselho?
+q46;q46_O Conselho acompanha o cumprimento das deliberações da Conferência Municipal (ou Estadual, no caso de CEAS, ou CAS/DF) de Assistência Social de 2013?
+q47;q47_No ano de 2014, os conselheiros fizeram algum curso de capacitação presencial para o auxilio de sua função?
+q48a;q48a_Quem promoveu capacitação presencial_Gestor Municipal
+q48b;q48b_Quem promoveu capacitação presencial_Gestor Estadual
+q48c;q48c_Quem promoveu capacitação presencial_Gestor Federal (Ministério do Desenvolvimento Social e Combate à Fome)
+q48d;q48d_Quem promoveu capacitação presencial_Próprio Conselho
+q48e;q48e_Quem promoveu capacitação presencial_Outros
+q48e_qual;q48e_qual_Quem promoveu capacitação presencial_Outros. Qual?
+q49;q49_No ano de 2014 os conselheiros fizeram algum curso de capacitação à distância para o auxilio de sua função?
+q50a;q50a_Quem promoveu capacitação a distancia_Gestor municipal
+q50b;q50b_Quem promoveu capacitação a distancia_Gestor estadual
+q50c;q50c_Quem promoveu capacitação a distancia_Gestor federal (Ministério do Desenvolvimento Social e Combate à Fome)
+q50d;q50d_Quem promoveu capacitação a distancia_Próprio Conselho
+q50e;q50e_Quem promoveu capacitação a distancia_Outro
+q50e_qual;q50e_qual_Quem promoveu capacitação a distancia_Outro. Qual?
+q51;q51_Qual o tempo de mandato dos Conselheiros desse Conselho?
+q52;q52_Quantas vezes cada Conselheiro pode ser reconduzido (por igual período ao mandato)?
+q53;q53_O Presidente e Vice-presidente do Conselho são eleitos em reunião plenária do Conselho?
+q54;q54_Há alternância na presidência entre os representantes do governo e os representantes da sociedade civil?
+q55;q55_Os representantes da sociedade civil no Conselho são:
+q56a;q56a_Quem tem direito a voto_Eleição Sociedade Civil_O próprio usuário
+q56b;q56b_Quem tem direito a voto_Eleição Sociedade Civil_Os representantes e organizações de usuários
+q56c;q56c_Quem tem direito a voto_Eleição Sociedade Civil_Este Conselho não tem representação de usuário
+q57a;q57a_Representação governamental_Assistência Social
+q57b;q57b_Representação governamental_Saúde
+q57c;q57c_Representação governamental_Educação
+q57d;q57d_Representação governamental_Trabalho e Emprego
+q57e;q57e_Representação governamental_Fazenda
+q57f;q57f_Representação governamental_Habitação
+q57g;q57g_Representação governamental_Planejamento
+q57h;q57h_Representação governamental_Assessoria/Gabinete da Prefeitura
+q57i;q57i_Representação governamental_Outra
+q57i_qual;q57i_qual_Representação governamental_Outra. Qual?
+q58a;q58a_Representação Usuários_Benefíciários do Programa Bolsa Família
+q58b;q58b_Representação Usuários_Beneficiário ou família de beneficiários do BPC ? Benefício de Prestação Continuada
+q58c;q58c_Representação Usuários_Usuário de serviços socioassistenciais de Proteção Social Básica
+q58d;q58d_Representação Usuários_Usuário de serviços socioassistenciais de Proteção Social Especial
+q58e;q58e_Representação Usuários_Representante de associação comunitária ou de moradores
+q58f;q58f_Representação Usuários_Representante de fórum ou coletivo de usuários
+q58g;q58g_Representação Usuários_Outros
+q58g_qual;q58g_qual_Representação Usuários_Outros_Qual?
+q59;q59_O conselho tem comissões permanentes?
+q60a;q60a_Comissões permanentes_Comissão de normas
+q60b;q60b_Comissões permanentes_Comissão de política
+q60c;q60c_Comissões permanentes_Comissão de financiamento
+q60d;q60d_Comissão de acompanhamento de conselhos
+q60e;q60e_Comissões permanentes_Comissão de ética
+q60f;q60f_Comissões permanentes_Comissão de acompanhamento de benefícios e transferência de renda (BPC, Programa Bolsa Família, etc.)
+q60g;q60g_Comissões permanentes_Comissão de fiscalização/monitoramento/cadastro de entidades
+q60h;q60h_Comissões permanentes_Comissão de comunicação
+q60i;q60i_Comissões permanentes_Outras
+q60i_qual;q60i_qual_Comissões permanentes_Outras.Quais?
+q61_1;q61_1_Quantidade de Conselheiros_Titulares
+q61_2;q61_2_Quantidade de Conselheiros_Suplentes
+q62_1;q62_1_Segundo as normatizações, esse conselho é composto por quantos Conselheiros representantes do governo?
+q62_2;q62_2_Segundo as normatizações, esse conselho é composto por quantos Conselheiros representantes da sociedade civil?
+responsavel_3;responsavel_3_Responsável_Data
+responsavel_4;responsavel_4_Responsável_Cargo/Função do responsável pelo preenchimento:
+D12_exclusivas;D12_exclusivas_Total de salas exclusivas em uso no Conselho
+D12_exclusivas_categoria;D12_exclusivas_categoria_Total de salas exclusivas em uso no Conselho
+D12_compartilhadas;D12_compartilhadas_Total de salas compartilhadas em uso no Conselho
+D12_compartilhadas_categoria;D12_compartilhadas_categoria_Total de salas compartilhadas em uso no Conselho
+D12_total_salas;D12_total_salas_Total de salas (exclusivas e compartilhadas) em uso no Conselho
+D12_total_salas_categoria;D12_total_salas_categoria_Total de salas (exclusivas e compartilhadas) em uso no Conselho
+q15_total;q15_total_Quantidade total de computadores (exclusivos e compartilhados) em uso no Conselho
+q15_total_net;q15_total_net_Quantidade total de computadores (exclusivos e compartilhados) conectados à internet em uso no Conselho
+D15_total;D15_total_Quantidade total de computadores (exclusivos e compartilhados) em uso no Conselho
+D15_total_net;D15_total_net_Quantidade total de computadores (exclusivos e compartilhados) conectados à internet em uso no Conselho
+D21_horas_por_semana_categoria;D21_horas_por_semana_categoria_Total de horas por semana que o Conselho encontra-se em funcionamento
+D23;D23_Quantidade de reuniões plenárias (ordinárias e extraordinárias) realizadas no Conselho no ano de 2015
+D61_1;D61_1_categorias_Quantidade de conselheiros titulares
+D61_2;D61_2_categorias_Quantidade de conselheiros suplentes
+D63_5bin1_sum;Representante de usuários e organização de usuários
+D63_5bin2_sum;Representante de Entidades de Assistência Social
+D63_5bin3_sum;Representante de organização dos trabalhadores
+D63_5bin4_sum;Representante do Governo
+D63_5bin1_TIT_sum;Representante Titular de usuários e organização de usuários
+D63_5bin1_SUPL_sum;Representante Suplente de usuários e organização de usuários
+D63_5bin2_TIT_sum;Representante Titular de Entidades de Assistência Social
+D63_5bin2_SUPL_sum;Representante Suplente de Entidades de Assistência Social
+D63_5bin3_TIT_sum;Representante Titular de organização dos trabalhadores
+D63_5bin3_SUPL_sum;Representante Suplente de organização dos trabalhadores
+D63_5bin4_TIT_sum;Representante Titular do Governo
+D63_5bin4_SUPL_sum;Representante Suplente do Governo
+nu_conselheiros;Quantidade de conselheiros

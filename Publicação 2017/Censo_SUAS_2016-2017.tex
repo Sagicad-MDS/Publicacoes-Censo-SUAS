@@ -1,0 +1,326 @@
+\documentclass[brazilian]{report}
+
+\usepackage{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{tabulary}
+\usepackage{hyperref}
+\usepackage{multirow}
+\usepackage{chngcntr}
+\usepackage{caption}
+\usepackage{titling}
+\usepackage{cleveref}
+
+\addto\captionsbrazilian{\renewcommand{\figurename}{Gráfico}}
+\crefname{figure}{gráfico}{gráficos}
+
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}%
+}
+
+\title{CENSO SUAS 2017}
+\subtitle{ANÁLISE DOS COMPONENTES SISTÊMICOS DA POLÍTICA NACIONAL DE ASSISTÊNCIA SOCIAL}
+\date{}
+\author{Secretaria de Avaliação e Gestão da Informação\\
+        Secretaria Nacional de Assistência Social\\
+        Ministério do Desenvolvimento Social}
+
+
+
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+\counterwithout{footnote}{chapter}
+\captionsetup[figure]{labelfont=bf,textfont=bf}
+\captionsetup[table]{labelfont=bf,textfont=bf}
+\newcommand\fnote[1]{\captionsetup{font=small, textfont=normalfont}\caption*{#1}}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+
+\begin{document}
+
+\maketitle
+
+\addcontentsline{toc}{chapter}{Prefácio}
+\chapter*{Prefácio}
+ 
+O Censo do Sistema Único de Assistência Social (Censo SUAS), realizado anualmente desde 2007, coleta informações sobre serviços, programas e projetos de assistência social realizados pelas unidades públicas e pela Rede Socioassistencial Privada do SUAS.
+
+Ao longo dessa trajetória, o Censo SUAS tem apurado e evidenciado uma série de dados e de informações sobre infraestrutura, recursos humanos, serviços, benefícios, gestão e participação social no âmbito da assistência social. Esses dados e informações subsidiam gestores, técnicos e envolvidos no SUAS a aprimorar ações, identificar êxitos e reestruturar pontos que não tenham atingido os resultados planejados.
+
+Esta publicação apresenta os principais resultados do Censo SUAS 2016, organizados de forma a facilitar a leitura e a utilização do amplo conjunto de dados levantados. As informações estão organizadas segundo as temáticas: Gestão e Financiamento, Equipamentos, Recursos Humanos, Serviços, Participação Social e Indicadores de Desenvolvimento (IDs). Além disso, ela apresenta os dados das séries históricas do Censo SUAS, possibilitando tanto uma análise do quadro do SUAS para o ano de 2016, quanto da sua evolução ao longo dos últimos anos.
+
+Nesta edição, o Censo levantou dados de Centros de Referência de Assistência Social (CRAS), Centros de Referência Especializados de Assistência Social (CREAS), Centros de Referência Especializado para População em Situação de Rua (Centro POP), Conselhos Estaduais de Assistência Social (CEAS), Conselhos Municipais de Assistência Social (CMAS) e Conselho de Assistência Social do Distrito Federal (CAS/DF), Gestão Estadual, Gestão Municipal, Unidades de Acolhimento, Centros de Convivência e Centros Dia.
+
+A consolidação das análises disponibilizadas nessa publicação reflete o esforço contínuo de aperfeiçoamento da cobertura do levantamento das informações, realizado conjuntamente pela Secretaria Nacional de Assistência Social (SNAS) e pela Secretaria de Avaliação e Gestão da Informação (SAGI). Esperamos que os resultados apresentados possam continuar contribuindo para subsidiar o debate qualificado e construtivo a respeito do SUAS e resulte em seu aprimoramento.
+
+Maria do Carmo Brant de Carvalho
+
+Secretária Nacional de Assistência Social
+
+Vinícius Botelho
+
+Secretário de Avaliação e Gestão da Informação
+
+\tableofcontents
+ 
+\chapter*{Apresentação}
+\addcontentsline{toc}{chapter}{Apresentação}
+
+\section*{A Assistência Social no Brasil}
+\addcontentsline{toc}{section}{A Assistência Social no Brasil}
+
+O início da estruturação da Assistência Social nos moldes atuais se deu a partir da promulgação da Constituição Federal de 1988, quando a assistência social passou a ser compreendida como direito do cidadão brasileiro e, portanto, como uma política pública de responsabilidade do Estado. É uma política de Seguridade Social não contributiva, que visa, em conjunto com outras políticas setoriais, a universalização dos direitos sociais.
+
+Atualmente as ações da Assistência Social são organizadas sob a forma do Sistema Único de Assistência Social (SUAS), que está fundado na gestão descentralizada e participativa, com gestão compartilhada, cofinanciamento e cooperação técnica entre os três entes federados. Além da União, estados e municípios, o SUAS é integrado pelos Conselhos de Assistência Social e pelas entidades e organizações de assistência social. A organização da Assistência Social está disposta na Lei Orgânica da Assistência Social (LOAS), de 7 de dezembro de 1993, em conformidade com a Política Nacional de Assistência Social (PNAS).
+
+No SUAS estão previstos dois tipos de proteção social: a básica e a especial, para prevenção de situações de vulnerabilidade e enfrentamento de situações de violações de direitos, respectivamente. Também no âmbito do SUAS são ofertados os benefícios assistenciais. As ações são empreendidas tanto pelas unidades públicas quanto pela rede socioassistencial privada do SUAS.
+
+Até atingir a forma atual de organização, a Assistência Social passou por mudanças significativas, consequência de inúmeros esforços que possibilitaram a ampliação de recursos, programas, benefícios e serviços voltados à população em situação de vulnerabilidade e risco social e/ou violação de direitos.
+
+Ao longo do século XX, ainda que tenham sido instituídos alguns programas e elaboradas leis voltadas à proteção social, o acesso a direitos sociais era baseado na capacidade contributiva do trabalhador, excluindo uma grande parcela da população, incluindo a parcela que trabalhava no mercado informal.
+
+A partir de 1988, a Constituição Brasileira trouxe uma nova perspectiva para a proteção social, apresentando, pela primeira vez no Brasil, um modelo amplo de Seguridade Social, composto por Saúde, Previdência e Assistência Social, que prevê atendimento e cobertura universais. O modelo estipula ainda que os benefícios e serviços devem ser uniformes e equivalentes para a população rural e urbana. Prevê a integração entre governos, com participação dos três entes, e sociedade para a consecução dos objetivos estipulados.
+
+A assistência social foi reconhecida, portanto, como um direito da pessoa que dela precisar, sem necessidade de contribuição prévia à Seguridade Social. Tem por objetivos, de acordo com a Constituição Federal, “a proteção à família, à maternidade, à infância, à adolescência e à velhice; o amparo às crianças e adolescentes carentes; a promoção da integração ao mercado de trabalho; a habilitação e reabilitação das pessoas portadoras de deficiência e a promoção de sua integração à vida comunitária; e a garantia de um salário mínimo de benefício mensal à pessoa portadora de deficiência e ao idoso que comprovem não possuir meios de prover à própria manutenção ou de tê-la provida por sua família”\footnote{BRASIL. Constituição da República Federativa do Brasil de 1988. Disponível em: \url{http://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm}. Acesso em 09/08/2018.}.
+
+Considerando a nova configuração da Assistência Social definida pela Constituição, foi sancionada em 7 de dezembro de 1993 a Lei nº 8.742, a Lei Orgânica da Assistência Social (LOAS). A LOAS estabelece para a Assistência Social os princípios de universalização dos direitos sociais, com igualdade de direitos de acesso no atendimento e respeito à dignidade do cidadão. A lei, que dispõe sobre a nova organização da Assistência Social, trouxe inovações importantes, como a participação social por meio de instâncias de controle social e a descentralização político-administrativa com primazia da responsabilidade do Estado, nas três esferas de governo, na condução da política. As competências da União, dos estados, do Distrito Federal e dos municípios estão definidas na LOAS, bem como o cofinanciamento dos benefícios, serviços, programas e projetos da Assistência Social. Nesse sentido, mostra-se fundamental a articulação e a coordenação entre os três entes da federação, que se dá por meio das Comissões Intergestores Tripartite (CIT) e Bipartite (CIB), que são instâncias de pactuação interfederativa para a operacionalização da gestão do SUAS.
+
+A partir da LOAS, uma série de ferramentas de institucionalização foram organizadas a fim de nortear a nova configuração da Assistência Social, como visto na \Cref{tab:marcos}.
+
+\begin{table}[]
+\caption{Marcos legais da Assistência Social no Brasil.}
+\label{tab:marcos}
+\resizebox{\textwidth}{!}{%
+\begin{tabulary}{17cm}{@{}CCCCCCCCC@{}}
+\toprule
+1993 & 1998 & 2004 & 2005      & 2006    & 2009                     & 2010                     & 2011            & 2012     \\ \midrule
+LOAS & PNAS & PNAS & NOB/ SUAS & NOB/ RH & Tipificação dos Serviços & Decreto 7.334 Censo SUAS & Lei 12.435 SUAS & NOB/ SUAS \\ \bottomrule
+\end{tabulary}%
+}
+\end{table}
+
+A primeira Política Nacional de Assistência Social (PNAS), prevista na LOAS, foi criada em 1998 e instituiu diretrizes para as ações da Assistência Social, representando uma base orientadora para procedimentos a serem adotados pelos gestores da política de assistência social em todo o país\footnote{Boscheti (2001)}.
+
+Em 2003\footnote{As Conferências de Assistência Social deliberam as diretrizes para o aperfeiçoamento da Política de Assistência Social em cada uma das esferas governamentais (BRASIL, 2012).}, a IV Conferência Nacional de Assistência Social teve como deliberação a construção e implementação do Sistema Único de Assistência Social (SUAS).
+
+Em 15 de outubro de 2004 foi aprovada pela Resolução nº 145 do Conselho Nacional de Assistência Social (CNAS) a PNAS, que trouxe alterações e definiu alguns elementos importantes para as políticas sociais. Dentre as novidades propostas, destacam-se o aperfeiçoamento da descentralização, a estruturação da participação da população, a fundamentação na centralidade na família para concepção e a implementação dos benefícios, programas e projetos (BRASIL, 2004).
+
+Em conjunto com a PNAS 2004, a Norma Operacional Básica NOB/SUAS 2005 representou importante avanço no sentido de consolidar e implementar as diretrizes previstas na LOAS. A NOB/SUAS 2005 disciplina a gestão da política de assistência social a partir das definições constates na Constituição Federal, na LOAS e na PNAS, e normatiza a operacionalização do Sistema Único de Assistência Social (SUAS). A NOB/SUAS 2005 avança na integração, pactuação e coordenação entre as diversas esferas de governo, na organização das instâncias de gestão, articulação e controle da política, na proteção social, na instituição de arranjos para a prestação de serviços, e no financiamento, com definições sobre repasses regulares e mecanismos de transferências de recursos fundo a fundo baseada em pisos, critérios e indicadores de partilha\footnote{Norma Operacional Básica NOB/SUAS. Construindo as bases para a implantação do Sistema Único de Assistência Social. Disponível em:  \url{http://www.assistenciasocial.al.gov.br/sala-de-imprensa/arquivos/NOB-SUAS.pdf}. Acesso em 26/10/2017}.
+
+A NOB/SUAS 2012 avançou na pactuação de metas e de resultados, e trouxe maior flexibilização para uso dos recursos, ampliando a autonomia dos municípios. Também trouxe avanços em relação à organização da Vigilância Socioassistencial e da gestão do trabalho, principalmente em relação à educação dos trabalhadores.
+
+Outro marco legal de destaque para a Assistência Social foi a Tipificação Nacional dos Serviços Socioassistenciais. Ela foi importante para padronizar a oferta dos serviços de proteção social básica e proteção social especial nacionalmente, especificando os conteúdos da oferta de serviços socioasisstenciais. A Tipificação traz detalhamentos importantes sobre ambiente físico, recursos materiais, recursos humanos, dentre outros. Tem-se, a partir da Tipificação, que os Serviços da Proteção Social Básica são compostos pelo Serviço de Proteção e Atendimento Integral à Família (PAIF), Serviço de Convivência e Fortalecimento de Vínculos e pelo Serviço de Proteção Social Básica no domicílio para pessoas com deficiência e idosas. Os Serviços da Proteção Social Básica buscam a prevenção de vulnerabilidades e riscos sociais.
+
+Os Serviços da Proteção Social Especial, destinada a indivíduos em situação de violação de direitos, por sua vez, dividem-se entre média e alta complexidade. No primeiro caso, enquadram-se o Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos (PAEFI), o Serviço Especializado em Abordagem Social e o Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida (LA), e de Prestação de Serviços à Comunidade (PSC). Na alta complexidade, estão os serviços de Acolhimento Institucional, Acolhimento em República, Acolhimento em Família Acolhedora e o Serviço de Proteção em Situações de Calamidades Públicas e de Emergências.
+
+As diversas atualizações de normativos realizadas desde a promulgação da Constituição de 1988 definem aspectos de gestão, financiamento, organização da prestação dos serviços, oferta de benefícios, estrutura, recursos humanos e de participação social para a Assistência Social. Nesse sentido, destaca-se a importância do Censo SUAS como ferramenta de acompanhamento e monitoramento dos diversos elementos que compõem o SUAS.
+
+\chapter{Metodologia}
+
+Parte do processo de aprimoramento da gestão do SUAS e da rede socioassistencial, o Censo SUAS é um instrumento de monitoramento anual que reúne informações providas por diversos agentes.
+
+Criado em 2007 como uma ficha de registro de caracterização básica dos CRAS, o levantamento passou a ser denominado de Censo CRAS no ano seguinte. Em 2009, o levantamento passou a abranger também a coleta de dados junto aos CREAS, recebendo a denominação atual de Censo SUAS. Nos três anos seguintes, refletindo o processo de institucionalização crescente do SUAS, ampliou-se substancialmente seu escopo investigativo, com a introdução paulatina dos questionários sobre Gestão Estadual, Gestão Municipal, Conselho Estadual de Assistência Social, Conselho Municipal de Assistência Social, Rede de Entidades Conveniadas (todos em 2010), Centros POP (em 2011) e Unidades de Acolhimento (em 2012)\footnote{Em ENAP (2011), na publicação de registro das dez ações premiadas do 16º Concurso Inovação na Gestão Pública Federal, há um breve relato histórico do Censo SUAS e sua contribuição para institucionalização da PNAS.}.
+
+Em 2014 foi instituído questionário para coletar informações relacionadas aos chamados Centros de Convivência – unidades públicas e privadas, conveniadas ao MDS ou não, que executam o Serviço de Convivência e Fortalecimento de Vínculos (SCFV).
+
+Em 2015 foi instituído um questionário para coletar informações dos Centros Dia, unidades que executam o Serviço de Proteção Social Especial (PSE) para pessoas com deficiência, idosas e suas famílias.
+
+Ao longo desses dez anos, o Censo tem tido como principal objetivo retratar as estruturas de gestão e de oferta de serviços do SUAS, produzindo informações que subsidiem o planejamento da política, o aperfeiçoamento do sistema, a formação dos trabalhadores e a prestação de contas à sociedade. Assim, é possível, a partir de seus resultados, gerar ações e medidas que objetivam a resolução de dificuldades e o aprimoramento da gestão. Seus instrumentos e objetivos são definidos de forma conjunta pela Secretaria Nacional de Assistência Social (SNAS) e pela Secretaria de Avaliação e Gestão da Informação (SAGI).
+
+Em 2016, o Censo SUAS compreendeu a aplicação de nove questionários distintos, de modo a mapear os componentes sistêmicos da PNAS, a saber:
+
+\begin{itemize}
+  \item 
+\textbf{Questionário Centro de Referência de Assistência Social (CRAS):} Identificação; Estrutura Física; Serviço de Proteção e Atendimento Integral a Família (PAIF); Serviço de Convivência e Fortalecimento de Vínculos (SCFV); Equipe Volante; Benefícios socioassistenciais e Cadastro Único; Gestão e Território; Articulação e Recursos Humanos.
+  \item 
+\textbf{Questionário Centro de Referência Especializado de Assistência Social (CREAS):} Identificação; Estrutura Física; Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos (PAEFI); Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC); Serviço de Abordagem Social; Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosas e suas Famílias; Gestão; Articulação e Recursos Humanos.
+  \item 
+\textbf{Questionário Centro de Referência Especializado para População em Situação de Rua (Centro POP):} Identificação; Estrutura Física; Serviço Especializado para Pessoas em Situação de Rua; Serviço Especializado em Abordagem Social; Gestão; Articulação e Recursos Humanos.
+  \item 
+\textbf{Questionário Unidades de Acolhimento:} Identificação; Caracterização da Unidade; Estrutura Física e Área de Localização da Unidade e Recursos Humanos.
+  \item 
+\textbf{Questionário Centro de Convivência:} Identificação; Caracterização da Unidade e Recursos Humanos.
+  \item 
+\textbf{Questionário Conselhos Municipais e Estaduais de Assistência Social (CMAS e CEAS) e Conselho de Assistência Social do Distrito Federal (CAS/DF):} Identificação; Lei de criação, Regimento Interno e Legislações; Orçamento e Infraestrutura do Conselho; Secretaria Executiva; Dinâmica de Funcionamento; Composição do Conselho e Conselheiros.
+  \item 
+\textbf{Questionário Gestão Estadual:} Identificação do Órgão Gestor; Estrutura Administrativa e Gestão do SUAS; Gestão do Trabalho; Gestão Financeira; Serviços e Benefícios; Apoio Técnico e Financeiro aos Municípios; Comissão Intergestores Bipartite (CIB); Apoio ao Exercício da Participação e do Controle Social e Pessoas de Referência.
+  \item 
+\textbf{Questionário Gestão Municipal:} Identificação do Órgão Gestor; Estrutura Administrativa; Gestão do SUAS; Gestão do Trabalho; Serviços e Benefícios e Vigilância Socioassistencial.
+  \item 
+\textbf{Questionário do Centro Dia e similares:} Identificação, Caracterização da Unidade, Estrutura Física, Serviços e Atividades e Recursos Humanos.
+\end{itemize}
+
+A coleta de dados do Censo SUAS 2016 foi realizada, como todo ano, por meio de questionários eletrônicos disponíveis no portal da SAGI, com um tempo mínimo de preenchimento de 30 dias. O preenchimento em meio eletrônico é realizado apenas pelos órgãos gestores (estaduais e municipais) e conselhos de assistência social (estaduais e municipais). Os gestores municipais são responsáveis pelos dados dos questionários dos CRAS, CREAS, Centros POP, Unidades de Acolhimento Municipais, Centros Dia e Gestão Municipal; os gestores estaduais pelos dados dos questionários dos CREAS Regionais, Unidades de Acolhimento Estaduais e Gestão Estadual; e são responsáveis pelos dados dos questionários dos Conselhos Municipais e dos Conselhos Estaduais e seus respectivos presidentes. Destaca-se que, para preenchimento dos questionários, o usuário deve estar devidamente cadastrado na Rede SUAS e possuir uma senha de acesso. Os questionários, depois de preenchidos, devem ser salvos pelo respondente. O período de coleta foi entre setembro e dezembro de 2016, conforme cronograma da \Cref{tab:cronograma}.
+
+\begin{table}[]
+\centering
+\caption{Cronograma de preenchimento do Censo SUAS 2016 por questionário.}
+\label{tab:cronograma}
+\begin{tabular}{|l|c|c|}
+\hline
+\multicolumn{1}{|c|}{Questionário} & Abertura              & Encerramento          \\ \hline
+CRAS                               & \multirow{3}{*}{Data} & \multirow{3}{*}{Data} \\ \cline{1-1}
+CREAS                              &                       &                       \\ \cline{1-1}
+Centro POP                         &                       &                       \\ \hline
+Centros de Convivência             & \multirow{3}{*}{Data} & \multirow{3}{*}{Data} \\ \cline{1-1}
+Centro DIA e Similares             &                       &                       \\ \cline{1-1}
+Conselhos (municipal e estadual)   &                       &                       \\ \hline
+Unidades de Acolhimento            & Data                  & Data                  \\ \hline
+Gestão Municipal                   & Data                  & Data                  \\ \hline
+Período de Retificação             & Data                  & Data                  \\ \hline
+\end{tabular}
+\fnote{Fonte: MDS, Censo SUAS.}
+\end{table}
+
+Em esforço conjunto do Governo Federal, estados e municípios, informações de mais de 37 mil questionários foram coletadas no período. Os bancos de dados resultantes da coleta foram então submetidos a procedimentos de análise da integridade e consistência, bem como de limpeza de dados e de organização da estrutura final e da documentação das bases. Para cada base resultante de um tipo de questionário, foram realizados procedimentos de limpeza e organização específicos. Inicialmente, pretendeu-se manter o maior número possível de respondentes válidos. Para isso, foram considerados como válidos:
+
+\begin{itemize}
+  \item 
+Questionários totalmente preenchidos e devidamente salvos pelos respondentes;
+  \item 
+Questionários preenchidos em sua totalidade, mas não devidamente salvos por razões de sistema; e
+  \item 
+Questionários preenchidos até 90\% de sua totalidade com pelo menos um trabalhador registrado no bloco de Recursos Humanos do questionário.
+\end{itemize}
+
+Unidades que se encontravam inativas ou com registro duplicado no CadSUAS\footnote{O CadSUAS é o Sistema de Cadastro do SUAS, instituído pela Portaria nº 430, de 3 de dezembro de 2008 onde são inseridas informações cadastrais da Rede Socioassistencial (CRAS, CREAS e Unidade Pública), Órgãos Governamentais (Conselho, Fundo, Governo Estadual, Prefeitura, Órgão Gestor, Outras) e trabalhadores do SUAS.} no período de referência de dezembro de 2016 tiveram seus questionários descartados. Nas bases de dados de Recursos Humanos foram descartados, ainda, casos de questionários duplicados ou duplicação do registro dos trabalhadores. Além disso, foi realizada uma verificação de consistência que identificou divergência de informações ligadas à escolaridade e à profissão do trabalhador, prevalecendo escolaridade\footnote{Por exemplo: Profissionais que assinalaram possuir ensino superior completo, mas foram identificados como profissional de nível médio ou sem formação profissional, prevaleceu a escolaridade e o campo profissão permaneceu em branco. Da mesma maneira, um trabalhador que assinalou possuir escolaridade mais baixa à formação, prevaleceu a escolaridade, de tal forma que a profissão permaneceu em branco.}.
+
+Para análise dos dados, foram consideradas as quantidades de respondentes de acordo com os bancos de dados após tratamento realizado pela Coordenação-Geral de Planejamento e Vigilância Socioassistencial (CGPVIS/SNAS) descrito acima. A quantidade de unidades/órgãos considerados no banco de dados após tratamento constam nas \cref{tab:qtd_equipamentos,tab:qtd_orgaos}.
+
+\begin{table}[]
+\centering
+\caption{Quantidade de equipamentos respondentes segundo o Status Censo SUAS.}
+\label{tab:qtd_equipamentos}
+\begin{tabular}{@{}lc@{}}
+\toprule
+Equipamento             & Analisados após validação \\ \midrule
+CRAS                    & 8.240                     \\
+CREAS                   & 2.522                     \\
+Centro POP              & 230                       \\
+Centros de Convivência  & 8.510                     \\
+Unidade de Acolhimento  & 5.832                     \\
+Centros Dia e similares & 1.345                     \\ \bottomrule
+\end{tabular}
+\fnote{Fonte: MDS, Censo SUAS.}
+\end{table}
+
+\begin{table}[]
+\centering
+\caption{Quantidade de órgãos gestores/instâncias respondentes segundo o Status Censo SUAS.}
+\label{tab:qtd_orgaos}
+\begin{tabular}{@{}lc@{}}
+\toprule
+Órgão/Instância      & Analisados após validação \\ \midrule
+Gestão Estadual      & 26                        \\
+Gestão Municipal*    & 5.481                     \\
+Conselhos Estaduais* & 27                        \\
+Conselhos Municipais & 5.359                     \\ \bottomrule
+\end{tabular}
+\fnote{Fonte: MDS, Censo SUAS.}
+\fnote{*O Distrito Federal responde aos questionários voltados à Gestão Municipal e aos Conselhos Estaduais.}
+\end{table}
+
+Seguindo o modelo utilizado desde o Censo SUAS 2013, a análise dos resultados do Censo SUAS 2016 compreende o SUAS como política social por meio dos componentes sistêmicos da PNAS, conforme seu estágio de institucionalização\footnote{Ver Jannuzzi (2014) para uma discussão sobre a estruturação de planos de avaliação de políticas e programas sociais a partir dos componentes sistêmicos das políticas públicas.}. Na tentativa de aprofundamento da compreensão global do SUAS, a exposição da análise do Censo SUAS será realizada de acordo com seis eixos de análise, a saber:
+
+\begin{itemize}
+  \item 
+\textbf{Gestão e Financiamento do Sistema Único de Assistência Social:} panorama geral da gestão e do financiamento em estados e municípios, com a observação de aspectos como a estrutura administrativa da gestão da assistência social, a atualização de normativos, o apoio de estados aos municípios, as atividades de cofinanciamento e transferência de recursos, funcionamento das instâncias de pactuação, entre outras.
+  \item 
+\textbf{Equipamentos da Assistência Social:} apresenta informações a respeito dos equipamentos da Assistência Social e sua evolução ao longo do tempo. Os equipamentos que prestam os atendimentos no âmbito da proteção social básica são os Centros de Referência de Assistência Social (CRAS) e os Centros de Convivência. No âmbito da proteção social especial, os serviços são prestados pelos Centros de Referência Especializados de Assistência Social (CREAS), Centros de Referência Especializados para População em Situação de Rua (Centros POP), Centros-Dia de Referência para Pessoa com Deficiência e suas Famílias e pelas Unidades de Acolhimento.
+  \item 
+\textbf{Recursos Humanos do SUAS:} apresenta um panorama geral da situação das trabalhadoras e trabalhadores do SUAS tanto nos equipamentos da assistência social quanto nas gestões municipais e estaduais, apresentando informações sobre quantitativo, tipo de vínculo trabalhista, escolaridade, entre outros aspectos referentes à gestão do trabalho, e sua evolução ao longo dos anos.
+  \item 
+\textbf{Serviços ofertados pelo SUAS:} expõe os serviços ofertados pela rede e as atividades desenvolvidas pelas unidades de atendimento.
+  \item 
+\textbf{Participação social no SUAS:} apresenta os resultados apurados pelo Censo SUAS para os Conselhos Municipais e Estaduais de Assistência Social, considerando a estrutura administrativa, a dinâmica de funcionamento e a composição
+  \item 
+\textbf{Indicadores de Desenvolvimento (IDs):} apresenta os resultados dos Indicadores de Desenvolvimento (IDs), uma das proposições da Vigilância Socioassistencial para o acompanhamento e avaliação do desenvolvimento de equipamentos e Conselhos Municipais de Assistência Social (CMAS). Os IDs buscam, por meio da análise de diversos critérios, agrupados em diferentes dimensões, promover o aprimoramento das ações a partir de seu monitoramento.
+\end{itemize}
+
+Espera-se que, a partir de uma avaliação com abordagem direcionada à análise integrada do SUAS e partindo dos dados dos órgãos de gestão das unidades de atendimento públicas e privadas e das instâncias administrativas e deliberativas, seja possível retratar o seu funcionamento e evolução como política social. Assim, amplia-se a compreensão acerca da rede de assistência social por parte dos gestores, trabalhadores e sociedade civil, permitindo uma apreensão crítica de seu funcionamento.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

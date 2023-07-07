@@ -1,0 +1,17 @@
+Variável;Descrição
+NU_IDENTIFICADOR;Número Identificador da Unidade no CadSUAS
+ident_nome;ident_nome - Nome que identifica a unidade
+ident_tplog;ident_tplog - Selecione o Tipo de Logradouro (avenida, rua, etc)
+ident_log;ident_log - Endereço
+ident_numero;ident_numero - Número
+ident_comp;ident_comp - Complemento
+ident_bairro;ident_bairro - Bairro
+ident_cep;ident_cep - CEP
+ident_municipio;ident_municipio - Município
+ident_uf;ident_uf - UF
+ident_email;ident_email_Email da Unidade
+ident_tel;ident_tel - DDD - Telefone
+ident_ramal;ident_ramal - Ramal
+ident_fax;ident_fax - FAX
+ident_dt_imp;ident_dt_imp - Data de Implantação da Unidade
+q25;q25_Descreva as atividades normalmente realizadas com os usuários dos Serviços de Convivência e Fortalecimento de Vínculos

@@ -1,0 +1,376 @@
+Variável;Descrição
+id_acolhimento;id_acolhimento_Número Identificador da Unidade
+IBGE7;Código IBGE com Dígito Verificador
+IBGE;Código IBGE do Município
+codigo_ibge;codigo_ibge
+Região;Grande Região
+UF;Unidade da Federação
+uf_s;Unidade da Federação
+Município;Nome do Município_Censo IBGE 2010
+Municipio_2013;Nome do Município_atualizado 2014
+area;Área Territorial Km2
+Pop_Total2010;População Total - Censo IBGE 2010
+Pop_Urbana2010;População Urbana - Censo IBGE 2010
+Pop_Rural2010;População Rural - Censo IBGE 2010
+Porte_pop2010;Porte Populacional SUAS - Censo IBGE 2010
+ident_1;ident_1_Nome_Nome da unidade
+ident_9;ident_9_Mun_Município
+ident_10;ident_10_UF_UF
+ident_11;ident_11_Email_E-mail
+ident_12;ident_12_Tel_DDD - Telefone
+ident_13;ident_13_Ramal
+ident_14;ident_14_FAX
+ident_15;ident_15_Data de Implantação da unidade
+p_latitude;Latitude
+p_longitude;Longitude
+q1.1;q1.1_Público Atendido
+q1.2;q1.2_Tipo de Unidade (Modalidade)
+q1.3;"q1.3_Caso tenha marcado ""Outros"" no tipo de unidade (modalidade). Informe qual?"
+q2;"q2_Esta Unidade é uma ""Casa Lar em Aldeia""?"
+q2.1;q2.1_Quantidade de Casas Lares na Aldeia
+q3;q3_Indique a natureza desta unidade:
+q4;q4_Em caso de Entidade Não Governamental, indique o CNPJ:
+q5_est;q5_Esta entidade possui convênio
+q5.1;q5.1_Se a Entidade possui convênio/termo de parceria_Sim, com o Estado (governo estadual)
+q5.2;q5.2_Se a Entidade possui convênio/termo de parceria_Sim, com o município no qual esta unidade se localiza (com a prefeitura na qual a sede da unidade se localiza
+q5.3;q5.3_Se a Entidade possui convênio/termo de parceria_Sim, com outros municípios
+q5.0;q5.0_Se a Entidade possui convênio/termo de parceria_Não
+q5.99;q5.99_Se a Entidade possui convênio/termo de parceria_Não sabe informar
+q6.1;q6.1_Conselho que possui inscrição/registro_Conselho de Assistência Social
+q6.2;q6.2_Conselho que possui inscrição/registro_Conselho de Direitos da Criança e Adolescente
+q6.3;q6.3_Conselho que possui inscrição/registro_Conselho dos Direitos do Idoso
+q6.4;q6.4_Conselho que possui inscrição/registro_Conselho de Saúde_recodificação da q6.99.1
+q6.0;q6.0_Conselho que possui inscrição/registro_Em nenhum Conselho
+q6.99;q6.99_Conselho que possui inscrição/registro_Outros
+q6.99.1;q6.99.1_Conselho que possui inscrição/registro_Outros.Qual?
+q7;q7_Dados provenientes da gestão estadual ou municipal:
+q8;q8_Em caso de unidades estaduais, esta unidade possui municípios vinculados conforme os parâmetros estabelecidos pela Resolução CIT nº 31/2013?
+q10.1.1;q10.1.1_Provisão da estrutura física_ Estado
+q10.1.2;q10.1.2_Provisão da estrutura física_Município Sede
+q10.1.3;q10.1.3_Provisão da estrutura física _Municípios Vinculados
+q10.1.0;q10.1.0_Provisão da estrutura física_Não possui/Não se aplica
+q10.2.1;q10.2.1_Provisão de equipamentos e materiais_ Estado
+q10.2.2;q10.2.2_Provisão de equipamentos e materiais_Município Sede
+q10.2.3;q10.2.3_Provisão de equipamentos e materiais_Municípios Vinculados
+q10.2.0;q10.2.0_Provisão de equipamentos e materiais_Não possui/Não se aplica
+q10.3.1;q10.3.1_Provisão de recursos humanos_ Estado
+q10.3.2;q10.3.2_Provisão de recursos humanos_Município Sede
+q10.3.3;q10.3.3_Provisão de recursos humanos_Municípios Vinculados
+q10.3.0;q10.3.0_Provisão de recursos humanos_Não possui/Não se aplica
+q10.4.1;q10.4.1_Provisão de transporte_ Estado
+q10.4.2;q10.4.2_Provisão de transporte_Município Sede
+q10.4.3;q10.4.3_Provisão de transporte_Municípios Vinculados
+q10.4.0;q10.4.0_Provisão de transporte_ Não possui/Não se aplica
+q11;q11_Qual a capacidade máxima para o atendimento (número de vagas) desta unidade?
+q12;q12_Quantas pessoas estão acolhidas na unidade neste momento (vagas ocupadas)?
+q13;q13_Nos últimos 12 meses, quantas crianças/adolescentes desta unidade retornaram às suas famílias de origem?
+q13.99;q13.99_Não Sabe_Nos últimos 12 meses, quantas crianças/adolescentes desta unidade retornaram às suas famílias de origem?
+q14.1.1;q14.1.1_Nos últimos 12 meses, quantas crianças/adolescentes desta unidade foram encaminhadas à famílias substitutas? - crianças/ adolescentes, mediante REINTEGRAÇAO
+q14.1.99;q14.1.99_Não sabe_Nos últimos 12 meses, quantas crianças/adolescentes desta unidade foram encaminhadas à famílias substitutas? - crianças/ adolescentes, mediante REINTEGRAÇAO
+q14.2.1;q14.2.1_Nos últimos 12 meses, quantas crianças/adolescentes desta unidade foram encaminhadas à famílias substitutas? - crianças/ adolescentes, mediante ADOÇÃO
+q14.2.99;q14.2.99_Não Sabe_Nos últimos 12 meses, quantas crianças/adolescentes desta unidade foram encaminhadas à famílias substitutas? - crianças/ adolescentes, mediante ADOÇÃO
+q15.1.1;q15.1.1_Perfil dos Acolhidos_Masculino - 0 a 2
+q15.1.2;q15.1.2_Perfil dos Acolhidos_Masculino - 3 a 5
+q15.1.3;q15.1.3_Perfil dos Acolhidos_Masculino - 6 a 11
+q15.1.4;q15.1.4_Perfil dos Acolhidos_Masculino - 12 a 13
+q15.1.5;q15.1.5_Perfil dos Acolhidos_Masculino - 14 a 15
+q15.1.6;q15.1.6_Perfil dos Acolhidos_Masculino - 16 a 17
+q15.1.7;q15.1.7_Perfil dos Acolhidos_Masculino - 18 a 21
+q15.1.8;q15.1.8_Perfil dos Acolhidos_Masculino - 22 a 59
+q15.1.9;q15.1.9_Perfil dos Acolhidos_Masculino - 60 a 79
+q15.1.10;q15.1.10_Perfil dos Acolhidos_Masculino - 80 ou mais
+q15.1.11;q15.1.11_Perfil dos Acolhidos_Masculino - Total
+q15.1.si;
+q15.2.1;q15.2.1_Perfil dos Acolhidos_Feminino - 0 a 2
+q15.2.2;q15.2.2_Perfil dos Acolhidos_Feminino - 3 a 5
+q15.2.3;q15.2.3_Perfil dos Acolhidos_Feminino - 6 a 11
+q15.2.4;q15.2.4_Perfil dos Acolhidos_Feminino - 12 a 13
+q15.2.5;q15.2.5_Perfil dos Acolhidos_Feminino - 14 a 15
+q15.2.6;q15.2.6_Perfil dos Acolhidos_Feminino - 16 a 17
+q15.2.7;q15.2.7_Perfil dos Acolhidos_Feminino - 18 a 21
+q15.2.8;q15.2.8_Perfil dos Acolhidos_Feminino - 22 a 59
+q15.2.9;q15.2.9_Perfil dos Acolhidos_Feminino - 60 a 79
+q15.2.10;q15.2.10_Perfil dos Acolhidos_Feminino - 80 ou mais
+q15.2.11;q15.2.11_Perfil dos Acolhidos_Feminino - Total
+q15.2.si;
+q16;q16_Qual o número máximo de pessoas (usuários) dormindo em um mesmo dormitório?
+q17;q17_Das pessoas atualmente acolhidas nesta unidade, quantas delas vieram encaminhadas de outro município? Quantidade de pessoas que vieram encaminhadas de outro município:
+q17.2;q17.2_Não Sabe informar_Das pessoas atualmente acolhidas nesta unidade, quantas delas vieram encaminhadas de outro município? Quantidade de pessoas que vieram encaminhadas de outro município:
+q18.1;q18.1_Quantidade de de idosos beneficiários do Benefício de Prestação Continuada ? BPC:
+q18.1.99;q18.1.99_Não Sabe informar_Quantidade de de idosos beneficiários do Benefício de Prestação Continuada ? BPC:
+q18.2;q18.2_Quantidade de Pessoas com Deficiência beneficiárias do BPC:
+q18.2.99;q18.2.99_Não Sabe informar_Quantidade de Pessoas com Deficiência beneficiárias do BPC:
+q19;q19_Quantidade de famílias beneficiárias do PBF:
+q19.99;q19.99_Não Sabe informar_Quantidade de famílias beneficiárias do PBF:
+q20.1;q20.1_Tempo de acolhimento - Menos de 1 mês
+q20.2;q20.2_Tempo de acolhimento - De 1 a 3 meses
+q20.3;q20.3_Tempo de acolhimento - De 4 a 6 meses
+q20.4;q20.4_Tempo de acolhimento - De 7 a 12 meses
+q20.5;q20.5_Tempo de acolhimento - De 13 a 24 meses
+q20.6;q20.6_Tempo de acolhimento - De 25 a 48 meses
+q20.7;q20.7_Tempo de acolhimento - De 49 a 72 meses
+q20.8;q20.8_Tempo de acolhimento - Mais de 72 meses (mais de 6 anos)
+q20.9;q20.9_Tempo de acolhimento - Total de pessoas acolhidas
+q20.si;q20.si_Tempo de acolhimento - Sem informação sobre tempo de acolhimento
+q21.1;q21.1_Características dos Acolhidos_Deficiência (Física/Sensorial/Intelectual)
+q21.1.1;q21.1.1_A Unidade aceita receber pessoas com estas características? - Deficiência
+q21.2;q21.2_Características dos Acolhidos_Doença Mental (Transtorno Mental)
+q21.2.1;q21.2.1_A Unidade aceita receber pessoas com estas características? - Doença Mental
+q21.3;q21.3_Características dos Acolhidos_Refugiado / Imigrante (pessoas de outro país)
+q21.3.1;q21.3.1_A Unidade aceita receber pessoas com estas características? - Refugiado / Imigrante
+q21.4;q21.4_Características dos Acolhidos_Travesti, Transexual, Transgênero
+q21.4.1;q21.4.1_A Unidade aceita receber pessoas com estas características? - Travesti, Transexual, Transgênero
+q21.5;q21.5_Características dos Acolhidos_Crianças e Adolescentes em cumprimento de Medidas Socioeducativas
+q21.5.1;q21.5.1_A Unidade aceita receber pessoas com estas características? - Crianças e Adolescentes em cumprimento de Medidas Socioeducativas
+q21.6;q21.6_Características dos Acolhidos_Trajetória de rua
+q21.6.1;q21.6.1_A Unidade aceita receber pessoas com estas características? - Trajetória de rua
+q21.7;q21.7_Características dos Acolhidos_Indígenas
+q21.7.1;q21.7.1_A Unidade aceita receber pessoas com estas características? - Indígenas
+q21.8;q21.8_Características dos Acolhidos_Outros Povos e comunidades tradicionais (quilombolas, ciganos, ribeirinhos, extrativistas, etc.)
+q21.8.1;q21.8.1_A Unidade aceita receber pessoas com estas características? - Outros Povos e comunidades tradicionais
+q21.9;q21.9_Características dos Acolhidos_Egressos do sistema prisional
+q21.9.1;q21.9.1_A Unidade aceita receber pessoas com estas características? - Egressos do sistema prisional
+q22.1;q22.1_Atividades_Visitas domiciliares da equipe técnica da Unidade à família do usuário
+q22.2;q22.2_Atividades_Reuniões com grupos de famílias dos usuários
+q22.3;q22.3_Atividades_Atendimento psicossocial individualizado
+q22.4;q22.4_Atividades_Atendimento psicossocial em grupos
+q22.5;q22.5_Atividades_Atendimento psicossocial das famílias das pessoas acolhidas (orientação familiar)
+q22.6;q22.6_Atividades_Palestras / oficinas
+q22.7;q22.7_Atividades_Elaboração de relatórios técnicos sobre casos em acompanhamento
+q22.8;q22.8_Atividades_Discussão de casos com outros profissionais da rede
+q22.9;q22.9_Atividades_Encaminhamento para retirada de documentos
+q22.10;q22.10_Atividades_Passeios com usuários
+q22.11;q22.11_Atividades_Promove contato e a participação da família na vida do usuário
+q22.12;q22.12_Atividades_Promove atividades com participação da Comunidade
+q22.13;q22.13_Atividades_Promove a participação das pessoas acolhidas em serviços, projetos ou atividades existentes na comunidade
+q22.14;q22.14_Atividades_Envio de relatório semestral para o Judiciário (exclusivo para acolhimento de criança/adolescente)
+q22.15;q22.15_Atividades_Acompanhamento Escolar
+q22.16;q22.16_Atividades_Organização e discussão das rotinas das Unidades com os acolhidos
+q22.0;q22.0_Atividades_Não realiza nenhuma das atividades acima
+q23;q23_A unidade possui Prontuário de atendimento?
+q24;q24_A unidade faz Plano Individual de Atendimento (PIA) de cada pessoa acolhida?
+q25;q25_Esta unidade oferta Serviço de Convivência e Fortalecimento de Vínculos para seus usuários?
+q26;q26_O serviço de Acolhimento prestado nesta unidade possui orientação religiosa?
+q27;q27_A unidade possui critérios de sexo para admissão dos usuários?
+q28;q28_Independentemente da existência de critérios de sexo e idade, a Unidade acolhe grupo de usuários com vínculos de parentesco?
+q29;q29_Com que frequência são permitidas visitas de familiares às pessoas acolhidas na Unidade?
+q30.1;q30.1_Acompanhamento após o desligamento_A própria unidade/serviço de acolhimento
+q30.2;q30.2_Acompanhamento após o desligamento_O CRAS
+q30.3;q30.3_Acompanhamento após o desligamento_O CREAS
+q30.98;q30.98_Acompanhamento após o desligamento_Outro
+q30.99;q30.99_Acompanhamento após o desligamento_Não sabe informar
+q30.0;q30.0_Acompanhamento após o desligamento_Não é realizado acompanhamento de egressos
+q31;q31_Por quanto tempo, em média, o usuário é acompanhado após seu desligamento?
+q32.1.1;q32.1.1_Articulação_Conselho Tutelar_Possui dados de localização (endereço, telefone, etc.)
+q32.1.2;q32.1.2_Articulação_Conselho Tutelar_Recebe usuários encaminhados por esta unidade
+q32.1.3;q32.1.3_Articulação_Conselho Tutelar_Encaminha usuários para esta unidade
+q32.1.4;q32.1.4_Articulação_Conselho Tutelar_Acompanha os encaminhamentos
+q32.1.5;q32.1.5_Articulação_Conselho Tutelar_Realiza reuniões periódicas
+q32.1.6;q32.1.6_Articulação_Conselho Tutelar_Troca informações
+q32.1.7;q32.1.7_Articulação_Conselho Tutelar_Realiza estudos de caso em conjunto
+q32.1.8;q32.1.8_Articulação_Conselho Tutelar_Desenvolve ativiades em parceria
+q32.1.0;q32.1.0_Articulação_Conselho Tutelar_Não tem nenhuma articulação
+q32.1.9;q32.1.9_Articulação_Conselho Tutelar_Serviço ou instituição não existente no Município ou no DF
+q32.2.1;q32.2.1_Articulação_CRAS_Possui dados de localização (endereço, telefone, etc.)
+q32.2.2;q32.2.2_Articulação_CRAS_Recebe usuários encaminhados por esta unidade
+q32.2.3;q32.2.3_Articulação_CRAS_Encaminha usuários para esta unidade
+q32.2.4;q32.2.4_Articulação_CRAS_Acompanha os encaminhamentos
+q32.2.5;q32.2.5_Articulação_CRAS_Realiza reuniões periódicas
+q32.2.6;q32.2.6_Articulação_CRAS_Troca informações
+q32.2.7;q32.2.7_Articulação_CRAS_Realiza estudos de caso em conjunto
+q32.2.8;q32.2.8_Articulação_CRAS_Desenvolve ativiades em parceria
+q32.2.0;q32.2.0_Articulação_CRAS_Não tem nenhuma articulação
+q32.2.9;q32.2.9_Articulação_CRAS_Serviço ou instituição não existente no Município ou no DF
+q32.3.1;q32.3.1_Articulação_CREAS_Possui dados de localização (endereço, telefone, etc.)
+q32.3.2;q32.3.2_Articulação_CREAS_Recebe usuários encaminhados por esta unidade
+q32.3.3;q32.3.3_Articulação_CREAS_Encaminha usuários para esta unidade
+q32.3.4;q32.3.4_Articulação_CREAS_Acompanha os encaminhamentos
+q32.3.5;q32.3.5_Articulação_CREAS_Realiza reuniões periódicas
+q32.3.6;q32.3.6_Articulação_CREAS_Troca informações
+q32.3.7;q32.3.7_Articulação_CREAS_Realiza estudos de caso em conjunto
+q32.3.8;q32.3.8_Articulação_CREAS_Desenvolve ativiades em parceria
+q32.3.0;q32.3.0_Articulação_CREAS_Não tem nenhuma articulação
+q32.3.9;q32.3.9_Articulação_CREAS_Serviço ou instituição não existente no Município ou no DF
+q32.4.1;q32.4.1_Articulação_Centro dia_Possui dados de localização (endereço, telefone, etc.)
+q32.4.2;q32.4.2_Articulação_Centro dia_Recebe usuários encaminhados por esta unidade
+q32.4.3;q32.4.3_Articulação_Centro dia_Encaminha usuários para esta unidade
+q32.4.4;q32.4.4_Articulação_Centro dia_Acompanha os encaminhamentos
+q32.4.5;q32.4.5_Articulação_Centro dia_Realiza reuniões periódicas
+q32.4.6;q32.4.6_Articulação_Centro dia_Troca informações
+q32.4.7;q32.4.7_Articulação_Centro dia_Realiza estudos de caso em conjunto
+q32.4.8;q32.4.8_Articulação_Centro dia_Desenvolve ativiades em parceria
+q32.4.0;q32.4.0_Articulação_Centro dia_Não tem nenhuma articulação
+q32.4.9;q32.4.9_Articulação_Centro dia_Serviço ou instituição não existente no Município ou no DF
+q32.5.1;q32.5.1_Articulação_Centro POP_Possui dados de localização (endereço, telefone, etc.)
+q32.5.2;q32.5.2_Articulação_Centro POP_Recebe usuários encaminhados por esta unidade
+q32.5.3;q32.5.3_Articulação_Centro POP_Encaminha usuários para esta unidade
+q32.5.4;q32.5.4_Articulação_Centro POP_Acompanha os encaminhamentos
+q32.5.5;q32.5.5_Articulação_Centro POP_Realiza reuniões periódicas
+q32.5.6;q32.5.6_Articulação_Centro POP_Troca informações
+q32.5.7;q32.5.7_Articulação_Centro POP_Realiza estudos de caso em conjunto
+q32.5.8;q32.5.8_Articulação_Centro POP_Desenvolve ativiades em parceria
+q32.5.0;q32.5.0_Articulação_Centro POP_Não tem nenhuma articulação
+q32.5.9;q32.5.9_Articulação_Centro POP_Serviço ou instituição não existente no Município ou no DF
+q32.6.1;q32.6.1_Articulação_Outros Acolhimentos_Possui dados de localização (endereço, telefone, etc.)
+q32.6.2;q32.6.2_Articulação_Outros Acolhimentos_Recebe usuários encaminhados por esta unidade
+q32.6.3;q32.6.3_Articulação_Outros Acolhimentos_Encaminha usuários para esta unidade
+q32.6.4;q32.6.4_Articulação_Outros Acolhimentos_Acompanha os encaminhamentos
+q32.6.5;q32.6.5_Articulação_Outros Acolhimentos_Realiza reuniões periódicas
+q32.6.6;q32.6.6_Articulação_Outros Acolhimentos_Troca informações
+q32.6.7;q32.6.7_Articulação_Outros Acolhimentos_Realiza estudos de caso em conjunto
+q32.6.8;q32.6.8_Articulação_Outros Acolhimentos_Desenvolve ativiades em parceria
+q32.6.0;q32.6.0_Articulação_Outros Acolhimentos_Não tem nenhuma articulação
+q32.6.9;q32.6.9_Articulação_Outros Acolhimentos_Serviço ou instituição não existente no Município ou no DF
+q33;q33_Considerando a vizinhança da Unidade, a área onde ela está localizada caracteriza-se como:
+q34;q34_O local onde funciona a Unidade é servido por transporte público (ônibus/trem/metrô/barcas)?
+q35.1;q35.1_Espaço Físico_Sala de administração
+q35.2;q35.2_Espaço Físico_Sala para reuniões
+q35.3;q35.3_Espaço Físico_Sala para atendimento técnico especializado (psicólogo, assistente social, etc.)
+q35.4;q35.4_Espaço Físico_Sala de estar, de convivência ou de outras atividades de grupo
+q35.5;q35.5_Espaço Físico_Dormitórios para os Usuários acolhidos
+q35.6;q35.6_Espaço Físico_Dormitórios para os Cuidadores
+q35.7;q35.7_Espaço Físico_Banheiros para os Usuários acolhidos
+q35.8;q35.8_Espaço Físico_Banheiros exclusivos para Funcionários
+q35.9;q35.9_Espaço Físico_Área de recreação interna
+q35.10;q35.10_Espaço Físico_Área de recreação externa
+q35.11;q35.11_Espaço Físico_Refeitório/Sala de Jantar
+q35.12;q35.12_Espaço Físico_Cozinha para preparo de alimentos
+q35.13;q35.13_Espaço Físico_Despensa
+q35.14;q35.14_Espaço Físico_Lavanderia
+q35.15;q35.15_Espaço Físico_Enfermaria
+q36.1;q36.1_Equipamentos_Geladeira
+q36.2;q36.2_Equipamentos_Freezer
+q36.3;q36.3_Equipamentos_Fogão
+q36.4;q36.4_Equipamentos_Forno/microondas
+q36.5;q36.5_Equipamentos_Máquina de lavar
+q36.6;q36.6_Equipamentos_Veículo de uso exclusivo
+q36.7;q36.7_Equipamentos_Veículo de uso compartilhado
+q36.8;q36.8_Equipamentos_Mobiliário específico para atender crianças
+q36.9;q36.9_Equipamentos_Mobiliário/materiais adequados para pessoas com deficiência ou dependência (Tecnologias Assistivas)
+q36.10;q36.10_Equipamentos_Acervo bibliográfico (livros)
+q36.11;q36.11_Equipamentos_Materiais pedagógicos e culturais
+q36.12;q36.12_Equipamentos_Materiais esportivos
+q36.13;q36.13_Equipamentos_Jogos educativos, jogos de passatempo, brinquedos
+q36.14;q36.14_Equipamentos_Mesas para estudo
+q36.15;q36.15_Equipamentos_Mesas de Jantar
+q36.16;q36.16_Equipamentos_Camas/Berços
+q36.16.1;q36.16.1_Equipamentos_Quantas Camas/Berços?
+q36.17;q36.17_Equipamentos_Armários para guarda individualizada de pertences
+q36.17.1;q36.17.1_Equipamentos_Quantos Armários?
+q36.18;q36.18_Equipamentos_Armários de uso coletivo dos usuários
+q36.19;q36.19_Equipamentos_Telefone
+q36.20;q36.20_Equipamentos_Computadores ligados à Internet
+q36.20.1;q36.20.1_Quantos Computadores ligados à internet?
+q36.21;q36.21_Equipamentos_Impressora
+q36.22;q36.22_Equipamentos_Equipamento de som
+q36.23;q36.23_Equipamentos_DVD/Vídeo Cassete
+q36.24;q36.24_Equipamentos_TV a cabo
+q36.25;q36.25_Equipamentos_Televisão
+q36.25.1;q36.25.1_Equipamentos_Quantas Televisões?
+q37.1;q37.1_Acessibilidade_Acesso principal adaptado com rampas e rota acessível desde a calçada até o interior da Unidade
+q37.2;q37.2_Acessibilidade_Rota acessível aos dormitórios e espaços de uso coletivo
+q37.3;q37.3_Acessibilidade_Rota acessível ao banheiro
+q37.4;q37.4_Acessibilidade_Banheiro adaptado para pessoas com deficiência e/ou mobilidade reduzida
+q38.1;q38.1_Outras acessibilidades_Sim, suporte de profissional com conhecimento em LIBRAS
+q38.2;q38.2_Outras acessibilidades_Sim, suporte de material em braille
+q38.3;q38.3_Outras acessibilidades_Sim, suporte para leitores de telas de computador para pessoas com deficiência visual
+q38.4;q38.4_Outras acessibilidades_Sim, outras adaptações e tecnologias assistivas para deficiência física
+q38.4.1;q38.4.1_Deficiência Física ? Qual?
+q38.5;q38.5_Outras acessibilidades_Sim, outras adaptações e tecnologias assistivas para deficiência intelectual e autismo
+q38.5.1;q38.5.1_Deficiência Intelectual e Autismo ? Qual?
+q38.6;q38.6_Outras acessibilidades_Sim, pisos especiais com relevos para sinalização voltados pessoa com deficiência visual
+q38.7;q38.7_Outras acessibilidades_Não há outras adaptações
+q39.1;q39.1_Capacitação_Deficiência
+q39.2;q39.2_Capacitação_Gênero
+q39.3;q39.3_Capacitação_População em situação de rua
+q39.4;q39.4_Capacitação_População LGBTI (Lésbicas, gays, bissexuais, transgêneros e intersexuais)
+q39.5;q39.5_Capacitação_População e comunidades tradicionais (indígenas, quilombolas, ribeirinhos, extrativistas, dentre outros)
+q39.6;q39.6_Capacitação_Álcool e outras drogas
+q39.7;q39.7_Capacitação_Raça e etnia
+q39.8;q39.8_Capacitação_Violências e violações de direitos
+q39.9;q39.9_Capacitação_Trabalho Infantil
+q39.10;q39.10_Capacitação_Infância/Juventude
+q39.11;q39.11_Capacitação_Envelhecimento
+q39.12;q39.12_Capacitação_Sistema Socioeducativo/Medida Socioeducativa/SINASE
+q39.13;q39.13_Capacitação_Direitos e cuidados com idosos [recodificação q39.99.1]
+q39.14;q39.14_Capacitação_Temas ligados à gestão de organizações da sociedade civil  [recodificação q39.99.1]
+q39.15;q39.15_Capacitação_Saúde física e mental  [recodificação q39.99.1]
+q39.0;q39.0_Capacitação_Não participou de capacitação
+q39.99;q39.99_Capacitação_Outros
+q39.99.1;q39.99.1_Capacitação_Outros_Especifique
+q40;q40_Nesta unidade, algum profissional já participou de algum curso do CAPACITASUAS?
+q40.1;q40.1_Nesta unidade, algum profissional já participou de algum curso do CAPACITASUAS?_Quantos?
+q41;q41_O coordenador desta Unidade de Acolhimento:
+q43;q43_Indique a forma pela qual as informações deste questionário foram coletadas:
+q44.3;q44.3_Responsável na Unidade_Data:
+q44.4;q44.4_Responsável na Unidade_Cargo/Função:
+q45.3;q45.3_Responsável no Órgão Gestor_Data
+q45.4;q45.4_Responsável no Órgão Gestor ? Cargo/Função
+Dident15;Dident15_Tempo de Implantação da Unidade
+Dident15.2;Dident15_2_Tempo de Implantação da Unidade
+D1_crianca;D1_crianca_Público criança e adolescente (q1=315 | q1=317)
+D1_crianca_jovem;D1_crianca_Público criança, adolescente e jovens egressos (q1=315 | q1=316 | q1=317)
+D11;D11_Capacidade máxima para atendimento (numero de vagas) da unidade
+D12;D12_Quantas pessoas estão acolhidas na unidade (número de vagas ocupadas)
+D13;D13_Quantas crianças/adolescentes desta unidade retornaram às suas famílias de origem
+D14.1.1;D14.1.1_Quantas crianças/adolescentes foram encaminhadas a famílias substitutas - mediante REINTEGRAÇÂO
+D14.2.1;D14.2.1_Quantas crianças/adolescentes foram encaminhadas a famílias substitutas - mediante ADOÇÃO
+D15_M_0a5;D15.1_M_0a5_Quantidade de pessoas acolhidas: Masculino - 0 a 5
+D15_F_0a5;D15.1_F_0a5_Quantidade de pessoas acolhidas: Feminino - 0 a 5
+D15_0a5;D15.1_0a5_Quantidade de pessoas acolhidas: Total - 0 a 5
+D15_M_0a17;D15.1_M_0a17_Quantidade de pessoas acolhidas: Masculino - 0 a 17
+D15_F_0a17;D15.1_F_0a17_Quantidade de pessoas acolhidas: Feminino - 0 a 17
+D15_0a17;D15.1_0a17_Quantidade de pessoas acolhidas: Total - 0 a 17
+D15_M_60oumais;D15.1_M_60oumais_Quantidade de pessoas acolhidas: Masculino - 0 a 17
+D15_F_60oumais;D15.1_F_60oumais_Quantidade de pessoas acolhidas: Feminino - 0 a 17
+D15_60oumais;D15.1_60oumais_Quantidade de pessoas acolhidas: Total - 0 a 17
+D15.1;
+D15.2;
+D15.3;
+D15.4;
+D15.5;
+D15.6;
+D15.7;
+D15.8;
+D15.9;
+D15.10;
+D15.11;
+D15.11.si;
+D15.M;
+D15.F;
+D15.si;
+D16;D16_Numero máximo de pessoas dormindo em um mesmo dormitório
+D17;D17_Das pessoas atualmente acolhidas nesta unidade, quantas delas vieram encaminhadas de outro município
+D18.1;D18.1_Quantidade de Idosos beneficiários do BPC
+D18.2;D18.2_Quantidade de Pessoas com deficiência beneficiários do BPC
+D19;D19_Quantidade de famílias beneficiárias do PBF
+D21.1;D21.1_Unidades com pelo menos 1 acolhido com Deficiência (física/sensorial/intelectual
+D21.2;D21.2_Unidades com pelo menos 1 acolhido com Doença Mental (Transtorno Mental)
+D21.3;D21.3_Unidades com pelo menos 1 acolhido Refugiado/Imigrante (pessoas de outro país)
+D21.4;D21.4_Unidades com pelo menos 1 acolhidoTravesti, Transexual ou transgênero
+D21.5;D21.5_Unidades com pelo menos 1 acolhido Adolescentes em cumprimento de Medidas Socioeducativas
+D21.6;D21.6_Unidades com pelo menos 1 acolhido Trajetória de rua
+D21.7;D21.7_Unidades com pelo menos 1 acolhido Indígena
+D21.8;D21.8_Unidades com pelo menos 1 acolhido Outros Povos e comunidades tradicionais
+D21.9;D21.9_Unidades com pelo menos 1 acolhido Egressos do sistema prisional
+D36.16.1;Quantas Camas/Berços?
+D36.17.1;Quantos Armários?
+D36.25.1;Quantas Televisões?
+D36.20.1;Quantos Computadores ligados à internet?
+D42_sum;
+D42.9bin1_sum;
+D42.9bin2_sum;
+D42.9bin3_sum;
+D42.10bin1_sum;
+D42.10bin2_sum;
+D42.10bin3_sum;
+D42.10bin4_sum;
+D42.10bin5_sum;
+D42.10bin6_sum;
+D42.10bin7_sum;
+D42.10bin8_sum;
+D42.11bin1_sum;
+D42.11bin2_sum;
+D42.11bin3_sum;
+D42.11bin4_sum;
+D42.11bin5_sum;

@@ -1,0 +1,38 @@
+VARIÁVEL;NOME DA VARIÁVEL
+NU_IDENTIFICADOR;id_convivencia
+IBGE;Código IBGE do Município
+IBGE7;Código IBGE com Dígito Verificador
+Região;Grande Região
+UF;Unidade da Federação
+uf_s;Unidade da Federação
+Município;Nome do Município_Censo IBGE 2010
+Municipio_2013;Nome do Município_atualizado 2014
+area;Área Territorial Km2
+Pop_Total2010;População Total - Censo IBGE 2010
+Pop_Urbana2010;População Urbana - Censo IBGE 2010
+Pop_Rural2010;População Rural - Censo IBGE 2010
+Porte_pop2010;Porte Populacional SUAS - Censo IBGE 2010
+q23_2;Data de nascimento
+q23_3;SEXO
+q23_9;Escolaridade
+q23_10;Profissão
+q23_11;Vínculo
+q23_12;Função
+q23_13;Carga horária SEMANAL
+q23_14;Início do exercício da função
+D23_2;Idade em anos (data ref. 31-12-2016)
+d23_2_categoria;D23_2_categoria_Idade (faixas etárias)
+d23_9;d23_9_Níveis de escolaridade
+d23_11;d23_11_Tipo de vínculo
+d23_9bin1;d23_9bin1_Nível fundamental - trabalhadores que possuem até o nível médio (inclui aqueles sem escolaridade)
+d23_9bin2;d23_9bin2_Nível médio - trabalhadores com ensino superior incompleto e ensino médio completo
+d23_9bin3;d23_9bin3_Nível superior - inclui trabalhadores graduados, com especialização, mestrado ou doutorado
+d23_10bin1;d23_10bin1_Pedagogo
+d23_10bin2;d23_10bin2_Assistente Social
+d23_10bin3;d23_10bin3_Antropólogo
+d23_10bin4;d23_10bin4_Advogado
+d23_10bin5;d23_10bin5_Psicólogo
+d23_11bin1;d23_11bin1_Servidor Estatutário
+d23_11bin2;d23_11bin2_Empregado Público (CLT)
+d23_11bin3;d23_11bin3_Comissionado
+d23_11bin4;"d23_11bin4_Outros vínculos não permanentes - inclui Trabalhador de Empresas/Cooperativa/Entidade Prestadora de Serviços; Voluntários; Servidor Temporário; Sem vínculo; Terceirizado e Outro vínculo não permanente"
