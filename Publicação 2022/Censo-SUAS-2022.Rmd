@@ -21,6 +21,10 @@ header-includes:
 ---
 
 ```{r setup, include=FALSE}
+Sys.setlocale("LC_ALL","Portuguese_Brazil.utf8")
+
+library(knitr)
+
 knitr::opts_chunk$set(echo = FALSE)
 
 lista.de.pacotes = c("tinytex","tidyverse","lubridate","janitor","readxl","stringr","repmis","survey","srvyr","scales","export","ggrepel","renv") # escreva a lista de pacotes
@@ -32,8 +36,6 @@ rm(lista.de.pacotes,novos.pacotes)
 gc()
 
 #writeLines(knitr::knit_child('Censo2017.Rnw'), 'Censo2017.tex')
-
-Sys.setlocale("LC_ALL","Portuguese_Brazil.utf8")
 
 ```
 
@@ -62,7 +64,7 @@ Nesta edição, o Censo levantou dados de Centros de Referência de Assistência
 
 A consolidação das análises disponibilizadas nessa publicação reflete o esforço contínuo de aperfeiçoamento da cobertura do levantamento das informações, realizado conjuntamente pela Secretaria Nacional de Assistência Social (SNAS) e pela Secretaria de Avaliação e Gestão da Informação (SAGI). Esperamos que os resultados apresentados possam continuar contribuindo para subsidiar o debate qualificado e construtivo a respeito do SUAS e resulte em seu aprimoramento.
 
-André Quintão
+Maria do Carmo Brant de Carvalho
 
 Secretária Nacional de Assistência Social
 
@@ -227,7 +229,7 @@ Seguindo o modelo utilizado desde o Censo SUAS 2013, a análise dos resultados d
 
 * **Gestão e Financiamento do Sistema Único de Assistência Social:** panorama geral da gestão e do financiamento em estados e municípios, com a observação de aspectos como a estrutura administrativa da gestão da assistência social, a atualização de normativos, o apoio de estados aos municípios, as atividades de cofinanciamento e transferência de recursos, funcionamento das instâncias de pactuação, entre outras.
 
-* **Equipamentos serviços e benefícios da Assistência Social:** apresenta informações a respeito dos equipamentos da Assistência Social e sua evolução ao longo do tempo. Os equipamentos que prestam os atendimentos no âmbito da proteção social básica são os Centros de Referência de Assistência Social (CRAS) e os Centros de Convivência. No âmbito da proteção social especial, os serviços são prestados pelos Centros de Referência Especializados de Assistência Social (CREAS), Centros de Referência Especializados para População em Situação de Rua (Centros POP), Centros-Dia de Referência para Pessoa com Deficiência e suas Famílias e pelas Unidades de Acolhimento.
+* **Equipamentos da Assistência Social:** apresenta informações a respeito dos equipamentos da Assistência Social e sua evolução ao longo do tempo. Os equipamentos que prestam os atendimentos no âmbito da proteção social básica são os Centros de Referência de Assistência Social (CRAS) e os Centros de Convivência. No âmbito da proteção social especial, os serviços são prestados pelos Centros de Referência Especializados de Assistência Social (CREAS), Centros de Referência Especializados para População em Situação de Rua (Centros POP), Centros-Dia de Referência para Pessoa com Deficiência e suas Famílias e pelas Unidades de Acolhimento.
 
 * **Recursos Humanos do SUAS:** apresenta um panorama geral da situação das trabalhadoras e trabalhadores do SUAS tanto nos equipamentos da assistência social quanto nas gestões municipais e estaduais, apresentando informações sobre quantitativo, tipo de vínculo trabalhista, escolaridade, entre outros aspectos referentes à gestão do trabalho, e sua evolução ao longo dos anos.
 
@@ -241,11 +243,11 @@ Espera-se que, a partir de uma avaliação com abordagem direcionada à análise
 
 ```{r, warning=FALSE, message = FALSE, cache=TRUE}
 
-ge_2010 <- read_excel("../Censo SUAS 2010/Gestão Estadual/Censo SUAS 2010_Gestão Estadual_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2010 Gestão Estadual")
+#ge_2010 <- read_excel("../Censo SUAS 2010/Gestão Estadual/Censo SUAS 2010_Gestão Estadual_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2010 Gestão Estadual")
 
-ge_2011 <- read_excel("../Censo SUAS 2011/GESTÃO ESTADUAL/Censo SUAS 2011_Gestão_Estadual_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2011 Gestão Estadual")
+#ge_2011 <- read_excel("../Censo SUAS 2011/GESTÃO ESTADUAL/Censo SUAS 2011_Gestão_Estadual_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2011 Gestão Estadual")
 
-ge_2012 <- read_excel("../Censo SUAS 2012/Gestão Estadual+DF/Censo SUAS 2012_GestaoEstadual+DF_divulgação.xlsx", sheet = "CensoSUAS2012 GestãoEstadual+DF")
+#ge_2012 <- read_excel("../Censo SUAS 2012/Gestão Estadual+DF/Censo SUAS 2012_GestaoEstadual+DF_divulgação.xlsx", sheet = "CensoSUAS2012 GestãoEstadual+DF")
 
 ge_2013 <- read_excel("../Censo SUAS 2013/Gestão Estadual/Censo_SUAS_2013_Gestão_Estadual_Dados_Gerais_Divulgação.xlsx", sheet = "Gestão Estadual 2013")
 
@@ -256,6 +258,8 @@ ge_2015 <- read_excel("../Censo SUAS 2015/Gestão Estadual/Censo_SUAS_2015_Gest�
 ge_2016 <- read_excel("../Censo SUAS 2016/Gestão Estadual/Censo SUAS Gestão Estadual_2016_DIVULGAÇÃO.xlsx", sheet = "Censo Gestão Estadual 2016")
 
 ge_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Gestão_Estadual/Censo SUAS 2017_Gestão Estadual_divulgação.xlsx", sheet = "Base de dados")
+
+ge_2022 <- read_excel("../Censo SUAS 2022/10 - GESTAO ESTADUAL/Censo_SUAS_2022_Gestão_Municipal_Dados_gerais.xlsx", sheet = "Sheet1")
 
 gm_2010 <- read_excel("../Censo SUAS 2010/Gestão Municipal/Censo SUAS 2010_Gestão Municipal_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2010 GestãoMunicipal")
 
@@ -275,59 +279,61 @@ gm_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Gestão_Municipal/Cens
 
 cras_2010 <- read_excel("../Censo SUAS 2010/CRAS/Censo SUAS 2010_CRAS_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2010 CRAS")
 
-cras_2011 <- read_excel("../Censo SUAS 2011/CRAS/Censo SUAS 2011_CRAS_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2011 CRAS")
+#cras_2011 <- read_excel("../Censo SUAS 2011/CRAS/Censo SUAS 2011_CRAS_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2011 CRAS")
 
-cras_2012 <- read_excel("../Censo SUAS 2012/CRAS/Censo SUAS 2012_CRAS_dados_gerais_2012_divulgação.xlsx", sheet = "Censo SUAS 2012 - CRAS")
+#cras_2012 <- read_excel("../Censo SUAS 2012/CRAS/Censo SUAS 2012_CRAS_dados_gerais_2012_divulgação.xlsx", sheet = "Censo SUAS 2012 - CRAS")
 
-crasrh_2012 <- read_excel("../Censo SUAS 2012/CRAS/Censo SUAS 2012_CRAS RH_2012_base_divulgação.xlsx", sheet = "CRAS RH - CensoSUAS2012")
+#crasrh_2012 <- read_excel("../Censo SUAS 2012/CRAS/Censo SUAS 2012_CRAS RH_2012_base_divulgação.xlsx", sheet = "CRAS RH - CensoSUAS2012")
 
-cras_2013 <- read_excel("../Censo SUAS 2013/CRAS/Censo_SUAS_2013_CRAS_Dados_Gerais_Divulgação.xlsx", sheet = "CRAS 2013")
+#cras_2013 <- read_excel("../Censo SUAS 2013/CRAS/Censo_SUAS_2013_CRAS_Dados_Gerais_Divulgação.xlsx", sheet = "CRAS 2013")
 
-crasrh_2013 <- read_excel("../Censo SUAS 2013/CRAS/Censo_SUAS_2013_CRAS_RH_Divulgação.xlsx", sheet = "CRAS RH 2013")
+#crasrh_2013 <- read_excel("../Censo SUAS 2013/CRAS/Censo_SUAS_2013_CRAS_RH_Divulgação.xlsx", sheet = "CRAS RH 2013")
 
-cras_2014 <- read_excel("../Censo SUAS 2014/CRAS/Bases de Dados/CensoSUAS2014_CRAS_DadosGerais_Divulgação.xlsx", sheet = "CRAS Dados Gerais 2014")
+#cras_2014 <- read_excel("../Censo SUAS 2014/CRAS/Bases de Dados/CensoSUAS2014_CRAS_DadosGerais_Divulgação.xlsx", sheet = "CRAS Dados Gerais 2014")
 
-crasrh_2014 <- read_excel("../Censo SUAS 2014/CRAS/Bases de Dados/CensoSUAS2014_CRAS_RH_RETIFICADA_Divulgação.xlsx", sheet = "CRAS RH 2014")
+#crasrh_2014 <- read_excel("../Censo SUAS 2014/CRAS/Bases de Dados/CensoSUAS2014_CRAS_RH_RETIFICADA_Divulgação.xlsx", sheet = "CRAS RH 2014")
 
-cras_2015 <- read_excel("../Censo SUAS 2015/CRAS/CensoSUAS_2015_CRAS_dadosgerais_divulgacao.xlsx", sheet = "Censo CRAS 2015")
+#cras_2015 <- read_excel("../Censo SUAS 2015/CRAS/CensoSUAS_2015_CRAS_dadosgerais_divulgacao.xlsx", sheet = "Censo CRAS 2015")
 
-crasrh_2015 <- read_excel("../Censo SUAS 2015/CRAS/CensoSUAS_2015_CRAS_RH_divulgacao.xlsx", sheet = "Censo CRAS RH 2015")
+#crasrh_2015 <- read_excel("../Censo SUAS 2015/CRAS/CensoSUAS_2015_CRAS_RH_divulgacao.xlsx", sheet = "Censo CRAS RH 2015")
 
 cras_2016 <- read_excel("../Censo SUAS 2016/CRAS/Censo SUAS_CRAS_DadosGerais_DIVULGAÇÃO.xlsx", sheet = "Censo CRAS 2016")
 
-crasrh_2016 <- read_excel("../Censo SUAS 2016/CRAS/Censo SUAS_CRAS_RH_DIVULGAÇÃO.xlsx", sheet = "Censo CRAS RH 2016")
+#crasrh_2016 <- read_excel("../Censo SUAS 2016/CRAS/Censo SUAS_CRAS_RH_DIVULGAÇÃO.xlsx", sheet = "Censo CRAS RH 2016")
 
-cras_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_CRAS/Censo SUAS 2017_CRAS_divulgacao.xlsx", sheet = "Base de dados")
+#cras_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_CRAS/Censo SUAS 2017_CRAS_divulgacao.xlsx", sheet = "Base de dados")
 
-crasrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_CRAS/Censo SUAS 2017_CRAS_RH_divulgacao.xlsx", sheet = "Base de dados")
+#crasrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_CRAS/Censo SUAS 2017_CRAS_RH_divulgacao.xlsx", sheet = "Base de dados")
 
-creas_2010 <- read_excel("../Censo SUAS 2010/CREAS/Censo SUAS 2010_CREAS_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2010 CREAS")
+cras_2022 <- read_excel("../Censo SUAS 2022/1_CRAS/Censo_SUAS_2022_CRAS_Dados_Gerais_Divulgação.xlsx", sheet = "Sheet1")
 
-creas_2011 <- read_excel("../Censo SUAS 2011/CREAS/Censo SUAS 2011_CREAS_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2011 CREAS")
+#creas_2010 <- read_excel("../Censo SUAS 2010/CREAS/Censo SUAS 2010_CREAS_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2010 CREAS")
 
-creas_2012 <- read_excel("../Censo SUAS 2012/CREAS/Censo SUAS 2012_CREAS_dados_gerais_2012_divulgação.xlsx", sheet = "Censo SUAS 2012 CREAS")
+#creas_2011 <- read_excel("../Censo SUAS 2011/CREAS/Censo SUAS 2011_CREAS_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2011 CREAS")
 
-creasrh_2012 <- read_excel("../Censo SUAS 2012/CREAS/Censo SUAS 2012_CREAS_RH_2012_divulgação.xlsx", sheet = "CREAS RH - CensoSUAS2012")
+#creas_2012 <- read_excel("../Censo SUAS 2012/CREAS/Censo SUAS 2012_CREAS_dados_gerais_2012_divulgação.xlsx", sheet = "Censo SUAS 2012 CREAS")
 
-creas_2013 <- read_excel("../Censo SUAS 2013/CREAS/Censo_SUAS_2013_CREAS_Dados_Gerais_Divulgação_11-04-2014_retificado q55_e_q56.xlsx", sheet = "CREAS 2013")
+#creasrh_2012 <- read_excel("../Censo SUAS 2012/CREAS/Censo SUAS 2012_CREAS_RH_2012_divulgação.xlsx", sheet = "CREAS RH - CensoSUAS2012")
 
-creasrh_2013 <- read_excel("../Censo SUAS 2013/CREAS/Censo_SUAS_2013_CREAS_RH_Divulgação.xlsx", sheet = "CREAS RH 2013")
+#creas_2013 <- read_excel("../Censo SUAS 2013/CREAS/Censo_SUAS_2013_CREAS_Dados_Gerais_Divulgação_11-04-2014_retificado q55_e_q56.xlsx", sheet = "CREAS 2013")
 
-creas_2014 <- read_excel("../Censo SUAS 2014/CREAS/Bases de Dados/CensoSUAS2014_CREAS_DadosGerais_Divulgação.xlsx", sheet = "CREAS Dados Gerais 2014")
+#creasrh_2013 <- read_excel("../Censo SUAS 2013/CREAS/Censo_SUAS_2013_CREAS_RH_Divulgação.xlsx", sheet = "CREAS RH 2013")
 
-creasrh_2014 <- read_excel("../Censo SUAS 2014/CREAS/Bases de Dados/CensoSUAS2014_CREAS_RH_Divulgação.xlsx", sheet = "CREAS RH 2014")
+#creas_2014 <- read_excel("../Censo SUAS 2014/CREAS/Bases de Dados/CensoSUAS2014_CREAS_DadosGerais_Divulgação.xlsx", sheet = "CREAS Dados Gerais 2014")
 
-creas_2015 <- read_excel("../Censo SUAS 2015/CREAS/CensoSUAS2015_CREAS_DadosGerais_Divulgação.xlsx", sheet = "Censo CREAS 2015")
+#creasrh_2014 <- read_excel("../Censo SUAS 2014/CREAS/Bases de Dados/CensoSUAS2014_CREAS_RH_Divulgação.xlsx", sheet = "CREAS RH 2014")
 
-creasrh_2015 <- read_excel("../Censo SUAS 2015/CREAS/CensoSUAS2015_CREAS_RH_Divulgação.xlsx", sheet = "Censo CREAS RH 2015")
+#creas_2015 <- read_excel("../Censo SUAS 2015/CREAS/CensoSUAS2015_CREAS_DadosGerais_Divulgação.xlsx", sheet = "Censo CREAS 2015")
 
-creas_2016 <- read_excel("../Censo SUAS 2016/CREAS/Censo SUAS CREAS_DadosGerais_2016_DIVULGAÇÃO.xlsx", sheet = "Censo CREAS 2016")
+#creasrh_2015 <- read_excel("../Censo SUAS 2015/CREAS/CensoSUAS2015_CREAS_RH_Divulgação.xlsx", sheet = "Censo CREAS RH 2015")
 
-creasrh_2016 <- read_excel("../Censo SUAS 2016/CREAS/Censo SUAS CREAS_RH_2016_DIVULGAÇÃO.xlsx", sheet = "Censo CREAS RH 2016")
+#creas_2016 <- read_excel("../Censo SUAS 2016/CREAS/Censo SUAS CREAS_DadosGerais_2016_DIVULGAÇÃO.xlsx", sheet = "Censo CREAS 2016")
 
-creas_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_CREAS/Censo SUAS 2017_CREAS_divulgacao.xlsx", sheet = "Base de dados")
+#creasrh_2016 <- read_excel("../Censo SUAS 2016/CREAS/Censo SUAS CREAS_RH_2016_DIVULGAÇÃO.xlsx", sheet = "Censo CREAS RH 2016")
 
-creasrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_CREAS/Censo SUAS 2017_CREAS_RH_divulgacao.xlsx", sheet = "Base de dados")
+#creas_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_CREAS/Censo SUAS 2017_CREAS_divulgacao.xlsx", sheet = "Base de dados")
+
+#creasrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_CREAS/Censo SUAS 2017_CREAS_RH_divulgacao.xlsx", sheet = "Base de dados")
 
 cest_2010 <- read_excel("../Censo SUAS 2010/Conselho Estadual/Censo SUAS 2010_Conselho Estadual_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2010 Cons. Estadual")
 
@@ -335,27 +341,27 @@ cest_2011 <- read_excel("../Censo SUAS 2011/CONSELHOS ESTADUAIS/Censo SUAS 2011_
 
 cest_2012 <- read_excel("../Censo SUAS 2012/Conselho Estadual/Censo SUAS 2012_ConselhoEstadual_dadosgerais_divulgação.xlsx", sheet = "CensoSUAS2012 ConselhoEstadual")
 
-cestrh_2012 <- read_excel("../Censo SUAS 2012/Conselho Estadual/Censo SUAS 2012_ConselhoEstadual_RH_divulgação.xlsx", sheet = "Censo2012 ConselhoEstadual RH")
+#cestrh_2012 <- read_excel("../Censo SUAS 2012/Conselho Estadual/Censo SUAS 2012_ConselhoEstadual_RH_divulgação.xlsx", sheet = "Censo2012 ConselhoEstadual RH")
 
 cest_2013 <- read_excel("../Censo SUAS 2013/Conselho Estadual/Censo_SUAS_2013_Conselho_Estadual_Dados_Gerais_Divulgação.xlsx", sheet = "Conselho Estadual 2013")
 
-cestrh_2013 <- read_excel("../Censo SUAS 2013/Conselho Estadual/Censo_SUAS_2013_Conselho_Estadual_RH_Divulgação.xlsx", sheet = "Conselho Estadual RH 2013")
+#cestrh_2013 <- read_excel("../Censo SUAS 2013/Conselho Estadual/Censo_SUAS_2013_Conselho_Estadual_RH_Divulgação.xlsx", sheet = "Conselho Estadual RH 2013")
 
 cest_2014 <- read_excel("../Censo SUAS 2014/Conselho Estadual/Bases de Dados/CensoSUAS2014_ConselhoEstadual_DadosGerais_Divulgação.xlsx", sheet = "Conselho Estadual 2014")
 
-cestrh_2014 <- read_excel("../Censo SUAS 2014/Conselho Estadual/Bases de Dados/CensoSUAS2014_ConselhoEstadual_RH_Divulgação.xlsx", sheet = "Conselho Estadual RH 2014")
+#cestrh_2014 <- read_excel("../Censo SUAS 2014/Conselho Estadual/Bases de Dados/CensoSUAS2014_ConselhoEstadual_RH_Divulgação.xlsx", sheet = "Conselho Estadual RH 2014")
 
 cest_2015 <- read_excel("../Censo SUAS 2015/Conselho Estadual/Censo SUAS 2015_Conselho Estadual_Dados Gerais_divulgação.xlsx", sheet = "CensoSUAS2015 ConselhoEstadual")
 
-cestrh_2015 <- read_excel("../Censo SUAS 2015/Conselho Estadual/Censo SUAS 2015_Conselho Estadual_RH_divulgação.xlsx", sheet = "CensoSUAS2015ConselhoEstadualRH")
+#cestrh_2015 <- read_excel("../Censo SUAS 2015/Conselho Estadual/Censo SUAS 2015_Conselho Estadual_RH_divulgação.xlsx", sheet = "CensoSUAS2015ConselhoEstadualRH")
 
 cest_2016 <- read_excel("../Censo SUAS 2016/Conselho/Estadual/Censo SUAS 2016_Conselho_Estadual_Dados Gerais_Divulgação.xlsx", sheet = "Censo SUAS 2016 Conselho Est DG")
 
-cestrh_2016 <- read_excel("../Censo SUAS 2016/Conselho/Estadual/Censo SUAS 2016_Conselho Estadual_RH_Divulgação.xlsx", sheet = "Censo SUAS 2016_Conselho Est RH")
+#cestrh_2016 <- read_excel("../Censo SUAS 2016/Conselho/Estadual/Censo SUAS 2016_Conselho Estadual_RH_Divulgação.xlsx", sheet = "Censo SUAS 2016_Conselho Est RH")
 
 cest_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Conselho_Estadual/Censo SUAS 2017_Conselho Estadual.xlsx", sheet = "Base de dados")
 
-cestrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Conselho_Estadual/Censo SUAS_RH_Conselhos Estaduais.xlsx", sheet = "Base de dados")
+#cestrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Conselho_Estadual/Censo SUAS_RH_Conselhos Estaduais.xlsx", sheet = "Base de dados")
 
 cmun_2010 <- read_excel("../Censo SUAS 2010/Conselho Municipal/Censo SUAS 2010_Conselho Municipal_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2010 Cons. Municipal")
 
@@ -363,115 +369,115 @@ cmun_2011 <- read_excel("../Censo SUAS 2011/CONSELHOS MUNICIPAIS E DF/Censo SUAS
 
 cmun_2012 <- read_excel("../Censo SUAS 2012/Conselho Municipal+DF/Censo SUAS 2012_ConselhoMunicipal+DF_dadosgerais_divulgação.xlsx", sheet = "CensoSUAS2012 ConselhoMunicipal")
 
-cmunrh_2012 <- read_excel("../Censo SUAS 2012/Conselho Municipal+DF/Censo SUAS 2012_ConselhoMunicipal+DF_RH_divulgação.xlsx", sheet = "Censo2012 ConselhoMunicipal RH")
+#cmunrh_2012 <- read_excel("../Censo SUAS 2012/Conselho Municipal+DF/Censo SUAS 2012_ConselhoMunicipal+DF_RH_divulgação.xlsx", sheet = "Censo2012 ConselhoMunicipal RH")
 
 cmun_2013 <- read_excel("../Censo SUAS 2013/Conselho Municipal/Censo_SUAS_2013_Conselho_Municipal_Dados Gerais_Divulgação.xlsx", sheet = "Conselho Municipal 2013")
 
-cmunrh_2013 <- read_excel("../Censo SUAS 2013/Conselho Municipal/Censo_SUAS_2013_Conselho_Municipal_RH_Divulgação.xlsx", sheet = "Conselho Municipal RH 2013")
+#cmunrh_2013 <- read_excel("../Censo SUAS 2013/Conselho Municipal/Censo_SUAS_2013_Conselho_Municipal_RH_Divulgação.xlsx", sheet = "Conselho Municipal RH 2013")
 
 cmun_2014 <- read_excel("../Censo SUAS 2014/Conselho Municipal/Bases de Dados/CensoSUAS2014_ConselhoMunicipal_DadosGerais_Divulgação.xlsx", sheet = "Conselho Municipal 2014")
 
-cmunrh_2014 <- read_excel("../Censo SUAS 2014/Conselho Municipal/Bases de Dados/CensoSUAS2014_ConselhoMunicipal_RH_Divulgação.xlsx", sheet = "Conselho Municipal RH 2014")
+#cmunrh_2014 <- read_excel("../Censo SUAS 2014/Conselho Municipal/Bases de Dados/CensoSUAS2014_ConselhoMunicipal_RH_Divulgação.xlsx", sheet = "Conselho Municipal RH 2014")
 
 cmun_2015 <- read_excel("../Censo SUAS 2015/Conselho Municipal/Censo SUAS 2015_Conselho Municipal_Dados Gerais_divulgação.xlsx", sheet = "CensoSUAS2015 ConselhoMunicipal")
 
-cmunrh_2015 <- read_excel("../Censo SUAS 2015/Conselho Municipal/Censo SUAS 2015_Conselho Municipal_RH_divulgação.xlsx", sheet = "CensoSUAS15 ConselhoMunicipalRH")
+#cmunrh_2015 <- read_excel("../Censo SUAS 2015/Conselho Municipal/Censo SUAS 2015_Conselho Municipal_RH_divulgação.xlsx", sheet = "CensoSUAS15 ConselhoMunicipalRH")
 
 cmun_2016 <- read_excel("../Censo SUAS 2016/Conselho/Municipal/Censo SUAS 2016_Conselho Municipal_Dados Gerais_Divulgação.xlsx", sheet = "Censo SUAS 2016_Conselho Mun DG")
 
-cmunrh_2016 <- read_excel("../Censo SUAS 2016/Conselho/Municipal/Censo SUAS 2016_Conselho Municipal_RH_Divulgação.xlsx", sheet = "Censo SUAS 2016_Conselho Mun_RH")
+#cmunrh_2016 <- read_excel("../Censo SUAS 2016/Conselho/Municipal/Censo SUAS 2016_Conselho Municipal_RH_Divulgação.xlsx", sheet = "Censo SUAS 2016_Conselho Mun_RH")
 
 cmun_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Conselho_Municipal/Censo SUAS 2017_Conselho Municipal.xlsx", sheet = "Base de dados")
 
-cmunrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Conselho_Municipal/Censo SUAS 2017_RH_Conselho Municipal.xlsx", sheet = "Base de dados")
+#cmunrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Conselho_Municipal/Censo SUAS 2017_RH_Conselho Municipal.xlsx", sheet = "Base de dados")
 
-rpriv_2010 <- read_excel("../Censo SUAS 2010/Rede Privada/Censo SUAS 2010_Rede privada_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2010 Rede Privada")
+#rpriv_2010 <- read_excel("../Censo SUAS 2010/Rede Privada/Censo SUAS 2010_Rede privada_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2010 Rede Privada")
 
-rpriv_2011 <- read_excel("../Censo SUAS 2011/Rede Privada/Censo SUAS 2011_Rede Privada_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2010 Rede Privada")
+#rpriv_2011 <- read_excel("../Censo SUAS 2011/Rede Privada/Censo SUAS 2011_Rede Privada_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2010 Rede Privada")
 
-rpriv_2011 <- read_excel("../Censo SUAS 2011/Rede Privada/Censo SUAS 2011_Rede Privada_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2010 Rede Privada")
+#rpriv_2011 <- read_excel("../Censo SUAS 2011/Rede Privada/Censo SUAS 2011_Rede Privada_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2010 Rede Privada")
 
-cpop_2011 <- read_excel("../Censo SUAS 2011/CENTRO POP/Censo SUAS 2011_CENTRO_POP_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2011 Centro POP")
+#cpop_2011 <- read_excel("../Censo SUAS 2011/CENTRO POP/Censo SUAS 2011_CENTRO_POP_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2011 Centro POP")
 
-cpop_2012 <- read_excel("../Censo SUAS 2012/Centro POP/Censo SUAS 2012_CentroPOP_Divulgação.xlsx", sheet = "Centro POP - CensoSUAS2012")
+#cpop_2012 <- read_excel("../Censo SUAS 2012/Centro POP/Censo SUAS 2012_CentroPOP_Divulgação.xlsx", sheet = "Centro POP - CensoSUAS2012")
 
-cpoprh_2012 <- read_excel("../Censo SUAS 2012/Centro POP/Censo SUAS 2012_CentroPOP_RH_Divulgação.xlsx", sheet = "Centro POP RH - CensoSUAS2012")
+#cpoprh_2012 <- read_excel("../Censo SUAS 2012/Centro POP/Censo SUAS 2012_CentroPOP_RH_Divulgação.xlsx", sheet = "Centro POP RH - CensoSUAS2012")
 
-cpop_2013 <- read_excel("../Censo SUAS 2013/Centro POP/Censo_SUAS_2013_CentroPOP_Dados_Gerais_Divulgação.xlsx", sheet = "Centro POP 2013")
+#cpop_2013 <- read_excel("../Censo SUAS 2013/Centro POP/Censo_SUAS_2013_CentroPOP_Dados_Gerais_Divulgação.xlsx", sheet = "Centro POP 2013")
 
-cpoprh_2013 <- read_excel("../Censo SUAS 2013/Centro POP/Censo_SUAS_2013_CentroPOP_RH_Divulgação.xlsx", sheet = "CentroPOP RH 2013")
+#cpoprh_2013 <- read_excel("../Censo SUAS 2013/Centro POP/Censo_SUAS_2013_CentroPOP_RH_Divulgação.xlsx", sheet = "CentroPOP RH 2013")
 
-cpop_2014 <- read_excel("../Censo SUAS 2014/CentroPOP/Bases de Dados/Censo_SUAS_2014_CentroPOP_Dados Gerais_Divulgação.xlsx", sheet = "CentroPOP Dados Gerais 2014")
+#cpop_2014 <- read_excel("../Censo SUAS 2014/CentroPOP/Bases de Dados/Censo_SUAS_2014_CentroPOP_Dados Gerais_Divulgação.xlsx", sheet = "CentroPOP Dados Gerais 2014")
 
-cpoprh_2014 <- read_excel("../Censo SUAS 2014/CentroPOP/Bases de Dados/Censo_SUAS_2014_CentroPOP_RH_Divulgação.xlsx", sheet = "CentroPOP_2014_RH")
+#cpoprh_2014 <- read_excel("../Censo SUAS 2014/CentroPOP/Bases de Dados/Censo_SUAS_2014_CentroPOP_RH_Divulgação.xlsx", sheet = "CentroPOP_2014_RH")
 
-cpop_2015 <- read_excel("../Censo SUAS 2015/Centro POP/Censo-SUAS_2015_Centro_POP_dados_gerais_divulgação.xlsx", sheet = "Censo Centro POP 2015")
+#cpop_2015 <- read_excel("../Censo SUAS 2015/Centro POP/Censo-SUAS_2015_Centro_POP_dados_gerais_divulgação.xlsx", sheet = "Censo Centro POP 2015")
 
-cpoprh_2015 <- read_excel("../Censo SUAS 2015/Centro POP/Censo-SUAS_2015_Centro_POP_RH_divulgação.xlsx", sheet = "Censo Centro POP RH 2015")
+#cpoprh_2015 <- read_excel("../Censo SUAS 2015/Centro POP/Censo-SUAS_2015_Centro_POP_RH_divulgação.xlsx", sheet = "Censo Centro POP RH 2015")
 
-cpop_2016 <- read_excel("../Censo SUAS 2016/Centro POP/Censo SUAS_CentroPOP_DadosGerais_2016_DIVULGAÇÃO.xlsx", sheet = "Censo Centro POP 2016")
+#cpop_2016 <- read_excel("../Censo SUAS 2016/Centro POP/Censo SUAS_CentroPOP_DadosGerais_2016_DIVULGAÇÃO.xlsx", sheet = "Censo Centro POP 2016")
 
-cpoprh_2016 <- read_excel("../Censo SUAS 2016/Centro POP/Censo SUAS_CentroPOP_RH_2016_DIVULGAÇÃO.xlsx", sheet = "Censo CentroPOP RH 2016")
+#cpoprh_2016 <- read_excel("../Censo SUAS 2016/Centro POP/Censo SUAS_CentroPOP_RH_2016_DIVULGAÇÃO.xlsx", sheet = "Censo CentroPOP RH 2016")
 
-cpop_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Centro_POP/Censo SUAS 2017_Centro POP_divulgação.xlsx", sheet = "Base de dados")
+#cpop_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Centro_POP/Censo SUAS 2017_Centro POP_divulgação.xlsx", sheet = "Base de dados")
 
-cpoprh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Centro_POP/Censo SUAS 2017_Centro POP_RH_divulgação.xlsx", sheet = "Base de dados")
+#cpoprh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Centro_POP/Censo SUAS 2017_Centro POP_RH_divulgação.xlsx", sheet = "Base de dados")
 
-unac_2012 <- read_excel("../Censo SUAS 2012/Unidades de Acolhimento/Censo SUAS 2012_Unidades_de_Acolhimento_dadosgerais_divulgação.xlsx", sheet = "CensoSUAS2012 Acolhimento")
+#unac_2012 <- read_excel("../Censo SUAS 2012/Unidades de Acolhimento/Censo SUAS 2012_Unidades_de_Acolhimento_dadosgerais_divulgação.xlsx", sheet = "CensoSUAS2012 Acolhimento")
 
-unacrh_2012 <- read_excel("../Censo SUAS 2012/Unidades de Acolhimento/Censo SUAS 2012_Unidades_de_Acolhimento_RH_divulgação.xlsx", sheet = "CensoSUAS2012 Acolhimento RH")
+#unacrh_2012 <- read_excel("../Censo SUAS 2012/Unidades de Acolhimento/Censo SUAS 2012_Unidades_de_Acolhimento_RH_divulgação.xlsx", sheet = "CensoSUAS2012 Acolhimento RH")
 
-unac_2013 <- read_excel("../Censo SUAS 2013/Acolhimento/Censo_SUAS_2013_Acolhimento_Dados_Gerais_Divulgação.xlsx", sheet = "Acolhimento 2013")
+#unac_2013 <- read_excel("../Censo SUAS 2013/Acolhimento/Censo_SUAS_2013_Acolhimento_Dados_Gerais_Divulgação.xlsx", sheet = "Acolhimento 2013")
 
-unacrh_2013 <- read_excel("../Censo SUAS 2013/Acolhimento/Censo_SUAS_2013_Acolhimento_RH_Divulgação.xlsx", sheet = "Acolhimento RH 2013")
+#unacrh_2013 <- read_excel("../Censo SUAS 2013/Acolhimento/Censo_SUAS_2013_Acolhimento_RH_Divulgação.xlsx", sheet = "Acolhimento RH 2013")
 
-unac_2014 <- read_excel("../Censo SUAS 2014/Acolhimento/Bases de Dados/CensoSUAS2014_Acolhimento_DadosGerais_Divulgação_Retificada_14_08_2015.xlsx", sheet = "Acolhimento 2014")
+#unac_2014 <- read_excel("../Censo SUAS 2014/Acolhimento/Bases de Dados/CensoSUAS2014_Acolhimento_DadosGerais_Divulgação_Retificada_14_08_2015.xlsx", sheet = "Acolhimento 2014")
 
-unacrh_2014 <- read_excel("../Censo SUAS 2014/Acolhimento/Bases de Dados/CensoSUAS2014_Acolhimento_RH_Divulgação.xlsx", sheet = "Acolhimento RH 2014")
+#unacrh_2014 <- read_excel("../Censo SUAS 2014/Acolhimento/Bases de Dados/CensoSUAS2014_Acolhimento_RH_Divulgação.xlsx", sheet = "Acolhimento RH 2014")
 
-unac_2015 <- read_excel("../Censo SUAS 2015/Unidades de Acolhimento/Censo SUAS 2015_Unidades de Acolhimento_Dados Gerais_divulgação.xlsx", sheet = "Censo Acolhimento 2015 DG")
+#unac_2015 <- read_excel("../Censo SUAS 2015/Unidades de Acolhimento/Censo SUAS 2015_Unidades de Acolhimento_Dados Gerais_divulgação.xlsx", sheet = "Censo Acolhimento 2015 DG")
 
-unacrh_2015 <- read_excel("../Censo SUAS 2015/Unidades de Acolhimento/Censo SUAS 2015_Unidades de Acolhimento_Recursos Humanos_divulgação.xlsx", sheet = "Censo SUAS Acolhimento 2015 RH")
+#unacrh_2015 <- read_excel("../Censo SUAS 2015/Unidades de Acolhimento/Censo SUAS 2015_Unidades de Acolhimento_Recursos Humanos_divulgação.xlsx", sheet = "Censo SUAS Acolhimento 2015 RH")
 
-unac_2016 <- read_excel("../Censo SUAS 2016/Acolhimento/CensoSUAS2016_Acolhimento_DG_DIVULGAÇÃO.xlsx", sheet = "CensoSUAS2016_Acolhimento_DG")
+#unac_2016 <- read_excel("../Censo SUAS 2016/Acolhimento/CensoSUAS2016_Acolhimento_DG_DIVULGAÇÃO.xlsx", sheet = "CensoSUAS2016_Acolhimento_DG")
 
-unacrh_2016 <- read_excel("../Censo SUAS 2016/Acolhimento/CensoSUAS2016_Acolhimento_RH_DIVULGAÇÃO.xlsx", sheet = "CensoSUAS2016_Acolhimento_RH")
+#unacrh_2016 <- read_excel("../Censo SUAS 2016/Acolhimento/CensoSUAS2016_Acolhimento_RH_DIVULGAÇÃO.xlsx", sheet = "CensoSUAS2016_Acolhimento_RH")
 
-unac_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Unidades_Acolhimento/Censo Suas 2017 Unidades de Acolhimento_divulgação.xlsx", sheet = "Base de dados")
+#unac_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Unidades_Acolhimento/Censo Suas 2017 Unidades de Acolhimento_divulgação.xlsx", sheet = "Base de dados")
 
-unacrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Unidades_Acolhimento/CENSO SUAS 2017 Acolhimento RH divulgação.xlsx", sheet = "Base de dados")
+#unacrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Unidades_Acolhimento/CENSO SUAS 2017 Acolhimento RH divulgação.xlsx", sheet = "Base de dados")
 
-ceconv_2014 <- read_excel("../Censo SUAS 2014/Centros de Convivência/Bases de Dados/CensoSUAS2014_Convivência_Divulgação.xlsx", sheet = "Convivência 2014")
+#ceconv_2014 <- read_excel("../Censo SUAS 2014/Centros de Convivência/Bases de Dados/CensoSUAS2014_Convivência_Divulgação.xlsx", sheet = "Convivência 2014")
 
-ceconv_2015 <- read_excel("../Censo SUAS 2015/Centro de Convivência/CensoSUAS_2015_Convivencia_DadosGerais_divulgacao.xlsx", sheet = "Censo Convivência 2015")
+#ceconv_2015 <- read_excel("../Censo SUAS 2015/Centro de Convivência/CensoSUAS_2015_Convivencia_DadosGerais_divulgacao.xlsx", sheet = "Censo Convivência 2015")
 
-ceconvrh_2015 <- read_excel("../Censo SUAS 2015/Centro de Convivência/CensoSUAS_2015_Convivencia_RH_divulgacao.xlsx", sheet = "Censo Convivência RH 2015")
+#ceconvrh_2015 <- read_excel("../Censo SUAS 2015/Centro de Convivência/CensoSUAS_2015_Convivencia_RH_divulgacao.xlsx", sheet = "Censo Convivência RH 2015")
 
-ceconv_2016 <- read_excel("../Censo SUAS 2016/Convivência/CensoSUAS_2016_Convivencia_DadosGerais_divulgacao.xlsx", sheet = "CensoSUAS_2016_Convivencia_DG")
+#ceconv_2016 <- read_excel("../Censo SUAS 2016/Convivência/CensoSUAS_2016_Convivencia_DadosGerais_divulgacao.xlsx", sheet = "CensoSUAS_2016_Convivencia_DG")
 
-ceconvrh_2016 <- read_excel("../Censo SUAS 2016/Convivência/CensoSUAS_2016_Convivencia_RH_divulgacao.xlsx", sheet = "CensoSUAS_2016_Convivencia_RH")
+#ceconvrh_2016 <- read_excel("../Censo SUAS 2016/Convivência/CensoSUAS_2016_Convivencia_RH_divulgacao.xlsx", sheet = "CensoSUAS_2016_Convivencia_RH")
 
-ceconv_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Centro_Convivencia/CensoSUAS2017_Convivencia_DG_divulgacao.xlsx", sheet = "Base de dados")
+#ceconv_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Centro_Convivencia/CensoSUAS2017_Convivencia_DG_divulgacao.xlsx", sheet = "Base de dados")
 
-ceconvrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Centro_Convivencia/CensoSUAS2017_Convivencia_RH_divulgacao.xlsx", sheet = "Base de dados")
+#ceconvrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Centro_Convivencia/CensoSUAS2017_Convivencia_RH_divulgacao.xlsx", sheet = "Base de dados")
 
-cedia_2015 <- read_excel("../Censo SUAS 2015/Centro DIA/CensoSUAS_2015_CentroDIA_dadosgerais_divulgacao.xlsx", sheet = "Censo SUAS Centro DIA 2015")
+#cedia_2015 <- read_excel("../Censo SUAS 2015/Centro DIA/CensoSUAS_2015_CentroDIA_dadosgerais_divulgacao.xlsx", sheet = "Censo SUAS Centro DIA 2015")
 
-cediarh_2015 <- read_excel("../Censo SUAS 2015/Centro DIA/CensoSUAS_2015_CentroDIA_RH_divulgacao.xlsx", sheet = "Censo SUAS Centro DIA RH 2015")
+#cediarh_2015 <- read_excel("../Censo SUAS 2015/Centro DIA/CensoSUAS_2015_CentroDIA_RH_divulgacao.xlsx", sheet = "Censo SUAS Centro DIA RH 2015")
 
-cedia_2016 <- read_excel("../Censo SUAS 2016/Centro DIA/Censo SUAS 2016_CentroDIA_DadosGerais_Divulgacao.xlsx", sheet = "Censo SUAS 2016 CentroDIA DG")
+#cedia_2016 <- read_excel("../Censo SUAS 2016/Centro DIA/Censo SUAS 2016_CentroDIA_DadosGerais_Divulgacao.xlsx", sheet = "Censo SUAS 2016 CentroDIA DG")
 
-cediarh_2016 <- read_excel("../Censo SUAS 2016/Centro DIA/Censo SUAS 2016_CentroDIA_RH_Divulgacao.xlsx", sheet = "Censo SUAS 2016 CentroDIA RH")
+#cediarh_2016 <- read_excel("../Censo SUAS 2016/Centro DIA/Censo SUAS 2016_CentroDIA_RH_Divulgacao.xlsx", sheet = "Censo SUAS 2016 CentroDIA RH")
 
-cedia_2017 <- read_excel("../Censo SUAS 2017/Censo SUAS 2017_Centro DIA/CensoSUAS2017_CentroDIA_DG_divulgacao.xlsx", sheet = "Base de dados")
+#cedia_2017 <- read_excel("../Censo SUAS 2017/Censo SUAS 2017_Centro DIA/CensoSUAS2017_CentroDIA_DG_divulgacao.xlsx", sheet = "Base de dados")
 
-cediarh_2017 <- read_excel("../Censo SUAS 2017/Censo SUAS 2017_Centro DIA/CensoSUAS2017_CentroDIA_RH_divulgacao.xlsx", sheet = "Base de dados")
+#cediarh_2017 <- read_excel("../Censo SUAS 2017/Censo SUAS 2017_Centro DIA/CensoSUAS2017_CentroDIA_RH_divulgacao.xlsx", sheet = "Base de dados")
 
-famacol_2017 <- read_excel("../Censo SUAS 2017/Censo SUAS 2017 Família Acolhedora/Censo SUAS 2017_Família Acolhedora_divulgação.xlsx", sheet = "Base de dados")
+#famacol_2017 <- read_excel("../Censo SUAS 2017/Censo SUAS 2017 Família Acolhedora/Censo SUAS 2017_Família Acolhedora_divulgação.xlsx", sheet = "Base de dados")
 
-famacolrh_2017 <- read_excel("../Censo SUAS 2017/Censo SUAS 2017 Família Acolhedora/Censo SUAS 2017_Família Acolhedora_RH_divulgação.xlsx", sheet = "Base de dados")
+#famacolrh_2017 <- read_excel("../Censo SUAS 2017/Censo SUAS 2017 Família Acolhedora/Censo SUAS 2017_Família Acolhedora_RH_divulgação.xlsx", sheet = "Base de dados")
 
-famacolfam_2017 <- read_excel("../Censo SUAS 2017/Censo SUAS 2017 Família Acolhedora/Censo SUAS 2017_Família Acolhedora_Familia_divulgação.xlsx", sheet = "Base de dados")
+#famacolfam_2017 <- read_excel("../Censo SUAS 2017/Censo SUAS 2017 Família Acolhedora/Censo SUAS 2017_Família Acolhedora_Familia_divulgação.xlsx", sheet = "Base de dados")
 ```
 \chapter{Gestão e Financiamento}
 
@@ -616,20 +622,24 @@ No mesmo ano, 15,4% dos estados tinham Lei Estadual de regulamentação do SUAS 
 
 No que se refere ao Plano Estadual de capacitação, verificou-se que em 2016 92,3% dos estados possuíam o Plano (total de 24 estados), dos quais 38,5% (10 estados) realizaram a última atualização do Plano em 2016 e 7,7% (2 estados) tinham Plano de Capacitação cuja última atualização se deu até o ano de 2011 (Gráfico 3).
 
-**Gráfico 3: Percentual de estados segundo ano de atualização da Lei Estadual de regulamentação do Sistema Único de Assistência Social (SUAS), do Plano Estadual de Assistência Social (PEAS) e do Plano Estadual de Capacitação - Brasil, 2016**
+```{r fig.cap = "Percentual de estados segundo ano de atualização da Lei Estadual de regulamentação do Sistema Único de Assistência Social (SUAS) - Brasil, 2022 \\label{graf:estados_caracteristica_secretaria}", message=FALSE, warning=FALSE}
 
-```{r, message=FALSE, warning=FALSE}
+#Até 2017:
+#Percentual de estados segundo ano de atualização da Lei Estadual de regulamentação do Sistema Único de Assistência Social (SUAS), do Plano Estadual de Assistência Social (PEAS) e do Plano Estadual de Capacitação - Brasil, 2017
 
-tabela<-ge_2017 %>%
+tabela<-ge_2022 %>%
 # Questionários 2016:
 #  select("Última atualização da Lei Estadual de Regulamentação do SUAS"=q5,
 #         "Última atualização do PEAS com a respectiva aprovação pelo CEAS"=q6,
 #         "Última atualização do Plano Estadual de Capacitação"=q7) %>% 
 #-------------------
 # Questionários 2017:
-  select("Última atualização da Lei Estadual de Regulamentação do SUAS"=q6,
-         "Última atualização do PEAS com a respectiva aprovação pelo CEAS"=q7,
-         "Última atualização do Plano Estadual de Capacitação"=q8) %>% 
+#  select("Última atualização da Lei Estadual de Regulamentação do SUAS"=q6,
+#         "Última atualização do PEAS com a respectiva aprovação pelo CEAS"=q7,
+#         "Última atualização do Plano Estadual de Capacitação"=q8) %>% 
+#-------------------
+# Questionários 2022:
+  select("Última atualização da Lei Estadual de Regulamentação do SUAS"=q4) %>% 
 #-------------------
   gather("Categoria","Nível") %>% 
   mutate(Categoria=str_wrap(Categoria,width=22)) %>% 
@@ -639,9 +649,14 @@ tabela<-ge_2017 %>%
 #  mutate(Nível = factor(Nível, levels = c("Até 2011","2012","2013","2014","2015","2016"))) %>% 
 #-------------------
 # Censo 2017:
-  mutate(Nível = case_when(Nível <= 2012~"Até 2012",
+#  mutate(Nível = case_when(Nível <= 2012~"Até 2012",
+#                           TRUE ~ as.character(Nível))) %>% 
+#  mutate(Nível = factor(Nível, levels = rev(c("Até 2012","2013","2014","2015","2016","2017")))) %>% 
+#-------------------
+# Censo 2022:
+  mutate(Nível = case_when(Nível <= 2017~"Até 2017",
                            TRUE ~ as.character(Nível))) %>% 
-  mutate(Nível = factor(Nível, levels = rev(c("Até 2012","2013","2014","2015","2016","2017")))) %>% 
+  mutate(Nível = factor(Nível, levels = rev(c("Até 2017","2018","2019","2020","2021","2022")))) %>% 
 #-------------------
   group_by(Categoria, Nível) %>% 
   summarise(n=n()) %>% 
@@ -654,7 +669,10 @@ ordenado<-tabela %>%
 #  filter(Nível == "2016") %>% 
 #-------------------
 # Censo 2017:
-  filter(Nível == "2017") %>% 
+#  filter(Nível == "2017") %>% 
+#-------------------
+# Censo 2022:
+  filter(Nível == "2022") %>% 
 #-------------------
   arrange(Percentual) %>% 
   select(Categoria)
@@ -884,6 +902,7 @@ Entre 2013 e 2016 o percentual de estados que prestavam assessoramento técnico 
 **Gráfico 6: Percentual de estados segundo formas de apoio técnico aos municípios - Brasil, 2013 a 2016**
 
 ```{r, message=FALSE, warning=FALSE}
+# Uma coluna para cada categoria com conteúdo "Sim ou Não".
 ge_apoio_tecnico = function(df, q, ano, cod_categoria){
   q <- enquo(q)
   ano <- quo_name(ano)
@@ -1721,7 +1740,93 @@ Fonte: MDS, Censo SUAS.
 A acessibilidade é fundamental para que os usuários consigam chegar até os serviços oferecidos pelos CRAS.
 Em 2016, 38,7% das unidades declararam ter rota acessível ao banheiro de acordo com a Norma da ABNT (NBR9050), enquanto em 37,8% havia rota acessível ais espaços do CRAS de acordo com a referida Norma.
 Embora nenhuma das adaptações de acordo com a Norma da ABNT tenha estado presente em mais de 40% das unidades, todas as categorias relativas à acessibilidade continuam crescendo percentualmente em relação aos anos anteriores (Gráfico 24).
-Gráfico 24: Evolução percentual de CRAS segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil, 2010 a 2016
+
+```{r fig.cap = "Evolução percentual de CRAS segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2010, 2016 e 2022 \\label{graf:cras_acessibilidade}", message=FALSE, warning=FALSE}
+cras_acessibilidade = function(df, q, ano, cod_categoria, valor_filtro){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+  cod_categoria <- quo_name(cod_categoria)
+
+  categoria <- case_when(!! cod_categoria == "1"~"Acesso principal adaptado com rampas e rota acessível desde a calçada até a recepção do CRAS",
+                         !! cod_categoria == "2"~"Rota acessível aos espaços do CRAS (recepção, salas de atendimento e espaços de uso coletivo)",
+                         !! cod_categoria == "3"~"Rota acessível ao banheiro",
+                         !! cod_categoria == "4"~"Banheiro adaptado para pessoas com deficiência")
+  df %>%
+    select("Sim_Não" = !! q) %>% 
+    mutate("Categoria" = categoria, "Ano" = !! ano) %>% 
+    group_by(Categoria, Ano, Sim_Não) %>% 
+    summarise(n=n()) %>% 
+    mutate(Percentual = n/sum(n)) %>% 
+    filter(Sim_Não == valor_filtro) 
+}
+
+dado_2010_1 <- cras_acessibilidade(cras_2010, q10_1, "2010", "1", "Sim, de acordo coma Norma da ABNT (NBR9050)")
+dado_2010_2 <- cras_acessibilidade(cras_2010, q10_2, "2010", "2", "Sim, de acordo coma Norma da ABNT (NBR9050)")
+dado_2010_3 <- cras_acessibilidade(cras_2010, q10_3, "2010", "3", "Sim, de acordo coma Norma da ABNT (NBR9050)")
+dado_2010_4 <- cras_acessibilidade(cras_2010, q10_4, "2010", "4", "Sim, de acordo coma Norma da ABNT (NBR9050)")
+
+dado_2016_1 <- cras_acessibilidade(cras_2016, q9_1, "2016", "1", "Sim, de acordo com a Norma da ABNT (NBR9050)")
+dado_2016_2 <- cras_acessibilidade(cras_2016, q9_2, "2016", "2", "Sim, de acordo com a Norma da ABNT (NBR9050)")
+dado_2016_3 <- cras_acessibilidade(cras_2016, q9_3, "2016", "3", "Sim, de acordo com a Norma da ABNT")
+dado_2016_4 <- cras_acessibilidade(cras_2016, q9_4, "2016", "4", "Sim, de acordo com a Norma da ABNT")
+
+dado_2022_1 <- cras_acessibilidade(cras_2022, q8_1, "2022", "1", "Sim, de acordo com a Norma da ABNT (NBR9050)")
+dado_2022_2 <- cras_acessibilidade(cras_2022, q8_2, "2022", "2", "Sim, de acordo com a Norma da ABNT (NBR9050)")
+dado_2022_3 <- cras_acessibilidade(cras_2022, q8_3, "2022", "3", "Sim, de acordo com a Norma da ABNT (NBR9050)")
+dado_2022_4 <- cras_acessibilidade(cras_2022, q8_4, "2022", "4", "Sim, de acordo com a Norma da ABNT (NBR9050)")
+
+
+tabela <- dado_2010_1 %>%
+  bind_rows(dado_2010_2) %>% 
+  bind_rows(dado_2010_3) %>% 
+  bind_rows(dado_2010_4) %>% 
+  bind_rows(dado_2016_1) %>%
+  bind_rows(dado_2016_2) %>%
+  bind_rows(dado_2016_3) %>%
+  bind_rows(dado_2016_4) %>%
+  bind_rows(dado_2022_1) %>% 
+  bind_rows(dado_2022_2) %>% 
+  bind_rows(dado_2022_3) %>% 
+  bind_rows(dado_2022_4) %>%
+  ungroup() %>% 
+  mutate(Categoria=str_wrap(Categoria,width=51))
+
+ordenado<-tabela %>% 
+  filter(Ano == "2022") %>% 
+  arrange(Percentual) %>% 
+  select(Categoria)
+
+ordenado<-factor(ordenado, levels = ordenado$Categoria)
+
+ordenado2<-tabela %>%
+  select(Ano) %>% 
+  distinct() %>% 
+  arrange(Ano)
+
+ordenado2<-factor(ordenado2, levels = ordenado2$Ano)
+
+grafico<-tabela %>% 
+  mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
+  mutate(Ano = factor(Ano, levels = rev(levels(ordenado2)))) %>% 
+  ggplot(aes(x = Categoria, y = Percentual, group = Ano)) +
+  geom_col(aes(fill = Ano), position = "dodge") +
+  geom_text(aes(label = percent(Percentual), y=Percentual+0.07), position = position_dodge(width = 0.9), size=3) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  coord_flip() +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.x = element_blank(),
+        axis.line.y = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
+
+grafico
+grafico %>% 
+  graph2office(file="graficos", append = TRUE)
+```
+
 Fonte: MDS, Censo SUAS.
 
 Em 2016, verificou-se que as condições de acessibilidade em CRAS localizados em imóveis próprios eram melhores que nas unidades situadas em imóveis alugados ou cedidos. Entre os 4.263 CRAS que estavam instalados em imóveis próprios, 51,9% (2.212 unidades) possuíam banheiro adaptado para pessoas com deficiência de acordo com a Norma ABNT (NBR9050) e 53,2% (2.267) rotas acessíveis ao banheiro. Dos 3.259 CRAS que funcionavam em imóveis alugados, 16,9% (522 unidades) possuíam banheiro adaptado para pessoas com deficiência e 21,3% (694 unidades) rota cessível ao banheiro. Entre os cedidos os percentuais eram 30,8 e 31,3, respectivamente, considerando o total de 718 Unidades (Gráfico 25).
