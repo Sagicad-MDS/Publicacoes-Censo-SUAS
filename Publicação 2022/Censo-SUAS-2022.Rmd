@@ -309,7 +309,9 @@ cras_2016 <- read_excel("../Censo SUAS 2016/CRAS/Censo SUAS_CRAS_DadosGerais_DIV
 
 cras_2022 <- read_excel("../Censo SUAS 2022/1_CRAS/Censo_SUAS_2022_CRAS_Dados_Gerais_Divulgação.xlsx", sheet = "Sheet1")
 
-#creas_2010 <- read_excel("../Censo SUAS 2010/CREAS/Censo SUAS 2010_CREAS_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2010 CREAS")
+Posto_cadunico_2022 <- read_excel("../Censo SUAS 2022/4_POSTO_CADUNICO/Censo _SUAS_ 2022_Posto_cadastramento_Dados_Gerais.xlsx", sheet = "Sheet1")
+
+creas_2010 <- read_excel("../Censo SUAS 2010/CREAS/Censo SUAS 2010_CREAS_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2010 CREAS")
 
 #creas_2011 <- read_excel("../Censo SUAS 2011/CREAS/Censo SUAS 2011_CREAS_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2011 CREAS")
 
@@ -323,13 +325,15 @@ cras_2022 <- read_excel("../Censo SUAS 2022/1_CRAS/Censo_SUAS_2022_CRAS_Dados_Ge
 
 #creas_2014 <- read_excel("../Censo SUAS 2014/CREAS/Bases de Dados/CensoSUAS2014_CREAS_DadosGerais_Divulgação.xlsx", sheet = "CREAS Dados Gerais 2014")
 
+creas_2022 <- read_excel("../Censo SUAS 2022/2_CREAS/Censo_SUAS_CREAS_2020_Dados_Gerais_divulgacao_revisado (1).xlsx", sheet = "Sheet1")
+
 #creasrh_2014 <- read_excel("../Censo SUAS 2014/CREAS/Bases de Dados/CensoSUAS2014_CREAS_RH_Divulgação.xlsx", sheet = "CREAS RH 2014")
 
 #creas_2015 <- read_excel("../Censo SUAS 2015/CREAS/CensoSUAS2015_CREAS_DadosGerais_Divulgação.xlsx", sheet = "Censo CREAS 2015")
 
 #creasrh_2015 <- read_excel("../Censo SUAS 2015/CREAS/CensoSUAS2015_CREAS_RH_Divulgação.xlsx", sheet = "Censo CREAS RH 2015")
 
-#creas_2016 <- read_excel("../Censo SUAS 2016/CREAS/Censo SUAS CREAS_DadosGerais_2016_DIVULGAÇÃO.xlsx", sheet = "Censo CREAS 2016")
+creas_2016 <- read_excel("../Censo SUAS 2016/CREAS/Censo SUAS CREAS_DadosGerais_2016_DIVULGAÇÃO.xlsx", sheet = "Censo CREAS 2016")
 
 #creasrh_2016 <- read_excel("../Censo SUAS 2016/CREAS/Censo SUAS CREAS_RH_2016_DIVULGAÇÃO.xlsx", sheet = "Censo CREAS RH 2016")
 
@@ -401,7 +405,7 @@ cmun_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Conselho_Municipal/C
 
 #cpop_2011 <- read_excel("../Censo SUAS 2011/CENTRO POP/Censo SUAS 2011_CENTRO_POP_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2011 Centro POP")
 
-#cpop_2012 <- read_excel("../Censo SUAS 2012/Centro POP/Censo SUAS 2012_CentroPOP_Divulgação.xlsx", sheet = "Centro POP - CensoSUAS2012")
+cpop_2012 <- read_excel("../Censo SUAS 2012/Centro POP/Censo SUAS 2012_CentroPOP_Divulgação.xlsx", sheet = "Centro POP - CensoSUAS2012")
 
 #cpoprh_2012 <- read_excel("../Censo SUAS 2012/Centro POP/Censo SUAS 2012_CentroPOP_RH_Divulgação.xlsx", sheet = "Centro POP RH - CensoSUAS2012")
 
@@ -421,11 +425,13 @@ cmun_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Conselho_Municipal/C
 
 #cpoprh_2016 <- read_excel("../Censo SUAS 2016/Centro POP/Censo SUAS_CentroPOP_RH_2016_DIVULGAÇÃO.xlsx", sheet = "Censo CentroPOP RH 2016")
 
-#cpop_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Centro_POP/Censo SUAS 2017_Centro POP_divulgação.xlsx", sheet = "Base de dados")
+cpop_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Centro_POP/Censo SUAS 2017_Centro POP_divulgação.xlsx", sheet = "Base de dados")
 
 #cpoprh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Centro_POP/Censo SUAS 2017_Centro POP_RH_divulgação.xlsx", sheet = "Base de dados")
 
-#unac_2012 <- read_excel("../Censo SUAS 2012/Unidades de Acolhimento/Censo SUAS 2012_Unidades_de_Acolhimento_dadosgerais_divulgação.xlsx", sheet = "CensoSUAS2012 Acolhimento")
+cpop_2022 <- read_excel("../Censo SUAS 2022/3_CENTRO_POP/Censo_SUAS_2022_Centro_POP_dados_gerais.xlsx", sheet = "Sheet1")
+
+unac_2012 <- read_excel("../Censo SUAS 2012/Unidades de Acolhimento/Censo SUAS 2012_Unidades_de_Acolhimento_dadosgerais_divulgação.xlsx", sheet = "CensoSUAS2012 Acolhimento")
 
 #unacrh_2012 <- read_excel("../Censo SUAS 2012/Unidades de Acolhimento/Censo SUAS 2012_Unidades_de_Acolhimento_RH_divulgação.xlsx", sheet = "CensoSUAS2012 Acolhimento RH")
 
@@ -441,11 +447,13 @@ cmun_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Conselho_Municipal/C
 
 #unacrh_2015 <- read_excel("../Censo SUAS 2015/Unidades de Acolhimento/Censo SUAS 2015_Unidades de Acolhimento_Recursos Humanos_divulgação.xlsx", sheet = "Censo SUAS Acolhimento 2015 RH")
 
-#unac_2016 <- read_excel("../Censo SUAS 2016/Acolhimento/CensoSUAS2016_Acolhimento_DG_DIVULGAÇÃO.xlsx", sheet = "CensoSUAS2016_Acolhimento_DG")
+#unac_2016 <- read_excel("../Censo SUAS 2022/6_UNIDADE_ACOLHIMENTO/Censo_SUAS_2022 _ Unidades_de_Acolhimento_dados_gerais.xlsx")
 
 #unacrh_2016 <- read_excel("../Censo SUAS 2016/Acolhimento/CensoSUAS2016_Acolhimento_RH_DIVULGAÇÃO.xlsx", sheet = "CensoSUAS2016_Acolhimento_RH")
 
-#unac_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Unidades_Acolhimento/Censo Suas 2017 Unidades de Acolhimento_divulgação.xlsx", sheet = "Base de dados")
+unac_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Unidades_Acolhimento/Censo Suas 2017 Unidades de Acolhimento_divulgação.xlsx", sheet = "Base de dados")
+
+unac_2022 <- read_excel("../Censo SUAS 2022/6_UNIDADE_ACOLHIMENTO/Censo_SUAS_2022 _ Unidades_de_Acolhimento_dados_gerais.xlsx sheet = 1)
 
 #unacrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Unidades_Acolhimento/CENSO SUAS 2017 Acolhimento RH divulgação.xlsx", sheet = "Base de dados")
 
@@ -474,6 +482,8 @@ cmun_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Conselho_Municipal/C
 #cedia_2017 <- read_excel("../Censo SUAS 2017/Censo SUAS 2017_Centro DIA/CensoSUAS2017_CentroDIA_DG_divulgacao.xlsx", sheet = "Base de dados")
 
 #cediarh_2017 <- read_excel("../Censo SUAS 2017/Censo SUAS 2017_Centro DIA/CensoSUAS2017_CentroDIA_RH_divulgacao.xlsx", sheet = "Base de dados")
+
+cedia_2022 <- read_excel("../Censo SUAS 2022/5_CENTRO_DIA/Censo_SUAS_2022_Centro_Dia_dados_gerais.xlsx", sheet =1)
 
 #famacol_2017 <- read_excel("../Censo SUAS 2017/Censo SUAS 2017 Família Acolhedora/Censo SUAS 2017_Família Acolhedora_divulgação.xlsx", sheet = "Base de dados")
 
@@ -1974,6 +1984,98 @@ Considerando os 694 CREAS que funcionavam em imóveis próprios, 1.639 que funci
 Gráfico 34: Distribuição de CREAS com existência de condições de acessibilidade de acordo com a Norma da ABNT, segundo situação do imóvel – Brasil, 2016
 Fonte: MDS, Censo SUAS.
 
+```{r fig.cap = "Evolução percentual de CREAS segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2010, 2016 e 2022 \\label{graf:creas_acessibilidade}", message=FALSE, warning=FALSE}
+creas_acessibilidade = function(df, q, ano, cod_categoria, valor_filtro){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+  cod_categoria <- quo_name(cod_categoria)
+
+  categoria <- case_when(!! cod_categoria == "1"~"Acesso principal adaptado com rampas e rota acessível desde a calçada até a recepção do CREAS",
+                         !! cod_categoria == "2"~"Rota acessível aos espaços do CREAS (recepção, salas de atendimento e espaços de uso coletivo)",
+                         !! cod_categoria == "3"~"Rota acessível ao banheiro",
+                         !! cod_categoria == "4"~"Banheiro adaptado para pessoas com deficiência")
+  df %>%
+    select("Sim_Não" = !! q) %>% 
+    mutate("Categoria" = categoria, "Ano" = !! ano) %>% 
+    group_by(Categoria, Ano, Sim_Não) %>% 
+    summarise(n=n()) %>% 
+    mutate(Percentual = n/sum(n)) %>% 
+    filter(Sim_Não == valor_filtro) 
+}
+
+dado_2010_1 <- creas_acessibilidade(creas_2010, q9_1, "2010", "1", "Sim, de acordo com a Norma da ABNT")
+dado_2010_2 <- creas_acessibilidade(creas_2010, q9_2, "2010", "2", "Sim, de acordo com a Norma da ABNT")
+dado_2010_3 <- creas_acessibilidade(creas_2010, q9_3, "2010", "3", "Sim, de acordo com a Norma da ABNT")
+dado_2010_4 <- creas_acessibilidade(creas_2010, q9_4, "2010", "4", "Sim, de acordo com a Norma da ABNT")
+
+dado_2016_1 <- creas_acessibilidade(creas_2016, q9.1, "2016", "1", "Sim, de acordo com a Norma da ABNT")
+dado_2016_2 <- creas_acessibilidade(creas_2016, q9.2, "2016", "2", "Sim, de acordo com a Norma da ABNT")
+dado_2016_3 <- creas_acessibilidade(creas_2016, q9.3, "2016", "3", "Sim, de acordo com a Norma da ABNT")
+dado_2016_4 <- creas_acessibilidade(creas_2016, q9.4, "2016", "4", "Sim, de acordo com a Norma da ABNT")
+
+dado_2022_1 <- creas_acessibilidade(creas_2022, q9_1, "2022", "1", "Sim, de acordo com a Norma da ABNT")
+dado_2022_2 <- creas_acessibilidade(creas_2022, q9_2, "2022", "2", "Sim, de acordo com a Norma da ABNT")
+dado_2022_3 <- creas_acessibilidade(creas_2022, q9_3, "2022", "3", "Sim, de acordo com a Norma da ABNT")
+dado_2022_4 <- creas_acessibilidade(creas_2022, q9_4, "2022", "4", "Sim, de acordo com a Norma da ABNT")
+
+
+tabela <- dado_2010_1 %>%
+  bind_rows(dado_2010_2) %>% 
+  bind_rows(dado_2010_3) %>% 
+  bind_rows(dado_2010_4) %>% 
+  bind_rows(dado_2016_1) %>%
+  bind_rows(dado_2016_2) %>%
+  bind_rows(dado_2016_3) %>%
+  bind_rows(dado_2016_4) %>%
+  bind_rows(dado_2022_1) %>% 
+  bind_rows(dado_2022_2) %>% 
+  bind_rows(dado_2022_3) %>% 
+  bind_rows(dado_2022_4) %>%
+  ungroup() %>% 
+  mutate(Categoria=str_wrap(Categoria,width=51))
+
+ordenado<-tabela %>% 
+  filter(Ano == "2022") %>% 
+  arrange(Percentual) %>% 
+  select(Categoria)
+
+ordenado<-factor(ordenado, levels = ordenado$Categoria)
+
+ordenado2<-tabela %>%
+  select(Ano) %>% 
+  distinct() %>% 
+  arrange(Ano)
+
+ordenado2<-factor(ordenado2, levels = ordenado2$Ano)
+
+grafico<-tabela %>% 
+  mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
+  mutate(Ano = factor(Ano, levels = rev(levels(ordenado2)))) %>% 
+  ggplot(aes(x = Categoria, y = Percentual, group = Ano)) +
+  geom_col(aes(fill = Ano), position = "dodge") +
+  geom_text(aes(label = percent(Percentual), y=Percentual+0.07), position = position_dodge(width = 0.9), size=3) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  coord_flip() +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.x = element_blank(),
+        axis.line.y = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
+
+grafico
+# grafico %>% 
+#   graph2office(file="graficos", append = TRUE)
+```
+
+
+
+
+
+
+
 A existência de computadores com acesso à internet é um importante aspecto a ser observado quando se avalia a infraestrutura dos CREAS. Em 2016, 99,8% dos CREAS possuíam acesso à internet. Em números absolutos, passou de 2.308 unidades em 2015, para 2.517 em 2016 (Gráfico 35).
 Gráfico 35: Frequência absoluta e percentual de CREAS com computadores com acesso à internet - Brasil, 2009 a 2016
 Fonte: MDS, Censo SUAS.
@@ -2228,8 +2330,95 @@ A maior parte dos imóveis onde se localizavam os Centros POP em 2016 eram aluga
 Gráfico 37: Evolução da implantação de Centro POP segundo situação do imóvel (%) – Brasil, 2011 a 2016
 Fonte: MDS, Censo SUAS.
 
-Em 2016 as condições de acessibilidade nos Centros POP que estavam de acordo com a Norma da ABNT melhoraram em relação a 2015 em todos os aspectos, com exceção das rotas acessíveis aos espaços da unidade, que sofreram uma redução de 1,3 pontos percentuais em relação ao ano anterior.  A existência de banheiros adaptados para pessoas com dificuldade de locomoção aumentou de 15,7% em 2015 para 20,0% dos Centros POP em 2016 (Gráfico 38).
-Gráfico 38: Distribuição percentual de Centros POP segundo aspectos de acessibilidade de acordo com a Norma da ABNT – Brasil, 2011 a 2016
+Em 2016 as condições de acessibilidade nos Centros POP que estavam de acordo com a Norma da ABNT melhoraram em relação a 2015 em todos os aspectos, com exceção das rotas acessíveis aos espaços da unidade, que sofreram uma redução de 1,3 pontos percentuais em relação ao ano anterior.  A existência de banheiros adaptados para pessoas com dificuldade de locomoção aumentou de 15,7% em 2015 para 20,0% dos Centros POP em 2016 
+
+```{r fig.cap = "Evolução percentual de Centro Pop segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2012, 2016 e 2022 \\label{graf:Centro_Pop_acessibilidade}", message=FALSE, warning=FALSE}
+
+Centro_Pop_acessibilidade = function(df, q, ano, cod_categoria, valor_filtro){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+  cod_categoria <- quo_name(cod_categoria)
+
+  categoria <- case_when(!! cod_categoria == "1"~"Acesso principal adaptado com rampas e rota acessível desde a calçada até a recepção da Unidade",
+                         !! cod_categoria == "2"~"Rota acessível aos principais espaços da Unidade (recepção, sala de atendimentos e espaço(s) para atividades coletivas)",
+                         !! cod_categoria == "3"~"Rota acessível ao banheiro",
+                         !! cod_categoria == "4"~"Banheiro adaptado para pessoas com dificuldades de locomoção")
+  df %>%
+    select("Sim_Não" = !! q) %>% 
+    mutate("Categoria" = categoria, "Ano" = !! ano) %>% 
+    group_by(Categoria, Ano, Sim_Não) %>% 
+    summarise(n=n()) %>% 
+    mutate(Percentual = n/sum(n)) %>% 
+    filter(Sim_Não == valor_filtro) 
+}
+
+dado_2012_1 <- Centro_Pop_acessibilidade(cpop_2012, q8_1, "2012", "1", "SIM, De acordo com a Norma da ABNT")
+dado_2012_2 <- Centro_Pop_acessibilidade(cpop_2012, q8_2, "2012", "2", "SIM, De acordo com a Norma da ABNT")
+dado_2012_3 <- Centro_Pop_acessibilidade(cpop_2012, q8_3, "2012", "3", "SIM, De acordo com a Norma da ABNT")
+dado_2012_4 <- Centro_Pop_acessibilidade(cpop_2012, q8_4, "2012", "4", "SIM, De acordo com a Norma da ABNT")
+
+dado_2017_1 <- Centro_Pop_acessibilidade(cpop_2017, q7.1, "2017", "1", "Sim, de acordo com a norma da ABNT")
+dado_2017_2 <- Centro_Pop_acessibilidade(cpop_2017, q7.2, "2017", "2", "Sim, de acordo com a Norma da ABNT")
+dado_2017_3 <- Centro_Pop_acessibilidade(cpop_2017, q7.3, "2017", "3", "Sim, de acordo com a Norma da ABNT")
+dado_2017_4 <- Centro_Pop_acessibilidade(cpop_2017, q7.4, "2017", "4", "Sim, de acordo com a Norma da ABNT")
+
+dado_2022_1 <- Centro_Pop_acessibilidade(cpop_2022, q7_1, "2022", "1", "Sim, de acordo com a norma da ABNT")
+dado_2022_2 <- Centro_Pop_acessibilidade(cpop_2022, q7_2, "2022", "2", "Sim, de acordo com a norma da ABNT")
+dado_2022_3 <- Centro_Pop_acessibilidade(cpop_2022, q7_3, "2022", "3", "Sim, de acordo com a norma da ABNT")
+dado_2022_4 <- Centro_Pop_acessibilidade(cpop_2022, q7_4, "2022", "4", "Sim, de acordo com a norma da ABNT")
+
+
+tabela <- dado_2012_1 %>%
+  bind_rows(dado_2012_2) %>% 
+  bind_rows(dado_2012_3) %>% 
+  bind_rows(dado_2012_4) %>% 
+  bind_rows(dado_2017_1) %>%
+  bind_rows(dado_2017_2) %>%
+  bind_rows(dado_2017_3) %>%
+  bind_rows(dado_2017_4) %>%
+  bind_rows(dado_2022_1) %>% 
+  bind_rows(dado_2022_2) %>% 
+  bind_rows(dado_2022_3) %>% 
+  bind_rows(dado_2022_4) %>%
+  ungroup() %>% 
+  mutate(Categoria=str_wrap(Categoria,width=51))
+
+ordenado<-tabela %>% 
+  filter(Ano == "2022") %>% 
+  arrange(Percentual) %>% 
+  select(Categoria)
+
+ordenado<-factor(ordenado, levels = ordenado$Categoria)
+
+ordenado2<-tabela %>%
+  select(Ano) %>% 
+  distinct() %>% 
+  arrange(Ano)
+
+ordenado2<-factor(ordenado2, levels = ordenado2$Ano)
+
+grafico<-tabela %>% 
+  mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
+  mutate(Ano = factor(Ano, levels = rev(levels(ordenado2)))) %>% 
+  ggplot(aes(x = Categoria, y = Percentual, group = Ano)) +
+  geom_col(aes(fill = Ano), position = "dodge") +
+  geom_text(aes(label = percent(Percentual), y=Percentual+0.07), position = position_dodge(width = 0.9), size=3) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  coord_flip() +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.x = element_blank(),
+        axis.line.y = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
+
+grafico
+# grafico %>% 
+#   graph2office(file="graficos", append = TRUE)
+
+```
 Fonte: MDS, Censo SUAS.
 
 Em 2016, dos 58 Centros POP que funcionavam em imóveis próprios, 34,5% (20 unidades) tinham banheiro adaptado para pessoas com dificuldades de locomoção ou necessidades especiais de acordo com a Norma da ABNT, enquanto entre os 157 imóveis locados apenas 14,0% (22 unidades) tinham essa adaptação. A rota acessível ao banheiro estava presente em 26,7% dos 15 imóveis cedidos (4 unidades) e apenas 14,0% dos imóveis locados (22 unidades) (Gráfico 39).
@@ -2556,8 +2745,93 @@ Gráfico 49: Percentual de Unidades de Acolhimento segundo natureza da unidade -
 Fonte: MDS, Censo SUAS.
 
 No que se refere às condições de acessibilidade de acordo com a Norma da ABNT, é possível notar pequenas melhorias no percentual em três dos quatro quesitos investigados. A adaptação mais observada é a rota acessível ao banheiro, presente em 44,2% das Unidades (2.479), e a menos observada é o acesso principal adaptado com rampas e rota acessível desde a calçada até o interior da unidade, presentes em 36,4% das Unidades (2.044). O banheiro adaptado para pessoas com deficiência e/ou mobilidade reduzida, presente em 36,5% das unidades em 2015 (1.978), passou a ser observado em 39,1% das unidades em 2016 (2.194) (Gráfico 50).
-Gráfico 50: Distribuição percentual de Unidades de Acolhimento Municipais segundo aspectos de acessibilidade de acordo com a Norma da ABNT – Brasil, 2015 e 2016
-Fonte: MDS, Censo SUAS.
+
+```{r fig.cap = "Evolução percentual de Unidades de acolhimento segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2012, 2017 e 2022 \\label{graf:Unidade de Acolhimento_acessibilidade}", message=FALSE, warning=FALSE}
+Unidade de Acolhimento_acessibilidade = function(df, q, ano, cod_categoria, valor_filtro){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+  cod_categoria <- quo_name(cod_categoria)
+
+  categoria <- case_when(!! cod_categoria == "1"~"Acesso principal adaptado com rampas e rota acessível desde a calçada até a recepção da Unidade de Acolhimento",
+                         !! cod_categoria == "2"~"Rota acessível aos espaços da Unidade de Acolhimento (recepção, salas de atendimento e espaços de uso coletivo)",
+                         !! cod_categoria == "3"~"Rota acessível ao banheiro",
+                         !! cod_categoria == "4"~"Banheiro adaptado para pessoas com deficiência")
+  df %>%
+    select("Sim_Não" = !! q) %>% 
+    mutate("Categoria" = categoria, "Ano" = !! ano) %>% 
+    group_by(Categoria, Ano, Sim_Não) %>% 
+    summarise(n=n()) %>% 
+    mutate(Percentual = n/sum(n)) %>% 
+    filter(Sim_Não == valor_filtro) 
+}
+
+dado_2012_1 <- Unidade de Acolhimento(Unidade de Acolhimento_2012, q35_1, "2012", "1", "Sim)")
+dado_2012_2 <- Unidade de Acolhimento(Unidade de Acolhimento_2012, q35_2, "2012", "2", "Sim)")
+dado_2012_3 <- Unidade de Acolhimento(Unidade de Acolhimento_2012, q35_3, "2012", "3", ""Sim)")
+dado_2012_4 <- Unidade de Acolhimento(Unidade de Acolhimento_2012, q35_4, "2012", "4", ""Sim)")
+
+dado_2017_1 <- Unidade de Acolhimento(Unidade de Acolhimento_2017, q37.1, "2017", "1", "Sim, de acordo com a Norma da ABNT (NBR9050)")
+dado_2017_2 <- Unidade de Acolhimento(Unidade de Acolhimento_2017, q37.2, "2017", "2", "Sim, de acordo com a Norma da ABNT (NBR9050)")
+dado_2017_3 <- Unidade de Acolhimento(Unidade de Acolhimento_2017, q37.3, "2017", "3", "Sim, de acordo com a Norma da ABNT (NBR9050)")
+dado_2017_4 <- Unidade de Acolhimento(Unidade de Acolhimento_2017, q37.4, "2017", "4", "Sim, de acordo com a Norma da ABNT (NBR9050)")
+
+dado_2022_1 <- Unidade de Acolhimento(Unidade de Acolhimento_2022, q41_1, "2022", "1", "Sim, de acordo com a Norma da ABNT (NBR9050)")
+dado_2022_2 <- Unidade de Acolhimento(Unidade de Acolhimento_2022, q41_2, "2022", "2", "Sim, de acordo com a Norma da ABNT (NBR9050)")
+dado_2022_3 <- Unidade de Acolhimento(Unidade de Acolhimento_2022, q41_3, "2022", "3", "Sim, de acordo com a Norma da ABNT (NBR9050)")
+dado_2022_4 <- Unidade de Acolhimento(Unidade de Acolhimento_2022, q41_4, "2022", "4", "Sim, de acordo com a Norma da ABNT (NBR9050)")
+
+
+tabela <- dado_2012_1 %>%
+  bind_rows(dado_2012_2) %>% 
+  bind_rows(dado_2012_3) %>% 
+  bind_rows(dado_2012_4) %>% 
+  bind_rows(dado_2017_1) %>%
+  bind_rows(dado_2017_2) %>%
+  bind_rows(dado_2017_3) %>%
+  bind_rows(dado_2017_4) %>%
+  bind_rows(dado_2022_1) %>% 
+  bind_rows(dado_2022_2) %>% 
+  bind_rows(dado_2022_3) %>% 
+  bind_rows(dado_2022_4) %>%
+  ungroup() %>% 
+  mutate(Categoria=str_wrap(Categoria,width=51))
+
+ordenado<-tabela %>% 
+  filter(Ano == "2022") %>% 
+  arrange(Percentual) %>% 
+  select(Categoria)
+
+ordenado<-factor(ordenado, levels = ordenado$Categoria)
+
+ordenado2<-tabela %>%
+  select(Ano) %>% 
+  distinct() %>% 
+  arrange(Ano)
+
+ordenado2<-factor(ordenado2, levels = ordenado2$Ano)
+
+grafico<-tabela %>% 
+  mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
+  mutate(Ano = factor(Ano, levels = rev(levels(ordenado2)))) %>% 
+  ggplot(aes(x = Categoria, y = Percentual, group = Ano)) +
+  geom_col(aes(fill = Ano), position = "dodge") +
+  geom_text(aes(label = percent(Percentual), y=Percentual+0.07), position = position_dodge(width = 0.9), size=3) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  coord_flip() +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.x = element_blank(),
+        axis.line.y = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
+
+grafico
+# grafico %>% 
+#   graph2office(file="graficos", append = TRUE)
+```
+
 
 Em 2016, 75,9% dos computadores das Unidades de Acolhimento tinham acesso à internet, um aumento de 7,2 pontos percentuais em relação a 2012 e redução de 0,5% em relação ao ano anterior (Gráfico 51).
 Gráfico 51: Percentual de Unidades de Acolhimento com computadores com acesso à internet – Brasil, 2012 e 2016
