@@ -21,13 +21,13 @@ header-includes:
 ---
 
 ```{r setup, include=FALSE}
-Sys.setlocale("LC_ALL","Portuguese_Brazil.utf8")
-
-library(knitr)
-
 knitr::opts_chunk$set(echo = FALSE)
 
-lista.de.pacotes = c("tinytex","tidyverse","lubridate","janitor","readxl","stringr","repmis","survey","srvyr","scales","export","ggrepel","renv") # escreva a lista de pacotes
+lista.de.pacotes = c("tinytex","tidyr", "purrr", "dplyr", "readxl",
+                     "lubridate","janitor","readxl","stringr",
+                     "repmis","survey","srvyr","scales",
+                     #"export",
+                     "ggrepel","renv") # escreva a lista de pacotes
 novos.pacotes <- lista.de.pacotes[!(lista.de.pacotes %in%
                                       installed.packages()[,"Package"])]
 if(length(novos.pacotes) > 0) {install.packages(novos.pacotes, repos = "http://cran.us.r-project.org")}
@@ -36,6 +36,8 @@ rm(lista.de.pacotes,novos.pacotes)
 gc()
 
 #writeLines(knitr::knit_child('Censo2017.Rnw'), 'Censo2017.tex')
+
+Sys.setlocale("LC_ALL","Portuguese_Brazil.utf8")
 
 ```
 
@@ -536,8 +538,8 @@ grafico <- ge_2017 %>%
         legend.key.size = unit(2, 'lines'))
 
 grafico
-grafico %>% 
-  graph2office(file="graficos")
+# grafico %>% 
+#   graph2office(file="graficos")
 ```
 
 Fonte: MDS, Censo SUAS. 
@@ -610,8 +612,8 @@ grafico<-tabela %>%
         panel.background = element_blank())
 
 grafico
-grafico %>% 
-  graph2office(file="graficos", append = TRUE)
+# grafico %>% 
+#   graph2office(file="graficos", append = TRUE)
 ```
 
 Fonte: MDS, Censo SUAS. 
@@ -699,8 +701,8 @@ grafico<-tabela %>%
   guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
 
 grafico
-grafico %>% 
-  graph2office(file="graficos", append = TRUE)
+# grafico %>% 
+#   graph2office(file="graficos", append = TRUE)
 ```
 
 Fonte: MDS, Censo SUAS.
@@ -765,8 +767,8 @@ grafico <- ge_cofinanciamento_2013 %>%
   guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
-grafico %>% 
-  graph2office(file="graficos", append = TRUE)
+# grafico %>% 
+#   graph2office(file="graficos", append = TRUE)
 ```
 
 Fonte: MDS, Censo SUAS.
@@ -889,8 +891,8 @@ grafico<-tabela %>%
   guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
 
 grafico
-grafico %>% 
-  graph2office(file="graficos", append = TRUE)
+# grafico %>% 
+#   graph2office(file="graficos", append = TRUE)
 ```
 
 Fonte: MDS, Censo SUAS.
@@ -1034,8 +1036,8 @@ grafico<-tabela %>%
   guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
 
 grafico
-grafico %>% 
-  graph2office(file="graficos", append = TRUE)
+# grafico %>% 
+#   graph2office(file="graficos", append = TRUE)
 ```
 
 Fonte: MDS, Censo SUAS.
@@ -1111,8 +1113,8 @@ grafico <- gm_secretaria_exclusiva_2010 %>%
   guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
-grafico %>% 
-  graph2office(file="graficos", append = TRUE)
+# grafico %>% 
+#   graph2office(file="graficos", append = TRUE)
 ```
 
 Fonte: MDS, Censo SUAS. 
@@ -1180,8 +1182,8 @@ grafico<-tabela %>%
         panel.background = element_blank())
 
 grafico
-grafico %>% 
-  graph2office(file="graficos", append = TRUE)
+# grafico %>% 
+#   graph2office(file="graficos", append = TRUE)
 ```
 
 Fonte: MDS, Censo SUAS.
@@ -1258,8 +1260,8 @@ grafico <- gm_2017 %>%
   guides(fill=guide_legend(nrow=2,byrow=TRUE))
 
 grafico
-grafico %>% 
-  graph2office(file="graficos", append = TRUE)
+# grafico %>% 
+#   graph2office(file="graficos", append = TRUE)
 ```
 
 Fonte: MDS, Censo SUAS.
@@ -1328,7 +1330,7 @@ grafico <- gm_cofinanciamento_2013 %>%
         panel.background = element_blank()) +
   guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
-#grafico
+grafico
 #grafico %>% 
 #  graph2office(file="graficos", append = TRUE)
 ```
@@ -1402,8 +1404,8 @@ grafico<-tabela %>%
   guides(fill=guide_legend(nrow=2,byrow=TRUE))
 
 grafico
-grafico %>% 
-  graph2office(file="graficos", append = TRUE)
+# grafico %>% 
+#   graph2office(file="graficos", append = TRUE)
 ```
 
 Fonte: MDS, Censo SUAS. 
@@ -1460,8 +1462,8 @@ grafico <- gm_2017 %>%
   guides(fill=guide_legend(nrow=2,byrow=TRUE))
 
 grafico
-grafico %>% 
-  graph2office(file="graficos", append = TRUE)
+# grafico %>% 
+#   graph2office(file="graficos", append = TRUE)
 ```
 
 Fonte: MDS, Censo SUAS. 
@@ -1519,8 +1521,8 @@ grafico <- gm_visita_tecnicos_2013 %>%
   guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
-grafico %>% 
-  graph2office(file="graficos", append = TRUE)
+# grafico %>% 
+#   graph2office(file="graficos", append = TRUE)
 ```
 
 Fonte: MDS, Censo SUAS. 
@@ -1602,8 +1604,8 @@ grafico<-tabela %>%
   guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
 
 grafico
-grafico %>% 
-  graph2office(file="graficos", append = TRUE)
+# grafico %>% 
+#   graph2office(file="graficos", append = TRUE)
 ```
 
 Fonte: MDS, Censo SUAS. 
@@ -1658,8 +1660,8 @@ grafico <- gm_2017 %>%
   guides(fill=guide_legend(nrow=2,byrow=TRUE))
 
 grafico
-grafico %>% 
-  graph2office(file="graficos", append = TRUE)
+# grafico %>% 
+#   graph2office(file="graficos", append = TRUE)
 ```
 
 Fonte: MDS, Censo SUAS.
@@ -1697,8 +1699,8 @@ grafico <- selecao_regiao_ano_2015 %>%
   guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
-grafico %>% 
-  graph2office(file="graficos", append = TRUE)
+# grafico %>% 
+#   graph2office(file="graficos", append = TRUE)
 ```
 
 Fonte: MDS, Censo SUAS.
@@ -1823,8 +1825,8 @@ grafico<-tabela %>%
   guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
 
 grafico
-grafico %>% 
-  graph2office(file="graficos", append = TRUE)
+# grafico %>% 
+#   graph2office(file="graficos", append = TRUE)
 ```
 
 Fonte: MDS, Censo SUAS.
