@@ -1,6 +1,6 @@
 ---
 title: "CENSO SUAS 2022"
-subtitle: ANÁLISE DOS COMPONENTES SISTÊMICOS DA POLÍTICA NACIONAL DE ASSISTÊNCIA SOCIAL
+subtitle: ANÁLISE DOS COMPONENTES DA POLÍTICA NACIONAL DE ASSISTÊNCIA SOCIAL
 author:
 - Secretaria de Avaliação, Gestão da Informação e Cadastro Único
 - Secretaria Nacional de Assistência Social
@@ -56,23 +56,27 @@ Sys.setlocale("LC_ALL","Portuguese_Brazil.utf8")
 \addcontentsline{toc}{chapter}{Prefácio}
 \chapter*{Prefácio}
  
-O Censo do Sistema Único de Assistência Social (Censo SUAS), realizado anualmente desde 2007, coleta informações sobre serviços, programas e projetos de assistência social realizados pelas unidades públicas e pela Rede Socioassistencial Privada do SUAS.
+A gestão de informação contribui para mostrar resultados, tornar mais transparente a evolução da política, bem como subsidiar no planejamento e aprimoramento da política pública. Eis uns dos objetivos a série histórica do Censo SUAS: uma análise dos componentes da política de Assistência social.
 
-Ao longo dessa trajetória, o Censo SUAS tem apurado e evidenciado uma série de dados e de informações sobre infraestrutura, recursos humanos, serviços, benefícios, gestão e participação social no âmbito da assistência social. Esses dados e informações subsidiam gestores, técnicos e envolvidos no SUAS a aprimorar ações, identificar êxitos e reestruturar pontos que não tenham atingido os resultados planejados.
+A publicação do Censo SUAS teve sua primeira edição em 2010. Caderno publicado nos anos subsequentes que tem como objetivo apurar e evidenciar uma série de dados e de informações sobre infraestrutura, recursos humanos, serviços, benefícios, gestão e participação social no âmbito da assistência social. Esses dados e informações subsidiam gestores, técnicos e pesquisadores envolvidos no SUAS, a aprimorar ações, identificar êxitos e reestruturar pontos que não tenham atingido os resultados planejados.
 
-Esta publicação apresenta os principais resultados do Censo SUAS 2016, organizados de forma a facilitar a leitura e a utilização do amplo conjunto de dados levantados. As informações estão organizadas segundo as temáticas: Gestão e Financiamento, Equipamentos, Recursos Humanos, Serviços, Participação Social e Indicadores de Desenvolvimento (IDs). Além disso, ela apresenta os dados das séries históricas do Censo SUAS, possibilitando tanto uma análise do quadro do SUAS para o ano de 2016, quanto da sua evolução ao longo dos últimos anos.
+A partir do ano de 2018 esta publicação foi interrompida. E, após 5 anos a SAGICAD retorna o caderno do Censo SUAS, na qual resgata as informações anteriores e garante continuidade as informações do SUAS. Reforça-se com isso o papel estratégico na da produção de dados, monitoramento e analise de políticas, superando a perda na qualidade da informação, apagão dos dados, falta de transparência e o negacionismo.
 
-Nesta edição, o Censo levantou dados de Centros de Referência de Assistência Social (CRAS), Centros de Referência Especializados de Assistência Social (CREAS), Centros de Referência Especializado para População em Situação de Rua (Centro POP), Conselhos Estaduais de Assistência Social (CEAS), Conselhos Municipais de Assistência Social (CMAS) e Conselho de Assistência Social do Distrito Federal (CAS/DF), Gestão Estadual, Gestão Municipal, Unidades de Acolhimento, Centros de Convivência e Centros Dia.
+Estes dados são coletados através do formulário do Censo do Sistema Único de Assistência Social (Censo SUAS), realizado anualmente desde 2007, coleta informações sobre serviços, programas e projetos de assistência social realizados pelas unidades públicas e pela Rede Socioassistencial Privada do SUAS.
 
-A consolidação das análises disponibilizadas nessa publicação reflete o esforço contínuo de aperfeiçoamento da cobertura do levantamento das informações, realizado conjuntamente pela Secretaria Nacional de Assistência Social (SNAS) e pela Secretaria de Avaliação e Gestão da Informação (SAGI). Esperamos que os resultados apresentados possam continuar contribuindo para subsidiar o debate qualificado e construtivo a respeito do SUAS e resulte em seu aprimoramento.
+Esta publicação apresenta os principais resultados do Censo SUAS 2022, organizados de forma a facilitar a leitura e a utilização do amplo conjunto de dados levantados. As informações estão organizadas segundo as temáticas: Gestão e Financiamento, Equipamentos, Serviços e Benefícios, Recursos Humanos, Participação Social e Indicadores de Desenvolvimento (IDs). 
+Esta edição teve o olhar a luz do II Plano Decenal, na qual deu continuidade a maior parte dos conteúdos históricos, com acréscimos de temas como atenção a situação de migrantes, serviço de situação de emergência e calamidade pública, regionalização, bem como oferta de serviços a exemplo do serviço de proteção social no domicílio, família acolhedora entre outros e relação do SUAS com cadastro único para programas sociais.
 
-Maria do Carmo Brant de Carvalho
+A consolidação das análises disponibilizadas nessa publicação reflete o esforço contínuo de aperfeiçoamento da cobertura do levantamento das informações, realizado conjuntamente pela Secretaria de Avaliação e Gestão da Informação (SAGI) e Secretaria Nacional de Assistência Social (SNAS). Esperamos que os resultados apresentados possam continuar contribuindo para subsidiar o debate qualificado e construtivo a respeito do SUAS e resulte em seu aprimoramento.
+
+
+André Quintão
 
 Secretária Nacional de Assistência Social
 
-Vinícius Botelho
+Letícia Bartholo
 
-Secretário de Avaliação e Gestão da Informação
+Secretária de Avaliação, Gestão da Informação e Cadastro Único
 
 \tableofcontents
  
@@ -455,7 +459,7 @@ unac_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Unidades_Acolhimento
 
 unac_2022 <- read_excel("../Censo SUAS 2022/6_UNIDADE_ACOLHIMENTO/Censo_SUAS_2022 _ Unidades_de_Acolhimento_dados_gerais.xlsx sheet = 1)
 
-#unacrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Unidades_Acolhimento/CENSO SUAS 2017 Acolhimento RH divulgação.xlsx", sheet = "Base de dados")
+unacrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Unidades_Acolhimento/CENSO SUAS 2017 Acolhimento RH divulgação.xlsx", sheet = "Base de dados")
 
 #ceconv_2014 <- read_excel("../Censo SUAS 2014/Centros de Convivência/Bases de Dados/CensoSUAS2014_Convivência_Divulgação.xlsx", sheet = "Convivência 2014")
 
@@ -2746,8 +2750,8 @@ Fonte: MDS, Censo SUAS.
 
 No que se refere às condições de acessibilidade de acordo com a Norma da ABNT, é possível notar pequenas melhorias no percentual em três dos quatro quesitos investigados. A adaptação mais observada é a rota acessível ao banheiro, presente em 44,2% das Unidades (2.479), e a menos observada é o acesso principal adaptado com rampas e rota acessível desde a calçada até o interior da unidade, presentes em 36,4% das Unidades (2.044). O banheiro adaptado para pessoas com deficiência e/ou mobilidade reduzida, presente em 36,5% das unidades em 2015 (1.978), passou a ser observado em 39,1% das unidades em 2016 (2.194) (Gráfico 50).
 
-```{r fig.cap = "Evolução percentual de Unidades de acolhimento segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2012, 2017 e 2022 \\label{graf:Unidade de Acolhimento_acessibilidade}", message=FALSE, warning=FALSE}
-Unidade de Acolhimento_acessibilidade = function(df, q, ano, cod_categoria, valor_filtro){
+```{r fig.cap = "Evolução percentual de Unidades de acolhimento segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2012, 2017 e 2022 \\label{graf:Unidade_Acolhimento_acessibilidade}", message=FALSE, warning=FALSE}
+Unidade_Acolhimento_acessibilidade = function(df, q, ano, cod_categoria, valor_filtro){
   q <- enquo(q)
   ano <- quo_name(ano)
   cod_categoria <- quo_name(cod_categoria)
@@ -2765,20 +2769,20 @@ Unidade de Acolhimento_acessibilidade = function(df, q, ano, cod_categoria, valo
     filter(Sim_Não == valor_filtro) 
 }
 
-dado_2012_1 <- Unidade de Acolhimento(Unidade de Acolhimento_2012, q35_1, "2012", "1", "Sim)")
-dado_2012_2 <- Unidade de Acolhimento(Unidade de Acolhimento_2012, q35_2, "2012", "2", "Sim)")
-dado_2012_3 <- Unidade de Acolhimento(Unidade de Acolhimento_2012, q35_3, "2012", "3", ""Sim)")
-dado_2012_4 <- Unidade de Acolhimento(Unidade de Acolhimento_2012, q35_4, "2012", "4", ""Sim)")
+dado_2012_1 <- Unidade_Acolhimento_acessibilidade(unac_2012, q35_1, "2012", "1", "Sim)")
+dado_2012_2 <- Unidade_Acolhimento_acessibilidade(unac_2012, q35_2, "2012", "2", "Sim)")
+dado_2012_3 <- Unidade_Acolhimento_acessibilidade(unac_2012, q35_3, "2012", "3", "Sim)")
+dado_2012_4 <- Unidade_Acolhimento_acessibilidade(unac_2012, q35_4, "2012", "4", "Sim)")
 
-dado_2017_1 <- Unidade de Acolhimento(Unidade de Acolhimento_2017, q37.1, "2017", "1", "Sim, de acordo com a Norma da ABNT (NBR9050)")
-dado_2017_2 <- Unidade de Acolhimento(Unidade de Acolhimento_2017, q37.2, "2017", "2", "Sim, de acordo com a Norma da ABNT (NBR9050)")
-dado_2017_3 <- Unidade de Acolhimento(Unidade de Acolhimento_2017, q37.3, "2017", "3", "Sim, de acordo com a Norma da ABNT (NBR9050)")
-dado_2017_4 <- Unidade de Acolhimento(Unidade de Acolhimento_2017, q37.4, "2017", "4", "Sim, de acordo com a Norma da ABNT (NBR9050)")
+dado_2017_1 <- Unidade_Acolhimento_acessibilidade(unac_2017, q37.1, "2017", "1", "Sim, de acordo com a Norma da ABNT (NBR9050)")
+dado_2017_2 <- Unidade_Acolhimento_acessibilidade(unac_2017, q37.2, "2017", "2", "Sim, de acordo com a Norma da ABNT (NBR9050)")
+dado_2017_3 <- Unidade_Acolhimento_acessibilidade(unac_2017, q37.3, "2017", "3", "Sim, de acordo com a Norma da ABNT (NBR9050)")
+dado_2017_4 <- Unidade_Acolhimento_acessibilidade(unac_2017, q37.4, "2017", "4", "Sim, de acordo com a Norma da ABNT (NBR9050)")
 
-dado_2022_1 <- Unidade de Acolhimento(Unidade de Acolhimento_2022, q41_1, "2022", "1", "Sim, de acordo com a Norma da ABNT (NBR9050)")
-dado_2022_2 <- Unidade de Acolhimento(Unidade de Acolhimento_2022, q41_2, "2022", "2", "Sim, de acordo com a Norma da ABNT (NBR9050)")
-dado_2022_3 <- Unidade de Acolhimento(Unidade de Acolhimento_2022, q41_3, "2022", "3", "Sim, de acordo com a Norma da ABNT (NBR9050)")
-dado_2022_4 <- Unidade de Acolhimento(Unidade de Acolhimento_2022, q41_4, "2022", "4", "Sim, de acordo com a Norma da ABNT (NBR9050)")
+dado_2022_1 <- Unidade_Acolhimento_acessibilidade(unac_2022, q41_1, "2022", "1", "Sim, de acordo com a Norma da ABNT (NBR9050)")
+dado_2022_2 <- Unidade_Acolhimento_acessibilidade(unac_2022, q41_2, "2022", "2", "Sim, de acordo com a Norma da ABNT (NBR9050)")
+dado_2022_3 <- Unidade_Acolhimento_acessibilidade(unac_2022, q41_3, "2022", "3", "Sim, de acordo com a Norma da ABNT (NBR9050)")
+dado_2022_4 <- Unidade_Acolhimento_acessibilidade(unac_2022, q41_4, "2022", "4", "Sim, de acordo com a Norma da ABNT (NBR9050)")
 
 
 tabela <- dado_2012_1 %>%
