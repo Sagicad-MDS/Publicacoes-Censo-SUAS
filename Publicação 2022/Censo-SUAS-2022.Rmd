@@ -457,9 +457,9 @@ unac_2012 <- read_excel("../Censo SUAS 2012/Unidades de Acolhimento/Censo SUAS 2
 
 unac_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Unidades_Acolhimento/Censo Suas 2017 Unidades de Acolhimento_divulgação.xlsx", sheet = "Base de dados")
 
-unac_2022 <- read_excel("../Censo SUAS 2022/6_UNIDADE_ACOLHIMENTO/Censo_SUAS_2022 _ Unidades_de_Acolhimento_dados_gerais.xlsx sheet = 1)
+unac_2022 <- read_excel("../Censo SUAS 2022/6_UNIDADE_ACOLHIMENTO/Censo_SUAS_2022 _ Unidades_de_Acolhimento_dados_gerais.xlsx", sheet = "Censo SUAS 2022 Dados Gerais Ac")
 
-unacrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Unidades_Acolhimento/CENSO SUAS 2017 Acolhimento RH divulgação.xlsx", sheet = "Base de dados")
+#unacrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Unidades_Acolhimento/CENSO SUAS 2017 Acolhimento RH divulgação.xlsx", sheet = "Base de dados")
 
 #ceconv_2014 <- read_excel("../Censo SUAS 2014/Centros de Convivência/Bases de Dados/CensoSUAS2014_Convivência_Divulgação.xlsx", sheet = "Convivência 2014")
 
@@ -1727,35 +1727,50 @@ As subdivisões administrativas que apresentavam maior percentual de formalizaç
 
 Os recursos recebidos via transação fundo-a-fundo, garantem maior qualidade na distribuição, já que estes são fiscalizados pelos órgãos de controle social e passam pelo crivo das Comissões Intergestores Bipartite e Tripartite. Sobre o repasse, destacam-se as regiões Norte e Nordeste que apresentam alto percentual de municípios que não repassam recursos a ONGs ou entidades privadas da assistência social.
 
-\chapter{Equipamentos}
+\chapter{Equipamentos,Serviços e benefícios}
 
 A assistência social organiza-se por dois tipos de proteção: a proteção social básica, definida no artigo 6º-A da Lei Orgânica da Assistência Social (LOAS) como um "conjunto de serviços, programas, projetos e benefícios da assistência social que visa a prevenir situações de vulnerabilidade e risco social por meio do desenvolvimento de potencialidades e aquisições e do fortalecimento de vínculos familiares e comunitários" e a proteção social especial, definida como "conjunto de serviços, programas e projetos que tem por objetivo contribuir para a reconstrução de vínculos familiares e comunitários, a defesa de direito, o fortalecimento das potencialidades e aquisições e a proteção de famílias e indivíduos para o enfrentamento das situações de violação de direitos"11.
-Nesse contexto, os equipamentos da assistência social são as unidades nas quais os serviços socioassistenciais, programas e projetos são realizados. Essas unidades podem ser públicas ou entidades de assistência social.
-A Tipificação Nacional de Serviços Socioassistenciais organiza os serviços ofertados conforme seu nível de complexidade, indicando o equipamento recomendado à execução do serviço12. No âmbito da proteção social básica, os atendimentos são prestados pelos Centros de Referência de Assistência Social (CRAS) e pelos Centros de Convivência. No âmbito da proteção social especial, os serviços são prestados pelos Centros de Referência Especializados de Assistência Social (CREAS), Centros de Referência Especializados para População em Situação de Rua (Centros POP), Centros-Dia de Referência para Pessoa com Deficiência e suas Famílias e pelas Unidades de Acolhimento.
-Esta seção apresenta informações a respeito desses equipamentos em 2016 e sua evolução ao longo do tempo, com base nos resultados dos Censos dos anos anteriores.
 
-CENTRO DE REFERÊNCIA DE ASSISTÊNCIA SOCIAL – CRAS
+Nesse contexto, este eixo de equipamentos, serviços e benefícíos da Assistência Social tem o objetivo de apresentar informações sobre a oferta dos equipamentos da Proteção Social Básica e Especial do SUAS integrada aos serviços e benefícios desta política. 
+Para isso, os dados históricos desta publicação nos ajudam a identificar os avanços e tendências ao longo dos anos em relação a estrutura física destes equipamentos, oferta dos serviços e benefícios, demanda e perfis de públicos atendidos, oferta regionalizada a partir da resolução CIT 33/2013, integração com Cadastro Único para programas sociais, natureza da oferta das unidades. Este conteúdo está dividido por proteções a saber:
+
+**PROTEÇÃO SOCIAL BÁSICA*
+
 Os Centros de Referência de Assistência Social (CRAS) são definidos pelo artigo 6º-C da Lei Orgânica de Assistência Social (LOAS) como unidades públicas municipais destinadas à prestação de serviços, programas de projetos da proteção social básica às famílias, devendo se localizar em áreas com maiores índices de vulnerabilidade e risco social. 
-Em 2016 foram identificados 8.240 CRAS, em 5.494 municípios brasileiros, o que indica que há pelo menos um CRAS em 98,6% dos municípios brasileiros.
+
 O quantitativo de CRAS quase dobrou entre 2007 e 2016, passando de 4.195 unidades para 8.240. Desde 2007, 2.342 municípios passaram a ter unidades do CRAS em seu território. 
 Embora tenha sido observado um aumento no número de CRAS, uma quantidade menor de municípios indicou ter o equipamento em seu território em 2016, em relação a 2015 (10 municípios a menos) (Gráfico 21).
 Gráfico 21: Evolução do quantitativo de CRAS nos municípios - Brasil, 2007 a 2016
 Fonte: MDS, Censo SUAS.
+
+
+```{r fig.cap = "Evolução do quantitativo de CRAS - Brasil, 2007 - 2012 - 2017 - 2022\\label{graf:cras_acessibilidade}", message=FALSE, warning=FALSE}
+
+
+
+```
+
+Quando se observa as unidades por porte do município, tem-se que 3.702 municípios de pequeno porte I (94,4% do total de municípios de pequeno porte I) e 711 municípios de pequeno porte II (68,4% do total de municípios de pequeno porte II) possuem um CRAS. Dos 76 municípios que não têm CRAS, 75 são de pequeno porte I e um é de pequeno porte II. Entre os municípios médios, 216 (66,5% do total de municípios de médio porte) tinham de 2 a 3 CRAS. Mais da metade dos municípios grandes possuíam de 4 a 6 CRAS (146 municípios ou 54,9% do total de municípios de grande porte), enquanto 55 (20,7%) tinham de 7 a 10 CRAS e 16 (7,9%) tinham mais de 10 CRAS. Das 17 metrópoles, apenas uma não tem mais de 10 CRAS.
+Desde 2012 há mais CRAS funcionando em imóveis próprios que em imóveis alugados.
+
+```{r fig.cap = "Evolução do quantitativo de CRAS por Município - Brasil, 2007 - 2012 - 2017 - 2022\\label{graf:cras_acessibilidade}", message=FALSE, warning=FALSE}
+
+
+```
+
+
+
 
 Quando se observa as unidades por porte do município, tem-se que 3.702 municípios de pequeno porte I (94,4% do total de municípios de pequeno porte I) e 711 municípios de pequeno porte II (68,4% do total de municípios de pequeno porte II) possuem um CRAS. Dos 76 municípios que não têm CRAS, 75 são de pequeno porte I e um é de pequeno porte II. Entre os municípios médios, 216 (66,5% do total de municípios de médio porte) tinham de 2 a 3 CRAS. Mais da metade dos municípios grandes possuíam de 4 a 6 CRAS (146 municípios ou 54,9% do total de municípios de grande porte), enquanto 55 (20,7%) tinham de 7 a 10 CRAS e 16 (7,9%) tinham mais de 10 CRAS. Das 17 metrópoles, apenas uma não tem mais de 10 CRAS.
 Dos 5.570 municípios brasileiros, 76 não possuem nenhum CRAS (1,4% do total), 4.477 (80,4%) possuem um CRAS, 722 (13,0%) de 2 a 3 CRAS, 200 (3,6%) de 4 a 6 CRAS, 58 (1,0%) de 7 a 10 CRAS e 37 (0,7%) mais de 10 CRAS. (Gráfico 22).
 Gráfico 22: Número de CRAS por município segundo porte do município - Brasil, 2016
 Fonte: MDS, Censo SUAS.
 
-Em 2016, 51,7% dos CRAS funcionavam em imóveis próprios. Houve um crescimento de 2,9 pontos percentuais em relação ao ano anterior.  Foi o primeiro ano da série histórica em que mais da metade dos CRAS funcionam em imóveis próprios. Em comparação ao ano de 2015, verifica-se uma redução no percentual de CRAS que funcionam em imóveis alugados, que passaram de 42,8% do total em 2015 para 39,6% em 2016.
-Desde 2012 há mais CRAS funcionando em imóveis próprios que em imóveis alugados.
-Observa-se ainda aumento no percentual de CREAS que funcionam em imóveis cedidos: eram 8,7% (718 unidades) em 2016, o maior valor da série histórica (Gráfico 23).
-Gráfico 23: Evolução dos CRAS segundo situação do imóvel – Brasil, 2010 a 2016
-Fonte: MDS, Censo SUAS.
 
 A acessibilidade é fundamental para que os usuários consigam chegar até os serviços oferecidos pelos CRAS.
 Em 2016, 38,7% das unidades declararam ter rota acessível ao banheiro de acordo com a Norma da ABNT (NBR9050), enquanto em 37,8% havia rota acessível ais espaços do CRAS de acordo com a referida Norma.
 Embora nenhuma das adaptações de acordo com a Norma da ABNT tenha estado presente em mais de 40% das unidades, todas as categorias relativas à acessibilidade continuam crescendo percentualmente em relação aos anos anteriores (Gráfico 24).
+
 
 ```{r fig.cap = "Evolução percentual de CRAS segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2010, 2016 e 2022 \\label{graf:cras_acessibilidade}", message=FALSE, warning=FALSE}
 cras_acessibilidade = function(df, q, ano, cod_categoria, valor_filtro){
@@ -1845,133 +1860,52 @@ grafico
 
 Fonte: MDS, Censo SUAS.
 
+
+Os CRAS são considerados a porta de entrada da Assistência Social, sendo uma referência para a população no território. Nesse sentido, podem se articular com a rede de proteção social e com demais serviços ofertados no município, de forma a garantir o acesso da população aos direitos sociais.
+
 Em 2016, verificou-se que as condições de acessibilidade em CRAS localizados em imóveis próprios eram melhores que nas unidades situadas em imóveis alugados ou cedidos. Entre os 4.263 CRAS que estavam instalados em imóveis próprios, 51,9% (2.212 unidades) possuíam banheiro adaptado para pessoas com deficiência de acordo com a Norma ABNT (NBR9050) e 53,2% (2.267) rotas acessíveis ao banheiro. Dos 3.259 CRAS que funcionavam em imóveis alugados, 16,9% (522 unidades) possuíam banheiro adaptado para pessoas com deficiência e 21,3% (694 unidades) rota cessível ao banheiro. Entre os cedidos os percentuais eram 30,8 e 31,3, respectivamente, considerando o total de 718 Unidades (Gráfico 25).
+
 Considerando a totalidade dos CRAS (8.240), 27,5% dos CRAS que tinham rota acessível ao banheiro de acordo com a Norma ABNT estavam instalados em imóveis próprios, contra 8,4% em imóveis alugados.
 De todos os CRAS em imóveis próprios, apenas 3,0% informaram não ter nenhuma condição de acessibilidade, ainda que em desacordo com a norma ABNT. Para os CRAS localizados em imóveis alugados esse percentual foi de 11,6% e em imóveis cedidos de 8,4%.
-Gráfico 25: Percentual de CRAS com existência de condições de acessibilidade de acordo com a Norma da ABNT, segundo situação do imóvel – Brasil, 2016
-Fonte: MDS, Censo SUAS.
+
 
 O número absoluto e o percentual de CRAS com acesso à internet aumentaram desde 2007. No ano de 2016, havia 7.835 CRAS com acesso à internet, o que representa 95,1% das unidades (Gráfico 26).
-Gráfico 26: Distribuição dos CRAS com acesso à internet – Brasil, 2007 a 2016
-Fonte: MDS, Censo SUAS.
 
 Em 2016, 2.334 CRAS informaram que havia povos e comunidades tradicionais em seu território de abrangência (28,3% do total de CRAS). Desses, apenas 127 (5,4%) indicaram não ter realizado atendimento a esse público. Esse percentual é inferior a 2015, quando o percentual foi de 6,7% (147 unidades dos 2.191 CRAS com povos e comunidades tradicionais em seu território de abrangência).
 Dos 2.334 CRAS que informaram que havia povos e comunidades tradicionais em seu território de abrangência, 896 informaram ter atendido Comunidades Quilombolas (38,4%), seguidos por 615 CRAS que informaram ter atendido Comunidades Ribeirinhas (26,3%) e 611 que informaram ter atendido Povos Indígenas (26,2%) (Gráfico 27).
+
 Gráfico 27: Número de CRAS segundo atendimento a povos e comunidades tradicionais – Brasil, 2015 e 2016
 Fonte: MDS, Censo SUAS.
 
 Os CRAS são considerados a porta de entrada da Assistência Social, sendo uma referência para a população no território. Nesse sentido, podem se articular com a rede de proteção social e com demais serviços ofertados no município, de forma a garantir o acesso da população aos direitos sociais.
 Em 2016, apenas 0,6% dos CRAS informaram não ter articulação com serviços de educação, e 0,2% informaram que o serviço não existia no município. Assim, 99,2% dos CRAS informaram manter alguma articulação com serviços de educação, sendo os maiores percentuais referentes à existência de dados atualizados dos parceiros com quem o CRAS mantém articulação (94,8%) e ao encaminhamento de usuários ao CRAS pelos serviços de educação (90,9%). No mesmo ano, 0,3% dos CRAS informaram não ter articulação com serviços de saúde e 0,1% informaram que o serviço não existe no município. Dessa forma, 99,6% dos CRAS informaram ter articulação com serviços de saúde, sendo os maiores percentuais referentes ao recebimento de usuários encaminhados pelo CRAS (96,4%).
-O menor percentual de articulação foi observado com as Unidades Conveniadas da Rede de Proteção Social Básica: 36,9% dos CRAS informaram que não há serviço dessa natureza existente no município e 10,9% que não se articulam com essas Unidades. O segundo menor percentual de articulação foi observado com os órgãos/ serviços relacionados a Trabalho em Emprego: 29,6% dos CRAS informaram que não há serviço ou instituição no município e 11,4% que não se articulam com esses órgãos ou serviços (Tabela 5).
-Tabela 5: Articulação dos CRAS com serviços, programas ou instituições existentes no município - Brasil, 2016
 
-Serviços, programas ou instituições com os quais o CRAS mantém articulação
-Possui dados de localização (endereço, telefone etc.) 
-Recebe usuários encaminhados por este CRAS
-Encaminha usuários para este CRAS
-Acompanha os encaminhamentos
-Realiza reuniões periódicas
-Troca Informações
-Realiza estudos de caso em conjunto
-Desenvolve atividades em parceria
-Não tem nenhuma articulação
-Serviço ou instituição não existente no município
-Unidades Públicas da Rede de Proteção Social Básica
-85,9%
-83,3%
-82,6%
-73,5%
-62,4%
-82,9%
-58,3%
-73,7%
-1,5%
-10,0%
-Unidades Conveniadas da Rede de Proteção Social Básica
-48,8%
-45,1%
-44,3%
-36,3%
-27,2%
-45,0%
-25,9%
-35,8%
-10,9%
-36,9%
-Unidades da Rede de Proteção Social Especial
-72,0%
-71,0%
-70,2%
-63,5%
-45,3%
-70,6%
-52,1%
-58,3%
-3,1%
-21,8%
-Serviços de Saúde
-95,9%
-96,4%
-95,3%
-76,5%
-47,8%
-92,8%
-54,6%
-71,0%
-0,3%
-0,1%
-Serviços de Educação
-94,8%
-90,3%
-90,9%
-70,5%
-43,3%
-88,9%
-47,1%
-73,8%
-0,6%
-0,2%
-Órgãos/Serviços relacionados a Trabalho e Emprego
-54,3%
-43,7%
-31,1%
-20,8%
-9,5%
-38,5%
-7,5%
-26,3%
-11,4%
-29,6%
-Movimentos Sociais locais/Associações Comunitárias
-61,7%
-37,2%
-41,3%
-22,1%
-17,1%
-49,5%
-10,3%
-37,8%
-17,2%
-14,2%
-Fonte: MDS, Censo SUAS.
+
+
 
 CENTROS DE CONVIVÊNCIA
+
 Os Centros de Convivência, juntamente com os Centros de Referência de Assistência Social (CRAS), são unidades que executam o Serviço de Convivência e Fortalecimento de Vínculos e compõem a Rede de Proteção Social Básica.
 Desde 2014 o número de Centros de Convivência no Brasil aumentou, passando de 7.882 unidades em 2014 para 8.454 em 2016, em um acréscimo de 572 unidades. A região Norte tem a menor quantidade de unidades (238 ou 2,8% do total), seguida do Centro-Oeste com 568 Unidades (ou 6,7% do total). A região Sudeste tem o maior número de Centros de Convivência, com 4.035 Unidades (47,7% do total) (Gráfico 28)
+
+
+
 Gráfico 28: Quantitativo de Centros de Convivência segundo grandes regiões – Brasil, 2014 a 2016
 Fonte: MDS, Censo SUAS.
 
 Os Centros de Convivência podem ser unidades públicas ou vinculadas a entidades de assistência social, inscritas nos Conselhos de Assistência Social do município ou do DF. Em 2016, 44,7% dos Centros de Convivência eram governamentais (total de 3.781 unidades) e 55,3% das unidades eram não governamentais (4.672 unidades). Desde 2014, o percentual de unidades de natureza não governamental vem se reduzindo, passando de 57,4% (4.521 unidades) para 55,3% (4.672 unidades) em 2016 (Gráfico 29).
-Gráfico 29: Quantitativo de Centros de Convivência segundo natureza da Unidade – Brasil, 2016
-Fonte: MDS, Censo SUAS.
 
 Em 2016, 31,2% dos Centros de Convivência (2.636 unidades) possuíam rota acessível ao banheiro de acordo com a norma da ABNT (NBR9050), sendo a adaptação mais observada nas unidades. Todas as condições de acessibilidade melhoraram em relação aos anos anteriores, e o maior aumento foi verificado no percentual de Centros de Convivência com banheiros adaptados para pessoas com deficiência: estavam presentes em 24,3% das unidades em 2014 (1.918) e passaram a ser observados em 28,3% das unidades em 2016 (2.389) (Gráfico 30).
-Gráfico 30: Distribuição percentual dos Centros de Convivência segundo aspectos de acessibilidade de acordo com a norma da ABNT – Brasil, 2014 a 2016
-Fonte: MDS, Censo SUAS.
+
 
 CENTRO DE REFERÊNCIA ESPECIALIZADA DE ASSISTÊNCIA SOCIAL – CREAS
-Os Centros de Referência Especializados de Assistência Social (CREAS) são unidades públicas estatais que ofertam serviços da Proteção Social Especial a pessoas e famílias em situação de risco pessoal ou social e/ou em situação de violação de direitos. 
-O Censo SUAS 2016 registrou 2.521 CREAS no país: um incremento de 86 novas unidades em relação ao ano anterior. As regiões Nordeste e Sudeste apresentaram os maiores números de CREAS, 967 e 712, respectivamente. As regiões com maior aumento de unidades foram a Nordeste, com 37 novas unidades, e a Sul, com 29 novas unidades. A região Centro-Oeste teve uma diminuição de 5 unidades (Gráfico 31).
+
+Os Centros de Referência Especializados de Assistência Social (CREAS) são unidades públicas estatais que ofertam serviços da Proteção Social Especial a pessoas e famílias em situação de risco pessoal ou social e/ou em situação de violação de direitos.
+
+O Censo SUAS 2022 registrou 2.521 CREAS no país: um incremento de 86 novas unidades em relação ao ano anterior. As regiões Nordeste e Sudeste apresentaram os maiores números de CREAS, 967 e 712, respectivamente. As regiões com maior aumento de unidades foram a Nordeste, com 37 novas unidades, e a Sul, com 29 novas unidades. A região Centro-Oeste teve uma diminuição de 5 unidades (Gráfico 8).
+
+Entre 2009 a 2014, o Censo SUAS registrou redução na proporção de CREAS funcionando em imóveis próprios, que se estabilizou em 2015. Contudo, em 2016 os percentuais aumentaram, chegando 27,5% de CREAS alocados em imóveis próprios (694 unidades), com diminuição para 65% funcionando em imóveis alugados (total de 1.639 unidades). Em 2016 7,5% de CREAS funcionavam em imóveis cedidos (188 unidades). Esse percentual aumenta desde 2014, quando 4,1% dos CREAS funcionavam em imóveis cedidos. 
+
 Gráfico 31: Evolução do quantitativo de CREAS segundo grandes regiões - Brasil, 2009 a 2016
 Fonte: MDS, Censo SUAS.
 
@@ -1981,12 +1915,7 @@ Fonte: MDS, Censo SUAS.
 
 De acordo com os dados do Censo SUAS de 2016, 22,8% dos CREAS possuíam banheiro adaptado para pessoas com mobilidade reduzida de acordo com a Norma da ABNT – um crescimento de 1,9 pontos percentuais em relação ao ano anterior. A presença de acesso principal adaptado com rampas, rota acessível e calçada e de rota acessível ao banheiro apresentaram aumento de 1,7, 1,3 e 0,8 pontos percentuais, respectivamente.
 É possível observar aumento na proporção de CREAS com condições de acessibilidade de acordo com a ABNT em todos os quesitos avaliados entre os anos de 2010 e 2016. No entanto, os percentuais permanecem abaixo de 30% em todos os quesitos, o que explicita que a melhoria da acessibilidade nesses equipamentos ainda constitui grande desafio a ser superado (Gráfico 33).
-Gráfico 33: Evolução do percentual de CREAS segundo aspectos de acessibilidade de acordo com a Norma da ABNT – Brasil, 2010 a 2016
-Fonte: MDS, Censo SUAS.
 
-Considerando os 694 CREAS que funcionavam em imóveis próprios, 1.639 que funcionavam em imóveis alugados e as 188 unidades que funcionavam em imóveis cedidos em 2016, tem-se que as condições de acessibilidade eram melhores nos imóveis próprios: 47,4% dos 694 CREAS que funcionavam em imóveis próprios tinham rota acessível ao banheiro de acordo com a Norma ABNT (329 unidades), enquanto 16,8% dos CREAS que funcionavam em imóveis alugados e 27,1% dos que funcionavam em imóveis cedidos tinham a mesma condição de acessibilidade (276 e 51 unidades, respectivamente). Nos CREAS que funcionavam em imóveis alugados o acesso adaptado com rampas e rotas acessíveis desde a calçada até a recepção foi observado em 19,2% das unidades (314 CREAS) (Gráfico 34).
-Gráfico 34: Distribuição de CREAS com existência de condições de acessibilidade de acordo com a Norma da ABNT, segundo situação do imóvel – Brasil, 2016
-Fonte: MDS, Censo SUAS.
 
 ```{r fig.cap = "Evolução percentual de CREAS segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2010, 2016 e 2022 \\label{graf:creas_acessibilidade}", message=FALSE, warning=FALSE}
 creas_acessibilidade = function(df, q, ano, cod_categoria, valor_filtro){
@@ -2075,266 +2004,32 @@ grafico
 ```
 
 
-
-
+Considerando os 694 CREAS que funcionavam em imóveis próprios, 1.639 que funcionavam em imóveis alugados e as 188 unidades que funcionavam em imóveis cedidos em 2016, tem-se que as condições de acessibilidade eram melhores nos imóveis próprios: 47,4% dos 694 CREAS que funcionavam em imóveis próprios tinham rota acessível ao banheiro de acordo com a Norma ABNT (329 unidades), enquanto 16,8% dos CREAS que funcionavam em imóveis alugados e 27,1% dos que funcionavam em imóveis cedidos tinham a mesma condição de acessibilidade (276 e 51 unidades, respectivamente). Nos CREAS que funcionavam em imóveis alugados o acesso adaptado com rampas e rotas acessíveis desde a calçada até a recepção foi observado em 19,2% das unidades (314 CREAS) (Gráfico 34).
 
 
 
 A existência de computadores com acesso à internet é um importante aspecto a ser observado quando se avalia a infraestrutura dos CREAS. Em 2016, 99,8% dos CREAS possuíam acesso à internet. Em números absolutos, passou de 2.308 unidades em 2015, para 2.517 em 2016 (Gráfico 35).
-Gráfico 35: Frequência absoluta e percentual de CREAS com computadores com acesso à internet - Brasil, 2009 a 2016
-Fonte: MDS, Censo SUAS.
 
 Os CREAS atendem a população que se encontra em risco pessoal ou social ou que teve seus direitos violados e atuam na orientação e encaminhamento das pessoas e famílias para os demais serviços da assistência social ou de outras áreas. Assim, a articulação com serviços, programas ou instituições no município para encaminhamento de famílias e indivíduos que estejam em atendimento nos CREAS é fundamental.
-Em 2016, apenas 0,3% dos CREAS não tinham nenhuma articulação com os CRAS e 0,1% informaram não ter a instituição no município. Assim, 99,6% dos CREAS mantinham alguma articulação com os CRAS, sendo os maiores percentuais observados em relação à existência de dados atualizados dos parceiros com quem o CREAS mantém articulação (98,1%), ao recebimento de usuários encaminhados pelos CREAS (97,9%) e ao recebimento de usuários encaminhados para os CREAS (97,0%).
-Sobre a articulação com o Conselho Tutelar, 0,6% dos CREAS informaram não ter nenhuma articulação e 0,2% informaram que não havia a instituição no município. Dessa forma, 99,2% dos CREAS informaram ter alguma articulação com o Conselho Tutelar, sendo os maiores percentuais observados em relação à posse de dados atualizados (97,9%) e o encaminhamento de usuários para os CREAS (96,2%).
-Os menores percentuais de articulação foram observados em relação aos Centros-Dia (80,8% dos CREAS informaram não haver o serviço no município e 5,6% que não se articulam com essas Unidade) e aos Centros POP (74,5% dos CREAS informaram que não havia serviço ou instituição no município e 3,5% que não se articulavam com essas unidades).
-19,9% dos CREAS informaram não ter nenhuma articulação com serviços/ programas de segurança alimentar e 18,0% não se articular com Instituições de Ensino e Pesquisa (Tabela 6).
-Tabela 6: Articulação dos CREAS com serviços, programas ou instituições existentes no município - Brasil, 2016
 
-Serviços, programas ou instituições com os quais o CREAS mantém articulação
-Possui dados da localização (endereço, telefone etc.)
-Recebe usuários encaminhados por este CREAS
-Encaminha usuários para este CREAS
-Acompanha os encaminhamentos
-Realiza reuniões periódicas
-Troca Informações
-Realiza estudos de caso em conjunto
-Desenvolve atividades em parceria
-Não tem nenhuma articulação
-Serviço ou instituição não existente no município
-Serviços de Acolhimento (abrigos e outros)
-73,9%
-60,7%
-60,7%
-61,6%
-44,0%
-69,5%
-52,3%
-47,3%
-1,1%
-22,9%
-Centro POP
-20,8%
-18,4%
-16,2%
-14,4%
-9,5%
-18,8%
-12,3%
-11,7%
-3,5%
-74,5%
-CRAS
-98,1%
-97,9%
-97,0%
-92,0%
-74,0%
-96,6%
-80,5%
-87,3%
-0,3%
-0,1%
-PETI
-54,8%
-50,2%
-48,8%
-46,4%
-34,7%
-51,6%
-34,4%
-45,4%
-3,9%
-35,5%
-Demais serviços da rede socioassistencial
-91,4%
-88,1%
-85,6%
-75,5%
-54,1%
-85,3%
-56,4%
-69,6%
-1,4%
-3,3%
-Centro DIA
-12,7%
-10,0%
-9,4%
-7,7%
-4,7%
-10,4%
-6,0%
-5,8%
-5,6%
-80,8%
-Serviços de saúde mental
-75,0%
-72,7%
-67,9%
-63,4%
-38,4%
-70,0%
-48,0%
-45,3%
-1,3%
-21,5%
-Demais serviços da rede de saúde
-95,9%
-93,1%
-89,2%
-74,9%
-41,9%
-87,2%
-50,8%
-63,3%
-0,6%
-0,3%
-Serviços de Educação
-96,0%
-90,1%
-86,5%
-73,1%
-40,0%
-86,5%
-46,9%
-63,9%
-0,8%
-0,4%
-Serviços de outras políticas públicas
-86,7%
-75,4%
-70,5%
-52,8%
-27,8%
-70,1%
-31,7%
-47,0%
-4,7%
-3,2%
-Órgãos responsáveis pela emissão de documentação civil básica
-84,3%
-65,5%
-38,5%
-35,1%
-10,2%
-47,2%
-10,9%
-21,0%
-5,4%
-5,8%
-Serviços/Programas de Segurança Alimentar
-42,3%
-24,6%
-18,4%
-16,6%
-7,8%
-24,1%
-7,7%
-14,6%
-19,9%
-33,9%
-Poder Jurídico
-94,6%
-86,8%
-91,7%
-80,2%
-43,1%
-81,5%
-43,6%
-45,9%
-0,4%
-2,1%
-Ministérios Público
-94,7%
-90,3%
-92,1%
-81,4%
-45,1%
-82,9%
-45,2%
-47,8%
-0,4%
-2,0%
-Defensoria Pública
-59,5%
-52,2%
-42,6%
-19,6%
-69,1%
-48,4%
-20,9%
-24,6%
-4,8%
-22,2%
-Delegacias Especializadas
-82,2%
-69,2%
-65,2%
-45,6%
-15,9%
-57,8%
-16,6%
-25,4%
-2,9%
-11,9%
-ONGs que atuam com defesa de direitos ou realizam projetos sociais
-53,3%
-41,6%
-37,2%
-30,6%
-14,9%
-38,9%
-16,6%
-25,6%
-9,4%
-34,6%
-Instituições de Ensino e Pesquisa
-35,7%
-15,4%
-11,7%
-9,8%
-5,5%
-19,8%
-5,6%
-14,0%
-18,0%
-44,0%
-Unidades/Serviços de outros municípios
-59,8%
-46,6%
-43,2%
-28,2%
-9,5%
-48,6%
-12,9%
-14,6%
-12,3%
-18,0%
-Conselho Tutelar
-97,9%
-95,8%
-96,2%
-91,1%
-72,1%
-93,8%
-77,5%
-76,4%
-0,6%
-0,2%
-Fonte: MDS, Censo SUAS.
 
 CENTRO DE REFERÊNCIA ESPECIALIZADO PARA POPULAÇÃO EM SITUAÇÃO DE RUA – CENTRO POP
+
 Os Centros de Referência Especializados para População em Situação de Rua (Centros POP) são unidades públicas que oferecem atendimento especializado para a população em situação de rua, no âmbito da proteção social especial de média complexidade.
 Entre 2011 e 2015 o número de Centros POP cresceu, passando de 90 unidades para 235 no período. Contudo, houve uma redução cinco unidades entre 2015 e 2016, ano no qual foram registradas 230 unidades. A região Centro-Oeste foi a única que teve aumento, de uma unidade. A maior redução ocorreu na região Sudeste, quem em 2016 apesentava 102 Centros POP, cinco a menos que no ano anterior (Gráfico 36).
 Gráfico 36: Evolução do quantitativo de Centros POP segundo grandes regiões – Brasil, 2011 a 2016
 Fonte: MDS, Censo SUAS.
 
-A maior parte dos imóveis onde se localizavam os Centros POP em 2016 eram alugados (68,3%). Em 2016 foi observada uma mudança na tendência de crescimento de funcionamento de Centros POP em imóveis alugados observada desde 2012, com redução de 2,3 pontos percentuais em relação a 2015. Foi observado um aumento de 1,8 pontos percentuais nos Centros POP que funcionam em imóvel próprio em relação ao ano anterior (Gráfico 37). O aumento no percentual de Centros POP funcionando em imóveis próprios observado em 2016 é positivo, pois os riscos de mudanças no local de atendimento são menores nesse tipo de imóvel.
-Gráfico 37: Evolução da implantação de Centro POP segundo situação do imóvel (%) – Brasil, 2011 a 2016
-Fonte: MDS, Censo SUAS.
+Os Centros de Referência Especializados para População em Situação de Rua (Centros POP) são unidades públicas que oferecem atendimento especializado para a população em situação de rua, no âmbito da proteção social especial de média complexidade.
 
-Em 2016 as condições de acessibilidade nos Centros POP que estavam de acordo com a Norma da ABNT melhoraram em relação a 2015 em todos os aspectos, com exceção das rotas acessíveis aos espaços da unidade, que sofreram uma redução de 1,3 pontos percentuais em relação ao ano anterior.  A existência de banheiros adaptados para pessoas com dificuldade de locomoção aumentou de 15,7% em 2015 para 20,0% dos Centros POP em 2016 
+Entre 2011 e 2015 o número de Centros POP cresceu, passando de 90 unidades para 235 no período. Contudo, houve uma redução cinco unidades entre 2015 e 2016, ano no qual foram registradas 230 unidades. A região Centro-Oeste foi a única que teve aumento, de uma unidade. A maior redução ocorreu na região Sudeste, quem em 2016 apesentava 102 Centros POP, cinco a menos que no ano anterior (Gráfico ).
+
+A maior parte dos imóveis onde se localizavam os Centros POP em 2016 eram alugados (68,3%). Em 2016 foi observada uma mudança na tendência de crescimento de funcionamento de Centros POP em imóveis alugados observada desde 2012, com redução de 2,3 pontos percentuais em relação a 2015. Foi observado um aumento de 1,8 pontos percentuais nos Centros POP que funcionam em imóvel próprio em relação ao ano anterior (Gráfico 37). O aumento no percentual de Centros POP funcionando em imóveis próprios observado em 2016 é positivo, pois os riscos de mudanças no local de atendimento são menores nesse tipo de imóvel.
+
+
+Em 2016 as condições de acessibilidade nos Centros POP que estavam de acordo com a Norma da ABNT melhoraram em relação a 2015 em todos os aspectos, com exceção das rotas acessíveis aos espaços da unidade, que sofreram uma redução de 1,3 pontos percentuais em relação ao ano anterior.  A existência de banheiros adaptados para pessoas com dificuldade de locomoção aumentou de 15,7% em 2015 para 20,0% dos Centros POP em 2016 (Gráfico 38).
+
+Em 2016, dos 58 Centros POP que funcionavam em imóveis próprios, 34,5% (20 unidades) tinham banheiro adaptado para pessoas com dificuldades de locomoção ou necessidades especiais de acordo com a Norma da ABNT, enquanto entre os 157 imóveis locados apenas 14,0% (22 unidades) tinham essa adaptação. A rota acessível ao banheiro estava presente em 26,7% dos 15 imóveis cedidos (4 unidades) e apenas 14,0% dos imóveis locados (22 unidades) (Gráfico 39).
 
 ```{r fig.cap = "Evolução percentual de Centro Pop segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2012, 2016 e 2022 \\label{graf:Centro_Pop_acessibilidade}", message=FALSE, warning=FALSE}
 
@@ -2362,9 +2057,9 @@ dado_2012_3 <- Centro_Pop_acessibilidade(cpop_2012, q8_3, "2012", "3", "SIM, De 
 dado_2012_4 <- Centro_Pop_acessibilidade(cpop_2012, q8_4, "2012", "4", "SIM, De acordo com a Norma da ABNT")
 
 dado_2017_1 <- Centro_Pop_acessibilidade(cpop_2017, q7.1, "2017", "1", "Sim, de acordo com a norma da ABNT")
-dado_2017_2 <- Centro_Pop_acessibilidade(cpop_2017, q7.2, "2017", "2", "Sim, de acordo com a Norma da ABNT")
-dado_2017_3 <- Centro_Pop_acessibilidade(cpop_2017, q7.3, "2017", "3", "Sim, de acordo com a Norma da ABNT")
-dado_2017_4 <- Centro_Pop_acessibilidade(cpop_2017, q7.4, "2017", "4", "Sim, de acordo com a Norma da ABNT")
+dado_2017_2 <- Centro_Pop_acessibilidade(cpop_2017, q7.2, "2017", "2", "Sim, de acordo com a norma da ABNT")
+dado_2017_3 <- Centro_Pop_acessibilidade(cpop_2017, q7.3, "2017", "3", "Sim, de acordo com a norma da ABNT")
+dado_2017_4 <- Centro_Pop_acessibilidade(cpop_2017, q7.4, "2017", "4", "Sim, de acordo com a norma da ABNT")
 
 dado_2022_1 <- Centro_Pop_acessibilidade(cpop_2022, q7_1, "2022", "1", "Sim, de acordo com a norma da ABNT")
 dado_2022_2 <- Centro_Pop_acessibilidade(cpop_2022, q7_2, "2022", "2", "Sim, de acordo com a norma da ABNT")
@@ -2425,9 +2120,9 @@ grafico
 ```
 Fonte: MDS, Censo SUAS.
 
-Em 2016, dos 58 Centros POP que funcionavam em imóveis próprios, 34,5% (20 unidades) tinham banheiro adaptado para pessoas com dificuldades de locomoção ou necessidades especiais de acordo com a Norma da ABNT, enquanto entre os 157 imóveis locados apenas 14,0% (22 unidades) tinham essa adaptação. A rota acessível ao banheiro estava presente em 26,7% dos 15 imóveis cedidos (4 unidades) e apenas 14,0% dos imóveis locados (22 unidades) (Gráfico 39).
-Gráfico 39: Percentual de Centros POP com existência de condições de acessibilidade de acordo com a Norma da ABNT, segundo situação do imóvel – Brasil, 2016
-Fonte: MDS, Censo SUAS.
+Em 2016, 89,6% dos Centros POP tinham computador com acesso à internet.  Apenas 2 unidades (0,9% do total) informaram não possuir computador. Tanto os valores absolutos de unidades com computador com acesso à internet quanto o percentual total aumentaram desde 2014 (Gráfico 40).
+
+Considerando que os Centros POP servem de apoio para que os usuários possam realizar atividades relacionadas à alimentação, higiene pessoal, guarda de pertences e outras, é importante que estejam equipados de forma a viabilizar essas atividades. Em 2016, 97,4% dos Centros POP possuíam geladeira e 91,7% possuíam fogão, 65,7%, possuíam armários de uso individual e 43,9% dispunham de máquina de lavar roupas. Todos os percentuais aumentaram em relação a 2015 (Gráfico 41).
 
 Em 2016, 89,6% dos Centros POP tinham computador com acesso à internet.  Apenas 2 unidades (0,9% do total) informaram não possuir computador. Tanto os valores absolutos de unidades com computador com acesso à internet quanto o percentual total aumentaram desde 2014 (Gráfico 40).
 Gráfico 40: Frequência absoluta e percentual de Centros POP com computadores com acesso à internet – Brasil, 2011 a 2016
@@ -2437,278 +2132,14 @@ Considerando que os Centros POP servem de apoio para que os usuários possam rea
 Gráfico 41: Percentual de Centros POP que possuem armários de uso individualizado, geladeira, fogão e máquina de lavar roupas – Brasil, 2015 e 2016
 Fonte: MDS, Censo SUAS.
 
-A articulação dos Centros POP com serviços, programas ou instituições no município para encaminhamento de pessoas que estejam em atendimento é fundamental, uma vez que são múltiplas as necessidades de acesso a direitos por parte dessa população. 
-Em 2016, 0,4% dos Centros POP informaram não ser articular com CRAS e com CREAS, enquanto 97,4% indicaram possuir dados da localização dos CRAS e 97,8% dos CREAS. Na articulação com os CRAS, 91,3% indicaram que o CRAS recebe usuários do Centro POP e 92,6% informaram que o CREAS recebe usuários encaminhados. Apenas 0,9% dos Centros Pop informou não se articular com órgãos responsáveis pela emissão de documentação civil básica e 2,2% informaram não se articular com Órgãos de defesa de direitos e com os demais serviços da rede socioassistencial. 
-Os menores percentuais de articulação foram observados com os movimentos organizados da população em situação de rua (49,1% dos Centros POP informaram não haver o serviço no município e 15,7% que não se articulavam com esses movimentos) e com programas/ projetos de inclusão digital (13,9% dos Centros POP informaram que não havia esse programa/ projeto no município e 45,2% que não se articulavam com essas unidades) (Tabela 7).
-Tabela 7: Articulação dos Centros POP com serviços, programas ou instituições existentes no município - Brasil, 2016
 
-Serviços, programas ou instituições com os quais o Centro POP mantém articulação
-Possui dados da localização (endereço, telefone etc.)
-Recebe usuários encaminhados por este Centro POP
-Encaminha usuários para este Centro POP
-Acompanha os encaminhamentos
-Realiza reuniões periódicas
-Troca Informações
-Realiza estudos de caso em conjunto
-Desenvolve atividades em parceria
-Possui fluxo/protocolo de articulação
-Não tem nenhuma articulação
-Serviço ou instituição não existente no município
-Serviço Especializado em Abordagem Social (quando não ofertado pelo Centro de Referência para Pop Rua)
-60,0%
-45,2%
-53,5%
-47,4%
-39,6%
-57,8%
-42,6%
-45,2%
-35,7%
-13,9%
-20,0%
-Serviços de Acolhimento (abrigos institucionais, casas de passagem, repúblicas)
-91,3%
-85,7%
-85,2%
-75,2%
-60,4%
-86,1%
-64,3%
-58,3%
-62,2%
-2,6%
-4,8%
-Centro de Referência de Assistência Social (CRAS)
-97,4%
-91,3%
-92,6%
-68,3%
-30,4%
-90,4%
-42,6%
-40,0%
-43,5%
-0,4%
-0,0%
-Centro de Referência Especializado de Assistência Social (CREAS)
-97,8%
-92,6%
-93,9%
-76,1%
-40,9%
-91,3%
-59,1%
-49,6%
-47,8%
-0,4%
-0,0%
-Demais serviços da rede socioassistencial
-96,5%
-87,0%
-81,3%
-60,4%
-27,8%
-80,9%
-40,0%
-39,6%
-33,0%
-1,7%
-0,9%
-Serviços de Saúde Mental (CAPS, CAPS AD, etc.)
-97,0%
-90,0%
-89,6%
-81,3%
-47,4%
-91,3%
-65,2%
-53,9%
-43,5%
-0,4%
-0,4%
-Equipes da Saúde que atuem no espaço da rua (Consultórios na Rua ou outros);
-50,9%
-44,3%
-46,5%
-39,1%
-30,0%
-45,2%
-33,0%
-35,7%
-24,3%
-7,8%
-39,6%
-Serviços de saúde voltados à internação
-81,7%
-60,9%
-60,0%
-47,4%
-10,4%
-63,5%
-15,7%
-13,1%
-22,6%
-9,1%
-7,4%
-Comunidades Terapêuticas
-68,7%
-56,1%
-44,8%
-40,9%
-10,4%
-56,5%
-15,2%
-16,5%
-20,0%
-17,8%
-9,6%
-Demais Serviços da rede de Saúde
-94,3%
-82,2%
-80,0%
-57,0%
-17,4%
-77,4%
-21,3%
-28,3%
-27,4%
-2,2%
-1,7%
-Órgãos responsáveis pela emissão de documentação civil básica
-94,8%
-69,6%
-60,9%
-55,7%
-7,8%
-60,0%
-6,5%
-19,6%
-30,0%
-0,9%
-0,0%
-Serviços/Programas de Segurança Alimentar
-54,3%
-21,7%
-18,3%
-10,0%
-4,8%
-21,3%
-3,9%
-9,1%
-9,1%
-27,0%
-16,1%
-Serviços/Programas de Habitação
-76,1%
-47,0%
-43,9%
-37,0%
-7,4%
-44,8%
-12,6%
-11,7%
-20,0%
-19,1%
-3,5%
-Serviços/Programas de Geração de Trabalho e renda
-84,8%
-50,9%
-50,4%
-40,4%
-10,9%
-51,7%
-9,1%
-13,9%
-16,1%
-9,1%
-3,9%
-Serviços de outras políticas públicas
-87,0%
-63,9%
-64,8%
-41,7%
-12,6%
-54,8%
-13,5%
-20,9%
-20,0%
-7,8%
-1,3%
-Programas/projetos de inclusão digital
-38,7%
-18,7%
-15,2%
-8,7%
-2,6%
-16,5%
-3,0%
-3,5%
-6,1%
-45,2%
-13,9%
-Órgãos de Defesa de Direitos (Poder Judiciário, Ministério Público, Defensoria Pública, etc.)
-95,2%
-81,7%
-83,0%
-64,8%
-25,2%
-73,5%
-27,0%
-30,0%
-33,0%
-2,2%
-0,4%
-Movimentos organizados da população em situação de rua
-32,6%
-19,6%
-18,3%
-12,6%
-9,1%
-24,8%
-4,8%
-12,2%
-0,0%
-15,7%
-49,1%
-ONGs que atuam com defesa de direitos
-48,3%
-25,2%
-29,1%
-15,2%
-6,5%
-31,3%
-7,0%
-13,0%
-6,5%
-26,1%
-20,9%
-ONGs que realizam projetos sociais
-63,9%
-39,1%
-44,3%
-24,8%
-11,3%
-43,0%
-10,4%
-16,5%
-9,1%
-23,0%
-8,3%
-Unidades / Serviços de outros municípios
-77,4%
-57,4%
-58,3%
-27,8%
-7,4%
-63,9%
-11,3%
-8,7%
-15,2%
-12,2%
-2,6%
-Fonte: MDS, Censo SUAS.
+
 
 CENTRO-DIA
+
+O Centro-Dia é uma unidade pública especializada que atende pessoas com deficiência e suas famílias, no âmbito da proteção social especial de média complexidade. 
+No ano de 2016 existiam 1.345 Centros-Dia, localizados majoritariamente na região Sudeste (812 unidades ou 60,4% do total).  A região com o menor número de unidades era a Norte com 13 unidades (1,0% do total).
+
 O Centro-Dia é uma unidade pública especializada que atende pessoas com deficiência e suas famílias, no âmbito da proteção social especial de média complexidade. 
 No ano de 2016 existiam 1.345 Centros-Dia, localizados majoritariamente na região Sudeste (812 unidades ou 60,4% do total).  A região com o menor número de unidades era a Norte com 13 unidades (1,0% do total).
 Observa-se que houve redução na quantidade de unidades nas regiões Norte (3 unidades a menos), Sul (34) e Centro-Oeste (7), e aumento nas regiões Nordeste (13 unidades a mais) e Sudeste (36) em relação ao ano de 2015 (Gráfico 42). Houve um aumento de 5 unidades no Brasil em comparação ao ano anterior.
@@ -2769,10 +2200,10 @@ Unidade_Acolhimento_acessibilidade = function(df, q, ano, cod_categoria, valor_f
     filter(Sim_Não == valor_filtro) 
 }
 
-dado_2012_1 <- Unidade_Acolhimento_acessibilidade(unac_2012, q35_1, "2012", "1", "Sim)")
-dado_2012_2 <- Unidade_Acolhimento_acessibilidade(unac_2012, q35_2, "2012", "2", "Sim)")
-dado_2012_3 <- Unidade_Acolhimento_acessibilidade(unac_2012, q35_3, "2012", "3", "Sim)")
-dado_2012_4 <- Unidade_Acolhimento_acessibilidade(unac_2012, q35_4, "2012", "4", "Sim)")
+dado_2012_1 <- Unidade_Acolhimento_acessibilidade(unac_2012, q35_1, "2012", "1", "Sim")
+dado_2012_2 <- Unidade_Acolhimento_acessibilidade(unac_2012, q35_2, "2012", "2", "Sim")
+dado_2012_3 <- Unidade_Acolhimento_acessibilidade(unac_2012, q35_3, "2012", "3", "Sim")
+dado_2012_4 <- Unidade_Acolhimento_acessibilidade(unac_2012, q35_4, "2012", "4", "Sim")
 
 dado_2017_1 <- Unidade_Acolhimento_acessibilidade(unac_2017, q37.1, "2017", "1", "Sim, de acordo com a Norma da ABNT (NBR9050)")
 dado_2017_2 <- Unidade_Acolhimento_acessibilidade(unac_2017, q37.2, "2017", "2", "Sim, de acordo com a Norma da ABNT (NBR9050)")
