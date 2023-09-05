@@ -1744,7 +1744,8 @@ Gráfico 21: Evolução do quantitativo de CRAS nos municípios - Brasil, 2007 a
 Fonte: MDS, Censo SUAS.
 
 
-```{r fig.cap = "Evolução do quantitativo de CRAS - Brasil, 2007 - 2012 - 2017 - 2022\\label{graf:cras_acessibilidade}", message=FALSE, warning=FALSE}
+
+```{r fig.cap = "Evolução do quantitativo de CRAS - Brasil, 2007 - 2012 - 2017 - 2022\\label{graf:cras_ecolução}", message=FALSE, warning=FALSE}
 
 
 
@@ -1753,14 +1754,10 @@ Fonte: MDS, Censo SUAS.
 Quando se observa as unidades por porte do município, tem-se que 3.702 municípios de pequeno porte I (94,4% do total de municípios de pequeno porte I) e 711 municípios de pequeno porte II (68,4% do total de municípios de pequeno porte II) possuem um CRAS. Dos 76 municípios que não têm CRAS, 75 são de pequeno porte I e um é de pequeno porte II. Entre os municípios médios, 216 (66,5% do total de municípios de médio porte) tinham de 2 a 3 CRAS. Mais da metade dos municípios grandes possuíam de 4 a 6 CRAS (146 municípios ou 54,9% do total de municípios de grande porte), enquanto 55 (20,7%) tinham de 7 a 10 CRAS e 16 (7,9%) tinham mais de 10 CRAS. Das 17 metrópoles, apenas uma não tem mais de 10 CRAS.
 Desde 2012 há mais CRAS funcionando em imóveis próprios que em imóveis alugados.
 
-```{r fig.cap = "Evolução do quantitativo de CRAS por Município - Brasil, 2007 - 2012 - 2017 - 2022\\label{graf:cras_acessibilidade}", message=FALSE, warning=FALSE}
+```{r fig.cap = "Evolução do quantitativo de CRAS por Município - Brasil, 2007 - 2012 - 2017 - 2022\\label{graf:CRAS_munic}", message=FALSE, warning=FALSE}
 
 
 ```
-
-
-
-
 Quando se observa as unidades por porte do município, tem-se que 3.702 municípios de pequeno porte I (94,4% do total de municípios de pequeno porte I) e 711 municípios de pequeno porte II (68,4% do total de municípios de pequeno porte II) possuem um CRAS. Dos 76 municípios que não têm CRAS, 75 são de pequeno porte I e um é de pequeno porte II. Entre os municípios médios, 216 (66,5% do total de municípios de médio porte) tinham de 2 a 3 CRAS. Mais da metade dos municípios grandes possuíam de 4 a 6 CRAS (146 municípios ou 54,9% do total de municípios de grande porte), enquanto 55 (20,7%) tinham de 7 a 10 CRAS e 16 (7,9%) tinham mais de 10 CRAS. Das 17 metrópoles, apenas uma não tem mais de 10 CRAS.
 Dos 5.570 municípios brasileiros, 76 não possuem nenhum CRAS (1,4% do total), 4.477 (80,4%) possuem um CRAS, 722 (13,0%) de 2 a 3 CRAS, 200 (3,6%) de 4 a 6 CRAS, 58 (1,0%) de 7 a 10 CRAS e 37 (0,7%) mais de 10 CRAS. (Gráfico 22).
 Gráfico 22: Número de CRAS por município segundo porte do município - Brasil, 2016
@@ -1868,6 +1865,10 @@ Em 2016, verificou-se que as condições de acessibilidade em CRAS localizados e
 Considerando a totalidade dos CRAS (8.240), 27,5% dos CRAS que tinham rota acessível ao banheiro de acordo com a Norma ABNT estavam instalados em imóveis próprios, contra 8,4% em imóveis alugados.
 De todos os CRAS em imóveis próprios, apenas 3,0% informaram não ter nenhuma condição de acessibilidade, ainda que em desacordo com a norma ABNT. Para os CRAS localizados em imóveis alugados esse percentual foi de 11,6% e em imóveis cedidos de 8,4%.
 
+```{r fig.cap = "Percentual  de CRAS com computador com acesso a internet, 2007 a 2022 - 2022\\label{graf:cras_acesso_internet}", message=FALSE, warning=FALSE}
+
+
+```
 
 O número absoluto e o percentual de CRAS com acesso à internet aumentaram desde 2007. No ano de 2016, havia 7.835 CRAS com acesso à internet, o que representa 95,1% das unidades (Gráfico 26).
 
@@ -1881,7 +1882,10 @@ Os CRAS são considerados a porta de entrada da Assistência Social, sendo uma r
 Em 2016, apenas 0,6% dos CRAS informaram não ter articulação com serviços de educação, e 0,2% informaram que o serviço não existia no município. Assim, 99,2% dos CRAS informaram manter alguma articulação com serviços de educação, sendo os maiores percentuais referentes à existência de dados atualizados dos parceiros com quem o CRAS mantém articulação (94,8%) e ao encaminhamento de usuários ao CRAS pelos serviços de educação (90,9%). No mesmo ano, 0,3% dos CRAS informaram não ter articulação com serviços de saúde e 0,1% informaram que o serviço não existe no município. Dessa forma, 99,6% dos CRAS informaram ter articulação com serviços de saúde, sendo os maiores percentuais referentes ao recebimento de usuários encaminhados pelo CRAS (96,4%).
 
 
+```{r fig.cap = "Percentual de CRAS que executavam diretamente os Serviços de Convivência e Fortalecimento de Vínculos - Brasil, 2010 a 2022\\label{graf:cras_SCFV}", message=FALSE, warning=FALSE}
 
+
+```
 
 CENTROS DE CONVIVÊNCIA
 
@@ -1890,12 +1894,29 @@ Desde 2014 o número de Centros de Convivência no Brasil aumentou, passando de 
 
 
 
-Gráfico 28: Quantitativo de Centros de Convivência segundo grandes regiões – Brasil, 2014 a 2016
-Fonte: MDS, Censo SUAS.
+```{r fig.cap = "Evolução de Centro de Convivência - Brasil, 2011 a 2022 \\label{graf:Centro_Conv}", message=FALSE, warning=FALSE}
+
+
+```
 
 Os Centros de Convivência podem ser unidades públicas ou vinculadas a entidades de assistência social, inscritas nos Conselhos de Assistência Social do município ou do DF. Em 2016, 44,7% dos Centros de Convivência eram governamentais (total de 3.781 unidades) e 55,3% das unidades eram não governamentais (4.672 unidades). Desde 2014, o percentual de unidades de natureza não governamental vem se reduzindo, passando de 57,4% (4.521 unidades) para 55,3% (4.672 unidades) em 2016 (Gráfico 29).
 
 Em 2016, 31,2% dos Centros de Convivência (2.636 unidades) possuíam rota acessível ao banheiro de acordo com a norma da ABNT (NBR9050), sendo a adaptação mais observada nas unidades. Todas as condições de acessibilidade melhoraram em relação aos anos anteriores, e o maior aumento foi verificado no percentual de Centros de Convivência com banheiros adaptados para pessoas com deficiência: estavam presentes em 24,3% das unidades em 2014 (1.918) e passaram a ser observados em 28,3% das unidades em 2016 (2.389) (Gráfico 30).
+
+```{r fig.cap = "Quantitativo de Centros de Convivência por Natureza da Unidade - BRASIL, 2014 - 2022 \\label{graf:cras_centro_NAT}", message=FALSE, warning=FALSE}
+
+
+```
+
+
+
+
+```{r fig.cap = "Percentual de CRAS que realizam Serviço de Proteção Social Básica no Domicílio para Pessoas com deficiência e idosas \\label{graf:CRAS_PSB}", message=FALSE, warning=FALSE}
+
+
+```
+
+
 
 
 CENTRO DE REFERÊNCIA ESPECIALIZADA DE ASSISTÊNCIA SOCIAL – CREAS
@@ -1906,13 +1927,16 @@ O Censo SUAS 2022 registrou 2.521 CREAS no país: um incremento de 86 novas unid
 
 Entre 2009 a 2014, o Censo SUAS registrou redução na proporção de CREAS funcionando em imóveis próprios, que se estabilizou em 2015. Contudo, em 2016 os percentuais aumentaram, chegando 27,5% de CREAS alocados em imóveis próprios (694 unidades), com diminuição para 65% funcionando em imóveis alugados (total de 1.639 unidades). Em 2016 7,5% de CREAS funcionavam em imóveis cedidos (188 unidades). Esse percentual aumenta desde 2014, quando 4,1% dos CREAS funcionavam em imóveis cedidos. 
 
-Gráfico 31: Evolução do quantitativo de CREAS segundo grandes regiões - Brasil, 2009 a 2016
-Fonte: MDS, Censo SUAS.
+```{r fig.cap = "Evolução do quantitativo de CREAS, 2012 - 2017 - 2022\\label{graf:CREAS_PSE}", message=FALSE, warning=FALSE}
+
+
+```
 
 Entre 2009 a 2014, o Censo SUAS registrou redução na proporção de CREAS funcionando em imóveis próprios, que se estabilizou em 2015. Contudo, em 2016 os percentuais aumentaram, chegando 27,5% de CREAS alocados em imóveis próprios (694 unidades), com diminuição para 65% funcionando em imóveis alugados (total de 1.639 unidades). Em 2016 7,5% de CREAS funcionavam em imóveis cedidos (188 unidades). Esse percentual aumenta desde 2014, quando 4,1% dos CREAS funcionavam em imóveis cedidos. (Gráfico 32).
-Gráfico 32: Evolução dos CREAS segundo situação do imóvel – Brasil, 2009 a 2016.
-Fonte: MDS, Censo SUAS.
+```{r fig.cap = "Evolução de CREAS por número de municípios, 2012 - 2017 - 2022\\label{graf:CREAS_PSE}", message=FALSE, warning=FALSE}
 
+
+```
 De acordo com os dados do Censo SUAS de 2016, 22,8% dos CREAS possuíam banheiro adaptado para pessoas com mobilidade reduzida de acordo com a Norma da ABNT – um crescimento de 1,9 pontos percentuais em relação ao ano anterior. A presença de acesso principal adaptado com rampas, rota acessível e calçada e de rota acessível ao banheiro apresentaram aumento de 1,7, 1,3 e 0,8 pontos percentuais, respectivamente.
 É possível observar aumento na proporção de CREAS com condições de acessibilidade de acordo com a ABNT em todos os quesitos avaliados entre os anos de 2010 e 2016. No entanto, os percentuais permanecem abaixo de 30% em todos os quesitos, o que explicita que a melhoria da acessibilidade nesses equipamentos ainda constitui grande desafio a ser superado (Gráfico 33).
 
