@@ -5,19 +5,20 @@ author:
 - Secretaria de Avaliação, Gestão da Informação e Cadastro Único
 - Secretaria Nacional de Assistência Social
 - Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome
-output:
-  pdf_document: default
-  html_document:
-    df_print: paged
 documentclass: report
 header-includes:
 - \usepackage{booktabs}
 - \usepackage{graphicx}
 - \usepackage{tabulary}
-- \usepackage{hyperref}
 - \usepackage{multirow}
 - \usepackage{chngcntr}
 - \usepackage{caption}
+- \usepackage{floatrow}
+- \floatsetup[figure]{capposition=top}
+- \floatsetup[table]{capposition=top}
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -45,6 +46,8 @@ Sys.setlocale("LC_ALL","Portuguese_Brazil.utf8")
 \renewcommand\chaptername{Capítulo}
 \renewcommand\tablename{Tabela}
 \renewcommand\figurename{Gráfico}
+\def\tableautorefname{Tabela}
+\def\figureautorefname{Gráfico}
 \counterwithout{figure}{chapter}
 \counterwithout{table}{chapter}
 \counterwithout{footnote}{chapter}
@@ -102,7 +105,7 @@ A assistência social foi reconhecida, portanto, como um direito da pessoa que d
 
 Considerando a nova configuração da Assistência Social definida pela Constituição, foi sancionada em 7 de dezembro de 1993 a Lei nº 8.742, a Lei Orgânica da Assistência Social (LOAS). A LOAS estabelece para a Assistência Social os princípios de universalização dos direitos sociais, com igualdade de direitos de acesso no atendimento e respeito à dignidade do cidadão. A lei, que dispõe sobre a nova organização da Assistência Social, trouxe inovações importantes, como a participação social por meio de instâncias de controle social e a descentralização político-administrativa com primazia da responsabilidade do Estado, nas três esferas de governo, na condução da política. As competências da União, dos estados, do Distrito Federal e dos municípios estão definidas na LOAS, bem como o cofinanciamento dos benefícios, serviços, programas e projetos da Assistência Social. Nesse sentido, mostra-se fundamental a articulação e a coordenação entre os três entes da federação, que se dá por meio das Comissões Intergestores Tripartite (CIT) e Bipartite (CIB), que são instâncias de pactuação interfederativa para a operacionalização da gestão do SUAS.
 
-A partir da LOAS, uma série de ferramentas de institucionalização foram organizadas a fim de nortear a nova configuração da Assistência Social, como visto na Tabela \ref{tab:marcos}.
+A partir da LOAS, uma série de ferramentas de institucionalização foram organizadas a fim de nortear a nova configuração da Assistência Social, como visto na \autoref{tab:marcos}.
 
 \begin{table}[]
 \caption{Marcos legais da Assistência Social no Brasil.}
@@ -164,7 +167,7 @@ Em 2016, o Censo SUAS compreendeu a aplicação de nove questionários distintos
 
 * **Questionário do Centro Dia e similares:** Identificação, Caracterização da Unidade, Estrutura Física, Serviços e Atividades e Recursos Humanos.
 
-A coleta de dados do Censo SUAS 2016 foi realizada, como todo ano, por meio de questionários eletrônicos disponíveis no portal da SAGI, com um tempo mínimo de preenchimento de 30 dias. O preenchimento em meio eletrônico é realizado apenas pelos órgãos gestores (estaduais e municipais) e conselhos de assistência social (estaduais e municipais). Os gestores municipais são responsáveis pelos dados dos questionários dos CRAS, CREAS, Centros POP, Unidades de Acolhimento Municipais, Centros Dia e Gestão Municipal; os gestores estaduais pelos dados dos questionários dos CREAS Regionais, Unidades de Acolhimento Estaduais e Gestão Estadual; e são responsáveis pelos dados dos questionários dos Conselhos Municipais e dos Conselhos Estaduais e seus respectivos presidentes. Destaca-se que, para preenchimento dos questionários, o usuário deve estar devidamente cadastrado na Rede SUAS e possuir uma senha de acesso. Os questionários, depois de preenchidos, devem ser salvos pelo respondente. O período de coleta foi entre setembro e dezembro de 2016, conforme cronograma da Tabela \ref{tab:cronograma}.
+A coleta de dados do Censo SUAS 2016 foi realizada, como todo ano, por meio de questionários eletrônicos disponíveis no portal da SAGI, com um tempo mínimo de preenchimento de 30 dias. O preenchimento em meio eletrônico é realizado apenas pelos órgãos gestores (estaduais e municipais) e conselhos de assistência social (estaduais e municipais). Os gestores municipais são responsáveis pelos dados dos questionários dos CRAS, CREAS, Centros POP, Unidades de Acolhimento Municipais, Centros Dia e Gestão Municipal; os gestores estaduais pelos dados dos questionários dos CREAS Regionais, Unidades de Acolhimento Estaduais e Gestão Estadual; e são responsáveis pelos dados dos questionários dos Conselhos Municipais e dos Conselhos Estaduais e seus respectivos presidentes. Destaca-se que, para preenchimento dos questionários, o usuário deve estar devidamente cadastrado na Rede SUAS e possuir uma senha de acesso. Os questionários, depois de preenchidos, devem ser salvos pelo respondente. O período de coleta foi entre setembro e dezembro de 2016, conforme cronograma da \autoref{tab:cronograma}.
 
 \begin{table}[]
 \centering
@@ -183,7 +186,7 @@ Unidades de Acolhimento            & Data                  & Data               
 Gestão Municipal                   & Data                  & Data                  \\ \hline
 Período de Retificação             & Data                  & Data                  \\ \hline
 \end{tabular}
-\fnote{Fonte: MDS, Censo SUAS.}
+\floatfoot{Fonte: MDS, Censo SUAS.}
 \end{table}
 
 Em esforço conjunto do Governo Federal, estados e municípios, informações de mais de 37 mil questionários foram coletadas no período. Os bancos de dados resultantes da coleta foram então submetidos a procedimentos de análise da integridade e consistência, bem como de limpeza de dados e de organização da estrutura final e da documentação das bases. Para cada base resultante de um tipo de questionário, foram realizados procedimentos de limpeza e organização específicos. Inicialmente, pretendeu-se manter o maior número possível de respondentes válidos. Para isso, foram considerados como válidos:
@@ -212,7 +215,7 @@ Centros de Convivência  & 8.510                     \\
 Unidade de Acolhimento  & 5.832                     \\
 Centros Dia e similares & 1.345                     \\ \bottomrule
 \end{tabular}
-\fnote{Fonte: MDS, Censo SUAS.}
+\floatfoot{Fonte: MDS, Censo SUAS.}
 \end{table}
 
 \begin{table}[]
@@ -221,14 +224,14 @@ Centros Dia e similares & 1.345                     \\ \bottomrule
 \label{tab:qtd_orgaos}
 \begin{tabular}{@{}lc@{}}
 \toprule
-Órgão/Instância      & Analisados após validação \\ \midrule
-Gestão Estadual      & 26                        \\
-Gestão Municipal*    & 5.481                     \\
-Conselhos Estaduais* & 27                        \\
-Conselhos Municipais & 5.359                     \\ \bottomrule
+Órgão/Instância                       & Analisados após validação \\ \midrule
+Gestão Estadual                       & 26                        \\
+Gestão Municipal\mpfootnotemark[1]    & 5.481                     \\
+Conselhos Estaduais\mpfootnotemark[1] & 27                        \\
+Conselhos Municipais                  & 5.359                     \\ \bottomrule
 \end{tabular}
-\fnote{Fonte: MDS, Censo SUAS.}
-\fnote{*O Distrito Federal responde aos questionários voltados à Gestão Municipal e aos Conselhos Estaduais.}
+\floatfoot{Fonte: MDS, Censo SUAS.}
+\footnotetext[1]{O Distrito Federal responde aos questionários voltados à Gestão Municipal e aos Conselhos Estaduais.}
 \end{table}
 
 Seguindo o modelo utilizado desde o Censo SUAS 2013, a análise dos resultados do Censo SUAS 2016 compreende o SUAS como política social por meio dos componentes sistêmicos da PNAS, conforme seu estágio de institucionalização8. Na tentativa de aprofundamento da compreensão global do SUAS, a exposição da análise do Censo SUAS será realizada de acordo com seis eixos de análise, a saber:
@@ -503,14 +506,18 @@ A LOAS, a NOB SUAS\footnote{Norma Operacional Básica NOB - SUAS 2012 (\url{http
 
 A partir das informações contidas no Censo SUAS é possível ter um panorama geral da gestão e do financiamento em estados e municípios, com a observação de aspectos como a estrutura administrativa da gestão da assistência social, a atualização de normativos, o apoio de estados aos municípios, as atividades de cofinanciamento e transferência de recursos, funcionamento das instâncias de pactuação, entre outras. Nesse sentido, esta seção apresenta os principais resultados obtidos a partir das informações dos questionários de gestão municipal e gestão estadual.
 
-Em 2016, 19,2% dos Estados tinham Secretaria estadual exclusiva da área de Assistência Social os quais são: Acre, Amazonas, Paraíba, Piauí e Paraná. Nos demais 21 estados (80,8%) a Secretaria estadual estava associada a uma ou mais políticas setoriais (Gráfico 1).
+Em 2016, 19,2% dos Estados tinham Secretaria estadual exclusiva da área de Assistência Social os quais são: Acre, Amazonas, Paraíba, Piauí e Paraná. Nos demais 21 estados (80,8%) a Secretaria estadual estava associada a uma ou mais políticas setoriais (\autoref{fig:estados-caracteristica-secretaria}).
 
+<<<<<<< HEAD
 
 
 
 #comentário: GRAFICO SUBSTITUÍDO, MAS DEIXEI PARA NÃO PERDERMOS A ESTRUTURA: titulo e modelo igual ao de cofinanciamneto dos municípios - Percentual de estados segundo característica da estrutura administrativa da Secretaria estadual de Assistência Social - Brasil,  2012 - 2017 - 2022
 
 ```{r fig.cap = "Percentual de estados segundo característica da Secretaria estadual de Assistência Social - Brasil, 2017 \\label{graf:estados_caracteristica_secretaria}", message=FALSE, warning=FALSE}
+=======
+```{r estados-caracteristica-secretaria, fig.cap = "Percentual de estados segundo característica da Secretaria estadual de Assistência Social - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS.", message=FALSE, warning=FALSE}
+>>>>>>> fb28cf50e9857d0f1355d53dc842b5b94f681855
 
 nao0_sim1 = function(df, q){
   q <- enquo(q)
@@ -561,15 +568,91 @@ grafico
 #   graph2office(file="graficos")
 ```
 
+<<<<<<< HEAD
 Fonte: MDS, Censo SUAS. 
 
  
+=======
+Alguns órgãos gestores estaduais constituíram as áreas de assistência social como subdivisões administrativas em sua estrutura, como superintendências, departamentos, gerências, coordenações, dentre outras.
+
+Em 65,4% dos estados, as subdivisões administrativas das áreas de Proteção Social Básica, Proteção Social Especial e Gestão do SUAS estavam constituídas formalmente.
+
+O maior índice de formalização, por sua vez, foi identificado na área de Gestão Financeira e Orçamentária, com 69,2%.
+A área de Regulação do SUAS é a que apesenta menor percentual de formalização, sendo 11,5% subdivisões constituídas formalmente, 38,5% constituídas informalmente e 50% não constituídas (Gráfico 2).
+
+**Gráfico 2: Distribuição dos órgãos gestores estaduais segundo constituição/formalização de subdivisões administrativas - Brasil, 2017**
+
+```{r, message=FALSE, warning=FALSE}
+
+tabela<-ge_2017 %>%
+# Questionários 2015:
+#  select("Proteção Social Básica"=q3_1,
+#         "Proteção Social Especial"=q3_2,
+#         "Gestão de Benefícios Assistenciais (Bolsa Família, BPC, Benefícios Eventuais)"=q3_3,
+#         "Gestão do SUAS"=q3_4,
+#         "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q3_5,
+#         "Gestão do Trabalho"=q3_6,
+#         "Regulação do SUAS"=q3_7,
+#         "Gestão Financeira e Orçamentária"=q3_8) %>%
+#-------------------
+# Questionário 2017:
+  select("Gestão do SUAS"=q3_1,
+         "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q3_2,
+         "Gestão do Trabalho"=q3_3,
+         "Regulação do SUAS"=q3_4,
+         "Gestão Financeira e Orçamentária"=q3_5,
+         "Proteção Social Básica"=q3_6,
+         "Proteção Social Especial"=q3_7,
+         "Gestão do Cadastro Único e Programa Bolsa Família"=q3_8,
+         "Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais)"=q3_9) %>% 
+#-------------------
+  gather("Categoria","Nível") %>% 
+  mutate(Categoria=str_wrap(Categoria,width=39)) %>% 
+  mutate(Nível = case_when(Nível=="Sim, na estrutura formal do órgão gestor"~"Constituída formalmente",
+                           Nível=="Sim, de maneira informal"~"Constituída informalmente",
+                           TRUE ~ Nível)) %>% 
+  group_by(Categoria, Nível) %>% 
+  summarise(n=n()) %>% 
+  group_by(Categoria) %>% 
+  mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+
+ordenado<-tabela %>% 
+  filter(Nível == "Constituída formalmente") %>% 
+  arrange(Percentual) %>% 
+  select(Categoria)
+
+ordenado<-factor(ordenado, levels = ordenado$Categoria)
+
+grafico<-tabela %>% 
+  ungroup() %>% 
+  mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
+  mutate(Nível=str_wrap(Nível,width=22)) %>% 
+  ggplot(aes(x = Categoria, y = Percentual)) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text(aes(y=Posição, label = percent(Percentual))) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  coord_flip() +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.x = element_blank(),
+        axis.line.y = element_line(),
+        panel.background = element_blank())
+
+grafico
+# grafico %>% 
+#   graph2office(file="graficos", append = TRUE)
+```
+
+Fonte: MDS, Censo SUAS. 
+>>>>>>> fb28cf50e9857d0f1355d53dc842b5b94f681855
 
 A Política de Assistência Social é política de seguridade social presente no artigo 194 da Constituição Federal. Suas atribuições e ações socioassistenciais são responsabilidades das três esferas de governo. Nesse sentido a regulamentação representa o reconhecimento da Política de Assistência Social como um direito de proteção de cidadania. De acordo com os últimos dados do Censo SUAS *57,7%* *(15)* dos Estados possuem *lei* *do* *SUAS* em detrimento de 42% (11) não dispoem desta legislação. O gráfifo abaixo destaca o percentual dos estados quanto ao ano de criação/atualização da Lei do SUAS Estadual. 
 
 
 
-```{r fig.cap = "Percentual de estados segundo ano de atualização da Lei Estadual de regulamentação do Sistema Único de Assistência Social (SUAS) - Brasil, 2022 \\label{graf:estados_caracteristica_secretaria}", message=FALSE, warning=FALSE}
+```{r fig.cap = "Percentual de estados segundo ano de atualização da Lei Estadual de regulamentação do Sistema Único de Assistência Social (SUAS) - Brasil, 2022 \\label{graf:estados_ano_lei}", message=FALSE, warning=FALSE}
 
 #Até 2017:
 #Percentual de estados segundo ano de atualização da Lei Estadual de regulamentação do Sistema Único de Assistência Social (SUAS), do Plano Estadual de Assistência Social (PEAS) e do Plano Estadual de Capacitação - Brasil, 2017
