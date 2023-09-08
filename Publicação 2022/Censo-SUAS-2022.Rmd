@@ -505,6 +505,11 @@ A partir das informações contidas no Censo SUAS é possível ter um panorama g
 
 Em 2016, 19,2% dos Estados tinham Secretaria estadual exclusiva da área de Assistência Social os quais são: Acre, Amazonas, Paraíba, Piauí e Paraná. Nos demais 21 estados (80,8%) a Secretaria estadual estava associada a uma ou mais políticas setoriais (Gráfico 1).
 
+
+
+
+#comentário: GRAFICO SUBSTITUÍDO, MAS DEIXEI PARA NÃO PERDERMOS A ESTRUTURA: titulo e modelo igual ao de cofinanciamneto dos municípios - Percentual de estados segundo característica da estrutura administrativa da Secretaria estadual de Assistência Social - Brasil,  2012 - 2017 - 2022
+
 ```{r fig.cap = "Percentual de estados segundo característica da Secretaria estadual de Assistência Social - Brasil, 2017 \\label{graf:estados_caracteristica_secretaria}", message=FALSE, warning=FALSE}
 
 nao0_sim1 = function(df, q){
@@ -558,85 +563,11 @@ grafico
 
 Fonte: MDS, Censo SUAS. 
 
-Alguns órgãos gestores estaduais constituíram as áreas de assistência social como subdivisões administrativas em sua estrutura, como superintendências, departamentos, gerências, coordenações, dentre outras.
+ 
 
-Em 65,4% dos estados, as subdivisões administrativas das áreas de Proteção Social Básica, Proteção Social Especial e Gestão do SUAS estavam constituídas formalmente.
+A Política de Assistência Social é política de seguridade social presente no artigo 194 da Constituição Federal. Suas atribuições e ações socioassistenciais são responsabilidades das três esferas de governo. Nesse sentido a regulamentação representa o reconhecimento da Política de Assistência Social como um direito de proteção de cidadania. De acordo com os últimos dados do Censo SUAS *57,7%* *(15)* dos Estados possuem *lei* *do* *SUAS* em detrimento de 42% (11) não dispoem desta legislação. O gráfifo abaixo destaca o percentual dos estados quanto ao ano de criação/atualização da Lei do SUAS Estadual. 
 
-O maior índice de formalização, por sua vez, foi identificado na área de Gestão Financeira e Orçamentária, com 69,2%.
-A área de Regulação do SUAS é a que apesenta menor percentual de formalização, sendo 11,5% subdivisões constituídas formalmente, 38,5% constituídas informalmente e 50% não constituídas (Gráfico 2).
 
-**Gráfico 2: Distribuição dos órgãos gestores estaduais segundo constituição/formalização de subdivisões administrativas - Brasil, 2017**
-
-```{r, message=FALSE, warning=FALSE}
-
-tabela<-ge_2017 %>%
-# Questionários 2015:
-#  select("Proteção Social Básica"=q3_1,
-#         "Proteção Social Especial"=q3_2,
-#         "Gestão de Benefícios Assistenciais (Bolsa Família, BPC, Benefícios Eventuais)"=q3_3,
-#         "Gestão do SUAS"=q3_4,
-#         "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q3_5,
-#         "Gestão do Trabalho"=q3_6,
-#         "Regulação do SUAS"=q3_7,
-#         "Gestão Financeira e Orçamentária"=q3_8) %>%
-#-------------------
-# Questionário 2017:
-  select("Gestão do SUAS"=q3_1,
-         "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q3_2,
-         "Gestão do Trabalho"=q3_3,
-         "Regulação do SUAS"=q3_4,
-         "Gestão Financeira e Orçamentária"=q3_5,
-         "Proteção Social Básica"=q3_6,
-         "Proteção Social Especial"=q3_7,
-         "Gestão do Cadastro Único e Programa Bolsa Família"=q3_8,
-         "Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais)"=q3_9) %>% 
-#-------------------
-  gather("Categoria","Nível") %>% 
-  mutate(Categoria=str_wrap(Categoria,width=39)) %>% 
-  mutate(Nível = case_when(Nível=="Sim, na estrutura formal do órgão gestor"~"Constituída formalmente",
-                           Nível=="Sim, de maneira informal"~"Constituída informalmente",
-                           TRUE ~ Nível)) %>% 
-  group_by(Categoria, Nível) %>% 
-  summarise(n=n()) %>% 
-  group_by(Categoria) %>% 
-  mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-
-ordenado<-tabela %>% 
-  filter(Nível == "Constituída formalmente") %>% 
-  arrange(Percentual) %>% 
-  select(Categoria)
-
-ordenado<-factor(ordenado, levels = ordenado$Categoria)
-
-grafico<-tabela %>% 
-  ungroup() %>% 
-  mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
-  mutate(Nível=str_wrap(Nível,width=22)) %>% 
-  ggplot(aes(x = Categoria, y = Percentual)) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text(aes(y=Posição, label = percent(Percentual))) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  coord_flip() +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.x = element_blank(),
-        axis.line.y = element_line(),
-        panel.background = element_blank())
-
-grafico
-# grafico %>% 
-#   graph2office(file="graficos", append = TRUE)
-```
-
-Fonte: MDS, Censo SUAS. 
-
-O Plano Estadual de Assistência Social (PEAS) com a respectiva aprovação pelo CEAS (total de 22 estados) estava presente em 84,6% dos estados. Destes, 19,2% (5 estados) atualizaram o PEAS pela última vez até o ano de 2011, enquanto 34,6% (9 estados) atualizaram no ano de 2016.
-
-No mesmo ano, 15,4% dos estados tinham Lei Estadual de regulamentação do SUAS (total de 4 estados). As últimas atualizações ocorreram em 2011, no caso de Minas Gerais, 2012 no Espirito Santo, 2015 em Goiás e 2016 no Mato Grosso do Sul.
-
-No que se refere ao Plano Estadual de capacitação, verificou-se que em 2016 92,3% dos estados possuíam o Plano (total de 24 estados), dos quais 38,5% (10 estados) realizaram a última atualização do Plano em 2016 e 7,7% (2 estados) tinham Plano de Capacitação cuja última atualização se deu até o ano de 2011 (Gráfico 3).
 
 ```{r fig.cap = "Percentual de estados segundo ano de atualização da Lei Estadual de regulamentação do Sistema Único de Assistência Social (SUAS) - Brasil, 2022 \\label{graf:estados_caracteristica_secretaria}", message=FALSE, warning=FALSE}
 
@@ -720,6 +651,88 @@ grafico
 ```
 
 Fonte: MDS, Censo SUAS.
+
+
+
+No que se refere ao Plano Estadual de capacitação, verificou-se que em 2016 92,3% dos estados possuíam o Plano (total de 24 estados), dos quais 38,5% (10 estados) realizaram a última atualização do Plano em 2016 e 7,7% (2 estados) tinham Plano de Capacitação cuja última atualização se deu até o ano de 2011 (Gráfico 3).
+
+
+Alguns órgãos gestores estaduais constituíram as áreas de assistência social como subdivisões administrativas em sua estrutura, como superintendências, departamentos, gerências, coordenações, dentre outras.
+
+Em 65,4% dos estados, as subdivisões administrativas das áreas de Proteção Social Básica, Proteção Social Especial e Gestão do SUAS estavam constituídas formalmente.
+
+O maior índice de formalização, por sua vez, foi identificado na área de Gestão Financeira e Orçamentária, com 69,2%.
+A área de Regulação do SUAS é a que apesenta menor percentual de formalização, sendo 11,5% subdivisões constituídas formalmente, 38,5% constituídas informalmente e 50% não constituídas (Gráfico 2).
+
+**Gráfico 2: Distribuição dos órgãos gestores estaduais segundo constituição/formalização de subdivisões administrativas - Brasil, 2017**
+
+```{r, message=FALSE, warning=FALSE}
+
+tabela<-ge_2017 %>%
+# Questionários 2015:
+#  select("Proteção Social Básica"=q3_1,
+#         "Proteção Social Especial"=q3_2,
+#         "Gestão de Benefícios Assistenciais (Bolsa Família, BPC, Benefícios Eventuais)"=q3_3,
+#         "Gestão do SUAS"=q3_4,
+#         "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q3_5,
+#         "Gestão do Trabalho"=q3_6,
+#         "Regulação do SUAS"=q3_7,
+#         "Gestão Financeira e Orçamentária"=q3_8) %>%
+#-------------------
+# Questionário 2017:
+  select("Gestão do SUAS"=q3_1,
+         "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q3_2,
+         "Gestão do Trabalho"=q3_3,
+         "Regulação do SUAS"=q3_4,
+         "Gestão Financeira e Orçamentária"=q3_5,
+         "Proteção Social Básica"=q3_6,
+         "Proteção Social Especial"=q3_7,
+         "Gestão do Cadastro Único e Programa Bolsa Família"=q3_8,
+         "Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais)"=q3_9) %>% 
+#-------------------
+  gather("Categoria","Nível") %>% 
+  mutate(Categoria=str_wrap(Categoria,width=39)) %>% 
+  mutate(Nível = case_when(Nível=="Sim, na estrutura formal do órgão gestor"~"Constituída formalmente",
+                           Nível=="Sim, de maneira informal"~"Constituída informalmente",
+                           TRUE ~ Nível)) %>% 
+  group_by(Categoria, Nível) %>% 
+  summarise(n=n()) %>% 
+  group_by(Categoria) %>% 
+  mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+
+ordenado<-tabela %>% 
+  filter(Nível == "Constituída formalmente") %>% 
+  arrange(Percentual) %>% 
+  select(Categoria)
+
+ordenado<-factor(ordenado, levels = ordenado$Categoria)
+
+grafico<-tabela %>% 
+  ungroup() %>% 
+  mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
+  mutate(Nível=str_wrap(Nível,width=22)) %>% 
+  ggplot(aes(x = Categoria, y = Percentual)) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text(aes(y=Posição, label = percent(Percentual))) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  coord_flip() +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.x = element_blank(),
+        axis.line.y = element_line(),
+        panel.background = element_blank())
+
+grafico
+# grafico %>% 
+#   graph2office(file="graficos", append = TRUE)
+```
+
+Fonte: MDS, Censo SUAS. 
+
+O Plano Estadual de Assistência Social (PEAS) com a respectiva aprovação pelo CEAS (total de 22 estados) estava presente em 84,6% dos estados. Destes, 19,2% (5 estados) atualizaram o PEAS pela última vez até o ano de 2011, enquanto 34,6% (9 estados) atualizaram no ano de 2016.
+
 
 Em 2016, 23 dos 26 estados (88,5%) realizavam algum cofinanciamento aos municípios, sendo 65,4% (17) fundo-a-fundo, 3,8% (1) por convênio e 19,2% (5) de ambas as formas. Esse número é superior ao observado em 2013, quando 80,8% dos estados (21) realizavam cofinanciamento aos municípios, e ao observado em 2014 e 2015, anos nos quais 84,6% dos estados (22) realizavam cofinanciamento.
 
@@ -1903,12 +1916,11 @@ Os Centros de Convivência podem ser unidades públicas ou vinculadas a entidade
 
 Em 2016, 31,2% dos Centros de Convivência (2.636 unidades) possuíam rota acessível ao banheiro de acordo com a norma da ABNT (NBR9050), sendo a adaptação mais observada nas unidades. Todas as condições de acessibilidade melhoraram em relação aos anos anteriores, e o maior aumento foi verificado no percentual de Centros de Convivência com banheiros adaptados para pessoas com deficiência: estavam presentes em 24,3% das unidades em 2014 (1.918) e passaram a ser observados em 28,3% das unidades em 2016 (2.389) (Gráfico 30).
 
+
 ```{r fig.cap = "Quantitativo de Centros de Convivência por Natureza da Unidade - BRASIL, 2014 - 2022 \\label{graf:cras_centro_NAT}", message=FALSE, warning=FALSE}
 
 
 ```
-
-
 
 
 ```{r fig.cap = "Percentual de CRAS que realizam Serviço de Proteção Social Básica no Domicílio para Pessoas com deficiência e idosas \\label{graf:CRAS_PSB}", message=FALSE, warning=FALSE}
@@ -1937,6 +1949,17 @@ Entre 2009 a 2014, o Censo SUAS registrou redução na proporção de CREAS func
 
 
 ```
+
+
+
+
+
+```{r fig.cap = "Evolução de CREAS Regionais (res. 21/2023)\\label{graf:CREAS_PSE}", message=FALSE, warning=FALSE}
+
+
+```
+
+
 De acordo com os dados do Censo SUAS de 2016, 22,8% dos CREAS possuíam banheiro adaptado para pessoas com mobilidade reduzida de acordo com a Norma da ABNT – um crescimento de 1,9 pontos percentuais em relação ao ano anterior. A presença de acesso principal adaptado com rampas, rota acessível e calçada e de rota acessível ao banheiro apresentaram aumento de 1,7, 1,3 e 0,8 pontos percentuais, respectivamente.
 É possível observar aumento na proporção de CREAS com condições de acessibilidade de acordo com a ABNT em todos os quesitos avaliados entre os anos de 2010 e 2016. No entanto, os percentuais permanecem abaixo de 30% em todos os quesitos, o que explicita que a melhoria da acessibilidade nesses equipamentos ainda constitui grande desafio a ser superado (Gráfico 33).
 
@@ -2031,6 +2054,10 @@ grafico
 Considerando os 694 CREAS que funcionavam em imóveis próprios, 1.639 que funcionavam em imóveis alugados e as 188 unidades que funcionavam em imóveis cedidos em 2016, tem-se que as condições de acessibilidade eram melhores nos imóveis próprios: 47,4% dos 694 CREAS que funcionavam em imóveis próprios tinham rota acessível ao banheiro de acordo com a Norma ABNT (329 unidades), enquanto 16,8% dos CREAS que funcionavam em imóveis alugados e 27,1% dos que funcionavam em imóveis cedidos tinham a mesma condição de acessibilidade (276 e 51 unidades, respectivamente). Nos CREAS que funcionavam em imóveis alugados o acesso adaptado com rampas e rotas acessíveis desde a calçada até a recepção foi observado em 19,2% das unidades (314 CREAS) (Gráfico 34).
 
 
+```{r fig.cap = "Percentual de Computadores nos CREAS com acesso a internet \\label{graf:CREAS_PSE}", message=FALSE, warning=FALSE}
+
+
+```
 
 A existência de computadores com acesso à internet é um importante aspecto a ser observado quando se avalia a infraestrutura dos CREAS. Em 2016, 99,8% dos CREAS possuíam acesso à internet. Em números absolutos, passou de 2.308 unidades em 2015, para 2.517 em 2016 (Gráfico 35).
 
