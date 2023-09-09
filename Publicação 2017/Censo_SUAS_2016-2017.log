@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.8)  8 SEP 2023 18:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.8)  9 SEP 2023 12:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -597,282 +597,308 @@ Underfull \hbox (badness 10000) in paragraph at lines 289--289
 \T1/lmr/m/n/8 (+20) a implantação do Sistema Único de Assistência Social. Disponível em:
  []
 
-[6] [7]
-Underfull \hbox (badness 1796) in paragraph at lines 332--335
-\T1/lmr/m/n/10 (+20) Parte do processo de aprimoramento da gestão do SUAS e da rede
+[6] [7] [8
+
+]
+Underfull \hbox (badness 2134) in paragraph at lines 399--407
+[]\T1/lmr/bx/n/10 (+20) Questionário Centro de Referência de Assistência Social
  []
 
-[8
+[9
 
-] [9]
+]
+Underfull \hbox (badness 1365) in paragraph at lines 423--429
+\T1/lmr/m/n/10 (+20) Serviço Especializado para Pessoas em Situação de Rua; Serviço
+ []
 
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 440.
+
+Underfull \hbox (badness 1189) in paragraph at lines 435--441
+[]\T1/lmr/bx/n/10 (+20) Questionário Unidades de Acolhimento: \T1/lmr/m/n/10 (+20) 7 Blocos, são eles:
+ []
 
 
-Underfull \hbox (badness 2735) in paragraph at lines 472--475
-[]\T1/lmr/m/n/10 (+20) Questionários totalmente preenchidos e devidamente salvos pelos
+Underfull \hbox (badness 3019) in paragraph at lines 452--458
+[]\T1/lmr/bx/n/10 (+20) Questionário Conselhos Municipais de Assistência Social
+ []
+
+
+Underfull \hbox (badness 1803) in paragraph at lines 459--463
+\T1/lmr/m/n/10 (+20) 10 Blocos, são eles: Identificação; Regulação; Infraestrutura do
  []
 
 [10]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 499.
+               Default added (so using `tbp') on input line 489.
+
+
+Overfull \hbox (35.48917pt too wide) in paragraph at lines 493--514
+ [][] 
+ []
+
+[11]
+Underfull \hbox (badness 2735) in paragraph at lines 531--534
+[]\T1/lmr/m/n/10 (+20) Questionários totalmente preenchidos e devidamente salvos pelos
+ []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 516.
+               Default added (so using `tbp') on input line 555.
 
-[11]
-Underfull \hbox (badness 1675) in paragraph at lines 571--576
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 572.
+
+[12] [13]
+Underfull \hbox (badness 1675) in paragraph at lines 627--632
 \T1/lmr/m/n/10 (+20) pelo Censo SUAS para os Conselhos Municipais e Estaduais de
  []
 
-[12] [13]
-<Censo_SUAS_2016-2017_files/figure-latex/estados-caracteristica-secretaria-1.pdf, id=152, 469.755pt x 325.215pt>
+[14]
+<Censo_SUAS_2016-2017_files/figure-latex/estados-caracteristica-secretaria-1.pdf, id=158, 469.755pt x 325.215pt>
 File: Censo_SUAS_2016-2017_files/figure-latex/estados-caracteristica-secretaria-1.pdf Graphic file (type pdf)
 <use Censo_SUAS_2016-2017_files/figure-latex/estados-caracteristica-secretaria-1.pdf>
-Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/estados-caracteristica-secretaria-1.pdf  used on input line 635.
+Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/estados-caracteristica-secretaria-1.pdf  used on input line 691.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-[14
+[15
 
-] [15 <./Censo_SUAS_2016-2017_files/figure-latex/estados-caracteristica-secretaria-1.pdf>]
-Underfull \hbox (badness 1077) in paragraph at lines 647--652
+] [16 <./Censo_SUAS_2016-2017_files/figure-latex/estados-caracteristica-secretaria-1.pdf>]
+Underfull \hbox (badness 1077) in paragraph at lines 703--708
 \T1/lmr/m/n/10 (+20) constituídas formalmente, 38,5% constituídas informalmente e 50% não
  []
 
-<Censo_SUAS_2016-2017_files/figure-latex/estados-constituicao-subdivisoes-1.pdf, id=171, 469.755pt x 325.215pt>
+<Censo_SUAS_2016-2017_files/figure-latex/estados-constituicao-subdivisoes-1.pdf, id=178, 469.755pt x 325.215pt>
 File: Censo_SUAS_2016-2017_files/figure-latex/estados-constituicao-subdivisoes-1.pdf Graphic file (type pdf)
 <use Censo_SUAS_2016-2017_files/figure-latex/estados-constituicao-subdivisoes-1.pdf>
-Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/estados-constituicao-subdivisoes-1.pdf  used on input line 654.
+Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/estados-constituicao-subdivisoes-1.pdf  used on input line 710.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-[16 <./Censo_SUAS_2016-2017_files/figure-latex/estados-constituicao-subdivisoes-1.pdf>]
-<Censo_SUAS_2016-2017_files/figure-latex/estados-atualizacao-lei-1.pdf, id=183, 469.755pt x 325.215pt>
+[17 <./Censo_SUAS_2016-2017_files/figure-latex/estados-constituicao-subdivisoes-1.pdf>]
+<Censo_SUAS_2016-2017_files/figure-latex/estados-atualizacao-lei-1.pdf, id=190, 469.755pt x 325.215pt>
 File: Censo_SUAS_2016-2017_files/figure-latex/estados-atualizacao-lei-1.pdf Graphic file (type pdf)
 <use Censo_SUAS_2016-2017_files/figure-latex/estados-atualizacao-lei-1.pdf>
-Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/estados-atualizacao-lei-1.pdf  used on input line 675.
+Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/estados-atualizacao-lei-1.pdf  used on input line 731.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-<Censo_SUAS_2016-2017_files/figure-latex/estados-cofinanciamento-municipios-1.pdf, id=185, 469.755pt x 325.215pt>
+<Censo_SUAS_2016-2017_files/figure-latex/estados-cofinanciamento-municipios-1.pdf, id=192, 469.755pt x 325.215pt>
 File: Censo_SUAS_2016-2017_files/figure-latex/estados-cofinanciamento-municipios-1.pdf Graphic file (type pdf)
 <use Censo_SUAS_2016-2017_files/figure-latex/estados-cofinanciamento-municipios-1.pdf>
-Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/estados-cofinanciamento-municipios-1.pdf  used on input line 694.
+Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/estados-cofinanciamento-municipios-1.pdf  used on input line 750.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-[17 <./Censo_SUAS_2016-2017_files/figure-latex/estados-atualizacao-lei-1.pdf>]
-<Censo_SUAS_2016-2017_files/figure-latex/estados-destinacao-recursos-1.pdf, id=198, 469.755pt x 325.215pt>
+[18 <./Censo_SUAS_2016-2017_files/figure-latex/estados-atualizacao-lei-1.pdf>]
+<Censo_SUAS_2016-2017_files/figure-latex/estados-destinacao-recursos-1.pdf, id=206, 469.755pt x 325.215pt>
 File: Censo_SUAS_2016-2017_files/figure-latex/estados-destinacao-recursos-1.pdf Graphic file (type pdf)
 <use Censo_SUAS_2016-2017_files/figure-latex/estados-destinacao-recursos-1.pdf>
-Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/estados-destinacao-recursos-1.pdf  used on input line 712.
+Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/estados-destinacao-recursos-1.pdf  used on input line 768.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-[18 <./Censo_SUAS_2016-2017_files/figure-latex/estados-cofinanciamento-municipios-1.pdf>] [19 <./Censo_SUAS_2016-2017_files/figure-latex/estados-destinacao-recursos-1.pdf>]
-<Censo_SUAS_2016-2017_files/figure-latex/estados-formas-apoio-1.pdf, id=220, 469.755pt x 325.215pt>
+[19 <./Censo_SUAS_2016-2017_files/figure-latex/estados-cofinanciamento-municipios-1.pdf>] [20 <./Censo_SUAS_2016-2017_files/figure-latex/estados-destinacao-recursos-1.pdf>]
+<Censo_SUAS_2016-2017_files/figure-latex/estados-formas-apoio-1.pdf, id=227, 469.755pt x 325.215pt>
 File: Censo_SUAS_2016-2017_files/figure-latex/estados-formas-apoio-1.pdf Graphic file (type pdf)
 <use Censo_SUAS_2016-2017_files/figure-latex/estados-formas-apoio-1.pdf>
-Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/estados-formas-apoio-1.pdf  used on input line 729.
+Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/estados-formas-apoio-1.pdf  used on input line 785.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-[20 <./Censo_SUAS_2016-2017_files/figure-latex/estados-formas-apoio-1.pdf>]
-<Censo_SUAS_2016-2017_files/figure-latex/secretarias-municipais-exclusivas-1.pdf, id=232, 469.755pt x 325.215pt>
+[21 <./Censo_SUAS_2016-2017_files/figure-latex/estados-formas-apoio-1.pdf>]
+<Censo_SUAS_2016-2017_files/figure-latex/secretarias-municipais-exclusivas-1.pdf, id=239, 469.755pt x 325.215pt>
 File: Censo_SUAS_2016-2017_files/figure-latex/secretarias-municipais-exclusivas-1.pdf Graphic file (type pdf)
 <use Censo_SUAS_2016-2017_files/figure-latex/secretarias-municipais-exclusivas-1.pdf>
-Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/secretarias-municipais-exclusivas-1.pdf  used on input line 758.
+Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/secretarias-municipais-exclusivas-1.pdf  used on input line 814.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
-Underfull \hbox (badness 1616) in paragraph at lines 761--770
+Underfull \hbox (badness 1616) in paragraph at lines 817--826
 []\T1/lmr/m/n/10 (+20) Em 2016, os órgãos gestores municipais que tinham como subdivisão
  []
 
-<Censo_SUAS_2016-2017_files/figure-latex/municipais-constituicao-subdivisoes-1.pdf, id=234, 469.755pt x 325.215pt>
+<Censo_SUAS_2016-2017_files/figure-latex/municipais-constituicao-subdivisoes-1.pdf, id=241, 469.755pt x 325.215pt>
 File: Censo_SUAS_2016-2017_files/figure-latex/municipais-constituicao-subdivisoes-1.pdf Graphic file (type pdf)
 <use Censo_SUAS_2016-2017_files/figure-latex/municipais-constituicao-subdivisoes-1.pdf>
-Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/municipais-constituicao-subdivisoes-1.pdf  used on input line 772.
+Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/municipais-constituicao-subdivisoes-1.pdf  used on input line 828.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-[21 <./Censo_SUAS_2016-2017_files/figure-latex/secretarias-municipais-exclusivas-1.pdf>] [22 <./Censo_SUAS_2016-2017_files/figure-latex/municipais-constituicao-subdivisoes-1.pdf>]
-<Censo_SUAS_2016-2017_files/figure-latex/municipios-atualizacao-PMAS-1.pdf, id=256, 469.755pt x 325.215pt>
+[22 <./Censo_SUAS_2016-2017_files/figure-latex/secretarias-municipais-exclusivas-1.pdf>] [23 <./Censo_SUAS_2016-2017_files/figure-latex/municipais-constituicao-subdivisoes-1.pdf>]
+<Censo_SUAS_2016-2017_files/figure-latex/municipios-atualizacao-PMAS-1.pdf, id=263, 469.755pt x 325.215pt>
 File: Censo_SUAS_2016-2017_files/figure-latex/municipios-atualizacao-PMAS-1.pdf Graphic file (type pdf)
 <use Censo_SUAS_2016-2017_files/figure-latex/municipios-atualizacao-PMAS-1.pdf>
-Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/municipios-atualizacao-PMAS-1.pdf  used on input line 805.
+Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/municipios-atualizacao-PMAS-1.pdf  used on input line 861.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-[23 <./Censo_SUAS_2016-2017_files/figure-latex/municipios-atualizacao-PMAS-1.pdf>]
-<Censo_SUAS_2016-2017_files/figure-latex/municipios-recebimento-recursos-1.pdf, id=268, 469.755pt x 325.215pt>
+[24 <./Censo_SUAS_2016-2017_files/figure-latex/municipios-atualizacao-PMAS-1.pdf>]
+<Censo_SUAS_2016-2017_files/figure-latex/municipios-recebimento-recursos-1.pdf, id=276, 469.755pt x 325.215pt>
 File: Censo_SUAS_2016-2017_files/figure-latex/municipios-recebimento-recursos-1.pdf Graphic file (type pdf)
 <use Censo_SUAS_2016-2017_files/figure-latex/municipios-recebimento-recursos-1.pdf>
-Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/municipios-recebimento-recursos-1.pdf  used on input line 827.
+Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/municipios-recebimento-recursos-1.pdf  used on input line 883.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-[24 <./Censo_SUAS_2016-2017_files/figure-latex/municipios-recebimento-recursos-1.pdf>]
-<Censo_SUAS_2016-2017_files/figure-latex/municipios-transferencia-recursos-1.pdf, id=282, 469.755pt x 325.215pt>
+[25 <./Censo_SUAS_2016-2017_files/figure-latex/municipios-recebimento-recursos-1.pdf>]
+<Censo_SUAS_2016-2017_files/figure-latex/municipios-transferencia-recursos-1.pdf, id=289, 469.755pt x 325.215pt>
 File: Censo_SUAS_2016-2017_files/figure-latex/municipios-transferencia-recursos-1.pdf Graphic file (type pdf)
 <use Censo_SUAS_2016-2017_files/figure-latex/municipios-transferencia-recursos-1.pdf>
-Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/municipios-transferencia-recursos-1.pdf  used on input line 846.
+Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/municipios-transferencia-recursos-1.pdf  used on input line 902.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-<Censo_SUAS_2016-2017_files/figure-latex/municipios-receberam-visitas-1.pdf, id=284, 469.755pt x 325.215pt>
+<Censo_SUAS_2016-2017_files/figure-latex/municipios-receberam-visitas-1.pdf, id=291, 469.755pt x 325.215pt>
 File: Censo_SUAS_2016-2017_files/figure-latex/municipios-receberam-visitas-1.pdf Graphic file (type pdf)
 <use Censo_SUAS_2016-2017_files/figure-latex/municipios-receberam-visitas-1.pdf>
-Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/municipios-receberam-visitas-1.pdf  used on input line 859.
+Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/municipios-receberam-visitas-1.pdf  used on input line 915.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-<Censo_SUAS_2016-2017_files/figure-latex/municipios-formas-apoio-1.pdf, id=286, 469.755pt x 325.215pt>
+<Censo_SUAS_2016-2017_files/figure-latex/municipios-formas-apoio-1.pdf, id=293, 469.755pt x 325.215pt>
 File: Censo_SUAS_2016-2017_files/figure-latex/municipios-formas-apoio-1.pdf Graphic file (type pdf)
 <use Censo_SUAS_2016-2017_files/figure-latex/municipios-formas-apoio-1.pdf>
-Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/municipios-formas-apoio-1.pdf  used on input line 875.
+Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/municipios-formas-apoio-1.pdf  used on input line 931.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-[25 <./Censo_SUAS_2016-2017_files/figure-latex/municipios-transferencia-recursos-1.pdf>] [26 <./Censo_SUAS_2016-2017_files/figure-latex/municipios-receberam-visitas-1.pdf>] [27 <./Censo_SUAS_2016-2017_files/figure-latex/municipios-formas-apoio-1.pdf>]
-<Censo_SUAS_2016-2017_files/figure-latex/municipios-participacoes-CIB-1.pdf, id=318, 469.755pt x 325.215pt>
+[26 <./Censo_SUAS_2016-2017_files/figure-latex/municipios-transferencia-recursos-1.pdf>] [27 <./Censo_SUAS_2016-2017_files/figure-latex/municipios-receberam-visitas-1.pdf>] [28 <./Censo_SUAS_2016-2017_files/figure-latex/municipios-formas-apoio-1.pdf>]
+<Censo_SUAS_2016-2017_files/figure-latex/municipios-participacoes-CIB-1.pdf, id=325, 469.755pt x 325.215pt>
 File: Censo_SUAS_2016-2017_files/figure-latex/municipios-participacoes-CIB-1.pdf Graphic file (type pdf)
 <use Censo_SUAS_2016-2017_files/figure-latex/municipios-participacoes-CIB-1.pdf>
-Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/municipios-participacoes-CIB-1.pdf  used on input line 901.
+Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/municipios-participacoes-CIB-1.pdf  used on input line 957.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-[28 <./Censo_SUAS_2016-2017_files/figure-latex/municipios-participacoes-CIB-1.pdf>]
-<Censo_SUAS_2016-2017_files/figure-latex/municipios-possuem-plano-1.pdf, id=330, 469.755pt x 325.215pt>
+[29 <./Censo_SUAS_2016-2017_files/figure-latex/municipios-participacoes-CIB-1.pdf>]
+<Censo_SUAS_2016-2017_files/figure-latex/municipios-possuem-plano-1.pdf, id=337, 469.755pt x 325.215pt>
 File: Censo_SUAS_2016-2017_files/figure-latex/municipios-possuem-plano-1.pdf Graphic file (type pdf)
 <use Censo_SUAS_2016-2017_files/figure-latex/municipios-possuem-plano-1.pdf>
-Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/municipios-possuem-plano-1.pdf  used on input line 924.
+Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/municipios-possuem-plano-1.pdf  used on input line 980.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-[29 <./Censo_SUAS_2016-2017_files/figure-latex/municipios-possuem-plano-1.pdf>]
-Underfull \hbox (badness 2334) in paragraph at lines 938--946
+[30 <./Censo_SUAS_2016-2017_files/figure-latex/municipios-possuem-plano-1.pdf>]
+Underfull \hbox (badness 2334) in paragraph at lines 994--1002
 []\T1/lmr/m/n/10 (+20) As subdivisões administrativas que apresentavam maior percentual de
  []
 
-[30] [31
+[31] [32
 
 ]
-<Censo_SUAS_2016-2017_files/figure-latex/quantitativo-CRAS-1.pdf, id=363, 469.755pt x 325.215pt>
+<Censo_SUAS_2016-2017_files/figure-latex/quantitativo-CRAS-1.pdf, id=370, 469.755pt x 325.215pt>
 File: Censo_SUAS_2016-2017_files/figure-latex/quantitativo-CRAS-1.pdf Graphic file (type pdf)
 <use Censo_SUAS_2016-2017_files/figure-latex/quantitativo-CRAS-1.pdf>
-Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/quantitativo-CRAS-1.pdf  used on input line 1015.
+Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/quantitativo-CRAS-1.pdf  used on input line 1071.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-<Censo_SUAS_2016-2017_files/figure-latex/municipios-CRAS-1.pdf, id=364, 469.755pt x 325.215pt>
+<Censo_SUAS_2016-2017_files/figure-latex/municipios-CRAS-1.pdf, id=371, 469.755pt x 325.215pt>
 File: Censo_SUAS_2016-2017_files/figure-latex/municipios-CRAS-1.pdf Graphic file (type pdf)
 <use Censo_SUAS_2016-2017_files/figure-latex/municipios-CRAS-1.pdf>
-Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/municipios-CRAS-1.pdf  used on input line 1019.
+Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/municipios-CRAS-1.pdf  used on input line 1075.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-[32 <./Censo_SUAS_2016-2017_files/figure-latex/quantitativo-CRAS-1.pdf>] [33 <./Censo_SUAS_2016-2017_files/figure-latex/municipios-CRAS-1.pdf>]
-<Censo_SUAS_2016-2017_files/figure-latex/CRAS-porte-1.pdf, id=386, 469.755pt x 325.215pt>
+[33 <./Censo_SUAS_2016-2017_files/figure-latex/quantitativo-CRAS-1.pdf>] [34 <./Censo_SUAS_2016-2017_files/figure-latex/municipios-CRAS-1.pdf>]
+<Censo_SUAS_2016-2017_files/figure-latex/CRAS-porte-1.pdf, id=393, 469.755pt x 325.215pt>
 File: Censo_SUAS_2016-2017_files/figure-latex/CRAS-porte-1.pdf Graphic file (type pdf)
 <use Censo_SUAS_2016-2017_files/figure-latex/CRAS-porte-1.pdf>
-Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/CRAS-porte-1.pdf  used on input line 1038.
+Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/CRAS-porte-1.pdf  used on input line 1094.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-[34 <./Censo_SUAS_2016-2017_files/figure-latex/CRAS-porte-1.pdf>]
-<Censo_SUAS_2016-2017_files/figure-latex/CRAS-imovel-1.pdf, id=398, 469.755pt x 325.215pt>
+[35 <./Censo_SUAS_2016-2017_files/figure-latex/CRAS-porte-1.pdf>]
+<Censo_SUAS_2016-2017_files/figure-latex/CRAS-imovel-1.pdf, id=405, 469.755pt x 325.215pt>
 File: Censo_SUAS_2016-2017_files/figure-latex/CRAS-imovel-1.pdf Graphic file (type pdf)
 <use Censo_SUAS_2016-2017_files/figure-latex/CRAS-imovel-1.pdf>
-Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/CRAS-imovel-1.pdf  used on input line 1053.
+Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/CRAS-imovel-1.pdf  used on input line 1109.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-<Censo_SUAS_2016-2017_files/figure-latex/CRAS-acessibilidade-1.pdf, id=400, 469.755pt x 325.215pt>
+<Censo_SUAS_2016-2017_files/figure-latex/CRAS-acessibilidade-1.pdf, id=407, 469.755pt x 325.215pt>
 File: Censo_SUAS_2016-2017_files/figure-latex/CRAS-acessibilidade-1.pdf Graphic file (type pdf)
 <use Censo_SUAS_2016-2017_files/figure-latex/CRAS-acessibilidade-1.pdf>
-Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/CRAS-acessibilidade-1.pdf  used on input line 1067.
+Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/CRAS-acessibilidade-1.pdf  used on input line 1123.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-[35 <./Censo_SUAS_2016-2017_files/figure-latex/CRAS-imovel-1.pdf>] [36 <./Censo_SUAS_2016-2017_files/figure-latex/CRAS-acessibilidade-1.pdf>]
-<Censo_SUAS_2016-2017_files/figure-latex/CRAS-acessibilidade-situacao-1.pdf, id=424, 469.755pt x 325.215pt>
+[36 <./Censo_SUAS_2016-2017_files/figure-latex/CRAS-imovel-1.pdf>] [37 <./Censo_SUAS_2016-2017_files/figure-latex/CRAS-acessibilidade-1.pdf>]
+<Censo_SUAS_2016-2017_files/figure-latex/CRAS-acessibilidade-situacao-1.pdf, id=431, 469.755pt x 325.215pt>
 File: Censo_SUAS_2016-2017_files/figure-latex/CRAS-acessibilidade-situacao-1.pdf Graphic file (type pdf)
 <use Censo_SUAS_2016-2017_files/figure-latex/CRAS-acessibilidade-situacao-1.pdf>
-Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/CRAS-acessibilidade-situacao-1.pdf  used on input line 1092.
+Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/CRAS-acessibilidade-situacao-1.pdf  used on input line 1148.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-<Censo_SUAS_2016-2017_files/figure-latex/CRAS-internet-quantitativo-1.pdf, id=427, 469.755pt x 325.215pt>
+<Censo_SUAS_2016-2017_files/figure-latex/CRAS-internet-quantitativo-1.pdf, id=434, 469.755pt x 325.215pt>
 File: Censo_SUAS_2016-2017_files/figure-latex/CRAS-internet-quantitativo-1.pdf Graphic file (type pdf)
 <use Censo_SUAS_2016-2017_files/figure-latex/CRAS-internet-quantitativo-1.pdf>
-Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/CRAS-internet-quantitativo-1.pdf  used on input line 1101.
+Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/CRAS-internet-quantitativo-1.pdf  used on input line 1157.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-<Censo_SUAS_2016-2017_files/figure-latex/CRAS-internet-percentual-1.pdf, id=428, 469.755pt x 325.215pt>
+<Censo_SUAS_2016-2017_files/figure-latex/CRAS-internet-percentual-1.pdf, id=435, 469.755pt x 325.215pt>
 File: Censo_SUAS_2016-2017_files/figure-latex/CRAS-internet-percentual-1.pdf Graphic file (type pdf)
 <use Censo_SUAS_2016-2017_files/figure-latex/CRAS-internet-percentual-1.pdf>
-Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/CRAS-internet-percentual-1.pdf  used on input line 1105.
+Package pdftex.def Info: Censo_SUAS_2016-2017_files/figure-latex/CRAS-internet-percentual-1.pdf  used on input line 1161.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-[37 <./Censo_SUAS_2016-2017_files/figure-latex/CRAS-acessibilidade-situacao-1.pdf>] [38 <./Censo_SUAS_2016-2017_files/figure-latex/CRAS-internet-quantitativo-1.pdf>] [39 <./Censo_SUAS_2016-2017_files/figure-latex/CRAS-internet-percentual-1.pdf>]
-Underfull \hbox (badness 1082) in paragraph at lines 1148--1166
+[38 <./Censo_SUAS_2016-2017_files/figure-latex/CRAS-acessibilidade-situacao-1.pdf>] [39 <./Censo_SUAS_2016-2017_files/figure-latex/CRAS-internet-quantitativo-1.pdf>] [40 <./Censo_SUAS_2016-2017_files/figure-latex/CRAS-internet-percentual-1.pdf>]
+Underfull \hbox (badness 1082) in paragraph at lines 1204--1222
 \T1/lmr/m/n/10 (+20) Possui dados de localização (endereço, telefone etc.) Recebe usuários
  []
 
-[40] [41] [42]
-Underfull \hbox (badness 1033) in paragraph at lines 1290--1325
+[41] [42] [43]
+Underfull \hbox (badness 1033) in paragraph at lines 1346--1381
 \T1/lmr/m/n/10 (+20) Possui dados da localização (endereço, telefone etc.) Recebe usuários
  []
 
 
-Underfull \hbox (badness 1163) in paragraph at lines 1290--1325
+Underfull \hbox (badness 1163) in paragraph at lines 1346--1381
 \T1/lmr/m/n/10 (+20) encaminhados por este CREAS Encaminha usuários para este CREAS
  []
 
-[43] [44] [45] [46]
-Underfull \hbox (badness 3942) in paragraph at lines 1523--1535
+[44] [45] [46] [47]
+Underfull \hbox (badness 3942) in paragraph at lines 1579--1591
 []\T1/lmr/m/n/10 (+20) UNIDADES DE ACOLHIMENTO As Unidades de Acolhimento são
  []
 
 
-Underfull \hbox (badness 1168) in paragraph at lines 1523--1535
+Underfull \hbox (badness 1168) in paragraph at lines 1579--1591
 \T1/lmr/m/n/10 (+20) equipamentos que prestam serviços de proteção social especial de alta
  []
 
-[47] [48] [49]
-Underfull \hbox (badness 1742) in paragraph at lines 1654--1666
+[48] [49] [50]
+Underfull \hbox (badness 1742) in paragraph at lines 1710--1722
 []\T1/lmr/m/n/10 (+20) ANÁLISE CONJUNTA Alguns equipamentos de prestação de serviços
  []
 
-[50] [51] [52] [53] [54] [55] [56] [57] [58] [59]
-Overfull \hbox (0.62639pt too wide) in paragraph at lines 2178--2199
+[51] [52] [53] [54] [55] [56] [57] [58] [59] [60]
+Overfull \hbox (0.62639pt too wide) in paragraph at lines 2234--2255
 \T1/lmr/m/n/10 (-20) ``Outra formação de nível superior'' inclui advogados, administradores, analistas de
  []
 
-[60] [61] [62] [63] [64] [65] [66]
-Underfull \hbox (badness 1259) in paragraph at lines 2558--2581
+[61] [62] [63] [64] [65] [66] [67]
+Underfull \hbox (badness 1259) in paragraph at lines 2614--2637
 \T1/lmr/m/n/10 (+20) acompanhamento a adolescentes e jovens em cumprimento de medidas
  []
 
-[67] [68] [69] [70] [71] [72] [73] [74] [75] [76]
-Underfull \hbox (badness 1242) in paragraph at lines 3085--3128
+[68] [69] [70] [71] [72] [73] [74] [75] [76] [77]
+Underfull \hbox (badness 1242) in paragraph at lines 3141--3184
 \T1/lmr/m/n/10 (+20) Conselhos às normativas vigentes e ao exercício do controle social no
  []
 
 
-Underfull \hbox (badness 7963) in paragraph at lines 3085--3128
+Underfull \hbox (badness 7963) in paragraph at lines 3141--3184
 \T1/lmr/m/n/10 (+20) SUAS. %______________Pacto de Aprimoramento da Gestão
  []
 
 
-Underfull \hbox (badness 1769) in paragraph at lines 3085--3128
+Underfull \hbox (badness 1769) in paragraph at lines 3141--3184
 \T1/lmr/m/n/10 (+20) Municipal do SUAS (Resoluções CIT n\TS1/lmr/m/n/10 (+20) °\T1/lmr/m/n/10 (+20) 18 de 15 de julho de 2013).
  []
 
 
-Underfull \hbox (badness 3019) in paragraph at lines 3085--3128
+Underfull \hbox (badness 3019) in paragraph at lines 3141--3184
 \T1/lmr/m/n/10 (+20) Política Nacional de Educação Permanente do SUAS/ Ministério do
  []
 
 
-Underfull \hbox (badness 1590) in paragraph at lines 3085--3128
+Underfull \hbox (badness 1590) in paragraph at lines 3141--3184
 \T1/lmr/m/n/10 (+20) do Trabalho e da Assistência Social, 2013. %______________
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3085--3128
+Underfull \hbox (badness 10000) in paragraph at lines 3141--3184
 \T1/lmr/m/n/10 (+9) a _ tipi^^\cacao _ dos _ servicos _ socioassistenciais _ na _ regiao _ da _ granfpolis . pdf$[]
  []
 
-[77] [78] (./Censo_SUAS_2016-2017.aux)
+[78] [79] (./Censo_SUAS_2016-2017.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
  ***********
 Package rerunfilecheck Info: File `Censo_SUAS_2016-2017.out' has not changed.
-(rerunfilecheck)             Checksum: 9DDFB0619B7D1F1A17391BAB556A5870;1279.
+(rerunfilecheck)             Checksum: 874C543E6FAD5315902C4992374DEBA0;1460.
  ) 
 Here is how much of TeX's memory you used:
- 17556 strings out of 476894
- 309353 string characters out of 5807617
+ 17566 strings out of 476894
+ 309540 string characters out of 5807617
  1930807 words of memory out of 5000000
- 38276 multiletter control sequences out of 15000+600000
- 633842 words of font info for 188 fonts, out of 8000000 for 9000
+ 38282 multiletter control sequences out of 15000+600000
+ 638310 words of font info for 190 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,13n,79p,1017b,553s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,13n,79p,1017b,561s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-pdfTeX warning (dest): name{Hfootnote.9} has been referenced but does not exist, replaced by a fixed one
+pdfTeX warning (dest): name{Hfootnote.7} has been referenced but does not exist, replaced by a fixed one
 
 
-pdfTeX warning (dest): name{Hfootnote.8} has been referenced but does not exist, replaced by a fixed one
+pdfTeX warning (dest): name{Hfootnote.6} has been referenced but does not exist, replaced by a fixed one
 
-</home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb></home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb></home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb></home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb></home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmri7.pfb>
-Output written on Censo_SUAS_2016-2017.pdf (79 pages, 534620 bytes).
+</home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb></home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb></home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb></home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb></home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb></home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmri7.pfb>
+Output written on Censo_SUAS_2016-2017.pdf (80 pages, 554099 bytes).
 PDF statistics:
- 706 PDF objects out of 1000 (max. 8388607)
- 553 compressed objects within 6 object streams
- 134 named destinations out of 1000 (max. 500000)
- 43188 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 717 PDF objects out of 1000 (max. 8388607)
+ 561 compressed objects within 6 object streams
+ 135 named destinations out of 1000 (max. 500000)
+ 45244 words of extra memory for PDF output out of 51595 (max. 10000000)
 
