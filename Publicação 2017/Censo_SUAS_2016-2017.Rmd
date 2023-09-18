@@ -319,7 +319,9 @@ gm_2016 <- read_excel("../Censo SUAS 2016/Gestão Municipal/Censo_SUAS_2016_Gest
 
 gm_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Gestão_Municipal/Censo_SUAS_2017_Gestao_Municipal_divulgação.xlsx", sheet = "Base de Dados")
 
-cras_2007 <- read_excel("../Censo SUAS 2007/CRAS/base_cras_2007_Jomar.xlsx", sheet = "Sheet1")
+#postocadunico_2022 <- read_excel("../Censo SUAS 2022/5 - Postos Cadastro Único/Censo_SUAS_2022_Posto_Cadastro_Unico_Dados_Gerais_divulgação.xlsx, sheet = 1)
+
+#cras_2007 <- read_excel("../Censo SUAS 2007/CRAS/base_cras_2007_Jomar.xlsx", sheet = "Sheet1")
 
 cras_2008 <- read_excel("../Censo SUAS 2008/CRAS/Banco CRAS.xlsx", sheet = "Sheet1")
 
@@ -353,6 +355,9 @@ cras_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_CRAS/Censo SUAS 2017
 
 crasrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_CRAS/Censo SUAS 2017_CRAS_RH_divulgacao.xlsx", sheet = "Base de dados")
 
+
+cras_2022 <- read_excel("../Censo SUAS 2022/1 CRAS_2022/Censo_SUAS_2022_CRAS_Dados_Gerais_Divulgação.csv, sheet = 1)
+
 creas_2010 <- read_excel("../Censo SUAS 2010/CREAS/Censo SUAS 2010_CREAS_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2010 CREAS")
 
 creas_2011 <- read_excel("../Censo SUAS 2011/CREAS/Censo SUAS 2011_CREAS_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2011 CREAS")
@@ -381,8 +386,8 @@ creas_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_CREAS/Censo SUAS 20
 
 creasrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_CREAS/Censo SUAS 2017_CREAS_RH_divulgacao.xlsx", sheet = "Base de dados")
 
-#creas_2020 <- read_excel("../", sheet = 1)
-
+creas_2020 <- read_excel("../Censo SUAS 2020/2 - CREAS/Censo_SUAS_CREAS_2020_Dados_Gerais_divulgacao_revisado.xlsx, sheet = 1)                                
+creas_2022 <- read_excel("../Censo SUAS 2022/2 - CREAS/Censo_SUAS_ 2022_ CREAS_Dados_ Gerais.xlsx, sheet = 1)
 
 cest_2010 <- read_excel("../Censo SUAS 2010/Conselho Estadual/Censo SUAS 2010_Conselho Estadual_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2010 Cons. Estadual")
 
@@ -472,6 +477,8 @@ cpop_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Centro_POP/Censo SUA
 
 cpoprh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Centro_POP/Censo SUAS 2017_Centro POP_RH_divulgação.xlsx", sheet = "Base de dados")
 
+cpop_2022 <- read_excel("../Censo SUAS 2022/3 - Centro Pop/Censo_SUAS_2022_Centro_POP_dados_gerais.xlsx sheet = 1)
+
 unac_2012 <- read_excel("../Censo SUAS 2012/Unidades de Acolhimento/Censo SUAS 2012_Unidades_de_Acolhimento_dadosgerais_divulgação.xlsx", sheet = "CensoSUAS2012 Acolhimento")
 
 unacrh_2012 <- read_excel("../Censo SUAS 2012/Unidades de Acolhimento/Censo SUAS 2012_Unidades_de_Acolhimento_RH_divulgação.xlsx", sheet = "CensoSUAS2012 Acolhimento RH")
@@ -493,6 +500,8 @@ unac_2016 <- read_excel("../Censo SUAS 2016/Acolhimento/CensoSUAS2016_Acolhiment
 unacrh_2016 <- read_excel("../Censo SUAS 2016/Acolhimento/CensoSUAS2016_Acolhimento_RH_DIVULGAÇÃO.xlsx", sheet = "CensoSUAS2016_Acolhimento_RH")
 
 unac_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Unidades_Acolhimento/Censo Suas 2017 Unidades de Acolhimento_divulgação.xlsx", sheet = "Base de dados")
+
+unac_2022 <- read_excel("../Censo SUAS 2022/4 - Unidade de Acolhimento/Censo SUAS 2022 Dados Gerais Acolhimento_Divulgação.xlsx,sheet = 1) 
 
 unacrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Unidades_Acolhimento/CENSO SUAS 2017 Acolhimento RH divulgação.xlsx", sheet = "Base de dados")
 
@@ -527,6 +536,10 @@ famacol_2017 <- read_excel("../Censo SUAS 2017/Censo SUAS 2017 Família Acolhedo
 famacolrh_2017 <- read_excel("../Censo SUAS 2017/Censo SUAS 2017 Família Acolhedora/Censo SUAS 2017_Família Acolhedora_RH_divulgação.xlsx", sheet = "Base de dados")
 
 famacolfam_2017 <- read_excel("../Censo SUAS 2017/Censo SUAS 2017 Família Acolhedora/Censo SUAS 2017_Família Acolhedora_Familia_divulgação.xlsx", sheet = "Base de dados")
+
+famacolfam_2022 <- read_excel("../Censo SUAS 2022/8 - Família Acolhedora/Censo_SUAS_2022_Familia_Acolhedora_dados_gerais.xlsx, sheet = 1)
+
+famacolfamrh_2022 <- read_excel("../Censo SUAS 2022/8 - Família Acolhedora/Censo_SUAS_2022_Familia_Acolhedora_equipe_RH.xlsx", sheet = 1)
 
 #Número de municipios no Brasil e por região. Fonte: Anuários Estatístico do Brasil 2017, IBGE.
 #c(Norte, Nordeste, Sudeste, Sul, Centro-Oeste, Brasil)
