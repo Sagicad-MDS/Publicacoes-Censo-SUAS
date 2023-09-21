@@ -631,15 +631,24 @@ f_situacao = function(df, situacao){
     mutate(!! situacao := case_when(!! situacao == "próprio da Prefeitura Municipal"~"Próprio",
                                     !! situacao == "Próprio da Prefeitura Municipal"~"Próprio",
                                     !! situacao == "Próprio da Prefeitura Municipal ou do governo do DF"~"Próprio",
+                                    !! situacao == "Próprio da Prefeitura Municipal/DF"~"Próprio",
+                                    !! situacao == "Próprio do Governo Estadual"~"Próprio",
                                     !! situacao == "alugado pela Prefeitura Municipal"~"Alugado",
                                     !! situacao == "Alugado pela Prefeitura Municipal"~"Alugado",
                                     !! situacao == "Alugado pela Prefeitura Municipal ou pelo governo do DF"~"Alugado",
+                                    !! situacao == "Alugado pela Prefeitura Municipal/DF"~"Alugado",
+                                    !! situacao == "Alugado pelo Governo Estadual"~"Alugado",
                                     !! situacao == "cedido para a Prefeitura Municipal"~"Cedido",
                                     !! situacao == "Cedido para a Prefeitura Municipal"~"Cedido",
                                     !! situacao == "Cedido para a Prefeitura Municipal ou pelo governo do DF"~"Cedido",
+                                    !! situacao == "Cedido para a Prefeitura Municipal/DF por órgãos/unidades públicas"~"Cedido",
+                                    !! situacao == "Cedido para a Prefeitura Municipal/DF por entidades/instituições privadas"~"Cedido",
+                                    
                                     !! situacao == "outro"~"Outro ou não informou",
                                     !! situacao == "Outro"~"Outro ou não informou",
+                                    !! situacao == "Outros"~"Outro ou não informou",
                                     is.na(!! situacao)~"Outro ou não informou",
+                                    
                                     TRUE ~ as.character(!! situacao))) %>% 
     mutate(!! situacao := factor(!! situacao, levels = c("Próprio",
                                                          "Alugado",
@@ -696,6 +705,7 @@ equip_acessibilidade_situacao = function(df, q_situacao, q_acessibilidade, cod_c
 ```
 
 # Gestão e Financiamento
+
 
 O Sistema Único de Assistência Social (SUAS) é definido pela Lei Orgânica da Assistência Social (LOAS)\footnote{Lei nº 8.742, de 7 de dezembro de 1993: Dispõe sobre a organização da Assistência Social e dá outras providências. (\url{http://www.planalto.gov.br/ccivil_03/Leis/L8742compilado.htm})} como um sistema descentralizado e participativo que organiza a gestão das ações na área de assistência social, a partir das diretrizes: descentralização político-administrativa, participação social e primazia da responsabilidade do Estado na condução da política de assistência social. Assim, tem como um de seus objetivos a consolidação da gestão compartilhada entre os três entes federados e do cofinanciamento.
 
@@ -1756,32 +1766,33 @@ Para isso, os dados históricos desta publicação nos ajudam a identificar os a
 
 * **PROTEÇÃO** **SOCIAL** **ESPECIAL** **MÉDIA** **COMPLEXIDADE:** PAEFI (Serviço de Atendimento Especializado a Famílias e Indivíduos),Proteção Social Especial no Domicílio para pessoas idosas e com Deficiência, Abordagem Social, MSE (Medidas Socioeducativas em meio aberto), Serviço para situações de emergência e/ou calamidade pública.
 
-* **PROTEÇÃO** **SOCIAL** **ESPECIAL** **ALTA** **COMPLEXIDADE:** Tipos de unidades de Serviço de Acolhimento Institucional, oferta de Serviços de Família Acolhedora, bem como do Programa de Família Guardiã ou Extensa, Serviçso ofertado em Centro Dia.
+* **PROTEÇÃO SOCIAL ESPECIAL ALTA COMPLEXIDADE:** Tipos de unidades de Serviço de Acolhimento Institucional, oferta de Serviços de Família Acolhedora, bem como do Programa de Família Guardiã ou Extensa, Serviçso ofertado em Centro Dia.
 
 ## Proteção Social Básica
-=======
+
 
 Os Centros de Referência de Assistência Social (CRAS) são definidos pelo artigo 6º-C da Lei Orgânica de Assistência Social (LOAS) como unidades públicas municipais destinadas à prestação de serviços, programas de projetos da proteção social básica às famílias, devendo se localizar em áreas com maiores índices de vulnerabilidade e risco social.
 
 No Censo SUAS de 2022 foram identificados 8.557 CRAS, em 5.535 municípios brasileiros, o que indica que há pelo menos um CRAS em 99,4% dos municípios brasileiros.
 
-O quantitativo de CRAS dobrou entre 2007 e 2022, passando de 4.195 unidades para 8.557. Desde 2007, 4.361 novas unidades de CRAS foram criadas nos territórios municipais - crescimento. Abaixo evolução por grandes regiões de desenvolvimento.  
+O quantitativo de CRAS dobrou entre 2007 e 2022, passando de 4.195 unidades para 8.557. Desde 2007, 4.361 novas unidades de CRAS foram criadas nos territórios municipais - crescimento. Abaixo (\Cref{fig:quantitativo-CRAS}) evolução por grandes regiões de desenvolvimento.  
 
 
 ```{r quantitativo-CRAS, fig.cap = "Evolução do quantitativo de CRAS por Município - Brasil - Regiões, 2007 - 2012 - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
-grafico <- f_quantitativo_regiao_ano(cras_2007, Gran_reg, "2007") %>%
+grafico <- 
+  #(f_quantitativo_regiao_ano(cras_2007, Gran_reg, "2007") %>%
   #bind_rows(f_quantitativo_regiao_ano(cras_2008, Região, "2008")) %>% 
   #bind_rows(f_quantitativo_regiao_ano(cras_2009, Região, "2009")) %>% 
   #bind_rows(f_quantitativo_regiao_ano(cras_2010, Região, "2010")) %>% 
   #bind_rows(f_quantitativo_regiao_ano(cras_2011, IBGE, "2011")) %>% 
-  bind_rows(f_quantitativo_regiao_ano(cras_2012, Região, "2012")) %>% 
+  f_quantitativo_regiao_ano(cras_2012, Região, "2012") %>% 
   #bind_rows(f_quantitativo_regiao_ano(cras_2013, Região, "2013")) %>% 
   #bind_rows(f_quantitativo_regiao_ano(cras_2014, Região, "2014")) %>% 
   #bind_rows(f_quantitativo_regiao_ano(cras_2015, Região, "2015")) %>% 
   #bind_rows(f_quantitativo_regiao_ano(cras_2016, Região, "2016")) %>% 
   bind_rows(f_quantitativo_regiao_ano(cras_2017, Região, "2017")) %>%
-  #binda_rows(f_quantitativo_regiao_ano(cras_2022, Região, "2022")) %>%
+  #bind_rows(f_quantitativo_regiao_ano(cras_2022, Região, "2022")) %>%
   
   ggplot(aes(x = Região, y = n, group = Ano)) +
   geom_col(aes(fill = Ano), position="dodge") +
@@ -1800,12 +1811,13 @@ grafico
 #grafico %>% 
 #  graph2office(file="graficos", append = TRUE)
 ```
-A Expansão em todo território nacional do número de CRAS evidencia a consolidação de uma referencia replubicana de Assistêrncia Social em todo território nacional. De acordo com os dados xx municípios não possuem CRAS.Assim, pode-se dizer que o desafio da expansão teve avanços nestes ultimos anos e deixa como nova demanda a universalização.   
+
+A Expansão em todo território nacional do número de CRAS evidencia a consolidação de uma referencia de equipamento público de Assistêrncia Social em todo território nacional. De acordo com os dados 98,95% municípios possuem CRAS, ou seja apenas 35 municípios no Brasil não dispõe deste equipamento público footnote{77% deles localizados na Região Sul, 20% na Região Sudeste e 3% na região Nordeste.}: Assim, pode-se dizer que o desafio da expansão teve avanços nestes últimos anos e deixa como nova demanda para reconstrução do universalização na perspectiva de cobertura e de cofinanciamento.  
+
+Dados de 2022 sinalizam que 7.455 receben cofinanciamento federal. Isso representa 87% dos CRAS existentes neste mesmo período. No que se refere a cobertura destes equipamentos sociais, estudos da Vigilancia Nacional sinaliza uma descobertura no Brasil de 2.480 equipametnos de CRAS. Estes dados são calculados com referencia ao número de famílias referenciadas no CRAS footnote{PNAS 2004 sinaliza refencia de acompanhamento a partir dos portes populacionais, são eles: PPI: 2.500 famílias referenciadas por CRAS, PPII: 3.500 famílias referenciadas, Médio/Grande/Metrópole: 5000 famílias referencia por CRAS}: fracionada ao número de famílias inseridas no Cadastro Único com renda até 1/2 salário mínimo. O trabalho Social da Proteção Básica protetiva tem como categorias de analise para o trabalho social a matricialidade da família e a referencia do território. Assim, a universalização aliado a função de vigilancia socioassistencial é uma agenda necessária para o SUAS.  
 
 
-#GRAFICO NÃO SERÁ GERADO
-
-```{r municipios-CRAS, fig.cap = "Evolução do percentual de municípios com pelo menos um CRAS, segundo grandes regiões - Brasil, 2007 a 2017", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r municipios-CRAS, fig.cap = "Evolução do percentual de municípios com pelo menos um CRAS, segundo grandes regiões - Brasil, 2007 a 2017", fig.footer = "Fonte: MDS, Censo SUAS.",eval=FALSE}
 
 f_percentual_municipios_regiao_ano = function(df, municipio, ano){
   ano <- quo_name(ano)
@@ -1873,11 +1885,10 @@ grafico
 #  graph2office(file="graficos", append = TRUE)
 ```
 
-Quando se observa as unidades por porte do município, tem-se que 3.702 municípios de pequeno porte I (94,4% do total de municípios de pequeno porte I) e 711 municípios de pequeno porte II (68,4% do total de municípios de pequeno porte II) possuem um CRAS. Dos 76 municípios que não têm CRAS, 75 são de pequeno porte I e um é de pequeno porte II. Entre os municípios médios, 216 (66,5% do total de municípios de médio porte) tinham de 2 a 3 CRAS. Mais da metade dos municípios grandes possuíam de 4 a 6 CRAS (146 municípios ou 54,9% do total de municípios de grande porte), enquanto 55 (20,7%) tinham de 7 a 10 CRAS e 16 (7,9%) tinham mais de 10 CRAS. Das 17 metrópoles, apenas uma não tem mais de 10 CRAS.
-Dos 5.570 municípios brasileiros, 76 não possuem nenhum CRAS (1,4% do total), 4.477 (80,4%) possuem um CRAS, 722 (13,0%) de 2 a 3 CRAS, 200 (3,6%) de 4 a 6 CRAS, 58 (1,0%) de 7 a 10 CRAS e 37 (0,7%) mais de 10 CRAS (\Cref{fig:CRAS-porte}).
 
-#GRAFICO NÃO SERÁ GERADO
-```{r CRAS-porte, fig.cap = "Percentual de municípios por número de CRAS no município, segundo porte populacional estimado do município - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios."}
+
+
+```{r CRAS-porte, fig.cap = "Percentual de municípios por número de CRAS no município, segundo porte populacional estimado do município - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios."eval=FALSE}
 
 cras_municipios <- cras_2017 %>%
   select(IBGE7) %>%
@@ -1938,8 +1949,6 @@ grafico
 #grafico %>% 
 #  graph2office(file="graficos", append = TRUE)
 ```
-
-
 
 
 <!-- Em 2016, 51,7% dos CRAS funcionavam em imóveis próprios. Houve um crescimento de 2,9 pontos percentuais em relação ao ano anterior.  Foi o primeiro ano da série histórica em que mais da metade dos CRAS funcionam em imóveis próprios. Em comparação ao ano de 2015, verifica-se uma redução no percentual de CRAS que funcionam em imóveis alugados, que passaram de 42,8% do total em 2015 para 39,6% em 2016. -->
@@ -2226,6 +2235,7 @@ f_percentual_municipios_regiao_ano = function(df, municipio, ano){
                                !! ano == "2015"~municipios_2015,
                                !! ano == "2016"~municipios_2016,
                                !! ano == "2017"~municipios_2017)
+                          
 
   df %>%
     select(!! municipio) %>% 
@@ -2249,16 +2259,17 @@ f_percentual_municipios_regiao_ano = function(df, municipio, ano){
 }
 
 grafico <- f_percentual_municipios_regiao_ano(cras_2007, ibge, "2007") %>%
-  bind_rows(f_percentual_municipios_regiao_ano(cras_2008, IBGE, "2008")) %>% 
-  bind_rows(f_percentual_municipios_regiao_ano(cras_2009, IBGE, "2009")) %>% 
-  bind_rows(f_percentual_municipios_regiao_ano(cras_2010, ibge, "2010")) %>% 
-  bind_rows(f_percentual_municipios_regiao_ano(cras_2011, IBGE, "2011")) %>% 
+  #bind_rows(f_percentual_municipios_regiao_ano(cras_2008, IBGE, "2008")) %>% 
+  #bind_rows(f_percentual_municipios_regiao_ano(cras_2009, IBGE, "2009")) %>% 
+  #bind_rows(f_percentual_municipios_regiao_ano(cras_2010, ibge, "2010")) %>% 
+  #bind_rows(f_percentual_municipios_regiao_ano(cras_2011, IBGE, "2011")) %>% 
   bind_rows(f_percentual_municipios_regiao_ano(cras_2012, IBGE, "2012")) %>% 
-  bind_rows(f_percentual_municipios_regiao_ano(cras_2013, IBGE, "2013")) %>% 
-  bind_rows(f_percentual_municipios_regiao_ano(cras_2014, IBGE, "2014")) %>% 
-  bind_rows(f_percentual_municipios_regiao_ano(cras_2015, CD_IBGE, "2015")) %>% 
-  bind_rows(f_percentual_municipios_regiao_ano(cras_2016, IBGE, "2016")) %>% 
-  bind_rows(f_percentual_municipios_regiao_ano(cras_2017, IBGE, "2017")) %>% 
+  #bind_rows(f_percentual_municipios_regiao_ano(cras_2013, IBGE, "2013")) %>% 
+  #bind_rows(f_percentual_municipios_regiao_ano(cras_2014, IBGE, "2014")) %>% 
+  #bind_rows(f_percentual_municipios_regiao_ano(cras_2015, CD_IBGE, "2015")) %>% 
+  #bind_rows(f_percentual_municipios_regiao_ano(cras_2016, IBGE, "2016")) %>% 
+  bind_rows(f_percentual_municipios_regiao_ano(cras_2017, IBGE, "2017")) %>%
+  #bind_rows(f_percentual_municipios_regiao_ano(cras_2022, IBGE, "2022")) %>%
   ggplot(aes(x = Região, y = Percentual, group = Ano)) +
   geom_col(aes(fill = Ano), position="dodge") +
   geom_text(aes(label = percent(Percentual), y=Percentual+0.04), position = position_dodge(width = 0.9), angle = 90, size = 2.5) +
@@ -2426,9 +2437,9 @@ Entre 2009 a 2014, o Censo SUAS registrou redução na proporção de CREAS func
 
 
 
-```{r eval=FALSE, fig.cap = "Evolução dos CREAS segundo situação do imóvel – Brasil, 2012 - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r creas-situacao, fig.cap = "Evolução dos CREAS segundo situação do imóvel – Brasil, 2012 - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
-f_cras_imovel = function(df, q, ano){
+f_creas_imovel = function(df, q, ano){
   q <- enquo(q)
   ano <- quo_name(ano)
 
@@ -2446,7 +2457,7 @@ f_cras_imovel = function(df, q, ano){
   #bind_rows(f_creas_imovel(creas_2009, q5_situac_imovel, "2009")) %>% 
   #bind_rows(f_creas_imovel(creas_2010, q5, "2010")) %>% 
   #bind_rows(f_creas_imovel(creas_2011, q5, "2011")) %>%
-  bind_rows(f_creas_imovel(creas_2012, q5, "2012")) %>%
+grafico <- f_creas_imovel(creas_2012, q5, "2012") %>%
   #bind_rows(f_creas_imovel(creas_2013, q5, "2013")) %>%
   #bind_rows(f_creas_imovel(creas_2014, q4, "2014")) %>%
   #bind_rows(f_creas_imovel(creas_2015, q4, "2015")) %>%
