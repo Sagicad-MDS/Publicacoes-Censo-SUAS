@@ -55,7 +55,7 @@ lista.de.pacotes = c("tinytex","tidyr", "purrr", "dplyr",
                      "ggrepel","renv") # escreva a lista de pacotes
 novos.pacotes <- lista.de.pacotes[!(lista.de.pacotes %in%
                                       installed.packages()[,"Package"])]
-if(length(novos.pacotes) > 0) {install.packages(novos.pacotes)}
+if(length(novos.pacotes) > 0) {install.packages(novos.pacotes, repos = "htttp: //cran.us.r-project.org")}
 lapply(lista.de.pacotes, require, character.only=T)
 rm(lista.de.pacotes,novos.pacotes)
 gc()
@@ -468,9 +468,9 @@ cpop_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Centro_POP/Censo SUA
 
 cpoprh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Centro_POP/Censo SUAS 2017_Centro POP_RH_divulgação.xlsx", sheet = "Base de dados")
 
-cpop_2022 <- read_excel("../Censo SUAS 2022/3 - CENTRO POP/Censo_SUAS_2022_Centro_POP_dados_gerais.xlsx", sheet = "Sheet1")
+cpop_2022 <- read_excel("../Censo SUAS 2022/3 - Centro Pop/Censo_SUAS_2022_Centro_POP_dados_gerais.xlsx", sheet = 1)
 
-unac_2012 <- read_excel("../Censo SUAS 2012/Unidades de Acolhimento/Censo SUAS 2012_Unidades_de_Acolhimento_dadosgerais_divulgação.xlsx", sheet = "CensoSUAS2012 Acolhimento")
+unac_2012 <- read_excel("../Censo SUAS 2012/Unidades de Acolhimento/Censo SUAS 2012_Unidades_de_Acolhimento_dadosgerais_divulgação.xlsx", sheet = 1)
 
 unacrh_2012 <- read_excel("../Censo SUAS 2012/Unidades de Acolhimento/Censo SUAS 2012_Unidades_de_Acolhimento_RH_divulgação.xlsx", sheet = "CensoSUAS2012 Acolhimento RH")
 
@@ -494,7 +494,7 @@ unac_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Unidades_Acolhimento
 
 unacrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Unidades_Acolhimento/CENSO SUAS 2017 Acolhimento RH divulgação.xlsx", sheet = "Base de dados")
 
-unac_2022 <- read_excel("../Censo SUAS 2022/4 - UNIDADE DE ACOLHIMENTO/Censo_SUAS_2022 _ Unidades_de_Acolhimento_dados_gerais.xlsx", sheet = "Censo SUAS 2022 Dados Gerais Ac")
+unac_2022 <- read_excel("../Censo SUAS 2022/4 - Unidade de Acolhimento/Censo_SUAS_2022 _ Unidades_de_Acolhimento_dados_gerais.xlsx", sheet = 1)
 
 ceconv_2014 <- read_excel("../Censo SUAS 2014/Centros de Convivência/Bases de Dados/CensoSUAS2014_Convivência_Divulgação.xlsx", sheet = "Convivência 2014")
 
@@ -1737,29 +1737,40 @@ Os recursos recebidos via transação fundo-a-fundo, garantem maior qualidade na
 A assistência social organiza-se por dois tipos de proteção: a proteção social básica, definida no artigo 6º-A da Lei Orgânica da Assistência Social (LOAS) como um "conjunto de serviços, programas, projetos e benefícios da assistência social que visa a prevenir situações de vulnerabilidade e risco social por meio do desenvolvimento de potencialidades e aquisições e do fortalecimento de vínculos familiares e comunitários" e a proteção social especial, definida como "conjunto de serviços, programas e projetos que tem por objetivo contribuir para a reconstrução de vínculos familiares e comunitários, a defesa de direito, o fortalecimento das potencialidades e aquisições e a proteção de famílias e indivíduos para o enfrentamento das situações de violação de direitos"\footnote{Lei nº 8.742, de 7 de dezembro de 1993 (Lei Orgânica da Assistência Social): Dispõe sobre a organização da Assistência Social e dá outras providências (\url{http://www.planalto.gov.br/ccivil_03/Leis/L8742compilado.htm}).}.
 
 Nesse contexto, este eixo de equipamentos, serviços e benefícíos da Assistência Social tem o objetivo de apresentar informações sobre a oferta dos equipamentos da Proteção Social Básica e Especial do SUAS integrada aos serviços e benefícios desta política. 
+
 Para isso, os dados históricos desta publicação nos ajudam a identificar os avanços e tendências ao longo dos anos em relação a estrutura física destes equipamentos, oferta dos serviços e benefícios, demanda e perfis de públicos atendidos, oferta regionalizada a partir da resolução CIT 33/2013, integração com Cadastro Único para programas sociais, natureza da oferta das unidades. Este conteúdo está dividido por proteções a saber:
+
+* **PROTEÇÃO** **SOCIAL** **BÁSICA:** PAIF (Serviço de Proteção e Atendimento Integral à Família), SCFV (Serviços de Convivência e Fortalecimento de Vínculos), Proteção Social Básica no Domicílio para pessoas idosas e com deficiência, 
+
+* **PROTEÇÃO** **SOCIAL** **ESPECIAL** **MÉDIA** **COMPLEXIDADE:** PAEFI (Serviço de Atendimento Especializado a Famílias e Indivíduos),Proteção Social Especial no Domicílio para pessoas idosas e com Deficiência, Abordagem Social, MSE (Medidas Socioeducativas em meio aberto), Serviço para situações de emergência e/ou calamidade pública.
+
+* **PROTEÇÃO** **SOCIAL** **ESPECIAL** **ALTA** **COMPLEXIDADE:** Tipos de unidades de Serviço de Acolhimento Institucional, oferta de Serviços de Família Acolhedora, bem como do Programa de Família Guardiã ou Extensa, Serviçso ofertado em Centro Dia.
+
 
 ## PROTEÇÃO SOCIAL BÁSICA
 
 Os Centros de Referência de Assistência Social (CRAS) são definidos pelo artigo 6º-C da Lei Orgânica de Assistência Social (LOAS) como unidades públicas municipais destinadas à prestação de serviços, programas de projetos da proteção social básica às famílias, devendo se localizar em áreas com maiores índices de vulnerabilidade e risco social.
 
-O quantitativo de CRAS quase dobrou entre 2007 e 2016, passando de 4.195 unidades para 8.240. Desde 2007, 2.342 municípios passaram a ter unidades do CRAS em seu território.
+No Censo SUAS de 2022 foram identificados 8.557 CRAS, em 5.535 municípios brasileiros, o que indica que há pelo menos um CRAS em 99,4% dos municípios brasileiros.
 
-Embora tenha sido observado um aumento no número de CRAS, uma quantidade menor de municípios indicou ter o equipamento em seu território em 2016, em relação a 2015 (10 municípios a menos) (\Cref{fig:quantitativo-CRAS} e \Cref{fig:municipios-CRAS}).
+O quantitativo de CRAS dobrou entre 2007 e 2022, passando de 4.195 unidades para 8.557. Desde 2007, 4.361 novas unidades de CRAS foram criadas nos territórios municipais - crescimento. Abaixo evolução por grandes regiões de desenvolvimento.  
 
-```{r quantitativo-CRAS, fig.cap = "Evolução do quantitativo de CRAS, segundo grandes regiões - Brasil, 2007 a 2017", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+```{r quantitativo-CRAS, fig.cap = "Evolução do quantitativo de CRAS por Município - Brasil - Regiões, 2007 - 2012 - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 grafico <- f_quantitativo_regiao_ano(cras_2007, Gran_reg, "2007") %>%
-  bind_rows(f_quantitativo_regiao_ano(cras_2008, Região, "2008")) %>% 
-  bind_rows(f_quantitativo_regiao_ano(cras_2009, Região, "2009")) %>% 
-  bind_rows(f_quantitativo_regiao_ano(cras_2010, Região, "2010")) %>% 
-  bind_rows(f_quantitativo_regiao_ano(cras_2011, IBGE, "2011")) %>% 
+  #bind_rows(f_quantitativo_regiao_ano(cras_2008, Região, "2008")) %>% 
+  #bind_rows(f_quantitativo_regiao_ano(cras_2009, Região, "2009")) %>% 
+  #bind_rows(f_quantitativo_regiao_ano(cras_2010, Região, "2010")) %>% 
+  #bind_rows(f_quantitativo_regiao_ano(cras_2011, IBGE, "2011")) %>% 
   bind_rows(f_quantitativo_regiao_ano(cras_2012, Região, "2012")) %>% 
-  bind_rows(f_quantitativo_regiao_ano(cras_2013, Região, "2013")) %>% 
-  bind_rows(f_quantitativo_regiao_ano(cras_2014, Região, "2014")) %>% 
-  bind_rows(f_quantitativo_regiao_ano(cras_2015, Região, "2015")) %>% 
-  bind_rows(f_quantitativo_regiao_ano(cras_2016, Região, "2016")) %>% 
-  bind_rows(f_quantitativo_regiao_ano(cras_2017, Região, "2017")) %>% 
+  #bind_rows(f_quantitativo_regiao_ano(cras_2013, Região, "2013")) %>% 
+  #bind_rows(f_quantitativo_regiao_ano(cras_2014, Região, "2014")) %>% 
+  #bind_rows(f_quantitativo_regiao_ano(cras_2015, Região, "2015")) %>% 
+  #bind_rows(f_quantitativo_regiao_ano(cras_2016, Região, "2016")) %>% 
+  bind_rows(f_quantitativo_regiao_ano(cras_2017, Região, "2017")) %>%
+  #binda_rows(f_quantitativo_regiao_ano(cras_2022, Região, "2022")) %>%
+  
   ggplot(aes(x = Região, y = n, group = Ano)) +
   geom_col(aes(fill = Ano), position="dodge") +
   geom_text(aes(label = format(n, big.mark="."), y=n+300), position = position_dodge(width = 0.9), angle = 90, size = 2.5) +
@@ -1777,6 +1788,10 @@ grafico
 #grafico %>% 
 #  graph2office(file="graficos", append = TRUE)
 ```
+A Expansão em todo território nacional do número de CRAS evidencia a consolidação de uma referencia replubicana de Assistêrncia Social em todo território nacional. De acordo com os dados xx municípios não possuem CRAS.Assim, pode-se dizer que o desafio da expansão teve avanços nestes ultimos anos e deixa como nova demanda a universalização.   
+
+
+#GRAFICO NÃO SERÁ GERADO
 
 ```{r municipios-CRAS, fig.cap = "Evolução do percentual de municípios com pelo menos um CRAS, segundo grandes regiões - Brasil, 2007 a 2017", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -1849,6 +1864,7 @@ grafico
 Quando se observa as unidades por porte do município, tem-se que 3.702 municípios de pequeno porte I (94,4% do total de municípios de pequeno porte I) e 711 municípios de pequeno porte II (68,4% do total de municípios de pequeno porte II) possuem um CRAS. Dos 76 municípios que não têm CRAS, 75 são de pequeno porte I e um é de pequeno porte II. Entre os municípios médios, 216 (66,5% do total de municípios de médio porte) tinham de 2 a 3 CRAS. Mais da metade dos municípios grandes possuíam de 4 a 6 CRAS (146 municípios ou 54,9% do total de municípios de grande porte), enquanto 55 (20,7%) tinham de 7 a 10 CRAS e 16 (7,9%) tinham mais de 10 CRAS. Das 17 metrópoles, apenas uma não tem mais de 10 CRAS.
 Dos 5.570 municípios brasileiros, 76 não possuem nenhum CRAS (1,4% do total), 4.477 (80,4%) possuem um CRAS, 722 (13,0%) de 2 a 3 CRAS, 200 (3,6%) de 4 a 6 CRAS, 58 (1,0%) de 7 a 10 CRAS e 37 (0,7%) mais de 10 CRAS (\Cref{fig:CRAS-porte}).
 
+#GRAFICO NÃO SERÁ GERADO
 ```{r CRAS-porte, fig.cap = "Percentual de municípios por número de CRAS no município, segundo porte populacional estimado do município - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios."}
 
 cras_municipios <- cras_2017 %>%
@@ -1911,11 +1927,14 @@ grafico
 #  graph2office(file="graficos", append = TRUE)
 ```
 
+
+
+
 <!-- Em 2016, 51,7% dos CRAS funcionavam em imóveis próprios. Houve um crescimento de 2,9 pontos percentuais em relação ao ano anterior.  Foi o primeiro ano da série histórica em que mais da metade dos CRAS funcionam em imóveis próprios. Em comparação ao ano de 2015, verifica-se uma redução no percentual de CRAS que funcionam em imóveis alugados, que passaram de 42,8% do total em 2015 para 39,6% em 2016. -->
 <!-- Desde 2012 há mais CRAS funcionando em imóveis próprios que em imóveis alugados. -->
 <!-- Observa-se ainda aumento no percentual de CREAS que funcionam em imóveis cedidos: eram 8,7% (718 unidades) em 2016, o maior valor da série histórica (\Cref{fig:CRAS-imovel}). -->
 
-```{r eval=FALSE, fig.cap = "Evolução dos CRAS segundo situação do imóvel – Brasil, 2007 a 2017", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r eval=FALSE, fig.cap = "Evolução dos CRAS segundo situação do imóvel – Brasil, 2007 - 2012 - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 f_cras_imovel = function(df, q, ano){
   q <- enquo(q)
@@ -1931,16 +1950,19 @@ f_cras_imovel = function(df, q, ano){
 }
 
 grafico <- f_cras_imovel(cras_2007, v15, "2007") %>%
-  bind_rows(f_cras_imovel(cras_2008, situacao_imovel, "2008")) %>% 
-  bind_rows(f_cras_imovel(cras_2009, q5_situac_imovel, "2009")) %>% 
-  bind_rows(f_cras_imovel(cras_2010, q5, "2010")) %>% 
-  bind_rows(f_cras_imovel(cras_2011, q5, "2011")) %>%
+  #bind_rows(f_cras_imovel(cras_2008, situacao_imovel, "2008")) %>% 
+  #bind_rows(f_cras_imovel(cras_2009, q5_situac_imovel, "2009")) %>% 
+  #bind_rows(f_cras_imovel(cras_2010, q5, "2010")) %>% 
+  #bind_rows(f_cras_imovel(cras_2011, q5, "2011")) %>%
   bind_rows(f_cras_imovel(cras_2012, q5, "2012")) %>%
-  bind_rows(f_cras_imovel(cras_2013, q5, "2013")) %>%
-  bind_rows(f_cras_imovel(cras_2014, q4, "2014")) %>%
-  bind_rows(f_cras_imovel(cras_2015, q4, "2015")) %>%
-  bind_rows(f_cras_imovel(cras_2016, q4, "2016")) %>%
+  #bind_rows(f_cras_imovel(cras_2013, q5, "2013")) %>%
+  #bind_rows(f_cras_imovel(cras_2014, q4, "2014")) %>%
+  #bind_rows(f_cras_imovel(cras_2015, q4, "2015")) %>%
+  #bind_rows(f_cras_imovel(cras_2016, q4, "2016")) %>%
   bind_rows(f_cras_imovel(cras_2017, q4, "2017")) %>%
+  bind_rows(f_cras_imovel(cras_2022, q3, "2022")) %>%
+ 
+  
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
   geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
   geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
@@ -1963,20 +1985,20 @@ A acessibilidade é fundamental para que os usuários consigam chegar até os se
 Em 2016, 38,7% das unidades declararam ter rota acessível ao banheiro de acordo com a Norma da ABNT (NBR9050), enquanto em 37,8% havia rota acessível ais espaços do CRAS de acordo com a referida Norma.
 Embora nenhuma das adaptações de acordo com a Norma da ABNT tenha estado presente em mais de 40% das unidades, todas as categorias relativas à acessibilidade continuam crescendo percentualmente em relação aos anos anteriores (\Cref{fig:CRAS-acessibilidade}).
 
-```{r CRAS-acessibilidade, fig.cap = "Evolução percentual de CRAS segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2010, 2016 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r CRAS-acessibilidade, fig.cap = "Evolução percentual de CRAS segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2012, 2016 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
-tabela <- equip_acessibilidade(cras_2010, q10_1, "2010", "1") %>%
-  bind_rows(equip_acessibilidade(cras_2010, q10_2, "2010", "2")) %>% 
-  bind_rows(equip_acessibilidade(cras_2010, q10_3, "2010", "3")) %>% 
-  bind_rows(equip_acessibilidade(cras_2010, q10_4, "2010", "4")) %>% 
+tabela <- equip_acessibilidade(cras_2012, q10a, "2012", "1") %>%
+  #bind_rows(equip_acessibilidade(cras_2010, q10_2, "2010", "2")) %>% 
+  #bind_rows(equip_acessibilidade(cras_2010, q10_3, "2010", "3")) %>% 
+  #bind_rows(equip_acessibilidade(cras_2010, q10_4, "2010", "4")) %>% 
 #  bind_rows(equip_acessibilidade(cras_2011, q10a, "2011", "1")) %>%
 #  bind_rows(equip_acessibilidade(cras_2011, q10b, "2011", "2")) %>% 
 #  bind_rows(equip_acessibilidade(cras_2011, q10c, "2011", "3")) %>% 
 #  bind_rows(equip_acessibilidade(cras_2011, q10d, "2011", "4")) %>% 
-#  bind_rows(equip_acessibilidade(cras_2012, q10a, "2012", "1")) %>%
-#  bind_rows(equip_acessibilidade(cras_2012, q10b, "2012", "2")) %>% 
-#  bind_rows(equip_acessibilidade(cras_2012, q10c, "2012", "3")) %>% 
-#  bind_rows(equip_acessibilidade(cras_2012, q10d, "2012", "4")) %>% 
+   bind_rows(equip_acessibilidade(cras_2012, q10a, "2012", "1")) %>%
+   bind_rows(equip_acessibilidade(cras_2012, q10b, "2012", "2")) %>% 
+   bind_rows(equip_acessibilidade(cras_2012, q10c, "2012", "3")) %>% 
+   bind_rows(equip_acessibilidade(cras_2012, q10d, "2012", "4")) %>% 
 #  bind_rows(equip_acessibilidade(cras_2013, q10a, "2013", "1")) %>%
 #  bind_rows(equip_acessibilidade(cras_2013, q10b, "2013", "2")) %>% 
 #  bind_rows(equip_acessibilidade(cras_2013, q10c, "2013", "3")) %>% 
@@ -2093,7 +2115,7 @@ grafico
 
 O número absoluto e o percentual de CRAS com acesso à internet aumentaram desde 2007. No ano de 2016, havia 7.835 CRAS com acesso à internet (\Cref{fig:CRAS-internet-quantitativo}), o que representa 95,1% das unidades (\Cref{fig:CRAS-internet-percentual}).
 
-```{r CRAS-internet, fig.cap = "Distribuição dos CRAS com computadores com acesso à internet – Brasil, 2007 a 2017", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
+```{r CRAS-internet, fig.cap = "Percentual  de CRAS com computador com acesso a internet, 2012 - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
 
 f_cras_internet = function(df, q, ano){
   q <- enquo(q)
@@ -2118,6 +2140,9 @@ grafico <- f_cras_internet(cras_2007, v17, "2007") %>%
 #  bind_rows(f_cras_imovel(cras_2015, q4, "2015")) %>%
 #  bind_rows(f_cras_imovel(cras_2016, q4, "2016")) %>%
 #  bind_rows(f_cras_imovel(cras_2017, q4, "2017")) %>%
+#  bind_rows(f_cras_imovel(cras_2022, q11_1, "2022")) %>%
+  
+
   ggplot(aes(x = Ano)) +
 #  geom_col(aes(fill = Percentual)) +
   geom_col(aes(y = Percentual*24)) +
@@ -2383,19 +2408,77 @@ Entre 2009 a 2014, o Censo SUAS registrou redução na proporção de CREAS func
 
 ```
 
+```{r CREAS-municipios, fig.cap = "Evolução de CREAS Regionais (res. 21/2023)", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+```
+
+
+
+```{r eval=FALSE, fig.cap = "Evolução dos CREAS segundo situação do imóvel – Brasil, 2012 - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+f_cras_imovel = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>%
+    f_situacao(Nível) %>%
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+#grafico <- f_creas_imovel(creas_2012, q5, "2012") %>%
+  #bind_rows(f_creas_imovel(creas_2008, situacao_imovel, "2008")) %>% 
+  #bind_rows(f_creas_imovel(creas_2009, q5_situac_imovel, "2009")) %>% 
+  #bind_rows(f_creas_imovel(creas_2010, q5, "2010")) %>% 
+  #bind_rows(f_creas_imovel(creas_2011, q5, "2011")) %>%
+  bind_rows(f_creas_imovel(creas_2012, q5, "2012")) %>%
+  #bind_rows(f_creas_imovel(creas_2013, q5, "2013")) %>%
+  #bind_rows(f_creas_imovel(creas_2014, q4, "2014")) %>%
+  #bind_rows(f_creas_imovel(creas_2015, q4, "2015")) %>%
+  #bind_rows(f_creas_imovel(creas_2016, q4, "2016")) %>%
+  bind_rows(f_creas_imovel(creas_2017, q4, "2017")) %>%
+  bind_rows(f_creas_imovel(creas_2022, q3, "2022")) %>%
+ 
+  
+  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+#grafico %>% 
+#  graph2office(file="graficos", append = TRUE)
+```
+
+
 De acordo com os dados do Censo SUAS de 2016, 22,8% dos CREAS possuíam banheiro adaptado para pessoas com mobilidade reduzida de acordo com a Norma da ABNT – um crescimento de 1,9 pontos percentuais em relação ao ano anterior. A presença de acesso principal adaptado com rampas, rota acessível e calçada e de rota acessível ao banheiro apresentaram aumento de 1,7, 1,3 e 0,8 pontos percentuais, respectivamente.
 É possível observar aumento na proporção de CREAS com condições de acessibilidade de acordo com a ABNT em todos os quesitos avaliados entre os anos de 2010 e 2016. No entanto, os percentuais permanecem abaixo de 30% em todos os quesitos, o que explicita que a melhoria da acessibilidade nesses equipamentos ainda constitui grande desafio a ser superado (Gráfico 33).
 
-```{r CREAS_acessibilidade, fig.cap = "Evolução percentual de CREAS segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2010, 2016 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r CREAS_acessibilidade, fig.cap = "Evolução percentual de CREAS segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
-tabela <- equip_acessibilidade(creas_2010, q9_1, "2010", "1") %>%
-  bind_rows(equip_acessibilidade(creas_2010, q9_2, "2010", "2")) %>% 
-  bind_rows(equip_acessibilidade(creas_2010, q9_3, "2010", "3")) %>% 
-  bind_rows(equip_acessibilidade(creas_2010, q9_4, "2010", "4")) %>% 
-  bind_rows(equip_acessibilidade(creas_2016, q9.1, "2016", "1")) %>%
-  bind_rows(equip_acessibilidade(creas_2016, q9.2, "2016", "2")) %>% 
-  bind_rows(equip_acessibilidade(creas_2016, q9.3, "2016", "3")) %>% 
-  bind_rows(equip_acessibilidade(creas_2016, q9.4, "2016", "4")) %>% 
+#tabela <- equip_acessibilidade(creas_2010, q9_1, "2010", "1") %>%
+  #bind_rows(equip_acessibilidade(creas_2010, q9_2, "2010", "2")) %>% 
+  #bind_rows(equip_acessibilidade(creas_2010, q9_3, "2010", "3")) %>% 
+  #bind_rows(equip_acessibilidade(creas_2010, q9_4, "2010", "4")) %>%
+  bind_rows(equip_acessibilidade(creas_2012, q10a, "2012", "1")) %>%
+  bind_rows(equip_acessibilidade(creas_2012, q10b, "2012", "2")) %>%
+  bind_rows(equip_acessibilidade(creas_2012, q10c, "2012", "3")) %>%
+  bind_rows(equip_acessibilidade(creas_2012, q10d, "2012", "4")) %>%
+  bind_rows(equip_acessibilidade(creas_2017, q9.1, "2017", "1")) %>%
+  bind_rows(equip_acessibilidade(creas_2017, q9.2, "2017", "2")) %>% 
+  bind_rows(equip_acessibilidade(creas_2017, q9.3, "2017", "3")) %>% 
+  bind_rows(equip_acessibilidade(creas_2017, q9.4, "2017", "4")) %>% 
   bind_rows(equip_acessibilidade(creas_2022, q9_1, "2022", "1")) %>%
   bind_rows(equip_acessibilidade(creas_2022, q9_2, "2022", "2")) %>% 
   bind_rows(equip_acessibilidade(creas_2022, q9_3, "2022", "3")) %>% 
