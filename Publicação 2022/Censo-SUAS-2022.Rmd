@@ -324,6 +324,8 @@ gm_2016 <- read_excel("../Censo SUAS 2016/Gestão Municipal/Censo_SUAS_2016_Gest
 
 gm_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Gestão_Municipal/Censo_SUAS_2017_Gestao_Municipal_divulgação.xlsx", sheet = "Base de Dados")
 
+gm_2022 <- read_excel("../Censo SUAS 2022/9 - Gestão Municipal/Censo_SUAS_2022_Gestão_Municipal_dados_gerais.xlsx", sheet = 1)
+
 cras_2007 <- read_excel("../Censo SUAS 2007/CRAS/base_cras_2007_Jomar.xlsx", sheet = "Sheet1")
 
 cras_2008 <- read_excel("../Censo SUAS 2008/CRAS/Banco CRAS.xlsx", sheet = "Sheet1")
@@ -358,7 +360,11 @@ cras_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_CRAS/Censo SUAS 2017
 
 crasrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_CRAS/Censo SUAS 2017_CRAS_RH_divulgacao.xlsx", sheet = "Base de dados")
 
-cras_2022 <- read_excel("../Censo SUAS 2022/1_CRAS/Censo_SUAS_2022_CRAS_Dados_Gerais_Divulgação.xlsx", sheet = "Sheet1")
+cras_2018 <- read_excel("../Censo SUAS 2018/1 - CRAS/Censo_SUAS_2018_CRAS_Dados_Gerais_divulgacao.xlsx", sheet = 1)
+
+crasrh_2018 <- read_excel("../Censo SUAS 2018/1 - CRAS/Censo_SUAS_2018_CRAS_RH_divulgacao.xlsx", sheet= 1)
+
+cras_2022 <- read_excel("../Censo SUAS 2022/1_CRAS/Censo_SUAS_2022_CRAS_Dados_Gerais_Divulgação.xlsx", sheet = 1)
 
 posto_cadunico_2022 <- read_excel("../Censo SUAS 2022/8 - POSTO DE CADASTRAMENTO/Censo _SUAS_ 2022_Posto_cadastramento_Dados_Gerais.xlsx", sheet = "Sheet1")
 
@@ -389,6 +395,10 @@ creasrh_2016 <- read_excel("../Censo SUAS 2016/CREAS/Censo SUAS CREAS_RH_2016_DI
 creas_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_CREAS/Censo SUAS 2017_CREAS_divulgacao.xlsx", sheet = "Base de dados")
 
 creasrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_CREAS/Censo SUAS 2017_CREAS_RH_divulgacao.xlsx", sheet = "Base de dados")
+
+creas_2018 <- read_excel("../Censo SUAS 2018/2 - CREAS/Dicionario_Censo_SUAS_2018_CREAS_dados_gerais_divulgacao.xlsx", sheet = 1)
+
+creasrh_2018 <- read_excel("../Censo SUAS 2018/2 - CREAS/Censo_SUAS_2018_CREAS_RH_divulgacao.xlsx", sheet = 1)
 
 creas_2022 <- read_excel("../Censo SUAS 2022/2 - CREAS/Censo_SUAS_ 2022_ CREAS_Dados_ Gerais.xlsx", sheet = "dados")
 
@@ -480,6 +490,10 @@ cpop_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Centro_POP/Censo SUA
 
 cpoprh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Centro_POP/Censo SUAS 2017_Centro POP_RH_divulgação.xlsx", sheet = "Base de dados")
 
+cpop_2018 <- read_excel("../Censo SUAS 2018/4 - Centro Pop/Censo_SUAS_2018_Centro_POP_Dados_Gerais.xlsx", sheet = 1)
+
+cpoprh_2018 <- read_excel("../Censo SUAS 2018/4 - Centro Pop/Censo_SUAS_2018_Centro_POP_RH.xlsx", sheet = 1)
+
 cpop_2022 <- read_excel("../Censo SUAS 2022/3 - Centro Pop/Censo_SUAS_2022_Centro_POP_dados_gerais.xlsx", sheet = 1)
 
 unac_2012 <- read_excel("../Censo SUAS 2012/Unidades de Acolhimento/Censo SUAS 2012_Unidades_de_Acolhimento_dadosgerais_divulgação.xlsx", sheet = 1)
@@ -534,7 +548,8 @@ cedia_2017 <- read_excel("../Censo SUAS 2017/Censo SUAS 2017_Centro DIA/CensoSUA
 
 cediarh_2017 <- read_excel("../Censo SUAS 2017/Censo SUAS 2017_Centro DIA/CensoSUAS2017_CentroDIA_RH_divulgacao.xlsx", sheet = "Base de dados")
 
-#cedia_2022 <- read_excel("../Censo SUAS 2022/6 - CENTRO DIA/Censo_SUAS_2022_Centro_Dia_dados_gerais.xlsx", sheet = "")
+cedia_2022 <- read_excel("../Censo SUAS 2022/6 - Centro Dia/Censo_SUAS_2022_Centro_Dia_dados_gerais.xlsx", sheet= 1)
+
 #cedia_2022 <- read_csv2("../Censo SUAS 2022/6 - CENTRO DIA/Censo_SUAS_2022_Centro_Dia_dados_gerais.csv")
 
 famacol_2017 <- read_excel("../Censo SUAS 2017/Censo SUAS 2017 Família Acolhedora/Censo SUAS 2017_Família Acolhedora_divulgação.xlsx", sheet = "Base de dados")
@@ -556,6 +571,11 @@ municipios_2014 <- c(450, 1794, 1668, 1191, 467, 5570)
 municipios_2015 <- c(450, 1794, 1668, 1191, 467, 5570)
 municipios_2016 <- c(450, 1794, 1668, 1191, 467, 5570)
 municipios_2017 <- c(450, 1794, 1668, 1191, 467, 5570)
+municipios_2018 <- c(450, 1794, 1668, 1191, 467, 5570)
+municipios_2019 <- c(450, 1794, 1668, 1191, 467, 5570)
+municipios_2020 <- c(450, 1794, 1668, 1191, 467, 5570)
+municipios_2021 <- c(450, 1794, 1668, 1191, 467, 5570)
+municipios_2022 <- c(450, 1794, 1668, 1191, 467, 5570)
 
 # População dos municípios estimada pelo IBGE
 pop_municipios_2016 <- read_excel("../Estimativa População IBGE/estimativa_dou_2016_20160913.xlsx", sheet = "Municípios (limpo)")
@@ -666,6 +686,7 @@ f_acessibilidade_ABNT = function(df, q, cod_categoria){
            !! q == "Sim,de acordo com a Norma da ABNT (NBR9050)" |
            !! q == "Sim, de acordo coma Norma da ABNT (NBR9050)" |
            !! q == "SIM, De acordo com a Norma da ABNT" |
+           !! q == "SIM, De acordo com a Norma da ABNT (NBR9050)" |
            !! q == "Sim, de acordo com a norma da ABNT") %>%
     mutate("Categoria" = case_when(!! cod_categoria == "1"~"Acesso principal adaptado com rampas e rota acessível desde a calçada até a recepção",
                                    !! cod_categoria == "2"~"Rota acessível aos espaços (recepção, salas de atendimento e espaços de uso coletivo)",
@@ -704,7 +725,7 @@ equip_acessibilidade_situacao = function(df, q_situacao, q_acessibilidade, cod_c
 
 ```
 
-# Gestão e Financiamento
+# GESTÃO E FINANCIAMENTO
 
 
 O Sistema Único de Assistência Social (SUAS) é definido pela Lei Orgânica da Assistência Social (LOAS)\footnote{Lei nº 8.742, de 7 de dezembro de 1993: Dispõe sobre a organização da Assistência Social e dá outras providências. (\url{http://www.planalto.gov.br/ccivil_03/Leis/L8742compilado.htm})} como um sistema descentralizado e participativo que organiza a gestão das ações na área de assistência social, a partir das diretrizes: descentralização político-administrativa, participação social e primazia da responsabilidade do Estado na condução da política de assistência social. Assim, tem como um de seus objetivos a consolidação da gestão compartilhada entre os três entes federados e do cofinanciamento.
@@ -715,7 +736,7 @@ A partir das informações contidas no Censo SUAS é possível ter um panorama g
 
 Em 2016, 19,2% dos Estados tinham Secretaria estadual exclusiva da área de Assistência Social os quais são: Acre, Amazonas, Paraíba, Piauí e Paraná. Nos demais 21 estados (80,8%) a Secretaria estadual estava associada a uma ou mais políticas setoriais (\Cref{fig:estados-caracteristica-secretaria}).
 
-```{r estados-caracteristica-secretaria, fig.cap = "Percentual de estados segundo característica da Secretaria estadual de Assistência Social - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r estados-caracteristica-secretaria, fig.cap = "Percentual de estados segundo característica da Secretaria estadual de Assistência Social - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 nao0_sim1 = function(df, q){
   q <- enquo(q)
@@ -724,7 +745,7 @@ nao0_sim1 = function(df, q){
     mutate(!! q := case_when(!! q == "Não"~0, !! q == "Sim"~1))
 }
 
-grafico <- ge_2017 %>% 
+grafico <- ge_2022 %>% 
   select(q1,q2_1,q2_2,q2_3,q2_4,q2_5,q2_6,q2_7,q2_99) %>% 
   filter(!is.na(q1)) %>% 
   nao0_sim1(q2_1) %>% 
@@ -773,20 +794,10 @@ Em 65,4% dos estados, as subdivisões administrativas das áreas de Proteção S
 O maior índice de formalização, por sua vez, foi identificado na área de Gestão Financeira e Orçamentária, com 69,2%.
 A área de Regulação do SUAS é a que apesenta menor percentual de formalização, sendo 11,5% subdivisões constituídas formalmente, 38,5% constituídas informalmente e 50% não constituídas (\Cref{fig:estados-constituicao-subdivisoes}).
 
-```{r estados-constituicao-subdivisoes, fig.cap = "Distribuição dos órgãos gestores estaduais segundo constituição/formalização de subdivisões administrativas - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r estados-constituicao-subdivisoes, fig.cap = "Percentual de estados segundo característica da estrutura administrativa da Secretaria estadual de Assistência Social - Brasil,  2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
-tabela<-ge_2017 %>%
-# Questionários 2015:
-#  select("Proteção Social Básica"=q3_1,
-#         "Proteção Social Especial"=q3_2,
-#         "Gestão de Benefícios Assistenciais (Bolsa Família, BPC, Benefícios Eventuais)"=q3_3,
-#         "Gestão do SUAS"=q3_4,
-#         "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q3_5,
-#         "Gestão do Trabalho"=q3_6,
-#         "Regulação do SUAS"=q3_7,
-#         "Gestão Financeira e Orçamentária"=q3_8) %>%
-#-------------------
-# Questionário 2017:
+tabela<-ge_2022 %>%
+# Questionário 2022:
   select("Gestão do SUAS"=q3_1,
          "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q3_2,
          "Gestão do Trabalho"=q3_3,
@@ -795,7 +806,9 @@ tabela<-ge_2017 %>%
          "Proteção Social Básica"=q3_6,
          "Proteção Social Especial"=q3_7,
          "Gestão do Cadastro Único e Programa Bolsa Família"=q3_8,
-         "Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais)"=q3_9) %>% 
+         "Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais)"=q3_9, 
+         "Serviços e Benefícios - Programa Criança Feliz"=q3_10) %>% 
+  
 #-------------------
   gather("Categoria","Nível") %>% 
   mutate(Categoria=str_wrap(Categoria,width=39)) %>% 
@@ -841,6 +854,10 @@ O Plano Estadual de Assistência Social (PEAS) com a respectiva aprovação pelo
 No mesmo ano, 15,4% dos estados tinham Lei Estadual de regulamentação do SUAS (total de 4 estados). As últimas atualizações ocorreram em 2011, no caso de Minas Gerais, 2012 no Espirito Santo, 2015 em Goiás e 2016 no Mato Grosso do Sul.
 
 No que se refere ao Plano Estadual de capacitação, verificou-se que em 2016 92,3% dos estados possuíam o Plano (total de 24 estados), dos quais 38,5% (10 estados) realizaram a última atualização do Plano em 2016 e 7,7% (2 estados) tinham Plano de Capacitação cuja última atualização se deu até o ano de 2011 (\Cref{fig:estados-atualizacao-lei}).
+
+#sinalizar dos 26 estados, apenas 15 possuem regaluzação do SUAS através de Lei e os 11 estados que não possuem Lei do SUAS.
+
+##Valdson, acho que esse gráfico fica melhor por quantidade e não percentual.
 
 ```{r estados-atualizacao-lei, fig.cap = "Percentual de estados segundo ano de atualização da Lei Estadual de regulamentação do Sistema Único de Assistência Social (SUAS) - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -924,6 +941,8 @@ grafico
 ```
 
 Em 2016, 23 dos 26 estados (88,5%) realizavam algum cofinanciamento aos municípios, sendo 65,4% (17) fundo-a-fundo, 3,8% (1) por convênio e 19,2% (5) de ambas as formas. Esse número é superior ao observado em 2013, quando 80,8% dos estados (21) realizavam cofinanciamento aos municípios, e ao observado em 2014 e 2015, anos nos quais 84,6% dos estados (22) realizavam cofinanciamento.
+
+
 
 Foi observada redução no percentual de estados que realizavam cofinanciamento por convênio: o número passou de 15,4% (4) em 2013 para 3,8% (1) em 2016 (\Cref{fig:estados-cofinanciamento-municipios}).
 
@@ -1762,9 +1781,9 @@ Nesse contexto, este eixo de equipamentos, serviços e benefícíos da Assistên
 
 Para isso, os dados históricos desta publicação nos ajudam a identificar os avanços e tendências ao longo dos anos em relação a estrutura física destes equipamentos, oferta dos serviços e benefícios, demanda e perfis de públicos atendidos, oferta regionalizada a partir da resolução CIT 33/2013, integração com Cadastro Único para programas sociais, natureza da oferta das unidades. Este conteúdo está dividido por proteções a saber:
 
-* **PROTEÇÃO** **SOCIAL** **BÁSICA:** PAIF (Serviço de Proteção e Atendimento Integral à Família), SCFV (Serviços de Convivência e Fortalecimento de Vínculos), Proteção Social Básica no Domicílio para pessoas idosas e com deficiência, 
+* **PROTEÇÃO SOCIAL BÁSICA:** PAIF (Serviço de Proteção e Atendimento Integral à Família), SCFV (Serviços de Convivência e Fortalecimento de Vínculos), Proteção Social Básica no Domicílio para pessoas idosas e com deficiência, 
 
-* **PROTEÇÃO** **SOCIAL** **ESPECIAL** **MÉDIA** **COMPLEXIDADE:** PAEFI (Serviço de Atendimento Especializado a Famílias e Indivíduos),Proteção Social Especial no Domicílio para pessoas idosas e com Deficiência, Abordagem Social, MSE (Medidas Socioeducativas em meio aberto), Serviço para situações de emergência e/ou calamidade pública.
+* **PROTEÇÃO SOCIAL ESPECIAL MÉDIA COMPLEXIDADE:** PAEFI (Serviço de Atendimento Especializado a Famílias e Indivíduos),Proteção Social Especial no Domicílio para pessoas idosas e com Deficiência, Abordagem Social, MSE (Medidas Socioeducativas em meio aberto), Serviço para situações de emergência e/ou calamidade pública.
 
 * **PROTEÇÃO SOCIAL ESPECIAL ALTA COMPLEXIDADE:** Tipos de unidades de Serviço de Acolhimento Institucional, oferta de Serviços de Família Acolhedora, bem como do Programa de Família Guardiã ou Extensa, Serviçso ofertado em Centro Dia.
 
@@ -1885,10 +1904,7 @@ grafico
 #  graph2office(file="graficos", append = TRUE)
 ```
 
-
-
-
-```{r CRAS-porte, fig.cap = "Percentual de municípios por número de CRAS no município, segundo porte populacional estimado do município - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios."eval=FALSE}
+```{r CRAS-porte, fig.cap = "Percentual de municípios por número de CRAS no município, segundo porte populacional estimado do município - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios",eval=FALSE}
 
 cras_municipios <- cras_2017 %>%
   select(IBGE7) %>%
@@ -1955,9 +1971,9 @@ grafico
 <!-- Desde 2012 há mais CRAS funcionando em imóveis próprios que em imóveis alugados. -->
 <!-- Observa-se ainda aumento no percentual de CREAS que funcionam em imóveis cedidos: eram 8,7% (718 unidades) em 2016, o maior valor da série histórica (\Cref{fig:CRAS-imovel}). -->
 
-```{r eval=FALSE, fig.cap = "Evolução dos CRAS segundo situação do imóvel – Brasil, 2007 - 2012 - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r CREAS-sit,eval=FALSE, fig.cap = "Evolução dos CREAS segundo situação do imóvel – Brasil,  2012 - 2017 - 2022",fig.footer = "Fonte: MDS, Censo SUAS."}
 
-f_cras_imovel = function(df, q, ano){
+f_creas_imovel = function(df, q, ano){
   q <- enquo(q)
   ano <- quo_name(ano)
 
@@ -1970,18 +1986,19 @@ f_cras_imovel = function(df, q, ano){
     mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
 }
 
-grafico <- f_cras_imovel(cras_2007, v15, "2007") %>%
+#grafico <- f_cras_imovel(cras_2007, v15, "2007") %>%
   #bind_rows(f_cras_imovel(cras_2008, situacao_imovel, "2008")) %>% 
   #bind_rows(f_cras_imovel(cras_2009, q5_situac_imovel, "2009")) %>% 
   #bind_rows(f_cras_imovel(cras_2010, q5, "2010")) %>% 
   #bind_rows(f_cras_imovel(cras_2011, q5, "2011")) %>%
+  grafico <- f_creas_imovel(creas_2012, q15, "2012") %>%
   bind_rows(f_cras_imovel(cras_2012, q5, "2012")) %>%
   #bind_rows(f_cras_imovel(cras_2013, q5, "2013")) %>%
   #bind_rows(f_cras_imovel(cras_2014, q4, "2014")) %>%
   #bind_rows(f_cras_imovel(cras_2015, q4, "2015")) %>%
   #bind_rows(f_cras_imovel(cras_2016, q4, "2016")) %>%
-  bind_rows(f_cras_imovel(cras_2017, q4, "2017")) %>%
-  bind_rows(f_cras_imovel(cras_2022, q3, "2022")) %>%
+  bind_rows(f_cras_imovel(creas_2017, q4, "2017")) %>%
+  bind_rows(f_cras_imovel(creas_2022, q3, "2022")) %>%
  
   
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
@@ -2136,6 +2153,7 @@ grafico
 
 O número absoluto e o percentual de CRAS com acesso à internet aumentaram desde 2007. No ano de 2016, havia 7.835 CRAS com acesso à internet (\Cref{fig:CRAS-internet-quantitativo}), o que representa 95,1% das unidades (\Cref{fig:CRAS-internet-percentual}).
 
+
 ```{r CRAS-internet, fig.cap = "Percentual  de CRAS com computador com acesso a internet, 2012 - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
 
 f_cras_internet = function(df, q, ano){
@@ -2187,7 +2205,7 @@ grafico
 #  graph2office(file="graficos", append = TRUE)
 ```
 
-```{r CRAS-internet-quantitativo, fig.cap = "Evolução do quantitativo de CRAS com computadores com acesso à internet – Brasil, 2007 a 2017", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r CRAS-internet-quantitativo, fig.cap = "Evolução do quantitativo de CRAS com computadores com acesso à internet – Brasil, 2007 a 2017", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
 
 #grafico <- f_selecao_regiao_ano(cras_2007, v17, "1", Gran_reg, "2007")
 #  bind_rows(f_quantitativo_regiao_ano(cras_2008, Região, "2008")) %>% 
@@ -2297,7 +2315,7 @@ Fonte: MDS, Censo SUAS.
 Os CRAS são considerados a porta de entrada da Assistência Social, sendo uma referência para a população no território. Nesse sentido, podem se articular com a rede de proteção social e com demais serviços ofertados no município, de forma a garantir o acesso da população aos direitos sociais.
 Em 2016, apenas 0,6% dos CRAS informaram não ter articulação com serviços de educação, e 0,2% informaram que o serviço não existia no município. Assim, 99,2% dos CRAS informaram manter alguma articulação com serviços de educação, sendo os maiores percentuais referentes à existência de dados atualizados dos parceiros com quem o CRAS mantém articulação (94,8%) e ao encaminhamento de usuários ao CRAS pelos serviços de educação (90,9%). No mesmo ano, 0,3% dos CRAS informaram não ter articulação com serviços de saúde e 0,1% informaram que o serviço não existe no município. Dessa forma, 99,6% dos CRAS informaram ter articulação com serviços de saúde, sendo os maiores percentuais referentes ao recebimento de usuários encaminhados pelo CRAS (96,4%).
 
-```{r CRAS-SCFV, fig.cap = "Percentual de CRAS que executavam diretamente os Serviços de Convivência e Fortalecimento de Vínculos - Brasil, 2010 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r CRAS-SCFV, fig.cap = "Percentual de CRAS que executavam diretamente os Serviços de Convivência e Fortalecimento de Vínculos - Brasil, 2014 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 ```
 
@@ -2405,7 +2423,10 @@ Desde 2014 o número de Centros de Convivência no Brasil aumentou, passando de 
 
 Os Centros de Convivência podem ser unidades públicas ou vinculadas a entidades de assistência social, inscritas nos Conselhos de Assistência Social do município ou do DF. Em 2016, 44,7% dos Centros de Convivência eram governamentais (total de 3.781 unidades) e 55,3% das unidades eram não governamentais (4.672 unidades). Desde 2014, o percentual de unidades de natureza não governamental vem se reduzindo, passando de 57,4% (4.521 unidades) para 55,3% (4.672 unidades) em 2016 (Gráfico 29).
 
-```{r centro-conv-natureza, fig.cap = "Quantitativo de Centros de Convivência por Natureza da Unidade - BRASIL, 2014 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r centro-conv-natureza, fig.cap = "Quantitativo de Centros de Convivência por Natureza da Unidade - BRASIL, 2014 - 2018 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+
+
 
 ```
 
@@ -2415,7 +2436,91 @@ Em 2016, 31,2% dos Centros de Convivência (2.636 unidades) possuíam rota acess
 
 ```
 
-CENTRO DE REFERÊNCIA ESPECIALIZADA DE ASSISTÊNCIA SOCIAL – CREAS
+
+##SERVIÇOS DE PROTEÇÃO SOCIAL ESPECIAL – MÉDIA COMPLEXIDADE
+
+A Proteção Social Especial de Média Complexidade organiza a oferta de serviços, programas e projetos de caráter especializado que requerem maior estruturação técnica e operativa, com competências e atribuições definidas, destinados ao atendimento a famílias e indivíduos em situação de risco pessoal e social, por violação de direitos. É ofertada pelos Centros de Referência Especializados de Assistência Social (CREAS), pelos Centros de Referência Especializados para População em Situação de Rua (Centro POP), e pelos Centro-Dia.
+No nível de Média Complexidade, são ofertados o Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos (PAEFI); o Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida e de Prestação de Serviços à Comunidade; o Serviço Especializado em Abordagem Social; o Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosos e suas Famílias e o Serviço Especializado para Pessoas em Situação de Rua.
+O PAEFI é definido na Tipificação Nacional de Serviços Socioassistenciais18 como sendo o “serviço de apoio, orientação e acompanhamento a famílias com um ou mais de seus membros em situação de ameaça ou violação de direitos. Compreende atenções e orientações direcionadas para a promoção de direitos, a preservação e o fortalecimento de vínculos familiares, comunitários e sociais e para o fortalecimento da função protetiva das famílias diante do conjunto de condições que as vulnerabilizam e/ou as submetem a situações de risco pessoal e social.”
+As situações de violência ou de violação de direitos para as quais teve mais CREAS oferecendo atendimento pelo PAEFI em 2016, contando separadamente o atendimento de cada CREAS a cada ciclo de vida do usuário (atendimento a crianças e adolescentes, atendimento a mulheres adultas, atendimento a homens adultos e atendimento a idosos), foram as situações de violência psicológica, de violência física e de pessoas com deficiência vítimas de violência ou de violação de direitos. Para as crianças e adolescentes, a situação para a qual teve mais CREAS oferecendo atendimento foi a de abuso sexual ou de violência sexual: 2464 de um total de 2521 CREAS ofereceram atendimento pelo PAEFI a essa situação. No atendimento a mulheres adultas, as situações de violência física e violência psicológica foram as que tiveram maior número de CREAS oferecendo atendimento. Já para os homens adultos, a situação que teve o maior número de CREAS oferecendo atendimento foi a de pessoas com deficiência vítimas de violência ou de violação de direitos. Violência psicológica foi a situação, em número de CREAS, com maior oferta de atendimento para idosos. As situações que tiveram o maior número de CREAS que não oferecem atendimento para elas foram as de tráfico de pessoas, de famílias com adolescentes em cumprimento de medida socioeducativa e de famílias com pessoas egressas do sistema prisional (Gráfico 112).
+Gráfico 112 - Número de CREAS que oferecem atendimento pelo PAEFI, segundo situações e ciclos de vida do usuário em situação de violência/violação de direitos - Brasil, 2016
+Fonte: MDS, Censo SUAS.
+
+Do total de 2521 unidades de CREAS existentes em 2016 no Brasil, de 99,0% a 99,5% delas realizaram as seguintes ações e atividades no âmbito do PAEFI: visitas domiciliares, acompanhamento individual ou familiar, encaminhamento para o CRAS, encaminhamento para serviços da rede de saúde e encaminhamento de famílias ou indivíduos para a rede de serviço socioassistencial. As ações e atividades que tiveram menor número de CREAS realizando-as foram as de orientação jurídico-social e de grupo ou oficina com famílias ou indivíduos, realizadas por 75,2% e 72,5% das unidades, respectivamente (Gráfico 113).
+Gráfico 113 - Percentual de CREAS segundo ações e atividades realizadas no âmbito do PAEFI - Brasil, 2016
+Fonte: MDS, Censo SUAS.
+
+O Serviço Especializado em Abordagem Social consiste na identificação, por equipes de educadores sociais, de pessoas e famílias em situação de risco pessoal nos ambientes públicos. Dentre as situações de risco enquadram-se o trabalho infantil, situação de rua, uso abusivo de drogas, exploração sexual de crianças e adolescentes, dentre outras.
+A abordagem é realizada em praças, feiras, locais de intensa circulação de pessoas e com existência de comércio, ruas, prédios abandonados, dentre outros espaços, e tem por objetivo garantir direitos por meio de inclusão em rede de serviços socioassistenciais e em outras políticas públicas.
+Ao analisar a oferta de serviço especializado em abordagem social pelos municípios em 2016, temos que 3.663 municípios, ou, 66,8% dos 5.481 municípios que participaram do Censo, declararam não ofertar o serviço, um grande crescimento em relação a 2015, quando 2.831 municípios (51,5%) haviam declarado não ofertar o serviço. O local onde o maior número de municípios oferta o serviço é no(s) CREAS, onde 1.319 municípios (24,1%) declararam ofertá-lo (em 2015, 28,9% dos municípios haviam declarado ofertar o serviço no(s) CREAS). Na sede ou no órgão gestor do município era o local onde 955 municípios (17,4%) ofertavam o serviço em 2015, caindo esse número em 2016 para apenas 421 (7,7%). Houve queda também no número de municípios que ofertavam o serviço especializado em abordagem social nos locais menos frequentes: no(s) Centro POP, em outra unidade pública e em entidade conveniada (Gráfico 114).
+Gráfico 114 – Quantidade de Municípios segundo oferta e local de oferta de serviço especializado em abordagem social - Brasil, 2015 e 2016
+Fonte: MDS, Censo SUAS.
+
+De acordo com o Censo SUAS 2016, 1.537 CREAS (61,0%) realizaram a abordagem social, sendo 374 (14,8%) com equipes exclusivas para abordagem e 1.163 (46,1%) sem equipe exclusiva. Outras 185 (7,3%) unidades não realizaram o serviço com sua própria equipe. Nestes casos, o serviço é referenciado ao CREAS, mas ofertado por outra entidade. Em relação a 2015, houve redução nos percentuais de CREAS que realizaram a abordagem social com equipe exclusiva, sem equipe exclusiva e por outra entidade referenciada ao CREAS. Portanto, houve um aumento no percentual e também no número absoluto de CREAS que não realizavam e não possuíam serviço de abordagem referenciado, passando de 28,1% dos CREAS em 2015 para 31,7% em 2016. 
+Nas regiões, só na região Sul não houve queda no percentual de CREAS que realizaram a abordagem social com equipe exclusiva, mas ainda assim essa região continua tendo o menor percentual entre as regiões, com 12,0%. A região Sul foi também a única que teve aumento no percentual de CREAS que não realizavam o serviço de abordagem com equipe do CREAS, mas que tinham outra entidade referenciada ao CREAS realizando o serviço. Nas regiões Centro-Oeste e Nordeste houve aumento no percentual de CREAS que realizaram a abordagem social sem equipe exclusiva, de 55,3% em 2015 para 57,8% em 2016 no Centro-Oeste e de 49,9% em 2015 para 50,3% em 2016 no Nordeste. Finalmente, apenas na região Centro-Oeste não houve aumento no percentual de CREAS que não realizavam nem possuíam o serviço de abordagem referenciado a eles (Tabela 9).
+Tabela 9 - Quantidade de CREAS que realizam o Serviço Especializado em Abordagem Social segundo grandes regiões – Brasil, 2016
+
+2016
+"Sim, com equipe exclusiva para Abordagem"
+"Sim, sem equipe exclusiva para Abordagem"
+"Não realiza com a equipe deste CREAS, mas no município existe Serviço de Abordagem referenciado a este CREAS"
+"Não realiza nem possui Serviço de Abordagem referenciado a este CREAS"
+Norte
+40
+109
+4
+74
+Nordeste
+165
+486
+25
+291
+Sudeste
+93
+295
+103
+221
+Sul
+47
+144
+34
+167
+Centro-Oeste
+29
+129
+19
+46
+Brasil
+374
+1.163
+185
+799
+Fonte: MDS, Censo SUAS.
+
+O Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC), segundo definido na Tipificação Nacional de Serviços Socioassistenciais, “tem por finalidade prover atenção socioassistencial e acompanhamento a adolescentes e jovens em cumprimento de medidas socioeducativas em meio aberto, determinadas judicialmente. Deve contribuir para o acesso a direitos e para a resignificação de valores na vida pessoal e social dos adolescentes e jovens. Para a oferta do serviço faz-se necessário a observância da responsabilização face ao ato infracional praticado, cujos direitos e obrigações devem ser assegurados de acordo com as legislações e normativas específicas para o cumprimento da medida.” 19
+Em 2016, 37,5% dos municípios atendiam a adolescentes em cumprimento de Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC) no CREAS do município, enquanto 35,7% dos municípios encaminhava o atendimento desses adolescentes para o CRAS. Constatou-se ainda que 16,3% dos municípios atendiam esses adolescentes pela equipe de referência da proteção social especial do município (órgão gestor) e que 9,9% dos municípios não atendiam adolescentes em cumprimento de LA e de PSC (Gráfico 115).
+Gráfico 115: Percentual de municípios segundo forma de atendimento a adolescentes em cumprimento de Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC) - Brasil, 2016
+Fonte: MDS, Censo SUAS.
+
+O número de CREAS que realizam o Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC) vem crescendo desde 2010, passando de 1.099 unidades de CREAS naquele ano para 2.018 unidades em 2016. O percentual de CREAS que realizam esse serviço também cresceu, passando de 69,1% dos CREAS em 2010 para 80,0% em 2016, percentual quase igual ao de 2015 (81,0%) (Gráfico 116).
+Gráfico 116 - Número e percentual de CREAS que realizam o Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC) - Brasil, 2010 a 2016
+Fonte: MDS, Censo SUAS.
+
+O “Serviço de Proteção Social Especial para Pessoas com Deficiência e Pessoas Idosas e suas famílias” é definido na Tipificação Nacional de Serviços Socioassistenciais20 como sendo o “serviço para a oferta de atendimento especializado a famílias com pessoas com deficiência e idosos com algum grau de dependência, que tiveram suas limitações agravadas por violações de direitos, tais como: exploração da imagem, isolamento, confinamento, atitudes discriminatórias e preconceituosas no seio da família, falta de cuidados adequados por parte do cuidador, alto grau de estresse do cuidador, desvalorização da potencialidade/capacidade da pessoa, dentre outras que agravam a dependência e comprometem o desenvolvimento da autonomia.”
+As ações e atividades mais desenvolvidas pelos 1.342 Centros-Dia do país no âmbito do “Serviço de Proteção Social Especial para Pessoas com Deficiência e Pessoas Idosas e suas famílias”, em 2016, foram a acolhida e escuta inicial, o encaminhamento para os serviços da rede de saúde, o encaminhamento para a rede de serviços socioassistenciais e a orientação sobre acesso ao BPC e outros benefícios, ações e atividades estas que foram desenvolvidas por 94,0% a 96,6% dos Centros-Dia. Na outra ponta, apenas 23,7% dos Centros-Dia fizeram provimento de bens materiais, e 22,8% fizeram provisão de órteses e próteses (Gráfico 117)
+Gráfico 117 - Percentual de Centros-Dia segundo ações e atividades desenvolvidas no âmbito do “Serviço de Proteção Social Especial para Pessoas com Deficiência e Pessoas Idosas e suas famílias” - Brasil, 2016
+Fonte: MDS, Censo SUAS.
+
+Durante o mês de agosto de 2016, 66.251 adultos com deficiência foram atendidos em 85,7% das 1.342 unidades Centro-Dia do país. No mesmo mês foram atendidas 45.021 crianças de 7 a 14 anos com deficiência, atendimento realizado em 77,5% das unidades. Um percentual menor de unidades, 50,4%, realizaram atendimento de idosos com deficiência, atendendo 7.883 idosos nessa condição, e apenas 16,5% das unidades Centro-Dia atenderam naquele mesmo mês 5.268 idosos sem deficiência, mas dependentes pela idade (Gráfico 118).
+Gráfico 118 - Número de pessoas com deficiência e/ou dependência atendidas nas Unidades Centro-Dia durante o mês de agosto de 2016, segundo faixa etária e situação de deficiência ou dependência - Brasil, agosto de 2016
+Fonte: MDS, Censo SUAS.
+
+O Centro POP é uma unidade pública voltada para o atendimento especializado à população em situação de rua. Deve ofertar, obrigatoriamente, o Serviço Especializado para Pessoas em Situação de Rua, que realiza atendimentos individuais e coletivos, oficinas e atividades de convívio e socialização, além de ações que incentivem o protagonismo e a participação social das pessoas em situação de rua.
+Em 2016, assim como em 2015, no conjunto de 22 atividades realizadas pelos Centros POP e pesquisadas pelo Censo SUAS, 13 atividades eram realizadas por mais de 90% desses Equipamentos. Neste ano, o apoio para obtenção de documentação pessoal chegou a ser realizado por 100% dos 230 Centros POP do país (eram 235 Centro POP no país em 2015). Também como em 2015, as atividades menos realizadas no conjunto de unidades foram a orientação sociojurídica, agora realizada em 44,3% dos Centros POP, e a avaliação para concessão de aluguel social, cujo percentual caiu de 36,6% das unidades pesquisadas em 2015 para 33,5% em 2016 (Gráfico 119).
+Gráfico 119 - Percentual de Centros POP segundo atividades realizadas - Brasil, 2016
+Fonte: MDS, Censo SUAS.
+
+###CENTRO DE REFERÊNCIA ESPECIALIZADA DE ASSISTÊNCIA SOCIAL – CREAS
 
 Os Centros de Referência Especializados de Assistência Social (CREAS) são unidades públicas estatais que ofertam serviços da Proteção Social Especial a pessoas e famílias em situação de risco pessoal ou social e/ou em situação de violação de direitos. 
 
@@ -2427,8 +2532,79 @@ O Censo SUAS 2016 registrou 2.521 CREAS no país: um incremento de 86 novas unid
 
 Entre 2009 a 2014, o Censo SUAS registrou redução na proporção de CREAS funcionando em imóveis próprios, que se estabilizou em 2015. Contudo, em 2016 os percentuais aumentaram, chegando 27,5% de CREAS alocados em imóveis próprios (694 unidades), com diminuição para 65% funcionando em imóveis alugados (total de 1.639 unidades). Em 2016 7,5% de CREAS funcionavam em imóveis cedidos (188 unidades). Esse percentual aumenta desde 2014, quando 4,1% dos CREAS funcionavam em imóveis cedidos. (Gráfico 32).
 
-```{r CREAS-municipios_1, fig.cap = "Evolução de CREAS por número de municípios, 2012 - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r municipios-CREAS, fig.cap = "Evolução de CREAS por número de municípios, segundo grandes regiões - Brasil, 2012 - 2017 - 2022,", fig.footer = "Fonte: MDS, Censo SUAS."}
 
+f_percentual_municipios_regiao_ano = function(df, municipio, ano){
+  ano <- quo_name(ano)
+  municipio <- enquo(municipio)
+
+  total_municipios <-case_when(!! ano == "2007"~municipios_2007,
+                               !! ano == "2008"~municipios_2008,
+                               !! ano == "2009"~municipios_2009,
+                               !! ano == "2010"~municipios_2010,
+                               !! ano == "2011"~municipios_2011,
+                               !! ano == "2012"~municipios_2012,
+                               !! ano == "2013"~municipios_2013,
+                               !! ano == "2014"~municipios_2014,
+                               !! ano == "2015"~municipios_2015,
+                               !! ano == "2016"~municipios_2016,
+                               !! ano == "2017"~municipios_2017,
+                               !! ano == "2018"~municipios_2018,
+                               !! ano == "2019"~municipios_2019,
+                               !! ano == "2020"~municipios_2020,
+                               !! ano == "2021"~municipios_2021,
+                               !! ano == "2022"~municipios_2022)
+
+
+  df %>%
+    select(!! municipio) %>% 
+    distinct(!! municipio) %>% 
+    mutate(regiao := substr(!! municipio,1,1)) %>% 
+    select(regiao) %>% 
+    group_by(regiao) %>% 
+    summarise(n=n()) %>% 
+    spread(regiao, n, fill = 0) %>% 
+    mutate("6" = rowSums(.[1:5])) %>% 
+    gather("Região","n") %>% 
+    mutate("Total_municipios" = total_municipios[as.numeric(Região)]) %>% 
+    mutate("Percentual" = n/Total_municipios) %>% 
+    mutate(Região = case_when(Região == "1"~"Norte",
+                              Região == "2"~"Nordeste",
+                              Região == "3"~"Sudeste",
+                              Região == "4"~"Sul",
+                              Região == "5"~"Centro-Oeste",
+                              Região == "6"~"Brasil")) %>% 
+    mutate("Ano" = !! ano) 
+}
+
+#grafico <- f_percentual_municipios_regiao_ano(creas_2007, ibge, "2007") %>%
+  #bind_rows(f_percentual_municipios_regiao_ano(creas_2008, IBGE, "2008")) %>% 
+  #bind_rows(f_percentual_municipios_regiao_ano(creas_2009, IBGE, "2009")) %>% 
+  #bind_rows(f_percentual_municipios_regiao_ano(creas_2010, ibge, "2010")) %>% 
+  #bind_rows(f_percentual_municipios_regiao_ano(creas_2011, IBGE, "2011")) %>% 
+  grafico <- f_percentual_municipios_regiao_ano(creas_2012, IBGE, "2012") %>% 
+  #bind_rows(f_percentual_municipios_regiao_ano(creas_2013, IBGE, "2013")) %>% 
+  #bind_rows(f_percentual_municipios_regiao_ano(creas_2014, IBGE, "2014")) %>% 
+  #bind_rows(f_percentual_municipios_regiao_ano(creas_2015, CD_IBGE, "2015")) %>% 
+  #bind_rows(f_percentual_municipios_regiao_ano(creas_2016, IBGE, "2016")) %>% 
+  bind_rows(f_percentual_municipios_regiao_ano(creas_2017, IBGE, "2017")) %>%
+  bind_rows(f_percentual_municipios_regiao_ano(creas_2022, IBGE, "2022")) %>%  
+  ggplot(aes(x = Região, y = Percentual, group = Ano)) +
+  geom_col(aes(fill = Ano), position="dodge") +
+  geom_text(aes(label = percent(Percentual), y=Percentual+0.04), position = position_dodge(width = 0.9), angle = 90, size = 2.5) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+#grafico %>% 
+#  graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r CREAS-municipios_2, fig.cap = "Evolução de CREAS Regionais (res. 21/2023)", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -2436,8 +2612,7 @@ Entre 2009 a 2014, o Censo SUAS registrou redução na proporção de CREAS func
 ```
 
 
-
-```{r creas-situacao, fig.cap = "Evolução dos CREAS segundo situação do imóvel – Brasil, 2012 - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r creas-situacao, fig.cap = "Evolução dos CREAS segundo situação do imóvel – Brasil, 2012 - 2017 - 2022",fig.footer = "Fonte: MDS, Censo SUAS."}
 
 f_creas_imovel = function(df, q, ano){
   q <- enquo(q)
@@ -2485,8 +2660,11 @@ grafico
 ```
 
 
+
 De acordo com os dados do Censo SUAS de 2016, 22,8% dos CREAS possuíam banheiro adaptado para pessoas com mobilidade reduzida de acordo com a Norma da ABNT – um crescimento de 1,9 pontos percentuais em relação ao ano anterior. A presença de acesso principal adaptado com rampas, rota acessível e calçada e de rota acessível ao banheiro apresentaram aumento de 1,7, 1,3 e 0,8 pontos percentuais, respectivamente.
 É possível observar aumento na proporção de CREAS com condições de acessibilidade de acordo com a ABNT em todos os quesitos avaliados entre os anos de 2010 e 2016. No entanto, os percentuais permanecem abaixo de 30% em todos os quesitos, o que explicita que a melhoria da acessibilidade nesses equipamentos ainda constitui grande desafio a ser superado (Gráfico 33).
+
+
 
 ```{r CREAS_acessibilidade, fig.cap = "Evolução percentual de CREAS segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -2585,6 +2763,29 @@ Considerando os 694 CREAS que funcionavam em imóveis próprios, 1.639 que funci
 
 A existência de computadores com acesso à internet é um importante aspecto a ser observado quando se avalia a infraestrutura dos CREAS. Em 2016, 99,8% dos CREAS possuíam acesso à internet. Em números absolutos, passou de 2.308 unidades em 2015, para 2.517 em 2016 (Gráfico 35).
 
+```{r CREAS-internet-percentual, fig.cap = "Evolução percentual de CREAS com computadores com acesso à internet – Brasil, 2012 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+
+```
+
+
+```{r CREAS-Abordagem_Social, fig.cap = "Quantidade de CREAS que realizam o Serviço Especializado em Abordagem Social, 2015 - 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+
+```
+
+
+
+```{r CREAS-MSE, fig.cap = "Percentual de CREAS que realizam o Serviço de Proteção Social a Adolescentes em um cumprimento  Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC) - Brasil, 2010 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+
+```
+
+
+```{r CREAS-PSE-Domicilio, fig.cap = "Percentual de CREAS que realizam Serviço de proteção social Especial para Pessoas com Deficiência, Idosas e suas Famílias, 2016 a 2022."}
+
+
+```
 Os CREAS atendem a população que se encontra em risco pessoal ou social ou que teve seus direitos violados e atuam na orientação e encaminhamento das pessoas e famílias para os demais serviços da assistência social ou de outras áreas. Assim, a articulação com serviços, programas ou instituições no município para encaminhamento de famílias e indivíduos que estejam em atendimento nos CREAS é fundamental.
 <!-- Em 2016, apenas 0,3% dos CREAS não tinham nenhuma articulação com os CRAS e 0,1% informaram não ter a instituição no município. Assim, 99,6% dos CREAS mantinham alguma articulação com os CRAS, sendo os maiores percentuais observados em relação à existência de dados atualizados dos parceiros com quem o CREAS mantém articulação (98,1%), ao recebimento de usuários encaminhados pelos CREAS (97,9%) e ao recebimento de usuários encaminhados para os CREAS (97,0%). -->
 <!-- Sobre a articulação com o Conselho Tutelar, 0,6% dos CREAS informaram não ter nenhuma articulação e 0,2% informaram que não havia a instituição no município. Dessa forma, 99,2% dos CREAS informaram ter alguma articulação com o Conselho Tutelar, sendo os maiores percentuais observados em relação à posse de dados atualizados (97,9%) e o encaminhamento de usuários para os CREAS (96,2%). -->
@@ -2836,6 +3037,15 @@ A maior parte dos imóveis onde se localizavam os Centros POP em 2016 eram aluga
 
 Em 2016 as condições de acessibilidade nos Centros POP que estavam de acordo com a Norma da ABNT melhoraram em relação a 2015 em todos os aspectos, com exceção das rotas acessíveis aos espaços da unidade, que sofreram uma redução de 1,3 pontos percentuais em relação ao ano anterior.  A existência de banheiros adaptados para pessoas com dificuldade de locomoção aumentou de 15,7% em 2015 para 20,0% dos Centros POP em 2016 (Gráfico 38).
 
+
+```{r Centro-Pop, fig.cap = "Evolução de Centro pop - 2011 a 2022."}
+
+
+```
+
+
+
+
 ```{r cpop_acessibilidade, fig.cap = "Evolução percentual de Centros POP segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 #tabela <- equip_acessibilidade(cpop_2011, q8a, "2011", "1") %>%
@@ -2933,6 +3143,15 @@ grafico
 Em 2016, 89,6% dos Centros POP tinham computador com acesso à internet.  Apenas 2 unidades (0,9% do total) informaram não possuir computador. Tanto os valores absolutos de unidades com computador com acesso à internet quanto o percentual total aumentaram desde 2014 (Gráfico 40).
 Gráfico 40: Frequência absoluta e percentual de Centros POP com computadores com acesso à internet – Brasil, 2011 a 2016
 Fonte: MDS, Censo SUAS.
+
+
+
+```{r CentroPop-internet-percentual, fig.cap = "Percentual de Computadores nos Centro Pop com acesso a internet, 2012 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+
+```
+
+
 
 Considerando que os Centros POP servem de apoio para que os usuários possam realizar atividades relacionadas à alimentação, higiene pessoal, guarda de pertences e outras, é importante que estejam equipados de forma a viabilizar essas atividades. Em 2016, 97,4% dos Centros POP possuíam geladeira e 91,7% possuíam fogão, 65,7%, possuíam armários de uso individual e 43,9% dispunham de máquina de lavar roupas. Todos os percentuais aumentaram em relação a 2015 (Gráfico 41).
 Gráfico 41: Percentual de Centros POP que possuem armários de uso individualizado, geladeira, fogão e máquina de lavar roupas – Brasil, 2015 e 2016
@@ -3209,12 +3428,23 @@ Fonte: MDS, Censo SUAS.
 <!-- 2,6% -->
 <!-- Fonte: MDS, Censo SUAS. -->
 
-CENTRO-DIA
+##CENTRO-DIA
+
 O Centro-Dia é uma unidade pública especializada que atende pessoas com deficiência e suas famílias, no âmbito da proteção social especial de média complexidade. 
 No ano de 2016 existiam 1.345 Centros-Dia, localizados majoritariamente na região Sudeste (812 unidades ou 60,4% do total).  A região com o menor número de unidades era a Norte com 13 unidades (1,0% do total).
 Observa-se que houve redução na quantidade de unidades nas regiões Norte (3 unidades a menos), Sul (34) e Centro-Oeste (7), e aumento nas regiões Nordeste (13 unidades a mais) e Sudeste (36) em relação ao ano de 2015 (Gráfico 42). Houve um aumento de 5 unidades no Brasil em comparação ao ano anterior.
-Gráfico 42: Quantidade de Centros-Dia segundo grandes regiões – Brasil, 2016
-Fonte: MDS, Censo SUAS.
+
+```{r CentroDia-evol, fig.cap = "Evolução de CENTRO DIA  - 2015 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+
+```
+
+
+
+```{r CentroDia-Natureza, fig.cap = "Quantitativo de Centros Dia por Natureza da Unidade - BRASIL, 2015 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+
+```
 
 Em 2016 a maior parte dos Centros-Dia estava localizada em imóveis próprios (63,3% do total de unidades). Em seguida, vinham as Unidades localizadas em imóveis cedidos (20,0%) e em imóveis alugados (14,9%).
 Os percentuais não se alteraram muito em relação ao ano anterior: houve pequeno aumento nos percentuais de imóveis próprios e alugados e pequena redução nos percentuais de Centros-Dia funcionando em imóveis cedidos (Gráfico 43).
@@ -3225,6 +3455,56 @@ Em 2016 a maior parte dos Centros-Dia contava com condições de acessibilidade 
 Gráfico 44: Centros-Dia segundo condição de acessibilidade de acordo com a Norma da ABNT – Brasil, 2015 e 2016
 Fonte: MDS, Censo SUAS.
 
+```{r centro-dia_acessibilidade, fig.cap = "Evolução percentual dos Centros-Dia segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil, 2015 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+
+tabela <- equip_acessibilidade(cedia_2015, q20_1, "2015", "1") %>%
+  bind_rows(equip_acessibilidade(cedia_2015, q20_2, "2015", "2")) %>% 
+  bind_rows(equip_acessibilidade(cedia_2015, q20_3, "2015", "3")) %>%
+  bind_rows(equip_acessibilidade(cedia_2015, q20_4, "2015", "4")) %>%
+  bind_rows(equip_acessibilidade(cedia_2022, q15_1, "2022", "1")) %>%
+  bind_rows(equip_acessibilidade(cedia_2022, q15_2, "2022", "2")) %>% 
+  bind_rows(equip_acessibilidade(cedia_2022, q15_3, "2022", "3")) %>% 
+  bind_rows(equip_acessibilidade(cedia_2022, q15_4, "2022", "4")) %>% 
+ ungroup() %>% 
+  mutate(Categoria=str_wrap(Categoria,width=34))
+
+ordenado<-tabela %>% 
+  filter(Ano == "2022") %>% 
+  arrange(Percentual) %>% 
+  select(Categoria)
+
+ordenado<-factor(ordenado, levels = ordenado$Categoria)
+
+ordenado2<-tabela %>%
+  select(Ano) %>% 
+  distinct() %>% 
+  arrange(Ano)
+
+ordenado2<-factor(ordenado2, levels = ordenado2$Ano)
+
+grafico<-tabela %>% 
+  mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
+  mutate(Ano = factor(Ano, levels = rev(levels(ordenado2)))) %>% 
+  ggplot(aes(x = Categoria, y = Percentual, group = Ano)) +
+  geom_col(aes(fill = Ano), position = "dodge") +
+  geom_text(aes(label = percent(Percentual), y=Percentual+0.03), position = position_dodge(width = 0.9)) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  coord_flip() +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.x = element_blank(),
+        axis.line.y = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
+
+grafico
+#grafico %>% 
+#  graph2office(file="graficos", append = TRUE)
+```
+
 Além das condições de acessibilidades que foram anteriormente informadas (acesso principal adaptado com rampas e rota acessível à Unidade, rotas acessíveis aos espaços e banheiros, e banheiro adaptado para pessoas com deficiência e/ou mobilidade reduzida), os outros tipos de adaptações mais encontrados foram outras adaptações e tecnologias assistivas para deficiência intelectual e autismo (observado em 393 unidades), seguido do suporte de profissional com conhecimento em LIBRAS (com ocorrência em 380 unidades) (Gráfico 45).
 Gráfico 45: Quantidade de Centros Dia segundo outras adaptações para acessibilidade – Brasil, 2016
 Fonte: MDS, Censo SUAS.
@@ -3234,10 +3514,44 @@ Entre os Centros-Dia que funcionavam em imóveis próprios, 71,0% (604 Unidades)
 Para todos os critérios analisados, os Centros-Dia que funcionavam em imóveis próprios ou cedidos tinham melhores condições de adaptação que aqueles que funcionavam em imóveis alugados (Gráfico 46).
 Gráfico 46: Percentual de Centros Dia segundo condição de acessibilidade de acordo com a Norma da ABNT e situação do imóvel – Brasil, 2016
 Fonte: MDS, Censo SUAS.
+
 Em 2016, 82,5% dos Centros-Dia (1.110 unidades) atenderam crianças e adolescentes com deficiência e com algum grau de dependência. Esse percentual foi inferior ao observado em 2015, quando 86,2% dos Centros-dia (1.155 unidades) prestaram atendimento a esse público.
 O atendimento a idosos com algum grau de dependência (sem deficiência) apresentou aumento, com 19,3% das Unidades (259 unidades) declarando ter atendido o público, frente a 16,9% (227 unidades) em 2015 (Gráfico 47).
 Gráfico 47: Centros-Dia segundo público atendido. Brasil, 2015 e 2016
 Fonte: MDS, Censo SUAS.
+
+
+##SERVIÇOS DE PROTEÇÃO SOCIAL ESPECIAL – ALTA COMPLEXIDADE
+Os serviços de Proteção Social Especial de Alta Complexidade são organizados em diferentes modalidades de equipamentos, conforme o público, e destinam-se a famílias e/ou indivíduos afastados temporariamente do núcleo familiar e/ou comunitários de origem.
+O Plano Individual de Atendimento (PIA) é um instrumento que norteia as ações a serem realizadas para viabilizar a proteção integral, a reinserção familiar e comunitária e a autonomia de crianças e adolescentes afastados dos cuidados parentais e sob proteção de serviços de acolhimento. É uma estratégia de planejamento que, a partir do estudo aprofundado de cada caso, compreende a singularidade dos sujeitos e organiza as ações e atividades a serem desenvolvidas com a criança/adolescente e sua família durante o período de acolhimento21.
+Em 2016, todas as 33 Unidades de Acolhimento exclusivas para crianças e adolescentes com deficiência que responderam à pergunta sobre se fazem PIA de cada pessoa acolhida informaram que fazem o PIA. Das 2.965 Unidades de Acolhimento de crianças e adolescentes que responderam à pergunta sobre se fazem PIA de cada pessoa acolhida, 98,9% informaram que fazem. Já nas Unidades de Acolhimento de pessoas idosas, esse percentual foi o menor, das 1.417 que responderam à pergunta, 80,3% informaram que fazem o PIA de cada pessoa acolhida (Gráfico 120).
+Gráfico 120 – Quantidade e percentual de Unidades de Acolhimento que fazem Plano Individual de Atendimento (PIA) de cada pessoa acolhida, segundo público - Brasil, 2016
+Fonte: MDS, Censo SUAS.
+
+As atividades que, segundo relato das 5.781 unidades de acolhimento existentes no país em 2016, tiveram maior percentual de unidades que as promoveram sistematicamente, foram: elaboração de relatórios técnicos sobre casos em acompanhamento, relatado por 85,9% das unidades; discussão de casos com outros profissionais da rede, relatado por 85,2% das unidades; encaminhamento para retirada de documentos, relatado por 82,9% das unidades e passeios com usuários, relatado por 82,5% das unidades. As atividades que tiveram menor percentual de unidades que relataram que as promoveram sistematicamente, foram: envio de relatório semestral para o judiciário (exclusivo para acolhimento de criança ou adolescente) e realização de reuniões com grupos de famílias dos usuários, relatadas por 49,0% e 45,1% das unidades, respectivamente. 0,9% das unidades relataram que não realizam nenhuma das atividades listadas (Gráfico 121).
+Gráfico 121 - Percentual de Unidades de Acolhimento segundo tipo de atividade promovida sistematicamente - Brasil, 2016
+Fonte: MDS, Censo SUAS. 
+
+O Serviço de Acolhimento em Família Acolhedora “organiza o acolhimento de crianças e adolescentes, afastados da família por medida de proteção, em residência de famílias acolhedoras cadastradas. É previsto até que seja possível o retorno à família de origem ou, na sua impossibilidade, o encaminhamento para adoção. O serviço é o responsável por selecionar, capacitar, cadastrar e acompanhar as famílias acolhedoras, bem como realizar o acompanhamento da criança e/ou adolescente acolhido e sua família de origem.” 22
+Em todo Brasil, apenas 9,5% dos municípios possuíam, em 2016, serviço de acolhimento em família acolhedora para criança e adolescente, sendo que 7,9% dos municípios possuíam o serviço e ele era regulamentado por lei municipal. A região com maior percentual de municípios que possuíam esse serviço era a Sul, com 16,0%, sendo que em 15,0% o serviço era regulamentado por lei municipal, seguida da região Sudeste, também com percentuais de municípios que possuíam o serviço acima do percentual nacional. As regiões Nordeste e Centro-Oeste tinham os menores percentuais de municípios que possuíam o serviço, apenas 3,7% no Nordeste e 4,8% no Centro-Oeste, sendo que em ambas apenas 2,4% dos municípios possuíam o serviço tendo ele regulamentado por lei municipal (Gráfico 122).
+Gráfico 122 - Percentual de municípios que possuem Serviço de Acolhimento em Família Acolhedora para Criança e Adolescente, e que possuem esse serviço regulamentado por lei municipal, segundo grandes regiões - Brasil, 2016
+Fonte: MDS, Censo SUAS. 
+
+522 municípios brasileiros em 2016 possuíam serviço de acolhimento em família acolhedora para criança e adolescente. Desses, um terço não tinha nenhuma família cadastrada pelo serviço e aptas a receber as crianças ou adolescentes com medidas protetivas. Quase a metade, 49,6%, desses 522 municípios tinham apenas de 1 a 5 famílias cadastradas e aptas a receber as crianças ou adolescentes. Apenas 0,6% dos 522 municípios tinham mais de 50 famílias cadastradas pelo serviço e aptas a receber as crianças ou adolescentes (Gráfico 123).
+Gráfico 123 - Percentual de municípios segundo quantidade de famílias no município cadastradas pelo Serviço de Acolhimento em Família Acolhedora para Criança e Adolescente e aptas a receber as crianças/adolescentes com medidas protetivas - Brasil, 2016
+ Fonte: MDS, Censo SUAS.
+
+55,0% dos 522 municípios brasileiros que em 2016 possuíam serviço de acolhimento em família acolhedora para crianças e adolescentes não tinham nenhuma criança ou adolescente sendo acolhidas por meio do serviço no município. Quase um terço, ou 32,0% desses 522 municípios tinham apenas de 1 a 5 crianças ou adolescentes sendo acolhidas por meio do serviço. Apenas 0,8% dos 522 municípios tinham mais de 50 crianças ou adolescentes sendo acolhidas (Gráfico 124).
+Gráfico 124 - Percentual de municípios por quantidade de crianças/adolescentes que estão sendo acolhidas por meio do Serviço de Família Acolhedora no município - Brasil, 2016
+Fonte: MDS, Censo SUAS.
+
+Considerações Finais
+Os dados do Censo SUAS 2016 revelaram uma significativa aceleração no crescimento do percentual de CRAS que concederam benefícios eventuais (Gráfico 109), crescimento que vinha ocorrendo entre 2010 e 2015, mas em ritmo bem mais lento. Os maiores crescimentos observados foram no percentual de CRAS que concederam auxílio funeral, que cresceu 10,9 pontos percentuais, e que concederam auxílios relacionados à segurança alimentar, que cresceu 10,8 pontos percentuais.
+Por outro lado, foi observada queda no percentual de CRAS que executavam diretamente os Serviços de Convivência e Fortalecimento de Vínculos (Gráfico 102), que se aproximou dos menores percentuais da série histórica, observados em 2009 e 2010.
+
+
+
+
 
 UNIDADES DE ACOLHIMENTO
 As Unidades de Acolhimento são equipamentos que prestam serviços de proteção social especial de alta complexidade, atendendo pessoas e/ou famílias com vínculos familiares rompidos ou fragilizados, ou que estejam em situação de abandono, ameaça ou violação de direitos, de forma a garantir sua proteção integral. 
@@ -3249,16 +3563,18 @@ A maioria das Unidades de Acolhimento, em 2016, era composta por instituições 
 Gráfico 49: Percentual de Unidades de Acolhimento segundo natureza da unidade - Brasil, 2012 a 2016
 Fonte: MDS, Censo SUAS.
 
-No que se refere às condições de acessibilidade de acordo com a Norma da ABNT, é possível notar pequenas melhorias no percentual em três dos quatro quesitos investigados. A adaptação mais observada é a rota acessível ao banheiro, presente em 44,2% das Unidades (2.479), e a menos observada é o acesso principal adaptado com rampas e rota acessível desde a calçada até o interior da unidade, presentes em 36,4% das Unidades (2.044). O banheiro adaptado para pessoas com deficiência e/ou mobilidade reduzida, presente em 36,5% das unidades em 2015 (1.978), passou a ser observado em 39,1% das unidades em 2016 (2.194) (Gráfico 50).
+No que se refere às condições de acessibilidade de acordo com a Norma da ABNT, é possível notar pequenas melhorias no percentual em três dos quatro quesitos investigados. A adaptação mais observada é a rota acessível ao banheiro, presente em 44,2% das Unidades (2.479), e a menos observada é o acesso principal adaptado com rampas e rota acessível desde a calçada até o interior da unidade, presentes em 36,4% das Unidades (2.044). O banheiro adaptado para pessoas com deficiência e/ou mobilidade reduzida, presente em 36,5% das unidades em 2015 (1.978), passou a ser observado em 39,1% das unidades em 2016 (2.194) (Gráfico 50)
+
+
 
 ```{r unac_acessibilidade, fig.cap = "Evolução percentual de Unidades de Acolhimento Municipais segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 # Em 2012 não tem a informação sobre se a acessibilidade é de acordo com a Norma ABNT, esse detalhamento só tem a partir de 2015.
-#tabela <- equip_acessibilidade(unac_2012, q35_1, "2012", "1") %>%
-#  bind_rows(equip_acessibilidade(unac_2012, q35_2, "2012", "2")) %>% 
-#  bind_rows(equip_acessibilidade(unac_2012, q35_3, "2012", "3")) %>% 
-#  bind_rows(equip_acessibilidade(unac_2012, q35_4, "2012", "4")) %>% 
-tabela <- equip_acessibilidade(unac_2017, q37.1, "2017", "1") %>%
+tabela <- equip_acessibilidade(unac_2015, q42_1, "2015", "1") %>%
+  bind_rows(equip_acessibilidade(unac_2015, q42_2, "2015", "2")) %>% 
+  bind_rows(equip_acessibilidade(unac_2015, q42_3, "2015", "3")) %>% 
+  bind_rows(equip_acessibilidade(unac_2015, q42_4, "2015", "4")) %>% 
+  bind_rows(equip_acessibilidade(unac_2017, q37.1, "2017", "1")) %>%
   bind_rows(equip_acessibilidade(unac_2017, q37.2, "2017", "2")) %>% 
   bind_rows(equip_acessibilidade(unac_2017, q37.3, "2017", "3")) %>% 
   bind_rows(equip_acessibilidade(unac_2017, q37.4, "2017", "4")) %>% 
@@ -3309,6 +3625,13 @@ Em 2016, 75,9% dos computadores das Unidades de Acolhimento tinham acesso à int
 Gráfico 51: Percentual de Unidades de Acolhimento com computadores com acesso à internet – Brasil, 2012 e 2016
 Fonte: MDS, Censo SUAS.
 
+```{r unac-natureza, fig.cap = "Percentual de Unidades de Acolhimento segundo natureza da unidade - Brasil, 2014 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+
+
+
+```
+
 Em 2016, 50,4% das Unidades de Acolhimento prestavam serviços de acolhimento a crianças e adolescentes (2.831 unidades).  Desde 2014, cerca de 28% das unidades acolheram idosos. Do total de 5.614 Unidades de Acolhimento do país em 2016, 80,1% (4.498 unidades) tinham como principal público crianças e adolescentes ou pessoas idosas.
 No mesmo ano, 12,6% das Unidades atendiam como principal público adultos e famílias (705 unidades) e 1,6% (91 unidades) mulheres em situação de violência.
 O percentual de unidades de acolhimento que atendiam exclusivamente pessoas adultas com deficiência em 2016 era de 4,6%, o que representava o total de 258 unidades, enquanto 0,6% das unidades destinavam-se ao atendimento exclusivo de crianças e adolescentes com deficiência (35 Unidades). Em menor quantidade, 0,5% das unidades acolhiam jovens egressos de serviço de acolhimento (27).
@@ -3333,6 +3656,13 @@ Em 2016 existiam 5.614 Unidades de Acolhimento no país. Dessas, 2.217 eram Abri
 As 23 repúblicas para jovens representavam 0,4% do total de Unidades, os 18 Abrigos para famílias desabrigadas/desalojadas vítimas de desastres eram 0,3% e as 12 repúblicas eram 0,2% total (Gráfico 55).
 Gráfico 55: Distribuição das Unidades de Acolhimento segundo tipo de instituição – Brasil, 2016
 Fonte: MDS, Censo SUAS.
+
+```{r unac-txocupacao, fig.cap = "Taxa de ocupação das unidades de acolhimento por público atendido - Região - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+
+
+
+```
 
 As Unidades de Acolhimento podem se articular com outros serviços, programas ou instituições no município. Em 2016, 5,1% das Unidades de Acolhimento informaram não ter nenhuma articulação com os CRAS, e 0,2% informaram que não havia CRAS no município, enquanto 4,8% e 28,3% informaram não ter nenhuma articulação com CREAS e Conselho Tutelar, respectivamente. 12,7% das Unidades de Acolhimento indicaram que não havia CREAS no município e 0,5% informaram não haver Conselho Tutelar.
 Os menores percentuais referentes à articulação foram observados em relação aos Centros-Dia (55,2% das Unidades de Acolhimento informaram não haver o equipamento no município e 27,3% que não se articulam com esse equipamento) e aos Centros POP: 51,4% das Unidades de Acolhimento informaram que não há Centro Pop no município e 21,4% que não se articulam com essas unidades (Tabela 8).
@@ -3708,115 +4038,93 @@ Em 2016, caiu em todas as regiões o percentual (e também o número absoluto) d
 Gráfico 111 - Percentual de unidades de CRAS que possuem equipe técnica adicional (além do número previsto pela NOB-RH/SUAS) específica para deslocamento visando o atendimento à população em territórios extensos e áreas isoladas, segundo grandes regiões - Brasil, 2011 a 2016
 Fonte: MDS, Censo SUAS.
 
-SERVIÇOS DE PROTEÇÃO SOCIAL ESPECIAL – MÉDIA COMPLEXIDADE
-A Proteção Social Especial de Média Complexidade organiza a oferta de serviços, programas e projetos de caráter especializado que requerem maior estruturação técnica e operativa, com competências e atribuições definidas, destinados ao atendimento a famílias e indivíduos em situação de risco pessoal e social, por violação de direitos. É ofertada pelos Centros de Referência Especializados de Assistência Social (CREAS), pelos Centros de Referência Especializados para População em Situação de Rua (Centro POP), e pelos Centro-Dia.
-No nível de Média Complexidade, são ofertados o Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos (PAEFI); o Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida e de Prestação de Serviços à Comunidade; o Serviço Especializado em Abordagem Social; o Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosos e suas Famílias e o Serviço Especializado para Pessoas em Situação de Rua.
-O PAEFI é definido na Tipificação Nacional de Serviços Socioassistenciais18 como sendo o “serviço de apoio, orientação e acompanhamento a famílias com um ou mais de seus membros em situação de ameaça ou violação de direitos. Compreende atenções e orientações direcionadas para a promoção de direitos, a preservação e o fortalecimento de vínculos familiares, comunitários e sociais e para o fortalecimento da função protetiva das famílias diante do conjunto de condições que as vulnerabilizam e/ou as submetem a situações de risco pessoal e social.”
-As situações de violência ou de violação de direitos para as quais teve mais CREAS oferecendo atendimento pelo PAEFI em 2016, contando separadamente o atendimento de cada CREAS a cada ciclo de vida do usuário (atendimento a crianças e adolescentes, atendimento a mulheres adultas, atendimento a homens adultos e atendimento a idosos), foram as situações de violência psicológica, de violência física e de pessoas com deficiência vítimas de violência ou de violação de direitos. Para as crianças e adolescentes, a situação para a qual teve mais CREAS oferecendo atendimento foi a de abuso sexual ou de violência sexual: 2464 de um total de 2521 CREAS ofereceram atendimento pelo PAEFI a essa situação. No atendimento a mulheres adultas, as situações de violência física e violência psicológica foram as que tiveram maior número de CREAS oferecendo atendimento. Já para os homens adultos, a situação que teve o maior número de CREAS oferecendo atendimento foi a de pessoas com deficiência vítimas de violência ou de violação de direitos. Violência psicológica foi a situação, em número de CREAS, com maior oferta de atendimento para idosos. As situações que tiveram o maior número de CREAS que não oferecem atendimento para elas foram as de tráfico de pessoas, de famílias com adolescentes em cumprimento de medida socioeducativa e de famílias com pessoas egressas do sistema prisional (Gráfico 112).
-Gráfico 112 - Número de CREAS que oferecem atendimento pelo PAEFI, segundo situações e ciclos de vida do usuário em situação de violência/violação de direitos - Brasil, 2016
-Fonte: MDS, Censo SUAS.
 
-Do total de 2521 unidades de CREAS existentes em 2016 no Brasil, de 99,0% a 99,5% delas realizaram as seguintes ações e atividades no âmbito do PAEFI: visitas domiciliares, acompanhamento individual ou familiar, encaminhamento para o CRAS, encaminhamento para serviços da rede de saúde e encaminhamento de famílias ou indivíduos para a rede de serviço socioassistencial. As ações e atividades que tiveram menor número de CREAS realizando-as foram as de orientação jurídico-social e de grupo ou oficina com famílias ou indivíduos, realizadas por 75,2% e 72,5% das unidades, respectivamente (Gráfico 113).
-Gráfico 113 - Percentual de CREAS segundo ações e atividades realizadas no âmbito do PAEFI - Brasil, 2016
-Fonte: MDS, Censo SUAS.
 
-O Serviço Especializado em Abordagem Social consiste na identificação, por equipes de educadores sociais, de pessoas e famílias em situação de risco pessoal nos ambientes públicos. Dentre as situações de risco enquadram-se o trabalho infantil, situação de rua, uso abusivo de drogas, exploração sexual de crianças e adolescentes, dentre outras.
-A abordagem é realizada em praças, feiras, locais de intensa circulação de pessoas e com existência de comércio, ruas, prédios abandonados, dentre outros espaços, e tem por objetivo garantir direitos por meio de inclusão em rede de serviços socioassistenciais e em outras políticas públicas.
-Ao analisar a oferta de serviço especializado em abordagem social pelos municípios em 2016, temos que 3.663 municípios, ou, 66,8% dos 5.481 municípios que participaram do Censo, declararam não ofertar o serviço, um grande crescimento em relação a 2015, quando 2.831 municípios (51,5%) haviam declarado não ofertar o serviço. O local onde o maior número de municípios oferta o serviço é no(s) CREAS, onde 1.319 municípios (24,1%) declararam ofertá-lo (em 2015, 28,9% dos municípios haviam declarado ofertar o serviço no(s) CREAS). Na sede ou no órgão gestor do município era o local onde 955 municípios (17,4%) ofertavam o serviço em 2015, caindo esse número em 2016 para apenas 421 (7,7%). Houve queda também no número de municípios que ofertavam o serviço especializado em abordagem social nos locais menos frequentes: no(s) Centro POP, em outra unidade pública e em entidade conveniada (Gráfico 114).
-Gráfico 114 – Quantidade de Municípios segundo oferta e local de oferta de serviço especializado em abordagem social - Brasil, 2015 e 2016
-Fonte: MDS, Censo SUAS.
+##CADASTRO ÚNICO PARA PROGRAMAS SOCIAIS
 
-De acordo com o Censo SUAS 2016, 1.537 CREAS (61,0%) realizaram a abordagem social, sendo 374 (14,8%) com equipes exclusivas para abordagem e 1.163 (46,1%) sem equipe exclusiva. Outras 185 (7,3%) unidades não realizaram o serviço com sua própria equipe. Nestes casos, o serviço é referenciado ao CREAS, mas ofertado por outra entidade. Em relação a 2015, houve redução nos percentuais de CREAS que realizaram a abordagem social com equipe exclusiva, sem equipe exclusiva e por outra entidade referenciada ao CREAS. Portanto, houve um aumento no percentual e também no número absoluto de CREAS que não realizavam e não possuíam serviço de abordagem referenciado, passando de 28,1% dos CREAS em 2015 para 31,7% em 2016. 
-Nas regiões, só na região Sul não houve queda no percentual de CREAS que realizaram a abordagem social com equipe exclusiva, mas ainda assim essa região continua tendo o menor percentual entre as regiões, com 12,0%. A região Sul foi também a única que teve aumento no percentual de CREAS que não realizavam o serviço de abordagem com equipe do CREAS, mas que tinham outra entidade referenciada ao CREAS realizando o serviço. Nas regiões Centro-Oeste e Nordeste houve aumento no percentual de CREAS que realizaram a abordagem social sem equipe exclusiva, de 55,3% em 2015 para 57,8% em 2016 no Centro-Oeste e de 49,9% em 2015 para 50,3% em 2016 no Nordeste. Finalmente, apenas na região Centro-Oeste não houve aumento no percentual de CREAS que não realizavam nem possuíam o serviço de abordagem referenciado a eles (Tabela 9).
-Tabela 9 - Quantidade de CREAS que realizam o Serviço Especializado em Abordagem Social segundo grandes regiões – Brasil, 2016
+```{r Equip-cadunico, fig.cap = "Percentual de CRAS, Centro de Convivência, CREAS e Centro Pop com locais para CadÚnico - 2018 - 2022",fig.footer = "Fonte: MDS, Censo SUAS."}
 
-2016
-"Sim, com equipe exclusiva para Abordagem"
-"Sim, sem equipe exclusiva para Abordagem"
-"Não realiza com a equipe deste CREAS, mas no município existe Serviço de Abordagem referenciado a este CREAS"
-"Não realiza nem possui Serviço de Abordagem referenciado a este CREAS"
-Norte
-40
-109
-4
-74
-Nordeste
-165
-486
-25
-291
-Sudeste
-93
-295
-103
-221
-Sul
-47
-144
-34
-167
-Centro-Oeste
-29
-129
-19
-46
-Brasil
-374
-1.163
-185
-799
-Fonte: MDS, Censo SUAS.
 
-O Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC), segundo definido na Tipificação Nacional de Serviços Socioassistenciais, “tem por finalidade prover atenção socioassistencial e acompanhamento a adolescentes e jovens em cumprimento de medidas socioeducativas em meio aberto, determinadas judicialmente. Deve contribuir para o acesso a direitos e para a resignificação de valores na vida pessoal e social dos adolescentes e jovens. Para a oferta do serviço faz-se necessário a observância da responsabilização face ao ato infracional praticado, cujos direitos e obrigações devem ser assegurados de acordo com as legislações e normativas específicas para o cumprimento da medida.” 19
-Em 2016, 37,5% dos municípios atendiam a adolescentes em cumprimento de Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC) no CREAS do município, enquanto 35,7% dos municípios encaminhava o atendimento desses adolescentes para o CRAS. Constatou-se ainda que 16,3% dos municípios atendiam esses adolescentes pela equipe de referência da proteção social especial do município (órgão gestor) e que 9,9% dos municípios não atendiam adolescentes em cumprimento de LA e de PSC (Gráfico 115).
-Gráfico 115: Percentual de municípios segundo forma de atendimento a adolescentes em cumprimento de Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC) - Brasil, 2016
-Fonte: MDS, Censo SUAS.
+```
 
-O número de CREAS que realizam o Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC) vem crescendo desde 2010, passando de 1.099 unidades de CREAS naquele ano para 2.018 unidades em 2016. O percentual de CREAS que realizam esse serviço também cresceu, passando de 69,1% dos CREAS em 2010 para 80,0% em 2016, percentual quase igual ao de 2015 (81,0%) (Gráfico 116).
-Gráfico 116 - Número e percentual de CREAS que realizam o Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC) - Brasil, 2010 a 2016
-Fonte: MDS, Censo SUAS.
+```{r Postos-cadunico, fig.cap = "Evolução de Postos do Cadastro Único",fig.footer = "Fonte: MDS, Censo SUAS."}
 
-O “Serviço de Proteção Social Especial para Pessoas com Deficiência e Pessoas Idosas e suas famílias” é definido na Tipificação Nacional de Serviços Socioassistenciais20 como sendo o “serviço para a oferta de atendimento especializado a famílias com pessoas com deficiência e idosos com algum grau de dependência, que tiveram suas limitações agravadas por violações de direitos, tais como: exploração da imagem, isolamento, confinamento, atitudes discriminatórias e preconceituosas no seio da família, falta de cuidados adequados por parte do cuidador, alto grau de estresse do cuidador, desvalorização da potencialidade/capacidade da pessoa, dentre outras que agravam a dependência e comprometem o desenvolvimento da autonomia.”
-As ações e atividades mais desenvolvidas pelos 1.342 Centros-Dia do país no âmbito do “Serviço de Proteção Social Especial para Pessoas com Deficiência e Pessoas Idosas e suas famílias”, em 2016, foram a acolhida e escuta inicial, o encaminhamento para os serviços da rede de saúde, o encaminhamento para a rede de serviços socioassistenciais e a orientação sobre acesso ao BPC e outros benefícios, ações e atividades estas que foram desenvolvidas por 94,0% a 96,6% dos Centros-Dia. Na outra ponta, apenas 23,7% dos Centros-Dia fizeram provimento de bens materiais, e 22,8% fizeram provisão de órteses e próteses (Gráfico 117)
-Gráfico 117 - Percentual de Centros-Dia segundo ações e atividades desenvolvidas no âmbito do “Serviço de Proteção Social Especial para Pessoas com Deficiência e Pessoas Idosas e suas famílias” - Brasil, 2016
-Fonte: MDS, Censo SUAS.
 
-Durante o mês de agosto de 2016, 66.251 adultos com deficiência foram atendidos em 85,7% das 1.342 unidades Centro-Dia do país. No mesmo mês foram atendidas 45.021 crianças de 7 a 14 anos com deficiência, atendimento realizado em 77,5% das unidades. Um percentual menor de unidades, 50,4%, realizaram atendimento de idosos com deficiência, atendendo 7.883 idosos nessa condição, e apenas 16,5% das unidades Centro-Dia atenderam naquele mesmo mês 5.268 idosos sem deficiência, mas dependentes pela idade (Gráfico 118).
-Gráfico 118 - Número de pessoas com deficiência e/ou dependência atendidas nas Unidades Centro-Dia durante o mês de agosto de 2016, segundo faixa etária e situação de deficiência ou dependência - Brasil, agosto de 2016
-Fonte: MDS, Censo SUAS.
+```
 
-O Centro POP é uma unidade pública voltada para o atendimento especializado à população em situação de rua. Deve ofertar, obrigatoriamente, o Serviço Especializado para Pessoas em Situação de Rua, que realiza atendimentos individuais e coletivos, oficinas e atividades de convívio e socialização, além de ações que incentivem o protagonismo e a participação social das pessoas em situação de rua.
-Em 2016, assim como em 2015, no conjunto de 22 atividades realizadas pelos Centros POP e pesquisadas pelo Censo SUAS, 13 atividades eram realizadas por mais de 90% desses Equipamentos. Neste ano, o apoio para obtenção de documentação pessoal chegou a ser realizado por 100% dos 230 Centros POP do país (eram 235 Centro POP no país em 2015). Também como em 2015, as atividades menos realizadas no conjunto de unidades foram a orientação sociojurídica, agora realizada em 44,3% dos Centros POP, e a avaliação para concessão de aluguel social, cujo percentual caiu de 36,6% das unidades pesquisadas em 2015 para 33,5% em 2016 (Gráfico 119).
-Gráfico 119 - Percentual de Centros POP segundo atividades realizadas - Brasil, 2016
-Fonte: MDS, Censo SUAS.
+##POVOS TRADICIONAIS
 
-SERVIÇOS DE PROTEÇÃO SOCIAL ESPECIAL – ALTA COMPLEXIDADE
-Os serviços de Proteção Social Especial de Alta Complexidade são organizados em diferentes modalidades de equipamentos, conforme o público, e destinam-se a famílias e/ou indivíduos afastados temporariamente do núcleo familiar e/ou comunitários de origem.
-O Plano Individual de Atendimento (PIA) é um instrumento que norteia as ações a serem realizadas para viabilizar a proteção integral, a reinserção familiar e comunitária e a autonomia de crianças e adolescentes afastados dos cuidados parentais e sob proteção de serviços de acolhimento. É uma estratégia de planejamento que, a partir do estudo aprofundado de cada caso, compreende a singularidade dos sujeitos e organiza as ações e atividades a serem desenvolvidas com a criança/adolescente e sua família durante o período de acolhimento21.
-Em 2016, todas as 33 Unidades de Acolhimento exclusivas para crianças e adolescentes com deficiência que responderam à pergunta sobre se fazem PIA de cada pessoa acolhida informaram que fazem o PIA. Das 2.965 Unidades de Acolhimento de crianças e adolescentes que responderam à pergunta sobre se fazem PIA de cada pessoa acolhida, 98,9% informaram que fazem. Já nas Unidades de Acolhimento de pessoas idosas, esse percentual foi o menor, das 1.417 que responderam à pergunta, 80,3% informaram que fazem o PIA de cada pessoa acolhida (Gráfico 120).
-Gráfico 120 – Quantidade e percentual de Unidades de Acolhimento que fazem Plano Individual de Atendimento (PIA) de cada pessoa acolhida, segundo público - Brasil, 2016
-Fonte: MDS, Censo SUAS.
+```{r Povostradicionais, fig.cap = "Número de CRAS, CREAS que atendem povos e comunidades tradicionais - Brasil, 2014  - 2022",fig.footer = "Fonte: MDS, Censo SUAS."}
 
-As atividades que, segundo relato das 5.781 unidades de acolhimento existentes no país em 2016, tiveram maior percentual de unidades que as promoveram sistematicamente, foram: elaboração de relatórios técnicos sobre casos em acompanhamento, relatado por 85,9% das unidades; discussão de casos com outros profissionais da rede, relatado por 85,2% das unidades; encaminhamento para retirada de documentos, relatado por 82,9% das unidades e passeios com usuários, relatado por 82,5% das unidades. As atividades que tiveram menor percentual de unidades que relataram que as promoveram sistematicamente, foram: envio de relatório semestral para o judiciário (exclusivo para acolhimento de criança ou adolescente) e realização de reuniões com grupos de famílias dos usuários, relatadas por 49,0% e 45,1% das unidades, respectivamente. 0,9% das unidades relataram que não realizam nenhuma das atividades listadas (Gráfico 121).
-Gráfico 121 - Percentual de Unidades de Acolhimento segundo tipo de atividade promovida sistematicamente - Brasil, 2016
-Fonte: MDS, Censo SUAS. 
 
-O Serviço de Acolhimento em Família Acolhedora “organiza o acolhimento de crianças e adolescentes, afastados da família por medida de proteção, em residência de famílias acolhedoras cadastradas. É previsto até que seja possível o retorno à família de origem ou, na sua impossibilidade, o encaminhamento para adoção. O serviço é o responsável por selecionar, capacitar, cadastrar e acompanhar as famílias acolhedoras, bem como realizar o acompanhamento da criança e/ou adolescente acolhido e sua família de origem.” 22
-Em todo Brasil, apenas 9,5% dos municípios possuíam, em 2016, serviço de acolhimento em família acolhedora para criança e adolescente, sendo que 7,9% dos municípios possuíam o serviço e ele era regulamentado por lei municipal. A região com maior percentual de municípios que possuíam esse serviço era a Sul, com 16,0%, sendo que em 15,0% o serviço era regulamentado por lei municipal, seguida da região Sudeste, também com percentuais de municípios que possuíam o serviço acima do percentual nacional. As regiões Nordeste e Centro-Oeste tinham os menores percentuais de municípios que possuíam o serviço, apenas 3,7% no Nordeste e 4,8% no Centro-Oeste, sendo que em ambas apenas 2,4% dos municípios possuíam o serviço tendo ele regulamentado por lei municipal (Gráfico 122).
-Gráfico 122 - Percentual de municípios que possuem Serviço de Acolhimento em Família Acolhedora para Criança e Adolescente, e que possuem esse serviço regulamentado por lei municipal, segundo grandes regiões - Brasil, 2016
-Fonte: MDS, Censo SUAS. 
+```
 
-522 municípios brasileiros em 2016 possuíam serviço de acolhimento em família acolhedora para criança e adolescente. Desses, um terço não tinha nenhuma família cadastrada pelo serviço e aptas a receber as crianças ou adolescentes com medidas protetivas. Quase a metade, 49,6%, desses 522 municípios tinham apenas de 1 a 5 famílias cadastradas e aptas a receber as crianças ou adolescentes. Apenas 0,6% dos 522 municípios tinham mais de 50 famílias cadastradas pelo serviço e aptas a receber as crianças ou adolescentes (Gráfico 123).
-Gráfico 123 - Percentual de municípios segundo quantidade de famílias no município cadastradas pelo Serviço de Acolhimento em Família Acolhedora para Criança e Adolescente e aptas a receber as crianças/adolescentes com medidas protetivas - Brasil, 2016
- Fonte: MDS, Censo SUAS.
 
-55,0% dos 522 municípios brasileiros que em 2016 possuíam serviço de acolhimento em família acolhedora para crianças e adolescentes não tinham nenhuma criança ou adolescente sendo acolhidas por meio do serviço no município. Quase um terço, ou 32,0% desses 522 municípios tinham apenas de 1 a 5 crianças ou adolescentes sendo acolhidas por meio do serviço. Apenas 0,8% dos 522 municípios tinham mais de 50 crianças ou adolescentes sendo acolhidas (Gráfico 124).
-Gráfico 124 - Percentual de municípios por quantidade de crianças/adolescentes que estão sendo acolhidas por meio do Serviço de Família Acolhedora no município - Brasil, 2016
-Fonte: MDS, Censo SUAS.
+##BENEFÍCIOS EVENTUAIS
 
-Considerações Finais
-Os dados do Censo SUAS 2016 revelaram uma significativa aceleração no crescimento do percentual de CRAS que concederam benefícios eventuais (Gráfico 109), crescimento que vinha ocorrendo entre 2010 e 2015, mas em ritmo bem mais lento. Os maiores crescimentos observados foram no percentual de CRAS que concederam auxílio funeral, que cresceu 10,9 pontos percentuais, e que concederam auxílios relacionados à segurança alimentar, que cresceu 10,8 pontos percentuais.
-Por outro lado, foi observada queda no percentual de CRAS que executavam diretamente os Serviços de Convivência e Fortalecimento de Vínculos (Gráfico 102), que se aproximou dos menores percentuais da série histórica, observados em 2009 e 2010.
+```{r BE, fig.cap = "Percentual de Municípios que concedem Benefícios Eventuais - 2014_2022",fig.footer = "Fonte: MDS, Censo SUAS."}
+
+
+```
+
+
+```{r munic-BE, fig.cap = "Percentual de Municípios que concedem Benefícios Eventuais - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+tabela<-gm_2022 %>%
+# Questionário 2022:
+  select("Situação de Morte"=q56_1_1,
+         "Situação de Natalidade"=q56_2_1,
+         "Situação de Calamidade Pública"=q56_3_1,
+         "Situação de Vulnerabilidade Temporária"=q56_4_1)%>%
+#-------------------
+  gather("Categoria","Nível") %>% 
+  mutate(Categoria=str_wrap(Categoria,width=39)) %>% 
+  mutate(Nível = case_when(Nível=="Sim"~"Concede no Município",
+                           Nível=="Não"~"Não Concede no Município",
+                           TRUE ~ Nível)) %>% 
+  group_by(Categoria, Nível) %>% 
+  summarise(n=n()) %>% 
+  group_by(Categoria) %>% 
+  mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+
+ordenado<-tabela %>% 
+  filter(Nível == "Concede no Município") %>% 
+  arrange(Percentual) %>% 
+  select(Categoria)
+
+ordenado<-factor(ordenado, levels = ordenado$Categoria)
+
+grafico<-tabela %>% 
+  ungroup() %>% 
+  mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
+  mutate(Nível=str_wrap(Nível,width=22)) %>% 
+  ggplot(aes(x = Categoria, y = Percentual)) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text(aes(y=Posição, label = percent(Percentual))) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  coord_flip() +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.x = element_blank(),
+        axis.line.y = element_line(),
+        panel.background = element_blank())
+
+grafico
+#grafico %>% 
+#  graph2office(file="graficos", append = TRUE)
+```
+
+
+
+
+
+```{r BE - LOCAL, fig.cap = "Local de concessão dos Benefícios Eventuais - 2014-2022",fig.footer = "Fonte: MDS, Censo SUAS."}
+
+
+```
+
 
 **Capítulo 6 - Participação social no SUAS**
 A participação social é uma das diretrizes estabelecidas pela Constituição Federal de 1988 para a organização das ações da Assistência Social. Nesse sentido, a Lei Orgânica da Assistência Social (LOAS) -referenciar em nota-  , que dispõe sobre a sua organização, instituiu em seu artigo 16 os Conselhos de Assistência Social em âmbito nacional, estadual e municipal como instâncias de deliberação colegiada do SUAS, cuja composição deve ser paritária entre governo e sociedade civil. Os Conselhos integram o Sistema Único de Assistência Social (SUAS), juntamente com o governo e as entidades e organizações de assistência social.
