@@ -673,10 +673,7 @@ grafico
 
 Alguns órgãos gestores estaduais constituíram as áreas de assistência social como subdivisões administrativas em sua estrutura, como superintendências, departamentos, gerências, coordenações, dentre outras.
 
-Em 65,4% dos estados, as subdivisões administrativas das áreas de Proteção Social Básica, Proteção Social Especial e Gestão do SUAS estavam constituídas formalmente.
-
-O maior índice de formalização, por sua vez, foi identificado na área de Gestão Financeira e Orçamentária, com 69,2%.
-A área de Regulação do SUAS é a que apesenta menor percentual de formalização, sendo 11,5% subdivisões constituídas formalmente, 38,5% constituídas informalmente e 50% não constituídas (\Cref{fig:estados-constituicao-subdivisoes}).
+Em 65,4% dos estados, as subdivisões administrativas das áreas de Proteção Social Básica, Proteção Social Especial e Gestão do SUAS estavam constituídas formalmente. Em relação a setores que compoem 100% das estruturas administrativas (de maneira formal e informal) destaca-se 4, são eles: Proteção Social Básica, Proteção Social Especial, Vigilância Socioassistencial e Cadastro Único e Bolsa família. A área de Regulação do SUAS é a que apesenta menor percentual de formalização, sendo 23,1% subdivisões constituídas formalmente conforme detalha o (\Cref{fig:estados-constituicao-subdivisoes}).
 
 ```{r estados-constituicao-subdivisoes, fig.cap = "Distribuição dos órgãos gestores estaduais segundo constituição/formalização de subdivisões administrativas - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -740,6 +737,80 @@ grafico
 #grafico %>% 
 #  graph2office(file="graficos", append = TRUE)
 ```
+
+
+Em 2016, os órgãos gestores municipais que tinham como subdivisão administrativa na estrutura do órgão gestor constituído/formalizado, em sua maioria, eram a Gestão de Benefícios Assistenciais, Proteção Social Básica, Gestão do SUAS e a Gestão financeira e orçamentária com 63,1%, 62,5%, 52,8% e 51,6% respectivamente. A Vigilância Socioassistencial estava constituída de modo informal em 36,9% dos órgãos gestores municipais. A Gestão do trabalho e a Regulação do SUAS não estavam constituídas em 39,2% e 34% dos órgãos municipais (\Cref{fig:municipais-constituicao-subdivisoes}).
+
+
+```{r municipais-constituicao-subdivisoes, fig.cap = "Distribuição dos órgãos gestores municipais segundo constituição/formalização de subdivisões administrativas - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+tabela<-gm_2017 %>%
+# Questionários 2016:
+#  select("Proteção Social Básica"=q3_1,
+#         "Proteção Social Especial"=q3_2,
+#         "Gestão de Benefícios Assistenciais (Bolsa Família, BPC, Benefícios Eventuais)"=q3_3,
+#         "Gestão do SUAS"=q3_4,
+#         "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q3_5,
+#         "Gestão do Trabalho"=q3_6,
+#         "Regulação do SUAS"=q3_7,
+#         "Gestão Financeira e Orçamentária"=q3_8) %>% 
+#-------------------
+# Questionário 2017:
+  select("Gestão do SUAS"=q3.1,
+         "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q3.2,
+         "Gestão do Trabalho"=q3.3,
+         "Regulação do SUAS"=q3.4,
+         "Gestão Financeira e Orçamentária"=q3.5,
+         "Proteção Social Básica"=q3.6,
+         "Proteção Social Especial"=q3.7,
+         "Gestão do Cadastro Único e Programa Bolsa Família"=q3.8,
+         "Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais)"=q3.9) %>% 
+#-------------------
+  gather("Categoria","Nível") %>% 
+  mutate(Categoria=str_wrap(Categoria,width=39)) %>% 
+  mutate(Nível = case_when(Nível=="Sim, na estrutura formal do órgão gestor"~"Constituída formalmente",
+                           Nível=="Sim, de maneira informal"~"Constituída informalmente",
+                           TRUE ~ Nível)) %>% 
+  group_by(Categoria, Nível) %>% 
+  summarise(n=n()) %>% 
+  group_by(Categoria) %>% 
+  mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+
+ordenado<-tabela %>% 
+  filter(Nível == "Constituída formalmente") %>% 
+  arrange(Percentual) %>% 
+  select(Categoria)
+
+ordenado<-factor(ordenado, levels = ordenado$Categoria)
+
+grafico<-tabela %>% 
+  ungroup() %>% 
+  mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
+  mutate(Nível=str_wrap(Nível,width=22)) %>% 
+  ggplot(aes(x = Categoria, y = Percentual)) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text(aes(y=Posição, label = percent(Percentual))) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  coord_flip() +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.x = element_blank(),
+        axis.line.y = element_line(),
+        panel.background = element_blank())
+
+grafico
+#grafico %>% 
+#  graph2office(file="graficos", append = TRUE)
+```
+
+
+
+
+
+
+
 
 O Plano Estadual de Assistência Social (PEAS) com a respectiva aprovação pelo CEAS (total de 22 estados) estava presente em 84,6% dos estados. Destes, 19,2% (5 estados) atualizaram o PEAS pela última vez até o ano de 2011, enquanto 34,6% (9 estados) atualizaram no ano de 2016.
 
@@ -1105,70 +1176,6 @@ grafico
 #  graph2office(file="graficos", append = TRUE)
 ```
 
-Em 2016, os órgãos gestores municipais que tinham como subdivisão administrativa na estrutura do órgão gestor constituído/formalizado, em sua maioria, eram a Gestão de Benefícios Assistenciais, Proteção Social Básica, Gestão do SUAS e a Gestão financeira e orçamentária com 63,1%, 62,5%, 52,8% e 51,6% respectivamente. A Vigilância Socioassistencial estava constituída de modo informal em 36,9% dos órgãos gestores municipais. A Gestão do trabalho e a Regulação do SUAS não estavam constituídas em 39,2% e 34% dos órgãos municipais (\Cref{fig:municipais-constituicao-subdivisoes}).
-
-```{r municipais-constituicao-subdivisoes, fig.cap = "Distribuição dos órgãos gestores municipais segundo constituição/formalização de subdivisões administrativas - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS."}
-
-tabela<-gm_2017 %>%
-# Questionários 2016:
-#  select("Proteção Social Básica"=q3_1,
-#         "Proteção Social Especial"=q3_2,
-#         "Gestão de Benefícios Assistenciais (Bolsa Família, BPC, Benefícios Eventuais)"=q3_3,
-#         "Gestão do SUAS"=q3_4,
-#         "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q3_5,
-#         "Gestão do Trabalho"=q3_6,
-#         "Regulação do SUAS"=q3_7,
-#         "Gestão Financeira e Orçamentária"=q3_8) %>% 
-#-------------------
-# Questionário 2017:
-  select("Gestão do SUAS"=q3.1,
-         "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q3.2,
-         "Gestão do Trabalho"=q3.3,
-         "Regulação do SUAS"=q3.4,
-         "Gestão Financeira e Orçamentária"=q3.5,
-         "Proteção Social Básica"=q3.6,
-         "Proteção Social Especial"=q3.7,
-         "Gestão do Cadastro Único e Programa Bolsa Família"=q3.8,
-         "Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais)"=q3.9) %>% 
-#-------------------
-  gather("Categoria","Nível") %>% 
-  mutate(Categoria=str_wrap(Categoria,width=39)) %>% 
-  mutate(Nível = case_when(Nível=="Sim, na estrutura formal do órgão gestor"~"Constituída formalmente",
-                           Nível=="Sim, de maneira informal"~"Constituída informalmente",
-                           TRUE ~ Nível)) %>% 
-  group_by(Categoria, Nível) %>% 
-  summarise(n=n()) %>% 
-  group_by(Categoria) %>% 
-  mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-
-ordenado<-tabela %>% 
-  filter(Nível == "Constituída formalmente") %>% 
-  arrange(Percentual) %>% 
-  select(Categoria)
-
-ordenado<-factor(ordenado, levels = ordenado$Categoria)
-
-grafico<-tabela %>% 
-  ungroup() %>% 
-  mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
-  mutate(Nível=str_wrap(Nível,width=22)) %>% 
-  ggplot(aes(x = Categoria, y = Percentual)) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text(aes(y=Posição, label = percent(Percentual))) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  coord_flip() +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.x = element_blank(),
-        axis.line.y = element_line(),
-        panel.background = element_blank())
-
-grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
-```
 
 Em 2016, 39,5% dos municípios respondentes possuíam Lei Municipal de regulamentação do Sistema Único de Assistência Social (SUAS). Desses, 6,1% dos municípios tinham atualizado sua Lei em 2016, 6,8% em 2015, 14,2% de 2 a 5 anos atrás, 6,1% de 5 a 10 anos atrás e 6,3% há mais de 10 anos.
 

@@ -92,7 +92,7 @@ A gestão de informação contribui para mostrar resultados, tornar mais transpa
 
 A publicação do Censo SUAS teve sua primeira edição em 2010. Caderno publicado nos anos subsequentes que tem como objetivo apurar e evidenciar uma série de dados e de informações sobre infraestrutura, recursos humanos, serviços, benefícios, gestão e participação social no âmbito da assistência social. Esses dados e informações subsidiam gestores, técnicos e pesquisadores envolvidos no SUAS, a aprimorar ações, identificar êxitos e reestruturar pontos que não tenham atingido os resultados planejados.
 
-A partir do ano de 2018 esta publicação foi interrompida. E, após 5 anos a SAGICAD retorna o caderno do Censo SUAS, na qual resgata as informações anteriores e garante continuidade as informações do SUAS. Reforça-se com isso o papel estratégico na da produção de dados, monitoramento e analise de políticas, superando a perda na qualidade da informação, apagão dos dados, falta de transparência e o negacionismo.
+A partir do ano de 2018 esta publicação foi interrompida. E, após 5 anos a SAGICAD retorna o caderno do Censo SUAS, na qual resgata as informações anteriores e garante continuidade as informações do SUAS. Reforça-se com isso o papel estratégico da produção de dados, monitoramento e analise de políticas, superando a perda na qualidade da informação, apagão dos dados, falta de transparência e o negacionismo.
 
 Estes dados são coletados através do formulário do Censo do Sistema Único de Assistência Social (Censo SUAS), realizado anualmente desde 2007, coleta informações sobre serviços, programas e projetos de assistência social realizados pelas unidades públicas e pela Rede Socioassistencial Privada do SUAS.
 
@@ -102,19 +102,25 @@ Esta edição teve o olhar a luz do II Plano Decenal, na qual deu continuidade a
 A consolidação das análises disponibilizadas nessa publicação reflete o esforço contínuo de aperfeiçoamento da cobertura do levantamento das informações, realizado conjuntamente pela Secretaria de Avaliação e Gestão da Informação (SAGI) e Secretaria Nacional de Assistência Social (SNAS). Esperamos que os resultados apresentados possam continuar contribuindo para subsidiar o debate qualificado e construtivo a respeito do SUAS e resulte em seu aprimoramento.
 
 
+Letícia Bartholo
+
+Secretária de Avaliação, Gestão da Informação e Cadastro Único
+
+
 André Quintão
 
 Secretária Nacional de Assistência Social
 
-Letícia Bartholo
 
-Secretária de Avaliação, Gestão da Informação e Cadastro Único
 
 \tableofcontents
  
 # Apresentação {-}
 
 ## A Assistência Social no Brasil {-}
+
+
+É muito real a presença do SUAS na vida do povo brasileiro. Conquistamos um Sistema Único que tem vinculação com XX % da população inserida no Cadastro Único. A política de Assistência Social nas últimas décadas carrega uma conquistas da sociedade brasileira através de um projeto de seguranças sociais afiançadas por meio da proteção, vigilância e defesa de direitos. Parte deste projeto já foi colocado em prática, com decisões construídas junto com controle social. Hoje temos  xxx ofertas de equipamentos sociais que visa potencializar a proteção social a população através dos serviços, programas, projetos e benefícios desta política. AS conquistas convivem com problemas e contradições, assim identificar e contruir alternativas para esses desafios também faz parte da contrução continua deste política pública.   
 
 O início da estruturação da Assistência Social nos moldes atuais se deu a partir da promulgação da Constituição Federal de 1988, quando a assistência social passou a ser compreendida como direito do cidadão brasileiro e, portanto, como uma política pública de responsabilidade do Estado. É uma política de Seguridade Social não contributiva, que visa, em conjunto com outras políticas setoriais, a universalização dos direitos sociais.
 
@@ -306,7 +312,7 @@ ge_2016 <- read_excel("../Censo SUAS 2016/Gestão Estadual/Censo SUAS Gestão Es
 
 ge_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Gestão_Estadual/Censo SUAS 2017_Gestão Estadual_divulgação.xlsx", sheet = "Base de dados")
 
-ge_2022 <- read_excel("../Censo SUAS 2022/10 - GESTAO ESTADUAL/Censo_SUAS_2022_Gestão_Municipal_Dados_gerais.xlsx", sheet = "Sheet1")
+ge_2022 <- read_excel("../Censo SUAS 2022/10 - GESTAO ESTADUAL/Censo_SUAS_2022_Gestão_Estadual_Dados_gerais.xlsx", sheet = "Sheet1")
 
 gm_2010 <- read_excel("../Censo SUAS 2010/Gestão Municipal/Censo SUAS 2010_Gestão Municipal_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2010 GestãoMunicipal")
 
@@ -732,11 +738,15 @@ O Sistema Único de Assistência Social (SUAS) é definido pela Lei Orgânica da
 
 A LOAS, a NOB SUAS\footnote{Norma Operacional Básica NOB - SUAS 2012 (\url{http://www.mds.gov.br/webarquivos/arquivo/assistencia_social/nob_suas.pdf})} e outros normativos que regulam a assistência social definem as responsabilidades da União, Estados, Distrito Federal e Municípios no âmbito da gestão compartilhada, que incluem o cofinanciamento de serviços, programas e ações da assistência social. Estão previstas ainda instâncias de pactuação e interlocução entre os três entes federados: a Comissão Intergestores Bipartite (CIB), da qual participam representantes de estados e municípios, e a Comissão Intergestores Tripartite (CIT), da qual participam, além de estados e municípios, representantes do governo federal.
 
-A partir das informações contidas no Censo SUAS é possível ter um panorama geral da gestão e do financiamento em estados e municípios, com a observação de aspectos como a estrutura administrativa da gestão da assistência social, a atualização de normativos, o apoio de estados aos municípios, as atividades de cofinanciamento e transferência de recursos, funcionamento das instâncias de pactuação, entre outras. Nesse sentido, esta seção apresenta os principais resultados obtidos a partir das informações dos questionários de gestão municipal e gestão estadual.
+A partir das informações contidas no Censo SUAS é possível ter um panorama geral da gestão e do financiamento em estados e municípios, com a observação de aspectos como a estrutura administrativa da gestão da assistência social, a atualização de normativos, o apoio de estados aos municípios, as atividades de cofinanciamento e transferência de recursos, funcionamento das instâncias de pactuação, entre outras. Nesse sentido, esta seção apresenta os principais resultados obtidos a partir das informações dos questionários de gestão estadual e gestão municipal.
 
-Em 2016, 19,2% dos Estados tinham Secretaria estadual exclusiva da área de Assistência Social os quais são: Acre, Amazonas, Paraíba, Piauí e Paraná. Nos demais 21 estados (80,8%) a Secretaria estadual estava associada a uma ou mais políticas setoriais (\Cref{fig:estados-caracteristica-secretaria}).
+A estrutura administrativa na Política de Assistência Social e Constituição de areas essenciais são elementos importantes para gestão do SUAS. No ambito da gestão estadual, no que se refere a exclusividade da area de Assistência Social, percebe-se que nos úlimos 10 anos houve uma redução de areas exclusivas de assistencia social. Em 2012 existiam 25,9% das secretarias estaduais exclusivas de Assistência Social, em 2022 esse número passa para 3,8%, redução significativa de 87,2%.
 
-```{r estados-caracteristica-secretaria, fig.cap = "Percentual de estados segundo característica da Secretaria estadual de Assistência Social - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+Conforme o (\Cref{fig:estados-caracteristica-secretaria}) , 25 estados (96,4%) a Secretaria estadual estava associada a uma ou mais políticas setoriais, sendo predominante os grupos de duas e três politicas setoriais .
+
+##Estrutura Administrativa
+
+```{r estados-caracteristica-secretaria, fig.cap = "Percentual de Secretarias Estaduais de acordo com composição administrativa relacionada a outras políticas - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 nao0_sim1 = function(df, q){
   q <- enquo(q)
@@ -787,12 +797,50 @@ grafico
 #  graph2office(file="graficos")
 ```
 
-Alguns órgãos gestores estaduais constituíram as áreas de assistência social como subdivisões administrativas em sua estrutura, como superintendências, departamentos, gerências, coordenações, dentre outras.
+No que se refere aos municípios, esse cenário nacional se configurou como contrário. Observ-ase um aumento das secretárias exclusivas de Assistência Social ao longo dos anos, com exeção das regiões (complementar depois que rodar 2022) (\Cref{fig:secretarias-municipais-exclusivas})
 
-Em 65,4% dos estados, as subdivisões administrativas das áreas de Proteção Social Básica, Proteção Social Especial e Gestão do SUAS estavam constituídas formalmente.
 
-O maior índice de formalização, por sua vez, foi identificado na área de Gestão Financeira e Orçamentária, com 69,2%.
-A área de Regulação do SUAS é a que apesenta menor percentual de formalização, sendo 11,5% subdivisões constituídas formalmente, 38,5% constituídas informalmente e 50% não constituídas (\Cref{fig:estados-constituicao-subdivisoes}).
+```{r secretarias-municipais-exclusivas, fig.cap = "Percentual de Secretarias Municipais exclusivas de Assistência Social, segundo grandes regiões – Brasil, 2012 - 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_selecao_regiao_ano (gm_2012, q1, "Secretaria municipal exclusiva da área de Assistência Social", Região, "2012") %>%
+    #bind_rows(f_selecao_regiao_ano(gm_2011, q1, "Secretaria Municipal exclusiva da área de Assistência Social", Região, "2011")) %>% 
+    #bind_rows(f_selecao_regiao_ano(gm_2013, q1, "Secretaria municipal exclusiva da área de Assistência Social", Região, "2013")) %>% 
+  #bind_rows(f_selecao_regiao_ano(gm_2014, q1, "Secretaria municipal exclusiva da área de Assistência Social", Região, "2014")) %>% 
+   #bind_rows(f_selecao_regiao_ano(gm_2015, q1, "Secretaria municipal exclusiva da área de Assistência Social", Região, "2015")) %>% 
+   #bind_rows(f_selecao_regiao_ano(gm_2016, q1, "Secretaria municipal exclusiva da área de Assistência Social", Região, "2016")) %>% 
+   bind_rows(f_selecao_regiao_ano(gm_2017, q1, "Secretaria municipal exclusiva da área de Assistência Social", Região, "2017")) %>% 
+   #bind_rows(f_selecao_regiao_ano(gm_2022, q1, "Secretaria municipal exclusiva da área de Assistência Social", Região, "2022")) %>% 
+  
+  ggplot(aes(x = Região, y = Percentual, group = Ano)) +
+  geom_col(aes(fill = Ano), position="dodge") +
+  geom_text(aes(label = percent(Percentual), y=Percentual+.05), position = position_dodge(width = 0.9), angle = 90) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+#grafico %>% 
+#  graph2office(file="graficos", append = TRUE)
+
+```
+
+
+
+Alguns órgãos gestores estaduais constituíram as áreas de assistência social como subdivisões administrativas em sua estrutura, como superintendências, departamentos, gerências, coordenações, dentre outras. De acordo com o último pacto de aprimoramento Estadual do SUAS \footnote{Resolução CNAS Nº2, de 16 de março de 2017} umas das prioridades ligadas ao aperfeiçoamento isntitucional é possuir na estrutura administrativa as seguintes areas:
+
+
+1) Proteção Social Básica; 
+2) Proteção Social Especial de Média e Alta Complexidade; 
+3) Gestão do SUAS, com suas subdivisões de Vigilância Socioassistencial, Regulação do SUAS e Gestão do Trabalho; e  
+4) Gestão do Fundo Estadual de Assistência Social - FEAS. 
+
+Observa-se que meta chega em 2022 com 22 (85%) estados com as subdivisões administrativas das áreas de Proteção Social Básica, Proteção Social Especial e Gestão do SUAS constituídas formalmente. São 4 areas que não possuem 100% contituídas (formal e informal) sçao elas: Gestão do SUAS, Gestão do trabalho, Serviços e Beneficios e REgulação do SUAS. Esta última apesenta menor percentual de formalização, sendo 38,5% subdivisões constituídas formalmente conforme grafico abaixo (\Cref{fig:estados-constituicao-subdivisoes}).
 
 ```{r estados-constituicao-subdivisoes, fig.cap = "Percentual de estados segundo característica da estrutura administrativa da Secretaria estadual de Assistência Social - Brasil,  2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -849,15 +897,100 @@ grafico
 #  graph2office(file="graficos", append = TRUE)
 ```
 
-O Plano Estadual de Assistência Social (PEAS) com a respectiva aprovação pelo CEAS (total de 22 estados) estava presente em 84,6% dos estados. Destes, 19,2% (5 estados) atualizaram o PEAS pela última vez até o ano de 2011, enquanto 34,6% (9 estados) atualizaram no ano de 2016.
 
-No mesmo ano, 15,4% dos estados tinham Lei Estadual de regulamentação do SUAS (total de 4 estados). As últimas atualizações ocorreram em 2011, no caso de Minas Gerais, 2012 no Espirito Santo, 2015 em Goiás e 2016 no Mato Grosso do Sul.
+No que se refere aos municípios, a última pactuação sobre estrutura administrativa a partir dos portes populacionais dos municípios \footnote{124ª reunião ordinária da CIT - Pacto de Aprimoramento do SUAS} prevê: 
 
-No que se refere ao Plano Estadual de capacitação, verificou-se que em 2016 92,3% dos estados possuíam o Plano (total de 24 estados), dos quais 38,5% (10 estados) realizaram a última atualização do Plano em 2016 e 7,7% (2 estados) tinham Plano de Capacitação cuja última atualização se deu até o ano de 2011 (\Cref{fig:estados-atualizacao-lei}).
+*municípios de pequeno I e II e médio porte:*  100%  dos municípios com instituição formal, na estrutura do órgão gestor de assistência social, as áreas constituídas de Proteção Social Básica, Proteção Social Especial e a área de Gestão do SUAS com competência de Vigilância Socioassistencial.
 
-#sinalizar dos 26 estados, apenas 15 possuem regaluzação do SUAS através de Lei e os 11 estados que não possuem Lei do SUAS.
+*municípios de grande porte e metrópole:* 100% dos muncípios com instituição formal, na estrutura do órgão gestor de assistência social, áreas constituídas de Proteção Social Básica, Proteção Social Especial, com subdivisão de Média e Alta Complexidade, Gestão Financeira e Orçamentária, Gestão de Benefícios Assistenciais e Transferência de Renda, área de Gestão do SUAS com competência de: Gestão do Trabalho,  Regulação do SUAS e Vigilância Socioassistencial.
+
+
+O (\Cref{fig:municipais-constituicao-subdivisoes}) sinaliza que as areas do SUAS com maior percentual de constituição formal são respectivamente: Gestão do Cadastro Único e Bolsa Família, Gestão da Proteção Social Básica e Gestçao do SUAS.    
+
+```{r municipais-constituicao-subdivisoes, fig.cap = "Distribuição dos órgãos gestores municipais segundo constituição/formalização de subdivisões administrativas - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+#tabela<-gm_2017 %>%
+
+# Questionários 2016:
+#  select("Proteção Social Básica"=q3_1,
+#         "Proteção Social Especial"=q3_2,
+#         "Gestão de Benefícios Assistenciais (Bolsa Família, BPC, Benefícios Eventuais)"=q3_3,
+#         "Gestão do SUAS"=q3_4,
+#         "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q3_5,
+#         "Gestão do Trabalho"=q3_6,
+#         "Regulação do SUAS"=q3_7,
+#         "Gestão Financeira e Orçamentária"=q3_8) %>% 
+#-------------------
+# Questionário 2017:
+  #select("Gestão do SUAS"=q3.1,
+#         "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q3.2,
+#         "Gestão do Trabalho"=q3.3,
+#         "Regulação do SUAS"=q3.4,
+#         "Gestão Financeira e Orçamentária"=q3.5,
+#         "Proteção Social Básica"=q3.6,
+#         "Proteção Social Especial"=q3.7,
+#         "Gestão do Cadastro Único e Programa Bolsa Família"=q3.8,
+#         "Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais)"=q3.9) %>% 
+#-------------------
+tabela<-gm_2022 %>%
+# Questionário 2022:
+  select("Gestão do SUAS"=q1_1,
+         "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q1_2,
+         "Gestão do Trabalho"=q1_3,
+         "Regulação do SUAS"=q1_4,
+         "Gestão Financeira e Orçamentária"=q1_5,
+         "Proteção Social Básica"=q1_6,
+         "Proteção Social Especial"=q1_7,
+         "Gestão do Cadastro Único e Programa Bolsa Família"=q1_8,
+         "Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais)"=q1_9) %>% 
+#-------------------
+  gather("Categoria","Nível") %>% 
+  mutate(Categoria=str_wrap(Categoria,width=39)) %>% 
+  mutate(Nível = case_when(Nível=="Sim, na estrutura formal do órgão gestor"~"Constituída formalmente",
+                           Nível=="Sim, de maneira informal"~"Constituída informalmente",
+                           TRUE ~ Nível)) %>% 
+  group_by(Categoria, Nível) %>% 
+  summarise(n=n()) %>% 
+  group_by(Categoria) %>% 
+  mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+
+ordenado<-tabela %>% 
+  filter(Nível == "Constituída formalmente") %>% 
+  arrange(Percentual) %>% 
+  select(Categoria)
+
+ordenado<-factor(ordenado, levels = ordenado$Categoria)
+
+grafico<-tabela %>% 
+  ungroup() %>% 
+  mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
+  mutate(Nível=str_wrap(Nível,width=22)) %>% 
+  ggplot(aes(x = Categoria, y = Percentual)) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text(aes(y=Posição, label = percent(Percentual))) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  coord_flip() +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.x = element_blank(),
+        axis.line.y = element_line(),
+        panel.background = element_blank())
+
+grafico
+#grafico %>% 
+#  graph2office(file="graficos", append = TRUE)
+```
+
+Observa-se também que Gestão do trabalho e Vigilância Socioassistencial são os mais altos percentuais de informalidade e não constituíção. A regulamentação destas areas essenciais devem estar previstas no organograma. A Lei do SUAS \footnote{Lei nº 12.435, de 06/07/2011 altera a Lei Organiza da Assistência Social (LOAS) - nº 8.742, de 07/.12.1993} que dispõe sobre a organização deste sistema, trazendo a estrutura de gestão que inclui estas areas acima. 
+
+A uniformização da Lei do SUAS dos estados e municpípios em consonacia com a LOAS foi deliberação da X Conferência Nacional. Sobre essa disposição, observa-se que nas gestões estaduais, 58% dos estados possuem Lei Estadual de regulamentação do SUAS (total de 15 estados). As últimas atualizações ocorreram a partir de 2017 (12 estados), com exceção de Minas Gerais em 2011 Goiás em 2015 e Mato Grosso do Sul em 2016.
+
+Entratando, 11 estados que não possuem Lei do SUAS. Esse número estão presentes nas seguintes regiões do Brasil: 4 - Nordeste, 3 - Norte, 3 - Região Sul e 1 Regiçao Sudeste. \footnote{ siglas dos Estado que não possuem Lei do SUAS - censo suas 2022: RR, PA, TO, PI, RN, SE, BA, SP, PR, SC e RS}.
 
 ##Valdson, acho que esse gráfico fica melhor por quantidade e não percentual.
+
 
 ```{r estados-atualizacao-lei, fig.cap = "Percentual de estados segundo ano de atualização da Lei Estadual de regulamentação do Sistema Único de Assistência Social (SUAS) - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -939,6 +1072,96 @@ grafico
 #grafico %>% 
 #  graph2office(file="graficos", append = TRUE)
 ```
+
+Em 2016, 39,5% dos municípios respondentes possuíam Lei Municipal de regulamentação do Sistema Único de Assistência Social (SUAS). Desses, 6,1% dos municípios tinham atualizado sua Lei em 2016, 6,8% em 2015, 14,2% de 2 a 5 anos atrás, 6,1% de 5 a 10 anos atrás e 6,3% há mais de 10 anos.
+
+Quando se observa a existência de Lei Municipal de regulamentação do SUAS por região, verifica-se que em todas as regiões mais da metade dos municípios não possuía a referida Lei. Na região Sul foi verificado o maior percentual de municípios com Lei: 48,9% dos municípios da região possuíam o normativo, sendo que 6,0% dos municípios atualizaram a Lei em 2016. O menor percentual foi observado na região Nordeste, na qual 33,7% dos municípios possuíam a Lei, e 5,5% a atualizaram em 2016.
+
+**grafico municípios segundo lei municipal*
+
+O Plano Estadual de Assistência Social (PEAS) com a respectiva aprovação pelo CEAS (total de 22 estados) estava presente em 84,6% dos estados. Destes, 19,2% (5 estados) atualizaram o PEAS pela última vez até o ano de 2011, enquanto 34,6% (9 estados) atualizaram no ano de 2016.
+
+
+
+No que se refere ao Plano Estadual de capacitação, verificou-se que em 2016 92,3% dos estados possuíam o Plano (total de 24 estados), dos quais 38,5% (10 estados) realizaram a última atualização do Plano em 2016 e 7,7% (2 estados) tinham Plano de Capacitação cuja última atualização se deu até o ano de 2011 (\Cref{fig:estados-atualizacao-lei}).
+
+
+
+
+
+No que se refere à atualização do Plano Municipal de Assistência Social (PMAS), verificou-se que 43,3% dos municípios atualizaram o PMAS de 2 a 5 anos atrás. Entre 2016 e 2015, 43,1% dos municípios atualizaram seus Planos. Apenas 0,8% dos municípios tinham Planos cuja atualização havia ocorrido há mais de 10 anos. 10,2% dos municípios não sabiam informar sobre a última atualização do PMAS.
+
+Quando se observa a atualização do PMAS por região, verifica-se que 40,3% dos municípios da região Sudeste atualizaram seus Planos em 2016. Nas demais regiões, a maior parte dos municípios atualizaram seus Planos de 2 a 5 anos atrás: 45,6% dos municípios da região Norte; 40,6% dos municípios da região Nordeste; 65,5% dos municípios da região Sul e 50,5% dos municípios da região Centro-Oeste (\Cref{fig:municipios-atualizacao-PMAS}).
+
+```{r municipios-atualizacao-PMAS, fig.cap = "Distribuição de municípios segundo ano de atualização do Plano Municipal de Assistência Social (PMAS), por grandes regiões - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- gm_2017 %>%
+# Questionários 2016:
+#  select(Região, "ano" = q6, "ns" = q6_ns) %>% 
+#-------------------
+# Questionários 2017:
+  select(Região, "ano" = q8, "ns" = q8.ns) %>% 
+#-------------------
+  mutate(Região = str_replace(Região, "Região ", "")) %>% 
+# Censo 2016:
+#  mutate(Nível = case_when(ns == "Não sabe"~"Não possui/Não sabe informar",
+#                           ano >= 2016~"2016",
+#                           ano >= 2015~"2015",
+#                           ano >= 2011~"De 2 a 5 anos atrás",
+#                           ano >= 2006~"De 6 a 10 anos atrás",
+#                           TRUE ~ "Mais de 10 anos atrás")) %>% 
+#  mutate(Nível = factor(Nível, levels = c("Não possui/Não sabe informar",
+#                                          "Mais de 10 anos atrás",
+#                                          "De 6 a 10 anos atrás",
+#                                          "De 2 a 5 anos atrás",
+#                                          "2015",
+#                                          "2016"))) %>% 
+#-------------------
+# Censo 2017:
+  mutate(Nível = case_when(ns == "Sim"~"Não possui/Não sabe informar",
+                           ano >= 2017~"2017",
+                           ano >= 2016~"2016",
+                           ano >= 2012~"De 2 a 5 anos atrás",
+                           ano >= 2007~"De 6 a 10 anos atrás",
+                           TRUE ~ "Mais de 10 anos atrás")) %>% 
+  mutate(Nível = factor(Nível, levels = c("Não possui/Não sabe informar",
+                                          "Mais de 10 anos atrás",
+                                          "De 6 a 10 anos atrás",
+                                          "De 2 a 5 anos atrás",
+                                          "2016",
+                                          "2017"))) %>% 
+#-------------------
+  group_by(Região, Nível) %>% 
+  summarise(n=n()) %>% 
+  spread(Região, n, fill = 0) %>% 
+  mutate("Brasil" = rowSums(.[2:6])) %>% 
+  gather("Região","n",-Nível) %>% 
+  group_by(Região) %>% 
+  mutate("Percentual" = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n))) %>% 
+
+  ggplot(aes(x = Região, y = Percentual, group = Nível)) +
+#  geom_col(aes(fill = Nível), position="dodge") +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+.06), position = position_dodge(width = 0.9), angle = 90) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=2,byrow=TRUE))
+
+grafico
+#grafico %>% 
+#  graph2office(file="graficos", append = TRUE)
+```
+
+
+
+
 
 Em 2016, 23 dos 26 estados (88,5%) realizavam algum cofinanciamento aos municípios, sendo 65,4% (17) fundo-a-fundo, 3,8% (1) por convênio e 19,2% (5) de ambas as formas. Esse número é superior ao observado em 2013, quando 80,8% dos estados (21) realizavam cofinanciamento aos municípios, e ao observado em 2014 e 2015, anos nos quais 84,6% dos estados (22) realizavam cofinanciamento.
 
@@ -1205,172 +1428,15 @@ Entre os anos de 2010 e 2016 observou-se aumento na proporção de Secretarias e
 
 Entre os anos de 2015 e 2016, é possível identificar redução nos percentuais de Secretarias exclusivas em todas as regiões, com exceção da região Norte (\Cref{fig:secretarias-municipais-exclusivas}).
 
-```{r secretarias-municipais-exclusivas, fig.cap = "Percentual de Secretarias Municipais exclusivas de Assistência Social, segundo grandes regiões – Brasil, 2010 a 2017", fig.footer = "Fonte: MDS, Censo SUAS."}
 
-grafico <- f_selecao_regiao_ano(gm_2010, q1, "Secretaria municipal exclusiva da área de Assistência Social", Região, "2010") %>%
-  bind_rows(f_selecao_regiao_ano(gm_2011, q1, "Secretaria Municipal exclusiva da área de Assistência Social", Região, "2011")) %>% 
-  bind_rows(f_selecao_regiao_ano(gm_2012, q1, "Secretaria municipal exclusiva da área de Assistência Social", Região, "2012")) %>% 
-  bind_rows(f_selecao_regiao_ano(gm_2013, q1, "Secretaria municipal exclusiva da área de Assistência Social", Região, "2013")) %>% 
-  bind_rows(f_selecao_regiao_ano(gm_2014, q1, "Secretaria municipal exclusiva da área de Assistência Social", Região, "2014")) %>% 
-  bind_rows(f_selecao_regiao_ano(gm_2015, q1, "Secretaria municipal exclusiva da área de Assistência Social", Região, "2015")) %>% 
-  bind_rows(f_selecao_regiao_ano(gm_2016, q1, "Secretaria municipal exclusiva da área de Assistência Social", Região, "2016")) %>% 
-  bind_rows(f_selecao_regiao_ano(gm_2017, q1, "Secretaria municipal exclusiva da área de Assistência Social", Região, "2017")) %>% 
-  ggplot(aes(x = Região, y = Percentual, group = Ano)) +
-  geom_col(aes(fill = Ano), position="dodge") +
-  geom_text(aes(label = percent(Percentual), y=Percentual+.05), position = position_dodge(width = 0.9), angle = 90) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
-grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
-```
 
-Em 2016, os órgãos gestores municipais que tinham como subdivisão administrativa na estrutura do órgão gestor constituído/formalizado, em sua maioria, eram a Gestão de Benefícios Assistenciais, Proteção Social Básica, Gestão do SUAS e a Gestão financeira e orçamentária com 63,1%, 62,5%, 52,8% e 51,6% respectivamente. A Vigilância Socioassistencial estava constituída de modo informal em 36,9% dos órgãos gestores municipais. A Gestão do trabalho e a Regulação do SUAS não estavam constituídas em 39,2% e 34% dos órgãos municipais (\Cref{fig:municipais-constituicao-subdivisoes}).
 
-```{r municipais-constituicao-subdivisoes, fig.cap = "Distribuição dos órgãos gestores municipais segundo constituição/formalização de subdivisões administrativas - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS."}
 
-tabela<-gm_2017 %>%
-# Questionários 2016:
-#  select("Proteção Social Básica"=q3_1,
-#         "Proteção Social Especial"=q3_2,
-#         "Gestão de Benefícios Assistenciais (Bolsa Família, BPC, Benefícios Eventuais)"=q3_3,
-#         "Gestão do SUAS"=q3_4,
-#         "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q3_5,
-#         "Gestão do Trabalho"=q3_6,
-#         "Regulação do SUAS"=q3_7,
-#         "Gestão Financeira e Orçamentária"=q3_8) %>% 
-#-------------------
-# Questionário 2017:
-  select("Gestão do SUAS"=q3.1,
-         "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q3.2,
-         "Gestão do Trabalho"=q3.3,
-         "Regulação do SUAS"=q3.4,
-         "Gestão Financeira e Orçamentária"=q3.5,
-         "Proteção Social Básica"=q3.6,
-         "Proteção Social Especial"=q3.7,
-         "Gestão do Cadastro Único e Programa Bolsa Família"=q3.8,
-         "Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais)"=q3.9) %>% 
-#-------------------
-  gather("Categoria","Nível") %>% 
-  mutate(Categoria=str_wrap(Categoria,width=39)) %>% 
-  mutate(Nível = case_when(Nível=="Sim, na estrutura formal do órgão gestor"~"Constituída formalmente",
-                           Nível=="Sim, de maneira informal"~"Constituída informalmente",
-                           TRUE ~ Nível)) %>% 
-  group_by(Categoria, Nível) %>% 
-  summarise(n=n()) %>% 
-  group_by(Categoria) %>% 
-  mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
 
-ordenado<-tabela %>% 
-  filter(Nível == "Constituída formalmente") %>% 
-  arrange(Percentual) %>% 
-  select(Categoria)
 
-ordenado<-factor(ordenado, levels = ordenado$Categoria)
 
-grafico<-tabela %>% 
-  ungroup() %>% 
-  mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
-  mutate(Nível=str_wrap(Nível,width=22)) %>% 
-  ggplot(aes(x = Categoria, y = Percentual)) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text(aes(y=Posição, label = percent(Percentual))) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  coord_flip() +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.x = element_blank(),
-        axis.line.y = element_line(),
-        panel.background = element_blank())
 
-grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
-```
-
-Em 2016, 39,5% dos municípios respondentes possuíam Lei Municipal de regulamentação do Sistema Único de Assistência Social (SUAS). Desses, 6,1% dos municípios tinham atualizado sua Lei em 2016, 6,8% em 2015, 14,2% de 2 a 5 anos atrás, 6,1% de 5 a 10 anos atrás e 6,3% há mais de 10 anos.
-
-Quando se observa a existência de Lei Municipal de regulamentação do SUAS por região, verifica-se que em todas as regiões mais da metade dos municípios não possuía a referida Lei. Na região Sul foi verificado o maior percentual de municípios com Lei: 48,9% dos municípios da região possuíam o normativo, sendo que 6,0% dos municípios atualizaram a Lei em 2016. O menor percentual foi observado na região Nordeste, na qual 33,7% dos municípios possuíam a Lei, e 5,5% a atualizaram em 2016.
-
-No que se refere à atualização do Plano Municipal de Assistência Social (PMAS), verificou-se que 43,3% dos municípios atualizaram o PMAS de 2 a 5 anos atrás. Entre 2016 e 2015, 43,1% dos municípios atualizaram seus Planos. Apenas 0,8% dos municípios tinham Planos cuja atualização havia ocorrido há mais de 10 anos. 10,2% dos municípios não sabiam informar sobre a última atualização do PMAS.
-
-Quando se observa a atualização do PMAS por região, verifica-se que 40,3% dos municípios da região Sudeste atualizaram seus Planos em 2016. Nas demais regiões, a maior parte dos municípios atualizaram seus Planos de 2 a 5 anos atrás: 45,6% dos municípios da região Norte; 40,6% dos municípios da região Nordeste; 65,5% dos municípios da região Sul e 50,5% dos municípios da região Centro-Oeste (\Cref{fig:municipios-atualizacao-PMAS}).
-
-```{r municipios-atualizacao-PMAS, fig.cap = "Distribuição de municípios segundo ano de atualização do Plano Municipal de Assistência Social (PMAS), por grandes regiões - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS."}
-
-grafico <- gm_2017 %>%
-# Questionários 2016:
-#  select(Região, "ano" = q6, "ns" = q6_ns) %>% 
-#-------------------
-# Questionários 2017:
-  select(Região, "ano" = q8, "ns" = q8.ns) %>% 
-#-------------------
-  mutate(Região = str_replace(Região, "Região ", "")) %>% 
-# Censo 2016:
-#  mutate(Nível = case_when(ns == "Não sabe"~"Não possui/Não sabe informar",
-#                           ano >= 2016~"2016",
-#                           ano >= 2015~"2015",
-#                           ano >= 2011~"De 2 a 5 anos atrás",
-#                           ano >= 2006~"De 6 a 10 anos atrás",
-#                           TRUE ~ "Mais de 10 anos atrás")) %>% 
-#  mutate(Nível = factor(Nível, levels = c("Não possui/Não sabe informar",
-#                                          "Mais de 10 anos atrás",
-#                                          "De 6 a 10 anos atrás",
-#                                          "De 2 a 5 anos atrás",
-#                                          "2015",
-#                                          "2016"))) %>% 
-#-------------------
-# Censo 2017:
-  mutate(Nível = case_when(ns == "Sim"~"Não possui/Não sabe informar",
-                           ano >= 2017~"2017",
-                           ano >= 2016~"2016",
-                           ano >= 2012~"De 2 a 5 anos atrás",
-                           ano >= 2007~"De 6 a 10 anos atrás",
-                           TRUE ~ "Mais de 10 anos atrás")) %>% 
-  mutate(Nível = factor(Nível, levels = c("Não possui/Não sabe informar",
-                                          "Mais de 10 anos atrás",
-                                          "De 6 a 10 anos atrás",
-                                          "De 2 a 5 anos atrás",
-                                          "2016",
-                                          "2017"))) %>% 
-#-------------------
-  group_by(Região, Nível) %>% 
-  summarise(n=n()) %>% 
-  spread(Região, n, fill = 0) %>% 
-  mutate("Brasil" = rowSums(.[2:6])) %>% 
-  gather("Região","n",-Nível) %>% 
-  group_by(Região) %>% 
-  mutate("Percentual" = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n))) %>% 
-
-  ggplot(aes(x = Região, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position="dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.06), position = position_dodge(width = 0.9), angle = 90) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=2,byrow=TRUE))
-
-grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
-```
 
 Em 2016, 72,7% dos municípios brasileiros recebiam recursos estaduais para o cofinanciamento da assistência social: 60,4% fundo-a-fundo, 4,5% via convênio e 7,8% por convênio e fundo-a-fundo.
 
