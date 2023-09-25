@@ -957,8 +957,6 @@ No que se refere aos municípios, a última pactuação sobre estrutura administ
 
 *municípios de grande porte e metrópole:* 100% dos muncípios com instituição formal, na estrutura do órgão gestor de assistência social, áreas constituídas de Proteção Social Básica, Proteção Social Especial, com subdivisão de Média e Alta Complexidade, Gestão Financeira e Orçamentária, Gestão de Benefícios Assistenciais e Transferência de Renda, área de Gestão do SUAS com competência de: Gestão do Trabalho,  Regulação do SUAS e Vigilância Socioassistencial.
 
-<<<<<<< HEAD
-
 O (\Cref{fig:municipais-constituicao-subdivisoes}) sinaliza que as areas do SUAS com maior percentual de constituição formal são respectivamente: Gestão do Cadastro Único e Bolsa Família, Gestão da Proteção Social Básica e Gestçao do SUAS.    
 
 ```{r municipais-constituicao-subdivisoes, fig.cap = "Distribuição dos órgãos gestores municipais segundo constituição/formalização de subdivisões administrativas - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -1042,9 +1040,6 @@ Observa-se também que Gestão do trabalho e Vigilância Socioassistencial são 
 A uniformização da Lei do SUAS dos estados e municpípios em consonacia com a LOAS foi deliberação da X Conferência Nacional. Sobre essa disposição, observa-se que nas gestões estaduais, 58% dos estados possuem Lei Estadual de regulamentação do SUAS (total de 15 estados). As últimas atualizações ocorreram a partir de 2017 (12 estados), com exceção de Minas Gerais em 2011 Goiás em 2015 e Mato Grosso do Sul em 2016.
 
 Entratando, 11 estados que não possuem Lei do SUAS. Esse número estão presentes nas seguintes regiões do Brasil: 4 - Nordeste, 3 - Norte, 3 - Região Sul e 1 Regiçao Sudeste. \footnote{ siglas dos Estado que não possuem Lei do SUAS - censo suas 2022: RR, PA, TO, PI, RN, SE, BA, SP, PR, SC e RS}.
-=======
-<!-- sinalizar dos 26 estados, apenas 15 possuem regaluzação do SUAS através de Lei e os 11 estados que não possuem Lei do SUAS. -->
->>>>>>> 6b19ef295036366eff3005e4e84afe48043960e1
 
 <!-- Valdson, acho que esse gráfico fica melhor por quantidade e não percentual. -->
 
