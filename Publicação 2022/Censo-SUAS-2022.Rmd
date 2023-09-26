@@ -1466,9 +1466,12 @@ grafico
 
 #reencresver após geração grafico#A modalidade na qual foi observado o menor percentual foi a de capacitações à distância, da qual participaram 29,7% dos municípios. Esse tipo de apoio ocorreu em 53,9% dos municípios da região Sudeste e em 14,3% dos municípios da região Centro-Oeste (\Cref{fig:municipios-formas-apoio}).
 
-```{r municipios-formas-apoio, fig.cap = "Percentual de municípios por formas de apoio técnico recebido do Estado nos 12 meses anteriores à pesquisa, segundo grandes regiões - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS."}
 
-tabela<-gm_2022 %>%
+<!-- colocar região no gm2022 para poder rodar o grafico  --> 
+
+```{r municipios-formas-apoio, fig.cap = "Percentual de municípios por formas de apoio técnico recebido do Estado nos 12 meses anteriores à pesquisa, segundo grandes regiões - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS",eval=FALSE}
+
+#tabela<-gm_2022 %>%
 # Questionários 2016:
 #  select(Região,
 #         "Produção e distribuição de material técnico"=q9_1,
@@ -1844,7 +1847,7 @@ grafico
 
 
 
-```{r municipios-recebimento-recursos, fig.cap = "Distribuição de municípios por recebimento de recursos estaduais para o cofinanciamento da Assistência Social e destinação dos recursos recebidos - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS"eval=FALSE}
+```{r municipios-recebimento-recursos, fig.cap = "Distribuição de municípios por recebimento de recursos estaduais para o cofinanciamento da Assistência Social e destinação dos recursos recebidos - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS", eval=FALSE}
 
 gm_cofinanciamento = function(df, q, destinacao){
   q <- enquo(q)
@@ -1874,11 +1877,11 @@ gm_cofinanciamento = function(df, q, destinacao){
     mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
 }
 
-tabela <- gm_cofinanciamento(gm_2017, q21.1, "Proteção Social Básica") %>%
-  bind_rows(gm_cofinanciamento(gm_2017, q21.2, "Proteção Social Especial de Média Complexidade")) %>% 
-  bind_rows(gm_cofinanciamento(gm_2017, q21.3, "Proteção Social Especial de Alta Complexidade")) %>% 
-  bind_rows(gm_cofinanciamento(gm_2017, q21.4, "Benefícios Eventuais")) %>% 
-  bind_rows(gm_cofinanciamento(gm_2017, q21.5, "Incentivo à Gestão"))
+#tabela <- gm_cofinanciamento(gm_2017, q21.1, "Proteção Social Básica") %>%
+# bind_rows(gm_cofinanciamento(gm_2017, q21.2, "Proteção Social Especial de Média Complexidade")) %>% 
+#  bind_rows(gm_cofinanciamento(gm_2017, q21.3, "Proteção Social Especial de Alta Complexidade")) %>% 
+#  bind_rows(gm_cofinanciamento(gm_2017, q21.4, "Benefícios Eventuais")) %>% 
+#  bind_rows(gm_cofinanciamento(gm_2017, q21.5, "Incentivo à Gestão"))
 
 ordenado<-tabela %>% 
   filter(Nível == "Não recebe") %>% 
