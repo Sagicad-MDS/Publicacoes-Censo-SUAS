@@ -48,13 +48,16 @@ output:
 ```{r setup, include=FALSE}
 Sys.setlocale("LC_ALL","Portuguese_Brazil.utf8")
 
-knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE, cache=TRUE)
+knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE)
+
+gera.graficos.office = FALSE;
 
 lista.de.pacotes = c("tinytex","tidyr", "purrr", "dplyr",
                      "lubridate","janitor","readxl","stringr",
                      "repmis","survey","srvyr","scales",
-                     #"export",
                      "ggrepel","renv") # escreva a lista de pacotes
+if(gera.graficos.office) lista.de.pacotes <- append(lista.de.pacotes, "export")
+
 novos.pacotes <- lista.de.pacotes[!(lista.de.pacotes %in%
                                       installed.packages()[,"Package"])]
 
@@ -295,7 +298,7 @@ A análise dos resultados do Censo SUAS 2022 compreende o SUAS como política so
 
 Espera-se que, a partir de uma avaliação com abordagem direcionada à análise integrada do SUAS e partindo dos dados dos órgãos de gestão das unidades de atendimento públicas e privadas e das instâncias administrativas e deliberativas, seja possível retratar o seu funcionamento e evolução como política social. Assim, amplia-se a compreensão acerca da rede de assistência social por parte dos gestores, trabalhadores e sociedade civil, permitindo uma apreensão crítica de seu funcionamento.
 
-```{r carregamento}
+```{r carregamento, cache=TRUE}
 ge_2010 <- read_excel("../Censo SUAS 2010/Gestão Estadual/Censo SUAS 2010_Gestão Estadual_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2010 Gestão Estadual")
 
 ge_2011 <- read_excel("../Censo SUAS 2011/GESTÃO ESTADUAL/Censo SUAS 2011_Gestão_Estadual_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2011 Gestão Estadual")
@@ -875,8 +878,8 @@ grafico <- ge_2022 %>%
         legend.key.size = unit(2, 'lines'))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos")
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 No que se refere aos municípios, esse cenário nacional se configurou como contrário. Observa-se um aumento das secretarias exclusivas de Assistência Social ao longo dos anos, com exceção das regiões (complementar depois que rodar 2022, mas tem esse dado em 2022?) (\Cref{fig:secretarias-municipais-exclusivas}).
@@ -907,8 +910,8 @@ grafico <- f_selecao_regiao_ano(gm_2012, q1, "Secretaria municipal exclusiva da 
   guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 Alguns órgãos gestores estaduais constituíram as áreas de assistência social como subdivisões administrativas em sua estrutura, como superintendências, departamentos, gerências, coordenações, dentre outras. De acordo com o último pacto de aprimoramento Estadual do SUAS\footnote{Resolução CNAS Nº2, de 16 de março de 2017} umas das prioridades ligadas ao aperfeiçoamento institucional é possuir na estrutura administrativa as seguintes areas:
@@ -971,8 +974,8 @@ grafico<-tabela %>%
         panel.background = element_blank())
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 No que se refere aos municípios, a última pactuação sobre estrutura administrativa a partir dos portes populacionais dos municípios\footnote{124ª reunião ordinária da CIT - Pacto de Aprimoramento do SUAS} prevê: 
@@ -1055,8 +1058,8 @@ grafico<-tabela %>%
         panel.background = element_blank())
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 Observa-se também que Gestão do trabalho e Vigilância Socioassistencial são os mais altos percentuais de informalidade e não constituíção. A regulamentação destas areas essenciais devem estar previstas no organograma. A Lei do SUAS\footnote{Lei nº 12.435, de 06/07/2011 altera a Lei Organiza da Assistência Social (LOAS) - nº 8.742, de 07/.12.1993} que dispõe sobre a organização deste sistema, trazendo a estrutura de gestão que inclui estas areas acima. 
@@ -1144,8 +1147,8 @@ grafico<-tabela %>%
   guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 Em 2022, 75% dos municípios possuíam Lei Municipal de regulamentação do SUAS (4.170). Destes, a maioria, 91% (3.798) aprovaram/atualizaram após 2013 e 9% (372) anterior a atualização da Lei Nacional\footnote{Lei nº 12.435, de 06/07/2011 altera a Lei Organiza da Assistência Social (LOAS) - nº 8.742, de 07/.12.1993} e a NOB SUAS/2012 conforme detalha a \Cref{fig:municipios-atualizacao-lei}. A inexistência de Lei é encontrada em 25% (1.400) dos municípios que coorresponde. 
@@ -1232,8 +1235,8 @@ grafico<-tabela %>%
   guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 
 ```
 
@@ -1251,7 +1254,7 @@ No que se refere ao Plano Estadual de capacitação, verificou-se que em 2016 92
 
 <!-- Quando se observa a atualização do PMAS por região, verifica-se que 40,3% dos municípios da região Sudeste atualizaram seus Planos em 2016. Nas demais regiões, a maior parte dos municípios atualizaram seus Planos de 2 a 5 anos atrás: 45,6% dos municípios da região Norte; 40,6% dos municípios da região Nordeste; 65,5% dos municípios da região Sul e 50,5% dos municípios da região Centro-Oeste (\Cref{fig:municipios-atualizacao-PMAS}). -->
 
-```{r municipios-atualizacao-PMAS, fig.cap = "Distribuição de municípios segundo ano de atualização do Plano Municipal de Assistência Social (PMAS), por grandes regiões - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS, eval=FALSE"}
+```{r municipios-atualizacao-PMAS, fig.cap = "Distribuição de municípios segundo ano de atualização do Plano Municipal de Assistência Social (PMAS), por grandes regiões - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
 
 grafico <- gm_2017 %>%
 # Questionários 2016:
@@ -1313,8 +1316,8 @@ grafico <- gm_2017 %>%
   guides(fill=guide_legend(nrow=2,byrow=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 O Plano de apoio técnico aos municípios também é um produto a ser realizado pelos Estados e previsto no último pacto de aprimoramento Estadual do SUAS\footnote{Resolução CNAS Nº2, de 16 de março de 2017}. De acordo com Censo Suas 2022, 57,69% dos estados possuem este plano pactuado na CIB. A NOB SUAS 2012 também evidencia o papel dos estados frente as atribuições de apoio técnico\footnote{Capítulo III - NOBSUAS/2012} na qual compreende ações de: 
@@ -1455,8 +1458,8 @@ grafico<-tabela %>%
   guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 <!-- (reescrever após geração grafico) Ao perguntado aos municipios sobre a presença da gestão estadual em apoio ténico, percebe-se que *** Em 2016, 51,8% dos municípios receberam pelo menos uma visita de técnicos da Secretaria Estadual de Assistência Social (SEAS) nos 12 meses que antecederam a pesquisa. Foi o menor percentual observado desde 2013, quando 60,0% dos municípios tinham recebido ao menos uma visita. A maior parte dos municípios que informou ter recebido visitas nos quatro anos observados foi visitada de uma a três vezes pelos técnicos da SEAS nos 12 meses que antecederam as pesquisas (\Cref{fig:municipios-receberam-visitas}). -->
@@ -1554,8 +1557,8 @@ grafico<-tabela %>%
   guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 <!-- Em 2016, 51,8% dos municípios receberam pelo menos uma visita de técnicos da Secretaria Estadual de Assistência Social (SEAS) nos 12 meses que antecederam a pesquisa. Foi o menor percentual observado desde 2013, quando 60,0% dos municípios tinham recebido ao menos uma visita. A maior parte dos municípios que informou ter recebido visitas nos quatro anos observados foi visitada de uma a três vezes pelos técnicos da SEAS nos 12 meses que antecederam as pesquisas (\Cref{fig:municipios-receberam-visitas}). -->
@@ -1604,8 +1607,8 @@ grafico <- gm_visita_tecnicos(gm_2013, q19, "2013") %>%
   guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 O modelo de gestão do SUAS preve cofinanciamento compartilhado entre os três entes federados. Nesta perspetiva, percebe-se um avanço nos últimos 10 anos sobre a participação dos estados no cofinanciamento estadual com participação de 96,15% (25) dos estados que informam cofinanciar os municípios (\Cref{fig:estados-cofinanciamento-municipios}). 
@@ -1671,8 +1674,8 @@ grafico <- ge_cofinanciamento(ge_2012, q64_0, "2012") %>%
   guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 É recomendado que participação neste custeio do SUAS por meio de Fundo a Fundo siga as normativas nacionais que adota modalidades de blocos de financiamento. Ao olhar os blocos de cofinanciamento (\Cref{fig:estados-blocos-recursos}) observa-se que não há .teve mudanças ao longo dos anos no aporte. Aumentou o número de participação dos estados no cofinanciamento da proteção social especial (Média e Alta Complexoidade), bem como de Benefícios Eventuais e redução na destinação de recursos para proteção social básica e incetivos do SUAS.
@@ -1773,8 +1776,8 @@ grafico<-tabela %>%
   guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 <!-- parei -->
@@ -1837,8 +1840,8 @@ grafico <- gm_cofinanciamento(gm_2013, q29, "2013") %>%
   guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 ```{r municipios-recebimento-recursos, fig.cap = "Distribuição de municípios por recebimento de recursos estaduais para o cofinanciamento da Assistência Social e destinação dos recursos recebidos - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
@@ -1904,8 +1907,8 @@ grafico<-tabela %>%
   guides(fill=guide_legend(nrow=2,byrow=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 Em 2016, 64,2% dos municípios informaram não fazer transferência de recursos por convênio para ONG ou Entidade de Assistência Social no município. Entre os 35,8% de municípios que realizavam transferências, 18,7% faziam com recursos do Fundo Municipal de Assistência Social (FMAS), 6,5% dos recursos de outras fontes e 10,6% com recursos do FMAS e de outras fontes. 
@@ -1958,8 +1961,8 @@ grafico <- gm_2017 %>%
   guides(fill=guide_legend(nrow=2,byrow=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 A NOB SUAS 2012 define a Comissão Intergestores Bipartite (CIB) como instância estadual de negociação, articulação e pactuação entre gestores da assistência social, que é integrada por representantes do estado, indicados pelo Órgão Gestor Estadual de Assistência Social, e por representantes dos municípios, indicados pelo Colegiado Estadual de Gestores Municipais de Assistência Social (Coegemas).
@@ -2010,8 +2013,8 @@ grafico <- gm_2017 %>%
   guides(fill=guide_legend(nrow=2,byrow=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 Em 2016, 588 municípios indicaram ter Plano de Capacitação e Educação Permanente, o que equivale a 10,7% dos respondentes. Em 2015 o número de municípios que informou ter o Plano foi superior: 616 municípios, o que representava 11,2% dos municípios respondentes.
@@ -2020,11 +2023,17 @@ A região com maior proporção de municípios com Plano de Capacitação e Educ
 
 A região Sul foi a única que apresentou aumento no percentual de municípios que indicaram ter o Plano entre 2015 e 2016: passou de 7,6% dos municípios da região (90) para 8,6% (101 municípios). Na região Sudeste o percentual ficou estável e nas demais regiões foi observada queda, sendo a mais acentuada em termos percentuais na região Centro-Oeste (redução de 2,6 pontos percentuais) e em termos absolutos na região Nordeste (24 municípios a menos) (\Cref{fig:municipios-possuem-plano}).
 
-```{r municipios-possuem-plano, fig.cap = "Percentual de municípios que possuem Plano de Capacitação e Educação Permanente, segundo grandes regiões - Brasil, 2015 a 2017", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r municipios-possuem-plano, fig.cap = "Percentual de municípios que possuem Plano de Capacitação e Educação Permanente, segundo grandes regiões - Brasil; 2015, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 grafico <- f_selecao_regiao_ano(gm_2015, q40, "Sim", Região, "2015") %>%
-  bind_rows(f_selecao_regiao_ano(gm_2016, q20, "Sim", Região, "2016")) %>% 
-  bind_rows(f_selecao_regiao_ano(gm_2017, q31, "Sim", Região, "2017")) %>% 
+#  bind_rows(f_selecao_regiao_ano(gm_2016, q20, "Sim", Região, "2016")) %>% 
+   bind_rows(f_selecao_regiao_ano(gm_2017, q31, "Sim", Região, "2017")) %>%
+#  bind_rows(f_selecao_regiao_ano(gm_2018, q_51, "Sim", Região, "2018")) %>%
+#   bind_rows(f_selecao_regiao_ano(gm_2019, q52, "Sim", Região, "2019")) %>%
+#  bind_rows(f_selecao_regiao_ano(gm_2020, q73, "Sim", Região, "2020")) %>%
+#  bind_rows(f_selecao_regiao_ano(gm_2021, q73, "Sim", Região, "2021")) %>%
+  bind_rows(f_selecao_regiao_ano(gm_2022, q73, "Sim", IBGE,"2022")) %>%
+  
   ggplot(aes(x = Região, y = Percentual, group = Ano)) +
   geom_col(aes(fill = Ano), position="dodge") +
   geom_text(aes(label = percent(Percentual), y=Percentual+.01), position = position_dodge(width = 0.9), angle = 90) +
@@ -2039,8 +2048,8 @@ grafico <- f_selecao_regiao_ano(gm_2015, q40, "Sim", Região, "2015") %>%
   guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 ## Considerações Finais
@@ -2105,8 +2114,8 @@ grafico <- f_quantitativo_regiao_ano(cras_2007, ibge, "2007") %>%
   guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 A Expansão em todo território nacional do número de CRAS evidencia a consolidação de uma referencia de equipamento público de Assistêrncia Social em todo território nacional. De acordo com os dados 98,95% municípios possuem CRAS, ou seja apenas 35 municípios no Brasil não dispõe deste equipamento público\footnote{77% deles localizados na Região Sul, 20% na Região Sudeste e 3% na região Nordeste.}. Assim, pode-se dizer que o desafio da expansão teve avanços nestes últimos anos e deixa como nova demanda para reconstrução da universalização na perspectiva de cobertura e de cofinanciamento.  
@@ -2141,8 +2150,8 @@ grafico <- f_percentual_municipios_regiao_ano(cras_2007, ibge, "2007") %>%
   guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 ```{r CRAS-porte, fig.cap = "Percentual de municípios por número de CRAS no município, segundo porte populacional estimado do município - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios",eval=FALSE}
@@ -2203,8 +2212,8 @@ grafico <- dados %>%
   guides(fill=guide_legend(nrow=2,byrow=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 <!-- Em 2016, 51,7% dos CRAS funcionavam em imóveis próprios. Houve um crescimento de 2,9 pontos percentuais em relação ao ano anterior.  Foi o primeiro ano da série histórica em que mais da metade dos CRAS funcionam em imóveis próprios. Em comparação ao ano de 2015, verifica-se uma redução no percentual de CRAS que funcionam em imóveis alugados, que passaram de 42,8% do total em 2015 para 39,6% em 2016. -->
@@ -2238,8 +2247,8 @@ grafico <- f_equip_imovel(cras_2007, v15, "2007") %>%
   guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 A acessibilidade é fundamental para que os usuários consigam chegar até os serviços oferecidos pelos CRAS.
@@ -2319,8 +2328,8 @@ grafico<-tabela %>%
   guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 Os CRAS são considerados a porta de entrada da Assistência Social, sendo uma referência para a população no território. Nesse sentido, podem se articular com a rede de proteção social e com demais serviços ofertados no município, de forma a garantir o acesso da população aos direitos sociais.
@@ -2369,8 +2378,8 @@ grafico<-tabela %>%
   guides(fill=guide_legend(nrow=4, byrow=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 O número absoluto e o percentual de CRAS com acesso à internet aumentaram desde 2007. No ano de 2016, havia 7.835 CRAS com acesso à internet (\Cref{fig:CRAS-internet-quantitativo}), o que representa 95,1% das unidades (\Cref{fig:CRAS-internet-percentual}).
@@ -2413,8 +2422,8 @@ grafico <- f_cras_internet(cras_2007, `Acesso a Internet`, "2007") %>%
   guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 ```{r CRAS-internet-quantitativo, fig.cap = "Evolução do quantitativo de CRAS com computadores com acesso à internet – Brasil, 2007 a 2017", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
@@ -2444,8 +2453,8 @@ grafico
 #  guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 ```{r CRAS-internet-percentual, fig.cap = "Evolução percentual de CRAS com computadores com acesso à internet – Brasil; 2007, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -2469,8 +2478,8 @@ grafico <- f_maior0_regiao_ano(cras_2007, `Acesso a Internet`, ibge, "2007") %>%
   guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 Em 2016, 2.334 CRAS informaram que havia povos e comunidades tradicionais em seu território de abrangência (28,3% do total de CRAS). Desses, apenas 127 (5,4%) indicaram não ter realizado atendimento a esse público. Esse percentual é inferior a 2015, quando o percentual foi de 6,7% (147 unidades dos 2.191 CRAS com povos e comunidades tradicionais em seu território de abrangência).
@@ -2725,8 +2734,8 @@ grafico <- f_percentual_municipios_regiao_ano(creas_2012, IBGE, "2012") %>%
   guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 ```{r CREAS-municipios-2, fig.cap = "Evolução de CREAS Regionais (res. 21/2023)", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -2764,8 +2773,8 @@ grafico <- f_equip_imovel(creas_2012, q5, "2012") %>%
   guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 
@@ -2826,8 +2835,8 @@ grafico<-tabela %>%
   guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 ```{r CREAS-acessibilidade-situacao, fig.cap = "Evolução percentual de CREAS segundo condições de acessibilidade de acordo com a Norma da ABNT e por situação do imóvel – Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -2860,8 +2869,8 @@ grafico<-tabela %>%
   guides(fill=guide_legend(nrow=4, byrow=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 Considerando os 694 CREAS que funcionavam em imóveis próprios, 1.639 que funcionavam em imóveis alugados e as 188 unidades que funcionavam em imóveis cedidos em 2016, tem-se que as condições de acessibilidade eram melhores nos imóveis próprios: 47,4% dos 694 CREAS que funcionavam em imóveis próprios tinham rota acessível ao banheiro de acordo com a Norma ABNT (329 unidades), enquanto 16,8% dos CREAS que funcionavam em imóveis alugados e 27,1% dos que funcionavam em imóveis cedidos tinham a mesma condição de acessibilidade (276 e 51 unidades, respectivamente). Nos CREAS que funcionavam em imóveis alugados o acesso adaptado com rampas e rotas acessíveis desde a calçada até a recepção foi observado em 19,2% das unidades (314 CREAS) (Gráfico 34).
@@ -3199,8 +3208,8 @@ grafico<-tabela %>%
   guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 Em 2016, dos 58 Centros POP que funcionavam em imóveis próprios, 34,5% (20 unidades) tinham banheiro adaptado para pessoas com dificuldades de locomoção ou necessidades especiais de acordo com a Norma da ABNT, enquanto entre os 157 imóveis locados apenas 14,0% (22 unidades) tinham essa adaptação. A rota acessível ao banheiro estava presente em 26,7% dos 15 imóveis cedidos (4 unidades) e apenas 14,0% dos imóveis locados (22 unidades) (Gráfico 39).
@@ -3235,8 +3244,8 @@ grafico<-tabela %>%
   guides(fill=guide_legend(nrow=4, byrow=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 Em 2016, 89,6% dos Centros POP tinham computador com acesso à internet.  Apenas 2 unidades (0,9% do total) informaram não possuir computador. Tanto os valores absolutos de unidades com computador com acesso à internet quanto o percentual total aumentaram desde 2014 (Gráfico 40).
@@ -3595,8 +3604,8 @@ grafico<-tabela %>%
   guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 Além das condições de acessibilidades que foram anteriormente informadas (acesso principal adaptado com rampas e rota acessível à Unidade, rotas acessíveis aos espaços e banheiros, e banheiro adaptado para pessoas com deficiência e/ou mobilidade reduzida), os outros tipos de adaptações mais encontrados foram outras adaptações e tecnologias assistivas para deficiência intelectual e autismo (observado em 393 unidades), seguido do suporte de profissional com conhecimento em LIBRAS (com ocorrência em 380 unidades) (Gráfico 45).
@@ -3705,8 +3714,8 @@ grafico<-tabela %>%
   guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 Em 2016, 75,9% dos computadores das Unidades de Acolhimento tinham acesso à internet, um aumento de 7,2 pontos percentuais em relação a 2012 e redução de 0,5% em relação ao ano anterior (Gráfico 51).
@@ -4183,8 +4192,8 @@ grafico<-tabela %>%
         panel.background = element_blank())
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 ```{r be-local, fig.cap = "Local de concessão dos Benefícios Eventuais - 2014-2022", fig.footer = "Fonte: MDS, Censo SUAS."}
