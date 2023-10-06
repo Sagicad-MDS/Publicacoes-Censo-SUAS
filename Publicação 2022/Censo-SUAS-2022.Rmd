@@ -487,6 +487,26 @@ cest_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Conselho_Estadual/Ce
 
 cestrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Conselho_Estadual/Censo SUAS_RH_Conselhos Estaduais.xlsx", sheet = "Base de dados")
 
+cest_2018 <- read_excel("../Censo SUAS 2018/13 - CEAS/Censo SUAS 2018_Conselho Estadual_Dados_Gerais_divulgacao.xlsx", sheet = 1)
+
+cestrh_2018 <- read_excel("../Censo SUAS 2018/13 - CEAS/Censo SUAS 2018_Conselho_Estadual_RH_divulgacao.xlsx", sheet = 1)
+
+#cest_2019 <- read_excel("../Censo SUAS 2019/", sheet = 1)
+
+#cestrh_2019 <- read_excel("../Censo SUAS 2019/", sheet = 1)
+
+cest_2020 <- read_excel("../Censo SUAS 2020/13 - CEAS/Censo_SUAS_2020_Dados_Gerais_Conselho_Estadual.xlsx", sheet = 1)
+
+cestrh_2020 <- read_excel("../Censo SUAS 2020/13 - CEAS/Censo_SUAS_2020_RH_Conselho_Estadual.xlsx", sheet = 1)
+
+cest_2021 <- read_excel("../Censo SUAS 2021/13 - CEAS/Censo_SUAS_2021_Conselho_Estadual_Dados_Gerais_Divulgação.xlsx", sheet = 1)
+
+cestrh_2021 <- read_excel("../Censo SUAS 2021/13 - CEAS/Censo_SUAS_2021_Conselho_Estadual_RH.xlsx", sheet = 1)
+
+cest_2022 <- read_excel("../Censo SUAS 2022/13 - CEAS/Censo_SUAS_2022_Conselho_Estadual_dados_gerais.xlsx", sheet = 1)
+
+cestrh_2022 <- read_excel("../Censo SUAS 2022/13 - CEAS/Censo_SUAS_2022_Conselho_Estadual_RH.xlsx", sheet = 1)
+
 cmun_2010 <- read_excel("../Censo SUAS 2010/Conselho Municipal/Censo SUAS 2010_Conselho Municipal_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2010 Cons. Municipal")
 
 cmun_2011 <- read_excel("../Censo SUAS 2011/CONSELHOS MUNICIPAIS E DF/Censo SUAS 2011_Conselhos_municipais_e DF_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2011 Cons. Municipal")
@@ -514,6 +534,26 @@ cmunrh_2016 <- read_excel("../Censo SUAS 2016/Conselho/Municipal/Censo SUAS 2016
 cmun_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Conselho_Municipal/Censo SUAS 2017_Conselho Municipal.xlsx", sheet = "Base de dados")
 
 cmunrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Conselho_Municipal/Censo SUAS 2017_RH_Conselho Municipal.xlsx", sheet = "Base de dados")
+
+cmun_2018 <- read_excel("../Censo SUAS 2018/12 - CMAS/Censo SUAS 2018_Conselho_Municipal_Dados_Gerais_divulgacao.xlsx", sheet = 1)
+
+cmunrh_2018 <- read_excel("../Censo SUAS 2018/12 - CMAS/Censo SUAS 2018 _Conselho Municipal_RH_divulgacao.xlsx", sheet = 1)
+
+#cmun_2019 <- read_excel("../Censo SUAS 2019/  ", sheet = 1)
+
+#cmunrh_2019 <- read_excel("../", sheet = 1)
+
+cmun_2020 <- read_excel("../Censo SUAS 2020/12 - CMAS/Censo_SUAS_2020_Conselho_municipal_Dados_Gerais.xlsx", sheet = 1)
+
+cmunrh_2020 <- read_excel("../Censo SUAS 2020/12 - CMAS/Censo_SUAS_2020_Conselho_municipal_RH.xlsx", sheet = 1)
+
+cmun_2021 <- read_excel("../Censo SUAS 2021/12 - CMAS/Censo_SUAS_2021_Conselho_Municipal_Dados_Gerais_Divulgação.xlsx", sheet = 1)
+
+cmunrh_2021 <- read_excel("../Censo SUAS 2021/12 - CMAS/Censo_SUAS_2021_Conselho_Municipal_RH.xlsx", sheet = 1)
+
+cmun_2022 <- read_excel("../Censo SUAS 2022/12 - CMAS/Censo_SUAS_2022_Conselho_Municipal_Dados_gerais.xlsx", sheet = 1)
+
+cmunrh_2022 <- read_excel("../Censo SUAS 2022/12 - CMAS/Censo_SUAS_2022_Conselho_Municipal_RH.xlsx", sheet = 1)
 
 rpriv_2010 <- read_excel("../Censo SUAS 2010/Rede Privada/Censo SUAS 2010_Rede privada_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2010 Rede Privada")
 
@@ -4845,7 +4885,7 @@ grafico
 
 
 
-# PARTICIPAÇÃO SOCIAL E CONTROLE SOCIAL 
+# Participação e Controle Social
 =======
 
 
@@ -4854,11 +4894,51 @@ A Resolução do Conselho Nacional de Assistência Social (CNAS) nº 237/2006 -r
 Para garantir seu funcionamento adequado, a LOAS, em seu artigo 16, estabelece que os órgãos gestores de assistência social, aos quais estão vinculados os Conselhos de Assistência Social, devem prover a infraestrutura necessária ao seu funcionamento, garantindo recursos materiais, humanos e financeiros. 
 Este bloco apresenta os resultados apurados pelo Censo SUAS para os Conselhos Municipais e Estaduais de Assistência Social, considerando as dimensões estrutura administrativa, dinâmica de funcionamento e composição.
 
-**6.1 - Municípios com Conselhos Municipais de Assistência Social **
-O percentual de municípios com Conselho Municipal de Assistência Social está sempre acima de 90%, com algumas variações entre 2010 e 2016. É importante pontuar que as variações no período analisado não significam necessariamente redução no número de municípios com conselhos, uma vez que podem ocorrer variações no número de conselhos municipais que respondem ao Censo SUAS.
+No que se refere aos dados do censo suas, o percentual de municípios que respondem ao formulário de Conselho Municipal de Assistência Social é acima de 90%, com algumas variações entre 2010 e 2016. É importante pontuar que as variações no período analisado não significam necessariamente redução no número de municípios com conselhos, uma vez que podem ocorrer variações no número de conselhos municipais que respondem ao Censo SUAS.
 Ao analisar a evolução de municípios com Conselhos Municipais de Assistência Social ao longo dos anos segundo grandes regiões, verifica-se em 2016 que apenas as regiões Norte (93,8%) e Centro-Oeste (93,8%) estavam abaixo do percentual nacional (Grafico xx).
 
-**Gráfico xx – Percentual de municípios com Conselhos Municipais de Assistência Social, segundo grandes regiões – Brasil, 2010 a 2017**
+
+
+```{r quantitativo-CRAS, fig.cap = "Evolução do quantitativo de Conselhos Municipais, segundo grandes regiões; 2012 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_quantitativo_regiao_ano (cmun_2012, Região, "2012") %>% 
+  #bind_rows(f_quantitativo_regiao_ano (cmun_2010, Região, "2010")) %>%
+  #bind_rows(f_quantitativo_regiao_ano(cmun_2011, Região, "2011")) %>% 
+  #bind_rows(f_quantitativo_regiao_ano(cmun_2012, Região, "2012")) %>% 
+  #bind_rows(f_quantitativo_regiao_ano(cmun_2013, Região, "2013")) %>% 
+  #bind_rows(f_quantitativo_regiao_ano(cmun_2014, IBGE, "2014")) %>% 
+  #bind_rows(f_quantitativo_regiao_ano(cmun_2015, Região, "2015")) %>% 
+  #bind_rows(f_quantitativo_regiao_ano(cmun_2016, Região, "2016")) %>% 
+  #bind_rows(f_quantitativo_regiao_ano(cmun_2017, Região, "2017")) %>% 
+  #bind_rows(f_quantitativo_regiao_ano(cmun_2018, Região, "2018")) %>% 
+  #bind_rows(f_quantitativo_regiao_ano(cmun, Região, "2019")) %>% 
+  #bind_rows(f_quantitativo_regiao_ano(cmun_2020, Região, "2020")) %>% 
+  #bind_rows(f_quantitativo_regiao_ano(cmun_2021, IBGE, "2021")) %>% 
+  bind_rows(f_quantitativo_regiao_ano(cmun_2022, IBGE, "2022")) %>% 
+
+  ggplot(aes(x = Região, y = n, group = Ano)) +
+  geom_col(aes(fill = Ano), position="dodge") +
+  geom_text(aes(label = format(n, big.mark="."), y=n+300), position = position_dodge(width = 0.9), angle = 90, size = 2.5) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+#grafico %>% 
+#  graph2office(file="graficos", append = TRUE)
+```
+
+
+
+
+
+
 ```{r warning=FALSE}
   
 cmun_2010_regiao <- cmun_2010 %>% 
@@ -4951,6 +5031,8 @@ cmun_2010_regiao <- cmun_2010 %>%
 #        panel.background = element_blank(),
 #        plot.background = element_rect(colour = "black")) +
 #  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  
+  
 ```
 
 
