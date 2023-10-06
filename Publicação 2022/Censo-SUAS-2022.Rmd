@@ -100,6 +100,7 @@ A partir do ano de 2018 esta publicação foi interrompida. E, após 5 anos a SA
 Estes dados são coletados através do formulário do Censo do Sistema Único de Assistência Social (Censo SUAS), realizado anualmente desde 2007, coleta informações sobre serviços, programas e projetos de assistência social realizados pelas unidades públicas e pela Rede Socioassistencial Privada do SUAS.
 
 Esta publicação apresenta os principais resultados do Censo SUAS 2022, organizados de forma a facilitar a leitura e a utilização do amplo conjunto de dados levantados. As informações estão organizadas segundo as temáticas: Gestão e Financiamento, Equipamentos, Serviços e Benefícios, Recursos Humanos, Participação Social e Indicadores de Desenvolvimento (IDs). 
+
 Esta edição teve o olhar a luz do II Plano Decenal, na qual deu continuidade a maior parte dos conteúdos históricos, com acréscimos de temas como atenção a situação de migrantes, serviço de situação de emergência e calamidade pública, regionalização, bem como oferta de serviços a exemplo do serviço de proteção social no domicílio, família acolhedora entre outros e relação do SUAS com cadastro único para programas sociais.
 
 A consolidação das análises disponibilizadas nessa publicação reflete o esforço contínuo de aperfeiçoamento da cobertura do levantamento das informações, realizado conjuntamente pela Secretaria de Avaliação e Gestão da Informação (SAGI) e Secretaria Nacional de Assistência Social (SNAS). Esperamos que os resultados apresentados possam continuar contribuindo para subsidiar o debate qualificado e construtivo a respeito do SUAS e resulte em seu aprimoramento.
@@ -133,7 +134,7 @@ No SUAS estão previstos dois tipos de proteção social: a básica e a especial
 
 Até atingir a forma atual de organização, a Assistência Social passou por mudanças significativas, consequência de inúmeros esforços que possibilitaram a ampliação de recursos, programas, benefícios e serviços voltados à população em situação de vulnerabilidade e risco social e/ou violação de direitos.
 
-Ao longo do século XX, ainda que tenham sido instituídos alguns programas e elaboradas leis voltadas à proteção social, o acesso a direitos sociais era baseado na capacidade contributiva do trabalhador, excluindo uma grande parcela da população, incluindo a parcela que trabalhava no mercado informal.
+Ao longo do século XXI, ainda que tenham sido instituídos alguns programas e elaboradas leis voltadas à proteção social, o acesso a direitos sociais era baseado na capacidade contributiva do trabalhador, excluindo uma grande parcela da população, incluindo a parcela que trabalhava no mercado informal.
 
 A partir de 1988, a Constituição Brasileira trouxe uma nova perspectiva para a proteção social, apresentando, pela primeira vez no Brasil, um modelo amplo de Seguridade Social, composto por Saúde, Previdência e Assistência Social, que prevê atendimento e cobertura universais. O modelo estipula ainda que os benefícios e serviços devem ser uniformes e equivalentes para a população rural e urbana. Prevê a integração entre governos, com participação dos três entes, e sociedade para a consecução dos objetivos estipulados.
 
@@ -315,6 +316,22 @@ ge_2016 <- read_excel("../Censo SUAS 2016/Gestão Estadual/Censo SUAS Gestão Es
 
 ge_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Gestão_Estadual/Censo SUAS 2017_Gestão Estadual_divulgação.xlsx", sheet = "Base de dados")
 
+ge_2018 <- read_excel("../Censo SUAS 2018/7 - Gestão Estadual/Censo_SUAS_2018_Gestão_Estadual_Dados_Gerais_divulgaçao.xlsx", sheet = 1)
+
+gerh_2018 <- read_excel("../Censo SUAS 2018/7 - Gestão Estadual/Censo_SUAS_2018_Gestão_Estadual_RH_divulgação.xlsx", sheet = 1)
+
+#ge_2019 <- read_excel("../Censo SUAS 2019/", sheet = 1)
+
+#gerh_2019 <- read_excel("../", sheet = 1)
+
+ge_2020 <- read_excel("../Censo SUAS 2020/10 - Gestão Estadual/Censo_SUAS_2020_dados_gerais_Gestão_Estadual.xlsx", sheet = 1)
+
+gerh_2020 <- read_excel("../Censo SUAS 2020/10 - Gestão Estadual/Censo_SUAS_2020_RH_Gestão_Estadual.xlsx", sheet = 1)
+
+ge_2021 <- read_excel("../Censo SUAS 2021/8 - Gestão Estadual/Censo_SUAS_2021_Gestão_Estadual_Dados_Gerais_Divulgaçao.xlsx", sheet = 1)
+
+gerh_2021 <- read_excel("../Censo SUAS 2021/8 - Gestão Estadual/Censo_SUAS_2021_Gestão_Estadual_RH.xlsx", sheet = 1)
+
 ge_2022 <- read_excel("../Censo SUAS 2022/10 - GESTAO ESTADUAL/Censo_SUAS_2022_Gestão_Estadual_Dados_gerais.xlsx", sheet = "Sheet1")
 
 gm_2010 <- read_excel("../Censo SUAS 2010/Gestão Municipal/Censo SUAS 2010_Gestão Municipal_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2010 GestãoMunicipal")
@@ -333,7 +350,11 @@ gm_2016 <- read_excel("../Censo SUAS 2016/Gestão Municipal/Censo_SUAS_2016_Gest
 
 gm_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Gestão_Municipal/Censo_SUAS_2017_Gestao_Municipal_divulgação.xlsx", sheet = "Base de Dados")
 
-gm_2022 <- read_excel("../Censo SUAS 2022/9 - Gestão Municipal/Censo_SUAS_2022_Gestão_Municipal_dados_gerais.xlsx", sheet = 1)
+gm_2019 <- read_excel("../Censo SUAS 2018/Censo_SUAS_2019_Gestão_Municipal_dados_gerais_divulgacao.xlsx", sheet = 1)
+
+gm_2022 <- read_excel("../Censo SUAS 2022/9 - GESTÃO MUNICIPAL/Censo_SUAS_2022_Gestão_Municipal_dados_gerais.xlsx", sheet = 1)
+
+gmrh_2022 <- read_excel("../Censo SUAS 2022/9 - GESTÃO MUNICIPAL/Censo_SUAS_2022_Gestão_Municipal_RH.xlsx", sheet = 1)
 
 cras_2007 <- read_excel("../Censo SUAS 2007/CRAS/Censo SUAS CRAS 2007.xls", sheet = 1) %>% 
                filter(Situacao  == "Em funcionamento")
@@ -374,7 +395,25 @@ cras_2018 <- read_excel("../Censo SUAS 2018/1 - CRAS/Censo_SUAS_2018_CRAS_Dados_
 
 crasrh_2018 <- read_excel("../Censo SUAS 2018/1 - CRAS/Censo_SUAS_2018_CRAS_RH_divulgacao.xlsx", sheet= 1)
 
+cras_2019 <- read_excel("../Censo SUAS 2019/1 - CRAS/Censo_SUAS_2019_dados_gerais_RH_CRAS_divulgação.xls", sheet = 1)
+
+crasrh_2019 <- read_excel("../Censo SUAS 2019/1 - CRAS/Censo_SUAS_2019_dados_gerais_RH_CRAS_divulgação.xls", sheet= 1)
+
+cras_2020 <- read_excel("../Censo SUAS 2020/1 - CRAS/Censo_SUAS_2020_CRAS_dados_gerais.xlsx", sheet = 1)
+
+crasrh_2020 <- read_excel("../Censo SUAS 2020/1 - CRAS/Censo_SUAS_2020_CRAS_RH.xlsx", sheet= 1)
+
+cras_2021 <- read_excel("../Censo SUAS 2021/1 - CRAS/Censo_SUAS_2021_CRAS_Dados_Gerais.xlsx", sheet = 1)
+
+crasrh_2021 <- read_excel("../Censo SUAS 2021/1 - CRAS/Censo_SUAS_2021_CRAS_RH.xlsx", sheet= 1)
+
 cras_2022 <- read_excel("../Censo SUAS 2022/1_CRAS/Censo_SUAS_2022_CRAS_Dados_Gerais_Divulgação.xlsx", sheet = 1)
+
+posto_cadunico_2020 <- read_excel("../Censo SUAS 2020/8 - Posto CadUnico/Censo_SUAS_2020_Postos_Cadastro_Único_Dados_Gerais.xlsx", sheet = 1)
+
+posto_cadunicorh_2020 <- read_excel("../Censo SUAS 2020/8 - Posto CadUnico/Censo_SUAS_2020_Postos_Cadastro_Único_RH.xlsx", sheet = 1)
+
+posto_cadunico_2021 <- read_excel("../Censo SUAS 2021/14 - Postos do CadUnico/Censo_SUAS_2021_Posto_Cadastramento_Dados_Gerais_Divulgação.xlsx", sheet = "Sheet1")
 
 posto_cadunico_2022 <- read_excel("../Censo SUAS 2022/8 - POSTO DE CADASTRAMENTO/Censo _SUAS_ 2022_Posto_cadastramento_Dados_Gerais.xlsx", sheet = "Sheet1")
 
@@ -406,9 +445,21 @@ creas_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_CREAS/Censo SUAS 20
 
 creasrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_CREAS/Censo SUAS 2017_CREAS_RH_divulgacao.xlsx", sheet = "Base de dados")
 
-creas_2018 <- read_excel("../Censo SUAS 2018/2 - CREAS/Dicionario_Censo_SUAS_2018_CREAS_dados_gerais_divulgacao.xlsx", sheet = 1)
+creas_2018 <- read_excel("../Censo SUAS 2018/2 - CREAS/Censo_SUAS_2018_CREAS_Dados_Gerais_divulgacao.xlsx", sheet = 1)
 
 creasrh_2018 <- read_excel("../Censo SUAS 2018/2 - CREAS/Censo_SUAS_2018_CREAS_RH_divulgacao.xlsx", sheet = 1)
+
+creas_2019 <- read_excel("../Censo SUAS 2019/2 - CREAS/Censo_SUAS_2019_CREAS_Dados_Gerais_divulgacao.xlsx", sheet = 1)
+
+creasrh_2019 <- read_excel("../Censo SUAS 2019/2 - CREAS/Censo_SUAS_2019_RH_CREAS_divulgação.xlsx", sheet = 1)
+
+creas_2020 <- read_excel("../Censo SUAS 2020/2 - CREAS/Censo_SUAS_CREAS_2020_Dados_Gerais_divulgacao_revisado.xlsx", sheet = 1)
+
+creasrh_2020 <- read_excel("../Censo SUAS 2020/2 - CREAS/Censo_SUAS_CREAS_2020_RH_divulgacao.xlsx", sheet = 1)
+
+creas_2021 <- read_excel("../Censo SUAS 2021/2 - CREAS/Censo_SUAS_2021_CREAS_Dados_Gerais_Divulgação.xlsx", sheet = 1)
+
+creasrh_2021 <- read_excel("../Censo SUAS 2021/2 - CREAS/Censo_SUAS_2021_CREAS_RH.xlsx", sheet = 1)
 
 creas_2022 <- read_excel("../Censo SUAS 2022/2 - CREAS/Censo_SUAS_ 2022_ CREAS_Dados_ Gerais.xlsx", sheet = "dados")
 
@@ -504,7 +555,21 @@ cpop_2018 <- read_excel("../Censo SUAS 2018/4 - Centro Pop/Censo_SUAS_2018_Centr
 
 cpoprh_2018 <- read_excel("../Censo SUAS 2018/4 - Centro Pop/Censo_SUAS_2018_Centro_POP_RH.xlsx", sheet = 1)
 
-cpop_2022 <- read_excel("../Censo SUAS 2022/3 - Centro Pop/Censo_SUAS_2022_Centro_POP_dados_gerais.xlsx", sheet = 1)
+cpop_2019 <- read_excel("../Censo SUAS 2019/3 - Centro Pop/Censo_SUAS_2019_Centro_POP_ Dados_Gerais.xlsx", sheet = 1)
+
+cpoprh_2019 <- read_excel("../Censo SUAS 2019/3 - Centro Pop/Censo_SUAS_2019_Centro_POP_RH.xlsx", sheet = 1)
+
+cpop_2020 <- read_excel("../Censo SUAS 2020/4 - Centro Pop/CensoSUAS_2020_Dados_Gerais_Centro_POP.xlsx", sheet = 1)
+
+cpoprh_2020 <- read_excel("../Censo SUAS 2020/4 - Centro Pop/CensoSUAS_2020_RH_Centro_POP.xlsx", sheet = 1)
+
+cpop_2021 <- read_excel("../Censo SUAS 2021/4 - Centro Pop/Censo_SUAS_2021_CPOP_Dados_Gerais_divulgação.xlsx", sheet = 1)
+
+#cpoprh_2021 <- read_excel("../Censo SUAS 2021/4 - Centro Pop/Censo_SUAS_2021_Centro_POP_RH.xlsx, sheet = 1)
+
+cpop_2022 <- read_excel("../Censo SUAS 2022/3 - CENTRO POP/Censo_SUAS_2022_Centro_POP_dados_gerais.xlsx", sheet = 1)
+
+#cpoprh_2022 <- read_excel("../Censo SUAS 2022/3 - CENTRO POP/Censo_SUAS_2022_Centro_POP_RH.xlsx, sheet = 1)
 
 unac_2012 <- read_excel("../Censo SUAS 2012/Unidades de Acolhimento/Censo SUAS 2012_Unidades_de_Acolhimento_dadosgerais_divulgação.xlsx", sheet = 1)
 
@@ -530,6 +595,22 @@ unac_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Unidades_Acolhimento
 
 unacrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Unidades_Acolhimento/CENSO SUAS 2017 Acolhimento RH divulgação.xlsx", sheet = "Base de dados")
 
+unac_2018 <- read_excel("../Censo SUAS 2018/3 - Unidade de acolhimento/CensoSUAS_2018_acolhimento_dados_gerais.xlsx", sheet = 1)
+
+unacrh_2018 <- read_excel("../Censo SUAS 2018/3 - Unidade de acolhimento/Censo_SUAS_2018_Acolhimento_Municipal_RH_divulgacao.xlsx", sheet = 1)
+
+unac_2019 <- read_excel("../Censo SUAS 2019/5 - Unidade de acolhimento/Censo_SUAS_2019_DG_Acolhimento.xlsx", sheet = 1)
+
+unacrh_2019 <- read_excel("../Censo SUAS 2019/5 - Unidade de acolhimento/Censo_SUAS_2019_RH_Acolhimento.xlsx", sheet = 1)
+
+unac_2020 <- read_excel("../Censo SUAS 2020/3 - Unidade de acolhimento/Censo_SUAS_2020_DG_Acolhimento (1).xlsx", sheet = 1)
+
+unacrh_2020 <- read_excel("../Censo SUAS 2020/3 - Unidade de acolhimento/Censo_SUAS_2020_RH_Acolhimento.xlsx", sheet = 1)
+
+unac_2021 <- read_excel("../Censo SUAS 2021/7 - Unidade de acolhimento/Censo_SUAS_2021_Unidade_Acolhimento_Dados_Gerais_Divulgação.xlsx", sheet = 1)
+
+unacrh_2021 <- read_excel("../Censo SUAS 2021/7 - Unidade de acolhimento/Censo_SUAS_2021_Unidade_Acolhimento_RH.xlsx", sheet = 1)
+
 unac_2022 <- read_excel("../Censo SUAS 2022/4 - UNIDADE DE ACOLHIMENTO/Censo_SUAS_2022 _ Unidades_de_Acolhimento_dados_gerais.xlsx", sheet = 1)
 
 ceconv_2014 <- read_excel("../Censo SUAS 2014/Centros de Convivência/Bases de Dados/CensoSUAS2014_Convivência_Divulgação.xlsx", sheet = "Convivência 2014")
@@ -546,6 +627,16 @@ ceconv_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Centro_Convivencia
 
 ceconvrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Centro_Convivencia/CensoSUAS2017_Convivencia_RH_divulgacao.xlsx", sheet = "Base de dados")
 
+ceconv_2018 <- read_excel("../Censo SUAS 2018/6 - Centro Convivência/CENSO_SUAS_2018_Centro_Convivencia_Dados_gerais_divulgacao.xls", sheet = 1)
+
+ceconv_2020 <- read_excel("../Censo SUAS 2020/5 - Centro Convivencia/Censo_SUAS_2020_Centro_Convivencia_dados_gerais.xlsx", sheet = 1)
+
+ceconvrh_2020 <- read_excel("../Censo SUAS 2020/5 - Centro Convivencia/Censo_SUAS_2020_Centro_Convivencia_RH.xlsx", sheet = 1)
+
+ceconv_2022 <- read_excel("../Censo SUAS 2022/5 - Centro Convivência/Censo_SUAS_ 2022_ Centros_de_Convivência_dados_gerais.xlsx", sheet = 1)
+
+ceconvrh_2022 <- read_excel("../Censo SUAS 2022/5 - Centro Convivência/Censo_SUAS_ 2022_ Centros_de_Convivência_RH.xlsx", sheet = 1)
+
 cedia_2015 <- read_excel("../Censo SUAS 2015/Centro DIA/CensoSUAS_2015_CentroDIA_dadosgerais_divulgacao.xlsx", sheet = "Censo SUAS Centro DIA 2015")
 
 cediarh_2015 <- read_excel("../Censo SUAS 2015/Centro DIA/CensoSUAS_2015_CentroDIA_RH_divulgacao.xlsx", sheet = "Censo SUAS Centro DIA RH 2015")
@@ -558,6 +649,22 @@ cedia_2017 <- read_excel("../Censo SUAS 2017/Censo SUAS 2017_Centro DIA/CensoSUA
 
 cediarh_2017 <- read_excel("../Censo SUAS 2017/Censo SUAS 2017_Centro DIA/CensoSUAS2017_CentroDIA_RH_divulgacao.xlsx", sheet = "Base de dados")
 
+cedia_2018 <- read_excel("../Censo SUAS 2018/5 - Centro Dia/Censo_SUAS_2018_Centro_DIA_dados_gerais_divulgacao.xlsx", sheet = 1)
+
+cediarh_2018 <- read_excel("../Censo SUAS 2018/5 - Centro Dia/Censo_SUAS_2018_Centro_DIA_RH_divulgacao.xlsx", sheet = 1)
+
+cedia_2019 <- read_excel("../Censo SUAS 2019/6 - Centro Dia/Censo_SUAS_2019_Dados_Gerais_RH_Centro_DIA_divulgação.xlsx", sheet = 1)
+
+cediarh_2019 <- read_excel("../Censo SUAS 2019/6 - Centro Dia/Censo_SUAS_2019_Centro_DIA_RH_divulgação.xlsx", sheet = 1)
+
+cedia_2020 <- read_excel("../Censo SUAS 2020/6 - Centro Dia/Censo_SUAS_2020_Centro_Dia_Dados_Gerais.xls", sheet = 1)
+
+cediarh_2020 <- read_excel("../Censo SUAS 2020/6 - Centro Dia/Censo_SUAS_2020_Centro_Dia_RH.xlsx", sheet = 1)
+
+cedia_2021 <- read_excel("../Censo SUAS 2021/6 - Centro Dia/Censo_SUAS_2021_Centro_Dia_Dados_Gerais_Divulgação.xls", sheet = 1)
+
+cediarh_2021 <- read_excel("../Censo SUAS 2021/6 - Centro Dia/Censo_SUAS_2021_Centro_Dia_RH.xls", sheet = 1)
+
 cedia_2022 <- read_excel("../Censo SUAS 2022/6 - CENTRO DIA/Censo_SUAS_2022_Centro_Dia_dados_gerais.xlsx", sheet= 1)
 
 famacol_2017 <- read_excel("../Censo SUAS 2017/Censo SUAS 2017 Família Acolhedora/Censo SUAS 2017_Família Acolhedora_divulgação.xlsx", sheet = "Base de dados")
@@ -569,6 +676,40 @@ famacolfam_2017 <- read_excel("../Censo SUAS 2017/Censo SUAS 2017 Família Acolh
 feas_2022 <- read_excel("../Censo SUAS 2022/10 - FEAS/Censo_SUAS_2022_ Fundo_Estadual_Dados_gerais.xlsx", sheet = 1)
 
 feasrh_2022 <- read_excel("../Censo SUAS 2022/10 - FEAS/Censo_SUAS_2022_Fundo_Estadual_RH.xlsx",sheet = 1) 
+
+fmas_2022 <- read_excel("../Censo SUAS 2022/11 - FMAS/Censo_SUAS_2022 - Fundo Municipal_dados_gerais.xlsx",sheet = 1)
+
+
+idconselho_2014 <- read_excel("../ID CONSELHO/IDConselho2014_alterado_08-12-2016.xlsx",sheet = 1)
+idconselho_2015 <- read_excel("../ID CONSELHO/ID CONSELHO - 2015.xlsx",sheet = 1)
+idconselho_2016 <- read_excel("../ID CONSELHO/ID CONSELHO - 2016.xlsx",sheet = 1)
+idconselho_2017 <- read_excel("../ID CONSELHO/ID CONSELHO - 2017.xlsx",sheet = 1)
+idconselho_2018 <- read_excel("../ID CONSELHO/ID CONSELHO - 2018.xlsx",sheet = 1)
+idconselho_2019 <- read_excel("../ID CONSELHO/ID CONSELHO - 2019.xlsx",sheet = 1)
+idconselho_2020 <- read_excel("../ID CONSELHO/ID CONSELHO - 2020.xlsx",sheet = 1)
+idconselho_2021 <- read_excel("../ID CONSELHO/ID CONSELHO 2021.xlsx",sheet = 1)
+idconselho_2022 <- read_excel("../ID CONSELHO/ID CONSELHO - 2022.xlsx",sheet = 1)
+
+idcras_2014 <- read_excel("../ID CRAS/NOVO_IDCRAS_2014_divulgação_retificado_07_10_2016.xlsx",sheet = 1)
+idcras_2015 <- read_excel("../ID CRAS/NOVO_IDCRAS_2015_divulgação_retificado_07_10_2016.xlsx",sheet = 1)
+idcras_2016 <- read_excel("../ID CRAS/IDCRAS_2016_FINAL_(01062017).xlsx",sheet = 1)
+idcras_2017 <- read_excel("../ID CRAS/IDCRAS_2017_DIVULGAÇÃO_atualizado__030523.xlsx",sheet = 1)
+idcras_2018 <- read_excel("../ID CRAS/IDCRAS_2018_DIVULGAÇÃO_atualizado_280423.xlsx",sheet = 1)
+idcras_2019 <- read_excel("../ID CRAS/IDCRAS_2019_DIVULGAÇÃO_atualizado_280423.xlsx",sheet = 1)
+idcras_2020 <- read_excel("../ID CRAS/IDCRAS_2020_DIVULGAÇÃO_atualizado_280423(1).xlsx",sheet = 1)
+idcras_2021 <- read_excel("../ID CRAS/IDCRAS_2021_DIVULGAÇÃO_atulaizado_280423(1).xlsx",sheet = 1)
+idcras_2022 <- read_excel("../ID CRAS/IDCRAS_2022_DIVULGAÇÃO_atualizado_280423(1).xlsx",sheet = 1)
+
+idcreas_2014 <- read_excel("../ID CREAS/IDCREAS_2014_DIVULGACAO_site.xlsx",sheet = 1)
+idcreas_2015 <- read_excel("../ID CREAS/ID_CREAS_2015_divulgacao_site.xlsx",sheet = 1)
+idcreas_2016 <- read_excel("../ID CREAS/IDCREAS_2016_DIVULGAÇÃO.xlsx",sheet = 1)
+idcreas_2017 <- read_excel("../ID CREAS/IDCREAS_2017_DIVULGAÇÃO (2).xlsx",sheet = 1)
+idcreas_2018 <- read_excel("../ID CREAS/IDCREAS2018_divulgacao(2).xlsx",sheet = 1)
+idcreas_2019 <- read_excel("../ID CREAS/IDCREAS2019_divulgacao.xlsx",sheet = 1)
+idcreas_2020 <- read_excel("../ID CREAS/IDCREAS2020_divulgacao.xlsx",sheet = 1)
+idcreas_2021 <- read_excel("../ID CREAS/IDCREAS2021_divulgacao_retificado191022(1) (1).xlsx",sheet = 1)
+idcreas_2022 <- read_excel("../ID CREAS/IDCREAS2022_divulgacao_retificado270923.xlsx",sheet = 1)
+
 
 #Número de municipios no Brasil e por região. Fonte: Anuários Estatístico do Brasil 2017, IBGE.
 #c(Norte, Nordeste, Sudeste, Sul, Centro-Oeste, Brasil)
@@ -812,7 +953,48 @@ f_equip_imovel = function(df, q, ano){
     group_by(Categoria, Nível) %>% 
     summarise(n=n()) %>% 
     mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+  
+
 }
+
+
+f_situacao2 = function(df, situacao2){
+  situacao2 <- enquo(situacao2)
+
+  df %>%
+    mutate(!! Situacao2 := case_when(!! Situacao2 == "Crianças adolescentes"~"Crianças/adolescentes",
+                                    !! situacao2 == "Crianças adolescentes"~"Crianças/adolescentes",
+                                    !! situacao2 == "Crianças/adolescentes"~"Crianças/adolescentes",
+                                    !! situacao2 == "Adultos e famílias em situação de rua e/ou migrantes"~"Adultos e famílias",
+                                    !! situacao2 == "Adultos e famílias em situação de rua e ou migrantes"~"Adultos e famílias",
+                                    !! situacao2 == "Exclusivamente para pessoas adultas com Deficiência"~"Adultos e famílias",
+                                    !! situacao2 == "Adultos e famílias"~"Exclusivamente pessoas adultas com deficiência",
+                                    !! situacao2 == "Mulheres em situação de violência doméstica ou familiar"~" Mulheres em situação de violência",
+                                    !! situacao2 == "Jovens egressas(os) de serviços de acolhimento"~"Jovens egressos de serviços de acolhimento",
+                                    !! situacao2 == "Jovens egressas(os) de serviços de acolhimento"~"Jovens egressos de serviços de acolhimento",
+                                    !! situacao2 == "Jovens egressos de serviços de acolhimento"~"Jovens egressos de serviços de acolhimento",
+                                    !! situacao2 == "Exclusivamente crianças adolescente com Deficiência"~"Exclusivamente crianças/adolescente com Deficiência",
+                                    !! situacao2 == "Pessoas idosas"~"Pessoas idosas",
+                                    !! situacao == "Pessoa com deficiência sem critério de idade"~"Outro",
+                                    !! situacao == "Usuários de substância psicoativas"~"Outro",
+                                    !! situacao == "Substâncias psicoativas"~"Outro",
+                                    !! situacao == "Famílias desabrigadas desalojadas"~"Outro",
+                                    is.na(!! situacao)~"Outro",
+                                    TRUE ~ as.character(!! situacao2))) %>% 
+    mutate(!! Situacao2 := factor(!! Situacao2, levels = c("Crianças/adolescentes",
+                                                         "Adultos e famílias",
+                                                        "Exclusivamente pessoas adultas com deficiência",
+                                                        "Mulheres em situação de violência",
+                                                        "Jovens egressos de serviços de acolhimento",
+                                                        "Exclusivamente crianças adolescente com Deficiência",
+                                                        "Pessoas idosas",
+                                                        "Outro")))
+                                                          
+}
+
+
+
+
 
 ```
 
@@ -828,8 +1010,6 @@ A partir das informações contidas no Censo SUAS é possível ter um panorama g
 A estrutura administrativa na Política de Assistência Social e Constituição de areas essenciais são elementos importantes para gestão do SUAS. No ambito da gestão estadual, no que se refere a exclusividade da area de Assistência Social, percebe-se que nos úlimos 10 anos houve uma redução de areas exclusivas de assistencia social. Em 2012 existiam 25,9% das secretarias estaduais exclusivas de Assistência Social, em 2022 esse número passa para 3,8%, redução significativa de 87,2%.
 
 Conforme a \Cref{fig:estados-caracteristica-secretaria}, 25 estados (96,4%) a Secretaria estadual estava associada a uma ou mais políticas setoriais, sendo predominante os grupos de duas e três politicas setoriais .
-
-## Estrutura Administrativa
 
 ```{r estados-caracteristica-secretaria, fig.cap = "Percentual de Secretarias Estaduais de acordo com composição administrativa relacionada a outras políticas - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -894,8 +1074,10 @@ grafico <- f_selecao_regiao_ano(gm_2012, q1, "Secretaria municipal exclusiva da 
 #  bind_rows(f_selecao_regiao_ano(gm_2015, q1, "Secretaria municipal exclusiva da área de Assistência Social", Região, "2015")) %>% 
 #  bind_rows(f_selecao_regiao_ano(gm_2016, q1, "Secretaria municipal exclusiva da área de Assistência Social", Região, "2016")) %>% 
   bind_rows(f_selecao_regiao_ano(gm_2017, q1, "Secretaria municipal exclusiva da área de Assistência Social", Região, "2017")) %>% 
-#  bind_rows(f_selecao_regiao_ano(gm_2022, q1, "Secretaria municipal exclusiva da área de Assistência Social", Região, "2022")) %>% 
-
+  bind_rows(f_selecao_regiao_ano(gm_2019, q1, "Secretaria municipal exclusiva da área de Assistência Social", Região, "2019")) %>% 
+  
+# essa pergunta foi feita até 2019, após não se colocou mais
+  
   ggplot(aes(x = Região, y = Percentual, group = Ano)) +
   geom_col(aes(fill = Ano), position="dodge") +
   geom_text(aes(label = percent(Percentual), y=Percentual+.05), position = position_dodge(width = 0.9), angle = 90) +
@@ -911,7 +1093,7 @@ grafico <- f_selecao_regiao_ano(gm_2012, q1, "Secretaria municipal exclusiva da 
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Alguns órgãos gestores estaduais constituíram as áreas de assistência social como subdivisões administrativas em sua estrutura, como superintendências, departamentos, gerências, coordenações, dentre outras. De acordo com o último pacto de aprimoramento Estadual do SUAS\footnote{Resolução CNAS Nº2, de 16 de março de 2017} umas das prioridades ligadas ao aperfeiçoamento institucional é possuir na estrutura administrativa as seguintes areas:
@@ -922,6 +1104,7 @@ Alguns órgãos gestores estaduais constituíram as áreas de assistência socia
 4) Gestão do Fundo Estadual de Assistência Social - FEAS. 
 
 Observa-se que meta chega em 2022 com 22 (85%) estados com as subdivisões administrativas das áreas de Proteção Social Básica, Proteção Social Especial e Gestão do SUAS constituídas formalmente. São 4 areas que não possuem 100% contituídas (formal e informal) são elas: Gestão do SUAS, Gestão do trabalho, Serviços e Beneficios e Regulação do SUAS. Esta última apesenta menor percentual de formalização, sendo 38,5% subdivisões constituídas formalmente conforme \Cref{fig:estados-constituicao-subdivisoes}.
+
 
 ```{r estados-constituicao-subdivisoes, fig.cap = "Percentual de estados segundo característica da estrutura administrativa da Secretaria estadual de Assistência Social - Brasil,  2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -975,7 +1158,7 @@ grafico<-tabela %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 No que se refere aos municípios, a última pactuação sobre estrutura administrativa a partir dos portes populacionais dos municípios\footnote{124ª reunião ordinária da CIT - Pacto de Aprimoramento do SUAS} prevê: 
@@ -1059,7 +1242,7 @@ grafico<-tabela %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Observa-se também que Gestão do trabalho e Vigilância Socioassistencial são os mais altos percentuais de informalidade e não constituíção. A regulamentação destas areas essenciais devem estar previstas no organograma. A Lei do SUAS\footnote{Lei nº 12.435, de 06/07/2011 altera a Lei Organiza da Assistência Social (LOAS) - nº 8.742, de 07/.12.1993} que dispõe sobre a organização deste sistema, trazendo a estrutura de gestão que inclui estas areas acima. 
@@ -1148,13 +1331,10 @@ grafico<-tabela %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Em 2022, 75% dos municípios possuíam Lei Municipal de regulamentação do SUAS (4.170). Destes, a maioria, 91% (3.798) aprovaram/atualizaram após 2013 e 9% (372) anterior a atualização da Lei Nacional\footnote{Lei nº 12.435, de 06/07/2011 altera a Lei Organiza da Assistência Social (LOAS) - nº 8.742, de 07/.12.1993} e a NOB SUAS/2012 conforme detalha a \Cref{fig:municipios-atualizacao-lei}. A inexistência de Lei é encontrada em 25% (1.400) dos municípios que coorresponde. 
-
-<!-- Valdson, será que a gente consegue fazer escala de até 2012; Entre 2013 e 2017; Entre 2018 e 2021, 2022  -->
-<!-- Sim, Shirley! Feito! :) -->
 
 ```{r municipios-atualizacao-lei, fig.cap = "Percentual de municípios segundo ano de atualização da Lei Municipal de regulamentação do Sistema Único de Assistência Social (SUAS) - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -1236,8 +1416,7 @@ grafico<-tabela %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
-
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 No que se refere ao Planejamento, trata-se de uma obrigatoriedade para existência do Sistema Único e repasse de confinanciamento. O Plano Estadual de Assistência Social (PEAS)deve ser aprovado pelo Conselho Estadual de Assistência Social (CEAS). Nesta perspectiva, dados de 2022 sinalizam -- total de 22 estados) estava presente em 84,6% dos estados. Destes, 19,2% (5 estados) atualizaram o PEAS pela última vez até o ano de 2011, enquanto 34,6% (9 estados) atualizaram no ano de 2016.
@@ -1317,7 +1496,7 @@ grafico <- gm_2017 %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 O Plano de apoio técnico aos municípios também é um produto a ser realizado pelos Estados e previsto no último pacto de aprimoramento Estadual do SUAS\footnote{Resolução CNAS Nº2, de 16 de março de 2017}. De acordo com Censo Suas 2022, 57,69% dos estados possuem este plano pactuado na CIB. A NOB SUAS 2012 também evidencia o papel dos estados frente as atribuições de apoio técnico\footnote{Capítulo III - NOBSUAS/2012} na qual compreende ações de: 
@@ -1327,9 +1506,64 @@ II) Elaboração de normas e instrumentos;
 III) Publicação de materiais informativos e de orientações técnicas; 
 IV) Assessoramento e acompanhamento.
 
-Em 2022, todos os estados informaram realizar alguma modalidade de apoio técnico aos municípios. Os maiores percentuais observados referiam-se ao Apoio técnico individualizado a municípios específicos, ofertado por 96,2% dos estados (25). Os menores percentuais eram referentes a Seminários 46,2%, (12). Outras formas, além das discriminadas eram ofertadas por 15,4% dos estados.
+Em 2022, todos os estados informaram realizar alguma modalidade de apoio técnico aos municípios. Os maiores percentuais observados referiam-se ao Apoio Técnico individualizado a municípios específicos ofertado por 96,2% dos estados (25). Os menores percentuais eram referentes a Seminários 46,2%, (12). Outras formas, além das discriminadas eram ofertadas por 15,4% dos estados (\Cref{fig:estados-formas-apoio}).
 
-Entre 2013 e 2022 o percentual de estados que prestavam assessoramento técnico a distância aumentou, por sua vez, aumentou significativamente, passando de 42,3% (11) em 2013 para 92,3% (24) em 2022 (\Cref{fig:estados-formas-apoio}).
+Entre 2013 e 2022 o percentual de estados que prestavam assessoramento técnico a distância aumentou significativamente, passando de 42,3% (11) em 2013 para 92,3% (24) em 2022. 
+
+```{r plan_apoio_tec, fig.cap = "Percentual de Estados que possiem Plano de Apoio Técnico pactuado na CIB - Brasil, 2013 - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+
+plan_apoio  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "Sim"~"Sim",
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("Sim",
+                                            "Não"))) %>% 
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+grafico <- plan_apoio(ge_2013, q85, "2013") %>%
+  #bind_rows(plan_apoio(ge_2014, q26, "2014")) %>% 
+  #bind_rows(plan_apoio(ge_2015, q19, "2015")) %>% 
+  #bind_rows(plan_apoio(ge_2016, q27, "2016")) %>% 
+  bind_rows(plan_apoio(ge_2017, q36, "2017")) %>%
+  #bind_rows(plan_apoio(ge_2018, q_18, "2018")) %>%
+  #bind_rows(plan_apoio(ge_, q18, "2019")) %>%
+  #bind_rows(plan_apoio(ge_2020, q20, "2020")) %>%
+  #bind_rows(plan_apoio(ge_2021, q18, "2021")) %>%
+  bind_rows(plan_apoio(ge_2022, q20, "2022")) %>%
+  
+  #2012 não tem essa pergunta
+  
+ 
+  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
+#  geom_col(aes(fill = Nível), position = "dodge") +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
 
 ```{r estados-formas-apoio, fig.cap = "Percentual de estados segundo formas de apoio técnico aos municípios - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -1459,16 +1693,16 @@ grafico<-tabela %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-<!-- (reescrever após geração grafico) Ao perguntado aos municipios sobre a presença da gestão estadual em apoio ténico, percebe-se que *** Em 2016, 51,8% dos municípios receberam pelo menos uma visita de técnicos da Secretaria Estadual de Assistência Social (SEAS) nos 12 meses que antecederam a pesquisa. Foi o menor percentual observado desde 2013, quando 60,0% dos municípios tinham recebido ao menos uma visita. A maior parte dos municípios que informou ter recebido visitas nos quatro anos observados foi visitada de uma a três vezes pelos técnicos da SEAS nos 12 meses que antecederam as pesquisas (\Cref{fig:municipios-receberam-visitas}). -->
+<!--(reescrever após geração grafico) Ao perguntado aos municípios sobre a presença da gestão estadual em apoio ténico, percebe-se que Em 2016, 51,8% dos municípios receberam pelo menos uma visita de técnicos da Secretaria Estadual de Assistência Social (SEAS) nos 12 meses que antecederam a pesquisa. Foi o menor percentual observado desde 2013, quando 60,0% dos municípios tinham recebido ao menos uma visita. A maior parte dos municípios que informou ter recebido visitas nos quatro anos observados foi visitada de uma a três vezes pelos técnicos da SEAS nos 12 meses que antecederam as pesquisas (\Cref{fig:municipios-receberam-visitas})-->
 
-<!-- (reescrever após geração grafico) Em 2016, 72,6% dos municípios informaram que técnicos ou gestores municipais da assistência social participaram de capacitações presenciais. Na região Sudeste, 76,8% dos municípios indicaram ter recebido essa modalidade de apoio técnico, assim como 75,8% dos municípios da região Norte. -->
+<!--(reescrever após geração grafico) Em 2016, 72,6% dos municípios informaram que técnicos ou gestores municipais da assistência social participaram de capacitações presenciais. Na região Sudeste, 76,8% dos municípios indicaram ter recebido essa modalidade de apoio técnico, assim como 75,8% dos municípios da região Norte.-->
 
-<!-- (reescrever após geração grafico) A modalidade na qual foi observado o menor percentual foi a de capacitações à distância, da qual participaram 29,7% dos municípios. Esse tipo de apoio ocorreu em 53,9% dos municípios da região Sudeste e em 14,3% dos municípios da região Centro-Oeste (\Cref{fig:municipios-formas-apoio}). -->
+<!--(reescrever após geração grafico) A modalidade na qual foi observado o menor percentual foi a de capacitações à distância, da qual participaram 29,7% dos municípios. Esse tipo de apoio ocorreu em 53,9% dos municípios da região Sudeste e em 14,3% dos municípios da região Centro-Oeste (\Cref{fig:municipios-formas-apoio}).-->
 
-```{r municipios-formas-apoio, fig.cap = "Percentual de municípios por formas de apoio técnico recebido do Estado nos 12 meses anteriores à pesquisa, segundo grandes regiões - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r municipios-formas-apoio, fig.cap = "Percentual de municípios por formas de apoio técnico recebido do Estado nos 12 meses anteriores à pesquisa, segundo grandes regiões - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
 
 tabela<-gm_2022 %>%
 # Questionários 2016:
@@ -1558,7 +1792,7 @@ grafico<-tabela %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 <!-- Em 2016, 51,8% dos municípios receberam pelo menos uma visita de técnicos da Secretaria Estadual de Assistência Social (SEAS) nos 12 meses que antecederam a pesquisa. Foi o menor percentual observado desde 2013, quando 60,0% dos municípios tinham recebido ao menos uma visita. A maior parte dos municípios que informou ter recebido visitas nos quatro anos observados foi visitada de uma a três vezes pelos técnicos da SEAS nos 12 meses que antecederam as pesquisas (\Cref{fig:municipios-receberam-visitas}). -->
@@ -1591,6 +1825,12 @@ grafico <- gm_visita_tecnicos(gm_2013, q19, "2013") %>%
   bind_rows(gm_visita_tecnicos(gm_2015, q24, "2015")) %>% 
   bind_rows(gm_visita_tecnicos(gm_2016, q7, "2016")) %>% 
   bind_rows(gm_visita_tecnicos(gm_2017, q19, "2017")) %>%
+  bind_rows(gm_visita_tecnicos(gm_2019, q10, "2019")) %>%
+  #bind_rows(gm_visita_tecnicos(gm_2022, q9, "2022")) %>%
+  
+  #2022 muda as variaveis (escrita)
+  
+  
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
 #  geom_col(aes(fill = Nível), position = "dodge") +
 #  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
@@ -1608,16 +1848,16 @@ grafico <- gm_visita_tecnicos(gm_2013, q19, "2013") %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
+
 
 O modelo de gestão do SUAS preve cofinanciamento compartilhado entre os três entes federados. Nesta perspetiva, percebe-se um avanço nos últimos 10 anos sobre a participação dos estados no cofinanciamento estadual com participação de 96,15% (25) dos estados que informam cofinanciar os municípios (\Cref{fig:estados-cofinanciamento-municipios}). 
 
 A forma de cofinanciamento de deve ser viabilizada por meio de transferência automática regular entre os fundos de assistência social (Fundo a Fundo). Sobre esse item, observa-se que em 2012, 26,63% () dos estados realizavam cofinanciamento na modalidade de apenas Fundo a Fundo e 25,9% () apenas por convenio (). Dado que avançou ao longo dos anos, em 2022, 88,46% (23) dos estados que realizam cofinanciamneto regular e automático e nenhum estado apenas por convênio. 
 
-Apesar destes avanços, há registros de não cofinanciamento estadual, na qual saiu de 25,93% () no ano de 2012 para 3,85% em 2022 (1)\footnote{o Estado do Acre não financia os municípios}.
+Apesar destes avanços, há registros de não cofinanciamento estadual, na qual saiu de 25,93% () no ano de 2012 para 3,85% em 2022 (1)\footnote{o Estado do Acre não cofinancia os municípios}.
 
-<!-- Valdson, para 2012 vamos precisar tirar DF - não conta para atribuições do estado - serão calculo em cima de 26 estados-->
 
 ```{r estados-cofinanciamento-municipios, fig.cap = "Percentual de estados segundo realização de cofinanciamento aos municípios - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -1675,14 +1915,11 @@ grafico <- ge_cofinanciamento(ge_2012, q64_0, "2012") %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 É recomendado que participação neste custeio do SUAS por meio de Fundo a Fundo siga as normativas nacionais que adota modalidades de blocos de financiamento. Ao olhar os blocos de cofinanciamento (\Cref{fig:estados-blocos-recursos}) observa-se que não há .teve mudanças ao longo dos anos no aporte. Aumentou o número de participação dos estados no cofinanciamento da proteção social especial (Média e Alta Complexoidade), bem como de Benefícios Eventuais e redução na destinação de recursos para proteção social básica e incetivos do SUAS.
 
-Nota-se também que não há nenhum bloco quem que 100% dos estados cofinanciam 
-
-<!-- Valdson, para 2012 vamos precisar tirar DF - não conta para atribuições do estado - serão calculo em cima de 26 estados-->
 
 ```{r estados-blocos-recursos, fig.cap = "Número de estados segundo a destinação dos recursos transferidos aos municípios por blocos de financiamento - Brasil, 2013 a 2017", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -1777,17 +2014,12 @@ grafico<-tabela %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
-
-<!-- parei -->
 
 Em 2016, 72,7% dos municípios brasileiros recebiam recursos estaduais para o cofinanciamento da assistência social: 60,4% fundo-a-fundo, 4,5% via convênio e 7,8% por convênio e fundo-a-fundo.
 
-Na região Norte, 70,0% dos municípios (310) não recebiam recursos estaduais para o cofinanciamento da Assistência Social, enquanto na região Sudeste apenas 2,2% dos municípios (36) não recebiam recursos estaduais para cofinanciamento.
-
 Nas regiões Centro-Oeste e Nordeste 53,4% e 60,2% dos municípios recebiam recursos estaduais para cofinanciamento, respectivamente. Nas regiões Sul e Sudeste esses valores eram 80,1% e 97,8%, respectivamente.
-
 Em todas as regiões, o recebimento de recursos estaduais era majoritariamente fundo-a-fundo (\Cref{fig:municipios-recebimento-recursos}).
 
 ```{r eval=FALSE, fig.cap = "Distribuição de municípios por recebimento de recursos estaduais para o cofinanciamento da Assistência Social - Brasil, 2013 a 2017", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -1841,7 +2073,7 @@ grafico <- gm_cofinanciamento(gm_2013, q29, "2013") %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r municipios-recebimento-recursos, fig.cap = "Distribuição de municípios por recebimento de recursos estaduais para o cofinanciamento da Assistência Social e destinação dos recursos recebidos - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
@@ -1908,8 +2140,22 @@ grafico<-tabela %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
+
+
+<!-- grafico dos estados - entidades: https://teams.microsoft.com/_#/apps/1c256a65-83a6-4b5c-9ccf-78f8afb6f1e8/sections/MyNotebook
+
+--> 
+
+```{r estados-FES_entidades, fig.cap = "Quantidade de estados que repassaram recursos para pelo menos uma entidades  por meio de convenio/parceria por nível de proteção, 2017 , 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+Quanto ao repasse de recursos para Organizações da Sociedade Civil (OSCs) observa-se que a maioria dos municípios não realizam xx%.
 
 Em 2016, 64,2% dos municípios informaram não fazer transferência de recursos por convênio para ONG ou Entidade de Assistência Social no município. Entre os 35,8% de municípios que realizavam transferências, 18,7% faziam com recursos do Fundo Municipal de Assistência Social (FMAS), 6,5% dos recursos de outras fontes e 10,6% com recursos do FMAS e de outras fontes. 
 
@@ -1917,14 +2163,22 @@ A realização dessas transferências era mais frequente nas regiões Sudeste e 
 
 ```{r municipios-transferencia-recursos, fig.cap = "Distribuição de municípios segundo realização de transferência de recursos por meio de convênios ou termos de parcerias para ONGs, Organizações da Sociedade Civil ou Entidades de Assistência Social, por grandes regiões - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS."}
 
-grafico <- gm_2017 %>%
 # Questionários 2016:
+#grafico <- gm_2016 %>%
 #  select(Região, "resposta" = q15) %>% 
+#  mutate(Região = str_replace(Região, "Região ", "")) %>% 
 #-------------------
 # Questionários 2017:
-  select(Região, "resposta" = q23) %>% 
+#grafico <- gm_2017 %>%
+#  select(Região, "resposta" = q23) %>% 
+#  mutate(Região = str_replace(Região, "Região ", "")) %>% 
 #-------------------
-  mutate(Região = str_replace(Região, "Região ", "")) %>% 
+# Questionários 2022:
+grafico <- fmas_2022 %>%
+  select(Regiao, "resposta" = q4) %>% 
+  mutate(Região = str_replace(Regiao, "Região ", "")) %>% 
+#-------------------
+
   mutate(Nível = case_when(resposta == "Não"~"Não realiza",
                            resposta == "Sim, com recursos do Fundo Municipal de Assistência Social (FMAS)"~"Realiza com recursos do Fundo Municipal de Assistência Social (FMAS)",
                            resposta == "Sim, com recursos de outras fontes"~"Realiza com recursos de outras fontes",
@@ -1962,7 +2216,46 @@ grafico <- gm_2017 %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+
+No que se refere a Educação Permanente, observa-se que ...
+
+
+Em 2016, 588 municípios indicaram ter Plano de Capacitação e Educação Permanente, o que equivale a 10,7% dos respondentes. Em 2015 o número de municípios que informou ter o Plano foi superior: 616 municípios, o que representava 11,2% dos municípios respondentes.
+
+A região com maior proporção de municípios com Plano de Capacitação e Educação Permanente é a Nordeste: 16,1% dos municípios da região possuíam o Plano (285). A região com menor percentual é a Centro-Oeste, com 7,7% dos municípios informando ter o Plano (35 municípios).
+
+A região Sul foi a única que apresentou aumento no percentual de municípios que indicaram ter o Plano entre 2015 e 2016: passou de 7,6% dos municípios da região (90) para 8,6% (101 municípios). Na região Sudeste o percentual ficou estável e nas demais regiões foi observada queda, sendo a mais acentuada em termos percentuais na região Centro-Oeste (redução de 2,6 pontos percentuais) e em termos absolutos na região Nordeste (24 municípios a menos) (\Cref{fig:municipios-possuem-plano}).
+
+```{r municipios-possuem-plano, fig.cap = "Percentual de municípios que possuem Plano de Capacitação e Educação Permanente, segundo grandes regiões - Brasil; 2015, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_selecao_regiao_ano(gm_2015, q40, "Sim", Região, "2015") %>%
+#  bind_rows(f_selecao_regiao_ano(gm_2016, q20, "Sim", Região, "2016")) %>% 
+   bind_rows(f_selecao_regiao_ano(gm_2017, q31, "Sim", Região, "2017")) %>%
+#  bind_rows(f_selecao_regiao_ano(gm_2018, q_51, "Sim", Região, "2018")) %>%
+#   bind_rows(f_selecao_regiao_ano(gm_2019, q52, "Sim", Região, "2019")) %>%
+#  bind_rows(f_selecao_regiao_ano(gm_2020, q73, "Sim", Região, "2020")) %>%
+#  bind_rows(f_selecao_regiao_ano(gm_2021, q73, "Sim", Região, "2021")) %>%
+  bind_rows(f_selecao_regiao_ano(gm_2022, q73, "Sim", IBGE,"2022")) %>%
+
+  ggplot(aes(x = Região, y = Percentual, group = Ano)) +
+  geom_col(aes(fill = Ano), position="dodge") +
+  geom_text(aes(label = percent(Percentual), y=Percentual+.01), position = position_dodge(width = 0.9), angle = 90) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 A NOB SUAS 2012 define a Comissão Intergestores Bipartite (CIB) como instância estadual de negociação, articulação e pactuação entre gestores da assistência social, que é integrada por representantes do estado, indicados pelo Órgão Gestor Estadual de Assistência Social, e por representantes dos municípios, indicados pelo Colegiado Estadual de Gestores Municipais de Assistência Social (Coegemas).
@@ -1971,7 +2264,7 @@ Em 2016, mais da metade dos municípios (58,8%) relataram não ter representante
 
 Na região Norte 71,3% dos municípios da região declararam ter havido participação de representante em pelo menos uma reunião da CIB no ano. O percentual mais baixo de participação foi observado na região Sudeste: 22,1% dos municípios da região declararam ter participado em pelo menos uma reunião, sendo que 7,8% apenas uma vez no ano (\Cref{fig:municipios-participacoes-CIB}).
 
-```{r municipios-participacoes-CIB, fig.cap = "Percentual de municípios por número de participações em reuniões da CIB (Comissão Intergestores Bipartite) no ano de 2016, segundo grandes regiões - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r municipios-participacoes-CIB, fig.cap = "Percentual de municípios por número de participações em reuniões da CIB (Comissão Intergestores Bipartite) no ano de 2016, segundo grandes regiões - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
 
 grafico <- gm_2017 %>%
 # Questionários 2016:
@@ -2014,43 +2307,12 @@ grafico <- gm_2017 %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-Em 2016, 588 municípios indicaram ter Plano de Capacitação e Educação Permanente, o que equivale a 10,7% dos respondentes. Em 2015 o número de municípios que informou ter o Plano foi superior: 616 municípios, o que representava 11,2% dos municípios respondentes.
+Em relação a concurso público, 
 
-A região com maior proporção de municípios com Plano de Capacitação e Educação Permanente é a Nordeste: 16,1% dos municípios da região possuíam o Plano (285). A região com menor percentual é a Centro-Oeste, com 7,7% dos municípios informando ter o Plano (35 municípios).
-
-A região Sul foi a única que apresentou aumento no percentual de municípios que indicaram ter o Plano entre 2015 e 2016: passou de 7,6% dos municípios da região (90) para 8,6% (101 municípios). Na região Sudeste o percentual ficou estável e nas demais regiões foi observada queda, sendo a mais acentuada em termos percentuais na região Centro-Oeste (redução de 2,6 pontos percentuais) e em termos absolutos na região Nordeste (24 municípios a menos) (\Cref{fig:municipios-possuem-plano}).
-
-```{r municipios-possuem-plano, fig.cap = "Percentual de municípios que possuem Plano de Capacitação e Educação Permanente, segundo grandes regiões - Brasil; 2015, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
-
-grafico <- f_selecao_regiao_ano(gm_2015, q40, "Sim", Região, "2015") %>%
-#  bind_rows(f_selecao_regiao_ano(gm_2016, q20, "Sim", Região, "2016")) %>% 
-   bind_rows(f_selecao_regiao_ano(gm_2017, q31, "Sim", Região, "2017")) %>%
-#  bind_rows(f_selecao_regiao_ano(gm_2018, q_51, "Sim", Região, "2018")) %>%
-#   bind_rows(f_selecao_regiao_ano(gm_2019, q52, "Sim", Região, "2019")) %>%
-#  bind_rows(f_selecao_regiao_ano(gm_2020, q73, "Sim", Região, "2020")) %>%
-#  bind_rows(f_selecao_regiao_ano(gm_2021, q73, "Sim", Região, "2021")) %>%
-  bind_rows(f_selecao_regiao_ano(gm_2022, q73, "Sim", IBGE,"2022")) %>%
-  
-  ggplot(aes(x = Região, y = Percentual, group = Ano)) +
-  geom_col(aes(fill = Ano), position="dodge") +
-  geom_text(aes(label = percent(Percentual), y=Percentual+.01), position = position_dodge(width = 0.9), angle = 90) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
-
-grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
-```
+<!-- falta fazer grafico concurso publico - município - estado   -->
 
 ## Considerações Finais
 
@@ -2115,7 +2377,7 @@ grafico <- f_quantitativo_regiao_ano(cras_2007, ibge, "2007") %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 A Expansão em todo território nacional do número de CRAS evidencia a consolidação de uma referencia de equipamento público de Assistêrncia Social em todo território nacional. De acordo com os dados 98,95% municípios possuem CRAS, ou seja apenas 35 municípios no Brasil não dispõe deste equipamento público\footnote{77% deles localizados na Região Sul, 20% na Região Sudeste e 3% na região Nordeste.}. Assim, pode-se dizer que o desafio da expansão teve avanços nestes últimos anos e deixa como nova demanda para reconstrução da universalização na perspectiva de cobertura e de cofinanciamento.  
@@ -2126,16 +2388,18 @@ Dados de 2022 sinalizam que 7.455 receben cofinanciamento federal. Isso represen
 ```{r municipios-CRAS, fig.cap = "Evolução do percentual de municípios com pelo menos um CRAS, segundo grandes regiões - Brasil, 2007 a 2017", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 grafico <- f_percentual_municipios_regiao_ano(cras_2007, ibge, "2007") %>%
-  bind_rows(f_percentual_municipios_regiao_ano(cras_2008, IBGE, "2008")) %>% 
-  bind_rows(f_percentual_municipios_regiao_ano(cras_2009, IBGE, "2009")) %>% 
-  bind_rows(f_percentual_municipios_regiao_ano(cras_2010, ibge, "2010")) %>% 
-  bind_rows(f_percentual_municipios_regiao_ano(cras_2011, IBGE, "2011")) %>% 
+#  bind_rows(f_percentual_municipios_regiao_ano(cras_2008, IBGE, "2008")) %>% 
+#  bind_rows(f_percentual_municipios_regiao_ano(cras_2009, IBGE, "2009")) %>% 
+#  bind_rows(f_percentual_municipios_regiao_ano(cras_2010, ibge, "2010")) %>% 
+#  bind_rows(f_percentual_municipios_regiao_ano(cras_2011, IBGE, "2011")) %>% 
   bind_rows(f_percentual_municipios_regiao_ano(cras_2012, IBGE, "2012")) %>% 
-  bind_rows(f_percentual_municipios_regiao_ano(cras_2013, IBGE, "2013")) %>% 
-  bind_rows(f_percentual_municipios_regiao_ano(cras_2014, IBGE, "2014")) %>% 
-  bind_rows(f_percentual_municipios_regiao_ano(cras_2015, CD_IBGE, "2015")) %>% 
-  bind_rows(f_percentual_municipios_regiao_ano(cras_2016, IBGE, "2016")) %>% 
+#  bind_rows(f_percentual_municipios_regiao_ano(cras_2013, IBGE, "2013")) %>% 
+#  bind_rows(f_percentual_municipios_regiao_ano(cras_2014, IBGE, "2014")) %>% 
+#  bind_rows(f_percentual_municipios_regiao_ano(cras_2015, CD_IBGE, "2015")) %>% 
+#  bind_rows(f_percentual_municipios_regiao_ano(cras_2016, IBGE, "2016")) %>% 
   bind_rows(f_percentual_municipios_regiao_ano(cras_2017, IBGE, "2017")) %>% 
+  bind_rows(f_percentual_municipios_regiao_ano(cras_2022, IBGE, "2022")) %>% 
+  
   ggplot(aes(x = Região, y = Percentual, group = Ano)) +
   geom_col(aes(fill = Ano), position="dodge") +
   geom_text(aes(label = percent(Percentual), y=Percentual+0.04), position = position_dodge(width = 0.9), angle = 90, size = 2.5) +
@@ -2151,7 +2415,7 @@ grafico <- f_percentual_municipios_regiao_ano(cras_2007, ibge, "2007") %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r CRAS-porte, fig.cap = "Percentual de municípios por número de CRAS no município, segundo porte populacional estimado do município - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios",eval=FALSE}
@@ -2213,7 +2477,7 @@ grafico <- dados %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 <!-- Em 2016, 51,7% dos CRAS funcionavam em imóveis próprios. Houve um crescimento de 2,9 pontos percentuais em relação ao ano anterior.  Foi o primeiro ano da série histórica em que mais da metade dos CRAS funcionam em imóveis próprios. Em comparação ao ano de 2015, verifica-se uma redução no percentual de CRAS que funcionam em imóveis alugados, que passaram de 42,8% do total em 2015 para 39,6% em 2016. -->
@@ -2248,7 +2512,7 @@ grafico <- f_equip_imovel(cras_2007, v15, "2007") %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 A acessibilidade é fundamental para que os usuários consigam chegar até os serviços oferecidos pelos CRAS.
@@ -2329,7 +2593,7 @@ grafico<-tabela %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Os CRAS são considerados a porta de entrada da Assistência Social, sendo uma referência para a população no território. Nesse sentido, podem se articular com a rede de proteção social e com demais serviços ofertados no município, de forma a garantir o acesso da população aos direitos sociais.
@@ -2379,7 +2643,7 @@ grafico<-tabela %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 O número absoluto e o percentual de CRAS com acesso à internet aumentaram desde 2007. No ano de 2016, havia 7.835 CRAS com acesso à internet (\Cref{fig:CRAS-internet-quantitativo}), o que representa 95,1% das unidades (\Cref{fig:CRAS-internet-percentual}).
@@ -2423,7 +2687,7 @@ grafico <- f_cras_internet(cras_2007, `Acesso a Internet`, "2007") %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r CRAS-internet-quantitativo, fig.cap = "Evolução do quantitativo de CRAS com computadores com acesso à internet – Brasil, 2007 a 2017", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
@@ -2454,7 +2718,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r CRAS-internet-percentual, fig.cap = "Evolução percentual de CRAS com computadores com acesso à internet – Brasil; 2007, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -2479,134 +2743,190 @@ grafico <- f_maior0_regiao_ano(cras_2007, `Acesso a Internet`, ibge, "2007") %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+```{r CRAS-SCFV, fig.cap = "Percentual de CRAS que executavam diretamente os Serviços de Convivência e Fortalecimento de Vínculos - Brasil, 2014 a 2022", fig.footer = "Fonte: MDS, Censo SUAS",eval=FALSE}
+
+cras_scfv  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "Sim"~"Sim",
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("Sim",
+                                            "Não"))) %>% 
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+grafico <- cras_scfv(cras_2014, q19, "2014") %>%
+  bind_rows(cras_scfv(cras_2015, q16, "2015")) %>% 
+  bind_rows(cras_scfv(cras_2016, q15, "2016")) %>% 
+  bind_rows(cras_scfv(cras_2017, q16, "2017")) %>% 
+  bind_rows(cras_scfv(cras_2018, q_16, "2018")) %>%
+  bind_rows(cras_scfv(cras_2019, q15, "2019")) %>%
+  bind_rows(cras_scfv(cras_2020, q17, "2020")) %>%
+  bind_rows(cras_scfv(cras_2021, q17, "2021")) %>%
+  bind_rows(cras_scfv(cras_2022, q17, "2022")) %>%
+  
+ # em 2020 é o cpodigo 1 (sim) e 2 (Não)
+  
+  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
+#  geom_col(aes(fill = Nível), position = "dodge") +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Em 2016, 2.334 CRAS informaram que havia povos e comunidades tradicionais em seu território de abrangência (28,3% do total de CRAS). Desses, apenas 127 (5,4%) indicaram não ter realizado atendimento a esse público. Esse percentual é inferior a 2015, quando o percentual foi de 6,7% (147 unidades dos 2.191 CRAS com povos e comunidades tradicionais em seu território de abrangência).
+
 Dos 2.334 CRAS que informaram que havia povos e comunidades tradicionais em seu território de abrangência, 896 informaram ter atendido Comunidades Quilombolas (38,4%), seguidos por 615 CRAS que informaram ter atendido Comunidades Ribeirinhas (26,3%) e 611 que informaram ter atendido Povos Indígenas (26,2%) (Gráfico 27).
 
-Gráfico 27: Número de CRAS segundo atendimento a povos e comunidades tradicionais – Brasil, 2015 e 2016
-Fonte: MDS, Censo SUAS.
-
 Os CRAS são considerados a porta de entrada da Assistência Social, sendo uma referência para a população no território. Nesse sentido, podem se articular com a rede de proteção social e com demais serviços ofertados no município, de forma a garantir o acesso da população aos direitos sociais.
+
 Em 2016, apenas 0,6% dos CRAS informaram não ter articulação com serviços de educação, e 0,2% informaram que o serviço não existia no município. Assim, 99,2% dos CRAS informaram manter alguma articulação com serviços de educação, sendo os maiores percentuais referentes à existência de dados atualizados dos parceiros com quem o CRAS mantém articulação (94,8%) e ao encaminhamento de usuários ao CRAS pelos serviços de educação (90,9%). No mesmo ano, 0,3% dos CRAS informaram não ter articulação com serviços de saúde e 0,1% informaram que o serviço não existe no município. Dessa forma, 99,6% dos CRAS informaram ter articulação com serviços de saúde, sendo os maiores percentuais referentes ao recebimento de usuários encaminhados pelo CRAS (96,4%).
-
-```{r CRAS-SCFV, fig.cap = "Evolução percentual de CRAS que executavam diretamente os Serviços de Convivência e Fortalecimento de Vínculos - Brasil, 2014 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
-
-```
-
-<!-- O menor percentual de articulação foi observado com as Unidades Conveniadas da Rede de Proteção Social Básica: 36,9% dos CRAS informaram que não há serviço dessa natureza existente no município e 10,9% que não se articulam com essas Unidades. O segundo menor percentual de articulação foi observado com os órgãos/ serviços relacionados a Trabalho em Emprego: 29,6% dos CRAS informaram que não há serviço ou instituição no município e 11,4% que não se articulam com esses órgãos ou serviços (Tabela 5). -->
-<!-- Tabela 5: Articulação dos CRAS com serviços, programas ou instituições existentes no município - Brasil, 2016 -->
-
-<!-- Serviços, programas ou instituições com os quais o CRAS mantém articulação -->
-<!-- Possui dados de localização (endereço, telefone etc.)  -->
-<!-- Recebe usuários encaminhados por este CRAS -->
-<!-- Encaminha usuários para este CRAS -->
-<!-- Acompanha os encaminhamentos -->
-<!-- Realiza reuniões periódicas -->
-<!-- Troca Informações -->
-<!-- Realiza estudos de caso em conjunto -->
-<!-- Desenvolve atividades em parceria -->
-<!-- Não tem nenhuma articulação -->
-<!-- Serviço ou instituição não existente no município -->
-<!-- Unidades Públicas da Rede de Proteção Social Básica -->
-<!-- 85,9% -->
-<!-- 83,3% -->
-<!-- 82,6% -->
-<!-- 73,5% -->
-<!-- 62,4% -->
-<!-- 82,9% -->
-<!-- 58,3% -->
-<!-- 73,7% -->
-<!-- 1,5% -->
-<!-- 10,0% -->
-<!-- Unidades Conveniadas da Rede de Proteção Social Básica -->
-<!-- 48,8% -->
-<!-- 45,1% -->
-<!-- 44,3% -->
-<!-- 36,3% -->
-<!-- 27,2% -->
-<!-- 45,0% -->
-<!-- 25,9% -->
-<!-- 35,8% -->
-<!-- 10,9% -->
-<!-- 36,9% -->
-<!-- Unidades da Rede de Proteção Social Especial -->
-<!-- 72,0% -->
-<!-- 71,0% -->
-<!-- 70,2% -->
-<!-- 63,5% -->
-<!-- 45,3% -->
-<!-- 70,6% -->
-<!-- 52,1% -->
-<!-- 58,3% -->
-<!-- 3,1% -->
-<!-- 21,8% -->
-<!-- Serviços de Saúde -->
-<!-- 95,9% -->
-<!-- 96,4% -->
-<!-- 95,3% -->
-<!-- 76,5% -->
-<!-- 47,8% -->
-<!-- 92,8% -->
-<!-- 54,6% -->
-<!-- 71,0% -->
-<!-- 0,3% -->
-<!-- 0,1% -->
-<!-- Serviços de Educação -->
-<!-- 94,8% -->
-<!-- 90,3% -->
-<!-- 90,9% -->
-<!-- 70,5% -->
-<!-- 43,3% -->
-<!-- 88,9% -->
-<!-- 47,1% -->
-<!-- 73,8% -->
-<!-- 0,6% -->
-<!-- 0,2% -->
-<!-- Órgãos/Serviços relacionados a Trabalho e Emprego -->
-<!-- 54,3% -->
-<!-- 43,7% -->
-<!-- 31,1% -->
-<!-- 20,8% -->
-<!-- 9,5% -->
-<!-- 38,5% -->
-<!-- 7,5% -->
-<!-- 26,3% -->
-<!-- 11,4% -->
-<!-- 29,6% -->
-<!-- Movimentos Sociais locais/Associações Comunitárias -->
-<!-- 61,7% -->
-<!-- 37,2% -->
-<!-- 41,3% -->
-<!-- 22,1% -->
-<!-- 17,1% -->
-<!-- 49,5% -->
-<!-- 10,3% -->
-<!-- 37,8% -->
-<!-- 17,2% -->
-<!-- 14,2% -->
-<!-- Fonte: MDS, Censo SUAS. -->
 
 ### Centros de Convivência
 
 Os Centros de Convivência, juntamente com os Centros de Referência de Assistência Social (CRAS), são unidades que executam o Serviço de Convivência e Fortalecimento de Vínculos e compõem a Rede de Proteção Social Básica.
-Desde 2014 o número de Centros de Convivência no Brasil aumentou, passando de 7.882 unidades em 2014 para 8.454 em 2016, em um acréscimo de 572 unidades. A região Norte tem a menor quantidade de unidades (238 ou 2,8% do total), seguida do Centro-Oeste com 568 Unidades (ou 6,7% do total). A região Sudeste tem o maior número de Centros de Convivência, com 4.035 Unidades (47,7% do total) (Gráfico 28)
+Desde 2014 o número de Centros de Convivência no Brasil aumentou, passando de 7.882 unidades em 2014 para 8.454 em 2016, em um acréscimo de 572 unidades. A região Norte tem a menor quantidade de unidades (238 ou 2,8% do total), seguida do Centro-Oeste com 568 Unidades (ou 6,7% do total). A região Sudeste tem o maior número de Centros de Convivência, com 4.035 Unidades (47,7% do total)
 
-```{r centro-conv, fig.cap = "Evolução de Centro de Convivência - Brasil, 2011 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r quantitativo-CentroConv, fig.cap = "Evolução do quantitativo de Centro de Convivência, segundo grandes regiões; 2014, 2018, 2020 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
+grafico <- f_quantitativo_regiao_ano(ceconv_2014, Região, "2014") %>%
+   bind_rows(f_quantitativo_regiao_ano(ceconv_2018, Regiao, "2018")) %>% 
+   bind_rows(f_quantitativo_regiao_ano(ceconv_2020, IBGE, "2020")) %>% 
+   bind_rows(f_quantitativo_regiao_ano(ceconv_2022, IBGE, "2022")) %>% 
+  
+  
+  ggplot(aes(x = Região, y = n, group = Ano)) +
+  geom_col(aes(fill = Ano), position="dodge") +
+  geom_text(aes(label = format(n, big.mark="."), y=n+300), position = position_dodge(width = 0.9), angle = 90, size = 2.5) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Os Centros de Convivência podem ser unidades públicas ou vinculadas a entidades de assistência social, inscritas nos Conselhos de Assistência Social do município ou do DF. Em 2016, 44,7% dos Centros de Convivência eram governamentais (total de 3.781 unidades) e 55,3% das unidades eram não governamentais (4.672 unidades). Desde 2014, o percentual de unidades de natureza não governamental vem se reduzindo, passando de 57,4% (4.521 unidades) para 55,3% (4.672 unidades) em 2016 (Gráfico 29).
 
-```{r centro-conv-natureza, fig.cap = "Quantitativo de Centros de Convivência por Natureza da Unidade - BRASIL; 2014, 2018 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+```{r eval=FALSE, fig.cap = "Evolução dos CRAS segundo situação do imóvel – Brasil, 2007 a 2017", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_equip_imovel(cras_2007, v15, "2007") %>%
+  bind_rows(f_equip_imovel(cras_2008, situacao_imovel, "2008")) %>% 
+  bind_rows(f_equip_imovel(cras_2009, q5_situac_imovel, "2009")) %>% 
+  bind_rows(f_equip_imovel(cras_2010, q5, "2010")) %>% 
+  bind_rows(f_equip_imovel(cras_2011, q5, "2011")) %>%
+  bind_rows(f_equip_imovel(cras_2012, q5, "2012")) %>%
+  bind_rows(f_equip_imovel(cras_2013, q5, "2013")) %>%
+  bind_rows(f_equip_imovel(cras_2014, q4, "2014")) %>%
+  bind_rows(f_equip_imovel(cras_2015, q4, "2015")) %>%
+  bind_rows(f_equip_imovel(cras_2016, q4, "2016")) %>%
+  bind_rows(f_equip_imovel(cras_2017, q4, "2017")) %>%
+  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+
+```{r centro-conv-natureza, fig.cap = "Quantitativo de Centros de Convivência por Natureza da Unidade - BRASIL; 2014, 2018 e 2022", fig.footer = "Fonte: MDS, Censo SUAS.", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 ```
 
 Em 2016, 31,2% dos Centros de Convivência (2.636 unidades) possuíam rota acessível ao banheiro de acordo com a norma da ABNT (NBR9050), sendo a adaptação mais observada nas unidades. Todas as condições de acessibilidade melhoraram em relação aos anos anteriores, e o maior aumento foi verificado no percentual de Centros de Convivência com banheiros adaptados para pessoas com deficiência: estavam presentes em 24,3% das unidades em 2014 (1.918) e passaram a ser observados em 28,3% das unidades em 2016 (2.389) (Gráfico 30).
 
-```{r CRAS-PSB, fig.cap = "Percentual de CRAS que realizam Serviço de Proteção Social Básica no Domicílio para Pessoas com deficiência e idosas", fig.footer = "Fonte: MDS, Censo SUAS."}
 
+```{r CRAS-PSB, fig.cap = "Percentual de CRAS que executavam diretamente os Serviços de Proteção social Básica nos domicílios - Brasil, 2014 a 2022", fig.footer = "Fonte: MDS, Censo SUAS",eval=FALSE}
+
+cras_psb  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "Sim"~"Sim",
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("Sim",
+                                            "Não"))) %>% 
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+grafico <- cras_psb(cras_2018, q_24, "2018") %>%
+  #bind_rows(cras_psb(cras_2018, q_24, "2018")) %>%
+  bind_rows(cras_psb(cras_2019, q23, "2019")) %>%
+  bind_rows(cras_psb(cras_2020, q24, "2020")) %>%
+  bind_rows(cras_psb(cras_2021, q24, "2021")) %>%
+  bind_rows(cras_psb(cras_2022, q24, "2022")) %>%
+  
+  # essa pergunta  SURGE A PARTIR DE 2018
+  
+  
+  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
+#  geom_col(aes(fill = Nível), position = "dodge") +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 
@@ -2699,11 +3019,37 @@ Os Centros de Referência Especializados de Assistência Social (CREAS) são uni
 
 O Censo SUAS 2016 registrou 2.521 CREAS no país: um incremento de 86 novas unidades em relação ao ano anterior. As regiões Nordeste e Sudeste apresentaram os maiores números de CREAS, 967 e 712, respectivamente. As regiões com maior aumento de unidades foram a Nordeste, com 37 novas unidades, e a Sul, com 29 novas unidades. A região Centro-Oeste teve uma diminuição de 5 unidades (Gráfico 31).
 
-```{r CREAS-quantitativo, fig.cap = "Evolução do quantitativo de CREAS, 2012 - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+Entre 2009 a 2014, o Censo SUAS registrou redução na proporção de CREAS funcionando em imóveis próprios, que se estabilizou em 2015. Contudo, em 2016 os percentuais aumentaram, chegando 27,5% de CREAS alocados em imóveis próprios (694 unidades), com diminuição para 65% funcionando em imóveis alugados (total de 1.639 unidades). Em 2016 7,5% de CREAS funcionavam em imóveis cedidos (188 unidades). Esse percentual aumenta desde 2014, quando 4,1% dos CREAS funcionavam em imóveis cedidos. (Gráfico 32).
 
+
+```{r creas-quantitativo, fig.cap = "Evolução do quantitativo de CREAS, segundo grandes regiões; 2007, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+  grafico <- f_quantitativo_regiao_ano(creas_2012, IBGE, "2012") %>% 
+#  bind_rows(f_quantitativo_regiao_ano(creas_2013, IBGE, "2013")) %>% 
+#  bind_rows(f_quantitativo_regiao_ano(creas_2014, IBGE, "2014")) %>% 
+#  bind_rows(f_quantitativo_regiao_ano(creas_2015, IBGE, "2015")) %>% 
+#  bind_rows(f_quantitativo_regiao_ano(creas_2016, IBGE, "2016")) %>% 
+  bind_rows(f_quantitativo_regiao_ano(creas_2017, IBGE, "2017")) %>%
+  bind_rows(f_quantitativo_regiao_ano(creas_2022, IBGE, "2022")) %>%  
+
+  ggplot(aes(x = Região, y = n, group = Ano)) +
+  geom_col(aes(fill = Ano), position="dodge") +
+  geom_text(aes(label = format(n, big.mark="."), y=n+300), position = position_dodge(width = 0.9), angle = 90, size = 2.5) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-Entre 2009 a 2014, o Censo SUAS registrou redução na proporção de CREAS funcionando em imóveis próprios, que se estabilizou em 2015. Contudo, em 2016 os percentuais aumentaram, chegando 27,5% de CREAS alocados em imóveis próprios (694 unidades), com diminuição para 65% funcionando em imóveis alugados (total de 1.639 unidades). Em 2016 7,5% de CREAS funcionavam em imóveis cedidos (188 unidades). Esse percentual aumenta desde 2014, quando 4,1% dos CREAS funcionavam em imóveis cedidos. (Gráfico 32).
 
 ```{r CREAS-municipios, fig.cap = "Evolução de CREAS por número de municípios, segundo grandes regiões - 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -2735,11 +3081,89 @@ grafico <- f_percentual_municipios_regiao_ano(creas_2012, IBGE, "2012") %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
+
+
+<!-- O IDEAL SERIA QUANTIDADE, MAS NÃO CONSEGUI FAZER-->
+
 
 ```{r CREAS-municipios-2, fig.cap = "Evolução de CREAS Regionais (res. 21/2023)", fig.footer = "Fonte: MDS, Censo SUAS."}
 
+creas_reg  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "Regional"~"Regional",
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("Regional",
+                                            "Municipal"))) %>% 
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+grafico <- creas_reg(creas_2017, q2, "2017") %>%
+  bind_rows(creas_reg(creas_2018, q1, "2018")) %>%
+  bind_rows(creas_reg(creas_2019, q1, "2019")) %>%
+  bind_rows(creas_reg(creas_2020, q1, "2020")) %>%
+  bind_rows(creas_reg(creas_2021, q1, "2021")) %>%
+  bind_rows(creas_reg(creas_2022, q1, "2022")) %>%
+
+  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
+#  geom_col(aes(fill = Nível), position = "dodge") +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+<!-- não consegui gerar os demais e queria colocar em número em vez de percentual -->
+
+```{r creas-regionais, fig.cap = "Evolução de CREAS Regionais - por região", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_selecao_regiao_ano (creas_2017, q2, "Regional", Região, "2017") %>%
+    bind_rows(f_selecao_regiao_ano(creas_2018, q1, "Regional", Região, "2018")) %>% 
+    #bind_rows(f_selecao_regiao_ano(creas_2019, q1, "Regional", Região, "2019")) %>% 
+    #bind_rows(f_selecao_regiao_ano(creas_2020, q1, "Regional", Região, "2020")) %>% 
+    #bind_rows(f_selecao_regiao_ano(creas_2021, q1, "Regional", Regiao, "2021")) %>% 
+    bind_rows(f_selecao_regiao_ano(creas_2022, q1, "Regional", Região, "2022")) %>% 
+    
+   #bind_rows(f_selecao_regiao_ano(gm_2022, q0_1, "Secretaria municipal exclusiva da área de Assistência Social", IBGE, "2022")) %>% 
+  
+  ggplot(aes(x = Região, y = Percentual, group = Ano)) +
+  geom_col(aes(fill = Ano), position="dodge") +
+  geom_text(aes(label = percent(Percentual), y=Percentual+.05), position = position_dodge(width = 0.9), angle = 90) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 
@@ -2774,7 +3198,7 @@ grafico <- f_equip_imovel(creas_2012, q5, "2012") %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 
@@ -2782,7 +3206,7 @@ De acordo com os dados do Censo SUAS de 2016, 22,8% dos CREAS possuíam banheiro
 
 É possível observar aumento na proporção de CREAS com condições de acessibilidade de acordo com a ABNT em todos os quesitos avaliados entre os anos de 2010 e 2016. No entanto, os percentuais permanecem abaixo de 30% em todos os quesitos, o que explicita que a melhoria da acessibilidade nesses equipamentos ainda constitui grande desafio a ser superado (Gráfico 33).
 
-```{r CREAS_acessibilidade, fig.cap = "Evolução percentual de CREAS segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r creas-acessibilidade, fig.cap = "Evolução percentual de CREAS segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 #tabela <- equip_acessibilidade(creas_2010, q9_1, "2010", "1") %>%
 #  bind_rows(equip_acessibilidade(creas_2010, q9_2, "2010", "2")) %>% 
@@ -2836,7 +3260,7 @@ grafico<-tabela %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r CREAS-acessibilidade-situacao, fig.cap = "Evolução percentual de CREAS segundo condições de acessibilidade de acordo com a Norma da ABNT e por situação do imóvel – Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -2870,7 +3294,7 @@ grafico<-tabela %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Considerando os 694 CREAS que funcionavam em imóveis próprios, 1.639 que funcionavam em imóveis alugados e as 188 unidades que funcionavam em imóveis cedidos em 2016, tem-se que as condições de acessibilidade eram melhores nos imóveis próprios: 47,4% dos 694 CREAS que funcionavam em imóveis próprios tinham rota acessível ao banheiro de acordo com a Norma ABNT (329 unidades), enquanto 16,8% dos CREAS que funcionavam em imóveis alugados e 27,1% dos que funcionavam em imóveis cedidos tinham a mesma condição de acessibilidade (276 e 51 unidades, respectivamente). Nos CREAS que funcionavam em imóveis alugados o acesso adaptado com rampas e rotas acessíveis desde a calçada até a recepção foi observado em 19,2% das unidades (314 CREAS) (Gráfico 34).
@@ -2883,333 +3307,211 @@ A existência de computadores com acesso à internet é um importante aspecto a 
 ```
 
 
-```{r CREAS-abordagem-social, fig.cap = "Quantidade de CREAS que realizam o Serviço Especializado em Abordagem Social, 2015 - 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
+```{r CREAS-MSE, fig.cap = "Percentual de CREAS que realizam o Serviço de Proteção Social a Adolescentes em um cumprimento  Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC) - Brasil, 2010 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
+creas_mse  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "Sim"~"Sim",
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("Sim",
+                                            "Não"))) %>% 
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+grafico <- creas_mse(creas_2017, q20, "2017") %>%
+  bind_rows(creas_mse(creas_2018, q16, "2018")) %>%
+  bind_rows(creas_mse(creas_2019, q15, "2019")) %>%
+  bind_rows(creas_mse(creas_2020, q20, "2020")) %>%
+  bind_rows(creas_mse(creas_2021, q20, "2021")) %>%
+  bind_rows(creas_mse(creas_2022, q20, "2022")) %>%
+  
+ 
+  
+  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
+#  geom_col(aes(fill = Nível), position = "dodge") +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 
 
-```{r CREAS-MSE, fig.cap = "Percentual de CREAS que realizam o Serviço de Proteção Social a Adolescentes em um cumprimento  Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC) - Brasil, 2010 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r CREAS-PSE-Domicilio, fig.cap = "Percentual de CREAS que realizam Serviço de proteção social Especial para Pessoas com Deficiência, Idosas e suas Famílias, 2016 a 2022"}
 
+creas_pse  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
 
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "Sim"~"Sim",
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("Sim",
+                                            "Não"))) %>% 
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+grafico <- creas_pse(creas_2016, q38, "2016") %>%
+  bind_rows(creas_pse(creas_2017, q43, "2017")) %>%
+  bind_rows(creas_pse(creas_2018, q35, "2018")) %>%
+  bind_rows(creas_pse(creas_2019, q33, "2019")) %>%
+  bind_rows(creas_pse(creas_2020, q38, "2020")) %>%
+  bind_rows(creas_pse(creas_2021, q39, "2021")) %>%
+  bind_rows(creas_pse(creas_2022, q38, "2022")) %>%
+  
+ # partir de 2018 muda as respostas
+  
+  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
+#  geom_col(aes(fill = Nível), position = "dodge") +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 
-```{r CREAS-PSE-Domicilio, fig.cap = "Percentual de CREAS que realizam Serviço de proteção social Especial para Pessoas com Deficiência, Idosas e suas Famílias, 2016 a 2022."}
+```{r CREAS-abordagem-social, fig.cap = "Quantidade de CREAS que realizam o Serviço Especializado em Abordagem Social, 2018 - 2020 e 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
+creas_psee  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
 
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "Sim, sem equipe específica para o serviço"~"Sim, sem equipe específica para o serviço",
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("Sim, sem equipe específica para o serviço",
+                                            "Não realiza, nem possui o Serviço no município",
+                                            "Não realiza com a equipe deste CREAS, mas no município existe o Serviço",
+                                            "Sim, com equipe específica para o serviço"))) %>%
+                                             
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+grafico <- creas_psee(creas_2018, q35, "2018") %>%
+  #bind_rows(creas_psee(creas_2019, q33, "2019")) %>%
+  bind_rows(creas_psee(creas_2020, q38, "2020")) %>%
+  #bind_rows(creas_pseecreas_2021, q39, "2021")) %>%
+  bind_rows(creas_psee(creas_2022, q38, "2022")) %>%
+  
+ #antes de 2018 as respostas é sim e não;
+ #em 2021 é alterada as categorias das respostas
+  
+  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
+#  geom_col(aes(fill = Nível), position = "dodge") +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
+
+
 Os CREAS atendem a população que se encontra em risco pessoal ou social ou que teve seus direitos violados e atuam na orientação e encaminhamento das pessoas e famílias para os demais serviços da assistência social ou de outras áreas. Assim, a articulação com serviços, programas ou instituições no município para encaminhamento de famílias e indivíduos que estejam em atendimento nos CREAS é fundamental.
 <!-- Em 2016, apenas 0,3% dos CREAS não tinham nenhuma articulação com os CRAS e 0,1% informaram não ter a instituição no município. Assim, 99,6% dos CREAS mantinham alguma articulação com os CRAS, sendo os maiores percentuais observados em relação à existência de dados atualizados dos parceiros com quem o CREAS mantém articulação (98,1%), ao recebimento de usuários encaminhados pelos CREAS (97,9%) e ao recebimento de usuários encaminhados para os CREAS (97,0%). -->
 <!-- Sobre a articulação com o Conselho Tutelar, 0,6% dos CREAS informaram não ter nenhuma articulação e 0,2% informaram que não havia a instituição no município. Dessa forma, 99,2% dos CREAS informaram ter alguma articulação com o Conselho Tutelar, sendo os maiores percentuais observados em relação à posse de dados atualizados (97,9%) e o encaminhamento de usuários para os CREAS (96,2%). -->
 <!-- Os menores percentuais de articulação foram observados em relação aos Centros-Dia (80,8% dos CREAS informaram não haver o serviço no município e 5,6% que não se articulam com essas Unidade) e aos Centros POP (74,5% dos CREAS informaram que não havia serviço ou instituição no município e 3,5% que não se articulavam com essas unidades). -->
 <!-- 19,9% dos CREAS informaram não ter nenhuma articulação com serviços/ programas de segurança alimentar e 18,0% não se articular com Instituições de Ensino e Pesquisa (Tabela 6). -->
-<!-- Tabela 6: Articulação dos CREAS com serviços, programas ou instituições existentes no município - Brasil, 2016 -->
-
-<!-- Serviços, programas ou instituições com os quais o CREAS mantém articulação -->
-<!-- Possui dados da localização (endereço, telefone etc.) -->
-<!-- Recebe usuários encaminhados por este CREAS -->
-<!-- Encaminha usuários para este CREAS -->
-<!-- Acompanha os encaminhamentos -->
-<!-- Realiza reuniões periódicas -->
-<!-- Troca Informações -->
-<!-- Realiza estudos de caso em conjunto -->
-<!-- Desenvolve atividades em parceria -->
-<!-- Não tem nenhuma articulação -->
-<!-- Serviço ou instituição não existente no município -->
-<!-- Serviços de Acolhimento (abrigos e outros) -->
-<!-- 73,9% -->
-<!-- 60,7% -->
-<!-- 60,7% -->
-<!-- 61,6% -->
-<!-- 44,0% -->
-<!-- 69,5% -->
-<!-- 52,3% -->
-<!-- 47,3% -->
-<!-- 1,1% -->
-<!-- 22,9% -->
-<!-- Centro POP -->
-<!-- 20,8% -->
-<!-- 18,4% -->
-<!-- 16,2% -->
-<!-- 14,4% -->
-<!-- 9,5% -->
-<!-- 18,8% -->
-<!-- 12,3% -->
-<!-- 11,7% -->
-<!-- 3,5% -->
-<!-- 74,5% -->
-<!-- CRAS -->
-<!-- 98,1% -->
-<!-- 97,9% -->
-<!-- 97,0% -->
-<!-- 92,0% -->
-<!-- 74,0% -->
-<!-- 96,6% -->
-<!-- 80,5% -->
-<!-- 87,3% -->
-<!-- 0,3% -->
-<!-- 0,1% -->
-<!-- PETI -->
-<!-- 54,8% -->
-<!-- 50,2% -->
-<!-- 48,8% -->
-<!-- 46,4% -->
-<!-- 34,7% -->
-<!-- 51,6% -->
-<!-- 34,4% -->
-<!-- 45,4% -->
-<!-- 3,9% -->
-<!-- 35,5% -->
-<!-- Demais serviços da rede socioassistencial -->
-<!-- 91,4% -->
-<!-- 88,1% -->
-<!-- 85,6% -->
-<!-- 75,5% -->
-<!-- 54,1% -->
-<!-- 85,3% -->
-<!-- 56,4% -->
-<!-- 69,6% -->
-<!-- 1,4% -->
-<!-- 3,3% -->
-<!-- Centro DIA -->
-<!-- 12,7% -->
-<!-- 10,0% -->
-<!-- 9,4% -->
-<!-- 7,7% -->
-<!-- 4,7% -->
-<!-- 10,4% -->
-<!-- 6,0% -->
-<!-- 5,8% -->
-<!-- 5,6% -->
-<!-- 80,8% -->
-<!-- Serviços de saúde mental -->
-<!-- 75,0% -->
-<!-- 72,7% -->
-<!-- 67,9% -->
-<!-- 63,4% -->
-<!-- 38,4% -->
-<!-- 70,0% -->
-<!-- 48,0% -->
-<!-- 45,3% -->
-<!-- 1,3% -->
-<!-- 21,5% -->
-<!-- Demais serviços da rede de saúde -->
-<!-- 95,9% -->
-<!-- 93,1% -->
-<!-- 89,2% -->
-<!-- 74,9% -->
-<!-- 41,9% -->
-<!-- 87,2% -->
-<!-- 50,8% -->
-<!-- 63,3% -->
-<!-- 0,6% -->
-<!-- 0,3% -->
-<!-- Serviços de Educação -->
-<!-- 96,0% -->
-<!-- 90,1% -->
-<!-- 86,5% -->
-<!-- 73,1% -->
-<!-- 40,0% -->
-<!-- 86,5% -->
-<!-- 46,9% -->
-<!-- 63,9% -->
-<!-- 0,8% -->
-<!-- 0,4% -->
-<!-- Serviços de outras políticas públicas -->
-<!-- 86,7% -->
-<!-- 75,4% -->
-<!-- 70,5% -->
-<!-- 52,8% -->
-<!-- 27,8% -->
-<!-- 70,1% -->
-<!-- 31,7% -->
-<!-- 47,0% -->
-<!-- 4,7% -->
-<!-- 3,2% -->
-<!-- Órgãos responsáveis pela emissão de documentação civil básica -->
-<!-- 84,3% -->
-<!-- 65,5% -->
-<!-- 38,5% -->
-<!-- 35,1% -->
-<!-- 10,2% -->
-<!-- 47,2% -->
-<!-- 10,9% -->
-<!-- 21,0% -->
-<!-- 5,4% -->
-<!-- 5,8% -->
-<!-- Serviços/Programas de Segurança Alimentar -->
-<!-- 42,3% -->
-<!-- 24,6% -->
-<!-- 18,4% -->
-<!-- 16,6% -->
-<!-- 7,8% -->
-<!-- 24,1% -->
-<!-- 7,7% -->
-<!-- 14,6% -->
-<!-- 19,9% -->
-<!-- 33,9% -->
-<!-- Poder Jurídico -->
-<!-- 94,6% -->
-<!-- 86,8% -->
-<!-- 91,7% -->
-<!-- 80,2% -->
-<!-- 43,1% -->
-<!-- 81,5% -->
-<!-- 43,6% -->
-<!-- 45,9% -->
-<!-- 0,4% -->
-<!-- 2,1% -->
-<!-- Ministérios Público -->
-<!-- 94,7% -->
-<!-- 90,3% -->
-<!-- 92,1% -->
-<!-- 81,4% -->
-<!-- 45,1% -->
-<!-- 82,9% -->
-<!-- 45,2% -->
-<!-- 47,8% -->
-<!-- 0,4% -->
-<!-- 2,0% -->
-<!-- Defensoria Pública -->
-<!-- 59,5% -->
-<!-- 52,2% -->
-<!-- 42,6% -->
-<!-- 19,6% -->
-<!-- 69,1% -->
-<!-- 48,4% -->
-<!-- 20,9% -->
-<!-- 24,6% -->
-<!-- 4,8% -->
-<!-- 22,2% -->
-<!-- Delegacias Especializadas -->
-<!-- 82,2% -->
-<!-- 69,2% -->
-<!-- 65,2% -->
-<!-- 45,6% -->
-<!-- 15,9% -->
-<!-- 57,8% -->
-<!-- 16,6% -->
-<!-- 25,4% -->
-<!-- 2,9% -->
-<!-- 11,9% -->
-<!-- ONGs que atuam com defesa de direitos ou realizam projetos sociais -->
-<!-- 53,3% -->
-<!-- 41,6% -->
-<!-- 37,2% -->
-<!-- 30,6% -->
-<!-- 14,9% -->
-<!-- 38,9% -->
-<!-- 16,6% -->
-<!-- 25,6% -->
-<!-- 9,4% -->
-<!-- 34,6% -->
-<!-- Instituições de Ensino e Pesquisa -->
-<!-- 35,7% -->
-<!-- 15,4% -->
-<!-- 11,7% -->
-<!-- 9,8% -->
-<!-- 5,5% -->
-<!-- 19,8% -->
-<!-- 5,6% -->
-<!-- 14,0% -->
-<!-- 18,0% -->
-<!-- 44,0% -->
-<!-- Unidades/Serviços de outros municípios -->
-<!-- 59,8% -->
-<!-- 46,6% -->
-<!-- 43,2% -->
-<!-- 28,2% -->
-<!-- 9,5% -->
-<!-- 48,6% -->
-<!-- 12,9% -->
-<!-- 14,6% -->
-<!-- 12,3% -->
-<!-- 18,0% -->
-<!-- Conselho Tutelar -->
-<!-- 97,9% -->
-<!-- 95,8% -->
-<!-- 96,2% -->
-<!-- 91,1% -->
-<!-- 72,1% -->
-<!-- 93,8% -->
-<!-- 77,5% -->
-<!-- 76,4% -->
-<!-- 0,6% -->
-<!-- 0,2% -->
-<!-- Fonte: MDS, Censo SUAS. -->
 
 ### Centro de Referência Especializado para População em Situação de Rua – Centro POP
 
 Os Centros de Referência Especializados para População em Situação de Rua (Centros POP) são unidades públicas que oferecem atendimento especializado para a população em situação de rua, no âmbito da proteção social especial de média complexidade.
-Entre 2011 e 2015 o número de Centros POP cresceu, passando de 90 unidades para 235 no período. Contudo, houve uma redução cinco unidades entre 2015 e 2016, ano no qual foram registradas 230 unidades. A região Centro-Oeste foi a única que teve aumento, de uma unidade. A maior redução ocorreu na região Sudeste, quem em 2016 apesentava 102 Centros POP, cinco a menos que no ano anterior (Gráfico 36).
-Gráfico 36: Evolução do quantitativo de Centros POP segundo grandes regiões – Brasil, 2011 a 2016
-Fonte: MDS, Censo SUAS.
 
-A maior parte dos imóveis onde se localizavam os Centros POP em 2016 eram alugados (68,3%). Em 2016 foi observada uma mudança na tendência de crescimento de funcionamento de Centros POP em imóveis alugados observada desde 2012, com redução de 2,3 pontos percentuais em relação a 2015. Foi observado um aumento de 1,8 pontos percentuais nos Centros POP que funcionam em imóvel próprio em relação ao ano anterior (Gráfico 37). O aumento no percentual de Centros POP funcionando em imóveis próprios observado em 2016 é positivo, pois os riscos de mudanças no local de atendimento são menores nesse tipo de imóvel.
+Entre 2011 e 2015 o número de Centros POP cresceu, passando de 90 unidades para 235 no período. Contudo, houve uma redução cinco unidades entre 2015 e 2016, ano no qual foram registradas 230 unidades. A região Centro-Oeste foi a única que teve aumento, de uma unidade. A maior redução ocorreu na região Sudeste, quem em 2016 apesentava 102 Centros POP, cinco a menos que no ano anterior.
 
-Em 2016 as condições de acessibilidade nos Centros POP que estavam de acordo com a Norma da ABNT melhoraram em relação a 2015 em todos os aspectos, com exceção das rotas acessíveis aos espaços da unidade, que sofreram uma redução de 1,3 pontos percentuais em relação ao ano anterior.  A existência de banheiros adaptados para pessoas com dificuldade de locomoção aumentou de 15,7% em 2015 para 20,0% dos Centros POP em 2016 (Gráfico 38).
+A maior parte dos imóveis onde se localizavam os Centros POP em 2016 eram alugados (68,3%). Em 2016 foi observada uma mudança na tendência de crescimento de funcionamento de Centros POP em imóveis alugados observada desde 2012, com redução de 2,3 pontos percentuais em relação a 2015. Foi observado um aumento de 1,8 pontos percentuais nos Centros POP que funcionam em imóvel próprio em relação ao ano anterior. O aumento no percentual de Centros POP funcionando em imóveis próprios observado em 2016 é positivo, pois os riscos de mudanças no local de atendimento são menores nesse tipo de imóvel.
 
-```{r centro-pop, fig.cap = "Evolução de Centro pop - 2011 a 2022."}
+Em 2016 as condições de acessibilidade nos Centros POP que estavam de acordo com a Norma da ABNT melhoraram em relação a 2015 em todos os aspectos, com exceção das rotas acessíveis aos espaços da unidade, que sofreram uma redução de 1,3 pontos percentuais em relação ao ano anterior.  A existência de banheiros adaptados para pessoas com dificuldade de locomoção aumentou de 15,7% em 2015 para 20,0% dos Centros POP em 2016.
 
-```
 
-```{r cpop_acessibilidade, fig.cap = "Evolução percentual de Centros POP segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r quantitativo-CentroPop, fig.cap = "Evolução do quantitativo de Centro Pop, 2012 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
-#tabela <- equip_acessibilidade(cpop_2011, q8a, "2011", "1") %>%
-#  bind_rows(equip_acessibilidade(cpop_2011, q8b, "2011", "2")) %>% 
-#  bind_rows(equip_acessibilidade(cpop_2011, q8c, "2011", "3")) %>% 
-#  bind_rows(equip_acessibilidade(cpop_2011, q8d, "2011", "4")) %>% 
-tabela <- equip_acessibilidade(cpop_2012, q8_1, "2012", "1") %>%
-  bind_rows(equip_acessibilidade(cpop_2012, q8_2, "2012", "2")) %>% 
-  bind_rows(equip_acessibilidade(cpop_2012, q8_3, "2012", "3")) %>% 
-  bind_rows(equip_acessibilidade(cpop_2012, q8_4, "2012", "4")) %>% 
-  bind_rows(equip_acessibilidade(cpop_2017, q7.1, "2017", "1")) %>%
-  bind_rows(equip_acessibilidade(cpop_2017, q7.2, "2017", "2")) %>% 
-  bind_rows(equip_acessibilidade(cpop_2017, q7.3, "2017", "3")) %>% 
-  bind_rows(equip_acessibilidade(cpop_2017, q7.4, "2017", "4")) %>% 
-  bind_rows(equip_acessibilidade(cpop_2022, q7_1, "2022", "1")) %>%
-  bind_rows(equip_acessibilidade(cpop_2022, q7_2, "2022", "2")) %>% 
-  bind_rows(equip_acessibilidade(cpop_2022, q7_3, "2022", "3")) %>% 
-  bind_rows(equip_acessibilidade(cpop_2022, q7_4, "2022", "4")) %>% 
-  ungroup() %>% 
-  mutate(Categoria=str_wrap(Categoria,width=34))
-
-ordenado<-tabela %>% 
-  filter(Ano == "2022") %>% 
-  arrange(Percentual) %>% 
-  select(Categoria)
-
-ordenado<-factor(ordenado, levels = ordenado$Categoria)
-
-ordenado2<-tabela %>%
-  select(Ano) %>% 
-  distinct() %>% 
-  arrange(Ano)
-
-ordenado2<-factor(ordenado2, levels = ordenado2$Ano)
-
-grafico<-tabela %>% 
-  mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
-  mutate(Ano = factor(Ano, levels = rev(levels(ordenado2)))) %>% 
-  ggplot(aes(x = Categoria, y = Percentual, group = Ano)) +
-  geom_col(aes(fill = Ano), position = "dodge") +
-  geom_text(aes(label = percent(Percentual), y=Percentual+0.03), position = position_dodge(width = 0.9)) +
+grafico <- f_quantitativo_regiao_ano(cpop_2012, Região, "2012") %>%
+   #bind_rows(f_quantitativo_regiao_ano(cpop_2011, IBGE, "2011")) %>%)
+   #bind_rows(f_quantitativo_regiao_ano(cpop_2012, Região, "2012")) %>% 
+   bind_rows(f_quantitativo_regiao_ano(cpop_2013, Região, "2013")) %>% 
+   bind_rows(f_quantitativo_regiao_ano(cpop_2014, IBGE, "2014")) %>% 
+   bind_rows(f_quantitativo_regiao_ano(cpop_2015, IBGE, "2015")) %>% 
+   bind_rows(f_quantitativo_regiao_ano(cpop_2016, IBGE, "2016")) %>% 
+   bind_rows(f_quantitativo_regiao_ano(cpop_2017, Região, "2017")) %>% 
+   bind_rows(f_quantitativo_regiao_ano(cpop_2018, Região, "2018")) %>% 
+   bind_rows(f_quantitativo_regiao_ano(cpop_2019, Região, "2019")) %>% 
+   bind_rows(f_quantitativo_regiao_ano(cpop_2020, IBGE, "2020")) %>% 
+   bind_rows(f_quantitativo_regiao_ano(cpop_2021, IBGE, "2021")) %>% 
+   #bind_rows(f_quantitativo_regiao_ano(cpop_2022, IBGE, "2022")) %>% 
+   
+  ggplot(aes(x = Região, y = n, group = Ano)) +
+  geom_col(aes(fill = Ano), position="dodge") +
+  geom_text(aes(label = format(n, big.mark="."), y=n+300), position = position_dodge(width = 0.9), angle = 90, size = 2.5) +
   scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  coord_flip() +
   theme(legend.position="bottom",
         legend.title = element_blank(),
         axis.title = element_blank(),
         axis.ticks = element_blank(),
-        axis.text.x = element_blank(),
-        axis.line.y = element_line(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
         panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Em 2016, dos 58 Centros POP que funcionavam em imóveis próprios, 34,5% (20 unidades) tinham banheiro adaptado para pessoas com dificuldades de locomoção ou necessidades especiais de acordo com a Norma da ABNT, enquanto entre os 157 imóveis locados apenas 14,0% (22 unidades) tinham essa adaptação. A rota acessível ao banheiro estava presente em 26,7% dos 15 imóveis cedidos (4 unidades) e apenas 14,0% dos imóveis locados (22 unidades) (Gráfico 39).
@@ -3245,7 +3547,7 @@ grafico<-tabela %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Em 2016, 89,6% dos Centros POP tinham computador com acesso à internet.  Apenas 2 unidades (0,9% do total) informaram não possuir computador. Tanto os valores absolutos de unidades com computador com acesso à internet quanto o percentual total aumentaram desde 2014 (Gráfico 40).
@@ -3260,285 +3562,52 @@ Considerando que os Centros POP servem de apoio para que os usuários possam rea
 Gráfico 41: Percentual de Centros POP que possuem armários de uso individualizado, geladeira, fogão e máquina de lavar roupas – Brasil, 2015 e 2016
 Fonte: MDS, Censo SUAS.
 
-<!-- A articulação dos Centros POP com serviços, programas ou instituições no município para encaminhamento de pessoas que estejam em atendimento é fundamental, uma vez que são múltiplas as necessidades de acesso a direitos por parte dessa população.  -->
-<!-- Em 2016, 0,4% dos Centros POP informaram não ser articular com CRAS e com CREAS, enquanto 97,4% indicaram possuir dados da localização dos CRAS e 97,8% dos CREAS. Na articulação com os CRAS, 91,3% indicaram que o CRAS recebe usuários do Centro POP e 92,6% informaram que o CREAS recebe usuários encaminhados. Apenas 0,9% dos Centros Pop informou não se articular com órgãos responsáveis pela emissão de documentação civil básica e 2,2% informaram não se articular com Órgãos de defesa de direitos e com os demais serviços da rede socioassistencial.  -->
-<!-- Os menores percentuais de articulação foram observados com os movimentos organizados da população em situação de rua (49,1% dos Centros POP informaram não haver o serviço no município e 15,7% que não se articulavam com esses movimentos) e com programas/ projetos de inclusão digital (13,9% dos Centros POP informaram que não havia esse programa/ projeto no município e 45,2% que não se articulavam com essas unidades) (Tabela 7). -->
-<!-- Tabela 7: Articulação dos Centros POP com serviços, programas ou instituições existentes no município - Brasil, 2016 -->
 
-<!-- Serviços, programas ou instituições com os quais o Centro POP mantém articulação -->
-<!-- Possui dados da localização (endereço, telefone etc.) -->
-<!-- Recebe usuários encaminhados por este Centro POP -->
-<!-- Encaminha usuários para este Centro POP -->
-<!-- Acompanha os encaminhamentos -->
-<!-- Realiza reuniões periódicas -->
-<!-- Troca Informações -->
-<!-- Realiza estudos de caso em conjunto -->
-<!-- Desenvolve atividades em parceria -->
-<!-- Possui fluxo/protocolo de articulação -->
-<!-- Não tem nenhuma articulação -->
-<!-- Serviço ou instituição não existente no município -->
-<!-- Serviço Especializado em Abordagem Social (quando não ofertado pelo Centro de Referência para Pop Rua) -->
-<!-- 60,0% -->
-<!-- 45,2% -->
-<!-- 53,5% -->
-<!-- 47,4% -->
-<!-- 39,6% -->
-<!-- 57,8% -->
-<!-- 42,6% -->
-<!-- 45,2% -->
-<!-- 35,7% -->
-<!-- 13,9% -->
-<!-- 20,0% -->
-<!-- Serviços de Acolhimento (abrigos institucionais, casas de passagem, repúblicas) -->
-<!-- 91,3% -->
-<!-- 85,7% -->
-<!-- 85,2% -->
-<!-- 75,2% -->
-<!-- 60,4% -->
-<!-- 86,1% -->
-<!-- 64,3% -->
-<!-- 58,3% -->
-<!-- 62,2% -->
-<!-- 2,6% -->
-<!-- 4,8% -->
-<!-- Centro de Referência de Assistência Social (CRAS) -->
-<!-- 97,4% -->
-<!-- 91,3% -->
-<!-- 92,6% -->
-<!-- 68,3% -->
-<!-- 30,4% -->
-<!-- 90,4% -->
-<!-- 42,6% -->
-<!-- 40,0% -->
-<!-- 43,5% -->
-<!-- 0,4% -->
-<!-- 0,0% -->
-<!-- Centro de Referência Especializado de Assistência Social (CREAS) -->
-<!-- 97,8% -->
-<!-- 92,6% -->
-<!-- 93,9% -->
-<!-- 76,1% -->
-<!-- 40,9% -->
-<!-- 91,3% -->
-<!-- 59,1% -->
-<!-- 49,6% -->
-<!-- 47,8% -->
-<!-- 0,4% -->
-<!-- 0,0% -->
-<!-- Demais serviços da rede socioassistencial -->
-<!-- 96,5% -->
-<!-- 87,0% -->
-<!-- 81,3% -->
-<!-- 60,4% -->
-<!-- 27,8% -->
-<!-- 80,9% -->
-<!-- 40,0% -->
-<!-- 39,6% -->
-<!-- 33,0% -->
-<!-- 1,7% -->
-<!-- 0,9% -->
-<!-- Serviços de Saúde Mental (CAPS, CAPS AD, etc.) -->
-<!-- 97,0% -->
-<!-- 90,0% -->
-<!-- 89,6% -->
-<!-- 81,3% -->
-<!-- 47,4% -->
-<!-- 91,3% -->
-<!-- 65,2% -->
-<!-- 53,9% -->
-<!-- 43,5% -->
-<!-- 0,4% -->
-<!-- 0,4% -->
-<!-- Equipes da Saúde que atuem no espaço da rua (Consultórios na Rua ou outros); -->
-<!-- 50,9% -->
-<!-- 44,3% -->
-<!-- 46,5% -->
-<!-- 39,1% -->
-<!-- 30,0% -->
-<!-- 45,2% -->
-<!-- 33,0% -->
-<!-- 35,7% -->
-<!-- 24,3% -->
-<!-- 7,8% -->
-<!-- 39,6% -->
-<!-- Serviços de saúde voltados à internação -->
-<!-- 81,7% -->
-<!-- 60,9% -->
-<!-- 60,0% -->
-<!-- 47,4% -->
-<!-- 10,4% -->
-<!-- 63,5% -->
-<!-- 15,7% -->
-<!-- 13,1% -->
-<!-- 22,6% -->
-<!-- 9,1% -->
-<!-- 7,4% -->
-<!-- Comunidades Terapêuticas -->
-<!-- 68,7% -->
-<!-- 56,1% -->
-<!-- 44,8% -->
-<!-- 40,9% -->
-<!-- 10,4% -->
-<!-- 56,5% -->
-<!-- 15,2% -->
-<!-- 16,5% -->
-<!-- 20,0% -->
-<!-- 17,8% -->
-<!-- 9,6% -->
-<!-- Demais Serviços da rede de Saúde -->
-<!-- 94,3% -->
-<!-- 82,2% -->
-<!-- 80,0% -->
-<!-- 57,0% -->
-<!-- 17,4% -->
-<!-- 77,4% -->
-<!-- 21,3% -->
-<!-- 28,3% -->
-<!-- 27,4% -->
-<!-- 2,2% -->
-<!-- 1,7% -->
-<!-- Órgãos responsáveis pela emissão de documentação civil básica -->
-<!-- 94,8% -->
-<!-- 69,6% -->
-<!-- 60,9% -->
-<!-- 55,7% -->
-<!-- 7,8% -->
-<!-- 60,0% -->
-<!-- 6,5% -->
-<!-- 19,6% -->
-<!-- 30,0% -->
-<!-- 0,9% -->
-<!-- 0,0% -->
-<!-- Serviços/Programas de Segurança Alimentar -->
-<!-- 54,3% -->
-<!-- 21,7% -->
-<!-- 18,3% -->
-<!-- 10,0% -->
-<!-- 4,8% -->
-<!-- 21,3% -->
-<!-- 3,9% -->
-<!-- 9,1% -->
-<!-- 9,1% -->
-<!-- 27,0% -->
-<!-- 16,1% -->
-<!-- Serviços/Programas de Habitação -->
-<!-- 76,1% -->
-<!-- 47,0% -->
-<!-- 43,9% -->
-<!-- 37,0% -->
-<!-- 7,4% -->
-<!-- 44,8% -->
-<!-- 12,6% -->
-<!-- 11,7% -->
-<!-- 20,0% -->
-<!-- 19,1% -->
-<!-- 3,5% -->
-<!-- Serviços/Programas de Geração de Trabalho e renda -->
-<!-- 84,8% -->
-<!-- 50,9% -->
-<!-- 50,4% -->
-<!-- 40,4% -->
-<!-- 10,9% -->
-<!-- 51,7% -->
-<!-- 9,1% -->
-<!-- 13,9% -->
-<!-- 16,1% -->
-<!-- 9,1% -->
-<!-- 3,9% -->
-<!-- Serviços de outras políticas públicas -->
-<!-- 87,0% -->
-<!-- 63,9% -->
-<!-- 64,8% -->
-<!-- 41,7% -->
-<!-- 12,6% -->
-<!-- 54,8% -->
-<!-- 13,5% -->
-<!-- 20,9% -->
-<!-- 20,0% -->
-<!-- 7,8% -->
-<!-- 1,3% -->
-<!-- Programas/projetos de inclusão digital -->
-<!-- 38,7% -->
-<!-- 18,7% -->
-<!-- 15,2% -->
-<!-- 8,7% -->
-<!-- 2,6% -->
-<!-- 16,5% -->
-<!-- 3,0% -->
-<!-- 3,5% -->
-<!-- 6,1% -->
-<!-- 45,2% -->
-<!-- 13,9% -->
-<!-- Órgãos de Defesa de Direitos (Poder Judiciário, Ministério Público, Defensoria Pública, etc.) -->
-<!-- 95,2% -->
-<!-- 81,7% -->
-<!-- 83,0% -->
-<!-- 64,8% -->
-<!-- 25,2% -->
-<!-- 73,5% -->
-<!-- 27,0% -->
-<!-- 30,0% -->
-<!-- 33,0% -->
-<!-- 2,2% -->
-<!-- 0,4% -->
-<!-- Movimentos organizados da população em situação de rua -->
-<!-- 32,6% -->
-<!-- 19,6% -->
-<!-- 18,3% -->
-<!-- 12,6% -->
-<!-- 9,1% -->
-<!-- 24,8% -->
-<!-- 4,8% -->
-<!-- 12,2% -->
-<!-- 0,0% -->
-<!-- 15,7% -->
-<!-- 49,1% -->
-<!-- ONGs que atuam com defesa de direitos -->
-<!-- 48,3% -->
-<!-- 25,2% -->
-<!-- 29,1% -->
-<!-- 15,2% -->
-<!-- 6,5% -->
-<!-- 31,3% -->
-<!-- 7,0% -->
-<!-- 13,0% -->
-<!-- 6,5% -->
-<!-- 26,1% -->
-<!-- 20,9% -->
-<!-- ONGs que realizam projetos sociais -->
-<!-- 63,9% -->
-<!-- 39,1% -->
-<!-- 44,3% -->
-<!-- 24,8% -->
-<!-- 11,3% -->
-<!-- 43,0% -->
-<!-- 10,4% -->
-<!-- 16,5% -->
-<!-- 9,1% -->
-<!-- 23,0% -->
-<!-- 8,3% -->
-<!-- Unidades / Serviços de outros municípios -->
-<!-- 77,4% -->
-<!-- 57,4% -->
-<!-- 58,3% -->
-<!-- 27,8% -->
-<!-- 7,4% -->
-<!-- 63,9% -->
-<!-- 11,3% -->
-<!-- 8,7% -->
-<!-- 15,2% -->
-<!-- 12,2% -->
-<!-- 2,6% -->
-<!-- Fonte: MDS, Censo SUAS. -->
+<!-- A articulação dos Centros POP com serviços, programas ou instituições no município para encaminhamento de pessoas que estejam em atendimento é fundamental, uma vez que são múltiplas as necessidades de acesso a direitos por parte dessa população.  -->
+
+
+
+<!-- Em 2016, 0,4% dos Centros POP informaram não ser articular com CRAS e com CREAS, enquanto 97,4% indicaram possuir dados da localização dos CRAS e 97,8% dos CREAS. Na articulação com os CRAS, 91,3% indicaram que o CRAS recebe usuários do Centro POP e 92,6% informaram que o CREAS recebe usuários encaminhados. Apenas 0,9% dos Centros Pop informou não se articular com órgãos responsáveis pela emissão de documentação civil básica e 2,2% informaram não se articular com Órgãos de defesa de direitos e com os demais serviços da rede socioassistencial.  -->
+
+
+<!-- Os menores percentuais de articulação foram observados com os movimentos organizados da população em situação de rua -49,1% dos Centros POP informaram não haver o serviço no município e 15,7% que não se articulavam com esses movimentos- e com programas-projetos de inclusão digital -13,9% dos Centros POP informaram que não havia esse programa-projeto no município e 45,2% que não se articulavam com essas unidades -->
 
 ### Centro-Dia
 
 O Centro-Dia é uma unidade pública especializada que atende pessoas com deficiência e suas famílias, no âmbito da proteção social especial de média complexidade. 
+
 No ano de 2016 existiam 1.345 Centros-Dia, localizados majoritariamente na região Sudeste (812 unidades ou 60,4% do total).  A região com o menor número de unidades era a Norte com 13 unidades (1,0% do total).
+
 Observa-se que houve redução na quantidade de unidades nas regiões Norte (3 unidades a menos), Sul (34) e Centro-Oeste (7), e aumento nas regiões Nordeste (13 unidades a mais) e Sudeste (36) em relação ao ano de 2015 (Gráfico 42). Houve um aumento de 5 unidades no Brasil em comparação ao ano anterior.
 
-```{r cdia-evolucao, fig.cap = "Evolução de CENTRO DIA - 2015 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r quantitativo-Centrodia, fig.cap = "Evolução do quantitativo de Centro dia, segundo grandes regiões; 2015 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
+grafico <- f_quantitativo_regiao_ano(cedia_2015, Região, "2015") %>%
+   bind_rows(f_quantitativo_regiao_ano(cedia_2016, Região, "2016")) %>% 
+   bind_rows(f_quantitativo_regiao_ano(cedia_2017, IBGE, "2017")) %>% 
+   bind_rows(f_quantitativo_regiao_ano(cedia_2018, IBGE, "2018")) %>% 
+   bind_rows(f_quantitativo_regiao_ano(cedia_2019, IBGE, "2019")) %>% 
+   bind_rows(f_quantitativo_regiao_ano(cedia_2020, IBGE, "2020")) %>% 
+   bind_rows(f_quantitativo_regiao_ano(cedia_2021, IBGE, "2021")) %>% 
+   bind_rows(f_quantitativo_regiao_ano(cedia_2022, IBGE, "2022")) %>% 
+  
+  
+  ggplot(aes(x = Região, y = n, group = Ano)) +
+  geom_col(aes(fill = Ano), position="dodge") +
+  geom_text(aes(label = format(n, big.mark="."), y=n+300), position = position_dodge(width = 0.9), angle = 90, size = 2.5) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r cdia-natureza, fig.cap = "Quantitativo de Centros Dia por Natureza da Unidade - BRASIL, 2015 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -3605,7 +3674,7 @@ grafico<-tabela %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Além das condições de acessibilidades que foram anteriormente informadas (acesso principal adaptado com rampas e rota acessível à Unidade, rotas acessíveis aos espaços e banheiros, e banheiro adaptado para pessoas com deficiência e/ou mobilidade reduzida), os outros tipos de adaptações mais encontrados foram outras adaptações e tecnologias assistivas para deficiência intelectual e autismo (observado em 393 unidades), seguido do suporte de profissional com conhecimento em LIBRAS (com ocorrência em 380 unidades) (Gráfico 45).
@@ -3654,9 +3723,13 @@ Por outro lado, foi observada queda no percentual de CRAS que executavam diretam
 
 UNIDADES DE ACOLHIMENTO
 As Unidades de Acolhimento são equipamentos que prestam serviços de proteção social especial de alta complexidade, atendendo pessoas e/ou famílias com vínculos familiares rompidos ou fragilizados, ou que estejam em situação de abandono, ameaça ou violação de direitos, de forma a garantir sua proteção integral. 
-As informações sobre as Unidades de Acolhimento começaram a ser coletadas pelo Censo Suas a partir do ano de 2012. Entre 2012 e 2016 foram criadas 1.254 novas Unidades, sendo 5.614 no total. A maior concentração de unidades no ano de 2016 é na região Sudeste do país, com 2.990 Unidades de Acolhimento (Gráfico 48).
-Gráfico 48: Evolução do quantitativo de Unidades de Acolhimento segundo grandes regiões – Brasil, 2012 a 2016
-Fonte: MDS, Censo SUAS.
+As informações sobre as Unidades de Acolhimento começaram a ser coletadas pelo Censo Suas a partir do ano de 2012. Entre 2012 e 2016 foram criadas 1.254 novas Unidades, sendo 5.614 no total. A maior concentração de unidades no ano de 2016 é na região Sudeste do país, com 2.990 Unidades de Acolhimento.
+
+
+```{r unac-natureza, fig.cap = "Quantidade de Unidades de Acolhimento por Público Atendido  - 2014 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+
+```
 
 A maioria das Unidades de Acolhimento, em 2016, era composta por instituições não governamentais. Esse percentual variou pouco entre 2012 e 2016, atingindo 64,7% em 2016 (Gráfico 49).
 Gráfico 49: Percentual de Unidades de Acolhimento segundo natureza da unidade - Brasil, 2012 a 2016
@@ -3715,14 +3788,14 @@ grafico<-tabela %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Em 2016, 75,9% dos computadores das Unidades de Acolhimento tinham acesso à internet, um aumento de 7,2 pontos percentuais em relação a 2012 e redução de 0,5% em relação ao ano anterior (Gráfico 51).
 Gráfico 51: Percentual de Unidades de Acolhimento com computadores com acesso à internet – Brasil, 2012 e 2016
 Fonte: MDS, Censo SUAS.
 
-```{r unac-natureza, fig.cap = "Percentual de Unidades de Acolhimento segundo natureza da unidade - Brasil, 2014 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r unac-natureza-publico, fig.cap = "Percentual de Unidades de Acolhimento segundo natureza da unidade - Brasil, 2014 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 ```
 
@@ -4131,21 +4204,224 @@ Fonte: MDS, Censo SUAS.
 
 ## Cadastro Único para Programas Sociais
 
-```{r equip-cadunico, fig.cap = "Percentual de CRAS, Centro de Convivência, CREAS e Centro Pop com locais para CadÚnico - 2018 - 2022",fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r equip-cadunico-cras, fig.cap = " Percentual de CRAS com locais para CadÚnico - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+
+equip_cadunico  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "Sim, com equipe exclusiva para esta finalidade"~"Sim, com equipe exclusiva para esta finalidade",
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("Sim, com equipe exclusiva para esta finalidade",
+                                            "Sim, com outra equipe",
+                                            "Sim, com a equipe responsável pelo PAIF",
+                                            "Não"))) %>% 
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+grafico <- equip_cadunico(cras_2017, q35, "2017") %>%
+  bind_rows(equip_cadunico(cras_2018, q_40, "2018")) %>% 
+  #bind_rows(equip_cadunico(centro, q15, "2018")) %>% 
+  bind_rows(equip_cadunico(cras_2019, q39, "2019")) %>% 
+  #bind_rows(equip_cadunico(cras_2018, q_16, "2018")) %>%
+  #bind_rows(equip_cadunico(cras_2019, q15, "2019")) %>%
+  bind_rows(equip_cadunico(cras_2020, q39, "2020")) %>%
+  bind_rows(equip_cadunico(cras_2021, q39, "2021")) %>%
+  bind_rows(equip_cadunico(cras_2022, q39, "2022")) %>%
+  
+ 
+  
+  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
+#  geom_col(aes(fill = Nível), position = "dodge") +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+```{r equip-cadunico-creas, fig.cap = " Percentual de CREAS com locais para CadÚnico e disposição da equipe - 2018 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+
+equip_Creas_cadunico  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "Sim, com equipe exclusiva para esta finalidade"~"Sim, com equipe exclusiva para esta finalidade",
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("Sim, com equipe exclusiva para esta finalidade",
+                                            "Sim, com outra equipe",
+                                            "Sim, com a equipe responsável pelo PAEFI",
+                                            "Não cadastra nem encaminha usuárias(os) para o CadÚnico",
+                                            "Não, apenas encaminha a(o) usuária(o) para realização do cadastramento em outro local/unidade"))) %>% 
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+grafico <- equip_Creas_cadunico(creas_2018, q44, "2018") %>%
+   bind_rows(equip_Creas_cadunico(creas_2019, q42, "2019")) %>% 
+   bind_rows(equip_Creas_cadunico(creas_2020, q47, "2020")) %>%
+   bind_rows(equip_Creas_cadunico(creas_2021, q47, "2021")) %>%
+   bind_rows(equip_Creas_cadunico(creas_2022, q47, "2022")) %>%
+ 
+  
+  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
+#  geom_col(aes(fill = Nível), position = "dodge") +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+```{r equip-cadunico-centropop, fig.cap = " Percentual de Centro Pop com locais para CadÚnico e disposição da equipe - 2018 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+
+equip_cpop_cadunico  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "Sim, com equipe exclusiva para esta finalidade"~"Sim, com equipe exclusiva para esta finalidade",
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("Sim, com a equipe responsável pelo Serviço Especializado para Pessoas em Situação de Rua",
+                                            "Não, apenas encaminha a(o) usuária(o) para realização do cadastramento em outro local/unidade",
+                                            "Não cadastra nem encaminha usuárias(os) para o CadÚnico",
+                                            "Sim, com equipe exclusiva para esta finalidade",
+                                            "Sim, com outra equipe"))) %>% 
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+grafico <- equip_cpop_cadunico(cpop_2018, q27, "2018") %>%
+   bind_rows(equip_cpop_cadunico(cpop_2019, q26, "2019")) %>% 
+   #bind_rows(equip_cpop_cadunico(cpop_2020, q35, "2020")) %>%
+   bind_rows(equip_cpop_cadunico(cpop_2021, q35, "2021")) %>%
+   #bind_rows(equip_cpop_cadunico(cpop_2022, q35, "2022")) %>%
+  
+  #centro pop 2019 a base estar com códigos - pedir a base nominal
+
+  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
+#  geom_col(aes(fill = Nível), position = "dodge") +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+```{r postos-cadunico, fig.cap = "Evolução de Postos do Cadastro Único - 2015 - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_quantitativo_regiao_ano(posto_cadunico_2021, IBGE, "2021") %>%
+    #bind_rows(f_quantitativo_regiao_ano(posto_cadunico_2021, Região, "2021")) %>%)
+    bind_rows(f_quantitativo_regiao_ano(posto_cadunico_2022, IBGE, "2022")) %>% 
+   
+  ggplot(aes(x = Região, y = n, group = Ano)) +
+  geom_col(aes(fill = Ano), position="dodge") +
+  geom_text(aes(label = format(n, big.mark="."), y=n+300), position = position_dodge(width = 0.9), angle = 90, size = 2.5) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+## Povos Tradicionais - Região 
+
+```{r povos-tradicionais_cras, fig.cap = "Percentual de CRAS que atendem povos e comunidades tradicionais -  por grupos , Região - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
 
 ```
 
-```{r postos-cadunico, fig.cap = "Evolução de Postos do Cadastro Único",fig.footer = "Fonte: MDS, Censo SUAS."}
 
+```{r povos-tradicionais, fig.cap = "Percentual de CREAS que atendem povos e comunidades tradicionais -  por grupos , Região - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_selecao_regiao_ano (creas_2022, q52_1, "Sim", Região, "Povos Indígenas") %>%
+    bind_rows(f_selecao_regiao_ano(creas_2022, q52_2, "Sim", Região, "Comunidade Quilombola")) %>% 
+    #bind_rows(f_selecao_regiao_ano(creas_2022, q52_3, "Sim", Regiao, "Povos Ciganos")) %>% 
+    bind_rows(f_selecao_regiao_ano(creas_2022, q52_4, "Sim", Região, "Comunidade Ribeirinha")) %>% 
+    bind_rows(f_selecao_regiao_ano(creas_2022, q52_6, "Sim", Região, "Povos de Matriz Africana e de terreiro")) %>% 
+    bind_rows(f_selecao_regiao_ano(creas_2022, q52_6, "Sim", Região, "Comunidades Extrativistas")) %>% 
+    #bind_rows(f_selecao_regiao_ano(creas_2022, q52_99, "Sim", Região, "outros povos e comunidades tradicionais")) %>% 
+  
+  ggplot(aes(x = Região, y = Percentual, group = Ano)) +
+  geom_col(aes(fill = Ano), position="dodge") +
+  geom_text(aes(label = percent(Percentual), y=Percentual+.05), position = position_dodge(width = 0.9), angle = 90) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-## Povos Tradicionais
-
-```{r povos-tradicionais, fig.cap = "Número de CRAS, CREAS que atendem povos e comunidades tradicionais - Brasil, 2014 - 2022",fig.footer = "Fonte: MDS, Censo SUAS."}
-
-```
 
 ## Benefícios Eventuais
+
 
 ```{r be-munic, fig.cap = "Percentual de Municípios que concedem Benefícios Eventuais - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -4193,11 +4469,62 @@ grafico<-tabela %>%
 
 grafico
 
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-```{r be-local, fig.cap = "Local de concessão dos Benefícios Eventuais - 2014-2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r be-local-qtd, fig.cap = "Local de concessão dos Benefícios Eventuais - 2014-2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
+```
+
+```{r be-local, fig.cap = "Percentual de Municípios que concedem Benefícios Eventuais - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+tabela<-gm_2022 %>%
+# Questionário 2022:
+  select("Situação de Morte"=q56_1_3,
+         "Situação de Natalidade"=q56_2_3,
+         "Situação de Calamidade Pública"=q56_3_3,
+         "Situação de Vulnerabildiade Temporária"=q56_4_3) %>%
+         
+#-------------------
+  gather("Categoria","Nível") %>% 
+  mutate(Categoria=str_wrap(Categoria,width=39)) %>%  
+  mutate(Nível = case_when(Nível=="Em ambas"~"Em ambas",
+                           Nível=="Na sede"~"Na sede do órgão gestor",
+                           Nível=="Unidades"~"Em unidades da rede socioassistencial",
+                           is.na(Nível)~"Não informou",
+                           TRUE ~ Nível)) %>% 
+  group_by(Categoria, Nível) %>%
+  summarise(n=n()) %>%
+  group_by(Categoria) %>% 
+  mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+
+ordenado<-tabela %>% 
+  filter(Nível == "Em unidades da rede socioassistencial") %>% 
+  arrange(Percentual) %>% 
+  select(Categoria)
+
+ordenado<-factor(ordenado, levels = ordenado$Categoria)
+
+grafico<-tabela %>% 
+  ungroup() %>% 
+  mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
+  mutate(Nível=str_wrap(Nível,width=22)) %>% 
+  ggplot(aes(x = Categoria, y = Percentual)) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text(aes(y=Posição, label = percent(Percentual))) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  coord_flip() +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.x = element_blank(),
+        axis.line.y = element_line(),
+        panel.background = element_blank())
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 **Capítulo 6 - Participação social no SUAS**
@@ -4518,6 +4845,17 @@ Os dados do censo mostram que a institucionalização dos conselhos vem gradativ
 Entretanto, o percentual de conselhos que fiscalizam serviços, programas, projetos e benefícios socioassistenciais segue como um desafio a ser superado. Em 2016, dentre os Conselhos Municipais, 53,6% fiscalizavam apenas a rede pública e 36,4% fiscalizavam ambas as redes, pública e privada. Por sua vez, entre os Conselhos Estaduais 25,9% fiscalizaram apenas a rede pública, enquanto 48,1% fiscalizaram ambas as redes. Quanto ao acompanhamento e fiscalização da execução do Programa Bolsa Família, até 2015 ocorreu uma queda considerável no percentual de Conselhos Estaduais, passando de 84,6% no ano de 2013, para 65,4% em 2014 e 63,0% em 2015; porém, em 2016, verifica-se um aumento relevante, alcançando 77,8%. Já em relação aos Conselhos Municipais, o percentual vem crescendo, assim, o resultado em 2016 foi que 87,7% fiscalizaram e acompanharam o Programa Bolsa Família.
 Analisando a distribuição do percentual da frequência de atividades realizadas pelos Conselhos Estaduais em 2016, percebe-se que 51,9% (14) deles nunca acompanharam votações/discussões do Poder Legislativo local, 44,4% (12) nunca realizaram reuniões descentralizadas, 40,7% (11) nunca realizaram ações de mobilização social, 29,6% (8) realizaram anualmente visitas nas unidades da rede Socioassistencial, 40,7% (11) realizavam anualmente reuniões ampliadas, enquanto 33,3% (9) recebiam denúncia anualmente.
 Informações mais detalhadas sobre estrutura física, previsão orçamentária,  composição, normatização e atividades realizadas pelo Conselhos Municipais e Estaduais de Assistência Social, além de outros dados sobre regulamentação de benefícios eventuais e inscrição das entidades e organizações de assistência social, serviços, programas, projetos e benefícios socioassistenciais poderão ser consultadas na versão eletrônica do CensoSUAS 2016 disponível em https://aplicacoes.mds.gov.br/sagi/portal/index.php?grupo=105.
+
+
+
+**Capítulo 7 - INDICADORES DO SUAS**
+
+
+*ID CRAS - Indíce de Desenvolvimento do CRAS*
+
+*ID CREAS -Indíce de Desenvolvimento do CREAS*
+
+*ID CONSELHO - Indíce de Desenvolvimento dos Conselhos Municipais de Assistência Social*
 
 
 Referências Bibliográficas:
