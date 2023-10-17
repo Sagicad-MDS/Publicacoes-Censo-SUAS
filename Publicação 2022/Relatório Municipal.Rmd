@@ -1,0 +1,498 @@
+---
+title: Relatório Municipal
+subtitle: Indicadores
+date:
+author:
+  - Secretaria de Avaliação, Gestão da Informação e Cadastro Único
+  - Secretaria Nacional de Assistência Social
+  - Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome
+
+documentclass: article
+
+classoption: brazilian
+
+header-includes:
+  - \usepackage{babel}
+  - \usepackage[utf8]{inputenc}
+  - \usepackage{booktabs}
+  - \usepackage{graphicx}
+  - \usepackage{tabulary}
+  - \usepackage{hyperref}
+  - \usepackage{multirow}
+  - \usepackage{chngcntr}
+  - \usepackage{caption}
+  - \usepackage{floatrow}
+  - \floatsetup[figure]{capposition=top}
+  - \floatsetup[table]{capposition=top}
+  - \usepackage{titling}
+  - \usepackage{cleveref}
+
+output:
+  pdf_document:
+    number_sections: true
+  html_document:
+    number_sections: true
+---
+
+\addto\captionsbrazilian{\renewcommand{\figurename}{Gráfico}}
+\crefname{figure}{gráfico}{gráficos}
+
+<!-- \newcommand{\subtitle}[1]{% -->
+  <!-- \posttitle{% -->
+    <!-- \par\end{center} -->
+    <!-- \begin{center}\large#1\end{center} -->
+    <!-- \vskip0.5em}% -->
+<!-- } -->
+
+
+```{r setup, include=FALSE}
+Sys.setlocale("LC_ALL","Portuguese_Brazil.utf8")
+
+knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE)
+
+lista.de.pacotes = c("tinytex","tidyr", "purrr", "dplyr",
+                     "lubridate","janitor","readxl","stringr",
+                     "repmis","survey","srvyr","scales",
+                     "ggrepel","renv") # escreva a lista de pacotes
+
+novos.pacotes <- lista.de.pacotes[!(lista.de.pacotes %in%
+                                      installed.packages()[,"Package"])]
+
+if(length(novos.pacotes) > 0) {install.packages(novos.pacotes, repos = "http://cran.r-project.org")}
+lapply(lista.de.pacotes, require, character.only=T)
+rm(lista.de.pacotes,novos.pacotes)
+gc()
+
+hook_plot_tex_footer <- function(x, options) {  
+  x_out <- knitr:::hook_plot_tex(x, options) 
+  if(!is.null(options$fig.footer)) {
+    inter <- sprintf("\\floatfoot{%s}\n\\end{figure}", options$fig.footer[1])
+    x_out <- gsub(x=x_out, pattern="\n\\end{figure}", replacement=inter, fixed=TRUE)
+  }
+  x_out
+}
+
+knitr::knit_hooks$set(plot=hook_plot_tex_footer)
+
+# Município
+
+municipio = 355030
+
+dados_municipio <- read_excel("../RELATORIO_DTB_BRASIL_MUNICIPIO.xls", skip = 6) %>%
+                    mutate(`Código Município` = substr(`Código Município Completo`,1,6)) %>%
+                    filter(`Código Município` == municipio)
+
+nome_municipio <- dados_municipio %>% pull(Nome_Município)
+uf_municipio <- dados_municipio %>% pull(Nome_UF)
+
+```
+
+\counterwithout{figure}{section}
+\counterwithout{table}{section}
+\counterwithout{footnote}{section}
+\captionsetup[figure]{labelfont=bf,textfont=bf}
+\captionsetup[table]{labelfont=bf,textfont=bf}
+\newcommand\fnote[1]{\captionsetup{font=small, textfont=normalfont}\caption*{#1}}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+
+```{r carregamento, cache=TRUE}
+
+idconselho_2014 <- read_excel("../ID CONSELHO/IDConselho2014_alterado_08-12-2016.xlsx",sheet = 1)
+idconselho_2015 <- read_excel("../ID CONSELHO/ID CONSELHO - 2015.xlsx",sheet = 1)
+idconselho_2016 <- read_excel("../ID CONSELHO/ID CONSELHO - 2016.xlsx",sheet = 1)
+idconselho_2017 <- read_excel("../ID CONSELHO/ID CONSELHO - 2017.xlsx",sheet = 1)
+idconselho_2018 <- read_excel("../ID CONSELHO/ID CONSELHO - 2018.xlsx",sheet = 1)
+idconselho_2019 <- read_excel("../ID CONSELHO/ID CONSELHO - 2019.xlsx",sheet = 1)
+idconselho_2020 <- read_excel("../ID CONSELHO/ID CONSELHO - 2020.xlsx",sheet = 1)
+idconselho_2021 <- read_excel("../ID CONSELHO/IDCONSELHO_2021_divulgacao.xlsx",sheet = 1)
+idconselho_2022 <- read_excel("../ID CONSELHO/IDConselho_Municipal_2022_divulgacao.xlsx",sheet = 1)
+
+idcras_2014 <- read_excel("../ID CRAS/NOVO_IDCRAS_2014_divulgação_retificado_07_10_2016.xlsx",sheet = 1)
+idcras_2015 <- read_excel("../ID CRAS/NOVO_IDCRAS_2015_divulgação_retificado_07_10_2016.xlsx",sheet = 1)
+idcras_2016 <- read_excel("../ID CRAS/IDCRAS_2016_FINAL_(01062017).xlsx",sheet = 1)
+idcras_2017 <- read_excel("../ID CRAS/IDCRAS_2017_DIVULGAÇÃO_atualizado__030523.xlsx",sheet = 2, skip=6)
+idcras_2018 <- read_excel("../ID CRAS/IDCRAS_2018_DIVULGAÇÃO_atualizado_280423.xlsx",sheet = 1)
+idcras_2019 <- read_excel("../ID CRAS/IDCRAS_2019_DIVULGAÇÃO_atualizado_280423.xlsx",sheet = 1)
+idcras_2020 <- read_excel("../ID CRAS/IDCRAS_2020_DIVULGAÇÃO_atualizado_280423(1).xlsx",sheet = 1)
+idcras_2021 <- read_excel("../ID CRAS/IDCRAS_2021_DIVULGAÇÃO_atulaizado_280423(1).xlsx",sheet = 1)
+idcras_2022 <- read_excel("../ID CRAS/IDCRAS_2022_DIVULGAÇÃO_atualizado_280423(1).xlsx",sheet = 1)
+
+idcreas_2014 <- read_excel("../ID CREAS/IDCREAS_2014_DIVULGACAO_site.xlsx",sheet = 1)
+idcreas_2015 <- read_excel("../ID CREAS/ID_CREAS_2015_divulgacao_site.xlsx",sheet = 1)
+idcreas_2016 <- read_excel("../ID CREAS/IDCREAS_2016_DIVULGAÇÃO.xlsx",sheet = 1)
+idcreas_2017 <- read_excel("../ID CREAS/IDCREAS_2017_DIVULGAÇÃO (2).xlsx",sheet = 1)
+idcreas_2018 <- read_excel("../ID CREAS/IDCREAS2018_divulgacao(2).xlsx",sheet = 1)
+idcreas_2019 <- read_excel("../ID CREAS/IDCREAS2019_divulgacao.xlsx",sheet = 1)
+idcreas_2020 <- read_excel("../ID CREAS/IDCREAS2020_divulgacao.xlsx",sheet = 1)
+idcreas_2021 <- read_excel("../ID CREAS/IDCREAS2021_divulgacao_retificado191022(1) (1).xlsx",sheet = 1)
+idcreas_2022 <- read_excel("../ID CREAS/IDCREAS2022_divulgacao_retificado270923.xlsx",sheet = 1)
+
+
+#Número de municipios no Brasil e por região. Fonte: Anuários Estatístico do Brasil 2017, IBGE.
+#c(Norte, Nordeste, Sudeste, Sul, Centro-Oeste, Brasil)
+municipios_2007 <- c(449, 1793, 1668, 1188, 466, 5564) 
+municipios_2008 <- c(449, 1793, 1668, 1188, 466, 5564)
+municipios_2009 <- c(449, 1794, 1668, 1188, 466, 5565)
+municipios_2010 <- c(449, 1794, 1668, 1188, 466, 5565)
+municipios_2011 <- c(449, 1794, 1668, 1188, 466, 5565)
+municipios_2012 <- c(449, 1794, 1668, 1188, 466, 5565)
+municipios_2013 <- c(450, 1794, 1668, 1191, 467, 5570)
+municipios_2014 <- c(450, 1794, 1668, 1191, 467, 5570)
+municipios_2015 <- c(450, 1794, 1668, 1191, 467, 5570)
+municipios_2016 <- c(450, 1794, 1668, 1191, 467, 5570)
+municipios_2017 <- c(450, 1794, 1668, 1191, 467, 5570)
+municipios_2018 <- c(450, 1794, 1668, 1191, 467, 5570)
+municipios_2019 <- c(450, 1794, 1668, 1191, 467, 5570)
+municipios_2020 <- c(450, 1794, 1668, 1191, 467, 5570)
+municipios_2021 <- c(450, 1794, 1668, 1191, 467, 5570)
+municipios_2022 <- c(450, 1794, 1668, 1191, 467, 5570)
+
+# População dos municípios estimada pelo IBGE
+pop_municipios_2016 <- read_excel("../Estimativa População IBGE/estimativa_dou_2016_20160913.xlsx", sheet = "Municípios (limpo)")
+pop_municipios_2017 <- read_excel("../Estimativa População IBGE/estimativa_dou_2017.xls", sheet = "Municípios (limpo)")
+
+```
+
+```{r funcoes}
+# Classificação do porte populacional dos municípios.
+# Fonte: PNAS 2004
+f_porte_populacional = function(df, populacao){
+  populacao <- enquo(populacao)
+
+  df %>%
+    mutate("Porte" = case_when(!! populacao <= 20000~"Pequeno I",
+                               !! populacao <= 50000~"Pequeno II",
+                               !! populacao <= 100000~"Médio",
+                               !! populacao <= 900000~"Grande",
+                               !! populacao > 900000~"Metrópole")) %>% 
+    mutate(Porte = factor(Porte, levels = c("Pequeno I",
+                                            "Pequeno II",
+                                            "Médio",
+                                            "Grande",
+                                            "Metrópole")))
+}
+
+f_selecao_regiao_ano_com_na = function(df, q, selecao, regiao, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+  regiao <- enquo(regiao)
+  selecao <- quo_name(selecao)
+
+  df %>%
+    select(!! regiao, !!q) %>% 
+    mutate(!! regiao := case_when(substr(!! regiao,1,1) == "1"~"Norte",
+                                  substr(!! regiao,1,1) == "2"~"Nordeste",
+                                  substr(!! regiao,1,1) == "3"~"Sudeste",
+                                  substr(!! regiao,1,1) == "4"~"Sul",
+                                  substr(!! regiao,1,1) == "5"~"Centro-Oeste",
+                                  TRUE ~ str_replace(!! regiao, "Região ", ""))) %>% 
+    group_by(!! regiao, !! q) %>% 
+    summarise(n=n()) %>% 
+    spread(!! regiao, n, fill = 0) %>% 
+    mutate("Brasil" = rowSums(.[2:6])) %>% 
+    gather("Região","n",-!! q) %>% 
+    group_by(Região) %>% 
+    mutate("Percentual" = n/sum(n)) %>% 
+    filter(!! q == !! selecao) %>% 
+    mutate("Ano" = !! ano) %>% 
+    select(Região, Percentual, Ano)
+}
+
+f_selecao_regiao_ano = function(df, q, selecao, regiao, ano){
+  q <- enquo(q)
+  regiao <- enquo(regiao)
+
+  df %>%
+    filter(!is.na(!! q)) %>% 
+    f_selecao_regiao_ano_com_na(!! q, selecao, !! regiao, ano)
+}
+
+f_maior0_regiao_ano = function(df, q, regiao, ano){
+  q <- enquo(q)
+  regiao <- enquo(regiao)
+
+  df %>%
+    mutate(!! q := case_when(!! q > 0~"S",
+                             TRUE ~ as.character(!! q))) %>% 
+    f_selecao_regiao_ano_com_na(!! q, "S", !! regiao, ano)
+}
+
+f_quantitativo_regiao_ano = function(df, regiao, ano){
+  ano <- quo_name(ano)
+  regiao <- enquo(regiao)
+
+  df %>%
+    select(!! regiao) %>% 
+    mutate(!! regiao := case_when(substr(!! regiao,1,1) == "1"~"Norte",
+                                  substr(!! regiao,1,1) == "2"~"Nordeste",
+                                  substr(!! regiao,1,1) == "3"~"Sudeste",
+                                  substr(!! regiao,1,1) == "4"~"Sul",
+                                  substr(!! regiao,1,1) == "5"~"Centro-Oeste",
+                                  TRUE ~ str_replace(!! regiao, "Região ", ""))) %>% 
+    group_by(!! regiao) %>% 
+    summarise(n=n()) %>% 
+    spread(!! regiao, n, fill = 0) %>% 
+    mutate("Brasil" = rowSums(.[1:5])) %>% 
+    gather("Região","n") %>% 
+    mutate("Ano" = !! ano)
+}
+
+f_selecao_grupo_media = function(df, q_selecao, selecao, q_media, grupo, eixo_x){
+  q_selecao <- enquo(q_selecao)
+  grupo <- quo_name(grupo)
+  selecao <- quo_name(selecao)
+  q_media <- enquo(q_media)
+  eixo_x <- quo_name(eixo_x)
+
+  df %>%
+    select(!! q_selecao, !! q_media) %>% 
+    filter(!! q_selecao == !! selecao) %>% 
+    filter(!is.na(!! q_media)) %>% 
+    summarise(m=mean(!! q_media)) %>% 
+    mutate("Eixo_X" = !! eixo_x) %>% 
+    mutate("Grupo" = !! grupo) 
+}
+
+f_percentual_municipios_regiao_ano = function(df, municipio, ano){
+  ano <- quo_name(ano)
+  municipio <- enquo(municipio)
+
+  total_municipios <-case_when(!! ano == "2007"~municipios_2007,
+                               !! ano == "2008"~municipios_2008,
+                               !! ano == "2009"~municipios_2009,
+                               !! ano == "2010"~municipios_2010,
+                               !! ano == "2011"~municipios_2011,
+                               !! ano == "2012"~municipios_2012,
+                               !! ano == "2013"~municipios_2013,
+                               !! ano == "2014"~municipios_2014,
+                               !! ano == "2015"~municipios_2015,
+                               !! ano == "2016"~municipios_2016,
+                               !! ano == "2017"~municipios_2017,
+                               !! ano == "2018"~municipios_2018,
+                               !! ano == "2019"~municipios_2019,
+                               !! ano == "2020"~municipios_2020,
+                               !! ano == "2021"~municipios_2021,
+                               !! ano == "2022"~municipios_2022)
+                          
+  df %>%
+    select(!! municipio) %>% 
+    distinct(!! municipio) %>% 
+    mutate(regiao := substr(!! municipio,1,1)) %>% 
+    select(regiao) %>% 
+    group_by(regiao) %>% 
+    summarise(n=n()) %>% 
+    spread(regiao, n, fill = 0) %>% 
+    mutate("6" = rowSums(.[1:5])) %>% 
+    gather("Região","n") %>% 
+    mutate("Total_municipios" = total_municipios[as.numeric(Região)]) %>% 
+    mutate("Percentual" = n/Total_municipios) %>% 
+    mutate(Região = case_when(Região == "1"~"Norte",
+                              Região == "2"~"Nordeste",
+                              Região == "3"~"Sudeste",
+                              Região == "4"~"Sul",
+                              Região == "5"~"Centro-Oeste",
+                              Região == "6"~"Brasil")) %>% 
+    mutate("Ano" = !! ano) 
+}
+
+f_situacao = function(df, situacao){
+  situacao <- enquo(situacao)
+
+  df %>%
+    mutate(!! situacao := case_when(!! situacao == "próprio da Prefeitura Municipal"~"Próprio",
+                                    !! situacao == "Próprio da Prefeitura Municipal"~"Próprio",
+                                    !! situacao == "Próprio da Prefeitura Municipal ou do governo do DF"~"Próprio",
+                                    !! situacao == "Próprio da Prefeitura Municipal/DF"~"Próprio",
+                                    !! situacao == "Próprio do Governo Estadual"~"Próprio",
+                                    !! situacao == "alugado pela Prefeitura Municipal"~"Alugado",
+                                    !! situacao == "Alugado pela Prefeitura Municipal"~"Alugado",
+                                    !! situacao == "Alugado pela Prefeitura Municipal ou pelo governo do DF"~"Alugado",
+                                    !! situacao == "Alugado pela Prefeitura Municipal/DF"~"Alugado",
+                                    !! situacao == "Alugado pelo Governo Estadual"~"Alugado",
+                                    !! situacao == "cedido para a Prefeitura Municipal"~"Cedido",
+                                    !! situacao == "Cedido para a Prefeitura Municipal"~"Cedido",
+                                    !! situacao == "Cedido para a Prefeitura Municipal ou pelo governo do DF"~"Cedido",
+                                    !! situacao == "Cedido para a Prefeitura Municipal/DF por órgãos/unidades públicas"~"Cedido",
+                                    !! situacao == "Cedido para a Prefeitura Municipal/DF por entidades/instituições privadas"~"Cedido",
+                                    !! situacao == "outro"~"Outro ou não informou",
+                                    !! situacao == "Outro"~"Outro ou não informou",
+                                    !! situacao == "Outros"~"Outro ou não informou",
+                                    is.na(!! situacao)~"Outro ou não informou",
+                                    TRUE ~ as.character(!! situacao))) %>% 
+    mutate(!! situacao := factor(!! situacao, levels = c("Próprio",
+                                                         "Alugado",
+                                                         "Cedido",
+                                                         "Outro ou não informou")))
+}
+
+f_acessibilidade_ABNT = function(df, q, cod_categoria){
+  q <- enquo(q)
+  cod_categoria <- quo_name(cod_categoria)
+
+  df %>%
+    filter(!! q == "Sim, de acordo com a Norma da ABNT (NBR9050)" |
+           !! q == "Sim, de acordo com a Norma da ABNT" |
+           !! q == "Sim,de acordo com a Norma da ABNT (NBR9050)" |
+           !! q == "Sim, de acordo coma Norma da ABNT (NBR9050)" |
+           !! q == "SIM, De acordo com a Norma da ABNT" |
+           !! q == "SIM, De acordo com a Norma da ABNT (NBR9050)" |
+           !! q == "Sim, de acordo com a norma da ABNT" |
+           !! q == "Sim, De acordo com a Norma da ABNT (NBR9050)" |
+           !! q == 1) %>%
+    mutate("Categoria" = case_when(!! cod_categoria == "1"~"Acesso principal adaptado com rampas e rota acessível desde a calçada até a recepção",
+                                   !! cod_categoria == "2"~"Rota acessível aos espaços (recepção, salas de atendimento e espaços de uso coletivo)",
+                                   !! cod_categoria == "3"~"Rota acessível ao banheiro",
+                                   !! cod_categoria == "4"~"Banheiro adaptado para pessoas com deficiência"))
+  
+}
+
+equip_acessibilidade = function(df, q, ano, cod_categoria){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! q) %>% 
+    filter(!is.na(!! q)) %>% 
+    group_by(!! q) %>% 
+    summarise(n=n()) %>% 
+    mutate(Percentual = n/sum(n)) %>% 
+    f_acessibilidade_ABNT(!! q, cod_categoria) %>%
+    mutate("Ano" = !! ano)
+}
+
+equip_acessibilidade_situacao = function(df, q_situacao, q_acessibilidade, cod_categoria){
+  q_situacao <- enquo(q_situacao)
+  q_acessibilidade <- enquo(q_acessibilidade)
+
+  df %>%
+    select(!! q_situacao, !! q_acessibilidade) %>% 
+    filter(!is.na(!! q_situacao) & !is.na(!! q_acessibilidade)) %>% 
+    f_situacao(!! q_situacao) %>%
+    group_by(!! q_situacao, !! q_acessibilidade) %>% 
+    summarise(n=n()) %>% 
+    mutate(Percentual = n/sum(n)) %>% 
+    f_acessibilidade_ABNT(!! q_acessibilidade, cod_categoria) %>%
+    mutate("Situacao" = !! q_situacao)
+}
+
+f_equip_imovel = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>%
+    f_situacao(Nível) %>%
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+  
+
+}
+
+
+f_situacao2 = function(df, situacao2){
+  situacao2 <- enquo(situacao2)
+
+  df %>%
+    mutate(!! Situacao2 := case_when(!! Situacao2 == "Crianças adolescentes"~"Crianças/adolescentes",
+                                    !! situacao2 == "Crianças adolescentes"~"Crianças/adolescentes",
+                                    !! situacao2 == "Crianças/adolescentes"~"Crianças/adolescentes",
+                                    !! situacao2 == "Adultos e famílias em situação de rua e/ou migrantes"~"Adultos e famílias",
+                                    !! situacao2 == "Adultos e famílias em situação de rua e ou migrantes"~"Adultos e famílias",
+                                    !! situacao2 == "Exclusivamente para pessoas adultas com Deficiência"~"Adultos e famílias",
+                                    !! situacao2 == "Adultos e famílias"~"Exclusivamente pessoas adultas com deficiência",
+                                    !! situacao2 == "Mulheres em situação de violência doméstica ou familiar"~" Mulheres em situação de violência",
+                                    !! situacao2 == "Jovens egressas(os) de serviços de acolhimento"~"Jovens egressos de serviços de acolhimento",
+                                    !! situacao2 == "Jovens egressas(os) de serviços de acolhimento"~"Jovens egressos de serviços de acolhimento",
+                                    !! situacao2 == "Jovens egressos de serviços de acolhimento"~"Jovens egressos de serviços de acolhimento",
+                                    !! situacao2 == "Exclusivamente crianças adolescente com Deficiência"~"Exclusivamente crianças/adolescente com Deficiência",
+                                    !! situacao2 == "Pessoas idosas"~"Pessoas idosas",
+                                    !! situacao == "Pessoa com deficiência sem critério de idade"~"Outro",
+                                    !! situacao == "Usuários de substância psicoativas"~"Outro",
+                                    !! situacao == "Substâncias psicoativas"~"Outro",
+                                    !! situacao == "Famílias desabrigadas desalojadas"~"Outro",
+                                    is.na(!! situacao)~"Outro",
+                                    TRUE ~ as.character(!! situacao2))) %>% 
+    mutate(!! Situacao2 := factor(!! Situacao2, levels = c("Crianças/adolescentes",
+                                                         "Adultos e famílias",
+                                                        "Exclusivamente pessoas adultas com deficiência",
+                                                        "Mulheres em situação de violência",
+                                                        "Jovens egressos de serviços de acolhimento",
+                                                        "Exclusivamente crianças adolescente com Deficiência",
+                                                        "Pessoas idosas",
+                                                        "Outro")))
+                                                          
+}
+
+```
+
+
+```{r ID-CRAS, fig.cap = sprintf("Evolução da média do ID dos CRAS de %s, %s, por dimensões e geral, 2014 a 2022", nome_municipio, uf_municipio), fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_selecao_grupo_media(idcras_2014, IBGE, municipio, `IDCRAS 2014sintético`, "ID Geral", "2014") %>%
+  bind_rows(f_selecao_grupo_media(idcras_2014, IBGE, municipio, `Dimensão Estrutura Física`, "Estrutura Física", "2014")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2014, IBGE, municipio, `Dimensão Recursos Humanos`, "Recursos Humanos", "2014")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2014, IBGE, municipio, `Dimensão Serviços & Benefícios`, "Serviços", "2014")) %>%
+
+  bind_rows(f_selecao_grupo_media(idcras_2015, IBGE, municipio, `IDCRAS 2015 sintético`, "ID Geral", "2015")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2015, IBGE, municipio, `Dimensão Estrutura Física`, "Estrutura Física", "2015")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2015, IBGE, municipio, `Dimensão Recursos Humanos`, "Recursos Humanos", "2015")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2015, IBGE, municipio, `Dimensão Serviços & Benefícios`, "Serviços", "2015")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idcras_2016, IBGE, municipio, `IDCRAS 2016sintético`, "ID Geral", "2016")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2016, IBGE, municipio, `Dimensão Estrutura Física`, "Estrutura Física", "2016")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2016, IBGE, municipio, `Dimensão Recursos Humanos`, "Recursos Humanos", "2016")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2016, IBGE, municipio, `Dimensão Serviços & Benefícios`, "Serviços", "2016")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idcras_2017, `Código IBGE`, municipio, IDCRAS, "ID Geral", "2017")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2017, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física", "2017")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2017, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos", "2017")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2017, `Código IBGE`, municipio, `Serviços `, "Serviços", "2017")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idcras_2018, `Código IBGE`, municipio, IDCRAS, "ID Geral", "2018")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2018, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física", "2018")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2018, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos", "2018")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2018, `Código IBGE`, municipio, `Serviços `, "Serviços", "2018")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idcras_2019, `Código IBGE`, municipio, IDCRAS, "ID Geral", "2019")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2019, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física", "2019")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2019, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos", "2019")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2019, `Código IBGE`, municipio, `Serviços `, "Serviços", "2019")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idcras_2020, `Código IBGE`, municipio, IDCRAS, "ID Geral", "2020")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2020, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física", "2020")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2020, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos", "2020")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2020, `Código IBGE`, municipio, `Serviços `, "Serviços", "2020")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idcras_2021, `Código IBGE`, municipio, IDCRAS, "ID Geral", "2021")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2021, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física", "2021")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2021, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos", "2021")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2021, `Código IBGE`, municipio, `Serviços `, "Serviços", "2021")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idcras_2022, `Código IBGE`, municipio, IDCRAS, "ID Geral", "2022")) %>% 
+  bind_rows(f_selecao_grupo_media(idcras_2022, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física", "2022")) %>% 
+  bind_rows(f_selecao_grupo_media(idcras_2022, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos", "2022")) %>% 
+  bind_rows(f_selecao_grupo_media(idcras_2022, `Código IBGE`, municipio, `Serviços `, "Serviços", "2022")) %>% 
+
+  mutate(Grupo = factor(Grupo, levels = c("Estrutura Física",
+                                          "Recursos Humanos",
+                                          "Serviços",
+                                          "ID Geral"))) %>% 
+
+  ggplot(aes(x = Eixo_X, y = m, group = Grupo)) +
+  geom_col(aes(fill = Grupo), position="dodge") +
+  geom_text(aes(label = sprintf("%0.2f", m), y=m+0.2), position = position_dodge(width = 0.9), angle = 90, size = 3) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+```
+
