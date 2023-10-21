@@ -76,8 +76,9 @@ knitr::knit_hooks$set(plot=hook_plot_tex_footer)
 
 # Município
 
-municipio = 355030
+#municipio = 355030
 #municipio = 316660
+municipio = 330455
 
 dados_municipio <- read_excel("../RELATORIO_DTB_BRASIL_MUNICIPIO.xls", skip = 6) %>%
                     mutate(`Código Município` = substr(`Código Município Completo`,1,6)) %>%
@@ -103,9 +104,9 @@ idconselho_2015 <- read_excel("../ID CONSELHO/ID CONSELHO - 2015.xlsx",sheet = 1
 idconselho_2016 <- read_excel("../ID CONSELHO/ID CONSELHO - 2016.xlsx",sheet = 1)
 idconselho_2017 <- read_excel("../ID CONSELHO/ID CONSELHO - 2017.xlsx",sheet = 1)
 idconselho_2018 <- read_excel("../ID CONSELHO/ID CONSELHO - 2018.xlsx",sheet = 1)
-idconselho_2019 <- read_excel("../ID CONSELHO/ID CONSELHO - 2019.xlsx",sheet = 1)
-idconselho_2020 <- read_excel("../ID CONSELHO/ID CONSELHO - 2020.xlsx",sheet = 1)
-idconselho_2021 <- read_excel("../ID CONSELHO/IDCONSELHO_2021_divulgacao.xlsx",sheet = 1)
+idconselho_2019 <- read_excel("../ID CONSELHO/ID CONSELHO - 2019.xlsx",sheet = 1,guess_max=7)
+idconselho_2020 <- read_excel("../ID CONSELHO/ID CONSELHO - 2020.xlsx",sheet = 1,guess_max=12)
+idconselho_2021 <- read_excel("../ID CONSELHO/IDCONSELHO_2021_divulgacao.xlsx",guess_max=140)
 idconselho_2022 <- read_excel("../ID CONSELHO/IDConselho_Municipal_2022_divulgacao.xlsx",sheet = 1)
 
 idcras_2014 <- read_excel("../ID CRAS/NOVO_IDCRAS_2014_divulgação_retificado_07_10_2016.xlsx",sheet = 1)
@@ -445,47 +446,47 @@ f_situacao2 = function(df, situacao2){
 
 ```{r ID-CRAS, fig.cap = sprintf(" Evolução das médias do ID CRAS, 2014 a 2022: %s, %s", nome_municipio, uf_municipio), fig.footer = "Fonte: MDS, Censo SUAS."}
 
-grafico <- f_selecao_grupo_media(idcras_2014, IBGE, municipio, `IDCRAS 2014sintético`, "ID Geral", "2014") %>%
+grafico <- f_selecao_grupo_media(idcras_2014, IBGE, municipio, `IDCRAS 2014sintético`, "ID CRAS", "2014") %>%
   bind_rows(f_selecao_grupo_media(idcras_2014, IBGE, municipio, `Dimensão Estrutura Física`, "Estrutura Física", "2014")) %>%
   bind_rows(f_selecao_grupo_media(idcras_2014, IBGE, municipio, `Dimensão Recursos Humanos`, "Recursos Humanos", "2014")) %>%
   bind_rows(f_selecao_grupo_media(idcras_2014, IBGE, municipio, `Dimensão Serviços & Benefícios`, "Serviços", "2014")) %>%
 
-  bind_rows(f_selecao_grupo_media(idcras_2015, IBGE, municipio, `IDCRAS 2015 sintético`, "ID Geral", "2015")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2015, IBGE, municipio, `IDCRAS 2015 sintético`, "ID CRAS", "2015")) %>%
   bind_rows(f_selecao_grupo_media(idcras_2015, IBGE, municipio, `Dimensão Estrutura Física`, "Estrutura Física", "2015")) %>%
   bind_rows(f_selecao_grupo_media(idcras_2015, IBGE, municipio, `Dimensão Recursos Humanos`, "Recursos Humanos", "2015")) %>%
   bind_rows(f_selecao_grupo_media(idcras_2015, IBGE, municipio, `Dimensão Serviços & Benefícios`, "Serviços", "2015")) %>%
   
-  bind_rows(f_selecao_grupo_media(idcras_2016, IBGE, municipio, `IDCRAS 2016sintético`, "ID Geral", "2016")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2016, IBGE, municipio, `IDCRAS 2016sintético`, "ID CRAS", "2016")) %>%
   bind_rows(f_selecao_grupo_media(idcras_2016, IBGE, municipio, `Dimensão Estrutura Física`, "Estrutura Física", "2016")) %>%
   bind_rows(f_selecao_grupo_media(idcras_2016, IBGE, municipio, `Dimensão Recursos Humanos`, "Recursos Humanos", "2016")) %>%
   bind_rows(f_selecao_grupo_media(idcras_2016, IBGE, municipio, `Dimensão Serviços & Benefícios`, "Serviços", "2016")) %>%
   
-  bind_rows(f_selecao_grupo_media(idcras_2017, `Código IBGE`, municipio, IDCRAS, "ID Geral", "2017")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2017, `Código IBGE`, municipio, IDCRAS, "ID CRAS", "2017")) %>%
   bind_rows(f_selecao_grupo_media(idcras_2017, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física", "2017")) %>%
   bind_rows(f_selecao_grupo_media(idcras_2017, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos", "2017")) %>%
   bind_rows(f_selecao_grupo_media(idcras_2017, `Código IBGE`, municipio, `Serviços `, "Serviços", "2017")) %>%
   
-  bind_rows(f_selecao_grupo_media(idcras_2018, `Código IBGE`, municipio, IDCRAS, "ID Geral", "2018")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2018, `Código IBGE`, municipio, IDCRAS, "ID CRAS", "2018")) %>%
   bind_rows(f_selecao_grupo_media(idcras_2018, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física", "2018")) %>%
   bind_rows(f_selecao_grupo_media(idcras_2018, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos", "2018")) %>%
   bind_rows(f_selecao_grupo_media(idcras_2018, `Código IBGE`, municipio, `Serviços `, "Serviços", "2018")) %>%
   
-  bind_rows(f_selecao_grupo_media(idcras_2019, `Código IBGE`, municipio, IDCRAS, "ID Geral", "2019")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2019, `Código IBGE`, municipio, IDCRAS, "ID CRAS", "2019")) %>%
   bind_rows(f_selecao_grupo_media(idcras_2019, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física", "2019")) %>%
   bind_rows(f_selecao_grupo_media(idcras_2019, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos", "2019")) %>%
   bind_rows(f_selecao_grupo_media(idcras_2019, `Código IBGE`, municipio, `Serviços `, "Serviços", "2019")) %>%
   
-  bind_rows(f_selecao_grupo_media(idcras_2020, `Código IBGE`, municipio, IDCRAS, "ID Geral", "2020")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2020, `Código IBGE`, municipio, IDCRAS, "ID CRAS", "2020")) %>%
   bind_rows(f_selecao_grupo_media(idcras_2020, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física", "2020")) %>%
   bind_rows(f_selecao_grupo_media(idcras_2020, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos", "2020")) %>%
   bind_rows(f_selecao_grupo_media(idcras_2020, `Código IBGE`, municipio, `Serviços `, "Serviços", "2020")) %>%
   
-  bind_rows(f_selecao_grupo_media(idcras_2021, `Código IBGE`, municipio, IDCRAS, "ID Geral", "2021")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2021, `Código IBGE`, municipio, IDCRAS, "ID CRAS", "2021")) %>%
   bind_rows(f_selecao_grupo_media(idcras_2021, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física", "2021")) %>%
   bind_rows(f_selecao_grupo_media(idcras_2021, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos", "2021")) %>%
   bind_rows(f_selecao_grupo_media(idcras_2021, `Código IBGE`, municipio, `Serviços `, "Serviços", "2021")) %>%
   
-  bind_rows(f_selecao_grupo_media(idcras_2022, `Código IBGE`, municipio, IDCRAS, "ID Geral", "2022")) %>% 
+  bind_rows(f_selecao_grupo_media(idcras_2022, `Código IBGE`, municipio, IDCRAS, "ID CRAS", "2022")) %>% 
   bind_rows(f_selecao_grupo_media(idcras_2022, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física", "2022")) %>% 
   bind_rows(f_selecao_grupo_media(idcras_2022, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos", "2022")) %>% 
   bind_rows(f_selecao_grupo_media(idcras_2022, `Código IBGE`, municipio, `Serviços `, "Serviços", "2022")) %>% 
@@ -493,11 +494,11 @@ grafico <- f_selecao_grupo_media(idcras_2014, IBGE, municipio, `IDCRAS 2014sint�
   mutate(Grupo = factor(Grupo, levels = c("Estrutura Física",
                                           "Recursos Humanos",
                                           "Serviços",
-                                          "ID Geral"))) %>% 
+                                          "ID CRAS"))) %>% 
 
   ggplot(aes(x = Eixo_X, y = m, group = Grupo)) +
   geom_col(aes(fill = Grupo), position="dodge") +
-  geom_text(aes(label = sprintf("%0.2f", m), y=m+0.2), position = position_dodge(width = 0.9), angle = 90, size = 3) +
+  geom_text(aes(label = sprintf("%0.2f", m), y=m+0.3), position = position_dodge(width = 0.9), angle = 90, size = 3) +
   scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
   theme(legend.position="bottom",
         legend.title = element_blank(),
@@ -533,6 +534,168 @@ grafico <- f_quantitativo_filtro(idcras_2022, `Código IBGE`, municipio, `Estrut
         axis.line.x = element_line(),
         panel.background = element_blank()) +
   guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+```
+
+```{r ID-CREAS, fig.cap = sprintf(" Evolução das médias do ID CREAS, 2014 a 2022: %s, %s", nome_municipio, uf_municipio), fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_selecao_grupo_media(idcreas_2014, `Código IBGE`, municipio, `IDCREAS sintético`, "ID CREAS", "2014") %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2014, `Código IBGE`, municipio, `Dimensão Estrutura Física`, "Estrutura Física", "2014")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2014, `Código IBGE`, municipio, `Dimensão Recursos Humanos`, "Recursos Humanos", "2014")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2014, `Código IBGE`, municipio, `Dimensão Serviços`, "Serviços", "2014")) %>%
+
+  bind_rows(f_selecao_grupo_media(idcreas_2015, IBGE6, municipio, `IDCREAS sintético`, "ID CREAS", "2015")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2015, IBGE6, municipio, `Dimensão Estrutura Física`, "Estrutura Física", "2015")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2015, IBGE6, municipio, `Dimensão Recursos Humanos`, "Recursos Humanos", "2015")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2015, IBGE6, municipio, `Dimensão Serviços`, "Serviços", "2015")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idcreas_2016, IBGE, municipio, `IDCREAS 2016`, "ID CREAS", "2016")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2016, IBGE, municipio, `Dimensão Estrutura Física`, "Estrutura Física", "2016")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2016, IBGE, municipio, `Dimensão Recursos Humanos`, "Recursos Humanos", "2016")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2016, IBGE, municipio, `Dimensão Serviços`, "Serviços", "2016")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idcreas_2017, `Código IBGE`, municipio, IDCREAS, "ID CREAS", "2017")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2017, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física", "2017")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2017, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos", "2017")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2017, `Código IBGE`, municipio, `Serviços `, "Serviços", "2017")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idcreas_2018, IBGE, municipio, ID_CREAS, "ID CREAS", "2018")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2018, IBGE, municipio, EF, "Estrutura Física", "2018")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2018, IBGE, municipio, `RH`, "Recursos Humanos", "2018")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2018, IBGE, municipio, `SERV`, "Serviços", "2018")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idcreas_2019, IBGE, municipio, ID_CREAS, "ID CREAS", "2019")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2019, IBGE, municipio, `EF`, "Estrutura Física", "2019")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2019, IBGE, municipio, `RH`, "Recursos Humanos", "2019")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2019, IBGE, municipio, `SERV`, "Serviços", "2019")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idcreas_2020, IBGE, municipio, ID_CREAS, "ID CREAS", "2020")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2020, IBGE, municipio, `EF`, "Estrutura Física", "2020")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2020, IBGE, municipio, `RH`, "Recursos Humanos", "2020")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2020, IBGE, municipio, `SERV`, "Serviços", "2020")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idcreas_2021, IBGE, municipio, ID_CREAS, "ID CREAS", "2021")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2021, IBGE, municipio, `EF`, "Estrutura Física", "2021")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2021, IBGE, municipio, `RH`, "Recursos Humanos", "2021")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2021, IBGE, municipio, `SERV`, "Serviços", "2021")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idcreas_2022, `Código IBGE`, municipio, idcreas, "ID CREAS", "2022")) %>% 
+  bind_rows(f_selecao_grupo_media(idcreas_2022, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física", "2022")) %>% 
+  bind_rows(f_selecao_grupo_media(idcreas_2022, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos", "2022")) %>% 
+  bind_rows(f_selecao_grupo_media(idcreas_2022, `Código IBGE`, municipio, `Serviços `, "Serviços", "2022")) %>% 
+
+  mutate(Grupo = factor(Grupo, levels = c("Estrutura Física",
+                                          "Recursos Humanos",
+                                          "Serviços",
+                                          "ID CREAS"))) %>% 
+
+  ggplot(aes(x = Eixo_X, y = m, group = Grupo)) +
+  geom_col(aes(fill = Grupo), position="dodge") +
+  geom_text(aes(label = sprintf("%0.2f", m), y=m+0.3), position = position_dodge(width = 0.9), angle = 90, size = 3) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+```
+
+```{r ID-CREAS-nivel, fig.cap = sprintf("Quantidade de CREAS em cada nível de ID, 2022: %s, %s", nome_municipio, uf_municipio), fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_quantitativo_filtro(idcreas_2022, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física") %>% 
+  bind_rows(f_quantitativo_filtro(idcreas_2022, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos")) %>%   bind_rows(f_quantitativo_filtro(idcreas_2022, `Código IBGE`, municipio, `Serviços `, "Serviços")) %>% 
+
+  mutate(Eixo_X = factor(Eixo_X, levels = c("Estrutura Física",
+                                            "Recursos Humanos",
+                                            "Serviços"))) %>% 
+  mutate(Grupo = factor(Grupo, levels = c(1, 2, 3, 4, 5))) %>% 
+
+  ggplot(aes(x = Eixo_X, y = n, group = Grupo)) +
+  geom_col(aes(fill = Grupo), position="dodge") +
+  geom_text(aes(label = sprintf("%d", n)), position = position_dodge(width = 0.9), vjust = -0.5) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+```
+
+```{r ID-conselho, fig.cap = sprintf(" Evolução das médias do ID Conselho, 2014 a 2022: %s, %s", nome_municipio, uf_municipio), fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_selecao_grupo_media(idconselho_2014, IBGE, municipio, IDConselho, "ID Conselho", "2014") %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2014, IBGE, municipio, `Estrutura Administrativa`, "Estrutura Administrativa", "2014")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2014, IBGE, municipio, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2014")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2014, IBGE, municipio, `Composição do Conselho`, "Composição do Conselho", "2014")) %>%
+
+  bind_rows(f_selecao_grupo_media(idconselho_2015, IBGE, municipio, `IDConselho - 2015`, "ID Conselho", "2015")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2015, IBGE, municipio, `Estrutura Administrativa`, "Estrutura Administrativa", "2015")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2015, IBGE, municipio, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2015")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2015, IBGE, municipio, `Composição do Conselho`, "Composição do Conselho", "2015")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idconselho_2016, IBGE, municipio, IDConselho, "ID Conselho", "2016")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2016, IBGE, municipio, `Estrutura Administrativa`, "Estrutura Administrativa", "2016")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2016, IBGE, municipio, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2016")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2016, IBGE, municipio, `Composição do Conselho`, "Composição do Conselho", "2016")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idconselho_2017, IBGE, municipio, IDConselho, "ID Conselho", "2017")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2017, IBGE, municipio, `Estrutura Administrativa`, "Estrutura Administrativa", "2017")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2017, IBGE, municipio, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2017")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2017, IBGE, municipio, `Composição do Conselho`, "Composição do Conselho", "2017")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idconselho_2018, IBGE, municipio, IDConselho, "ID Conselho", "2018")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2018, IBGE, municipio, `Estrutura Administrativa`, "Estrutura Administrativa", "2018")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2018, IBGE, municipio, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2018")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2018, IBGE, municipio, `Composição do Conselho`, "Composição do Conselho", "2018")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idconselho_2019, IBGE, municipio, IDConselho, "ID Conselho", "2019")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2019, IBGE, municipio, `Estrutura Administrativa`, "Estrutura Administrativa", "2019")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2019, IBGE, municipio, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2019")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2019, IBGE, municipio, `Composição do Conselho`, "Composição do Conselho", "2019")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idconselho_2020, IBGE, municipio, IDConselho, "ID Conselho", "2020")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2020, IBGE, municipio, `Estrutura Administrativa`, "Estrutura Administrativa", "2020")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2020, IBGE, municipio, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2020")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2020, IBGE, municipio, `Composição do Conselho`, "Composição do Conselho", "2020")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idconselho_2021, IBGE, municipio, IDConselho, "ID Conselho", "2021")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2021, IBGE, municipio, `Estrutura Administrativa`, "Estrutura Administrativa", "2021")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2021, IBGE, municipio, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2021")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2021, IBGE, municipio, `Composição do Conselho`, "Composição do Conselho", "2021")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idconselho_2022, IBGE7, municipio, IDConselho, "ID Conselho", "2022")) %>% 
+  bind_rows(f_selecao_grupo_media(idconselho_2022, IBGE7, municipio, `Estrutura Administrativa`, "Estrutura Administrativa", "2022")) %>% 
+  bind_rows(f_selecao_grupo_media(idconselho_2022, IBGE7, municipio, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2022")) %>% 
+  bind_rows(f_selecao_grupo_media(idconselho_2022, IBGE7, municipio, `Composição do Conselho`, "Composição do Conselho", "2022")) %>% 
+
+  mutate(Grupo = factor(Grupo, levels = c("Estrutura Administrativa",
+                                          "Dinâmica de Funcionamento",
+                                          "Composição do Conselho",
+                                          "ID Conselho"))) %>% 
+
+  ggplot(aes(x = Eixo_X, y = m, group = Grupo)) +
+  geom_col(aes(fill = Grupo), position="dodge") +
+  geom_text(aes(label = sprintf("%0.2f", m), y=m+0.3), position = position_dodge(width = 0.9), angle = 90, size = 3) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=2,byrow=TRUE))
 
 grafico
 ```
