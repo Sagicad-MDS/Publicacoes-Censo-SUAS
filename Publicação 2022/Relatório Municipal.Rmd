@@ -1,11 +1,7 @@
 ---
-title: Relatório Municipal
-subtitle: Indicadores
+title: Relatório Municipal de Indicadores
 date:
-author:
-  - Secretaria de Avaliação, Gestão da Informação e Cadastro Único
-  - Secretaria Nacional de Assistência Social
-  - Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome
+author: "SAGICAD e SNAS / MDS"
 
 documentclass: article
 
@@ -76,9 +72,12 @@ knitr::knit_hooks$set(plot=hook_plot_tex_footer)
 
 # Município
 
-#municipio = 355030
-#municipio = 316660
-municipio = 330455
+municipio = 355030 # São Paulo
+#municipio = 316660 # Menor Município
+#municipio = 330455 # Rio de Janeiro
+#municipio = 110028  # CRAS EF nível 1
+#municipio = 110005  # CRAS EF nível 3
+#municipio = 110007  # CRAS EF nível 4
 
 dados_municipio <- read_excel("../RELATORIO_DTB_BRASIL_MUNICIPIO.xls", skip = 6) %>%
                     mutate(`Código Município` = substr(`Código Município Completo`,1,6)) %>%
@@ -88,6 +87,10 @@ nome_municipio <- dados_municipio %>% pull(Nome_Município)
 uf_municipio <- dados_municipio %>% pull(Nome_UF)
 
 ```
+
+---
+subtitle: `r nome_municipio`, `r uf_municipio`
+---
 
 \counterwithout{figure}{section}
 \counterwithout{table}{section}
@@ -119,6 +122,9 @@ idcras_2020 <- read_excel("../ID CRAS/IDCRAS_2020_DIVULGAÇÃO_atualizado_280423
 idcras_2021 <- read_excel("../ID CRAS/IDCRAS_2021_DIVULGAÇÃO_atulaizado_280423(1).xlsx",sheet = 1)
 idcras_2022 <- read_excel("../ID CRAS/IDCRAS_2022_DIVULGAÇÃO_atualizado_280423(1).xlsx",sheet = 1)
 
+cras_2022 <- read_excel("../Censo SUAS 2022/1_CRAS/Censo_SUAS_2022_CRAS_Dados_Gerais_Divulgação.xlsx", sheet = 1)
+idcras_2022 <- idcras_2022 %>% merge(cras_2022, by.x = "Nº IDENTIFICADOR do CRAS", by.y = "NU_IDENTIFICADOR")
+  
 idcreas_2014 <- read_excel("../ID CREAS/IDCREAS_2014_DIVULGACAO_site.xlsx",sheet = 1)
 idcreas_2015 <- read_excel("../ID CREAS/ID_CREAS_2015_divulgacao_site.xlsx",sheet = 1)
 idcreas_2016 <- read_excel("../ID CREAS/IDCREAS_2016_DIVULGAÇÃO.xlsx",sheet = 1)
@@ -129,115 +135,9 @@ idcreas_2020 <- read_excel("../ID CREAS/IDCREAS2020_divulgacao.xlsx",sheet = 1)
 idcreas_2021 <- read_excel("../ID CREAS/IDCREAS2021_divulgacao_retificado191022(1) (1).xlsx",sheet = 1)
 idcreas_2022 <- read_excel("../ID CREAS/IDCREAS2022_divulgacao_retificado270923.xlsx",sheet = 1)
 
-
-#Número de municipios no Brasil e por região. Fonte: Anuários Estatístico do Brasil 2017, IBGE.
-#c(Norte, Nordeste, Sudeste, Sul, Centro-Oeste, Brasil)
-municipios_2007 <- c(449, 1793, 1668, 1188, 466, 5564) 
-municipios_2008 <- c(449, 1793, 1668, 1188, 466, 5564)
-municipios_2009 <- c(449, 1794, 1668, 1188, 466, 5565)
-municipios_2010 <- c(449, 1794, 1668, 1188, 466, 5565)
-municipios_2011 <- c(449, 1794, 1668, 1188, 466, 5565)
-municipios_2012 <- c(449, 1794, 1668, 1188, 466, 5565)
-municipios_2013 <- c(450, 1794, 1668, 1191, 467, 5570)
-municipios_2014 <- c(450, 1794, 1668, 1191, 467, 5570)
-municipios_2015 <- c(450, 1794, 1668, 1191, 467, 5570)
-municipios_2016 <- c(450, 1794, 1668, 1191, 467, 5570)
-municipios_2017 <- c(450, 1794, 1668, 1191, 467, 5570)
-municipios_2018 <- c(450, 1794, 1668, 1191, 467, 5570)
-municipios_2019 <- c(450, 1794, 1668, 1191, 467, 5570)
-municipios_2020 <- c(450, 1794, 1668, 1191, 467, 5570)
-municipios_2021 <- c(450, 1794, 1668, 1191, 467, 5570)
-municipios_2022 <- c(450, 1794, 1668, 1191, 467, 5570)
-
-# População dos municípios estimada pelo IBGE
-pop_municipios_2016 <- read_excel("../Estimativa População IBGE/estimativa_dou_2016_20160913.xlsx", sheet = "Municípios (limpo)")
-pop_municipios_2017 <- read_excel("../Estimativa População IBGE/estimativa_dou_2017.xls", sheet = "Municípios (limpo)")
-
 ```
 
 ```{r funcoes}
-# Classificação do porte populacional dos municípios.
-# Fonte: PNAS 2004
-f_porte_populacional = function(df, populacao){
-  populacao <- enquo(populacao)
-
-  df %>%
-    mutate("Porte" = case_when(!! populacao <= 20000~"Pequeno I",
-                               !! populacao <= 50000~"Pequeno II",
-                               !! populacao <= 100000~"Médio",
-                               !! populacao <= 900000~"Grande",
-                               !! populacao > 900000~"Metrópole")) %>% 
-    mutate(Porte = factor(Porte, levels = c("Pequeno I",
-                                            "Pequeno II",
-                                            "Médio",
-                                            "Grande",
-                                            "Metrópole")))
-}
-
-f_selecao_regiao_ano_com_na = function(df, q, selecao, regiao, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-  regiao <- enquo(regiao)
-  selecao <- quo_name(selecao)
-
-  df %>%
-    select(!! regiao, !!q) %>% 
-    mutate(!! regiao := case_when(substr(!! regiao,1,1) == "1"~"Norte",
-                                  substr(!! regiao,1,1) == "2"~"Nordeste",
-                                  substr(!! regiao,1,1) == "3"~"Sudeste",
-                                  substr(!! regiao,1,1) == "4"~"Sul",
-                                  substr(!! regiao,1,1) == "5"~"Centro-Oeste",
-                                  TRUE ~ str_replace(!! regiao, "Região ", ""))) %>% 
-    group_by(!! regiao, !! q) %>% 
-    summarise(n=n()) %>% 
-    spread(!! regiao, n, fill = 0) %>% 
-    mutate("Brasil" = rowSums(.[2:6])) %>% 
-    gather("Região","n",-!! q) %>% 
-    group_by(Região) %>% 
-    mutate("Percentual" = n/sum(n)) %>% 
-    filter(!! q == !! selecao) %>% 
-    mutate("Ano" = !! ano) %>% 
-    select(Região, Percentual, Ano)
-}
-
-f_selecao_regiao_ano = function(df, q, selecao, regiao, ano){
-  q <- enquo(q)
-  regiao <- enquo(regiao)
-
-  df %>%
-    filter(!is.na(!! q)) %>% 
-    f_selecao_regiao_ano_com_na(!! q, selecao, !! regiao, ano)
-}
-
-f_maior0_regiao_ano = function(df, q, regiao, ano){
-  q <- enquo(q)
-  regiao <- enquo(regiao)
-
-  df %>%
-    mutate(!! q := case_when(!! q > 0~"S",
-                             TRUE ~ as.character(!! q))) %>% 
-    f_selecao_regiao_ano_com_na(!! q, "S", !! regiao, ano)
-}
-
-f_quantitativo_regiao_ano = function(df, regiao, ano){
-  ano <- quo_name(ano)
-  regiao <- enquo(regiao)
-
-  df %>%
-    select(!! regiao) %>% 
-    mutate(!! regiao := case_when(substr(!! regiao,1,1) == "1"~"Norte",
-                                  substr(!! regiao,1,1) == "2"~"Nordeste",
-                                  substr(!! regiao,1,1) == "3"~"Sudeste",
-                                  substr(!! regiao,1,1) == "4"~"Sul",
-                                  substr(!! regiao,1,1) == "5"~"Centro-Oeste",
-                                  TRUE ~ str_replace(!! regiao, "Região ", ""))) %>% 
-    group_by(!! regiao) %>% 
-    summarise(n=n()) %>% 
-    spread(!! regiao, n, fill = 0) %>% 
-    mutate("Brasil" = rowSums(.[1:5])) %>% 
-    gather("Região","n") %>% 
-    mutate("Ano" = !! ano)
-}
 
 f_quantitativo_filtro = function(df, q_filtro, filtro, q_grupo, eixo_x){
   q_filtro <- enquo(q_filtro)
@@ -270,179 +170,9 @@ f_selecao_grupo_media = function(df, q_selecao, selecao, q_media, grupo, eixo_x)
     mutate("Grupo" = !! grupo) 
 }
 
-f_percentual_municipios_regiao_ano = function(df, municipio, ano){
-  ano <- quo_name(ano)
-  municipio <- enquo(municipio)
-
-  total_municipios <-case_when(!! ano == "2007"~municipios_2007,
-                               !! ano == "2008"~municipios_2008,
-                               !! ano == "2009"~municipios_2009,
-                               !! ano == "2010"~municipios_2010,
-                               !! ano == "2011"~municipios_2011,
-                               !! ano == "2012"~municipios_2012,
-                               !! ano == "2013"~municipios_2013,
-                               !! ano == "2014"~municipios_2014,
-                               !! ano == "2015"~municipios_2015,
-                               !! ano == "2016"~municipios_2016,
-                               !! ano == "2017"~municipios_2017,
-                               !! ano == "2018"~municipios_2018,
-                               !! ano == "2019"~municipios_2019,
-                               !! ano == "2020"~municipios_2020,
-                               !! ano == "2021"~municipios_2021,
-                               !! ano == "2022"~municipios_2022)
-                          
-  df %>%
-    select(!! municipio) %>% 
-    distinct(!! municipio) %>% 
-    mutate(regiao := substr(!! municipio,1,1)) %>% 
-    select(regiao) %>% 
-    group_by(regiao) %>% 
-    summarise(n=n()) %>% 
-    spread(regiao, n, fill = 0) %>% 
-    mutate("6" = rowSums(.[1:5])) %>% 
-    gather("Região","n") %>% 
-    mutate("Total_municipios" = total_municipios[as.numeric(Região)]) %>% 
-    mutate("Percentual" = n/Total_municipios) %>% 
-    mutate(Região = case_when(Região == "1"~"Norte",
-                              Região == "2"~"Nordeste",
-                              Região == "3"~"Sudeste",
-                              Região == "4"~"Sul",
-                              Região == "5"~"Centro-Oeste",
-                              Região == "6"~"Brasil")) %>% 
-    mutate("Ano" = !! ano) 
-}
-
-f_situacao = function(df, situacao){
-  situacao <- enquo(situacao)
-
-  df %>%
-    mutate(!! situacao := case_when(!! situacao == "próprio da Prefeitura Municipal"~"Próprio",
-                                    !! situacao == "Próprio da Prefeitura Municipal"~"Próprio",
-                                    !! situacao == "Próprio da Prefeitura Municipal ou do governo do DF"~"Próprio",
-                                    !! situacao == "Próprio da Prefeitura Municipal/DF"~"Próprio",
-                                    !! situacao == "Próprio do Governo Estadual"~"Próprio",
-                                    !! situacao == "alugado pela Prefeitura Municipal"~"Alugado",
-                                    !! situacao == "Alugado pela Prefeitura Municipal"~"Alugado",
-                                    !! situacao == "Alugado pela Prefeitura Municipal ou pelo governo do DF"~"Alugado",
-                                    !! situacao == "Alugado pela Prefeitura Municipal/DF"~"Alugado",
-                                    !! situacao == "Alugado pelo Governo Estadual"~"Alugado",
-                                    !! situacao == "cedido para a Prefeitura Municipal"~"Cedido",
-                                    !! situacao == "Cedido para a Prefeitura Municipal"~"Cedido",
-                                    !! situacao == "Cedido para a Prefeitura Municipal ou pelo governo do DF"~"Cedido",
-                                    !! situacao == "Cedido para a Prefeitura Municipal/DF por órgãos/unidades públicas"~"Cedido",
-                                    !! situacao == "Cedido para a Prefeitura Municipal/DF por entidades/instituições privadas"~"Cedido",
-                                    !! situacao == "outro"~"Outro ou não informou",
-                                    !! situacao == "Outro"~"Outro ou não informou",
-                                    !! situacao == "Outros"~"Outro ou não informou",
-                                    is.na(!! situacao)~"Outro ou não informou",
-                                    TRUE ~ as.character(!! situacao))) %>% 
-    mutate(!! situacao := factor(!! situacao, levels = c("Próprio",
-                                                         "Alugado",
-                                                         "Cedido",
-                                                         "Outro ou não informou")))
-}
-
-f_acessibilidade_ABNT = function(df, q, cod_categoria){
-  q <- enquo(q)
-  cod_categoria <- quo_name(cod_categoria)
-
-  df %>%
-    filter(!! q == "Sim, de acordo com a Norma da ABNT (NBR9050)" |
-           !! q == "Sim, de acordo com a Norma da ABNT" |
-           !! q == "Sim,de acordo com a Norma da ABNT (NBR9050)" |
-           !! q == "Sim, de acordo coma Norma da ABNT (NBR9050)" |
-           !! q == "SIM, De acordo com a Norma da ABNT" |
-           !! q == "SIM, De acordo com a Norma da ABNT (NBR9050)" |
-           !! q == "Sim, de acordo com a norma da ABNT" |
-           !! q == "Sim, De acordo com a Norma da ABNT (NBR9050)" |
-           !! q == 1) %>%
-    mutate("Categoria" = case_when(!! cod_categoria == "1"~"Acesso principal adaptado com rampas e rota acessível desde a calçada até a recepção",
-                                   !! cod_categoria == "2"~"Rota acessível aos espaços (recepção, salas de atendimento e espaços de uso coletivo)",
-                                   !! cod_categoria == "3"~"Rota acessível ao banheiro",
-                                   !! cod_categoria == "4"~"Banheiro adaptado para pessoas com deficiência"))
-  
-}
-
-equip_acessibilidade = function(df, q, ano, cod_categoria){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! q) %>% 
-    filter(!is.na(!! q)) %>% 
-    group_by(!! q) %>% 
-    summarise(n=n()) %>% 
-    mutate(Percentual = n/sum(n)) %>% 
-    f_acessibilidade_ABNT(!! q, cod_categoria) %>%
-    mutate("Ano" = !! ano)
-}
-
-equip_acessibilidade_situacao = function(df, q_situacao, q_acessibilidade, cod_categoria){
-  q_situacao <- enquo(q_situacao)
-  q_acessibilidade <- enquo(q_acessibilidade)
-
-  df %>%
-    select(!! q_situacao, !! q_acessibilidade) %>% 
-    filter(!is.na(!! q_situacao) & !is.na(!! q_acessibilidade)) %>% 
-    f_situacao(!! q_situacao) %>%
-    group_by(!! q_situacao, !! q_acessibilidade) %>% 
-    summarise(n=n()) %>% 
-    mutate(Percentual = n/sum(n)) %>% 
-    f_acessibilidade_ABNT(!! q_acessibilidade, cod_categoria) %>%
-    mutate("Situacao" = !! q_situacao)
-}
-
-f_equip_imovel = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>%
-    f_situacao(Nível) %>%
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-  
-
-}
-
-f_situacao2 = function(df, situacao2){
-  situacao2 <- enquo(situacao2)
-
-  df %>%
-    mutate(!! Situacao2 := case_when(!! Situacao2 == "Crianças adolescentes"~"Crianças/adolescentes",
-                                    !! situacao2 == "Crianças adolescentes"~"Crianças/adolescentes",
-                                    !! situacao2 == "Crianças/adolescentes"~"Crianças/adolescentes",
-                                    !! situacao2 == "Adultos e famílias em situação de rua e/ou migrantes"~"Adultos e famílias",
-                                    !! situacao2 == "Adultos e famílias em situação de rua e ou migrantes"~"Adultos e famílias",
-                                    !! situacao2 == "Exclusivamente para pessoas adultas com Deficiência"~"Adultos e famílias",
-                                    !! situacao2 == "Adultos e famílias"~"Exclusivamente pessoas adultas com deficiência",
-                                    !! situacao2 == "Mulheres em situação de violência doméstica ou familiar"~" Mulheres em situação de violência",
-                                    !! situacao2 == "Jovens egressas(os) de serviços de acolhimento"~"Jovens egressos de serviços de acolhimento",
-                                    !! situacao2 == "Jovens egressas(os) de serviços de acolhimento"~"Jovens egressos de serviços de acolhimento",
-                                    !! situacao2 == "Jovens egressos de serviços de acolhimento"~"Jovens egressos de serviços de acolhimento",
-                                    !! situacao2 == "Exclusivamente crianças adolescente com Deficiência"~"Exclusivamente crianças/adolescente com Deficiência",
-                                    !! situacao2 == "Pessoas idosas"~"Pessoas idosas",
-                                    !! situacao == "Pessoa com deficiência sem critério de idade"~"Outro",
-                                    !! situacao == "Usuários de substância psicoativas"~"Outro",
-                                    !! situacao == "Substâncias psicoativas"~"Outro",
-                                    !! situacao == "Famílias desabrigadas desalojadas"~"Outro",
-                                    is.na(!! situacao)~"Outro",
-                                    TRUE ~ as.character(!! situacao2))) %>% 
-    mutate(!! Situacao2 := factor(!! Situacao2, levels = c("Crianças/adolescentes",
-                                                         "Adultos e famílias",
-                                                        "Exclusivamente pessoas adultas com deficiência",
-                                                        "Mulheres em situação de violência",
-                                                        "Jovens egressos de serviços de acolhimento",
-                                                        "Exclusivamente crianças adolescente com Deficiência",
-                                                        "Pessoas idosas",
-                                                        "Outro")))
-                                                          
-}
-
 ```
 
+# ID CRAS
 
 ```{r ID-CRAS, fig.cap = sprintf(" Evolução das médias do ID CRAS, 2014 a 2022: %s, %s", nome_municipio, uf_municipio), fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -512,7 +242,14 @@ grafico <- f_selecao_grupo_media(idcras_2014, IBGE, municipio, `IDCRAS 2014sint�
 grafico
 ```
 
-```{r ID-CRAS-nivel, fig.cap = sprintf("Quantidade de CRAS em cada nível de ID, 2022: %s, %s", nome_municipio, uf_municipio), fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r}
+cras_municipio <- idcras_2022 %>%
+                    filter(`Código IBGE` == municipio)
+
+n_cras <- nrow(cras_municipio)
+```
+
+```{r ID-CRAS-nivel, fig.cap = sprintf("Quantidade de CRAS em cada nível de ID, 2022: %s, %s", nome_municipio, uf_municipio), fig.footer = "Fonte: MDS, Censo SUAS.", eval=n_cras>1}
 
 grafico <- f_quantitativo_filtro(idcras_2022, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física") %>% 
   bind_rows(f_quantitativo_filtro(idcras_2022, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos")) %>%   bind_rows(f_quantitativo_filtro(idcras_2022, `Código IBGE`, municipio, `Serviços `, "Serviços")) %>% 
@@ -536,6 +273,129 @@ grafico <- f_quantitativo_filtro(idcras_2022, `Código IBGE`, municipio, `Estrut
   guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
+```
+
+## Dimensão Estrutura Física do ID CRAS
+
+### Dimensão Estrutura Física do ID CRAS nos CRAS com capacidade de referenciamento para até 2.500 ou 3.500 famílias
+
+```{r}
+cras_menores <- cras_municipio %>%
+                  filter(q1 == "2.500 famílias referenciadas" | q1 == "3.500 famílias referenciadas")
+n_cras_menores <- nrow(cras_menores)
+if(n_cras_menores) {
+  menor_nivel_cras_menores_ef <- min(cras_menores$`Estrutura Física`, na.rm = T)
+  maior_nivel_cras_menores_ef <- max(cras_menores$`Estrutura Física`, na.rm = T)
+}
+```
+
+```{r eval=!n_cras_menores, results='asis', echo=FALSE}
+
+cat(nome_municipio, "não tem CRAS com capacidade de referenciamento para até 2.500 ou 3.500 famílias.")
+```
+
+```{r eval=n_cras_menores==1, results='asis', echo=FALSE}
+
+cat("Na dimensão estrutura física, o nível de ID do CRAS com capacidade de referenciamento para até 2.500 ou 3.500 famílias no município de ", nome_municipio, " é ",  menor_nivel_cras_menores_ef, ".", sep = "")
+```
+
+```{r eval=(n_cras_menores>1 && (menor_nivel_cras_menores_ef == maior_nivel_cras_menores_ef)), results='asis', echo=FALSE}
+
+cat("Na dimensão estrutura física, o nível de ID dos CRAS com capacidade de referenciamento para até 2.500 ou 3.500 famílias no município de ", nome_municipio, " é ", menor_nivel_cras_menores_ef, ".", sep = "")
+```
+
+```{r eval=(n_cras_menores>1 && (menor_nivel_cras_menores_ef < maior_nivel_cras_menores_ef)), results='asis', echo=FALSE}
+
+cat("Na dimensão estrutura física, o nível de ID dos CRAS com capacidade de referenciamento para até 2.500 ou 3.500 famílias no município de ", nome_municipio, " varia de ", menor_nivel_cras_menores_ef, " a ", maior_nivel_cras_menores_ef, ".", sep = "")
+```
+
+```{asis, echo = n_cras_menores>0 && menor_nivel_cras_menores_ef==1}
+
+O CRAS de **nível 1**, com capacidade de referenciamento para até 2.500 ou 3.500 famílias, na dimensão **estrutura física**:
+
+* Possui **menos de 2 salas de atendimento**; ou
+* **Não possui banheiro**; ou
+* Funciona em **prédio compartilhado com ONG, ou com compartilhamento de todas as salas de atendimento**.
+
+Para alcançar o **nível 2** na dimensão **estrutura física**, o CRAS com capacidade de referenciamento para até 2.500 ou 3.500 famílias precisa:
+
+* Possuir, no mínimo, **2 salas de atendimento**; e
+* Possuir, pelo menos, **1 banheiro**.
+
+```
+
+```{asis, echo = n_cras_menores>0 && menor_nivel_cras_menores_ef==2}
+
+O CRAS de **nível 2**, com capacidade de referenciamento para até 2.500 ou 3.500 famílias, na dimensão **estrutura física**:
+
+* Possui, no mínimo, **2 salas de atendimento**; e
+* Possui, pelo menos, **1 banheiro**.
+
+```
+
+```{asis, echo = n_cras_menores>0 && menor_nivel_cras_menores_ef<3 && maior_nivel_cras_menores_ef>1}
+
+Para alcançar o **nível 3** na dimensão **estrutura física**, o CRAS com capacidade de referenciamento para até 2.500 ou 3.500 famílias precisa:
+
+* Possuir **recepção**; e
+* Possuir **acessibiliadade, ao menos parcial**.
+
+```
+
+```{asis, echo = n_cras_menores>0 && menor_nivel_cras_menores_ef==3}
+
+O CRAS de **nível 3**, com capacidade de referenciamento para até 2.500 ou 3.500 famílias, na dimensão **estrutura física**:
+
+* Possui **recepção**; e
+* Possui, no mínimo, **2 salas de atendimento**; e
+* Possui, pelo menos, **1 banheiro**; e
+* Possui **acessibiliadade, ao menos parcial**.
+
+```
+
+```{asis, echo = n_cras_menores>0 && menor_nivel_cras_menores_ef<4 && maior_nivel_cras_menores_ef>2}
+
+Para alcançar o **nível 4** na dimensão **estrutura física**, o CRAS com capacidade de referenciamento para até 2.500 ou 3.500 famílias precisa:
+
+* Possuir, no mínimo, **2 salas de atendimento**, sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**; e
+* Possuir, no mínimo, **2 banheiros**; e
+* Possuir **pelo menos 1 computador conectado**.
+
+```
+
+```{asis, echo = n_cras_menores>0 && menor_nivel_cras_menores_ef==4}
+
+O CRAS de **nível 4**, com capacidade de referenciamento para até 2.500 ou 3.500 famílias, na dimensão **estrutura física**:
+
+* Possui **recepção**; e
+* Possui, no mínimo, **2 salas de atendimento**, sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**; e
+* Possui, no mínimo, **2 banheiros**; e
+* Possui **acessibiliadade, ao menos parcial**; e
+* Possui **pelo menos 1 computador conectado**.
+
+```
+
+```{asis, echo = n_cras_menores>0 && menor_nivel_cras_menores_ef<5 && maior_nivel_cras_menores_ef>3}
+
+Para alcançar o **nível 5** na dimensão **estrutura física**, o CRAS com capacidade de referenciamento para até 2.500 ou 3.500 famílias precisa:
+
+* Possuir, no mínimo, **1 sala administrativa**; e
+* Possuir **acessibilidade**; e
+* Possuir conjunto de equipamentos que inclua, no mínimo: **2 computadores conectados à internet, impressora, telefone e veículo exclusivo ou compartilhado**.
+
+```
+
+```{asis, echo = n_cras_menores>0 && menor_nivel_cras_menores_ef==5}
+
+O CRAS de **nível 5**, com capacidade de referenciamento para até 2.500 ou 3.500 famílias, na dimensão **estrutura física**:
+
+* Possui **recepção**; e
+* Possui, no mínimo, **2 salas de atendimento**, sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**; e
+* Possui, no mínimo, **1 sala administrativa**; e
+* Possui, no mínimo, **2 banheiros**; e
+* Possui **acessibiliadade**; e
+* Possui conjunto de equipamentos que inclua, no mínimo: **2 computadores conectados à internet, impressora, telefone e veículo exclusivo ou compartilhado**.
+
 ```
 
 ```{r ID-CREAS, fig.cap = sprintf(" Evolução das médias do ID CREAS, 2014 a 2022: %s, %s", nome_municipio, uf_municipio), fig.footer = "Fonte: MDS, Censo SUAS."}
