@@ -591,6 +591,409 @@ cat("O ", equipamento, " de **nível 5**, ", capacidade, ", na dimensão ", dime
 * Possui conjunto de equipamentos que inclua, no mínimo: **3 computadores conectados à internet, impressora, telefone e veículo exclusivo ou compartilhado**.
 ```
 
+```{asis, echo=(n_unidades_municipio>0)}
+
+## ID CRAS: Dimensão Recursos Humanos
+```
+
+```{r}
+
+  dimensao <- "Recursos Humanos"
+```
+
+```{asis, echo=(n_unidades_municipio>0)}
+
+### CRAS com capacidade de referenciamento para até 2.500 famílias
+```
+
+```{r}
+
+  n_unidades <- nrow(unidades_2500)
+
+  capacidade <- "com capacidade de referenciamento para até 2.500 famílias"
+```
+
+```{r eval=!n_unidades, results='asis'}
+
+cat(nome_municipio, " não tem ", equipamento, " ", capacidade, ".", sep="")
+```
+
+```{r eval=(n_unidades>0)}
+
+  menor_nivel <- min(unidades_2500$`Recursos Humanos`, na.rm = T)
+  maior_nivel <- max(unidades_2500$`Recursos Humanos`, na.rm = T)
+```
+
+```{r eval=(n_unidades==1), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID do ", equipamento, " ", capacidade, " no município de ", nome_municipio, " é ",  menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel==maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " ", capacidade, " no município de ", nome_municipio, " é ", menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel<maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " ", capacidade, " no município de ", nome_municipio, " varia de ", menor_nivel, " a ", maior_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("O ", equipamento, " de **nível 1**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Possui **menos de 3 profissionais**; ou
+* **Não possui Assistente Social nem Psicólogo**. 
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("Para alcançar o **nível 2** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Possuir no mínimo **3** profissionais, sendo pelo menos **2** com nível superior; e 
+* Possuir pelo menos **1 Assistente Social ou 1 Psicólogo**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==2), results='asis'}
+
+cat("O ", equipamento, " de **nível 2**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==2)}
+
+* Possui no mínimo **3** profissionais, sendo, pelo menos **2** com nível superior*; e
+* Possui pelo menos **1 Assistente Social OU 1 Psicólogo**.  
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<3 && maior_nivel>1), results='asis'}
+
+cat("Para alcançar o **nível 3** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos requisitos do nível 2:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1)}
+
+* Possuir no mínimo **4** (6, se EV) profissionais, sendo pelo menos **2** (4, se EV) com nível superior; e
+* Possuir no mínimo **1 Assistente Social** (2, se EV).
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==3), results='asis'}
+
+cat("O ", equipamento, " de **nível 3**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==3)}
+
+* Possui no mínimo **4** (6, se EV) profissionais, sendo pelo menos **2** (4, se EV) com nível superior; e
+* Possui no mínimo **1 Assistente Social** (2, se EV).
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<4 && maior_nivel>2), results='asis'}
+
+cat("Para alcançar o **nível 4** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos resquisitos do nível 3:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2)}
+
+* Possuir no mínimo **4** (7, se EV) profissionais, sendo pelo menos **3** (5, se EV) com nível superior; e 
+* Possuir **coordenador** com nível superior.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==4), results='asis'}
+
+cat("O ", equipamento, " de **nível 4**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==4)}
+
+* Possui no mínimo **4** (7, se EV) profissionais, sendo pelo menos **3** (5, se EV) com nível superior; e 
+* Possui no mínimo **1 Assistente Social** (2, se EV); e 
+* Possui **coordenador** com nível superior.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<5 && maior_nivel>3), results='asis'}
+
+cat("Para alcançar o **nível 5** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos requisitos do nível 4:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3)}
+
+* Possuir no mínimo **5** (9, se EV) **profissionais**, sendo pelo menos **3** (5, se EV) com **nível superior**; e 
+* Possuir no mínimo **1 Assistente Social** (2, se EV) e **1 Psicólogo**; e 
+* Possuir no mínimo **1** profissional de nível superior com **vínculo estatutário ou empregado público celetista**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==5), results='asis'}
+
+cat("O ", equipamento, " de **nível 5**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==5)}
+
+* Possui no mínimo **5** (9, se EV) **profissionais**, sendo pelo menos **3** (5, se EV) com **nível superior**; e 
+* Possui no mínimo **1 Assistente Social** (2, se EV) e **1 Psicólogo**; e 
+* Possui no mínimo **1** profissional de nível superior com **vínculo estatutário ou empregado público celetista**; e
+* Possui **coordenador** com nível superior.
+```
+
+```{asis, echo=(n_unidades_municipio>0)}
+
+### CRAS com capacidade de referenciamento para até 3.500 famílias
+```
+
+```{r}
+
+  n_unidades <- nrow(unidades_3500)
+
+  capacidade <- "com capacidade de referenciamento para até 3.500 famílias"
+```
+
+```{r eval=!n_unidades, results='asis'}
+
+cat(nome_municipio, " não tem ", equipamento, " ", capacidade, ".", sep="")
+```
+
+```{r eval=(n_unidades>0)}
+
+  menor_nivel <- min(unidades_3500$`Recursos Humanos`, na.rm = T)
+  maior_nivel <- max(unidades_3500$`Recursos Humanos`, na.rm = T)
+```
+
+```{r eval=(n_unidades==1), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID do ", equipamento, " ", capacidade, " no município de ", nome_municipio, " é ",  menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel==maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " ", capacidade, " no município de ", nome_municipio, " é ", menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel<maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " ", capacidade, " no município de ", nome_municipio, " varia de ", menor_nivel, " a ", maior_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("O ", equipamento, " de **nível 1**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Possui **menos de 5 profissionais**; ou
+* **Não possui Assistente Social nem Psicólogo**. 
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("Para alcançar o **nível 2** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Possuir no mínimo **5** profissionais, sendo pelo menos **2** com nível superior; e 
+* Possuir pelo menos **1 Assistente Social ou 1 Psicólogo**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==2), results='asis'}
+
+cat("O ", equipamento, " de **nível 2**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==2)}
+
+* Possui no mínimo **5** profissionais, sendo, pelo menos **2** com nível superior*; e
+* Possui pelo menos **1 Assistente Social OU 1 Psicólogo**.  
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<3 && maior_nivel>1), results='asis'}
+
+cat("Para alcançar o **nível 3** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos requisitos do nível 2:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1)}
+
+* Possuir no mínimo **6** (8, se EV) profissionais, sendo pelo menos **3** (4, se EV) com nível superior; e
+* Possuir no mínimo **2 Assistentes Sociais** (3, se EV).
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==3), results='asis'}
+
+cat("O ", equipamento, " de **nível 3**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==3)}
+
+* Possui no mínimo **6** (8, se EV) profissionais, sendo pelo menos **3** (4, se EV) com nível superior; e
+* Possui no mínimo **2 Assistentes Sociais** (3, se EV).
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<4 && maior_nivel>2), results='asis'}
+
+cat("Para alcançar o **nível 4** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos resquisitos do nível 3:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2)}
+
+* Possuir no mínimo **6** (9, se EV) profissionais, sendo pelo menos **4** (6, se EV) com nível superior; e 
+* Possuir **coordenador** com nível superior.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==4), results='asis'}
+
+cat("O ", equipamento, " de **nível 4**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==4)}
+
+* Possui no mínimo **6** (9, se EV) profissionais, sendo pelo menos **4** (6, se EV) com nível superior; e 
+* Possui no mínimo **2 Assistentes Sociais** (3, se EV); e 
+* Possui **coordenador** com nível superior.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<5 && maior_nivel>3), results='asis'}
+
+cat("Para alcançar o **nível 5** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos requisitos do nível 4:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3)}
+
+* Possuir no mínimo **7** (11, se EV) **profissionais**, sendo pelo menos **3** (5, se EV) com **nível superior**; e * Possuir no mínimo **2 Assistentes Sociais** (3, se EV) e **1 Psicólogo**; e 
+* Possuir no mínimo **1** profissional de nível superior com **vínculo estatutário ou empregado público celetista**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==5), results='asis'}
+
+cat("O ", equipamento, " de **nível 5**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==5)}
+
+* Possui no mínimo **7** (11, se EV) **profissionais**, sendo pelo menos **4** (6, se EV) com **nível superior**; e 
+* Possui no mínimo **2 Assistentes Sociais** (3, se EV) e **1 Psicólogo**; e 
+* Possui no mínimo **1** profissional de nível superior com **vínculo estatutário ou empregado público celetista**; e
+* Possui **coordenador** com nível superior.
+```
+
+```{asis, echo=(n_unidades_municipio>0)}
+
+### CRAS com capacidade de referenciamento para até 5.000 famílias
+```
+
+```{r}
+
+  n_unidades <- nrow(unidades_5000)
+
+  capacidade <- "com capacidade de referenciamento para até 5.000 famílias"
+```
+
+```{r eval=!n_unidades, results='asis'}
+
+cat(nome_municipio, " não tem ", equipamento, " ", capacidade, ".", sep="")
+```
+
+```{r eval=(n_unidades>0)}
+
+  menor_nivel <- min(unidades_5000$`Recursos Humanos`, na.rm = T)
+  maior_nivel <- max(unidades_5000$`Recursos Humanos`, na.rm = T)
+```
+
+```{r eval=(n_unidades==1), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID do ", equipamento, " ", capacidade, " no município de ", nome_municipio, " é ",  menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel==maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " ", capacidade, " no município de ", nome_municipio, " é ", menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel<maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " ", capacidade, " no município de ", nome_municipio, " varia de ", menor_nivel, " a ", maior_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("O ", equipamento, " de **nível 1**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Possui **menos de 6 profissionais ao todo, ou menos de 3 com nível superior**; ou
+* **Não possui Assistente Social nem Psicólogo**. 
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("Para alcançar o **nível 2** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Possuir no mínimo **6** profissionais, sendo pelo menos **3** com nível superior; e 
+* Possuir pelo menos **1 Assistente Social ou 1 Psicólogo**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==2), results='asis'}
+
+cat("O ", equipamento, " de **nível 2**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==2)}
+
+* Possui no mínimo **6** profissionais, sendo, pelo menos **3** com nível superior*; e
+* Possui pelo menos **1 Assistente Social OU 1 Psicólogo**.  
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<3 && maior_nivel>1), results='asis'}
+
+cat("Para alcançar o **nível 3** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos requisitos do nível 2:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1)}
+
+* Possuir no mínimo **7** (9, se EV) profissionais, sendo pelo menos **4** (6, se EV) com nível superior; e
+* Possuir no mínimo **2 Assistentes Sociais** (3, se EV).
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==3), results='asis'}
+
+cat("O ", equipamento, " de **nível 3**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==3)}
+
+* Possui no mínimo **7** (9, se EV) profissionais, sendo pelo menos **4** (6, se EV) com nível superior; e
+* Possui no mínimo **2 Assistentes Sociais** (3, se EV).
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<4 && maior_nivel>2), results='asis'}
+
+cat("Para alcançar o **nível 4** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos resquisitos do nível 3:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2)}
+
+* Possuir no mínimo **7** (10, se EV) profissionais, sendo pelo menos **5** (7, se EV) com nível superior; e
+* Possuir no mínimo **2 Assistentes Sociais** (3, se EV) e **1 Psicólogo**; e 
+* Possuir **coordenador** com nível superior.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==4), results='asis'}
+
+cat("O ", equipamento, " de **nível 4**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==4)}
+
+* Possui no mínimo **7** (10, se EV) profissionais, sendo pelo menos **5** (7, se EV) com nível superior; e 
+* Possui no mínimo **2 Assistentes Sociais** (3, se EV) e **1 Psicólogo**; e 
+* Possui **coordenador** com nível superior.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<5 && maior_nivel>3), results='asis'}
+
+cat("Para alcançar o **nível 5** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos requisitos do nível 4:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3)}
+
+* Possuir no mínimo **9** (13, se EV) **profissionais**, sendo pelo menos **5** (7, se EV) com **nível superior**; e * Possuir no mínimo **2** profissionais de nível superior com **vínculo estatutário ou empregado público celetista**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==5), results='asis'}
+
+cat("O ", equipamento, " de **nível 5**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==5)}
+
+* Possui no mínimo **9** (13, se EV) **profissionais**, sendo pelo menos **5** (7, se EV) com **nível superior**; e 
+* Possui no mínimo **2 Assistentes Sociais** (3, se EV) e **1 Psicólogo**; e 
+* Possui no mínimo **2** profissionais de nível superior com **vínculo estatutário ou empregado público celetista**; e
+* Possui **coordenador** com nível superior.
+```
 
 ```{r ID-CREAS, fig.cap = sprintf(" Evolução das médias do ID CREAS, 2014 a 2022: %s, %s", nome_municipio, uf_municipio), fig.footer = "Fonte: MDS, Censo SUAS."}
 
