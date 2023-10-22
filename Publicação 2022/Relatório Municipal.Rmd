@@ -1,5 +1,5 @@
 ---
-title: Relatório Municipal de Indicadores
+title: Relatório Municipal de Indicadores 2022
 date:
 author: "SAGICAD e SNAS / MDS"
 
@@ -49,12 +49,12 @@ knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE)
 lista.de.pacotes = c("tinytex","tidyr", "purrr", "dplyr",
                      "lubridate","janitor","readxl","stringr",
                      "repmis","survey","srvyr","scales",
-                     "ggrepel","renv") # escreva a lista de pacotes
+                     "ggrepel","renv","knitr") # escreva a lista de pacotes
 
 novos.pacotes <- lista.de.pacotes[!(lista.de.pacotes %in%
                                       installed.packages()[,"Package"])]
 
-if(length(novos.pacotes) > 0) {install.packages(novos.pacotes, repos = "http://cran.r-project.org")}
+if(length(novos.pacotes) > 0) {install.packages(novos.pacotes, repos = "http://cran.us.r-project.org")}
 lapply(lista.de.pacotes, require, character.only=T)
 rm(lista.de.pacotes,novos.pacotes)
 gc()
@@ -243,13 +243,13 @@ grafico
 ```
 
 ```{r}
-cras_municipio <- idcras_2022 %>%
-                    filter(`Código IBGE` == municipio)
+unidades_municipio <- idcras_2022 %>%
+                       filter(`Código IBGE` == municipio)
 
-n_cras <- nrow(cras_municipio)
+n_unidades_municipio <- nrow(unidades_municipio)
 ```
 
-```{r ID-CRAS-nivel, fig.cap = sprintf("Quantidade de CRAS em cada nível de ID, 2022: %s, %s", nome_municipio, uf_municipio), fig.footer = "Fonte: MDS, Censo SUAS.", eval=n_cras>1}
+```{r ID-CRAS-nivel, fig.cap = sprintf("Quantidade de CRAS em cada nível de ID, 2022: %s, %s", nome_municipio, uf_municipio), fig.footer = "Fonte: MDS, Censo SUAS.", eval=n_unidades_municipio>1}
 
 grafico <- f_quantitativo_filtro(idcras_2022, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física") %>% 
   bind_rows(f_quantitativo_filtro(idcras_2022, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos")) %>%   bind_rows(f_quantitativo_filtro(idcras_2022, `Código IBGE`, municipio, `Serviços `, "Serviços")) %>% 
@@ -275,119 +275,172 @@ grafico <- f_quantitativo_filtro(idcras_2022, `Código IBGE`, municipio, `Estrut
 grafico
 ```
 
-## Dimensão Estrutura Física do ID CRAS
+```{r cras-por-capacidade, fig.align='center'}
+unidades_municipio <- unidades_municipio %>%
+                        mutate(q1 = factor(q1, levels = c("2.500 famílias referenciadas",
+                                                          "3.500 famílias referenciadas",
+                                                          "5.000 famílias referenciadas"))) 
 
-### Dimensão Estrutura Física do ID CRAS nos CRAS com capacidade de referenciamento para até 2.500 ou 3.500 famílias
+unidades_2500 <- unidades_municipio %>%
+                  filter(q1 == "2.500 famílias referenciadas")
+unidades_3500 <- unidades_municipio %>%
+                  filter(q1 == "3.500 famílias referenciadas")
+unidades_2500_3500 <- unidades_municipio %>%
+                  filter(q1 == "2.500 famílias referenciadas" | q1 == "3.500 famílias referenciadas")
+unidades_5000 <- unidades_municipio %>%
+                  filter(q1 == "5.000 famílias referenciadas")
+
+equipamento <- "CRAS"
+
+tabela <- unidades_municipio %>%
+            tabyl(q1) %>%
+            select(q1, n) %>%
+            kable(caption=sprintf("Quantidade de %s no município de %s por capacidade de referenciamento.", equipamento, nome_municipio),
+                  col.names=c("Capacidade de até:", "Quantidade"))
+tabela  
+```
+
+```{asis, echo=(n_unidades_municipio>0)}
+
+## ID CRAS: Dimensão Estrutura Física
+```
 
 ```{r}
-cras_menores <- cras_municipio %>%
-                  filter(q1 == "2.500 famílias referenciadas" | q1 == "3.500 famílias referenciadas")
-n_cras_menores <- nrow(cras_menores)
-if(n_cras_menores) {
-  menor_nivel_cras_menores_ef <- min(cras_menores$`Estrutura Física`, na.rm = T)
-  maior_nivel_cras_menores_ef <- max(cras_menores$`Estrutura Física`, na.rm = T)
-}
+
+  dimensao <- "Estrutura Física"
 ```
 
-```{r eval=!n_cras_menores, results='asis', echo=FALSE}
+```{asis, echo=(n_unidades_municipio>0)}
 
-cat(nome_municipio, "não tem CRAS com capacidade de referenciamento para até 2.500 ou 3.500 famílias.")
+### CRAS com capacidade de referenciamento para até 2.500 ou 3.500 famílias
 ```
 
-```{r eval=n_cras_menores==1, results='asis', echo=FALSE}
+```{r}
 
-cat("Na dimensão estrutura física, o nível de ID do CRAS com capacidade de referenciamento para até 2.500 ou 3.500 famílias no município de ", nome_municipio, " é ",  menor_nivel_cras_menores_ef, ".", sep = "")
+  n_unidades <- nrow(unidades_2500_3500)
+
+  capacidade <- "com capacidade de referenciamento para até 2.500 ou 3.500 famílias"
 ```
 
-```{r eval=(n_cras_menores>1 && (menor_nivel_cras_menores_ef == maior_nivel_cras_menores_ef)), results='asis', echo=FALSE}
+```{r eval=!n_unidades, results='asis'}
 
-cat("Na dimensão estrutura física, o nível de ID dos CRAS com capacidade de referenciamento para até 2.500 ou 3.500 famílias no município de ", nome_municipio, " é ", menor_nivel_cras_menores_ef, ".", sep = "")
+cat(nome_municipio, " não tem ", equipamento, " ", capacidade, ".", sep="")
 ```
 
-```{r eval=(n_cras_menores>1 && (menor_nivel_cras_menores_ef < maior_nivel_cras_menores_ef)), results='asis', echo=FALSE}
+```{r eval=(n_unidades>0)}
 
-cat("Na dimensão estrutura física, o nível de ID dos CRAS com capacidade de referenciamento para até 2.500 ou 3.500 famílias no município de ", nome_municipio, " varia de ", menor_nivel_cras_menores_ef, " a ", maior_nivel_cras_menores_ef, ".", sep = "")
+  menor_nivel <- min(unidades_2500_3500$`Estrutura Física`, na.rm = T)
+  maior_nivel <- max(unidades_2500_3500$`Estrutura Física`, na.rm = T)
 ```
 
-```{asis, echo = n_cras_menores>0 && menor_nivel_cras_menores_ef==1}
+```{r eval=(n_unidades==1), results='asis'}
 
-O CRAS de **nível 1**, com capacidade de referenciamento para até 2.500 ou 3.500 famílias, na dimensão **estrutura física**:
+cat("Na dimensão ", dimensao, ", o nível de ID do ", equipamento, " ", capacidade, " no município de ", nome_municipio, " é ",  menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel==maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " ", capacidade, " no município de ", nome_municipio, " é ", menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel<maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " ", capacidade, " no município de ", nome_municipio, " varia de ", menor_nivel, " a ", maior_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("O ", equipamento, " de **nível 1**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
 
 * Possui **menos de 2 salas de atendimento**; ou
 * **Não possui banheiro**; ou
 * Funciona em **prédio compartilhado com ONG, ou com compartilhamento de todas as salas de atendimento**.
+```
 
-Para alcançar o **nível 2** na dimensão **estrutura física**, o CRAS com capacidade de referenciamento para até 2.500 ou 3.500 famílias precisa:
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("Para alcançar o **nível 2** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
 
 * Possuir, no mínimo, **2 salas de atendimento**; e
 * Possuir, pelo menos, **1 banheiro**.
-
 ```
 
-```{asis, echo = n_cras_menores>0 && menor_nivel_cras_menores_ef==2}
+```{r eval=(n_unidades>0 && menor_nivel==2), results='asis'}
 
-O CRAS de **nível 2**, com capacidade de referenciamento para até 2.500 ou 3.500 famílias, na dimensão **estrutura física**:
+cat("O ", equipamento, " de **nível 2**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==2)}
 
 * Possui, no mínimo, **2 salas de atendimento**; e
 * Possui, pelo menos, **1 banheiro**.
-
 ```
 
-```{asis, echo = n_cras_menores>0 && menor_nivel_cras_menores_ef<3 && maior_nivel_cras_menores_ef>1}
+```{r eval=(n_unidades>0 && menor_nivel<3 && maior_nivel>1), results='asis'}
 
-Para alcançar o **nível 3** na dimensão **estrutura física**, o CRAS com capacidade de referenciamento para até 2.500 ou 3.500 famílias precisa:
+cat("Para alcançar o **nível 3** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos requisitos do nível 2:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1)}
 
 * Possuir **recepção**; e
 * Possuir **acessibiliadade, ao menos parcial**.
-
 ```
 
-```{asis, echo = n_cras_menores>0 && menor_nivel_cras_menores_ef==3}
+```{r eval=(n_unidades>0 && menor_nivel==3), results='asis'}
 
-O CRAS de **nível 3**, com capacidade de referenciamento para até 2.500 ou 3.500 famílias, na dimensão **estrutura física**:
+cat("O ", equipamento, " de **nível 3**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==3)}
 
 * Possui **recepção**; e
 * Possui, no mínimo, **2 salas de atendimento**; e
 * Possui, pelo menos, **1 banheiro**; e
 * Possui **acessibiliadade, ao menos parcial**.
-
 ```
 
-```{asis, echo = n_cras_menores>0 && menor_nivel_cras_menores_ef<4 && maior_nivel_cras_menores_ef>2}
+```{r eval=(n_unidades>0 && menor_nivel<4 && maior_nivel>2), results='asis'}
 
-Para alcançar o **nível 4** na dimensão **estrutura física**, o CRAS com capacidade de referenciamento para até 2.500 ou 3.500 famílias precisa:
+cat("Para alcançar o **nível 4** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos resquisitos do nível 3:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2)}
 
 * Possuir, no mínimo, **2 salas de atendimento**, sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**; e
 * Possuir, no mínimo, **2 banheiros**; e
-* Possuir **pelo menos 1 computador conectado**.
-
+* Possuir **pelo menos 1 computador conectado à internet**.
 ```
 
-```{asis, echo = n_cras_menores>0 && menor_nivel_cras_menores_ef==4}
+```{r eval=(n_unidades>0 && menor_nivel==4), results='asis'}
 
-O CRAS de **nível 4**, com capacidade de referenciamento para até 2.500 ou 3.500 famílias, na dimensão **estrutura física**:
+cat("O ", equipamento, " de **nível 4**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==4)}
 
 * Possui **recepção**; e
 * Possui, no mínimo, **2 salas de atendimento**, sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**; e
 * Possui, no mínimo, **2 banheiros**; e
 * Possui **acessibiliadade, ao menos parcial**; e
-* Possui **pelo menos 1 computador conectado**.
-
+* Possui **pelo menos 1 computador conectado à internet**.
 ```
 
-```{asis, echo = n_cras_menores>0 && menor_nivel_cras_menores_ef<5 && maior_nivel_cras_menores_ef>3}
+```{r eval=(n_unidades>0 && menor_nivel<5 && maior_nivel>3), results='asis'}
 
-Para alcançar o **nível 5** na dimensão **estrutura física**, o CRAS com capacidade de referenciamento para até 2.500 ou 3.500 famílias precisa:
+cat("Para alcançar o **nível 5** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos requisitos do nível 4:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3)}
 
 * Possuir, no mínimo, **1 sala administrativa**; e
 * Possuir **acessibilidade**; e
 * Possuir conjunto de equipamentos que inclua, no mínimo: **2 computadores conectados à internet, impressora, telefone e veículo exclusivo ou compartilhado**.
-
 ```
 
-```{asis, echo = n_cras_menores>0 && menor_nivel_cras_menores_ef==5}
+```{r eval=(n_unidades>0 && menor_nivel==5), results='asis'}
 
-O CRAS de **nível 5**, com capacidade de referenciamento para até 2.500 ou 3.500 famílias, na dimensão **estrutura física**:
+cat("O ", equipamento, " de **nível 5**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==5)}
 
 * Possui **recepção**; e
 * Possui, no mínimo, **2 salas de atendimento**, sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**; e
@@ -395,8 +448,149 @@ O CRAS de **nível 5**, com capacidade de referenciamento para até 2.500 ou 3.5
 * Possui, no mínimo, **2 banheiros**; e
 * Possui **acessibiliadade**; e
 * Possui conjunto de equipamentos que inclua, no mínimo: **2 computadores conectados à internet, impressora, telefone e veículo exclusivo ou compartilhado**.
-
 ```
+
+```{asis, echo=(n_unidades_municipio>0)}
+
+### CRAS com capacidade de referenciamento para até 5.000 famílias
+```
+
+```{r}
+
+  n_unidades <- nrow(unidades_5000)
+
+  capacidade <- "com capacidade de referenciamento para até 5.000 famílias"
+```
+
+```{r eval=!n_unidades, results='asis'}
+
+cat(nome_municipio, " não tem ", equipamento, " ", capacidade, ".", sep="")
+```
+
+```{r eval=(n_unidades>0)}
+
+  menor_nivel <- min(unidades_5000$`Estrutura Física`, na.rm = T)
+  maior_nivel <- max(unidades_5000$`Estrutura Física`, na.rm = T)
+```
+
+```{r eval=(n_unidades==1), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID do ", equipamento, " ", capacidade, " no município de ", nome_municipio, " é ",  menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel==maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " ", capacidade, " no município de ", nome_municipio, " é ", menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel<maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " ", capacidade, " no município de ", nome_municipio, " varia de ", menor_nivel, " a ", maior_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("O ", equipamento, " de **nível 1**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Possui **menos de 3 salas de atendimento**; ou
+* **Não possui banheiro**; ou
+* Funciona em **prédio compartilhado com ONG, ou com compartilhamento de todas as salas de atendimento**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("Para alcançar o **nível 2** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Possuir, no mínimo, **3 salas de atendimento**; e
+* Possuir, pelo menos, **1 banheiro**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==2), results='asis'}
+
+cat("O ", equipamento, " de **nível 2**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==2)}
+
+* Possui, no mínimo, **3 salas de atendimento**; e
+* Possui, pelo menos, **1 banheiro**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<3 && maior_nivel>1), results='asis'}
+
+cat("Para alcançar o **nível 3** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos requisitos do nível 2:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1)}
+
+* Possuir **recepção**; e
+* Possuir, no mínimo, **3 salas de atendimento**, sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**; e
+* Possuir **acessibiliadade, ao menos parcial**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==3), results='asis'}
+
+cat("O ", equipamento, " de **nível 3**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==3)}
+
+* Possui **recepção**; e
+* Possui, no mínimo, **3 salas de atendimento**, sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**; e
+* Possui, pelo menos, **1 banheiro**; e
+* Possui **acessibiliadade, ao menos parcial**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<4 && maior_nivel>2), results='asis'}
+
+cat("Para alcançar o **nível 4** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos resquisitos do nível 3:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2)}
+
+* Possuir, no mínimo, **4 salas de atendimento**, sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**; e
+* Possuir, no mínimo, **2 banheiros**; e
+* Possuir **pelo menos 2 computadores conectados à internet**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==4), results='asis'}
+
+cat("O ", equipamento, " de **nível 4**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==4)}
+
+* Possui **recepção**; e
+* Possui, no mínimo, **4 salas de atendimento**, sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**; e
+* Possui, no mínimo, **2 banheiros**; e
+* Possui **acessibiliadade, ao menos parcial**; e
+* Possui **pelo menos 2 computadores conectados à internet**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<5 && maior_nivel>3), results='asis'}
+
+cat("Para alcançar o **nível 5** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos requisitos do nível 4:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3)}
+
+* Possuir, no mínimo, **1 sala administrativa**; e
+* Possuir **acessibilidade**; e
+* Possuir conjunto de equipamentos que inclua, no mínimo: **3 computadores conectados à internet, impressora, telefone e veículo exclusivo ou compartilhado**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==5), results='asis'}
+
+cat("O ", equipamento, " de **nível 5**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==5)}
+
+* Possui **recepção**; e
+* Possui, no mínimo, **4 salas de atendimento**, sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**; e
+* Possui, no mínimo, **1 sala administrativa**; e
+* Possui, no mínimo, **2 banheiros**; e
+* Possui **acessibiliadade**; e
+* Possui conjunto de equipamentos que inclua, no mínimo: **3 computadores conectados à internet, impressora, telefone e veículo exclusivo ou compartilhado**.
+```
+
 
 ```{r ID-CREAS, fig.cap = sprintf(" Evolução das médias do ID CREAS, 2014 a 2022: %s, %s", nome_municipio, uf_municipio), fig.footer = "Fonte: MDS, Censo SUAS."}
 
