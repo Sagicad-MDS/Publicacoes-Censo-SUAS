@@ -28,6 +28,15 @@ output:
     number_sections: true
   html_document:
     number_sections: true
+    
+params:
+  municipio: 355030 # São Paulo
+# municipio: 316660 # Menor Município
+# municipio: 330455 # Rio de Janeiro
+# municipio: 110028 # CRAS EF nível 1
+# municipio: 110005 # CRAS EF nível 3, Serviços nível 1
+# municipio: 110007 # CRAS EF nível 4
+# municipio: 110012 # CRAS Serviços nível 1 município Grand
 ---
 
 \addto\captionsbrazilian{\renewcommand{\figurename}{Gráfico}}
@@ -120,15 +129,7 @@ idcreas_2022 <- read_excel("../ID CREAS/IDCREAS2022_divulgacao_retificado270923.
 
 ```{r municipio}
 # Município
-
-#municipio = 355030 # São Paulo
-#municipio = 316660 # Menor Município
-#municipio = 330455 # Rio de Janeiro
-#municipio = 110028  # CRAS EF nível 1
-#municipio = 110005  # CRAS EF nível 3, Serviços nível 1
-#municipio = 110007  # CRAS EF nível 4
-municipio = 110012  # CRAS Serviços nível 1 município Grand
-
+municipio <- params$municipio
 dados_municipio <- read_excel("../RELATORIO_DTB_BRASIL_MUNICIPIO.xls", skip = 6) %>%
                     mutate(`Código Município` = substr(`Código Município Completo`,1,6)) %>%
                     filter(`Código Município` == municipio)
