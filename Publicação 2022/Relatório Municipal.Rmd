@@ -49,12 +49,7 @@ params:
     <!-- \vskip0.5em}% -->
 <!-- } -->
 
-
-```{r setup, include=FALSE}
-Sys.setlocale("LC_ALL","Portuguese_Brazil.utf8")
-
-knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE)
-
+```{r pacotes, include=FALSE, cache=TRUE, fig.path='Relatório-Municipal_files/pdf/'}
 lista.de.pacotes = c("tinytex","tidyr", "purrr", "dplyr",
                      "lubridate","janitor","readxl","stringr",
                      "repmis","survey","srvyr","scales",
@@ -67,6 +62,12 @@ if(length(novos.pacotes) > 0) {install.packages(novos.pacotes, repos = "http://c
 lapply(lista.de.pacotes, require, character.only=T)
 rm(lista.de.pacotes,novos.pacotes)
 gc()
+```
+
+```{r setup, include=FALSE}
+Sys.setlocale("LC_ALL","Portuguese_Brazil.utf8")
+
+knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE)
 
 hook_plot_tex_footer <- function(x, options) {  
   x_out <- knitr:::hook_plot_tex(x, options) 
@@ -88,7 +89,7 @@ knitr::knit_hooks$set(plot=hook_plot_tex_footer)
 \newcommand\fnote[1]{\captionsetup{font=small, textfont=normalfont}\caption*{#1}}
 \captionsetup{justification=raggedright,singlelinecheck=false}
 
-```{r carregamento, cache=TRUE}
+```{r carregamento, cache=TRUE, fig.path='Relatório-Municipal_files/pdf/'}
 
 idconselho_2014 <- read_excel("../ID CONSELHO/IDConselho2014_alterado_08-12-2016.xlsx",sheet = 1)
 idconselho_2015 <- read_excel("../ID CONSELHO/ID CONSELHO - 2015.xlsx",sheet = 1)
@@ -151,7 +152,7 @@ porte_municipio <- porte_cras %>%
                                                             "Grande",
                                                             "Metrópole"), ordered=TRUE))
 factor_porte <- max(porte_municipio$Porte, na.rm = T)
-porte <- as.character(factor_porte)
+porte <- sprintf("em município de porte %s", as.character(factor_porte))
 ```
 
 ---
@@ -1029,7 +1030,6 @@ cat("O ", equipamento, " de **nível 5**, ", capacidade, ", na dimensão ", dime
 
   dimensao <- "Serviços & Benefícios"
   n_unidades <- n_unidades_municipio
-  porte <- sprintf("em município de porte %s", porte)
 ```
 
 ```{r eval=(n_unidades>0)}
@@ -1110,7 +1110,7 @@ cat("O ", equipamento, " de **nível 2** na dimensão ", dimensao, " ", porte, "
 
 ```{r eval=(n_unidades>0 && menor_nivel<3 && maior_nivel>1), results='asis'}
 
-cat("Para alcançar o **nível 3** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa:", sep="")
+cat("Para alcançar o **nível 3** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 2:", sep="")
 ```
 ```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1)}
 
@@ -1146,7 +1146,7 @@ cat("O ", equipamento, " de **nível 3** na dimensão ", dimensao, " ", porte, "
 
 ```{r eval=(n_unidades>0 && menor_nivel<4 && maior_nivel>2), results='asis'}
 
-cat("Para alcançar o **nível 4** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa:", sep="")
+cat("Para alcançar o **nível 4** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 3:", sep="")
 ```
 ```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2)}
 
@@ -1181,7 +1181,7 @@ cat("O ", equipamento, " de **nível 4** na dimensão ", dimensao, " ", porte, "
 
 ```{r eval=(n_unidades>0 && menor_nivel<5 && maior_nivel>3), results='asis'}
 
-cat("Para alcançar o **nível 5** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa:", sep="")
+cat("Para alcançar o **nível 5** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 4:", sep="")
 ```
 ```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3 && factor_porte=="Pequeno I")}
 
@@ -1234,11 +1234,9 @@ cat("O ", equipamento, " de **nível 5** na dimensão ", dimensao, " ", porte, "
 
 # ID CREAS
 
-A \Cref{fig:ID-CREAS} mostra a evolução das médias do ID CREAS ao longo dos anos no município de `r nome_municipio`, `r uf_municipio`.
+```{r ID-CREAS-tabela}
 
-```{r ID-CREAS, fig.cap = sprintf(" Evolução das médias do ID CREAS, 2014 a 2022: %s, %s", nome_municipio, uf_municipio), fig.footer = "Fonte: MDS, Censo SUAS."}
-
-grafico <- f_selecao_grupo_media(idcreas_2014, `Código IBGE`, municipio, `IDCREAS sintético`, "ID CREAS", "2014") %>%
+tabela <- f_selecao_grupo_media(idcreas_2014, `Código IBGE`, municipio, `IDCREAS sintético`, "ID CREAS", "2014") %>%
   bind_rows(f_selecao_grupo_media(idcreas_2014, `Código IBGE`, municipio, `Dimensão Estrutura Física`, "Estrutura Física", "2014")) %>%
   bind_rows(f_selecao_grupo_media(idcreas_2014, `Código IBGE`, municipio, `Dimensão Recursos Humanos`, "Recursos Humanos", "2014")) %>%
   bind_rows(f_selecao_grupo_media(idcreas_2014, `Código IBGE`, municipio, `Dimensão Serviços`, "Serviços & Benefícios", "2014")) %>%
@@ -1286,8 +1284,27 @@ grafico <- f_selecao_grupo_media(idcreas_2014, `Código IBGE`, municipio, `IDCRE
   mutate(Grupo = factor(Grupo, levels = c("Estrutura Física",
                                           "Recursos Humanos",
                                           "Serviços & Benefícios",
-                                          "ID CREAS"))) %>% 
+                                          "ID CREAS")))
+```
 
+```{r}
+
+  equipamento <- "CREAS"
+  existe_equipamento <- nrow(tabela %>% filter(!is.na(m)))
+```
+
+```{r eval=!existe_equipamento, results='asis'}
+
+cat(nome_municipio, " não tem ", equipamento, ".", sep="")
+```
+```{r eval=(existe_equipamento>0), results='asis'}
+
+cat("A \\Cref{fig:ID-CREAS} mostra a evolução das médias do ID CREAS ao longo dos anos no município de ", nome_municipio, ", ", uf_municipio, ".", sep="")
+```
+
+```{r ID-CREAS, fig.cap = sprintf(" Evolução das médias do ID CREAS, 2014 a 2022: %s, %s", nome_municipio, uf_municipio), fig.footer = "Fonte: MDS, Censo SUAS.", eval=(existe_equipamento>0)}
+
+grafico <- tabela %>% 
   ggplot(aes(x = Eixo_X, y = m, group = Grupo)) +
   geom_col(aes(fill = Grupo), position="dodge") +
   geom_text(aes(label = sprintf("%0.2f", m), y=m+0.3), position = position_dodge(width = 0.9), angle = 90, size = 3) +
@@ -1335,6 +1352,171 @@ grafico <- f_quantitativo_filtro(idcreas_2022, `Código IBGE`, municipio, `Estru
   guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
+```
+
+```{asis, echo=(n_unidades_municipio>0)}
+
+## ID CREAS: Dimensão Estrutura Física
+```
+
+```{r}
+
+  dimensao <- "Estrutura Física"
+  n_unidades <- n_unidades_municipio
+```
+
+```{r eval=(n_unidades>0)}
+
+  menor_nivel <- min(unidades_municipio$`Estrutura Física`, na.rm = T)
+  maior_nivel <- max(unidades_municipio$`Estrutura Física`, na.rm = T)
+```
+
+```{r eval=(n_unidades==1), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID do ", equipamento, " no município de ", nome_municipio, " é ",  menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel==maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " no município de ", nome_municipio, " é ", menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel<maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " no município de ", nome_municipio, " varia de ", menor_nivel, " a ", maior_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("O ", equipamento, " de **nível 1** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Possui menos de 3 salas; e/ou
+* Não possui banheiro; e/ou
+* Faz compartilhamento dos espaços de atendimento.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("Para alcançar o **nível 2** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Possuir no mínimo 3 salas (atendimento e/ou administrativa); e
+* Possuir no mínimo 1 banheiro.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==2), results='asis'}
+
+cat("O ", equipamento, " de **nível 2** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==2)}
+
+* Possui no mínimo 3 salas (atendimento e/ou administrativa); e
+* Possui no mínimo 1 banheiro.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<3 && maior_nivel>1), results='asis'}
+
+cat("Para alcançar o **nível 3** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 2:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1)}
+
+* Possuir recepção; e
+* Possuir acessibilidade, ao menos parcial. 
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==3), results='asis'}
+
+cat("O ", equipamento, " de **nível 3** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==3)}
+
+* Possui no mínimo 3 salas (atendimento e/ou administrativa); e
+* Possui recepção; e
+* Possui no mínimo 1 banheiro; e
+* Possui acessibilidade, ao menos parcial. 
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<4 && maior_nivel>2), results='asis'}
+
+cat("Para alcançar o **nível 4** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 3:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2)}
+
+* Possuir no mínimo 2 banheiros; e
+* Possuir 1 ou mais computadores com Internet; e
+* Possuir veículo próprio ou compartilhado; e
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2 && factor_porte<"Grande")}
+
+* Possuir 3 salas ou mais para atendimento (5 se CREAS Regional).
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2 && factor_porte>"Médio")}
+
+* Possuir 5 salas ou mais para atendimento.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==4), results='asis'}
+
+cat("O ", equipamento, " de **nível 4** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==4)}
+
+* Possui recepção; e
+* Possui no mínimo 2 banheiros; e
+* Possui 1 ou mais computadores com Internet; e
+* Possui veículo próprio ou compartilhado; e
+* Possui acessibilidade, ao menos parcial; e
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==4 && factor_porte<"Grande")}
+
+* Possui 3 salas ou mais para atendimento (5 se CREAS Regional).
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==4 && factor_porte>"Médio")}
+
+* Possui 5 salas ou mais para atendimento.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<5 && maior_nivel>3), results='asis'}
+
+cat("Para alcançar o **nível 5** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 4:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3)}
+
+* Possuir 1 ou mais sala Administrativa; e
+* Possuir kit equipamento: Telefone, Impressora, 2 ou mais computadores com Internet e Veículo próprio ou compartilhado; e
+* Possuir acessibilidade (com ou sem ABNT); e
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3 && factor_porte<"Grande")}
+
+* Possuir 3 salas ou mais para atendimento (5 se CREAS Regional), sendo pelo menos 1 com capacidade para 15 ou mais pessoas.
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3 && factor_porte>"Médio")}
+
+* Possuir 5 salas ou mais para atendimento, sendo pelo menos 1 com capacidade para 15 ou mais pessoas.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==5), results='asis'}
+
+cat("O ", equipamento, " de **nível 5** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==5)}
+
+* Possui recepção; e
+* Possui no mínimo 2 banheiros; e
+* Possui 1 ou mais sala Administrativa; e
+* Possui kit equipamento: Telefone, Impressora, 2 ou mais computadores com Internet e Veículo próprio ou compartilhado; e
+* Possui acessibilidade (com ou sem ABNT); e
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==5 && factor_porte<"Grande")}
+
+* Possui 3 salas ou mais para atendimento (5 se CREAS Regional), sendo pelo menos 1 com capacidade para 15 ou mais pessoas.
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==5 && factor_porte>"Médio")}
+
+* Possui 5 salas ou mais para atendimento, sendo pelo menos 1 com capacidade para 15 ou mais pessoas.
 ```
 
 # ID Conselho
