@@ -36,7 +36,8 @@ params:
 # municipio: 110028 # CRAS EF nível 1
 # municipio: 110005 # CRAS EF nível 3, Serviços nível 1
 # municipio: 110007 # CRAS EF nível 4
-# municipio: 110012 # CRAS Serviços nível 1 município Grand
+# municipio: 110012 # CRAS Serviços nível 1 município Grande
+  pacotes_carregados: FALSE  
 ---
 
 \addto\captionsbrazilian{\renewcommand{\figurename}{Gráfico}}
@@ -49,7 +50,7 @@ params:
     <!-- \vskip0.5em}% -->
 <!-- } -->
 
-```{r pacotes, include=FALSE, cache=TRUE, fig.path='Relatório-Municipal_files/pdf/'}
+```{r pacotes, include=FALSE, cache=pacotes_carregados, fig.path='Relatório-Municipal_files/pdf/'}
 lista.de.pacotes = c("tinytex","tidyr", "purrr", "dplyr",
                      "lubridate","janitor","readxl","stringr",
                      "repmis","survey","srvyr","scales",
@@ -389,8 +390,8 @@ cat("Para alcançar o **nível 2** na dimensão ", dimensao, ", o ", equipamento
 ```
 ```{asis, echo=(n_unidades>0 && menor_nivel==1)}
 
-* Possuir, no mínimo, **2 salas de atendimento**; e
-* Possuir, pelo menos, **1 banheiro**.
+* Possuir no mínimo **2 salas de atendimento**; e
+* Possuir pelo menos **1 banheiro**.
 ```
 
 ```{r eval=(n_unidades>0 && menor_nivel==2), results='asis'}
@@ -399,8 +400,8 @@ cat("O ", equipamento, " de **nível 2**, ", capacidade, ", na dimensão ", dime
 ```
 ```{asis, echo=(n_unidades>0 && menor_nivel==2)}
 
-* Possui, no mínimo, **2 salas de atendimento**; e
-* Possui, pelo menos, **1 banheiro**.
+* Possui no mínimo **2 salas de atendimento**; e
+* Possui pelo menos **1 banheiro**.
 ```
 
 ```{r eval=(n_unidades>0 && menor_nivel<3 && maior_nivel>1), results='asis'}
@@ -420,8 +421,8 @@ cat("O ", equipamento, " de **nível 3**, ", capacidade, ", na dimensão ", dime
 ```{asis, echo=(n_unidades>0 && menor_nivel==3)}
 
 * Possui **recepção**; e
-* Possui, no mínimo, **2 salas de atendimento**; e
-* Possui, pelo menos, **1 banheiro**; e
+* Possui no mínimo **2 salas de atendimento**; e
+* Possui pelo menos **1 banheiro**; e
 * Possui **acessibiliadade, ao menos parcial**.
 ```
 
@@ -431,8 +432,8 @@ cat("Para alcançar o **nível 4** na dimensão ", dimensao, ", o ", equipamento
 ```
 ```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2)}
 
-* Possuir, no mínimo, **2 salas de atendimento**, sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**; e
-* Possuir, no mínimo, **2 banheiros**; e
+* Possuir **pelo menos 1 das salas de atendimento com capacidade para 15 ou mais pessoas**; e
+* Possuir no mínimo **2 banheiros**; e
 * Possuir **pelo menos 1 computador conectado à internet**.
 ```
 
@@ -443,8 +444,8 @@ cat("O ", equipamento, " de **nível 4**, ", capacidade, ", na dimensão ", dime
 ```{asis, echo=(n_unidades>0 && menor_nivel==4)}
 
 * Possui **recepção**; e
-* Possui, no mínimo, **2 salas de atendimento**, sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**; e
-* Possui, no mínimo, **2 banheiros**; e
+* Possui no mínimo **2 salas de atendimento**, sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**; e
+* Possui no mínimo **2 banheiros**; e
 * Possui **acessibiliadade, ao menos parcial**; e
 * Possui **pelo menos 1 computador conectado à internet**.
 ```
@@ -455,7 +456,7 @@ cat("Para alcançar o **nível 5** na dimensão ", dimensao, ", o ", equipamento
 ```
 ```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3)}
 
-* Possuir, no mínimo, **1 sala administrativa**; e
+* Possuir no mínimo **1 sala administrativa**; e
 * Possuir **acessibilidade**; e
 * Possuir conjunto de equipamentos que inclua, no mínimo: **2 computadores conectados à internet, impressora, telefone e veículo exclusivo ou compartilhado**.
 ```
@@ -467,9 +468,9 @@ cat("O ", equipamento, " de **nível 5**, ", capacidade, ", na dimensão ", dime
 ```{asis, echo=(n_unidades>0 && menor_nivel==5)}
 
 * Possui **recepção**; e
-* Possui, no mínimo, **2 salas de atendimento**, sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**; e
-* Possui, no mínimo, **1 sala administrativa**; e
-* Possui, no mínimo, **2 banheiros**; e
+* Possui no mínimo **2 salas de atendimento**, sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**; e
+* Possui no mínimo **1 sala administrativa**; e
+* Possui no mínimo **2 banheiros**; e
 * Possui **acessibiliadade**; e
 * Possui conjunto de equipamentos que inclua, no mínimo: **2 computadores conectados à internet, impressora, telefone e veículo exclusivo ou compartilhado**.
 ```
@@ -529,8 +530,8 @@ cat("Para alcançar o **nível 2** na dimensão ", dimensao, ", o ", equipamento
 ```
 ```{asis, echo=(n_unidades>0 && menor_nivel==1)}
 
-* Possuir, no mínimo, **3 salas de atendimento**; e
-* Possuir, pelo menos, **1 banheiro**.
+* Possuir no mínimo **3 salas de atendimento**; e
+* Possuir pelo menos **1 banheiro**.
 ```
 
 ```{r eval=(n_unidades>0 && menor_nivel==2), results='asis'}
@@ -539,8 +540,8 @@ cat("O ", equipamento, " de **nível 2**, ", capacidade, ", na dimensão ", dime
 ```
 ```{asis, echo=(n_unidades>0 && menor_nivel==2)}
 
-* Possui, no mínimo, **3 salas de atendimento**; e
-* Possui, pelo menos, **1 banheiro**.
+* Possui no mínimo **3 salas de atendimento**; e
+* Possui pelo menos **1 banheiro**.
 ```
 
 ```{r eval=(n_unidades>0 && menor_nivel<3 && maior_nivel>1), results='asis'}
@@ -550,7 +551,7 @@ cat("Para alcançar o **nível 3** na dimensão ", dimensao, ", o ", equipamento
 ```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1)}
 
 * Possuir **recepção**; e
-* Possuir, no mínimo, **3 salas de atendimento**, sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**; e
+* Possuir **pelo menos 1 das salas de atendimento com capacidade para 15 ou mais pessoas**; e
 * Possuir **acessibiliadade, ao menos parcial**.
 ```
 
@@ -561,8 +562,8 @@ cat("O ", equipamento, " de **nível 3**, ", capacidade, ", na dimensão ", dime
 ```{asis, echo=(n_unidades>0 && menor_nivel==3)}
 
 * Possui **recepção**; e
-* Possui, no mínimo, **3 salas de atendimento**, sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**; e
-* Possui, pelo menos, **1 banheiro**; e
+* Possui no mínimo **3 salas de atendimento**, sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**; e
+* Possui pelo menos **1 banheiro**; e
 * Possui **acessibiliadade, ao menos parcial**.
 ```
 
@@ -572,8 +573,8 @@ cat("Para alcançar o **nível 4** na dimensão ", dimensao, ", o ", equipamento
 ```
 ```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2)}
 
-* Possuir, no mínimo, **4 salas de atendimento**, sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**; e
-* Possuir, no mínimo, **2 banheiros**; e
+* Possuir no mínimo **4 salas de atendimento** (sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**); e
+* Possuir no mínimo **2 banheiros**; e
 * Possuir **pelo menos 2 computadores conectados à internet**.
 ```
 
@@ -584,8 +585,8 @@ cat("O ", equipamento, " de **nível 4**, ", capacidade, ", na dimensão ", dime
 ```{asis, echo=(n_unidades>0 && menor_nivel==4)}
 
 * Possui **recepção**; e
-* Possui, no mínimo, **4 salas de atendimento**, sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**; e
-* Possui, no mínimo, **2 banheiros**; e
+* Possui no mínimo **4 salas de atendimento**, sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**; e
+* Possui no mínimo **2 banheiros**; e
 * Possui **acessibiliadade, ao menos parcial**; e
 * Possui **pelo menos 2 computadores conectados à internet**.
 ```
@@ -596,7 +597,7 @@ cat("Para alcançar o **nível 5** na dimensão ", dimensao, ", o ", equipamento
 ```
 ```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3)}
 
-* Possuir, no mínimo, **1 sala administrativa**; e
+* Possuir no mínimo **1 sala administrativa**; e
 * Possuir **acessibilidade**; e
 * Possuir conjunto de equipamentos que inclua, no mínimo: **3 computadores conectados à internet, impressora, telefone e veículo exclusivo ou compartilhado**.
 ```
@@ -608,9 +609,9 @@ cat("O ", equipamento, " de **nível 5**, ", capacidade, ", na dimensão ", dime
 ```{asis, echo=(n_unidades>0 && menor_nivel==5)}
 
 * Possui **recepção**; e
-* Possui, no mínimo, **4 salas de atendimento**, sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**; e
-* Possui, no mínimo, **1 sala administrativa**; e
-* Possui, no mínimo, **2 banheiros**; e
+* Possui no mínimo **4 salas de atendimento**, sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**; e
+* Possui no mínimo **1 sala administrativa**; e
+* Possui no mínimo **2 banheiros**; e
 * Possui **acessibiliadade**; e
 * Possui conjunto de equipamentos que inclua, no mínimo: **3 computadores conectados à internet, impressora, telefone e veículo exclusivo ou compartilhado**.
 ```
@@ -690,7 +691,7 @@ cat("O ", equipamento, " de **nível 2**, ", capacidade, ", na dimensão ", dime
 ```{asis, echo=(n_unidades>0 && menor_nivel==2)}
 
 * Possui no mínimo **3** profissionais, sendo, pelo menos **2** com nível superior*; e
-* Possui pelo menos **1 Assistente Social OU 1 Psicólogo**.  
+* Possui pelo menos **1 Assistente Social ou 1 Psicólogo**.  
 ```
 
 ```{r eval=(n_unidades>0 && menor_nivel<3 && maior_nivel>1), results='asis'}
@@ -740,8 +741,8 @@ cat("Para alcançar o **nível 5** na dimensão ", dimensao, ", o ", equipamento
 ```
 ```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3)}
 
-* Possuir no mínimo **5** (9, se EV) **profissionais**, sendo pelo menos **3** (5, se EV) com **nível superior**; e 
-* Possuir no mínimo **1 Assistente Social** (2, se EV) e **1 Psicólogo**; e 
+* Possuir no mínimo **5** (9, se EV) **profissionais** (sendo pelo menos **3** (5, se EV) com **nível superior**); e 
+* Possuir no mínimo **1 Psicólogo**; e 
 * Possuir no mínimo **1** profissional de nível superior com **vínculo estatutário ou empregado público celetista**.
 ```
 
@@ -822,7 +823,7 @@ cat("O ", equipamento, " de **nível 2**, ", capacidade, ", na dimensão ", dime
 ```{asis, echo=(n_unidades>0 && menor_nivel==2)}
 
 * Possui no mínimo **5** profissionais, sendo, pelo menos **2** com nível superior*; e
-* Possui pelo menos **1 Assistente Social OU 1 Psicólogo**.  
+* Possui pelo menos **1 Assistente Social ou 1 Psicólogo**.  
 ```
 
 ```{r eval=(n_unidades>0 && menor_nivel<3 && maior_nivel>1), results='asis'}
@@ -872,8 +873,8 @@ cat("Para alcançar o **nível 5** na dimensão ", dimensao, ", o ", equipamento
 ```
 ```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3)}
 
-* Possuir no mínimo **7** (11, se EV) **profissionais**, sendo pelo menos **4** (6, se EV) com **nível superior**; e
-* Possuir no mínimo **2 Assistentes Sociais** (3, se EV) e **1 Psicólogo**; e 
+* Possuir no mínimo **7** (11, se EV) **profissionais** (sendo pelo menos **4** (6, se EV) com **nível superior**); e
+* Possuir no mínimo **1 Psicólogo**; e 
 * Possuir no mínimo **1** profissional de nível superior com **vínculo estatutário ou empregado público celetista**.
 ```
 
@@ -953,7 +954,7 @@ cat("O ", equipamento, " de **nível 2**, ", capacidade, ", na dimensão ", dime
 ```
 ```{asis, echo=(n_unidades>0 && menor_nivel==2)}
 
-* Possui no mínimo **6** profissionais, sendo, pelo menos **3** com nível superior*; e
+* Possui no mínimo **6** profissionais, sendo pelo menos **3** com nível superior*; e
 * Possui pelo menos **1 Assistente Social ou 1 Psicólogo**.  
 ```
 
@@ -984,7 +985,7 @@ cat("Para alcançar o **nível 4** na dimensão ", dimensao, ", o ", equipamento
 ```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2)}
 
 * Possuir no mínimo **7** (10, se EV) profissionais, sendo pelo menos **5** (7, se EV) com nível superior; e
-* Possuir no mínimo **2 Assistentes Sociais** (3, se EV) e **1 Psicólogo**; e 
+* Possuir no mínimo **1 Psicólogo**; e 
 * Possuir **coordenador** com nível superior.
 ```
 
@@ -1005,7 +1006,7 @@ cat("Para alcançar o **nível 5** na dimensão ", dimensao, ", o ", equipamento
 ```
 ```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3)}
 
-* Possuir no mínimo **9** (13, se EV) **profissionais**, sendo pelo menos **5** (7, se EV) com **nível superior**; e
+* Possuir no mínimo **9** (13, se EV) **profissionais** (sendo pelo menos **5** (7, se EV) com **nível superior**); e
 * Possuir no mínimo **2** profissionais de nível superior com **vínculo estatutário ou empregado público celetista**.
 ```
 
@@ -1326,6 +1327,7 @@ unidades_municipio <- idcreas_2022 %>%
                        filter(`Código IBGE` == municipio)
 
 n_unidades_municipio <- nrow(unidades_municipio)
+n_unidades <- n_unidades_municipio
 ```
 
 ```{r ID-CREAS-nivel, fig.cap = sprintf("Quantidade de CREAS em cada nível de ID, 2022: %s, %s", nome_municipio, uf_municipio), fig.footer = "Fonte: MDS, Censo SUAS.", eval=n_unidades_municipio>1}
@@ -1362,7 +1364,6 @@ grafico
 ```{r}
 
   dimensao <- "Estrutura Física"
-  n_unidades <- n_unidades_municipio
 ```
 
 ```{r eval=(n_unidades>0)}
@@ -1486,16 +1487,9 @@ cat("Para alcançar o **nível 5** na dimensão ", dimensao, ", o ", equipamento
 ```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3)}
 
 * Possuir 1 ou mais sala Administrativa; e
-* Possuir kit equipamento: Telefone, Impressora, 2 ou mais computadores com Internet e Veículo próprio ou compartilhado; e
+* Possuir kit equipamento: Telefone, Impressora, 2 ou mais computadores com Internet, além de Veículo próprio ou compartilhado; e
 * Possuir acessibilidade (com ou sem ABNT); e
-```
-```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3 && factor_porte<"Grande")}
-
-* Possuir 3 salas ou mais para atendimento (5 se CREAS Regional), sendo pelo menos 1 com capacidade para 15 ou mais pessoas.
-```
-```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3 && factor_porte>"Médio")}
-
-* Possuir 5 salas ou mais para atendimento, sendo pelo menos 1 com capacidade para 15 ou mais pessoas.
+* Possuir pelo menos 1 das salas para atendimento com capacidade para 15 ou mais pessoas.
 ```
 
 ```{r eval=(n_unidades>0 && menor_nivel==5), results='asis'}
@@ -1517,6 +1511,388 @@ cat("O ", equipamento, " de **nível 5** na dimensão ", dimensao, " ", porte, "
 ```{asis, echo=(n_unidades>0 && menor_nivel==5 && factor_porte>"Médio")}
 
 * Possui 5 salas ou mais para atendimento, sendo pelo menos 1 com capacidade para 15 ou mais pessoas.
+```
+
+```{asis, echo=(n_unidades_municipio>0)}
+
+## ID CREAS: Dimensão Recursos Humanos
+```
+
+```{r}
+
+  dimensao <- "Recursos Humanos"
+```
+
+```{r eval=(n_unidades>0)}
+
+  menor_nivel <- min(unidades_municipio$`Recursos Humanos`, na.rm = T)
+  maior_nivel <- max(unidades_municipio$`Recursos Humanos`, na.rm = T)
+```
+
+```{r eval=(n_unidades==1), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID do ", equipamento, " no município de ", nome_municipio, " é ",  menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel==maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " no município de ", nome_municipio, " é ", menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel<maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " no município de ", nome_municipio, " varia de ", menor_nivel, " a ", maior_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("O", equipamento, "de **nível 1** na dimensão", dimensao, porte, "se caracteriza por:")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Inexistência de Assistente Social ou de Psicólogo; ou
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==1 && factor_porte<"Grande")}
+
+* Possuir menos de 3 trabalhadores (6, se CREAS Regional).
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==1 && factor_porte>"Médio")}
+
+* Possuir menos de 6 trabalhadores; ou
+* Possuir menos de 4 profissionais das áreas de serviço social e psicologia.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("Para alcançar o **nível 2** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==1 && factor_porte<"Grande")}
+
+* Ter quantidade total de trabalhadores (nível superior e médio) maior ou igual a 3 (6, se CREAS Regional); e
+* Possuir no mínimo 1 Assistente Social e 1 Psicólogo (além disso, se for CREAS Regional, o total de Assistentes Sociais mais Psicólogos deve ser maior ou igual a 4).
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==1 && factor_porte>"Médio")}
+
+* Ter quantidade total de trabalhadores (nível superior e médio) maior ou igual a 6; e 
+* Ter quantidade total de Assistentes Sociais mais Psicólogos maior ou igual a 4, sendo obrigatória a presença de profissionais destas duas áreas.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==2), results='asis'}
+
+cat("O ", equipamento, " de **nível 2** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==2 && factor_porte<"Grande")}
+
+* Tem quantidade total de trabalhadores (nível superior e médio) maior ou igual a 3 (6, se CREAS Regional); e
+* Possui no mínimo 1 Assistente Social e 1 Psicólogo (além disso, se for CREAS Regional, o total de Assistentes Sociais mais Psicólogos deve ser maior ou igual a 4).
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==2 && factor_porte>"Médio")}
+
+* Tem quantidade total de trabalhadores (nível superior e médio) maior ou igual a 6; e 
+* Tem quantidade total de Assistentes Sociais mais Psicólogos maior ou igual a 4, sendo obrigatória a presença de profissionais destas duas áreas.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<3 && maior_nivel>1), results='asis'}
+
+cat("Para alcançar o **nível 3** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 2:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1)}
+
+* Possuir Coordenador com nível superior; e
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1 && factor_porte<"Grande")}
+
+* Ter quantidade total de trabalhadores (nível superior e médio) maior ou igual a 5 (10, se CREAS Regional), sendo no mínimo 3 (5, se CREAS Regional) deles de nível superior.
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1 && factor_porte>"Médio")}
+
+* Ter quantidade total de trabalhadores (nível superior e médio) maior ou igual a 10, sendo no mínimo 5 deles de nível superior. 
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==3), results='asis'}
+
+cat("O ", equipamento, " de **nível 3** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==3)}
+
+* Possui Coordenador com nível superior; e
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==3 && factor_porte<"Grande")}
+
+* Tem quantidade total de trabalhadores (nível superior e médio) maior ou igual a 5 (10, se CREAS Regional), sendo no mínimo 3 (5, se CREAS Regional) deles de nível superior; e
+* Possui no mínimo 1 Assistente Social e 1 Psicólogo (além disso, se for CREAS Regional, o total de Assistentes Sociais mais Psicólogos deve ser maior ou igual a 4).
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==3 && factor_porte>"Médio")}
+
+* Tem quantidade total de trabalhadores (nível superior e médio) maior ou igual a 10, sendo no mínimo 5 deles de nível superior; e 
+* Tem quantidade total de Assistentes Sociais, mais Psicólogos, maior ou igual a 4, sendo obrigatória a presença de profissionais destas duas áreas.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<4 && maior_nivel>2), results='asis'}
+
+cat("Para alcançar o **nível 4** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 3:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2)}
+
+* Possuir no mínimo 1 Advogado; e
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2 && factor_porte<"Grande")}
+
+* Ter no mínimo 4 trabalhadores de nível superior (6, se CREAS Regional).
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2 && factor_porte>"Médio")}
+
+* Ter no mínimo 6 trabalhadores de nível superior.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==4), results='asis'}
+
+cat("O ", equipamento, " de **nível 4** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==4)}
+
+* Possui no mínimo 1 Advogado; e
+* Possui Coordenador com nível superior; e
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==4 && factor_porte<"Grande")}
+
+* Tem quantidade total de trabalhadores (nível superior e médio) maior ou igual a 5 (10, se CREAS Regional), sendo no mínimo 4 (6, se CREAS Regional) deles de nível superior; e
+* Possui no mínimo 1 Assistente Social e 1 Psicólogo (além disso, se for CREAS Regional, o total de Assistentes Sociais mais Psicólogos deve ser maior ou igual a 4).
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==4 && factor_porte>"Médio")}
+
+* Tem quantidade total de trabalhadores (nível superior e médio) maior ou igual a 10, sendo no mínimo 6 deles de nível superior; e 
+* Tem quantidade total de Assistentes Sociais, mais Psicólogos, maior ou igual a 4, sendo obrigatória a presença de profissionais destas duas áreas.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<5 && maior_nivel>3), results='asis'}
+
+cat("Para alcançar o **nível 5** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 4:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3 && factor_porte<"Grande")}
+
+* Ter quantidade total de trabalhadores (nível superior e médio) maior ou igual a 7 (14, se CREAS Regional, sendo neste caso no mínimo 7 de nível superior); e
+* Se for CREAS Regional, possuir no mínimo 2 Assistentes Sociais; e
+* Se for CREAS Regional, possuir no mínimo 2 Psicólogos; e
+* Possuir no mínimo 1 (2, se CREAS Regional) trabalhador de nível superior com vínculo estatutário ou empregado público celetista.
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3 && factor_porte>"Médio")}
+
+* Ter quantidade total de trabalhadores (nível superior e médio) maior ou igual a 14, sendo no mínimo 7 deles de nível superior; e
+* Possuir no mínimo 2 Assistentes Sociais; e
+* Possuir no mínimo 2 Psicólogos; e
+* Possuir no mínimo 2 trabalhadores de nível superior com vínculo estatutário ou empregado público celetista. 
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==5), results='asis'}
+
+cat("O ", equipamento, " de **nível 5** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==5)}
+
+* Possui no mínimo 1 Advogado; e
+* Possui Coordenador com nível superior; e
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==5 && factor_porte<"Grande")}
+
+* Tem quantidade total de trabalhadores (nível superior e médio) maior ou igual a 7 (14, se CREAS Regional), sendo no mínimo 4 (7, se CREAS Regional) deles de nível superior; e
+* Possui no mínimo 1 Assistente Social (2, se CREAS Regional); e
+* Possui no mínimo 1 Psicólogos (2, se CREAS Regional); e
+* Possui no mínimo 1 trabalhador de nível superior com vínculo estatutário ou empregado público celetista (2, se CREAS Regional).
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==5 && factor_porte>"Médio")}
+
+* Tem quantidade total de trabalhadores (nível superior e médio) maior ou igual a 14, sendo no mínimo 7 deles de nível superior; e 
+* Possui no mínimo 2 Assistentes Sociais; e
+* Possui no mínimo 2 Psicólogos; e
+* Possui no mínimo 2 trabalhadores de nível superior com vínculo estatutário ou empregado público celetista. 
+```
+
+```{asis, echo=(n_unidades_municipio>0)}
+
+## ID CREAS: Dimensão Serviços & Benefícios
+```
+
+```{r}
+
+  dimensao <- "Serviços & Benefícios"
+```
+
+```{r eval=(n_unidades>0)}
+
+  menor_nivel <- min(unidades_municipio$`Serviços `, na.rm = T)
+  maior_nivel <- max(unidades_municipio$`Serviços `, na.rm = T)
+```
+
+```{r eval=(n_unidades==1), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID do ", equipamento, " no município de ", nome_municipio, " é ",  menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel==maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " no município de ", nome_municipio, " é ", menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel<maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " no município de ", nome_municipio, " varia de ", menor_nivel, " a ", maior_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("O", equipamento, "de **nível 1** na dimensão", dimensao, porte, "se caracteriza por:")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Não realizar alguma(s) das seguintes atividades essenciais do PAEFI: Entrevistas de acolhida para avaliação inicial dos casos, Atendimento psicossocial individual/familiar, Visitas domiciliares, Elaboração de relatórios técnicos sobre casos em acompanhamento; ou
+* Ter articulação frágil ou inexistente com o CRAS; ou
+* Não possuir Assistente Social nem Psicólogo. 
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("Para alcançar o **nível 2** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Ofertar o PAEFI assegurando a realização, pelo menos, das seguintes atividades: Entrevistas de acolhida para avaliação inicial dos casos, Atendimento psicossocial individual/familiar, Visitas domiciliares e Elaboração de relatórios técnicos sobre casos em acompanhamento; e
+* Possuir forte articulação com o CRAS.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==2), results='asis'}
+
+cat("O ", equipamento, " de **nível 2** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==2)}
+
+* Oferta o PAEFI assegurando a realização, pelo menos, das seguintes atividades: Entrevistas de acolhida para avaliação inicial dos casos, Atendimento psicossocial individual/familiar, Visitas domiciliares e Elaboração de relatórios técnicos sobre casos em acompanhamento; e
+* Possui forte articulação com o CRAS.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<3 && maior_nivel>1), results='asis'}
+
+cat("Para alcançar o **nível 3** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 2:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1)}
+
+* Ofertar o PAEFI assegurando a realização da Construção de Plano Individual e/ou Familiar de atendimento (além da realização das atividades exigidas no nível 2); e
+* Possuir forte articulação com o Conselho Tutelar; e
+* Ofertar atendimento para variadas situações de violência ou violação de direitos e para os diferentes ciclos de vida; e
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1 && factor_porte<"Grande")}
+
+* Ofertar o Serviço de MSE (APLICA-SE SOMENTE SE O MUNICÍPIO RECEBER COFINANCIAMENTO ou se for CREAS Regional).
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1 && factor_porte>"Médio")}
+
+* Ofertar o Serviço de MSE.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==3), results='asis'}
+
+cat("O ", equipamento, " de **nível 3** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==3)}
+
+* Oferta o PAEFI assegurando a realização, pelo menos, das seguintes atividades: Entrevistas de acolhida para avaliação inicial dos casos, Atendimento psicossocial individual/familiar, Construção de Plano Individual e/ou Familiar de atendimento, Visitas domiciliares e Elaboração de relatórios técnicos sobre casos em acompanhamento; e
+* Possui forte articulação com o CRAS e com o Conselho Tutelar; e
+* Oferta atendimento para variadas situações de violência ou violação de direitos e para os diferentes ciclos de vida; e
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==3 && factor_porte<"Grande")}
+
+* Oferta o Serviço de MSE (APLICA-SE SOMENTE SE O MUNICÍPIO RECEBER COFINANCIAMENTO ou se for CREAS Regional).
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==3 && factor_porte>"Médio")}
+
+* Oferta o Serviço de MSE.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<4 && maior_nivel>2), results='asis'}
+
+cat("Para alcançar o **nível 4** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 3:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2)}
+
+* Ofertar o PAEFI assegurando a realização da atividade de Atendimento psicossocial em grupo (além da realização das atividades exigidas no nível 3); e
+* Ter quantidade média de casos em acompanhamento no mês, dividida pela equipe técnica (AS + PSI) menor ou igual a 50 casos; e
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2 && factor_porte<"Grande")}
+
+* Ofertar o Serviço de MSE assegurando a elaboração do Plano Individual de Atendimento (PIA) do adolescente (APLICA-SE SOMENTE SE O MUNICÍPIO RECEBER COFINANCIAMENTO ou se for CREAS Regional); e
+* Ofertar o Serviço de Abordagem ou ter o Serviço referenciado (APLICA-SE SOMENTE SE O MUNICÍPIO RECEBER COFINANCIAMENTO ou se for CREAS Regional).
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2 && factor_porte>"Médio")}
+
+* Ofertar o Serviço de MSE assegurando a elaboração do Plano Individual de Atendimento (PIA) do adolescente; e
+* Ofertar o Serviço de Abordagem ou ter o Serviço referenciado.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==4), results='asis'}
+
+cat("O ", equipamento, " de **nível 4** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==4)}
+
+* Oferta o PAEFI assegurando a realização, pelo menos, das seguintes atividades: Entrevistas de acolhida para avaliação inicial dos casos, Atendimento psicossocial em grupo, Atendimento psicossocial individual/familiar, Construção de Plano Individual e/ou Familiar de atendimento, Visitas domiciliares e Elaboração de relatórios técnicos sobre casos em acompanhamento; e
+* Tem quantidade média de casos em acompanhamento no mês, dividida pela equipe técnica (AS + PSI) menor ou igual a 50 casos; e
+* Oferta atendimento para variadas situações de violência ou violação de direitos e para os diferentes ciclos de vida; e
+* Possui forte articulação com o CRAS e com o Conselho Tutelar; e
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==4 && factor_porte<"Grande")}
+
+* Oferta o Serviço de MSE assegurando a elaboração do Plano Individual de Atendimento (PIA) do adolescente (APLICA-SE SOMENTE SE O MUNICÍPIO RECEBER COFINANCIAMENTO ou se for CREAS Regional); e
+* Oferta o Serviço de Abordagem ou tem o Serviço referenciado (APLICA-SE SOMENTE SE O MUNICÍPIO RECEBER COFINANCIAMENTO ou se for CREAS Regional).
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==4 && factor_porte>"Médio")}
+
+* Oferta o Serviço de MSE assegurando a elaboração do Plano Individual de Atendimento (PIA) do adolescente; e
+* Oferta o Serviço de Abordagem ou tem o Serviço referenciado.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<5 && maior_nivel>3), results='asis'}
+
+cat("Para alcançar o **nível 5** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 4:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3)}
+
+* Ofertar o PAEFI assegurando a realização de Ações de mobilização e sensibilização para o enfrentamento das situações de violação de direitos (além da realização das atividades exigidas no nível 4); e
+* Ter quantidade média de casos em acompanhamento no mês, dividida pela equipe técnica (AS + PSI) menor ou igual a 30 casos; e
+* Possuir Assistente Social e Psicólogo; e
+* Funcionar no mínimo 5 dias por semana e 40 horas semanais; e
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3 && factor_porte<"Grande")}
+* Ofertar o Serviço de MSE assegurando a realização, pelo menos, das seguintes atividades, além das atividades exigidas no nível 4: Ofertar LA e PSC; Acompanhamento de LA e PSC, com frequência de atendimento semanal ou quinzenal e Atendimento do adolescente em grupos (APLICA-SE SOMENTE SE O MUNICÍPIO RECEBER COFINANCIAMENTO ou se for CREAS Regional).
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3 && factor_porte>"Médio")}
+
+* Ofertar o Serviço de MSE assegurando a realização, pelo menos, das seguintes atividades, além das atividades exigidas no nível 4: Ofertar LA e PSC; Acompanhamento de LA e PSC, com frequência de atendimento semanal ou quinzenal e Atendimento do adolescente em grupos; e
+* Manter forte articulação com Serviços de Acolhimento.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==5), results='asis'}
+
+cat("O ", equipamento, " de **nível 5** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==5)}
+
+* Oferta o PAEFI assegurando a realização, pelo menos, das seguintes atividades: Entrevistas de acolhida para avaliação inicial dos casos, Atendimento psicossocial em grupo, Atendimento psicossocial individual/familiar, Construção de Plano Individual e/ou Familiar de atendimento, Visitas domiciliares, Ações de mobilização e sensibilização para o enfrentamento das situações de violação de direitos e Elaboração de relatórios técnicos sobre casos em acompanhamento; e
+* Oferta atendimento para variadas situações de violência ou violação de direitos e para os diferentes ciclos de vida; e
+* Tem quantidade média de casos em acompanhamento no mês, dividida pela equipe técnica (AS + PSI) menor ou igual a 30 casos; e
+* Possui Assistente Social e Psicólogo; e
+* Funciona no mínimo 5 dias por semana e 40 horas semanais; e
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==5 && factor_porte<"Grande")}
+
+* Oferta o Serviço de MSE assegurando a realização, pelo menos, das seguintes atividades: Ofertar LA e PSC; Acompanhamento de LA e PSC, com frequência de atendimento semanal ou quinzenal; Elaboração do Plano Individual de Atendimento (PIA) do adolescente e Atendimento do adolescente em grupos (APLICA-SE SOMENTE SE O MUNICÍPIO RECEBER COFINANCIAMENTO ou se for CREAS Regional); e
+* Oferta o Serviço de Abordagem ou tem o Serviço referenciado (APLICA-SE SOMENTE SE O MUNICÍPIO RECEBER COFINANCIAMENTO ou se for CREAS Regional); e
+* Mantém forte articulação com o CRAS e com o Conselho Tutelar.
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==5 && factor_porte>"Médio")}
+
+* Oferta o Serviço de MSE assegurando a realização, pelo menos, das seguintes atividades: Ofertar LA e PSC; Acompanhamento de LA e PSC, com frequência de atendimento semanal ou quinzenal; Elaboração do Plano Individual de Atendimento (PIA) do adolescente e Atendimento do adolescente em grupos; e
+* Mantém forte articulação com o CRAS, com o Conselho Tutelar e com Serviços de Acolhimento; e
+* Oferta o Serviço de Abordagem ou tem o Serviço referenciado.
 ```
 
 # ID Conselho
