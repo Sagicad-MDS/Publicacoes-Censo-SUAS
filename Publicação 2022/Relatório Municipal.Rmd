@@ -50,7 +50,7 @@ params:
     <!-- \vskip0.5em}% -->
 <!-- } -->
 
-```{r pacotes, include=FALSE, cache=pacotes_carregados, fig.path='Relatório-Municipal_files/pdf/'}
+```{r pacotes, include=FALSE, cache=params$pacotes_carregados, fig.path='Relatório-Municipal_files/pdf/'}
 lista.de.pacotes = c("tinytex","tidyr", "purrr", "dplyr",
                      "lubridate","janitor","readxl","stringr",
                      "repmis","survey","srvyr","scales",
@@ -195,7 +195,9 @@ f_selecao_grupo_media = function(df, q_selecao, selecao, q_media, grupo, eixo_x)
 
 ```
 
-# ID CRAS
+# ID CRAS: Indice de Desenvolvimento do CRAS
+
+O ID CRAS é um indicador composto por três dimensões. Cada dimensão possui uma nota na qual quanto mais próxima de 5, melhor o índice e, do contrário, insatisfatório. 
 
 A \Cref{fig:ID-CRAS} mostra a evolução das médias do ID CRAS ao longo dos anos no município de `r nome_municipio`, `r uf_municipio`.
 
@@ -323,6 +325,11 @@ tabela <- unidades_municipio %>%
             kable(caption=sprintf("Quantidade de %s no município de %s por capacidade de referenciamento.", equipamento, nome_municipio),
                   col.names=c("Capacidade de até:", "Quantidade"))
 tabela  
+```
+
+```{r eval=(n_unidades_municipio>0), results='asis'}
+
+cat("As seções a seguir apresentam os resultados do município de", nome_municipio, "em cada uma das dimensões do ID CRAS, bem como os requisitos para se alcançar os níveis superiores.")
 ```
 
 ```{asis, echo=(n_unidades_municipio>0)}
@@ -1233,7 +1240,9 @@ cat("O ", equipamento, " de **nível 5** na dimensão ", dimensao, " ", porte, "
 * **Funciona** no mínimo **5 dias** por semana e **40 horas** semanais.
 ```
 
-# ID CREAS
+# ID CREAS: Indice de Desenvolvimento do CREAS
+
+O ID CREAS é um indicador composto por três dimensões. Cada dimensão possui uma nota na qual quanto mais próxima de 5, melhor o índice e, do contrário, insatisfatório. 
 
 ```{r ID-CREAS-tabela}
 
@@ -1354,6 +1363,11 @@ grafico <- f_quantitativo_filtro(idcreas_2022, `Código IBGE`, municipio, `Estru
   guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
+```
+
+```{r eval=(n_unidades_municipio>0), results='asis'}
+
+cat("As seções a seguir apresentam os resultados do município de", nome_municipio, "em cada uma das dimensões do ID CREAS, bem como os requisitos para se alcançar os níveis superiores.")
 ```
 
 ```{asis, echo=(n_unidades_municipio>0)}
@@ -1895,13 +1909,13 @@ cat("O ", equipamento, " de **nível 5** na dimensão ", dimensao, " ", porte, "
 * Oferta o Serviço de Abordagem ou tem o Serviço referenciado.
 ```
 
-# ID Conselho
+# ID Conselho: Indice de Desenvolvimento dos Conselhos de Assistência Social
 
-A \Cref{fig:ID-conselho} mostra a evolução das médias do ID Conselho ao longo dos anos no município de `r nome_municipio`, `r uf_municipio`.
+O ID Conselho é indicador desenvolvimento com o objetivo de avaliar o controle social no SUAS. Ele possui três dimensões. Cada dimensão possui uma nota na qual quanto mais próxima de 5, melhor o índice e, do contrário, insatisfatório.
 
-```{r ID-conselho, fig.cap = sprintf(" Evolução das médias do ID Conselho, 2014 a 2022: %s, %s", nome_municipio, uf_municipio), fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r ID-conselho-tabela}
 
-grafico <- f_selecao_grupo_media(idconselho_2014, IBGE, municipio, IDConselho, "ID Conselho", "2014") %>%
+tabela <- f_selecao_grupo_media(idconselho_2014, IBGE, municipio, IDConselho, "ID Conselho", "2014") %>%
   bind_rows(f_selecao_grupo_media(idconselho_2014, IBGE, municipio, `Estrutura Administrativa`, "Estrutura Administrativa", "2014")) %>%
   bind_rows(f_selecao_grupo_media(idconselho_2014, IBGE, municipio, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2014")) %>%
   bind_rows(f_selecao_grupo_media(idconselho_2014, IBGE, municipio, `Composição do Conselho`, "Composição do Conselho", "2014")) %>%
@@ -1949,8 +1963,28 @@ grafico <- f_selecao_grupo_media(idconselho_2014, IBGE, municipio, IDConselho, "
   mutate(Grupo = factor(Grupo, levels = c("Estrutura Administrativa",
                                           "Dinâmica de Funcionamento",
                                           "Composição do Conselho",
-                                          "ID Conselho"))) %>% 
+                                          "ID Conselho")))
 
+```
+
+```{r}
+
+  equipamento <- "Conselho"
+  existe_equipamento <- nrow(tabela %>% filter(!is.na(m)))
+```
+
+```{r eval=!existe_equipamento, results='asis'}
+
+cat(nome_municipio, " não tem ", equipamento, ".", sep="")
+```
+```{r eval=(existe_equipamento>0), results='asis'}
+
+cat("A \\Cref{fig:ID-conselho} mostra a evolução das médias do ID Conselho ao longo dos anos no município de ", nome_municipio, ", ", uf_municipio, ".", sep="")
+```
+
+```{r ID-conselho, fig.cap = sprintf(" Evolução das médias do ID Conselho, 2014 a 2022: %s, %s", nome_municipio, uf_municipio), fig.footer = "Fonte: MDS, Censo SUAS.", eval=(existe_equipamento>0)}
+
+grafico <- tabela %>%
   ggplot(aes(x = Eixo_X, y = m, group = Grupo)) +
   geom_col(aes(fill = Grupo), position="dodge") +
   geom_text(aes(label = sprintf("%0.2f", m), y=m+0.3), position = position_dodge(width = 0.9), angle = 90, size = 3) +
@@ -1965,4 +1999,168 @@ grafico <- f_selecao_grupo_media(idconselho_2014, IBGE, municipio, IDConselho, "
   guides(fill=guide_legend(nrow=2,byrow=TRUE))
 
 grafico
+```
+
+```{r}
+unidades_municipio <- idconselho_2022 %>%
+                       filter(IBGE7 == municipio)
+
+n_unidades_municipio <- nrow(unidades_municipio)
+n_unidades <- n_unidades_municipio
+```
+
+```{r eval=(n_unidades_municipio>0), results='asis'}
+
+cat("As seções a seguir apresentam os resultados do município de", nome_municipio, "em cada uma das dimensões do ID Conselho, bem como os requisitos para se alcançar os níveis superiores.")
+```
+
+```{asis, echo=(n_unidades_municipio>0)}
+
+## ID Conselho: Dimensão Estrutura Administrativa
+```
+
+```{r}
+
+  dimensao <- "Estrutura Administrativa"
+```
+
+```{r eval=(n_unidades>0)}
+
+  menor_nivel <- min(unidades_municipio$`Estrutura Administrativa`, na.rm = T)
+  maior_nivel <- max(unidades_municipio$`Estrutura Administrativa`, na.rm = T)
+```
+
+```{r eval=(n_unidades==1), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID do ", equipamento, " no município de ", nome_municipio, " é ",  menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel==maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " no município de ", nome_municipio, " é ", menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel<maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " no município de ", nome_municipio, " varia de ", menor_nivel, " a ", maior_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("O ", equipamento, " de **nível 1** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* **Não** possui previsão de recursos na Lei Orçamentária Anual e **não** utiliza para as despesas de seu funcionamento o mínimo de 3% do IGD; ou 
+* **Não** possui sala (exclusiva ou compartilhada); ou 
+* **Não** possui Secretaria Executiva.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("Para alcançar o **nível 2** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Possuir previsão de recursos na Lei Orçamentária Anual ou utilizar para as despesas de seu funcionamento o mínimo de 3% do IGD; e
+* Possuir uma ou mais salas de uso exclusivo ou compartilhado; e
+* Possuir Secretaria Executiva. 
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==2), results='asis'}
+
+cat("O ", equipamento, " de **nível 2** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==2)}
+
+* Possui previsão de recursos na Lei Orçamentária Anual ou utiliza para as despesas de seu funcionamento o mínimo de 3% do IGD; e
+* Possui uma ou mais salas de uso exclusivo ou compartilhado; e
+* Possui Secretaria Executiva. 
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<3 && maior_nivel>1), results='asis'}
+
+cat("Para alcançar o **nível 3** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 2:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1)}
+
+* Possuir um ou mais computadores conectados à internet; e
+* Possuir telefone de uso exclusivo ou compartilhado.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==3), results='asis'}
+
+cat("O ", equipamento, " de **nível 3** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==3)}
+
+* Possui previsão de recursos na Lei Orçamentária Anual ou utiliza para as despesas de seu funcionamento o mínimo de 3% do IGD; e
+* Possui Secretaria Executiva; e 
+* Possui um ou mais computadores conectados à internet; e
+* Possui telefone de uso exclusivo ou compartilhado; e
+* Possui uma ou mais salas de uso exclusivo ou compartilhado.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<4 && maior_nivel>2), results='asis'}
+
+cat("Para alcançar o **nível 4** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 3:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2)}
+
+* Possuir uma ou mais salas de uso exclusivo.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==4), results='asis'}
+
+cat("O ", equipamento, " de **nível 4** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==4)}
+
+* Possui previsão de recursos na Lei Orçamentária Anual ou utiliza para as despesas de seu funcionamento o mínimo de 3% do IGD; e
+* Possui Secretaria Executiva; e 
+* Possui um ou mais computadores conectados à internet; e
+* Possui telefone de uso exclusivo ou compartilhado; e
+* Possui uma ou mais salas de uso exclusivo.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<5 && maior_nivel>3), results='asis'}
+
+cat("Para alcançar o **nível 5** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 4:", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3)}
+
+* Possuir previsão de recursos específicos na Lei Orçamentária Anual; e
+* Utilizar para as despesas de seu funcionamento o mínimo de 3% do IGD; e
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3 && factor_porte<"Grande")}
+
+* Ter veículo exclusivo ou compartilhado.
+```
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3 && factor_porte>"Médio")}
+
+* Ter veículo exclusivo ou compartilhado; e
+* Possuir telefone de uso exclusivo do Conselho; e
+* Que o Secretário Executivo seja exclusivo do Conselho de Assistência Social.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==5), results='asis'}
+
+cat("O ", equipamento, " de **nível 5** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==5)}
+
+* Possui previsão de recursos específicos na Lei Orçamentária Anual; e
+* Utiliza para as despesas de seu funcionamento o mínimo de 3% do IGD; e
+* Possui uma ou mais salas de uso exclusivo; e
+* Possui Secretaria Executiva; e 
+* Possui kit equipamento (veículo exclusivo ou compartilhado e um ou mais computadores conectados à internet); e
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==5 && factor_porte<"Grande")}
+
+* Possui telefone de uso exclusivo ou compartilhado.
+```
+```{asis, echo=(n_unidades>0 && menor_nivel==5 && factor_porte>"Médio")}
+
+* Possui telefone de uso exclusivo do Conselho; e
+* Tem Secretário Executivo exclusivo do Conselho de Assistência Social.
 ```
