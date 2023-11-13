@@ -256,7 +256,7 @@ Período de Retificação             & 05/Dez/2022                   & 16/Dez/2
 
 ## Tabulação dos dados e análise
 
-Aproximadamente #37 mil questionários foram coletadas no período (perguntar a Paulo para o ano de 2022)# Os bancos de dados resultantes da coleta foram então submetidos a procedimentos de análise da integridade e consistência, bem como de limpeza de dados e de organização da estrutura final e da documentação das bases. Para cada base resultante de um tipo de questionário, foram realizados procedimentos de limpeza e organização específicos. Inicialmente, pretendeu-se manter o maior número possível de respondentes válidos. Para isso, foram considerados como válidos:
+Aproximadamente 45 mil questionários foram coletadas. Os bancos de dados resultantes da coleta foram então submetidos a procedimentos de análise da integridade e consistência, bem como de limpeza de dados e de organização da estrutura final e da documentação das bases. Para cada base resultante de um tipo de questionário, foram realizados procedimentos de limpeza e organização específicos. Inicialmente, pretendeu-se manter o maior número possível de respondentes válidos. Para isso, foram considerados como válidos:
 
 * Questionários totalmente preenchidos e devidamente salvos pelos respondentes;
   
@@ -326,7 +326,7 @@ gerh_2018 <- read_excel("../Censo SUAS 2018/7 - Gestão Estadual/Censo_SUAS_2018
 
 ge_2020 <- read_excel("../Censo SUAS 2020/10 - Gestão Estadual/Censo_SUAS_2020_dados_gerais_Gestão_Estadual.xlsx", sheet = 1)
 
-#gerh_2020 <- read_excel("../Censo SUAS 2020/10 - Gestão Estadual/Censo_SUAS_2020_RH_Gestão_Estadual.xlsx", sheet = 1)
+gerh_2020 <- read_excel("../Censo SUAS 2020/10 - Gestão Estadual/Censo_SUAS_2020_RH_Gestão_Estadual.xlsx", sheet = 1)
 
 #ge_2021 <- read_excel("../Censo SUAS 2021/8 - Gestão Estadual/Censo_SUAS_2021_Gestão_Estadual_Dados_Gerais_Divulgaçao.xlsx", sheet = 1)
 
@@ -416,13 +416,17 @@ crasrh_2021 <- read_excel("../Censo SUAS 2021/1 - CRAS/Censo_SUAS_2021_CRAS_RH.x
 
 cras_2022 <- read_excel("../Censo SUAS 2022/1_CRAS/Censo_SUAS_2022_CRAS_Dados_Gerais_Divulgação.xlsx", sheet = 1)
 
-#posto_cadunico_2020 <- read_excel("../Censo SUAS 2020/8 - Posto CadUnico/Censo_SUAS_2020_Postos_Cadastro_Único_Dados_Gerais.xlsx", sheet = 1)
+posto_cadunico_2020 <- read_excel("../Censo SUAS 2020/5 - Postos do cadunico/Censo_SUAS_2020_Postos_Cadastro_Único_Dados_Gerais.xlsx", sheet = 1)
 
-#posto_cadunicorh_2020 <- read_excel("../Censo SUAS 2020/8 - Posto CadUnico/Censo_SUAS_2020_Postos_Cadastro_Único_RH.xlsx", sheet = 1)
+posto_cadunicorh_2020 <- read_excel("../Censo SUAS 2020/5 - Postos do cadunico/Censo_SUAS_2020_Postos_Cadastro_Único_RH.xlsx", sheet = 1)
 
-#posto_cadunico_2021 <- read_excel("../Censo SUAS 2021/14 - Postos do CadUnico/Censo_SUAS_2021_Posto_Cadastramento_Dados_Gerais_Divulgação.xlsx", sheet = 1)
+posto_cadunico_2021 <- read_excel("../Censo SUAS 2020/5 - Postos do cadunico/Censo_SUAS_2020_Postos_Cadastro_Único_Dados_Gerais.xlsx", sheet = 1)
 
-posto_cadunico_2022 <- read_excel("../Censo SUAS 2022/8 - POSTO DE CADASTRAMENTO/Censo _SUAS_ 2022_Posto_cadastramento_Dados_Gerais.xlsx", sheet = "Sheet1")
+posto_cadunicorh_2021 <- read_excel("../Censo SUAS 2021/14 - Postos do CadUnico/Censo_SUAS_Posto_Cadastramento_RH.xlsx", sheet = 1)
+
+posto_cadunico_2022 <- read_excel("../Censo SUAS 2022/8 - POSTO DE CADASTRAMENTO/Censo _SUAS_ 2022_Posto_cadastramento_Dados_Gerais.xlsx", sheet = 1)
+  
+posto_cadunicorh_2021 <- read_excel("../Censo SUAS 2022/8 - POSTO DE CADASTRAMENTO/Censo _SUAS_ 2022_Posto_cadastramentoo_RH.xlsx", sheet = 1)
 
 creas_2010 <- read_excel("../Censo SUAS 2010/CREAS/Censo SUAS 2010_CREAS_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2010 CREAS")
 
@@ -554,9 +558,9 @@ cmunrh_2018 <- read_excel("../Censo SUAS 2018/12 - CMAS/Censo SUAS 2018 _Conselh
 
 #cmunrh_2019 <- read_excel("../", sheet = 1)
 
-cmun_2020 <- read_excel("../Censo SUAS 2020/12 - CMAS/Censo_SUAS_2020_Conselho_municipal_Dados_Gerais.xlsx", sheet = 1)
+cmun_2020 <- read_excel("../Censo SUAS 2020/4 - CMAS/Censo_SUAS_2020_Conselho_municipal_Dados_Gerais.xlsx", sheet = 1)
 
-cmunrh_2020 <- read_excel("../Censo SUAS 2020/12 - CMAS/Censo_SUAS_2020_Conselho_municipal_RH.xlsx", sheet = 1)
+cmunrh_2020 <- read_excel("../Censo SUAS 2020/4 - CMAS/Censo_SUAS_2020_Conselho_municipal_RH.xlsx", sheet = 1)
 
 cmun_2021 <- read_excel("../Censo SUAS 2021/12 - CMAS/Censo_SUAS_2021_Conselho_Municipal_Dados_Gerais_Divulgação.xlsx", sheet = 1)
 
@@ -724,7 +728,7 @@ feas_2018 <- read_excel("../Censo SUAS 2018/8 - Fundo Estadual/Censo_SUAS_2018_D
 
 feas_2019 <- read_excel("../Censo SUAS 2019/9 - Fundo Estadual/Censo_SUAS_2019_Fundo_Estadual_dados_gerais_divulgacao.xlsx", sheet = 1)
 
-feas_2020 <- read_excel("../Censo SUAS 2020/10 - Fundo Estadual/Censo_SUAS_2020_FE_dados_gerais_divulgação.xlsx", sheet = 1)
+feas_2020 <- read_excel("../Censo SUAS 2020/12 - Fundo Estadual/Censo_SUAS_2020_FE_dados_gerais_divulgação.xlsx", sheet = 1)
 
 feas_2021 <- read_excel("../Censo SUAS 2021/9 - Fundo Estadual/Censo_SUAS_2021_Fundo_Estadual_Dados_Gerais_Divulgação.xlsx", sheet = 1)
 
@@ -742,9 +746,9 @@ fmas_2019 <- read_excel("../Censo SUAS 2019/10 - Fundo Municipal/Censo_SUAS_2019
 
 fmasRH_2019 <- read_excel("../Censo SUAS 2019/10 - Fundo Municipal/Censo_SUAS_2019_Fundo_Municipal_RH.xls",sheet = 1)
 
-fmas_2020 <- read_excel("../Censo SUAS 2020/10 - Fundo Municipal/Censo_SUAS_2020_Fundo_Municipal_dados_gerais_divulgação.xlsx",sheet = 1)
+fmas_2020 <- read_excel("../Censo SUAS 2020/11 - Fundo Municipal/Censo_SUAS_2020_Fundo_Municipal_dados_gerais_divulgação.xlsx",sheet = 1)
 
-fmasRH_2020 <- read_excel("../Censo SUAS 2020/10 - Fundo Municipal/Censo_SUAS_2020_Fundo_Municipal_RH.xlsx",sheet = 1)
+fmasRH_2020 <- read_excel("../Censo SUAS 2020/11 - Fundo Municipal/Censo_SUAS_2020_Fundo_Municipal_RH.xlsx",sheet = 1)
 
 fmas_2021 <- read_excel("../Censo SUAS 2021/10 - Fundo Municipal/Censo_SUAS_2021_Fundo_Municipal_Dados_Gerais_Divulgação.xlsx",sheet = 1)
 
@@ -1084,7 +1088,7 @@ A estrutura administrativa na Política de Assistência Social e Constituição 
 
 Conforme a \Cref{fig:estados-caracteristica-secretaria}, 25 estados (96,4%) a Secretaria estadual estava associada a uma ou mais políticas setoriais, sendo predominante os grupos de duas e três politicas setoriais .
 
-```{r estados-caracteristica-secretaria, fig.cap = "Percentual de Secretarias Estaduais de acordo com composição administrativa relacionada a outras políticas - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r estados-caracteristica-secretaria-2022, fig.cap = "Percentual de Secretarias Estaduais de acordo com composição administrativa relacionada a outras políticas - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 nao0_sim1 = function(df, q){
   q <- enquo(q)
@@ -1137,7 +1141,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 
 
 
-```{r estados-caracteristica-secretaria, fig.cap = "Percentual de Secretarias Estaduais de acordo com composição administrativa relacionada a outras políticas - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS, eval=FALSE"}
+```{r estados-caracteristica-secretaria-2012, fig.cap = "Percentual de Secretarias Estaduais de acordo com composição administrativa relacionada a outras políticas - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS, eval=FALSE"}
 
 nao0_sim1 = function(df, q){
   q <- enquo(q)
@@ -2615,7 +2619,7 @@ Em relação a concurso público,
 
 
 
-```{r conc_munic, fig.cap = "Percentual de municípios que realizaram concuros para trabalahdores nível superior ou médio do SUAS - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r conc_munic, fig.cap = "Percentual de municípios que realizaram concursos para trabalahdores nível superior ou médio do SUAS - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
 conc_munic  = function(df, q, ano){
   q <- enquo(q)
@@ -2665,7 +2669,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 
 
-```{r conc_estado, fig.cap = "Percentual de estados que realizaram concuros para trabalahdores nível superior do SUAS - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r conc_estado, fig.cap = "Percentual de estados que realizaram concursos para trabalahdores nível superior do SUAS - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
 conc_estado  = function(df, q, ano){
   q <- enquo(q)
@@ -2721,7 +2725,236 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 ## Cadastro Único para Programas Sociais
 
 
+O Cadastro Único para Programas Sociais do Governo Federal estabelecido através do art. 6º-F da Lei nº 8.742, de 7 de dezembro de 1993 (Lei Orgânica de Assistência Social – LOAS), tem a finalidade de coletar, sistematizar e disseminar informações que permitem a identificação e caracterização das condições socioeconômicas das famílias em situação de vulnerabilidade social, em particular as famílias de baixa de renda.  
 
+Trata-se de um registro público eletrônico, a partir do qual podem ser produzidas informações com recorte regional e territorial para instrumentalizar as políticas sociais, em especial as políticas socioassistenciais, por meio da vigilância socioassistencial com a identificação e a prevenção de situações de risco, vulnerabilidade social e seus agravos nos diferentes territórios. 
+
+Identifica-se esta ferramenta como um instumento que fomenta a função de Vigilância Socioassistencial a identificar  vulnerabildiades e riscos no território para nutir intervenções continuadas, sistematicas e integrada para garantir a capacidade protetiva das famílias através dos serviços, benefícios e programas socioassistenciais.
+
+Este paragráfo tem como objetivo referenciar sobre a Gestão do Cadastro Único nos Estados e municípios. Os locais do Cadastro podem ser encontrados em unidades exclusivas ou na rede de atendimento socioassistencial. Dados do Censo SUAS 2022 destaca que xx% (2.892) são unidades exclusivas do Cadastro Único e xx estão em unidades da rede socioassistencial \footnote{os dados dos locais do Cadastro Único na rede socioassistencial CRAS, CREAS E CENTRO POP serão abordadas nos respectivos temas}.
+
+
+
+```{r postos-cadunico, fig.cap = "Evolução de Postos do Cadastro Único - 2015 - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS.",eval=FALSE}
+
+grafico <- f_quantitativo_regiao_ano(posto_cadunico_2020, Regiao, "2020") %>%
+    bind_rows(f_quantitativo_regiao_ano(posto_cadunico_2021, IBGE, "2021")) %>%)
+    bind_rows(f_quantitativo_regiao_ano(posto_cadunico_2022, IBGE, "2022")) %>% 
+   
+  ggplot(aes(x = Região, y = n, group = Ano)) +
+  geom_col(aes(fill = Ano), position="dodge") +
+  geom_text(aes(label = format(n, big.mark="."), y=n+300), position = position_dodge(width = 0.9), angle = 90, size = 2.5) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+
+
+
+Sobre as unidades exclusivas do Cadastro Único a sua maioria \footnote{mais de 85%} se encontram na sede da secretaria de Assistência Social ou em postos exclusivos. Os demais percentuais são encontrados em outra unidade administrativa, em um serviço integrado, OSC´s, conselho ou escola.  
+
+
+
+
+
+
+
+
+```{r posto_cadunico, fig.cap = "Distribuição dos Postos do Cadastro Único - Brasil, 2020 a 2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
+
+posto_cadunico = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "Sede da Secretaria da Assistência Social ou congênere;"~"Sede da Secretaria da Assistência Social ou congênere;",
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("Sede da Secretaria da Assistência Social ou congênere;",
+                                            "Posto exclusivo para atendimento do Cadastro Único;",
+                                            "Outra unidade administrativa (Sede da Prefeitura, Sede de Outra Secretaria, Administração Regional, Sub-Prefeituras, Un",
+                                            "Escola",
+                                            "Entidade privada, Associação Comunitária ou ONG;",
+                                            "Conselho Municipal de Assistência Social, Conselho Tutelar ou outro conselho municipal;",
+                                            "Outro."))) %>%
+                                                                                        
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+grafico <- posto_cadunico (posto_cadunico_2020, q1_0, "2020") %>%
+   bind_rows(posto_cadunico(posto_cadunico_2021, q1, "2021")) %>%
+   bind_rows(posto_cadunico(posto_cadunico_2022, q1, "2022")) %>%
+ 
+  
+  
+
+  
+  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
+#  geom_col(aes(fill = Nível), position = "dodge") +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+<!-- não sei porque não estar gerando    -->
+
+```{r postcad-acessibilidade, fig.cap = "Evolução percentual de postos do Cadastro Único segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+
+tabela <- equip_acessibilidade(posto_cadunico_2020, q7_1, "2020", "1") %>%
+  bind_rows(equip_acessibilidade(posto_cadunico_2020, q7_2, "2020", "2")) %>% 
+  bind_rows(equip_acessibilidade(posto_cadunico_2020, q7_3, "2020", "3")) %>% 
+  bind_rows(equip_acessibilidade(posto_cadunico_2020, q7_4, "2020", "4")) %>% 
+
+  bind_rows(equip_acessibilidade(posto_cadunico_2021, q7_1, "2021", "1")) %>%
+  bind_rows(equip_acessibilidade(posto_cadunico_2021, q7_2, "2021", "2")) %>% 
+  bind_rows(equip_acessibilidade(posto_cadunico_2021, q7_3, "2021", "3")) %>% 
+  bind_rows(equip_acessibilidade(posto_cadunico_2021, q7_4, "2021", "4")) %>% 
+  
+  bind_rows(equip_acessibilidade(posto_cadunico_2022, q7_1, "2022", "1")) %>%
+  bind_rows(equip_acessibilidade(posto_cadunico_2022, q7_2, "2022", "2")) %>% 
+  bind_rows(equip_acessibilidade(posto_cadunico_2022, q7_3, "2022", "3")) %>% 
+  bind_rows(equip_acessibilidade(posto_cadunico_2022, q7_4, "2022", "4")) %>% 
+  ungroup() %>% 
+  mutate(Categoria=str_wrap(Categoria,width=34))
+
+
+ordenado<-tabela %>% 
+  filter(Ano == "2022") %>% 
+  arrange(Percentual) %>% 
+  select(Categoria)
+
+ordenado<-factor(ordenado, levels = ordenado$Categoria)
+
+ordenado2<-tabela %>%
+  select(Ano) %>% 
+  distinct() %>% 
+  arrange(Ano)
+
+ordenado2<-factor(ordenado2, levels = ordenado2$Ano)
+
+grafico<-tabela %>% 
+  mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
+  mutate(Ano = factor(Ano, levels = rev(levels(ordenado2)))) %>% 
+  ggplot(aes(x = Categoria, y = Percentual, group = Ano)) +
+  geom_col(aes(fill = Ano), position = "dodge") +
+  geom_text(aes(label = percent(Percentual), y=Percentual+0.03), position = position_dodge(width = 0.9)) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  coord_flip() +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.x = element_blank(),
+        axis.line.y = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+
+
+```{r postcad-acessibilidade-situacao, fig.cap = "Percentual de Postos do Cadastro Único com existência de condições de acessibilidade de acordo com a Norma da ABNT, segundo situação do imóvel – Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+tabela <- equip_acessibilidade_situacao(posto_cadunico_2022, q5, q7_1, "1") %>%
+  bind_rows(equip_acessibilidade_situacao(posto_cadunico_2022, q5, q7_2, "2")) %>% 
+  bind_rows(equip_acessibilidade_situacao(posto_cadunico_2022, q5, q7_3, "3")) %>% 
+  bind_rows(equip_acessibilidade_situacao(posto_cadunico_2022, q5, q7_4, "4"))
+
+ordenado<-tabela %>% 
+  filter(Situacao == "Próprio") %>% 
+  arrange(Percentual) %>% 
+  select(Categoria)
+
+ordenado<-factor(ordenado, levels = ordenado$Categoria)
+
+grafico<-tabela %>% 
+  mutate(Categoria = factor(Categoria, levels = rev(levels(ordenado)))) %>% 
+  ggplot(aes(x = Situacao, y = Percentual, group = Categoria)) +
+  geom_col(aes(fill = Categoria), position = "dodge") +
+  geom_text(aes(label = percent(Percentual), y=Percentual+0.015), position = position_dodge(width = 0.9)) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=4, byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+
+<!-- não sei porque não centro oeste ficou duplamente registrado   --> 
+
+```{r postcad-internet-percentual, fig.cap = "Evolução percentual de Cadastro Único com computadores com acesso à internet – Brasil;  2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_maior0_regiao_ano(posto_cadunico_2020, q10_2, Regiao, "2020") %>% 
+  bind_rows(f_maior0_regiao_ano(posto_cadunico_2021, q10_2, IBGE, "2021")) %>% 
+  bind_rows(f_maior0_regiao_ano(posto_cadunico_2022, q10_2, IBGE, "2022")) %>% 
+  
+  ggplot(aes(x = Região, y = Percentual, group = Ano)) +
+  geom_col(aes(fill = Ano), position="dodge") +
+  geom_text(aes(label = percent(Percentual), y=Percentual+.01), position = position_dodge(width = 0.9), angle = 90) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+
+
+```{r atendimento_urgente, fig.cap = "Atendimento as demandas urgentes ás famílias nos Postos do Cadasatro Único - Brasil - 2020, 2020 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+
+
+
+```
 
 
 
@@ -3719,7 +3952,28 @@ A existência de computadores com acesso à internet é um importante aspecto a 
 ```{r CREAS-internet-percentual, fig.cap = "Evolução percentual de CREAS com computadores com acesso à internet – Brasil, 2012 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 
+grafico <- f_maior0_regiao_ano(creas_2012, q14, Região, "2012") %>% 
+   bind_rows(f_maior0_regiao_ano(creas_2017, q13, IBGE, "2017")) %>% 
+   bind_rows(f_maior0_regiao_ano(creas_2022, q13, IBGE, "2022")) %>% 
+
+  ggplot(aes(x = Região, y = Percentual, group = Ano)) +
+  geom_col(aes(fill = Ano), position="dodge") +
+  geom_text(aes(label = percent(Percentual), y=Percentual+.01), position = position_dodge(width = 0.9), angle = 90) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
+
 
 
 
@@ -4774,29 +5028,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-```{r postos-cadunico, fig.cap = "Evolução de Postos do Cadastro Único - 2015 - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS.",eval=FALSE}
 
-grafico <- f_quantitativo_regiao_ano(posto_cadunico_2021, IBGE, "2021") %>%
-    #bind_rows(f_quantitativo_regiao_ano(posto_cadunico_2021, Região, "2021")) %>%)
-    bind_rows(f_quantitativo_regiao_ano(posto_cadunico_2022, IBGE, "2022")) %>% 
-   
-  ggplot(aes(x = Região, y = n, group = Ano)) +
-  geom_col(aes(fill = Ano), position="dodge") +
-  geom_text(aes(label = format(n, big.mark="."), y=n+300), position = position_dodge(width = 0.9), angle = 90, size = 2.5) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
-
-grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-```
 
 ## Povos Tradicionais
 
@@ -4944,14 +5176,19 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 # Participação Social e Controle Social 
 
 
-A participação social é uma das diretrizes estabelecidas pela Constituição Federal de 1988 para a organização das ações da Assistência Social. Nesse sentido, a Lei Orgânica da Assistência Social (LOAS) -referenciar em nota-  , que dispõe sobre a sua organização, instituiu em seu artigo 16 os Conselhos de Assistência Social em âmbito nacional, estadual e municipal como instâncias de deliberação colegiada do SUAS, cuja composição deve ser paritária entre governo e sociedade civil. Os Conselhos integram o Sistema Único de Assistência Social (SUAS), juntamente com o governo e as entidades e organizações de assistência social.
-A Resolução do Conselho Nacional de Assistência Social (CNAS) nº 237/2006 -referenciar em nota- , estabelece em seu artigo 3º as competências dos Conselhos de Assistência Social, das quais se destacam: a aprovação da respectiva Política de Assistência Social, em consonância com a Política Nacional de Assistência Social (PNAS); a normatização e regulação de ações e prestação de serviços, em conjunto com a gestão; o acompanhamento, avaliação e fiscalização da gestão de recursos; a inscrição e a fiscalização das entidades e organizações da assistência social; e a aprovação da proposta orçamentária dos recursos da assistência social e dos critérios de partilha dos recursos, dentre outras atribuições. A mesma Resolução estabelece que na composição dos Conselhos deve haver, além de representantes do governo, representantes da sociedade civil, incluindo usuários, entidades e organizações de assistência social e entidades de trabalhadores do setor.
-Para garantir seu funcionamento adequado, a LOAS, em seu artigo 16, estabelece que os órgãos gestores de assistência social, aos quais estão vinculados os Conselhos de Assistência Social, devem prover a infraestrutura necessária ao seu funcionamento, garantindo recursos materiais, humanos e financeiros. 
+A participação social é uma das diretrizes estabelecidas pela Constituição Federal de 1988 para a organização das ações da Assistência Social. Nesse sentido, a Lei Orgânica da Assistência Social (LOAS) \footnote{Lei nº 8.742, de 7 de dezembro de 1993: Dispõe sobre a organização da Assistência Social e dá outras providências. (\url{http://www.planalto.gov.br/ccivil_03/Leis/L8742compilado.htm})}, que dispõe sobre a sua organização, instituiu em seu artigo 16 os Conselhos de Assistência Social em âmbito nacional, estadual e municipal como instâncias de deliberação colegiada do SUAS, cuja composição deve ser paritária entre governo e sociedade civil. 
+
+Os Conselhos integram o Sistema Único de Assistência Social (SUAS), juntamente com o governo e as entidades e organizações de assistência social. A Resolução do Conselho Nacional de Assistência Social (CNAS) nº 237/2006 \footnote{https://www.mpba.mp.br/sites/default/files/biblioteca/crianca-e-adolescente/suas/resolucoes/resolucao_n_237_2006.pdf}, estabelece em seu artigo 3º as competências dos Conselhos de Assistência Social, das quais se destacam: a aprovação da respectiva Política de Assistência Social, em consonância com a Política Nacional de Assistência Social (PNAS); a normatização e regulação de ações e prestação de serviços, em conjunto com a gestão; o acompanhamento, avaliação e fiscalização da gestão de recursos; a inscrição e a fiscalização das entidades e organizações da assistência social; e a aprovação da proposta orçamentária dos recursos da assistência social e dos critérios de partilha dos recursos, dentre outras atribuições. 
+
+A mesma Resolução estabelece que na composição dos Conselhos deve haver, além de representantes do governo, representantes da sociedade civil, incluindo usuários, entidades e organizações de assistência social e entidades de trabalhadores do setor.
+
+Para garantir seu funcionamento adequado, a LOAS, em seu artigo 16, estabelece que os órgãos gestores de assistência social, aos quais estão vinculados os Conselhos de Assistência Social, devem prover a infraestrutura necessária ao seu funcionamento, garantindo recursos materiais, humanos e financeiros.
+
 Este bloco apresenta os resultados apurados pelo Censo SUAS para os Conselhos Municipais e Estaduais de Assistência Social, considerando as dimensões estrutura administrativa, dinâmica de funcionamento e composição.
 
-No que se refere aos dados do censo suas, o percentual de municípios que respondem ao formulário de Conselho Municipal de Assistência Social é acima de 90%, com algumas variações entre 2010 e 2016. É importante pontuar que as variações no período analisado não significam necessariamente redução no número de municípios com conselhos, uma vez que podem ocorrer variações no número de conselhos municipais que respondem ao Censo SUAS.
-Ao analisar a evolução de municípios com Conselhos Municipais de Assistência Social ao longo dos anos segundo grandes regiões, verifica-se em 2016 que apenas as regiões Norte (93,8%) e Centro-Oeste (93,8%) estavam abaixo do percentual nacional (Grafico xx).
+No que se refere aos dados do censo suas, o percentual de municípios que respondem ao formulário de Conselho Municipal de Assistência Social é acima de 90%, com algumas variações entre 2012 e 2022. É importante pontuar que as variações no período analisado não significam necessariamente redução no número de municípios com conselhos, uma vez que podem ocorrer variações no número de conselhos municipais que respondem ao Censo SUAS.
 
+Abaixo o gráfico tras informações da quantidade de conselhos municipais, por região, que responderam ao Censo SUAS.
 
 
 ```{r quantitativo-CMAS, fig.cap = "Evolução do quantitativo de Conselhos Municipais, segundo grandes regiões; 2012 - 2022", fig.footer = "Fonte: MDS, Censo SUAS.",eval=FALSE}
@@ -4988,6 +5225,48 @@ grafico
 #grafico %>% 
 #  graph2office(file="graficos", append = TRUE)
 ```
+
+
+
+
+
+```{r quantitativo-CEAS, fig.cap = "Evolução do quantitativo de Conselhos Estaduais, segundo grandes regiões; 2012 - 2022", fig.footer = "Fonte: MDS, Censo SUAS.",eval=FALSE}
+
+grafico <- f_quantitativo_regiao_ano (cest_2012, IBGE, "2012") %>% 
+  #bind_rows(f_quantitativo_regiao_ano (cmun_2010, Região, "2010")) %>%
+  #bind_rows(f_quantitativo_regiao_ano(cmun_2011, Região, "2011")) %>% 
+  #bind_rows(f_quantitativo_regiao_ano(cmun_2012, Região, "2012")) %>% 
+  #bind_rows(f_quantitativo_regiao_ano(cmun_2013, Região, "2013")) %>% 
+  #bind_rows(f_quantitativo_regiao_ano(cmun_2014, IBGE, "2014")) %>% 
+  #bind_rows(f_quantitativo_regiao_ano(cmun_2015, Região, "2015")) %>% 
+  #bind_rows(f_quantitativo_regiao_ano(cmun_2016, Região, "2016")) %>% 
+  #bind_rows(f_quantitativo_regiao_ano(cmun_2017, Região, "2017")) %>% 
+  #bind_rows(f_quantitativo_regiao_ano(cmun_2018, Região, "2018")) %>% 
+  #bind_rows(f_quantitativo_regiao_ano(cmun, Região, "2019")) %>% 
+  #bind_rows(f_quantitativo_regiao_ano(cmun_2020, Região, "2020")) %>% 
+  #bind_rows(f_quantitativo_regiao_ano(cmun_2021, IBGE, "2021")) %>% 
+  bind_rows(f_quantitativo_regiao_ano(cest_2022, IBGE, "2022")) %>% 
+
+  ggplot(aes(x = Região, y = n, group = Ano)) +
+  geom_col(aes(fill = Ano), position="dodge") +
+  geom_text(aes(label = format(n, big.mark="."), y=n+300), position = position_dodge(width = 0.9), angle = 90, size = 2.5) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+#grafico %>% 
+#  graph2office(file="graficos", append = TRUE)
+```
+
+
+
 
 
 ```{r Cmas_sede, fig.cap = "Percentual de Conselhos municipais que possuem local/sede específico para funcionamento - Brasil, 2012 - 2017 - 2022"}
@@ -5203,6 +5482,8 @@ grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
+
+
 <!-- veriricar a função para rodar todas os Niveis  -->
 
 ```{r Qtd_reuniao_cmas, fig.cap = "Quantidade de reuniões realizadas nos conselhos municipais - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -5804,6 +6085,12 @@ Informações mais detalhadas sobre estrutura física, previsão orçamentária,
 <!-- consegui gerar o gráfico, para os anos de 2019/2020 e 2021 os conselhos que Não preencheu o Censo SUAS Conselho 2019, na celula sai a seguinte informação " -- ", assim temos que ver uma possibilidade de não contabilizar para poder gerar -->
 
 <!-- não consegui gerar ID Sintético, porque não são números inteiros, depois vou tentar ver média variavel que possa contabilizar -->
+
+
+
+
+
+
 
 Estrutura Administrativa dos conselhos municipais piorou, sobretudo após 2016. 
 
