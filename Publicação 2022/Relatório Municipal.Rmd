@@ -67,6 +67,7 @@ gc()
 
 ```{r setup, include=FALSE}
 Sys.setlocale("LC_ALL","Portuguese_Brazil.utf8")
+options(OutDec= ",")
 
 knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE)
 
@@ -127,9 +128,10 @@ idcreas_2020 <- read_excel("../ID CREAS/IDCREAS2020_divulgacao.xlsx",sheet = 1)
 idcreas_2021 <- read_excel("../ID CREAS/IDCREAS2021_divulgacao_retificado191022(1) (1).xlsx",sheet = 1)
 idcreas_2022 <- read_excel("../ID CREAS/IDCREAS2022_divulgacao_retificado270923.xlsx",sheet = 1)
 
+niveis_ID <- c(1, 2, 3, 4, 5)
 ```
 
-```{r municipio}
+```{r setup-municipio}
 # Município
 municipio <- params$municipio
 dados_municipio <- read_excel("../RELATORIO_DTB_BRASIL_MUNICIPIO.xls", skip = 6) %>%
@@ -145,8 +147,12 @@ porte_cras <- idcras_2022  %>%
 porte_creas <- idcreas_2022  %>%
                 filter(`Código IBGE` == municipio)  %>%
                 select(Porte)
+porte_conselho <- idconselho_2022  %>%
+                filter(IBGE7 == municipio)  %>%
+                select(Porte)
 porte_municipio <- porte_cras %>%
                     bind_rows(porte_creas) %>%
+                    bind_rows(porte_conselho) %>%
                     mutate(Porte = factor(Porte, levels = c("Pequeno I",
                                                             "Pequeno II",
                                                             "Médio",
@@ -162,7 +168,7 @@ subtitle: `r nome_municipio`, `r uf_municipio`
 
 ```{r funcoes}
 
-f_quantitativo_filtro = function(df, q_filtro, filtro, q_grupo, eixo_x){
+f_quantitativo_niveis_filtro = function(df, q_filtro, filtro, q_grupo, eixo_x, niveis){
   q_filtro <- enquo(q_filtro)
   filtro <- quo_name(filtro)
   q_grupo <- enquo(q_grupo)
@@ -171,8 +177,8 @@ f_quantitativo_filtro = function(df, q_filtro, filtro, q_grupo, eixo_x){
   df %>%
     filter(!! q_filtro == !! filtro) %>% 
     select(!! q_grupo) %>% 
-    group_by(!! q_grupo) %>% 
-    summarise(n=n()) %>% 
+    mutate(!! q_grupo := factor(!! q_grupo, levels = niveis)) %>% 
+    count(!! q_grupo, name = "n", .drop = F) %>%
     mutate("Eixo_X" = !! eixo_x) %>%  
     mutate("Grupo" = !! q_grupo) 
 }
@@ -255,7 +261,8 @@ grafico <- f_selecao_grupo_media(idcras_2014, IBGE, municipio, `IDCRAS 2014sint�
 
   ggplot(aes(x = Eixo_X, y = m, group = Grupo)) +
   geom_col(aes(fill = Grupo), position="dodge") +
-  geom_text(aes(label = sprintf("%0.2f", m), y=m+0.3), position = position_dodge(width = 0.9), angle = 90, size = 3) +
+#  geom_text(aes(label = sprintf("%0.2f", m), y=m+0.3), position = position_dodge(width = 0.9), angle = 90, size = 3) +
+  geom_text(aes(label = format(m, digits=3), y=m+0.3), position = position_dodge(width = 0.9), angle = 90, size = 3) +
   scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
   theme(legend.position="bottom",
         legend.title = element_blank(),
@@ -278,13 +285,13 @@ n_unidades_municipio <- nrow(unidades_municipio)
 
 ```{r ID-CRAS-nivel, fig.cap = sprintf("Quantidade de CRAS em cada nível de ID, 2022: %s, %s", nome_municipio, uf_municipio), fig.footer = "Fonte: MDS, Censo SUAS.", eval=n_unidades_municipio>1}
 
-grafico <- f_quantitativo_filtro(idcras_2022, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física") %>% 
-  bind_rows(f_quantitativo_filtro(idcras_2022, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos")) %>%   bind_rows(f_quantitativo_filtro(idcras_2022, `Código IBGE`, municipio, `Serviços `, "Serviços & Benefícios")) %>% 
+grafico <- f_quantitativo_niveis_filtro(idcras_2022, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física", niveis_ID) %>% 
+  bind_rows(f_quantitativo_niveis_filtro(idcras_2022, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos", niveis_ID)) %>%
+  bind_rows(f_quantitativo_niveis_filtro(idcras_2022, `Código IBGE`, municipio, `Serviços `, "Serviços & Benefícios", niveis_ID)) %>% 
 
   mutate(Eixo_X = factor(Eixo_X, levels = c("Estrutura Física",
                                             "Recursos Humanos",
                                             "Serviços & Benefícios"))) %>% 
-  mutate(Grupo = factor(Grupo, levels = c(1, 2, 3, 4, 5))) %>% 
 
   ggplot(aes(x = Eixo_X, y = n, group = Grupo)) +
   geom_col(aes(fill = Grupo), position="dodge") +
@@ -322,7 +329,7 @@ equipamento <- "CRAS"
 tabela <- unidades_municipio %>%
             tabyl(q1) %>%
             select(q1, n) %>%
-            kable(caption=sprintf("Quantidade de %s no município de %s por capacidade de referenciamento.", equipamento, nome_municipio),
+            kable(caption=sprintf("Quantidade de %s em 2022 no município de %s por capacidade de referenciamento.", equipamento, nome_municipio),
                   col.names=c("Capacidade de até:", "Quantidade"))
 tabela  
 ```
@@ -354,7 +361,7 @@ cat("As seções a seguir apresentam os resultados do município de", nome_munic
   capacidade <- "com capacidade de referenciamento para até 2.500 ou 3.500 famílias"
 ```
 
-```{r eval=!n_unidades, results='asis'}
+```{r eval=(n_unidades_municipio>0 && !n_unidades), results='asis'}
 
 cat(nome_municipio, " não tem ", equipamento, " ", capacidade, ".", sep="")
 ```
@@ -494,7 +501,7 @@ cat("O ", equipamento, " de **nível 5**, ", capacidade, ", na dimensão ", dime
   capacidade <- "com capacidade de referenciamento para até 5.000 famílias"
 ```
 
-```{r eval=!n_unidades, results='asis'}
+```{r eval=(n_unidades_municipio>0 && !n_unidades), results='asis'}
 
 cat(nome_municipio, " não tem ", equipamento, " ", capacidade, ".", sep="")
 ```
@@ -645,7 +652,7 @@ cat("O ", equipamento, " de **nível 5**, ", capacidade, ", na dimensão ", dime
   capacidade <- "com capacidade de referenciamento para até 2.500 famílias"
 ```
 
-```{r eval=!n_unidades, results='asis'}
+```{r eval=(n_unidades_municipio>0 && !n_unidades), results='asis'}
 
 cat(nome_municipio, " não tem ", equipamento, " ", capacidade, ".", sep="")
 ```
@@ -777,7 +784,7 @@ cat("O ", equipamento, " de **nível 5**, ", capacidade, ", na dimensão ", dime
   capacidade <- "com capacidade de referenciamento para até 3.500 famílias"
 ```
 
-```{r eval=!n_unidades, results='asis'}
+```{r eval=(n_unidades_municipio>0 && !n_unidades), results='asis'}
 
 cat(nome_municipio, " não tem ", equipamento, " ", capacidade, ".", sep="")
 ```
@@ -909,7 +916,7 @@ cat("O ", equipamento, " de **nível 5**, ", capacidade, ", na dimensão ", dime
   capacidade <- "com capacidade de referenciamento para até 5.000 famílias"
 ```
 
-```{r eval=!n_unidades, results='asis'}
+```{r eval=(n_unidades_municipio>0 && !n_unidades), results='asis'}
 
 cat(nome_municipio, " não tem ", equipamento, " ", capacidade, ".", sep="")
 ```
@@ -1294,7 +1301,7 @@ cat("A \\Cref{fig:ID-CREAS} mostra a evolução das médias do ID CREAS ao longo
 grafico <- tabela %>% 
   ggplot(aes(x = Eixo_X, y = m, group = Grupo)) +
   geom_col(aes(fill = Grupo), position="dodge") +
-  geom_text(aes(label = sprintf("%0.2f", m), y=m+0.3), position = position_dodge(width = 0.9), angle = 90, size = 3) +
+  geom_text(aes(label = format(m, digits=3), y=m+0.3), position = position_dodge(width = 0.9), angle = 90, size = 3) +
   scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
   theme(legend.position="bottom",
         legend.title = element_blank(),
@@ -1318,13 +1325,13 @@ n_unidades <- n_unidades_municipio
 
 ```{r ID-CREAS-nivel, fig.cap = sprintf("Quantidade de CREAS em cada nível de ID, 2022: %s, %s", nome_municipio, uf_municipio), fig.footer = "Fonte: MDS, Censo SUAS.", eval=n_unidades_municipio>1}
 
-grafico <- f_quantitativo_filtro(idcreas_2022, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física") %>% 
-  bind_rows(f_quantitativo_filtro(idcreas_2022, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos")) %>%   bind_rows(f_quantitativo_filtro(idcreas_2022, `Código IBGE`, municipio, `Serviços `, "Serviços & Benefícios")) %>% 
+grafico <- f_quantitativo_niveis_filtro(idcreas_2022, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física", niveis_ID) %>% 
+  bind_rows(f_quantitativo_niveis_filtro(idcreas_2022, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos", niveis_ID)) %>%
+  bind_rows(f_quantitativo_niveis_filtro(idcreas_2022, `Código IBGE`, municipio, `Serviços `, "Serviços & Benefícios", niveis_ID)) %>% 
 
   mutate(Eixo_X = factor(Eixo_X, levels = c("Estrutura Física",
                                             "Recursos Humanos",
                                             "Serviços & Benefícios"))) %>% 
-  mutate(Grupo = factor(Grupo, levels = c(1, 2, 3, 4, 5))) %>% 
 
   ggplot(aes(x = Eixo_X, y = n, group = Grupo)) +
   geom_col(aes(fill = Grupo), position="dodge") +
@@ -1962,7 +1969,7 @@ cat("A \\Cref{fig:ID-conselho} mostra a evolução das médias do ID Conselho ao
 grafico <- tabela %>%
   ggplot(aes(x = Eixo_X, y = m, group = Grupo)) +
   geom_col(aes(fill = Grupo), position="dodge") +
-  geom_text(aes(label = sprintf("%0.2f", m), y=m+0.3), position = position_dodge(width = 0.9), angle = 90, size = 3) +
+  geom_text(aes(label = format(m, digits=3), y=m+0.3), position = position_dodge(width = 0.9), angle = 90, size = 3) +
   scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
   theme(legend.position="bottom",
         legend.title = element_blank(),
@@ -2413,7 +2420,7 @@ cat("O ", equipamento, " de **nível 5** na dimensão ", dimensao, " ", porte, "
 * Possui alternância na presidência entre os representantes de governo e os representantes da sociedade civil; e
 * Possui Presidente e Vice-Presidente eleitos em plenária; e
 * Permite que o Conselheiro possa ser reconduzido uma única vez; e
-* Possui representação governamental da área de assistência, saúde e educação. 
+* Possui representação governamental da área de assistência, saúde e educação.
 ```
 ```{asis, echo=(n_unidades>0 && menor_nivel==5 && factor_porte>"Médio")}
 
@@ -2424,5 +2431,5 @@ cat("O ", equipamento, " de **nível 5** na dimensão ", dimensao, " ", porte, "
 * Possui alternância na presidência entre os representantes de governo e os representantes da sociedade civil; e
 * Possui Presidente e Vice-Presidente eleitos em plenária; e
 * Permite que o Conselheiro possa ser reconduzido uma única vez; e
-* Possui representação governamental da área de assistência, saúde e educação. 
+* Possui representação governamental da área de assistência, saúde e educação.
 ```
