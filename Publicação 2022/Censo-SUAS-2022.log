@@ -1,25 +1,25 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.23)  15 NOV 2023 15:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.15)  16 NOV 2023 18:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **Censo-SUAS-2022.tex
 (./Censo-SUAS-2022.tex
-LaTeX2e <2023-06-01> patch level 1
-L3 programming layer <2023-08-29>
+LaTeX2e <2023-11-01>
+L3 programming layer <2023-11-09>
 (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/base/report.cls
 Document Class: report 2023/05/17 v1.4n Standard LaTeX document class
 (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count185
-\c@chapter=\count186
-\c@section=\count187
-\c@subsection=\count188
-\c@subsubsection=\count189
-\c@paragraph=\count190
-\c@subparagraph=\count191
-\c@figure=\count192
-\c@table=\count193
+\c@part=\count186
+\c@chapter=\count187
+\c@section=\count188
+\c@subsection=\count189
+\c@subsubsection=\count190
+\c@paragraph=\count191
+\c@subparagraph=\count192
+\c@figure=\count193
+\c@table=\count194
 \abovecaptionskip=\skip48
 \belowcaptionskip=\skip49
 \bibindent=\dimen140
@@ -39,14 +39,14 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 ) (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count194
+\inf@bad=\count195
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count195
-\leftroot@=\count196
+\uproot@=\count196
+\leftroot@=\count197
 LaTeX Info: Redefining \overline on input line 399.
 LaTeX Info: Redefining \colon on input line 410.
-\classnum@=\count197
-\DOTSCASE@=\count198
+\classnum@=\count198
+\DOTSCASE@=\count199
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
@@ -59,20 +59,20 @@ LaTeX Info: Redefining \Bigg on input line 725.
 \big@size=\dimen143
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count199
+\macc@depth=\count266
 LaTeX Info: Redefining \bmod on input line 905.
 LaTeX Info: Redefining \pmod on input line 910.
 LaTeX Info: Redefining \smash on input line 940.
 LaTeX Info: Redefining \relbar on input line 970.
 LaTeX Info: Redefining \Relbar on input line 971.
-\c@MaxMatrixCols=\count266
+\c@MaxMatrixCols=\count267
 \dotsspace@=\muskip16
-\c@parentequation=\count267
-\dspbrk@lvl=\count268
+\c@parentequation=\count268
+\dspbrk@lvl=\count269
 \tag@help=\toks18
-\row@=\count269
-\column@=\count270
-\maxfields@=\count271
+\row@=\count270
+\column@=\count271
+\maxfields@=\count272
 \andhelp@=\toks19
 \eqnshift@=\dimen144
 \alignsep@=\dimen145
@@ -149,11 +149,11 @@ Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks24
 ) (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count272
+\etb@tempcnta=\count273
 )
 \MT@toks=\toks25
 \MT@tempbox=\box53
-\MT@count=\count273
+\MT@count=\count274
 LaTeX Info: Redefining \noprotrusionifhmode on input line 1059.
 LaTeX Info: Redefining \leftprotrusion on input line 1060.
 \MT@prot@toks=\toks26
@@ -161,7 +161,7 @@ LaTeX Info: Redefining \rightprotrusion on input line 1078.
 LaTeX Info: Redefining \textls on input line 1368.
 \MT@outer@kern=\dimen150
 LaTeX Info: Redefining \textmicrotypecontext on input line 1988.
-\MT@listname@count=\count274
+\MT@listname@count=\count275
 (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/microtype/microtype-pdftex.def
 File: microtype-pdftex.def 2023/03/13 v3.1a Definitions specific to pdftex (RS)
 LaTeX Info: Redefining \lsstyle on input line 902.
@@ -172,23 +172,23 @@ Package microtype Info: Loading configuration file microtype.cfg.
 (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/microtype/microtype.cfg
 File: microtype.cfg 2023/03/13 v3.1a microtype main configuration file (RS)
 )) (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
+Package: xcolor 2023/11/11 v3.00 LaTeX color extensions (UK)
 (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package xcolor Info: Driver file: pdftex.def on input line 227.
+Package xcolor Info: Driver file: pdftex.def on input line 264.
 (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 ) (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
-Package xcolor Info: Model `RGB' extended on input line 1369.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1340.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1344.
+Package xcolor Info: Model `RGB' extended on input line 1356.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1358.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1359.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1360.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1361.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1362.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1363.
 ) (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
@@ -203,17 +203,17 @@ Package graphics Info: Driver file: pdftex.def on input line 107.
 \Gin@req@height=\dimen151
 \Gin@req@width=\dimen152
 ) (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2023/09/12 v3.94 The Babel package
-\babel@savecnt=\count275
+Package: babel 2023/11/11 v3.97 The Babel package
+\babel@savecnt=\count276
 \U@D=\dimen153
 \l@unhyphenated=\language3
 (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
-\bbl@dirlevel=\count276
+\bbl@dirlevel=\count277
 Package babel Info: You haven't specified a language as a class or package
-(babel)             option. I'll load 'nil'. Reported on input line 4295.
+(babel)             option. I'll load 'nil'. Reported on input line 4301.
 (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/generic/babel/nil.ldf
-Language: nil 2023/09/12 v3.94 Nil language
+Language: nil 2023/11/11 v3.97 Nil language
 \l@nil=\language4
 )) (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
@@ -227,17 +227,17 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen161
 \cmidrulekern=\dimen162
 \defaultaddspace=\dimen163
-\@cmidla=\count277
-\@cmidlb=\count278
+\@cmidla=\count278
+\@cmidlb=\count279
 \@aboverulesep=\dimen164
 \@belowrulesep=\dimen165
-\@thisruleclass=\count279
-\@lastruleclass=\count280
+\@thisruleclass=\count280
+\@lastruleclass=\count281
 \@thisrulewidth=\dimen166
 ) (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/tabulary/tabulary.sty
 Package: tabulary 2014/06/11 v0.10 tabulary package (DPC)
 (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/tools/array.sty
-Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
+Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
 \col@sep=\dimen167
 \ar@mcellbox=\box54
 \extrarowheight=\dimen168
@@ -246,13 +246,13 @@ Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
 \backup@length=\skip55
 \ar@cellbox=\box55
 )
-\TY@count=\count281
+\TY@count=\count282
 \TY@linewidth=\dimen169
 \tymin=\dimen170
 \tymax=\dimen171
 \TY@tablewidth=\dimen172
 ) (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2023-07-08 v7.01b Hypertext links for LaTeX
+Package: hyperref 2023-11-09 v7.01f Hypertext links for LaTeX
 (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
 ) (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
@@ -276,7 +276,7 @@ Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 ) (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 ) (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2023-08-07 v2.53 Cross-referencing by name of section
+Package: nameref 2023-11-09 v2.55 Cross-referencing by name of section
 (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
@@ -284,71 +284,71 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count282
+\c@section@level=\count283
 )
 \@linkdim=\dimen173
-\Hy@linkcounter=\count283
-\Hy@pagecounter=\count284
+\Hy@linkcounter=\count284
+\Hy@pagecounter=\count285
 (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2023-07-08 v7.01b Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2023-11-09 v7.01f Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 ) (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count285
+\Hy@SavedSpaceFactor=\count286
 (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2023-07-08 v7.01b Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2023-11-09 v7.01f Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Option `unicode' set `true' on input line 4050.
-Package hyperref Info: Hyper figures OFF on input line 4167.
-Package hyperref Info: Link nesting OFF on input line 4172.
-Package hyperref Info: Hyper index ON on input line 4175.
-Package hyperref Info: Plain pages OFF on input line 4182.
-Package hyperref Info: Backreferencing OFF on input line 4187.
+Package hyperref Info: Option `unicode' set `true' on input line 4054.
+Package hyperref Info: Hyper figures OFF on input line 4171.
+Package hyperref Info: Link nesting OFF on input line 4176.
+Package hyperref Info: Hyper index ON on input line 4179.
+Package hyperref Info: Plain pages OFF on input line 4186.
+Package hyperref Info: Backreferencing OFF on input line 4191.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4434.
-\c@Hy@tempcnt=\count286
+Package hyperref Info: Bookmarks ON on input line 4438.
+\c@Hy@tempcnt=\count287
 (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4772.
+LaTeX Info: Redefining \url on input line 4776.
 \XeTeXLinkMargin=\dimen174
 (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count287
+\Fld@menulength=\count288
 \Field@Width=\dimen175
 \Fld@charsize=\dimen176
-Package hyperref Info: Hyper figures OFF on input line 6051.
-Package hyperref Info: Link nesting OFF on input line 6056.
-Package hyperref Info: Hyper index ON on input line 6059.
-Package hyperref Info: backreferencing OFF on input line 6066.
-Package hyperref Info: Link coloring OFF on input line 6071.
-Package hyperref Info: Link coloring with OCG OFF on input line 6076.
-Package hyperref Info: PDF/A mode OFF on input line 6081.
+Package hyperref Info: Hyper figures OFF on input line 6055.
+Package hyperref Info: Link nesting OFF on input line 6060.
+Package hyperref Info: Hyper index ON on input line 6063.
+Package hyperref Info: backreferencing OFF on input line 6070.
+Package hyperref Info: Link coloring OFF on input line 6075.
+Package hyperref Info: Link coloring with OCG OFF on input line 6080.
+Package hyperref Info: PDF/A mode OFF on input line 6085.
 (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count288
-\c@Item=\count289
-\c@Hfootnote=\count290
+\Hy@abspage=\count289
+\c@Item=\count290
+\c@Hfootnote=\count291
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2023-07-08 v7.01b Hyperref driver for pdfTeX
+File: hpdftex.def 2023-11-09 v7.01f Hyperref driver for pdfTeX
 (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
 )
-\Fld@listcount=\count291
-\c@bookmark@seq@number=\count292
+\Fld@listcount=\count292
+\c@bookmark@seq@number=\count293
 (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
 (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
@@ -360,7 +360,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 ) (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@colwidth=\skip57
-\multirow@cntb=\count293
+\multirow@cntb=\count294
 \multirow@dima=\skip58
 \bigstrutjot=\dimen177
 ) (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/chngcntr/chngcntr.sty
@@ -368,7 +368,7 @@ Package: chngcntr 2018/04/09 v1.1a change counter resetting
 Package chngcntr Info: \counterwithout already defined.
 (chngcntr)             Quitting chngcntr on input line 21.
 ) (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2023/07/31 v3.6n Customizing captions (AR)
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
 (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
 \caption@tempdima=\dimen178
@@ -381,12 +381,12 @@ Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
 \caption@hangindent=\dimen185
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count294
-\c@continuedfloat=\count295
+\c@caption@flags=\count295
+\c@continuedfloat=\count296
 Package caption Info: hyperref package is loaded.
 ) (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/floatrow/floatrow.sty
 Package: floatrow 2008/08/02 v0.3b floatrow: float package extension
-\c@float@type=\count296
+\c@float@type=\count297
 \float@exts=\toks28
 \float@box=\box56
 \@floatcapt=\box57
@@ -403,18 +403,18 @@ Package floatrow Info: Modified rotfloat package code loaded on input line 473.
 \FBo@max=\skip62
 \FBc@max=\skip63
 \FBf@max=\skip64
-\c@FBl@b=\count297
-\floatbox@depth=\count298
-\c@FRobj=\count299
-\c@FRsobj=\count300
+\c@FBl@b=\count298
+\floatbox@depth=\count299
+\c@FRobj=\count300
+\c@FRsobj=\count301
 \Xhsize=\skip65
 \sXhsize=\skip66
 \Zhsize=\skip67
 \sZhsize=\skip68
 \flrow@rowbox=\box58
 \FR@Zunitlength=\dimen189
-\c@FBcnt=\count301
-\FPOScnt=\count302
+\c@FBcnt=\count302
+\FPOScnt=\count303
 \LTleft=\skip69
 \LTright=\skip70
 \LTleft=\skip71
@@ -439,11 +439,10 @@ LaTeX Info: Redefining \Cpagerefrange on input line 2370.
 LaTeX Info: Redefining \labelcref on input line 2370.
 LaTeX Info: Redefining \labelcpageref on input line 2370.
 ) (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count303
+File: l3backend-pdftex.def 2023-11-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count304
 \l__pdf_internal_box=\box59
-)
-No file Censo-SUAS-2022.aux.
+) (./Censo-SUAS-2022.aux)
 \openout1 = `Censo-SUAS-2022.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 93.
@@ -489,6 +488,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package hyperref Info: Link coloring OFF on input line 93.
+(./Censo-SUAS-2022.out) (./Censo-SUAS-2022.out)
 \@outlinefile=\write3
 \openout3 = `Censo-SUAS-2022.out'.
 
@@ -544,22 +544,22 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has b
 l.161 
        [1
 
-] [2]
-No file Censo-SUAS-2022.toc.
+] [2] (./Censo-SUAS-2022.toc
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 4.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 4.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 4.
+[3
+
+])
 \tf@toc=\write4
 \openout4 = `Censo-SUAS-2022.toc'.
 
-[3
-
-] [4
+[4] [5
 
 ]
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 251.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 251.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 251.
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 254.
 (/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -568,10 +568,7 @@ Underfull \hbox (badness 2080) in paragraph at lines 253--270
 []\T1/lmr/m/n/10 (+20) Considerando a nova configuração da Assistência Social definida pela
  []
 
-
-LaTeX Warning: Reference `tab:marcos' on page 1 undefined on input line 273.
-
-[5{/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
+[6{/home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 275.
@@ -601,16 +598,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 319--319
 \T1/lmr/m/n/8 (+20) a implantação do Sistema Único de Assistência Social. Disponível em:
  []
 
-[6] [7]
+[7] [8]
 Chapter 1.
-[8
+[9
 
 ]
 Underfull \hbox (badness 2134) in paragraph at lines 437--445
 []\T1/lmr/bx/n/10 (+20) Questionário Centro de Referência de Assistência Social
  []
 
-[9]
+[10]
 Underfull \hbox (badness 1365) in paragraph at lines 461--467
 \T1/lmr/m/n/10 (+20) Serviço Especializado para Pessoas em Situação de Rua; Serviço
  []
@@ -630,10 +627,7 @@ Underfull \hbox (badness 1803) in paragraph at lines 497--501
 \T1/lmr/m/n/10 (+20) 10 Blocos, são eles: Identificação; Regulação; Infraestrutura do
  []
 
-[10]
-
-LaTeX Warning: Reference `tab:cronograma' on page 1 undefined on input line 529.
-
+[11]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 531.
@@ -643,7 +637,7 @@ Overfull \hbox (35.48917pt too wide) in paragraph at lines 535--555
  [][] 
  []
 
-[11]
+[12]
 Underfull \hbox (badness 2735) in paragraph at lines 572--575
 []\T1/lmr/m/n/10 (+20) Questionários totalmente preenchidos e devidamente salvos pelos
  []
@@ -652,43 +646,34 @@ Underfull \hbox (badness 2735) in paragraph at lines 572--575
 LaTeX Warning: Reference `tab:qtd_orgaos' on page 1 undefined on input line 587.
 
 
-LaTeX Warning: Reference `tab:qtd_equipamentos' on page 1 undefined on input line 587.
-
-
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 589.
 
-[12] [13]
+[13] [14]
 Chapter 2.
-[14
+[15
 
 ]
 
 LaTeX Warning: Reference `fig:estados-caracteristica-secretaria' on page 1 undefined on input line 707.
 
-<Censo-SUAS-2022_files/figure-latex/estados-caracteristica-secretaria-2022-1.pdf, id=122, 469.755pt x 325.215pt>
+<Censo-SUAS-2022_files/figure-latex/estados-caracteristica-secretaria-2022-1.pdf, id=244, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/estados-caracteristica-secretaria-2022-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/estados-caracteristica-secretaria-2022-1.pdf>
 Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/estados-caracteristica-secretaria-2022-1.pdf  used on input line 713.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-<Censo-SUAS-2022_files/figure-latex/estados-caracteristica-secretaria-2012-1.pdf, id=123, 469.755pt x 325.215pt>
+<Censo-SUAS-2022_files/figure-latex/estados-caracteristica-secretaria-2012-1.pdf, id=245, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/estados-caracteristica-secretaria-2012-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/estados-caracteristica-secretaria-2012-1.pdf>
 Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/estados-caracteristica-secretaria-2012-1.pdf  used on input line 717.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-
-LaTeX Warning: Reference `fig:secretarias-municipais-exclusivas' on page 1 undefined on input line 725.
-
-<Censo-SUAS-2022_files/figure-latex/secretarias-municipais-exclusivas-1.pdf, id=125, 469.755pt x 325.215pt>
+<Censo-SUAS-2022_files/figure-latex/secretarias-municipais-exclusivas-1.pdf, id=248, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/secretarias-municipais-exclusivas-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/secretarias-municipais-exclusivas-1.pdf>
 Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/secretarias-municipais-exclusivas-1.pdf  used on input line 728.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-[15 <./Censo-SUAS-2022_files/figure-latex/estados-caracteristica-secretaria-2022-1.pdf>] [16 <./Censo-SUAS-2022_files/figure-latex/estados-caracteristica-secretaria-2012-1.pdf>] [17 <./Censo-SUAS-2022_files/figure-latex/secretarias-municipais-exclusivas-1.pdf>]
-
-LaTeX Warning: Reference `fig:estados-constituicao-subdivisoes' on page 1 undefined on input line 760.
-
-<Censo-SUAS-2022_files/figure-latex/estados-constituicao-subdivisoes-1.pdf, id=161, 469.755pt x 325.215pt>
+[16 <./Censo-SUAS-2022_files/figure-latex/estados-caracteristica-secretaria-2022-1.pdf>] [17 <./Censo-SUAS-2022_files/figure-latex/estados-caracteristica-secretaria-2012-1.pdf>] [18 <./Censo-SUAS-2022_files/figure-latex/secretarias-municipais-exclusivas-1.pdf>]
+<Censo-SUAS-2022_files/figure-latex/estados-constituicao-subdivisoes-1.pdf, id=286, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/estados-constituicao-subdivisoes-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/estados-constituicao-subdivisoes-1.pdf>
 Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/estados-constituicao-subdivisoes-1.pdf  used on input line 763.
@@ -698,73 +683,52 @@ Underfull \hbox (badness 1552) in paragraph at lines 766--770
 []\T1/lmr/m/n/10 (+20) No que se refere aos municípios, a última pactuação sobre estrutura
  []
 
-
-LaTeX Warning: Reference `fig:municipais-constituicao-subdivisoes' on page 1 undefined on input line 788.
-
-<Censo-SUAS-2022_files/figure-latex/municipais-constituicao-subdivisoes-1.pdf, id=163, 469.755pt x 325.215pt>
+<Censo-SUAS-2022_files/figure-latex/municipais-constituicao-subdivisoes-1.pdf, id=289, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/municipais-constituicao-subdivisoes-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/municipais-constituicao-subdivisoes-1.pdf>
 Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/municipais-constituicao-subdivisoes-1.pdf  used on input line 794.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-[18] [19 <./Censo-SUAS-2022_files/figure-latex/estados-constituicao-subdivisoes-1.pdf>] [20 <./Censo-SUAS-2022_files/figure-latex/municipais-constituicao-subdivisoes-1.pdf>]
-<Censo-SUAS-2022_files/figure-latex/estados-atualizacao-lei-1.pdf, id=198, 469.755pt x 325.215pt>
+[19] [20 <./Censo-SUAS-2022_files/figure-latex/estados-constituicao-subdivisoes-1.pdf>] [21 <./Censo-SUAS-2022_files/figure-latex/municipais-constituicao-subdivisoes-1.pdf>]
+<Censo-SUAS-2022_files/figure-latex/estados-atualizacao-lei-1.pdf, id=323, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/estados-atualizacao-lei-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/estados-atualizacao-lei-1.pdf>
 Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/estados-atualizacao-lei-1.pdf  used on input line 819.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-
-LaTeX Warning: Reference `fig:municipios-atualizacao-lei' on page 1 undefined on input line 827.
-
-[21 <./Censo-SUAS-2022_files/figure-latex/estados-atualizacao-lei-1.pdf>]
-<Censo-SUAS-2022_files/figure-latex/municipios-atualizacao-lei-1.pdf, id=212, 469.755pt x 325.215pt>
+[22 <./Censo-SUAS-2022_files/figure-latex/estados-atualizacao-lei-1.pdf>]
+<Censo-SUAS-2022_files/figure-latex/municipios-atualizacao-lei-1.pdf, id=338, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/municipios-atualizacao-lei-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/municipios-atualizacao-lei-1.pdf>
 Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/municipios-atualizacao-lei-1.pdf  used on input line 831.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-
-LaTeX Warning: Reference `fig:PEAS' on page 1 undefined on input line 840.
-
-<Censo-SUAS-2022_files/figure-latex/PEAS-1.pdf, id=214, 469.755pt x 325.215pt>
+<Censo-SUAS-2022_files/figure-latex/PEAS-1.pdf, id=341, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/PEAS-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/PEAS-1.pdf>
 Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/PEAS-1.pdf  used on input line 844.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-<Censo-SUAS-2022_files/figure-latex/plan_apoio_tec-1.pdf, id=216, 469.755pt x 325.215pt>
+<Censo-SUAS-2022_files/figure-latex/plan_apoio_tec-1.pdf, id=343, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/plan_apoio_tec-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/plan_apoio_tec-1.pdf>
 Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/plan_apoio_tec-1.pdf  used on input line 856.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-[22 <./Censo-SUAS-2022_files/figure-latex/municipios-atualizacao-lei-1.pdf>] [23 <./Censo-SUAS-2022_files/figure-latex/PEAS-1.pdf>] [24 <./Censo-SUAS-2022_files/figure-latex/plan_apoio_tec-1.pdf>]
-
-LaTeX Warning: Reference `fig:estados-formas-apoio' on page 1 undefined on input line 883.
-
-<Censo-SUAS-2022_files/figure-latex/estados-formas-apoio-1.pdf, id=251, 469.755pt x 325.215pt>
+[23 <./Censo-SUAS-2022_files/figure-latex/municipios-atualizacao-lei-1.pdf>] [24 <./Censo-SUAS-2022_files/figure-latex/PEAS-1.pdf>] [25 <./Censo-SUAS-2022_files/figure-latex/plan_apoio_tec-1.pdf>]
+<Censo-SUAS-2022_files/figure-latex/estados-formas-apoio-1.pdf, id=379, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/estados-formas-apoio-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/estados-formas-apoio-1.pdf>
 Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/estados-formas-apoio-1.pdf  used on input line 890.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-
-LaTeX Warning: Reference `fig:munic_vit_estadual' on page 1 undefined on input line 893.
-
-<Censo-SUAS-2022_files/figure-latex/munic_vit_estadual-1.pdf, id=252, 469.755pt x 325.215pt>
+<Censo-SUAS-2022_files/figure-latex/munic_vit_estadual-1.pdf, id=381, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/munic_vit_estadual-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/munic_vit_estadual-1.pdf>
 Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/munic_vit_estadual-1.pdf  used on input line 898.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-
-LaTeX Warning: Reference `fig:estados-cofinanciamento-municipios' on page 1 undefined on input line 907.
-
-[25 <./Censo-SUAS-2022_files/figure-latex/estados-formas-apoio-1.pdf>] [26 <./Censo-SUAS-2022_files/figure-latex/munic_vit_estadual-1.pdf>]
-<Censo-SUAS-2022_files/figure-latex/estados-cofinanciamento-municipios-1.pdf, id=282, 469.755pt x 325.215pt>
+[26 <./Censo-SUAS-2022_files/figure-latex/estados-formas-apoio-1.pdf>] [27 <./Censo-SUAS-2022_files/figure-latex/munic_vit_estadual-1.pdf>]
+<Censo-SUAS-2022_files/figure-latex/estados-cofinanciamento-municipios-1.pdf, id=411, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/estados-cofinanciamento-municipios-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/estados-cofinanciamento-municipios-1.pdf>
 Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/estados-cofinanciamento-municipios-1.pdf  used on input line 922.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-
-LaTeX Warning: Reference `fig:estados-blocos-recursos' on page 1 undefined on input line 925.
-
-[27 <./Censo-SUAS-2022_files/figure-latex/estados-cofinanciamento-municipios-1.pdf>]
-<Censo-SUAS-2022_files/figure-latex/estados-blocos-recursos-1.pdf, id=295, 469.755pt x 325.215pt>
+[28 <./Censo-SUAS-2022_files/figure-latex/estados-cofinanciamento-municipios-1.pdf>]
+<Censo-SUAS-2022_files/figure-latex/estados-blocos-recursos-1.pdf, id=427, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/estados-blocos-recursos-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/estados-blocos-recursos-1.pdf>
 Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/estados-blocos-recursos-1.pdf  used on input line 934.
@@ -772,225 +736,321 @@ Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/estados-blocos-recur
 
 LaTeX Warning: Reference `fig:municipios-recebimento-recursos' on page 1 undefined on input line 946.
 
-
-LaTeX Warning: Reference `fig:estado_ord_despesa' on page 1 undefined on input line 951.
-
-<Censo-SUAS-2022_files/figure-latex/estado_ord_despesa-1.pdf, id=296, 469.755pt x 325.215pt>
+<Censo-SUAS-2022_files/figure-latex/estado_ord_despesa-1.pdf, id=429, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/estado_ord_despesa-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/estado_ord_despesa-1.pdf>
 Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/estado_ord_despesa-1.pdf  used on input line 956.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-
-LaTeX Warning: Reference `fig:munic_ord_despesa' on page 1 undefined on input line 962.
-
-[28 <./Censo-SUAS-2022_files/figure-latex/estados-blocos-recursos-1.pdf>] [29 <./Censo-SUAS-2022_files/figure-latex/estado_ord_despesa-1.pdf>]
-<Censo-SUAS-2022_files/figure-latex/munic_ord_despesa-1.pdf, id=317, 469.755pt x 325.215pt>
+[29 <./Censo-SUAS-2022_files/figure-latex/estados-blocos-recursos-1.pdf>] [30 <./Censo-SUAS-2022_files/figure-latex/estado_ord_despesa-1.pdf>]
+<Censo-SUAS-2022_files/figure-latex/munic_ord_despesa-1.pdf, id=451, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/munic_ord_despesa-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/munic_ord_despesa-1.pdf>
 Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/munic_ord_despesa-1.pdf  used on input line 970.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-
-LaTeX Warning: Reference `fig:NUEP' on page 1 undefined on input line 974.
-
-<Censo-SUAS-2022_files/figure-latex/NUEP-1.pdf, id=318, 469.755pt x 325.215pt>
+<Censo-SUAS-2022_files/figure-latex/NUEP-1.pdf, id=453, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/NUEP-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/NUEP-1.pdf>
 Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/NUEP-1.pdf  used on input line 978.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-
-LaTeX Warning: Reference `fig:municipios-possuem-plano' on page 1 undefined on input line 989.
-
-<Censo-SUAS-2022_files/figure-latex/municipios-possuem-plano-1.pdf, id=319, 469.755pt x 325.215pt>
+<Censo-SUAS-2022_files/figure-latex/municipios-possuem-plano-1.pdf, id=455, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/municipios-possuem-plano-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/municipios-possuem-plano-1.pdf>
 Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/municipios-possuem-plano-1.pdf  used on input line 992.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-<Censo-SUAS-2022_files/figure-latex/conc_munic-1.pdf, id=320, 469.755pt x 325.215pt>
+<Censo-SUAS-2022_files/figure-latex/conc_munic-1.pdf, id=456, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/conc_munic-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/conc_munic-1.pdf>
 Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/conc_munic-1.pdf  used on input line 998.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-<Censo-SUAS-2022_files/figure-latex/conc_estado-1.pdf, id=321, 469.755pt x 325.215pt>
+<Censo-SUAS-2022_files/figure-latex/conc_estado-1.pdf, id=457, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/conc_estado-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/conc_estado-1.pdf>
 Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/conc_estado-1.pdf  used on input line 1002.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-[30 <./Censo-SUAS-2022_files/figure-latex/munic_ord_despesa-1.pdf>] [31 <./Censo-SUAS-2022_files/figure-latex/NUEP-1.pdf>] [32 <./Censo-SUAS-2022_files/figure-latex/municipios-possuem-plano-1.pdf>] [33 <./Censo-SUAS-2022_files/figure-latex/conc_munic-1.pdf>] [34 <./Censo-SUAS-2022_files/figure-latex/conc_estado-1.pdf>]
-<Censo-SUAS-2022_files/figure-latex/postos-cadunico-1.pdf, id=375, 469.755pt x 325.215pt>
+[31 <./Censo-SUAS-2022_files/figure-latex/munic_ord_despesa-1.pdf>] [32 <./Censo-SUAS-2022_files/figure-latex/NUEP-1.pdf>] [33 <./Censo-SUAS-2022_files/figure-latex/municipios-possuem-plano-1.pdf>] [34 <./Censo-SUAS-2022_files/figure-latex/conc_munic-1.pdf>] [35 <./Censo-SUAS-2022_files/figure-latex/conc_estado-1.pdf>]
+<Censo-SUAS-2022_files/figure-latex/postos-cadunico-1.pdf, id=510, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/postos-cadunico-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/postos-cadunico-1.pdf>
 Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/postos-cadunico-1.pdf  used on input line 1029.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-[35 <./Censo-SUAS-2022_files/figure-latex/postos-cadunico-1.pdf>]
-<Censo-SUAS-2022_files/figure-latex/postcad-acessibilidade-1.pdf, id=388, 469.755pt x 325.215pt>
+[36 <./Censo-SUAS-2022_files/figure-latex/postos-cadunico-1.pdf>]
+<Censo-SUAS-2022_files/figure-latex/coord_cadunico-1.pdf, id=523, 469.755pt x 325.215pt>
+File: Censo-SUAS-2022_files/figure-latex/coord_cadunico-1.pdf Graphic file (type pdf)
+<use Censo-SUAS-2022_files/figure-latex/coord_cadunico-1.pdf>
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/coord_cadunico-1.pdf  used on input line 1039.
+(pdftex.def)             Requested size: 344.997pt x 238.84406pt.
+<Censo-SUAS-2022_files/figure-latex/postcad-acessibilidade-1.pdf, id=524, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/postcad-acessibilidade-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/postcad-acessibilidade-1.pdf>
-Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/postcad-acessibilidade-1.pdf  used on input line 1039.
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/postcad-acessibilidade-1.pdf  used on input line 1043.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-<Censo-SUAS-2022_files/figure-latex/postcad-acessibilidade-situacao-1.pdf, id=389, 469.755pt x 325.215pt>
+<Censo-SUAS-2022_files/figure-latex/postcad-acessibilidade-situacao-1.pdf, id=525, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/postcad-acessibilidade-situacao-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/postcad-acessibilidade-situacao-1.pdf>
-Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/postcad-acessibilidade-situacao-1.pdf  used on input line 1043.
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/postcad-acessibilidade-situacao-1.pdf  used on input line 1047.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-<Censo-SUAS-2022_files/figure-latex/postcad-internet-percentual-1.pdf, id=390, 469.755pt x 325.215pt>
+<Censo-SUAS-2022_files/figure-latex/postcad-internet-percentual-1.pdf, id=526, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/postcad-internet-percentual-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/postcad-internet-percentual-1.pdf>
-Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/postcad-internet-percentual-1.pdf  used on input line 1047.
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/postcad-internet-percentual-1.pdf  used on input line 1051.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
-Underfull \hbox (badness 2334) in paragraph at lines 1061--1069
+Underfull \hbox (badness 2334) in paragraph at lines 1065--1073
 []\T1/lmr/m/n/10 (+20) As subdivisões administrativas que apresentavam maior percentual de
  []
 
-[36 <./Censo-SUAS-2022_files/figure-latex/postcad-acessibilidade-1.pdf>] [37 <./Censo-SUAS-2022_files/figure-latex/postcad-acessibilidade-situacao-1.pdf>] [38 <./Censo-SUAS-2022_files/figure-latex/postcad-internet-percentual-1.pdf>] [39]
+[37 <./Censo-SUAS-2022_files/figure-latex/coord_cadunico-1.pdf>] [38 <./Censo-SUAS-2022_files/figure-latex/postcad-acessibilidade-1.pdf>] [39 <./Censo-SUAS-2022_files/figure-latex/postcad-acessibilidade-situacao-1.pdf>] [40 <./Censo-SUAS-2022_files/figure-latex/postcad-internet-percentual-1.pdf>] [41]
 Chapter 3.
-[40
+[42
 
 ]
-
-LaTeX Warning: Reference `fig:quantitativo-CRAS' on page 1 undefined on input line 1146.
-
-<Censo-SUAS-2022_files/figure-latex/quantitativo-CRAS-1.pdf, id=439, 469.755pt x 325.215pt>
+<Censo-SUAS-2022_files/figure-latex/quantitativo-CRAS-1.pdf, id=584, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/quantitativo-CRAS-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/quantitativo-CRAS-1.pdf>
-Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/quantitativo-CRAS-1.pdf  used on input line 1150.
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/quantitativo-CRAS-1.pdf  used on input line 1154.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-[41] [42 <./Censo-SUAS-2022_files/figure-latex/quantitativo-CRAS-1.pdf>]
-<Censo-SUAS-2022_files/figure-latex/municipios-CRAS-1.pdf, id=460, 469.755pt x 325.215pt>
+[43] [44 <./Censo-SUAS-2022_files/figure-latex/quantitativo-CRAS-1.pdf>]
+<Censo-SUAS-2022_files/figure-latex/municipios-CRAS-1.pdf, id=602, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/municipios-CRAS-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/municipios-CRAS-1.pdf>
-Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/municipios-CRAS-1.pdf  used on input line 1178.
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/municipios-CRAS-1.pdf  used on input line 1182.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-
-LaTeX Warning: Reference `fig:CRAS-acessibilidade' on page 1 undefined on input line 1189.
-
-<Censo-SUAS-2022_files/figure-latex/CRAS-acessibilidade-1.pdf, id=461, 469.755pt x 325.215pt>
+<Censo-SUAS-2022_files/figure-latex/CRAS-acessibilidade-1.pdf, id=604, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/CRAS-acessibilidade-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/CRAS-acessibilidade-1.pdf>
-Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/CRAS-acessibilidade-1.pdf  used on input line 1192.
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/CRAS-acessibilidade-1.pdf  used on input line 1196.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-[43 <./Censo-SUAS-2022_files/figure-latex/municipios-CRAS-1.pdf>] [44 <./Censo-SUAS-2022_files/figure-latex/CRAS-acessibilidade-1.pdf>]
-
-LaTeX Warning: Reference `fig:CRAS-acessibilidade-situacao' on page 1 undefined on input line 1211.
-
-<Censo-SUAS-2022_files/figure-latex/CRAS-acessibilidade-situacao-1.pdf, id=483, 469.755pt x 325.215pt>
+[45 <./Censo-SUAS-2022_files/figure-latex/municipios-CRAS-1.pdf>] [46 <./Censo-SUAS-2022_files/figure-latex/CRAS-acessibilidade-1.pdf>]
+<Censo-SUAS-2022_files/figure-latex/CRAS-acessibilidade-situacao-1.pdf, id=627, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/CRAS-acessibilidade-situacao-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/CRAS-acessibilidade-situacao-1.pdf>
-Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/CRAS-acessibilidade-situacao-1.pdf  used on input line 1223.
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/CRAS-acessibilidade-situacao-1.pdf  used on input line 1227.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
-LaTeX Warning: Reference `fig:CRAS-internet-quantitativo' on page 1 undefined on input line 1228.
+LaTeX Warning: Reference `fig:CRAS-internet-quantitativo' on page 1 undefined on input line 1232.
 
-
-LaTeX Warning: Reference `fig:CRAS-internet-percentual' on page 1 undefined on input line 1229.
-
-<Censo-SUAS-2022_files/figure-latex/CRAS-internet-percentual-1.pdf, id=484, 469.755pt x 325.215pt>
+<Censo-SUAS-2022_files/figure-latex/CRAS-internet-percentual-1.pdf, id=629, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/CRAS-internet-percentual-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/CRAS-internet-percentual-1.pdf>
-Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/CRAS-internet-percentual-1.pdf  used on input line 1232.
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/CRAS-internet-percentual-1.pdf  used on input line 1236.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-[45] [46 <./Censo-SUAS-2022_files/figure-latex/CRAS-acessibilidade-situacao-1.pdf>] [47 <./Censo-SUAS-2022_files/figure-latex/CRAS-internet-percentual-1.pdf>] [48] [49] [50]
-Underfull \hbox (badness 1259) in paragraph at lines 1420--1443
+[47] [48 <./Censo-SUAS-2022_files/figure-latex/CRAS-acessibilidade-situacao-1.pdf>] [49 <./Censo-SUAS-2022_files/figure-latex/CRAS-internet-percentual-1.pdf>] [50] [51] [52]
+Underfull \hbox (badness 1259) in paragraph at lines 1424--1447
 \T1/lmr/m/n/10 (+20) acompanhamento a adolescentes e jovens em cumprimento de medidas
  []
 
-[51] [52]
-<Censo-SUAS-2022_files/figure-latex/creas-quantitativo-1.pdf, id=536, 469.755pt x 325.215pt>
+[53] [54]
+<Censo-SUAS-2022_files/figure-latex/creas-quantitativo-1.pdf, id=680, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/creas-quantitativo-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/creas-quantitativo-1.pdf>
-Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/creas-quantitativo-1.pdf  used on input line 1538.
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/creas-quantitativo-1.pdf  used on input line 1542.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-<Censo-SUAS-2022_files/figure-latex/CREAS-municipios-1.pdf, id=537, 469.755pt x 325.215pt>
+<Censo-SUAS-2022_files/figure-latex/CREAS-municipios-1.pdf, id=681, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/CREAS-municipios-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/CREAS-municipios-1.pdf>
-Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/CREAS-municipios-1.pdf  used on input line 1542.
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/CREAS-municipios-1.pdf  used on input line 1546.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-<Censo-SUAS-2022_files/figure-latex/creas-regionais-1.pdf, id=538, 469.755pt x 325.215pt>
+<Censo-SUAS-2022_files/figure-latex/creas-regionais-1.pdf, id=682, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/creas-regionais-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/creas-regionais-1.pdf>
-Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/creas-regionais-1.pdf  used on input line 1546.
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/creas-regionais-1.pdf  used on input line 1550.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-<Censo-SUAS-2022_files/figure-latex/creas-situacao-1.pdf, id=539, 469.755pt x 325.215pt>
+<Censo-SUAS-2022_files/figure-latex/creas-situacao-1.pdf, id=683, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/creas-situacao-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/creas-situacao-1.pdf>
-Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/creas-situacao-1.pdf  used on input line 1550.
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/creas-situacao-1.pdf  used on input line 1554.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-<Censo-SUAS-2022_files/figure-latex/creas-acessibilidade-1.pdf, id=540, 469.755pt x 325.215pt>
+<Censo-SUAS-2022_files/figure-latex/creas-acessibilidade-1.pdf, id=684, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/creas-acessibilidade-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/creas-acessibilidade-1.pdf>
-Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/creas-acessibilidade-1.pdf  used on input line 1568.
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/creas-acessibilidade-1.pdf  used on input line 1572.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-<Censo-SUAS-2022_files/figure-latex/CREAS-acessibilidade-situacao-1.pdf, id=541, 469.755pt x 325.215pt>
+<Censo-SUAS-2022_files/figure-latex/CREAS-acessibilidade-situacao-1.pdf, id=685, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/CREAS-acessibilidade-situacao-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/CREAS-acessibilidade-situacao-1.pdf>
-Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/CREAS-acessibilidade-situacao-1.pdf  used on input line 1572.
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/CREAS-acessibilidade-situacao-1.pdf  used on input line 1576.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-[53] [54 <./Censo-SUAS-2022_files/figure-latex/creas-quantitativo-1.pdf>] [55 <./Censo-SUAS-2022_files/figure-latex/CREAS-municipios-1.pdf>] [56 <./Censo-SUAS-2022_files/figure-latex/creas-regionais-1.pdf>] [57 <./Censo-SUAS-2022_files/figure-latex/creas-situacao-1.pdf>] [58 <./Censo-SUAS-2022_files/figure-latex/creas-acessibilidade-1.pdf>] [59 <./Censo-SUAS-2022_files/figure-latex/CREAS-acessibilidade-situacao-1.pdf>]
-<Censo-SUAS-2022_files/figure-latex/CREAS-internet-percentual-1.pdf, id=608, 469.755pt x 325.215pt>
+[55] [56 <./Censo-SUAS-2022_files/figure-latex/creas-quantitativo-1.pdf>] [57 <./Censo-SUAS-2022_files/figure-latex/CREAS-municipios-1.pdf>] [58 <./Censo-SUAS-2022_files/figure-latex/creas-regionais-1.pdf>] [59 <./Censo-SUAS-2022_files/figure-latex/creas-situacao-1.pdf>] [60 <./Censo-SUAS-2022_files/figure-latex/creas-acessibilidade-1.pdf>] [61 <./Censo-SUAS-2022_files/figure-latex/CREAS-acessibilidade-situacao-1.pdf>]
+<Censo-SUAS-2022_files/figure-latex/CREAS-internet-percentual-1.pdf, id=751, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/CREAS-internet-percentual-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/CREAS-internet-percentual-1.pdf>
-Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/CREAS-internet-percentual-1.pdf  used on input line 1593.
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/CREAS-internet-percentual-1.pdf  used on input line 1597.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-<Censo-SUAS-2022_files/figure-latex/CREAS-PSE-Domicilio-1.pdf, id=609, 469.755pt x 325.215pt>
+<Censo-SUAS-2022_files/figure-latex/CREAS-PSE-Domicilio-1.pdf, id=752, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/CREAS-PSE-Domicilio-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/CREAS-PSE-Domicilio-1.pdf>
-Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/CREAS-PSE-Domicilio-1.pdf  used on input line 1597.
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/CREAS-PSE-Domicilio-1.pdf  used on input line 1601.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-<Censo-SUAS-2022_files/figure-latex/CREAS-abordagem-social-1.pdf, id=610, 469.755pt x 325.215pt>
+<Censo-SUAS-2022_files/figure-latex/CREAS-abordagem-social-1.pdf, id=753, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/CREAS-abordagem-social-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/CREAS-abordagem-social-1.pdf>
-Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/CREAS-abordagem-social-1.pdf  used on input line 1601.
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/CREAS-abordagem-social-1.pdf  used on input line 1605.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-[60 <./Censo-SUAS-2022_files/figure-latex/CREAS-internet-percentual-1.pdf>] [61 <./Censo-SUAS-2022_files/figure-latex/CREAS-PSE-Domicilio-1.pdf>] [62 <./Censo-SUAS-2022_files/figure-latex/CREAS-abordagem-social-1.pdf>] [63] [64] [65] [66]
-Underfull \hbox (badness 3942) in paragraph at lines 1847--1857
+[62 <./Censo-SUAS-2022_files/figure-latex/CREAS-internet-percentual-1.pdf>] [63 <./Censo-SUAS-2022_files/figure-latex/CREAS-PSE-Domicilio-1.pdf>] [64 <./Censo-SUAS-2022_files/figure-latex/CREAS-abordagem-social-1.pdf>] [65] [66] [67] [68]
+Underfull \hbox (badness 3942) in paragraph at lines 1851--1861
 []\T1/lmr/m/n/10 (+20) UNIDADES DE ACOLHIMENTO As Unidades de Acolhimento são
  []
 
 
-Underfull \hbox (badness 1168) in paragraph at lines 1847--1857
+Underfull \hbox (badness 1168) in paragraph at lines 1851--1861
 \T1/lmr/m/n/10 (+20) equipamentos que prestam serviços de proteção social especial de alta
  []
 
-[67] [68]
-Underfull \hbox (badness 1742) in paragraph at lines 1974--1986
+[69] [70]
+Underfull \hbox (badness 1742) in paragraph at lines 1978--1990
 []\T1/lmr/m/n/10 (+20) ANÁLISE CONJUNTA Alguns equipamentos de prestação de serviços
  []
 
-[69] [70] [71] [72] [73] [74] [75] [76] [77] [78]
-Overfull \hbox (0.62639pt too wide) in paragraph at lines 2498--2519
+[71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
+Overfull \hbox (0.62639pt too wide) in paragraph at lines 2502--2523
 \T1/lmr/m/n/10 (-20) ``Outra formação de nível superior'' inclui advogados, administradores, analistas de
  []
 
-[79] [80] [81] [82] [83]
-<Censo-SUAS-2022_files/figure-latex/povos-tradicionais-1.pdf, id=736, 469.755pt x 325.215pt>
+[81] [82] [83] [84] [85]
+<Censo-SUAS-2022_files/figure-latex/povos-tradicionais-1.pdf, id=876, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/povos-tradicionais-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/povos-tradicionais-1.pdf>
-Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/povos-tradicionais-1.pdf  used on input line 2766.
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/povos-tradicionais-1.pdf  used on input line 2770.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-<Censo-SUAS-2022_files/figure-latex/be-munic-1.pdf, id=737, 469.755pt x 325.215pt>
+<Censo-SUAS-2022_files/figure-latex/be-munic-1.pdf, id=877, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/be-munic-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/be-munic-1.pdf>
-Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/be-munic-1.pdf  used on input line 2773.
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/be-munic-1.pdf  used on input line 2777.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-<Censo-SUAS-2022_files/figure-latex/be-local-1.pdf, id=738, 469.755pt x 325.215pt>
+<Censo-SUAS-2022_files/figure-latex/be-local-1.pdf, id=878, 469.755pt x 325.215pt>
 File: Censo-SUAS-2022_files/figure-latex/be-local-1.pdf Graphic file (type pdf)
 <use Censo-SUAS-2022_files/figure-latex/be-local-1.pdf>
-Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/be-local-1.pdf  used on input line 2777.
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/be-local-1.pdf  used on input line 2781.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
-[84] [85 <./Censo-SUAS-2022_files/figure-latex/povos-tradicionais-1.pdf>] [86 <./Censo-SUAS-2022_files/figure-latex/be-munic-1.pdf>] [87 <./Censo-SUAS-2022_files/figure-latex/be-local-1.pdf>]
+[86] [87 <./Censo-SUAS-2022_files/figure-latex/povos-tradicionais-1.pdf>] [88 <./Censo-SUAS-2022_files/figure-latex/be-munic-1.pdf>] [89 <./Censo-SUAS-2022_files/figure-latex/be-local-1.pdf>]
 Chapter 4.
-! Missing $ inserted.
-<inserted text> 
-                $
-l.2797 ...uas/resolucoes/resolucao_n_237_2006.pdf}
-                                                  , 
-Here is how much of TeX's memory you used:
- 17736 strings out of 476894
- 317971 string characters out of 5807616
- 1931791 words of memory out of 5000000
- 38380 multiletter control sequences out of 15000+600000
- 634523 words of font info for 193 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 75i,11n,79p,1012b,553s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-!  ==> Fatal error occurred, no output PDF file produced!
+Underfull \hbox (badness 10000) in paragraph at lines 2801--2801
+[][][]\T1/lmr/m/n/8 (+20) ([]$https : / / www . mpba . mp . br / sites / default / ^^\les / biblioteca / crianca -[] e -[] adolescente / suas /
+ []
+
+[90
+
+]
+<Censo-SUAS-2022_files/figure-latex/Cmas_sede-1.pdf, id=929, 469.755pt x 325.215pt>
+File: Censo-SUAS-2022_files/figure-latex/Cmas_sede-1.pdf Graphic file (type pdf)
+<use Censo-SUAS-2022_files/figure-latex/Cmas_sede-1.pdf>
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/Cmas_sede-1.pdf  used on input line 2840.
+(pdftex.def)             Requested size: 344.997pt x 238.84406pt.
+<Censo-SUAS-2022_files/figure-latex/Ceas_sede-1.pdf, id=930, 469.755pt x 325.215pt>
+File: Censo-SUAS-2022_files/figure-latex/Ceas_sede-1.pdf Graphic file (type pdf)
+<use Censo-SUAS-2022_files/figure-latex/Ceas_sede-1.pdf>
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/Ceas_sede-1.pdf  used on input line 2844.
+(pdftex.def)             Requested size: 344.997pt x 238.84406pt.
+<Censo-SUAS-2022_files/figure-latex/Cmas_se-1.pdf, id=931, 469.755pt x 325.215pt>
+File: Censo-SUAS-2022_files/figure-latex/Cmas_se-1.pdf Graphic file (type pdf)
+<use Censo-SUAS-2022_files/figure-latex/Cmas_se-1.pdf>
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/Cmas_se-1.pdf  used on input line 2848.
+(pdftex.def)             Requested size: 344.997pt x 238.84406pt.
+<Censo-SUAS-2022_files/figure-latex/Ceas_sec-1.pdf, id=932, 469.755pt x 325.215pt>
+File: Censo-SUAS-2022_files/figure-latex/Ceas_sec-1.pdf Graphic file (type pdf)
+<use Censo-SUAS-2022_files/figure-latex/Ceas_sec-1.pdf>
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/Ceas_sec-1.pdf  used on input line 2852.
+(pdftex.def)             Requested size: 344.997pt x 238.84406pt.
+<Censo-SUAS-2022_files/figure-latex/Qtd_reuniao_cmas-1.pdf, id=933, 469.755pt x 325.215pt>
+File: Censo-SUAS-2022_files/figure-latex/Qtd_reuniao_cmas-1.pdf Graphic file (type pdf)
+<use Censo-SUAS-2022_files/figure-latex/Qtd_reuniao_cmas-1.pdf>
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/Qtd_reuniao_cmas-1.pdf  used on input line 2856.
+(pdftex.def)             Requested size: 344.997pt x 238.84406pt.
+[91 <./Censo-SUAS-2022_files/figure-latex/Cmas_sede-1.pdf>] [92 <./Censo-SUAS-2022_files/figure-latex/Ceas_sede-1.pdf>]
+<Censo-SUAS-2022_files/figure-latex/Cmas_plan-1.pdf, id=955, 469.755pt x 325.215pt>
+File: Censo-SUAS-2022_files/figure-latex/Cmas_plan-1.pdf Graphic file (type pdf)
+<use Censo-SUAS-2022_files/figure-latex/Cmas_plan-1.pdf>
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/Cmas_plan-1.pdf  used on input line 2914.
+(pdftex.def)             Requested size: 344.997pt x 238.84406pt.
+<Censo-SUAS-2022_files/figure-latex/Ceas_se-1.pdf, id=956, 469.755pt x 325.215pt>
+File: Censo-SUAS-2022_files/figure-latex/Ceas_se-1.pdf Graphic file (type pdf)
+<use Censo-SUAS-2022_files/figure-latex/Ceas_se-1.pdf>
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/Ceas_se-1.pdf  used on input line 2918.
+(pdftex.def)             Requested size: 344.997pt x 238.84406pt.
+<Censo-SUAS-2022_files/figure-latex/Cmas_be-1.pdf, id=957, 469.755pt x 325.215pt>
+File: Censo-SUAS-2022_files/figure-latex/Cmas_be-1.pdf Graphic file (type pdf)
+<use Censo-SUAS-2022_files/figure-latex/Cmas_be-1.pdf>
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/Cmas_be-1.pdf  used on input line 2922.
+(pdftex.def)             Requested size: 344.997pt x 238.84406pt.
+<Censo-SUAS-2022_files/figure-latex/Ceas_be-1.pdf, id=958, 469.755pt x 325.215pt>
+File: Censo-SUAS-2022_files/figure-latex/Ceas_be-1.pdf Graphic file (type pdf)
+<use Censo-SUAS-2022_files/figure-latex/Ceas_be-1.pdf>
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/Ceas_be-1.pdf  used on input line 2926.
+(pdftex.def)             Requested size: 344.997pt x 238.84406pt.
+[93 <./Censo-SUAS-2022_files/figure-latex/Cmas_se-1.pdf>] [94 <./Censo-SUAS-2022_files/figure-latex/Ceas_sec-1.pdf>] [95 <./Censo-SUAS-2022_files/figure-latex/Qtd_reuniao_cmas-1.pdf>] [96 <./Censo-SUAS-2022_files/figure-latex/Cmas_plan-1.pdf>] [97 <./Censo-SUAS-2022_files/figure-latex/Ceas_se-1.pdf>] [98 <./Censo-SUAS-2022_files/figure-latex/Cmas_be-1.pdf>] [99 <./Censo-SUAS-2022_files/figure-latex/Ceas_be-1.pdf>] [100] [101] [102]
+Chapter 5.
+<Censo-SUAS-2022_files/figure-latex/id-conselho-estrutura-1.pdf, id=1045, 469.755pt x 325.215pt>
+File: Censo-SUAS-2022_files/figure-latex/id-conselho-estrutura-1.pdf Graphic file (type pdf)
+<use Censo-SUAS-2022_files/figure-latex/id-conselho-estrutura-1.pdf>
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/id-conselho-estrutura-1.pdf  used on input line 3141.
+(pdftex.def)             Requested size: 344.997pt x 238.84406pt.
+<Censo-SUAS-2022_files/figure-latex/id-conselho-dinamica-1.pdf, id=1046, 469.755pt x 325.215pt>
+File: Censo-SUAS-2022_files/figure-latex/id-conselho-dinamica-1.pdf Graphic file (type pdf)
+<use Censo-SUAS-2022_files/figure-latex/id-conselho-dinamica-1.pdf>
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/id-conselho-dinamica-1.pdf  used on input line 3145.
+(pdftex.def)             Requested size: 344.997pt x 238.84406pt.
+<Censo-SUAS-2022_files/figure-latex/id-conselho-composicao-1.pdf, id=1047, 469.755pt x 325.215pt>
+File: Censo-SUAS-2022_files/figure-latex/id-conselho-composicao-1.pdf Graphic file (type pdf)
+<use Censo-SUAS-2022_files/figure-latex/id-conselho-composicao-1.pdf>
+Package pdftex.def Info: Censo-SUAS-2022_files/figure-latex/id-conselho-composicao-1.pdf  used on input line 3149.
+(pdftex.def)             Requested size: 344.997pt x 238.84406pt.
+
+Underfull \hbox (badness 1242) in paragraph at lines 3180--3223
+\T1/lmr/m/n/10 (+20) Conselhos às normativas vigentes e ao exercício do controle social no
+ []
+
+
+Underfull \hbox (badness 7963) in paragraph at lines 3180--3223
+\T1/lmr/m/n/10 (+20) SUAS. %______________Pacto de Aprimoramento da Gestão
+ []
+
+
+Underfull \hbox (badness 1769) in paragraph at lines 3180--3223
+\T1/lmr/m/n/10 (+20) Municipal do SUAS (Resoluções CIT n\TS1/lmr/m/n/10 (+20) °\T1/lmr/m/n/10 (+20) 18 de 15 de julho de 2013).
+ []
+
+
+Underfull \hbox (badness 3019) in paragraph at lines 3180--3223
+\T1/lmr/m/n/10 (+20) Política Nacional de Educação Permanente do SUAS/ Ministério do
+ []
+
+
+Underfull \hbox (badness 1590) in paragraph at lines 3180--3223
+\T1/lmr/m/n/10 (+20) do Trabalho e da Assistência Social, 2013. %______________
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3180--3223
+\T1/lmr/m/n/10 (+9) a _ tipi^^\cacao _ dos _ servicos _ socioassistenciais _ na _ regiao _ da _ granfpolis . pdf$[]
+ []
+
+[103
+
+] [104 <./Censo-SUAS-2022_files/figure-latex/id-conselho-estrutura-1.pdf>] [105 <./Censo-SUAS-2022_files/figure-latex/id-conselho-dinamica-1.pdf>] [106 <./Censo-SUAS-2022_files/figure-latex/id-conselho-composicao-1.pdf>] [107] (./Censo-SUAS-2022.aux)
+ ***********
+LaTeX2e <2023-11-01>
+L3 programming layer <2023-11-09>
+ ***********
+
+LaTeX Warning: There were undefined references.
+
+Package rerunfilecheck Info: File `Censo-SUAS-2022.out' has not changed.
+(rerunfilecheck)             Checksum: 3A04467823BECC091F3BAEAAFDB89743;5343.
+ ) 
+Here is how much of TeX's memory you used:
+ 18101 strings out of 476233
+ 332110 string characters out of 5795524
+ 1937555 words of memory out of 5000000
+ 39343 multiletter control sequences out of 15000+600000
+ 639487 words of font info for 201 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 75i,11n,79p,1012b,557s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb></home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb></home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb></home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb></home/rstudio.shirley.samico/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb>
+Output written on Censo-SUAS-2022.pdf (108 pages, 676495 bytes).
+PDF statistics:
+ 1194 PDF objects out of 1200 (max. 8388607)
+ 948 compressed objects within 10 object streams
+ 251 named destinations out of 1000 (max. 500000)
+ 47562 words of extra memory for PDF output out of 51595 (max. 10000000)
+

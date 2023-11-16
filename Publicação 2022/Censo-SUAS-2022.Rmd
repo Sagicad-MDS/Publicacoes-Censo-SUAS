@@ -620,7 +620,7 @@ cpoprh_2021 <- read_excel("../Censo SUAS 2021/4 - Centro Pop/Censo_SUAS_2021_CPO
 
 cpop_2022 <- read_excel("../Censo SUAS 2022/3 - Centro Pop/Censo_SUAS_2022_Centro_POP_dados_gerais.xlsx", sheet = 1)
 
-cpoprh_2022 <- read_excel("../Censo SUAS 2022/3 - Centro Pop/Censo_SUAS_2022_Centro_POP_RH.xlsx, sheet = 1)
+cpoprh_2022 <- read_excel("../Censo SUAS 2022/3 - Centro Pop/Censo_SUAS_2022_Centro_POP_RH.xlsx", sheet = 1)
 
 unac_2012 <- read_excel("../Censo SUAS 2012/Unidades de Acolhimento/Censo SUAS 2012_Unidades_de_Acolhimento_dadosgerais_divulgação.xlsx", sheet = 1)
 
@@ -2871,7 +2871,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-```{r equip-cadunico-centropop, fig.cap = " Percentual de Centro Pop com locais para CadÚnico e disposição da equipe - 2018 - 2022", fig.footer = "Fonte: MDS, Censo SUAS",eval=FALSE}
+```{r equip-cadunico-centropop_, fig.cap = "Percentual de Centro Pop com locais para CadÚnico e disposição da equipe - 2018 - 2022", fig.footer = "Fonte: MDS, Censo SUAS",eval=FALSE}
 
 equip_cpop_cadunico  = function(df, q, ano){
   q <- enquo(q)
@@ -5360,7 +5360,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 A participação social é uma das diretrizes estabelecidas pela Constituição Federal de 1988 para a organização das ações da Assistência Social. Nesse sentido, a Lei Orgânica da Assistência Social (LOAS) \footnote{Lei nº 8.742, de 7 de dezembro de 1993: Dispõe sobre a organização da Assistência Social e dá outras providências. (\url{http://www.planalto.gov.br/ccivil_03/Leis/L8742compilado.htm})}, que dispõe sobre a sua organização, instituiu em seu artigo 16 os Conselhos de Assistência Social em âmbito nacional, estadual e municipal como instâncias de deliberação colegiada do SUAS, cuja composição deve ser paritária entre governo e sociedade civil. 
 
-Os Conselhos integram o Sistema Único de Assistência Social (SUAS), juntamente com o governo e as entidades e organizações de assistência social. A Resolução do Conselho Nacional de Assistência Social (CNAS) nº 237/2006 \footnote{https://www.mpba.mp.br/sites/default/files/biblioteca/crianca-e-adolescente/suas/resolucoes/resolucao_n_237_2006.pdf}, estabelece em seu artigo 3º as competências dos Conselhos de Assistência Social, das quais se destacam: a aprovação da respectiva Política de Assistência Social, em consonância com a Política Nacional de Assistência Social (PNAS); a normatização e regulação de ações e prestação de serviços, em conjunto com a gestão; o acompanhamento, avaliação e fiscalização da gestão de recursos; a inscrição e a fiscalização das entidades e organizações da assistência social; e a aprovação da proposta orçamentária dos recursos da assistência social e dos critérios de partilha dos recursos, dentre outras atribuições. 
+Os Conselhos integram o Sistema Único de Assistência Social (SUAS), juntamente com o governo e as entidades e organizações de assistência social. A Resolução do Conselho Nacional de Assistência Social (CNAS) nº 237/2006, \footnote{(\url{https://www.mpba.mp.br/sites/default/files/biblioteca/crianca-e-adolescente/suas/resolucoes/resolucao_n_237_2006.pdf})} estabelece em seu artigo 3º as competências dos Conselhos de Assistência Social, das quais se destacam: a aprovação da respectiva Política de Assistência Social, em consonância com a Política Nacional de Assistência Social (PNAS); a normatização e regulação de ações e prestação de serviços, em conjunto com a gestão; o acompanhamento, avaliação e fiscalização da gestão de recursos; a inscrição e a fiscalização das entidades e organizações da assistência social; e a aprovação da proposta orçamentária dos recursos da assistência social e dos critérios de partilha dos recursos, dentre outras atribuições.
 
 A mesma Resolução estabelece que na composição dos Conselhos deve haver, além de representantes do governo, representantes da sociedade civil, incluindo usuários, entidades e organizações de assistência social e entidades de trabalhadores do setor.
 
@@ -6269,7 +6269,9 @@ Informações mais detalhadas sobre estrutura física, previsão orçamentária,
 <!-- não consegui gerar ID Sintético, porque não são números inteiros, depois vou tentar ver média variavel que possa contabilizar -->
 
 
+```{r id-conselho-nacional, fig.cap = "Evolução do ID Conselho - Dimensão Estrutura Administrativa - 2014 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
+```
 
 
 
@@ -6451,7 +6453,6 @@ grafico
 ```
 
 
-
 Referências Bibliográficas:
 %______________ (2012) Norma Operacional Básica, NOB-SUAS. Brasília, DF: MDS.
 %______________ (2012) NOB-RH Anotada e Comentada – Brasília, DF: MDS; Secretaria Nacional de Assistência Social, 2011. 144 p.; 23.
@@ -6478,4 +6479,3 @@ Referências Bibliográficas:
 %MORETTO, S. e D. SILVEIRA (2010) A contribuição dos Conselhos de assistência social na materialização do Sistema Único de Assistência Social (SUAS). UNISUL.
 %PIRES, Roberto Rocha C.(Org.) Efetividade das Instituições Participativas no Brasil: estratégias de avaliação. Diálogos para o desenvolvimento, Vol.7.
 %ORIENTAÇÕES PARA ELABORAÇÃO DO PLANO INDIVIDUAL DE ATENDIMENTO DE CRIANÇAS E ADOLESCENTES EM SERVIÇOS DE ACOLHIMENTO, Brasília, abril de 2017. Ministério do Desenvolvimento Social e Agrário - Secretaria Nacional de Assistência Social - Departamento de Proteção Social Especial - Coordenação Geral de Serviços de Acolhimento
-

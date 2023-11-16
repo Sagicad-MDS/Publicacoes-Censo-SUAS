@@ -1,0 +1,25 @@
+\babel@toc {nil}{}\relax 
+\contentsline {chapter}{Prefácio}{1}{chapter*.1}%
+\contentsline {chapter}{Apresentação}{5}{chapter*.3}%
+\contentsline {section}{A Assistência Social no Brasil}{5}{section*.4}%
+\contentsline {chapter}{\numberline {1}Metodologia}{9}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Ciclo da preparação}{9}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Preenchimento dos formulários}{12}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Tabulação dos dados e análise}{12}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Gestão e Financiamento}{15}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Cadastro Único para Programas Sociais}{36}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Considerações Finais}{37}{section.2.2}%
+\contentsline {chapter}{\numberline {3}Unidades, Serviços e Benefícios}{42}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Proteção Social Básica}{43}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Centros de Referência de Assistência Social (CRAS)}{43}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Centros de Convivência}{50}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Serviços de Proteção Social Especial -- Média Compexidade}{50}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Centro de Referência Especializada de Assistência Social -- CREAS}{55}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Centro de Referência Especializado para População em Situação de Rua -- Centro POP}{62}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Centro-Dia}{66}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}Serviços de Proteção Social Especial -- Alta Complexidade}{67}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Cadastro Único para Programas Sociais}{86}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Povos Tradicionais}{86}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Benefícios Eventuais}{86}{section.3.6}%
+\contentsline {chapter}{\numberline {4}Participação Social e Controle Social}{90}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Indicadores do SUAS}{103}{chapter.5}%
