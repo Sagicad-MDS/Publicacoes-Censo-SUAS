@@ -606,21 +606,21 @@ cpop_2018 <- read_excel("../Censo SUAS 2018/4 - Centro Pop/Censo_SUAS_2018_Centr
 
 cpoprh_2018 <- read_excel("../Censo SUAS 2018/4 - Centro Pop/Censo_SUAS_2018_Centro_POP_RH.xlsx", sheet = 1)
 
-cpop_2019 <- read_excel("../Censo SUAS 2019/3 - Centro Pop/Censo_SUAS_2019_Centro_POP_ Dados_Gerais (1).xls", sheet = 1)
+cpop_2019 <- read_excel("../Censo SUAS 2019/3 - Centro Pop/Censo_SUAS_2019_Centro_POP_ Dados_Gerais.xlsx", sheet = 1)
 
 cpoprh_2019 <- read_excel("../Censo SUAS 2019/3 - Centro Pop/Censo_SUAS_2019_Centro_POP_RH.xlsx", sheet = 1)
 
-#cpop_2020 <- read_excel("../Censo SUAS 2020/4 - Centro Pop/CensoSUAS_2020_Dados_Gerais_Centro_POP.xlsx", sheet = 1)
+cpop_2020 <- read_excel("../Censo SUAS 2020/8 - Centro Pop/CensoSUAS_2020_Dados_Gerais_Centro_POP.xlsx", sheet = 1)
 
-#cpoprh_2020 <- read_excel("../Censo SUAS 2020/4 - Centro Pop/CensoSUAS_2020_RH_Centro_POP.xlsx", sheet = 1)
+cpoprh_2020 <- read_excel("../Censo SUAS 2020/8 - Centro Pop/CensoSUAS_2020_RH_Centro_POP.xlsx", sheet = 1)
 
 cpop_2021 <- read_excel("../Censo SUAS 2021/4 - Centro Pop/Censo_SUAS_2021_CPOP_Dados_Gerais_divulgação.xlsx", sheet = 1)
 
-#cpoprh_2021 <- read_excel("../Censo SUAS 2021/4 - Centro Pop/Censo_SUAS_2021_Centro_POP_RH.xlsx, sheet = 1)
+cpoprh_2021 <- read_excel("../Censo SUAS 2021/4 - Centro Pop/Censo_SUAS_2021_CPOP_Dados_Gerais_divulgação.xlsx", sheet = 1)
 
-#cpop_2022 <- read_excel("../Censo SUAS 2022/3 - CENTRO POP/Censo_SUAS_2022_Centro_POP_dados_gerais.xlsx", sheet = 1)
+cpop_2022 <- read_excel("../Censo SUAS 2022/3 - Centro Pop/Censo_SUAS_2022_Centro_POP_dados_gerais.xlsx", sheet = 1)
 
-#cpoprh_2022 <- read_excel("../Censo SUAS 2022/3 - CENTRO POP/Censo_SUAS_2022_Centro_POP_RH.xlsx, sheet = 1)
+cpoprh_2022 <- read_excel("../Censo SUAS 2022/3 - Centro Pop/Censo_SUAS_2022_Centro_POP_RH.xlsx, sheet = 1)
 
 unac_2012 <- read_excel("../Censo SUAS 2012/Unidades de Acolhimento/Censo SUAS 2012_Unidades_de_Acolhimento_dadosgerais_divulgação.xlsx", sheet = 1)
 
@@ -1069,6 +1069,36 @@ f_situacao2 = function(df, situacao2){
                                                           
 }
 
+
+f_selecao_grupo_media = function(df, q_selecao, selecao, q_media, grupo, eixo_x){
+  q_selecao <- enquo(q_selecao)
+  grupo <- quo_name(grupo)
+  selecao <- quo_name(selecao)
+  q_media <- enquo(q_media)
+  eixo_x <- quo_name(eixo_x)
+
+  df %>%
+    select(!! q_selecao, !! q_media) %>% 
+    filter(!! q_selecao == !! selecao) %>% 
+    filter(!is.na(!! q_media)) %>% 
+    summarise(m=mean(!! q_media)) %>% 
+    mutate("Eixo_X" = !! eixo_x) %>% 
+    mutate("Grupo" = !! grupo) 
+}
+
+f_situacao3 = function(df, situacao3){
+  situacao <- enquo(situacao)
+
+  df %>%
+    mutate(!! situacao3 := case_when(!! situacao3 == "Sim, com equipe exclusiva para esta finalidade"~"sim",
+                                    !! situacao3 == "Sim, com a equipe responsável pelo PAIF"~"sim",
+                                    !! situacao3 == "Sim, com equipe exclusiva para esta finalidade"~"sim",
+                                    !! situacao3 == "Não"~"Não",
+                                    is.na(!! situacao3)~"Não",
+                                    TRUE ~ as.character(!! situacao3))) %>% 
+    mutate(!! situacao3 := factor(!! situacao, levels = c("sim",
+                                                          "Não")))
+}
 
 
 
@@ -1609,7 +1639,7 @@ O Plano de apoio técnico aos municípios também é um produto a ser realizado 
 
 
 
-```{r plan_apoio_tec, fig.cap = "Percentual de Estados que possiem Plano de Apoio Técnico pactuado na CIB - Brasil, 2013 - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r plan_apoio_tec, fig.cap = "Percentual de Estados que possuiem Plano de Apoio Técnico pactuado na CIB - Brasil, 2013 - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
 plan_apoio  = function(df, q, ano){
   q <- enquo(q)
@@ -2212,7 +2242,7 @@ grafico <- gm_cofinanciamento(gm_2013, q29, "2013") %>%
   bind_rows(gm_cofinanciamento(gm_2014, q39, "2014")) %>% 
 #  bind_rows(gm_cofinanciamento(gm_2015, q32, "2015")) %>% 
 #  bind_rows(gm_cofinanciamento(gm_2016, q13, "2016")) %>% 
-  bind_rows(gm_cofinanciamento(gm_2017, q21, "2017")) %>%
+#  bind_rows(gm_cofinanciamento(gm_2017, q21, "2017")) %>%
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
 #  geom_col(aes(fill = Nível), position = "dodge") +
 #  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
@@ -2669,7 +2699,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 
 
-```{r conc_estado, fig.cap = "Percentual de estados que realizaram concursos para trabalahdores nível superior do SUAS - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r conc_estado, fig.cap = "Percentual de estados que realizaram concursos para trabalhadores nível superior do SUAS - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
 conc_estado  = function(df, q, ano){
   q <- enquo(q)
@@ -2725,21 +2755,184 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 ## Cadastro Único para Programas Sociais
 
 
-O Cadastro Único para Programas Sociais do Governo Federal estabelecido através do art. 6º-F da Lei nº 8.742, de 7 de dezembro de 1993 (Lei Orgânica de Assistência Social – LOAS), tem a finalidade de coletar, sistematizar e disseminar informações que permitem a identificação e caracterização das condições socioeconômicas das famílias em situação de vulnerabilidade social, em particular as famílias de baixa de renda.  
+O Cadastro Único para Programas Sociais do Governo Federal estabelecido através do art. 6º-F da Lei nº 8.742, de 7 de dezembro de 1993 (Lei Orgânica de Assistência Social – LOAS), tem a finalidade de coletar, sistematizar e disseminar informações que permitem a identificação e caracterização das condições socioeconômicas das famílias em situação de vulnerabilidade social, em particular as famílias de baixa de renda. 
 
-Trata-se de um registro público eletrônico, a partir do qual podem ser produzidas informações com recorte regional e territorial para instrumentalizar as políticas sociais, em especial as políticas socioassistenciais, por meio da vigilância socioassistencial com a identificação e a prevenção de situações de risco, vulnerabilidade social e seus agravos nos diferentes territórios. 
+O objetivo é conhecer, incluir e aprimorar as políticas sociais. Assim, esses dados subsidiam a realização de diagnósticos, ações de planejamento, busca ativa, monitoramento e avaliação. Sua gestão é interfederativa e descentralizada. Os locais de cadastramento são efetuados pelos municípios no qual podem ser encontrados em unidades exclusivas ou na rede de atendimento socioassistencial. 
 
-Identifica-se esta ferramenta como um instumento que fomenta a função de Vigilância Socioassistencial a identificar  vulnerabildiades e riscos no território para nutir intervenções continuadas, sistematicas e integrada para garantir a capacidade protetiva das famílias através dos serviços, benefícios e programas socioassistenciais.
-
-Este paragráfo tem como objetivo referenciar sobre a Gestão do Cadastro Único nos Estados e municípios. Os locais do Cadastro podem ser encontrados em unidades exclusivas ou na rede de atendimento socioassistencial. Dados do Censo SUAS 2022 destaca que xx% (2.892) são unidades exclusivas do Cadastro Único e xx estão em unidades da rede socioassistencial \footnote{os dados dos locais do Cadastro Único na rede socioassistencial CRAS, CREAS E CENTRO POP serão abordadas nos respectivos temas}.
+Dados do Censo SUAS 2022 destaca que xx% (2.892) são unidades exclusivas do Cadastro Único e xx estão em unidades da rede socioassistencial \footnote{os dados dos locais do Cadastro Único na rede socioassistencial CRAS, CREAS E CENTRO POP serão abordadas nos respectivos temas}.
 
 
 
-```{r postos-cadunico, fig.cap = "Evolução de Postos do Cadastro Único - 2015 - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS.",eval=FALSE}
+
+<!-- colocar tabela com anos e quantidade de locais para cadasatro unico   -->
+
+
+
+
+```{r equip-cadunico-cras, fig.cap = " Percentual de CRAS com locais para CadÚnico - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS",eval=FALSE}
+
+equip_cadunico  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "Sim, com equipe exclusiva para esta finalidade"~"Sim, com equipe exclusiva para esta finalidade",
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("Sim, com equipe exclusiva para esta finalidade",
+                                            "Sim, com outra equipe",
+                                            "Sim, com a equipe responsável pelo PAIF",
+                                            "Não"))) %>% 
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+grafico <- equip_cadunico(cras_2017, q35, "2017") %>%
+   bind_rows(equip_cadunico(cras_2018, q_40, "2018")) %>% 
+   bind_rows(equip_cadunico(cras_2019, q39, "2019")) %>% 
+   #bind_rows(equip_cadunico(cras_2020, q39, "2020")) %>%
+   bind_rows(equip_cadunico(cras_2021, q39, "2021")) %>%
+   bind_rows(equip_cadunico(cras_2022, q39, "2022")) %>%
+  
+ #CRAS2020_base com códigos numericos
+  
+  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
+#  geom_col(aes(fill = Nível), position = "dodge") +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+
+```{r equip-cadunico-creas, fig.cap = " Percentual de CREAS com locais para CadÚnico e disposição da equipe - 2018 - 2022", fig.footer = "Fonte: MDS, Censo SUAS",eval=FALSE}
+
+equip_Creas_cadunico  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "Sim, com equipe exclusiva para esta finalidade"~"Sim, com equipe exclusiva para esta finalidade",
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("Sim, com equipe exclusiva para esta finalidade",
+                                            "Sim, com outra equipe",
+                                            "Sim, com a equipe responsável pelo PAEFI",
+                                            "Não cadastra nem encaminha usuárias(os) para o CadÚnico",
+                                            "Não, apenas encaminha a(o) usuária(o) para realização do cadastramento em outro local/unidade"))) %>% 
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+grafico <- equip_Creas_cadunico(creas_2018, q44, "2018") %>%
+   bind_rows(equip_Creas_cadunico(creas_2019, q42, "2019")) %>% 
+   bind_rows(equip_Creas_cadunico(creas_2020, q47, "2020")) %>%
+   bind_rows(equip_Creas_cadunico(creas_2021, q47, "2021")) %>%
+   bind_rows(equip_Creas_cadunico(creas_2022, q47, "2022")) %>%
+ 
+  
+  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
+#  geom_col(aes(fill = Nível), position = "dodge") +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+```{r equip-cadunico-centropop, fig.cap = " Percentual de Centro Pop com locais para CadÚnico e disposição da equipe - 2018 - 2022", fig.footer = "Fonte: MDS, Censo SUAS",eval=FALSE}
+
+equip_cpop_cadunico  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "Sim, com equipe exclusiva para esta finalidade"~"Sim, com equipe exclusiva para esta finalidade",
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("Sim, com a equipe responsável pelo Serviço Especializado para Pessoas em Situação de Rua",
+                                            "Não, apenas encaminha a(o) usuária(o) para realização do cadastramento em outro local/unidade",
+                                            "Não cadastra nem encaminha usuárias(os) para o CadÚnico",
+                                            "Sim, com equipe exclusiva para esta finalidade",
+                                            "Sim, com outra equipe"))) %>% 
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+grafico <- equip_cpop_cadunico(cpop_2018, q27, "2018") %>%
+   bind_rows(equip_cpop_cadunico(cpop_2019, q26, "2019")) %>% 
+   #bind_rows(equip_cpop_cadunico(cpop_2020, q35, "2020")) %>%
+    bind_rows(equip_cpop_cadunico(cpop_2021, q35, "2021")) %>%
+    bind_rows(equip_cpop_cadunico(cpop_2022, q35, "2022")) %>%
+  
+  #centro pop 2020 a base estar com códigos números - pedir a base nominal
+
+  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
+#  geom_col(aes(fill = Nível), position = "dodge") +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+
+
+
+
+```{r postos-cadunico, fig.cap = "Evolução de Postos do Cadastro Único - 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 grafico <- f_quantitativo_regiao_ano(posto_cadunico_2020, Regiao, "2020") %>%
-    bind_rows(f_quantitativo_regiao_ano(posto_cadunico_2021, IBGE, "2021")) %>%)
+    #bind_rows(f_quantitativo_regiao_ano(posto_cadunico_2021, IBGE, "2021")) %>%)
     bind_rows(f_quantitativo_regiao_ano(posto_cadunico_2022, IBGE, "2022")) %>% 
+  
+  #ano 2021 não quer gerar, acho que pode ser erro no código do ibge
    
   ggplot(aes(x = Região, y = n, group = Ano)) +
   geom_col(aes(fill = Ano), position="dodge") +
@@ -2759,19 +2952,57 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-
-
-
 Sobre as unidades exclusivas do Cadastro Único a sua maioria \footnote{mais de 85%} se encontram na sede da secretaria de Assistência Social ou em postos exclusivos. Os demais percentuais são encontrados em outra unidade administrativa, em um serviço integrado, OSC´s, conselho ou escola.  
 
 
+```{r coord_cadunico, fig.cap = "Percentual de postos do Cadastro Único que possuem coordenador - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+
+coord_cadunico  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "Sim"~"Sim",
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("Sim",
+                                            "Não"))) %>% 
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+grafico <- coord_cadunico(posto_cadunico_2020, q39_1, "2020") %>%
+        bind_rows(coord_cadunico(posto_cadunico_2021, q39_1, "2021"))%>%
+        bind_rows(coord_cadunico(posto_cadunico_2022, q39_1, "2022"))%>%
+  
+ 
+  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
+#  geom_col(aes(fill = Nível), position = "dodge") +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
 
 
 
-
-
-
-```{r posto_cadunico, fig.cap = "Distribuição dos Postos do Cadastro Único - Brasil, 2020 a 2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
+```{r posto_cadunicoD, fig.cap = "Distribuição dos Postos do Cadastro Único - Brasil, 2020 a 2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
 
 posto_cadunico = function(df, q, ano){
   q <- enquo(q)
@@ -2825,7 +3056,58 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-<!-- não sei porque não estar gerando    -->
+```{r atend-cadunico, fig.cap = " Percentual de postos do Cadastr Único - atendimento -2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS",eval=FALSE}
+
+atend  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "A maioria das famílias é atendida no mesmo dia em que procuram esta unidade"~"A maioria das famílias é atendida no mesmo dia em que procuram esta unidade",
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("A maioria das famílias é atendida no mesmo dia em que procuram esta unidade",
+                                            "A minoria das famílias é atendida no mesmo dia em que procuram esta unidade",
+                                            "Os atendimentos ocorrem apenas após agendamentos"))) %>% 
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+grafico <- atend(posto_cadunico_2020, q17, "2020") %>%
+   bind_rows(atend(posto_cadunico_2021, q17, "2021")) %>% 
+   bind_rows(atend(posto_cadunico_2022, q17, "2022")) %>% 
+   
+
+  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
+#  geom_col(aes(fill = Nível), position = "dodge") +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+
+
+
+
+
+
 
 ```{r postcad-acessibilidade, fig.cap = "Evolução percentual de postos do Cadastro Único segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -4873,109 +5155,9 @@ Fonte: MDS, Censo SUAS.
 
 ## Cadastro Único para Programas Sociais
 
-```{r equip-cadunico-cras, fig.cap = " Percentual de CRAS com locais para CadÚnico - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS",eval=FALSE}
 
-equip_cadunico  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
 
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "Sim, com equipe exclusiva para esta finalidade"~"Sim, com equipe exclusiva para esta finalidade",
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Sim, com equipe exclusiva para esta finalidade",
-                                            "Sim, com outra equipe",
-                                            "Sim, com a equipe responsável pelo PAIF",
-                                            "Não"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
 
-grafico <- equip_cadunico(cras_2017, q35, "2017") %>%
-  bind_rows(equip_cadunico(cras_2018, q_40, "2018")) %>% 
-  #bind_rows(equip_cadunico(centro, q15, "2018")) %>% 
-  bind_rows(equip_cadunico(cras_2019, q39, "2019")) %>% 
-  #bind_rows(equip_cadunico(cras_2018, q_16, "2018")) %>%
-  #bind_rows(equip_cadunico(cras_2019, q15, "2019")) %>%
-  bind_rows(equip_cadunico(cras_2020, q39, "2020")) %>%
-  bind_rows(equip_cadunico(cras_2021, q39, "2021")) %>%
-  bind_rows(equip_cadunico(cras_2022, q39, "2022")) %>%
-  
- 
-  
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position = "dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
-
-grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-```
-
-```{r equip-cadunico-creas, fig.cap = " Percentual de CREAS com locais para CadÚnico e disposição da equipe - 2018 - 2022", fig.footer = "Fonte: MDS, Censo SUAS",eval=FALSE}
-
-equip_Creas_cadunico  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "Sim, com equipe exclusiva para esta finalidade"~"Sim, com equipe exclusiva para esta finalidade",
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Sim, com equipe exclusiva para esta finalidade",
-                                            "Sim, com outra equipe",
-                                            "Sim, com a equipe responsável pelo PAEFI",
-                                            "Não cadastra nem encaminha usuárias(os) para o CadÚnico",
-                                            "Não, apenas encaminha a(o) usuária(o) para realização do cadastramento em outro local/unidade"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
-
-grafico <- equip_Creas_cadunico(creas_2018, q44, "2018") %>%
-   bind_rows(equip_Creas_cadunico(creas_2019, q42, "2019")) %>% 
-   bind_rows(equip_Creas_cadunico(creas_2020, q47, "2020")) %>%
-   bind_rows(equip_Creas_cadunico(creas_2021, q47, "2021")) %>%
-   bind_rows(equip_Creas_cadunico(creas_2022, q47, "2022")) %>%
- 
-  
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position = "dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
-
-grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-```
 
 ```{r equip-cadunico-centropop, fig.cap = " Percentual de Centro Pop com locais para CadÚnico e disposição da equipe - 2018 - 2022", fig.footer = "Fonte: MDS, Censo SUAS",eval=FALSE}
 
@@ -5003,10 +5185,10 @@ equip_cpop_cadunico  = function(df, q, ano){
 grafico <- equip_cpop_cadunico(cpop_2018, q27, "2018") %>%
    bind_rows(equip_cpop_cadunico(cpop_2019, q26, "2019")) %>% 
    #bind_rows(equip_cpop_cadunico(cpop_2020, q35, "2020")) %>%
-   bind_rows(equip_cpop_cadunico(cpop_2021, q35, "2021")) %>%
-   #bind_rows(equip_cpop_cadunico(cpop_2022, q35, "2022")) %>%
+    bind_rows(equip_cpop_cadunico(cpop_2021, q35, "2021")) %>%
+    bind_rows(equip_cpop_cadunico(cpop_2022, q35, "2022")) %>%
   
-  #centro pop 2019 a base estar com códigos - pedir a base nominal
+  #centro pop 2020 a base estar com códigos números - pedir a base nominal
 
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
 #  geom_col(aes(fill = Nível), position = "dodge") +
