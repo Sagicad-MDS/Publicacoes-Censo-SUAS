@@ -12,7 +12,7 @@ documentclass: report
 classoption: brazilian
 
 header-includes:
-  - \usepackage{babel}
+  - \usepackage[brazil]{babel}
   - \usepackage[utf8]{inputenc}
   - \usepackage{booktabs}
   - \usepackage{graphicx}
@@ -762,15 +762,15 @@ idconselho_2015 <- read_excel("../ID CONSELHO/ID CONSELHO - 2015.xlsx",sheet = 1
 idconselho_2016 <- read_excel("../ID CONSELHO/ID CONSELHO - 2016.xlsx",sheet = 1)
 idconselho_2017 <- read_excel("../ID CONSELHO/ID CONSELHO - 2017.xlsx",sheet = 1)
 idconselho_2018 <- read_excel("../ID CONSELHO/ID CONSELHO - 2018.xlsx",sheet = 1)
-idconselho_2019 <- read_excel("../ID CONSELHO/ID CONSELHO - 2019.xlsx",sheet = 1)
-idconselho_2020 <- read_excel("../ID CONSELHO/ID CONSELHO - 2020.xlsx",sheet = 1)
-idconselho_2021 <- read_excel("../ID CONSELHO/IDCONSELHO_2021_divulgacao.xlsx",sheet = 1)
+idconselho_2019 <- read_excel("../ID CONSELHO/ID CONSELHO - 2019.xlsx",sheet = 1,guess_max=7)
+idconselho_2020 <- read_excel("../ID CONSELHO/ID CONSELHO - 2020.xlsx",sheet = 1,guess_max=12)
+idconselho_2021 <- read_excel("../ID CONSELHO/IDCONSELHO_2021_divulgacao.xlsx",guess_max=140)
 idconselho_2022 <- read_excel("../ID CONSELHO/IDConselho_Municipal_2022_divulgacao.xlsx",sheet = 1)
 
 idcras_2014 <- read_excel("../ID CRAS/NOVO_IDCRAS_2014_divulgação_retificado_07_10_2016.xlsx",sheet = 1)
 idcras_2015 <- read_excel("../ID CRAS/NOVO_IDCRAS_2015_divulgação_retificado_07_10_2016.xlsx",sheet = 1)
 idcras_2016 <- read_excel("../ID CRAS/IDCRAS_2016_FINAL_(01062017).xlsx",sheet = 1)
-idcras_2017 <- read_excel("../ID CRAS/IDCRAS_2017_DIVULGAÇÃO_atualizado__030523.xlsx",sheet = 1)
+idcras_2017 <- read_excel("../ID CRAS/IDCRAS_2017_DIVULGAÇÃO_atualizado__030523.xlsx",sheet = 2, skip=6)
 idcras_2018 <- read_excel("../ID CRAS/IDCRAS_2018_DIVULGAÇÃO_atualizado_280423.xlsx",sheet = 1)
 idcras_2019 <- read_excel("../ID CRAS/IDCRAS_2019_DIVULGAÇÃO_atualizado_280423.xlsx",sheet = 1)
 idcras_2020 <- read_excel("../ID CRAS/IDCRAS_2020_DIVULGAÇÃO_atualizado_280423(1).xlsx",sheet = 1)
@@ -787,6 +787,7 @@ idcreas_2020 <- read_excel("../ID CREAS/IDCREAS2020_divulgacao.xlsx",sheet = 1)
 idcreas_2021 <- read_excel("../ID CREAS/IDCREAS2021_divulgacao_retificado191022(1) (1).xlsx",sheet = 1)
 idcreas_2022 <- read_excel("../ID CREAS/IDCREAS2022_divulgacao_retificado270923.xlsx",sheet = 1)
 
+niveis_ID <- c(1, 2, 3, 4, 5)
 
 #Número de municipios no Brasil e por região. Fonte: Anuários Estatístico do Brasil 2017, IBGE.
 #c(Norte, Nordeste, Sudeste, Sul, Centro-Oeste, Brasil)
@@ -1069,17 +1070,13 @@ f_situacao2 = function(df, situacao2){
                                                           
 }
 
-
-f_selecao_grupo_media = function(df, q_selecao, selecao, q_media, grupo, eixo_x){
-  q_selecao <- enquo(q_selecao)
+f_grupo_media = function(df, q_media, grupo, eixo_x){
   grupo <- quo_name(grupo)
-  selecao <- quo_name(selecao)
   q_media <- enquo(q_media)
   eixo_x <- quo_name(eixo_x)
 
   df %>%
-    select(!! q_selecao, !! q_media) %>% 
-    filter(!! q_selecao == !! selecao) %>% 
+    select(!! q_media) %>% 
     filter(!is.na(!! q_media)) %>% 
     summarise(m=mean(!! q_media)) %>% 
     mutate("Eixo_X" = !! eixo_x) %>% 
@@ -1100,8 +1097,17 @@ f_situacao3 = function(df, situacao3){
                                                           "Não")))
 }
 
+f_quantitativo_niveis = function(df, q_grupo, eixo_x, niveis){
+  q_grupo <- enquo(q_grupo)
+  eixo_x <- quo_name(eixo_x)
 
-
+  df %>%
+    select(!! q_grupo) %>% 
+    mutate(!! q_grupo := factor(!! q_grupo, levels = niveis)) %>% 
+    count(!! q_grupo, name = "n", .drop = F) %>%
+    mutate("Eixo_X" = !! eixo_x) %>%  
+    mutate("Grupo" = !! q_grupo) 
+}
 
 ```
 
@@ -6257,12 +6263,293 @@ Informações mais detalhadas sobre estrutura física, previsão orçamentária,
 
 # Indicadores do SUAS 
 
-*ID CRAS - Indíce de Desenvolvimento do CRAS*
+## ID CRAS - Indíce de Desenvolvimento do CRAS
 
-*ID CREAS -Indíce de Desenvolvimento do CREAS*
+```{r ID-CRAS, fig.cap = "Evolução das médias do ID CRAS, 2014 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
-*ID CONSELHO - Indíce de Desenvolvimento dos Conselhos Municipais de Assistência Social*
+grafico <- f_grupo_media(idcras_2014, `IDCRAS 2014sintético`, "ID CRAS", "2014") %>%
+  bind_rows(f_grupo_media(idcras_2014, `Dimensão Estrutura Física`, "Estrutura Física", "2014")) %>%
+  bind_rows(f_grupo_media(idcras_2014, `Dimensão Recursos Humanos`, "Recursos Humanos", "2014")) %>%
+  bind_rows(f_grupo_media(idcras_2014, `Dimensão Serviços & Benefícios`, "Serviços & Benefícios", "2014")) %>%
 
+  bind_rows(f_grupo_media(idcras_2015, `IDCRAS 2015 sintético`, "ID CRAS", "2015")) %>%
+  bind_rows(f_grupo_media(idcras_2015, `Dimensão Estrutura Física`, "Estrutura Física", "2015")) %>%
+  bind_rows(f_grupo_media(idcras_2015, `Dimensão Recursos Humanos`, "Recursos Humanos", "2015")) %>%
+  bind_rows(f_grupo_media(idcras_2015, `Dimensão Serviços & Benefícios`, "Serviços & Benefícios", "2015")) %>%
+  
+  bind_rows(f_grupo_media(idcras_2016, `IDCRAS 2016sintético`, "ID CRAS", "2016")) %>%
+  bind_rows(f_grupo_media(idcras_2016, `Dimensão Estrutura Física`, "Estrutura Física", "2016")) %>%
+  bind_rows(f_grupo_media(idcras_2016, `Dimensão Recursos Humanos`, "Recursos Humanos", "2016")) %>%
+  bind_rows(f_grupo_media(idcras_2016, `Dimensão Serviços & Benefícios`, "Serviços & Benefícios", "2016")) %>%
+  
+  bind_rows(f_grupo_media(idcras_2017, IDCRAS, "ID CRAS", "2017")) %>%
+  bind_rows(f_grupo_media(idcras_2017, `Estrutura Física`, "Estrutura Física", "2017")) %>%
+  bind_rows(f_grupo_media(idcras_2017, `Recursos Humanos`, "Recursos Humanos", "2017")) %>%
+  bind_rows(f_grupo_media(idcras_2017, `Serviços `, "Serviços & Benefícios", "2017")) %>%
+  
+  bind_rows(f_grupo_media(idcras_2018, IDCRAS, "ID CRAS", "2018")) %>%
+  bind_rows(f_grupo_media(idcras_2018, `Estrutura Física`, "Estrutura Física", "2018")) %>%
+  bind_rows(f_grupo_media(idcras_2018, `Recursos Humanos`, "Recursos Humanos", "2018")) %>%
+  bind_rows(f_grupo_media(idcras_2018, `Serviços `, "Serviços & Benefícios", "2018")) %>%
+  
+  bind_rows(f_grupo_media(idcras_2019, IDCRAS, "ID CRAS", "2019")) %>%
+  bind_rows(f_grupo_media(idcras_2019, `Estrutura Física`, "Estrutura Física", "2019")) %>%
+  bind_rows(f_grupo_media(idcras_2019, `Recursos Humanos`, "Recursos Humanos", "2019")) %>%
+  bind_rows(f_grupo_media(idcras_2019, `Serviços `, "Serviços & Benefícios", "2019")) %>%
+  
+  bind_rows(f_grupo_media(idcras_2020, IDCRAS, "ID CRAS", "2020")) %>%
+  bind_rows(f_grupo_media(idcras_2020, `Estrutura Física`, "Estrutura Física", "2020")) %>%
+  bind_rows(f_grupo_media(idcras_2020, `Recursos Humanos`, "Recursos Humanos", "2020")) %>%
+  bind_rows(f_grupo_media(idcras_2020, `Serviços `, "Serviços & Benefícios", "2020")) %>%
+  
+  bind_rows(f_grupo_media(idcras_2021, IDCRAS, "ID CRAS", "2021")) %>%
+  bind_rows(f_grupo_media(idcras_2021, `Estrutura Física`, "Estrutura Física", "2021")) %>%
+  bind_rows(f_grupo_media(idcras_2021, `Recursos Humanos`, "Recursos Humanos", "2021")) %>%
+  bind_rows(f_grupo_media(idcras_2021, `Serviços `, "Serviços & Benefícios", "2021")) %>%
+  
+  bind_rows(f_grupo_media(idcras_2022, IDCRAS, "ID CRAS", "2022")) %>% 
+  bind_rows(f_grupo_media(idcras_2022, `Estrutura Física`, "Estrutura Física", "2022")) %>% 
+  bind_rows(f_grupo_media(idcras_2022, `Recursos Humanos`, "Recursos Humanos", "2022")) %>% 
+  bind_rows(f_grupo_media(idcras_2022, `Serviços `, "Serviços & Benefícios", "2022")) %>% 
+
+  mutate(Grupo = factor(Grupo, levels = c("Estrutura Física",
+                                          "Recursos Humanos",
+                                          "Serviços & Benefícios",
+                                          "ID CRAS"))) %>% 
+
+  ggplot(aes(x = Eixo_X, y = m, group = Grupo)) +
+  geom_col(aes(fill = Grupo), position="dodge") +
+  geom_text(aes(label = format(m, digits=3), y=m+0.3), position = position_dodge(width = 0.9), angle = 90, size = 3) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+```
+
+```{r ID-CRAS-nivel, fig.cap = "Quantidade de CRAS em cada nível de ID, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_quantitativo_niveis(idcras_2022, `Estrutura Física`, "Estrutura Física", niveis_ID) %>% 
+  bind_rows(f_quantitativo_niveis(idcras_2022, `Recursos Humanos`, "Recursos Humanos", niveis_ID)) %>%
+  bind_rows(f_quantitativo_niveis(idcras_2022, `Serviços `, "Serviços & Benefícios", niveis_ID)) %>% 
+
+  mutate(Eixo_X = factor(Eixo_X, levels = c("Estrutura Física",
+                                            "Recursos Humanos",
+                                            "Serviços & Benefícios"))) %>% 
+
+  ggplot(aes(x = Eixo_X, y = n, group = Grupo)) +
+  geom_col(aes(fill = Grupo), position="dodge") +
+  geom_text(aes(label = sprintf("%d", n)), position = position_dodge(width = 0.9), vjust = -0.5) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+```
+
+## ID CREAS -Indíce de Desenvolvimento do CREAS
+
+```{r ID-CREAS, fig.cap = "Evolução das médias do ID CREAS, 2014 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_grupo_media(idcreas_2014, `IDCREAS sintético`, "ID CREAS", "2014") %>%
+  bind_rows(f_grupo_media(idcreas_2014, `Dimensão Estrutura Física`, "Estrutura Física", "2014")) %>%
+  bind_rows(f_grupo_media(idcreas_2014, `Dimensão Recursos Humanos`, "Recursos Humanos", "2014")) %>%
+  bind_rows(f_grupo_media(idcreas_2014, `Dimensão Serviços`, "Serviços & Benefícios", "2014")) %>%
+
+  bind_rows(f_grupo_media(idcreas_2015, `IDCREAS sintético`, "ID CREAS", "2015")) %>%
+  bind_rows(f_grupo_media(idcreas_2015, `Dimensão Estrutura Física`, "Estrutura Física", "2015")) %>%
+  bind_rows(f_grupo_media(idcreas_2015, `Dimensão Recursos Humanos`, "Recursos Humanos", "2015")) %>%
+  bind_rows(f_grupo_media(idcreas_2015, `Dimensão Serviços`, "Serviços & Benefícios", "2015")) %>%
+  
+  bind_rows(f_grupo_media(idcreas_2016, `IDCREAS 2016`, "ID CREAS", "2016")) %>%
+  bind_rows(f_grupo_media(idcreas_2016, `Dimensão Estrutura Física`, "Estrutura Física", "2016")) %>%
+  bind_rows(f_grupo_media(idcreas_2016, `Dimensão Recursos Humanos`, "Recursos Humanos", "2016")) %>%
+  bind_rows(f_grupo_media(idcreas_2016, `Dimensão Serviços`, "Serviços & Benefícios", "2016")) %>%
+  
+  bind_rows(f_grupo_media(idcreas_2017, IDCREAS, "ID CREAS", "2017")) %>%
+  bind_rows(f_grupo_media(idcreas_2017, `Estrutura Física`, "Estrutura Física", "2017")) %>%
+  bind_rows(f_grupo_media(idcreas_2017, `Recursos Humanos`, "Recursos Humanos", "2017")) %>%
+  bind_rows(f_grupo_media(idcreas_2017, `Serviços `, "Serviços & Benefícios", "2017")) %>%
+  
+  bind_rows(f_grupo_media(idcreas_2018, ID_CREAS, "ID CREAS", "2018")) %>%
+  bind_rows(f_grupo_media(idcreas_2018, EF, "Estrutura Física", "2018")) %>%
+  bind_rows(f_grupo_media(idcreas_2018, `RH`, "Recursos Humanos", "2018")) %>%
+  bind_rows(f_grupo_media(idcreas_2018, `SERV`, "Serviços & Benefícios", "2018")) %>%
+  
+  bind_rows(f_grupo_media(idcreas_2019, ID_CREAS, "ID CREAS", "2019")) %>%
+  bind_rows(f_grupo_media(idcreas_2019, `EF`, "Estrutura Física", "2019")) %>%
+  bind_rows(f_grupo_media(idcreas_2019, `RH`, "Recursos Humanos", "2019")) %>%
+  bind_rows(f_grupo_media(idcreas_2019, `SERV`, "Serviços & Benefícios", "2019")) %>%
+  
+  bind_rows(f_grupo_media(idcreas_2020, ID_CREAS, "ID CREAS", "2020")) %>%
+  bind_rows(f_grupo_media(idcreas_2020, `EF`, "Estrutura Física", "2020")) %>%
+  bind_rows(f_grupo_media(idcreas_2020, `RH`, "Recursos Humanos", "2020")) %>%
+  bind_rows(f_grupo_media(idcreas_2020, `SERV`, "Serviços & Benefícios", "2020")) %>%
+  
+  bind_rows(f_grupo_media(idcreas_2021, ID_CREAS, "ID CREAS", "2021")) %>%
+  bind_rows(f_grupo_media(idcreas_2021, `EF`, "Estrutura Física", "2021")) %>%
+  bind_rows(f_grupo_media(idcreas_2021, `RH`, "Recursos Humanos", "2021")) %>%
+  bind_rows(f_grupo_media(idcreas_2021, `SERV`, "Serviços & Benefícios", "2021")) %>%
+  
+  bind_rows(f_grupo_media(idcreas_2022, idcreas, "ID CREAS", "2022")) %>% 
+  bind_rows(f_grupo_media(idcreas_2022, `Estrutura Física`, "Estrutura Física", "2022")) %>% 
+  bind_rows(f_grupo_media(idcreas_2022, `Recursos Humanos`, "Recursos Humanos", "2022")) %>% 
+  bind_rows(f_grupo_media(idcreas_2022, `Serviços `, "Serviços & Benefícios", "2022")) %>% 
+
+  mutate(Grupo = factor(Grupo, levels = c("Estrutura Física",
+                                          "Recursos Humanos",
+                                          "Serviços & Benefícios",
+                                          "ID CREAS"))) %>%
+
+  ggplot(aes(x = Eixo_X, y = m, group = Grupo)) +
+  geom_col(aes(fill = Grupo), position="dodge") +
+  geom_text(aes(label = format(m, digits=3), y=m+0.3), position = position_dodge(width = 0.9), angle = 90, size = 3) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+```
+
+```{r ID-CREAS-nivel, fig.cap = "Quantidade de CREAS em cada nível de ID, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_quantitativo_niveis(idcreas_2022, `Estrutura Física`, "Estrutura Física", niveis_ID) %>% 
+  bind_rows(f_quantitativo_niveis(idcreas_2022, `Recursos Humanos`, "Recursos Humanos", niveis_ID)) %>%
+  bind_rows(f_quantitativo_niveis(idcreas_2022, `Serviços `, "Serviços & Benefícios", niveis_ID)) %>% 
+
+  mutate(Eixo_X = factor(Eixo_X, levels = c("Estrutura Física",
+                                            "Recursos Humanos",
+                                            "Serviços & Benefícios"))) %>% 
+
+  ggplot(aes(x = Eixo_X, y = n, group = Grupo)) +
+  geom_col(aes(fill = Grupo), position="dodge") +
+  geom_text(aes(label = sprintf("%d", n)), position = position_dodge(width = 0.9), vjust = -0.5) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+```
+
+## ID CONSELHO - Indíce de Desenvolvimento dos Conselhos Municipais de Assistência Social
+
+```{r ID-conselho, fig.cap = "Evolução das médias do ID Conselho, 2014 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_grupo_media(idconselho_2014, IDConselho, "ID Conselho", "2014") %>%
+  bind_rows(f_grupo_media(idconselho_2014, `Estrutura Administrativa`, "Estrutura Administrativa", "2014")) %>%
+  bind_rows(f_grupo_media(idconselho_2014, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2014")) %>%
+  bind_rows(f_grupo_media(idconselho_2014, `Composição do Conselho`, "Composição do Conselho", "2014")) %>%
+
+  bind_rows(f_grupo_media(idconselho_2015, `IDConselho - 2015`, "ID Conselho", "2015")) %>%
+  bind_rows(f_grupo_media(idconselho_2015, `Estrutura Administrativa`, "Estrutura Administrativa", "2015")) %>%
+  bind_rows(f_grupo_media(idconselho_2015, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2015")) %>%
+  bind_rows(f_grupo_media(idconselho_2015, `Composição do Conselho`, "Composição do Conselho", "2015")) %>%
+  
+  bind_rows(f_grupo_media(idconselho_2016, IDConselho, "ID Conselho", "2016")) %>%
+  bind_rows(f_grupo_media(idconselho_2016, `Estrutura Administrativa`, "Estrutura Administrativa", "2016")) %>%
+  bind_rows(f_grupo_media(idconselho_2016, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2016")) %>%
+  bind_rows(f_grupo_media(idconselho_2016, `Composição do Conselho`, "Composição do Conselho", "2016")) %>%
+  
+  bind_rows(f_grupo_media(idconselho_2017, IDConselho, "ID Conselho", "2017")) %>%
+  bind_rows(f_grupo_media(idconselho_2017, `Estrutura Administrativa`, "Estrutura Administrativa", "2017")) %>%
+  bind_rows(f_grupo_media(idconselho_2017, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2017")) %>%
+  bind_rows(f_grupo_media(idconselho_2017, `Composição do Conselho`, "Composição do Conselho", "2017")) %>%
+  
+  bind_rows(f_grupo_media(idconselho_2018, IDConselho, "ID Conselho", "2018")) %>%
+  bind_rows(f_grupo_media(idconselho_2018, `Estrutura Administrativa`, "Estrutura Administrativa", "2018")) %>%
+  bind_rows(f_grupo_media(idconselho_2018, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2018")) %>%
+  bind_rows(f_grupo_media(idconselho_2018, `Composição do Conselho`, "Composição do Conselho", "2018")) %>%
+  
+  bind_rows(f_grupo_media(idconselho_2019, IDConselho, "ID Conselho", "2019")) %>%
+  bind_rows(f_grupo_media(idconselho_2019, `Estrutura Administrativa`, "Estrutura Administrativa", "2019")) %>%
+  bind_rows(f_grupo_media(idconselho_2019, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2019")) %>%
+  bind_rows(f_grupo_media(idconselho_2019, `Composição do Conselho`, "Composição do Conselho", "2019")) %>%
+  
+  bind_rows(f_grupo_media(idconselho_2020, IDConselho, "ID Conselho", "2020")) %>%
+  bind_rows(f_grupo_media(idconselho_2020, `Estrutura Administrativa`, "Estrutura Administrativa", "2020")) %>%
+  bind_rows(f_grupo_media(idconselho_2020, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2020")) %>%
+  bind_rows(f_grupo_media(idconselho_2020, `Composição do Conselho`, "Composição do Conselho", "2020")) %>%
+  
+  bind_rows(f_grupo_media(idconselho_2021, IDConselho, "ID Conselho", "2021")) %>%
+  bind_rows(f_grupo_media(idconselho_2021, `Estrutura Administrativa`, "Estrutura Administrativa", "2021")) %>%
+  bind_rows(f_grupo_media(idconselho_2021, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2021")) %>%
+  bind_rows(f_grupo_media(idconselho_2021, `Composição do Conselho`, "Composição do Conselho", "2021")) %>%
+  
+  bind_rows(f_grupo_media(idconselho_2022, IDConselho, "ID Conselho", "2022")) %>% 
+  bind_rows(f_grupo_media(idconselho_2022, `Estrutura Administrativa`, "Estrutura Administrativa", "2022")) %>% 
+  bind_rows(f_grupo_media(idconselho_2022, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2022")) %>% 
+  bind_rows(f_grupo_media(idconselho_2022, `Composição do Conselho`, "Composição do Conselho", "2022")) %>% 
+
+  mutate(Grupo = factor(Grupo, levels = c("Estrutura Administrativa",
+                                          "Dinâmica de Funcionamento",
+                                          "Composição do Conselho",
+                                          "ID Conselho"))) %>%
+
+  ggplot(aes(x = Eixo_X, y = m, group = Grupo)) +
+  geom_col(aes(fill = Grupo), position="dodge") +
+  geom_text(aes(label = format(m, digits=3), y=m+0.3), position = position_dodge(width = 0.9), angle = 90, size = 3) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=2,byrow=TRUE))
+
+grafico
+```
+
+```{r ID-conselho-nivel, fig.cap = "Quantidade de Conselhos em cada nível de ID, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_quantitativo_niveis(idconselho_2022, `Estrutura Administrativa`, "Estrutura Administrativa", niveis_ID) %>% 
+  bind_rows(f_quantitativo_niveis(idconselho_2022, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", niveis_ID)) %>%
+  bind_rows(f_quantitativo_niveis(idconselho_2022, `Composição do Conselho`, "Composição do Conselho", niveis_ID)) %>% 
+
+  mutate(Eixo_X = factor(Eixo_X, levels = c("Estrutura Administrativa",
+                                            "Dinâmica de Funcionamento",
+                                            "Composição do Conselho"))) %>% 
+
+  ggplot(aes(x = Eixo_X, y = n, group = Grupo)) +
+  geom_col(aes(fill = Grupo), position="dodge") +
+  geom_text(aes(label = sprintf("%d", n)), position = position_dodge(width = 0.9), vjust = -0.5) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+```
 
 <!-- consegui gerar o gráfico, para os anos de 2019/2020 e 2021 os conselhos que Não preencheu o Censo SUAS Conselho 2019, na celula sai a seguinte informação " -- ", assim temos que ver uma possibilidade de não contabilizar para poder gerar -->
 
