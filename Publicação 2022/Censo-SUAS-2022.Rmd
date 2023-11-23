@@ -406,7 +406,7 @@ cras_2019 <- read_excel("../Censo SUAS 2019/1 - CRAS/Censo_SUAS_2019_dados_gerai
 
 crasrh_2019 <- read_excel("../Censo SUAS 2019/1 - CRAS/Censo_SUAS_2019_dados_gerais_RH_CRAS_divulgação.xls", sheet= 1)
 
-cras_2020 <- read_excel("../Censo SUAS 2020/1 - CRAS/Censo_SUAS_2020_CRAS_dados_gerais.xlsx", sheet = 1)
+cras_2020 <- read_excel("../Censo SUAS 2020/1 - CRAS/Censo_SUAS_2020_CRAS_dados_gerais (1).xlsx", sheet = 1)
 
 crasrh_2020 <- read_excel("../Censo SUAS 2020/1 - CRAS/Censo_SUAS_2020_CRAS_RH.xlsx", sheet= 1)
 
@@ -468,7 +468,7 @@ creas_2020 <- read_excel("../Censo SUAS 2020/2 - CREAS/Censo_SUAS_CREAS_2020_Dad
 
 #creasrh_2020 <- read_excel("../Censo SUAS 2020/2 - CREAS/Censo_SUAS_CREAS_2020_RH_divulgacao.xlsx", sheet = 1)
 
-#creas_2021 <- read_excel("../Censo SUAS 2021/2 - CREAS/Censo_SUAS_2021_CREAS_Dados_Gerais_Divulgação.xlsx", sheet = 1)
+creas_2021 <- read_excel("../Censo SUAS 2021/2 - CREAS/Censo_SUAS_2021_CREAS_Dados_Gerais_Divulgação.xlsx", sheet = 1)
 
 #creasrh_2021 <- read_excel("../Censo SUAS 2021/2 - CREAS/Censo_SUAS_2021_CREAS_RH.xlsx", sheet = 1)
 
@@ -1274,7 +1274,7 @@ Observa-se que meta chega em 2022 com 22 (85%) estados com as subdivisões admin
 
 
 
-```{r estados-constituicao-subdivisoes, fig.cap = "Percentual de estados segundo característica da estrutura administrativa da Secretaria estadual de Assistência Social - Brasil,  2012", fig.footer = "Fonte: MDS, Censo SUAS, eval=FALSE"}
+```{r estados-constituicao-subdivisoes_2012, fig.cap = "Percentual de estados segundo característica da estrutura administrativa da Secretaria estadual de Assistência Social - Brasil,  2012", fig.footer = "Fonte: MDS, Censo SUAS, eval=FALSE"}
 
 tabela<-ge_2012 %>%
 # Questionário 2022:
@@ -2915,16 +2915,75 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 O Cadastro Único para Programas Sociais do Governo Federal estabelecido através do art. 6º-F da Lei nº 8.742, de 7 de dezembro de 1993 (Lei Orgânica de Assistência Social – LOAS), tem a finalidade de coletar, sistematizar e disseminar informações que permitem a identificação e caracterização das condições socioeconômicas das famílias em situação de vulnerabilidade social, em particular as famílias de baixa de renda. 
 
-O objetivo é conhecer, incluir e aprimorar as políticas sociais. Assim, esses dados subsidiam a realização de diagnósticos, ações de planejamento, busca ativa, monitoramento e avaliação. Sua gestão é interfederativa e descentralizada. Os locais de cadastramento são efetuados pelos municípios no qual podem ser encontrados em unidades exclusivas ou na rede de atendimento socioassistencial. 
+O objetivo é conhecer, incluir e aprimorar as políticas sociais. Assim, esses dados subsidiam a realização de diagnósticos, ações de planejamento, busca ativa, monitoramento e avaliação. A gestão é interfederativa e descentralizada na qual os locais de cadastramento são efetuados pelos municípios. Estas unidades podem ser encontradas em unidades exclusivas ou na rede de atendimento socioassistencial de CRAS, CREAS, Centro Pop. 
 
-Dados do Censo SUAS 2022 destaca que xx% (2.892) são unidades exclusivas do Cadastro Único e xx estão em unidades da rede socioassistencial \footnote{os dados dos locais do Cadastro Único na rede socioassistencial CRAS, CREAS E CENTRO POP serão abordadas nos respectivos temas}.
+Dados do Censo SUAS mostram uma evolução de locais de cadastramento. A partir de 2017 aumento 54% de postos do Cadastro Único conforme pode ser observado na tabela \ref{tab:qtd_equipamentos}. Sobre a distribuição destas locais de cadastro único, destaca-se que em 2022, 31% (2.892) são unidades exclusivas do Cadastro Único e 68% estão em unidades da rede socioassistencial \footnote{CRAS, CREAS e CENTRO POP}.
+
+\begin{table}[H]
+\centering
+\caption{Quantidade de Unidades de Cadastro Único}
+\label{tab:qtd_equipamentos}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+Equipamento             & 2017  & 2018 & 2019 & 2020 &  2021 & 2022            \\ \midrule
+CRAS                    & 5.669 & 5.508 & 5.923 & 5.729 & 5.937 & 6.090         \\
+CREAS                   & 281 & 174 & 199 & 199 & 208 & 230                     \\
+Centro POP              & 112 & 83 & 84 & 108 & 106 & 115                       \\
+Postos Cadastro Único   & - & - & - & 2.530 & 2.695 & 2.892                       \\ \bottomrule
+\textbf{Total}                   &\textbf{6.062} & \textbf{5.765} & \textbf{6.206} & \textbf{8.566} & \textbf{8.946} & \textbf{9.327}          \\ \bottomrule
+\end{tabular}
+\floatfoot{Fonte: MDS, Censo SUAS.}
+\end{table}
 
 
+Sobre as unidades exclusivas do Cadastro Único, a sua maioria mais de 85%, se encontram na sede da Secretaria de Assistência Social ou em postos exclusivos dos municípios. Os demais percentuais são encontrados em outra unidade administrativa, em um serviço integrado, OSC´s, conselho ou escola.  
 
+Quanto a presença de estrutura de Cadastro Único no orgão gestor e profissionais específicos, destaca-se que   
 
-<!-- colocar tabela com anos e quantidade de locais para cadasatro unico   -->
+```{r coord_cadunico, fig.cap = "Percentual de postos do Cadastro Único que possuem coordenador - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
+coord_cadunico  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
 
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "Sim"~"Sim",
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("Sim",
+                                            "Não"))) %>% 
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+grafico <- coord_cadunico(posto_cadunico_2020, q39_1, "2020") %>%
+        bind_rows(coord_cadunico(posto_cadunico_2021, q39_1, "2021"))%>%
+        bind_rows(coord_cadunico(posto_cadunico_2022, q39_1, "2022"))%>%
+  
+ 
+  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
+#  geom_col(aes(fill = Nível), position = "dodge") +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
 
 
 ```{r equip-cadunico-cras, fig.cap = " Percentual de CRAS com locais para CadÚnico - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS",eval=FALSE}
@@ -2952,7 +3011,7 @@ equip_cadunico  = function(df, q, ano){
 grafico <- equip_cadunico(cras_2017, q35, "2017") %>%
    bind_rows(equip_cadunico(cras_2018, q_40, "2018")) %>% 
    bind_rows(equip_cadunico(cras_2019, q39, "2019")) %>% 
-   #bind_rows(equip_cadunico(cras_2020, q39, "2020")) %>%
+   bind_rows(equip_cadunico(cras_2020, q39, "2020")) %>%
    bind_rows(equip_cadunico(cras_2021, q39, "2021")) %>%
    bind_rows(equip_cadunico(cras_2022, q39, "2022")) %>%
   
@@ -3005,7 +3064,7 @@ equip_Creas_cadunico  = function(df, q, ano){
 grafico <- equip_Creas_cadunico(creas_2018, q44, "2018") %>%
    bind_rows(equip_Creas_cadunico(creas_2019, q42, "2019")) %>% 
    bind_rows(equip_Creas_cadunico(creas_2020, q47, "2020")) %>%
-   bind_rows(equip_Creas_cadunico(creas_2021, q47, "2021")) %>%
+   #bind_rows(equip_Creas_cadunico(creas_2021, q47, "2021")) %>%
    bind_rows(equip_Creas_cadunico(creas_2022, q47, "2022")) %>%
  
   
@@ -3084,7 +3143,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 
 
-```{r postos-cadunico, fig.cap = "Evolução de Postos do Cadastro Único - 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r postos-cadunico, fig.cap = "Evolução de Postos do Cadastro Único - 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS.",eval=FALSE}
 
 grafico <- f_quantitativo_regiao_ano(posto_cadunico_2020, Regiao, "2020") %>%
     #bind_rows(f_quantitativo_regiao_ano(posto_cadunico_2021, IBGE, "2021")) %>%)
@@ -3095,54 +3154,6 @@ grafico <- f_quantitativo_regiao_ano(posto_cadunico_2020, Regiao, "2020") %>%
   ggplot(aes(x = Região, y = n, group = Ano)) +
   geom_col(aes(fill = Ano), position="dodge") +
   geom_text(aes(label = format(n, big.mark="."), y=n+300), position = position_dodge(width = 0.9), angle = 90, size = 2.5) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
-
-grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-```
-
-Sobre as unidades exclusivas do Cadastro Único a sua maioria \footnote{mais de 85%} se encontram na sede da secretaria de Assistência Social ou em postos exclusivos. Os demais percentuais são encontrados em outra unidade administrativa, em um serviço integrado, OSC´s, conselho ou escola.  
-
-
-```{r coord_cadunico, fig.cap = "Percentual de postos do Cadastro Único que possuem coordenador - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
-
-coord_cadunico  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "Sim"~"Sim",
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
-
-grafico <- coord_cadunico(posto_cadunico_2020, q39_1, "2020") %>%
-        bind_rows(coord_cadunico(posto_cadunico_2021, q39_1, "2021"))%>%
-        bind_rows(coord_cadunico(posto_cadunico_2022, q39_1, "2022"))%>%
-  
- 
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position = "dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
   scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
   theme(legend.position="bottom",
         legend.title = element_blank(),
