@@ -506,9 +506,9 @@ cest_2018 <- read_excel("../Censo SUAS 2018/13 - CEAS/Censo SUAS 2018_Conselho E
 
 cestrh_2018 <- read_excel("../Censo SUAS 2018/13 - CEAS/Censo SUAS 2018_Conselho_Estadual_RH_divulgacao.xlsx", sheet = 1)
 
-#cest_2019 <- read_excel("../Censo SUAS 2019/", sheet = 1)
+cest_2019 <- read_excel("../Censo SUAS 2019/13 - CEAS/Censo_SUAS_2019_dados_gerais_RH_Conselho_Estadual_divulgação.xlsx", sheet = 1)
 
-#cestrh_2019 <- read_excel("../Censo SUAS 2019/", sheet = 1)
+cestrh_2019 <- read_excel("../Censo SUAS 2019/13 - CEAS/Censo_SUAS_2019_dados_gerais_RH_Conselho_Estadual_divulgação.xlsx", sheet = 1)", sheet = 1)
 
 cest_2020 <- read_excel("../Censo SUAS 2020/13 - CEAS/Censo_SUAS_2020_Dados_Gerais_Conselho_Estadual.xlsx", sheet = 1)
 
@@ -530,7 +530,7 @@ cmun_2012 <- read_excel("../Censo SUAS 2012/Conselho Municipal+DF/Censo SUAS 201
 
 cmunrh_2012 <- read_excel("../Censo SUAS 2012/Conselho Municipal+DF/Censo SUAS 2012_ConselhoMunicipal+DF_RH_divulgação.xlsx", sheet = "Censo2012 ConselhoMunicipal RH")
 
-cmun_2013 <- read_excel("../Censo SUAS 2013/Conselho Municipal/Censo_SUAS_2013_Conselho_Municipal_Dados Gerais_Divulgação.xlsx", sheet = "Conselho Municipal 2013")
+cmun_2013 <- read_excel("../Censo SUAS 2013/Conselho Municipal/Censo_SUAS_2013_Conselho_Municipal_Dados Gerais_Divulgação.xlsx", sheet = 1)
 
 cmunrh_2013 <- read_excel("../Censo SUAS 2013/Conselho Municipal/Censo_SUAS_2013_Conselho_Municipal_RH_Divulgação.xlsx", sheet = "Conselho Municipal RH 2013")
 
@@ -554,9 +554,9 @@ cmun_2018 <- read_excel("../Censo SUAS 2018/12 - CMAS/Censo SUAS 2018_Conselho_M
 
 cmunrh_2018 <- read_excel("../Censo SUAS 2018/12 - CMAS/Censo SUAS 2018 _Conselho Municipal_RH_divulgacao.xlsx", sheet = 1)
 
-#cmun_2019 <- read_excel("../Censo SUAS 2019/  ", sheet = 1)
+cmun_2019 <- read_excel("../Censo SUAS 2019/12 - CMAS/Censo_SUAS_2019_Dados_gerais_RH_Conselho_Municipal_divulgação.xlsx", sheet = 1)
 
-#cmunrh_2019 <- read_excel("../", sheet = 1)
+cmunrh_2019 <- read_excel("../Censo SUAS 2019/12 - CMAS/Censo_SUAS_2019_Dados_gerais_RH_Conselho_Municipal_divulgação.xlsx", sheet = 1)
 
 cmun_2020 <- read_excel("../Censo SUAS 2020/4 - CMAS/Censo_SUAS_2020_Conselho_municipal_Dados_Gerais.xlsx", sheet = 1)
 
@@ -815,6 +815,11 @@ pop_municipios_2017 <- read_excel("../Estimativa População IBGE/estimativa_dou
 ```
 
 ```{r funcoes}
+
+for (i in 1:ncol(cmun_2013)){
+  cmun_2013[[i]] = str_trim(str_replace_all(cmun_2013[[i]], pattern = '\"(.*?)\\"', replacement = '\\1'))
+}
+
 # Classificação do porte populacional dos municípios.
 # Fonte: PNAS 2004
 f_porte_populacional = function(df, populacao){
@@ -1124,6 +1129,8 @@ A estrutura administrativa na Política de Assistência Social e Constituição 
 
 Conforme a \Cref{fig:estados-caracteristica-secretaria}, 25 estados (96,4%) a Secretaria estadual estava associada a uma ou mais políticas setoriais, sendo predominante os grupos de duas e três politicas setoriais .
 
+<!-- os dados históricos dos estados que reduziram area específica de assistencia social são bem significativos, assim vamos pensar grafico que mostre essa informação }. -->
+
 ```{r estados-caracteristica-secretaria-2022, fig.cap = "Percentual de Secretarias Estaduais de acordo com composição administrativa relacionada a outras políticas - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 nao0_sim1 = function(df, q){
@@ -1177,7 +1184,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 
 
 
-```{r estados-caracteristica-secretaria-2012, fig.cap = "Percentual de Secretarias Estaduais de acordo com composição administrativa relacionada a outras políticas - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS, eval=FALSE"}
+```{r estados-caracteristica-secretaria-2012, fig.cap = "Percentual de Secretarias Estaduais de acordo com composição administrativa relacionada a outras políticas - Brasil, 2012", fig.footer = "Fonte: MDS, Censo SUAS, eval=FALSE"}
 
 nao0_sim1 = function(df, q){
   q <- enquo(q)
@@ -1394,7 +1401,11 @@ No que se refere aos municípios, a última pactuação sobre estrutura administ
 
 * **municípios de grande porte e metrópole:** 100% dos muncípios com instituição formal, na estrutura do órgão gestor de assistência social, áreas constituídas de Proteção Social Básica, Proteção Social Especial, com subdivisão de Média e Alta Complexidade, Gestão Financeira e Orçamentária, Gestão de Benefícios Assistenciais e Transferência de Renda, área de Gestão do SUAS com competência de: Gestão do Trabalho,  Regulação do SUAS e Vigilância Socioassistencial.
 
-A \Cref{fig:municipais-constituicao-subdivisoes} sinaliza que as areas do SUAS com maior percentual de constituição formal são respectivamente: Gestão do Cadastro Único e Bolsa Família, Gestão da Proteção Social Básica e Gestão do SUAS.    
+A \Cref{fig:municipais-constituicao-subdivisoes} sinaliza que as areas do SUAS com maior percentual de constituição formal são respectivamente: Gestão do Cadastro Único e Bolsa Família, Gestão da Proteção Social Básica e Gestão do SUAS.  
+
+
+
+
 
 ```{r municipais-constituicao-subdivisoes, fig.cap = "Distribuição dos órgãos gestores municipais segundo constituição/formalização de subdivisões administrativas - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -2263,7 +2274,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 ```
 
 
-A (\Cref{fig:estados-blocos-recursos}) evidencia a quantidade de estados quando ao cofinanciamento aos municípios por blocos. Os dados dos últimos 10 anos, sinaliza que i número de estados que cofinanciam os municípios vem aumentando. Sobretudo o cofinanciamento da proteção social especial (Média e Alta Complexoidade), em seguida Benefícios Eventuais. No que se rere aos últimos 5 anos houve uma redução na destinação de recursos para proteção social básica e incetivos do SUAS.
+A (\Cref{fig:estados-blocos-recursos}) evidencia a quantidade de estados quando ao cofinanciamento aos municípios por blocos. Os dados dos últimos 10 anos, sinaliza que o número de estados que cofinanciam os municípios vem aumentando. Sobretudo o cofinanciamento da proteção social especial (Média e Alta Complexoidade), em seguida Benefícios Eventuais. No que se refere aos últimos 5 anos houve uma redução na destinação de recursos para proteção social básica e incetivos do SUAS.
 
 
 ```{r estados-blocos-recursos, fig.cap = "Número de estados segundo a destinação dos recursos transferidos aos municípios por blocos de financiamento - Brasil, 2013 a 2017", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -2504,8 +2515,12 @@ ord_despesa = function(df, q, ano){
   df %>%
     select(!! ano := !! q) %>% 
     gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "Secretário(a) Estadual de Assistência Social"~"O(a) Secretário(a) Estadual de Assistência Social",
-                             TRUE ~ Nível)) %>% 
+    mutate(Nível = case_when(
+      Nível == "Secretário(a) Estadual de Assistência Social" ~ "O(a) Secretário(a) Estadual de Assistência Social",
+      Nível == "O Secretário(a) Estadual da Assistência Social" ~ "O(a) Secretário(a) Estadual de Assistência Social",
+      Nível == "O Secretário (a) Estadual da Assistência Social" ~ "O(a) Secretário(a) Estadual de Assistência Social",
+      Nível == "Outro Funcionário da Secretaria de Assistência Social" ~ "Outro(a) Funcionário(a) da Secretaria de Assistência Social",
+      TRUE ~ Nível)) %>% 
     filter(!is.na(Nível)) %>% 
     mutate(Nível = factor(Nível, levels = c("O(a) Secretário(a) Estadual de Assistência Social",
                                             "Secretário(a) ou técnico(a) de outra área",
@@ -2517,13 +2532,16 @@ ord_despesa = function(df, q, ano){
     mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
 }
 
-grafico <- ord_despesa(feas_2018, q_2, "2018") %>%
+grafico <- ord_despesa(ge_2013, q54, "2013") %>%
+  bind_rows(ord_despesa(ge_2014, q54, "2014")) %>%
+  bind_rows(ord_despesa(ge_2017, q18, "2017")) %>% 
+  bind_rows(ord_despesa(feas_2018, q_2, "2018")) %>% 
   bind_rows(ord_despesa(feas_2019, q2, "2019")) %>%  
   bind_rows(ord_despesa(feas_2020, q2, "2020")) %>%
   bind_rows(ord_despesa(feas_2021, q2, "2021")) %>%
   bind_rows(ord_despesa(feas_2022, q2, "2022")) %>% 
   
-  
+  #antes de criar formulario do fundo, existia esta questão no do gestor estadual, mas os dados não estao rodando
 
   
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
@@ -2551,7 +2569,7 @@ No que se refere aos municípios, aproximadamente 80% dos secretários (as) muni
 
 
 
-```{r munic_ord_despesa, fig.cap = "Percentual de municípios quanto a ordenação de despesa do fundo estadual - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r munic_ord_despesa, fig.cap = "Percentual de municípios quanto a ordenação de despesa do fundo estadual - Brasil, 2013 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 ord_despesa = function(df, q, ano){
   q <- enquo(q)
@@ -2561,12 +2579,22 @@ ord_despesa = function(df, q, ano){
     select(!! ano := !! q) %>% 
     gather("Categoria","Nível") %>% 
     mutate(Nível = case_when(Nível == "Secretário Municipal de Assistência Social."~"O(a) Secretário(a) Municipal de Assistência Social.",
+                            
+                            
+                            Nível == "O Secretário(a) Municipal de Assistência Social" ~ "O(a) Secretário(a) Municipal de Assistência Social.",
+                            Nível == "Outro Funcionário da Secretaria de Assistência Social" ~ "Outro(a) Funcionário(a) da Secretaria de Assistência Social",
+                            Nível == "O Secretário(a) Municipal de Assistência Social" ~ "O(a) Secretário(a) Municipal de Assistência Social.",
+                            Nível == "Secretário ou técnico de outra área" ~ "Secretário(a) ou técnico(a) de outra área",
+                            Nível == "O Prefeito" ~ "O(a) Prefeito(a)",
+                             
+                             
                              TRUE ~ Nível)) %>% 
     filter(!is.na(Nível)) %>% 
     mutate(Nível = factor(Nível, levels = c("O(a) Secretário(a) Municipal de Assistência Social.",
                                             "O(a) Prefeito(a)",
                                             "Secretário(a) ou técnico(a) de outra área",
-                                            "Outro(a) Funcionário(a) da Secretaria de Assistência Social."))) %>%
+                                            "Outro(a) Funcionário(a) da Secretaria de Assistência Social.",
+                                            "NA"))) %>%
                                                                                         
     group_by(Categoria, Nível) %>% 
     summarise(n=n()) %>% 
@@ -2574,13 +2602,18 @@ ord_despesa = function(df, q, ano){
     mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
 }
 
-grafico <- ord_despesa(fmas_2018, q_2, "2018") %>%
+grafico <- ord_despesa(gm_2013, q27, "2013") %>%
+  bind_rows(ord_despesa(gm_2014, q33, "2014")) %>%
+  #bind_rows(ord_despesa(gm_2015, q27, "2015")) %>%
+  #bind_rows(ord_despesa(gm_2016, q27, "2016")) %>%
+  #bind_rows(ord_despesa(gm_2017, q27, "2017")) %>%
+  #bind_rows(ord_despesa(fmas_2018, q_2, "2018")) %>%
   #bind_rows(ord_despesa(fmas_2019, q2, "2019")) %>%  
   bind_rows(ord_despesa(fmas_2020, q2, "2020")) %>%
   bind_rows(ord_despesa(fmas_2021, q2, "2021")) %>%
   bind_rows(ord_despesa(fmas_2022, q2, "2022")) %>% 
   
-  
+  #muda de formulário mas a pergunta é a mesma. entretanto não consegui rodar.
 
   
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
@@ -2752,7 +2785,7 @@ grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
-
+#colocar estados com plano de educação permanente
 
 ```{r municipios-participacoes-CIB, fig.cap = "Percentual de municípios por número de participações em reuniões da CIB (Comissão Intergestores Bipartite) no ano de 2016, segundo grandes regiões - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
 
@@ -2807,7 +2840,7 @@ Em relação a concurso público,
 
 
 
-```{r conc_munic, fig.cap = "Percentual de municípios que realizaram concursos para trabalahdores nível superior ou médio do SUAS - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r conc_munic, fig.cap = "Percentual de municípios que realizaram concursos para trabalhadores nível superior ou médio do SUAS - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
 conc_munic  = function(df, q, ano){
   q <- enquo(q)
@@ -2917,7 +2950,7 @@ O Cadastro Único para Programas Sociais do Governo Federal estabelecido atravé
 
 O objetivo é conhecer, incluir e aprimorar as políticas sociais. Assim, esses dados subsidiam a realização de diagnósticos, ações de planejamento, busca ativa, monitoramento e avaliação. A gestão é interfederativa e descentralizada na qual os locais de cadastramento são efetuados pelos municípios. Estas unidades podem ser encontradas em unidades exclusivas ou na rede de atendimento socioassistencial de CRAS, CREAS, Centro Pop. 
 
-Dados do Censo SUAS mostram uma evolução de locais de cadastramento. A partir de 2017 aumento 54% de postos do Cadastro Único conforme pode ser observado na tabela \ref{tab:qtd_equipamentos}. Sobre a distribuição destas locais de cadastro único, destaca-se que em 2022, 31% (2.892) são unidades exclusivas do Cadastro Único e 68% estão em unidades da rede socioassistencial \footnote{CRAS, CREAS e CENTRO POP}.
+Dados do Censo SUAS mostram uma evolução de locais de cadastramento. A partir de 2017 aumento 54% de postos do Cadastro Único conforme pode ser observado na tabela \ref{tab:qtd_equipamentos}. Sobre a distribuição destes locais de cadastro único, destaca-se que em 2022, 31% (2.892) são unidades exclusivas do Cadastro Único e 68% estão em unidades da rede socioassistencial \footnote{CRAS, CREAS e CENTRO POP}.
 
 \begin{table}[H]
 \centering
@@ -2936,9 +2969,137 @@ Postos Cadastro Único   & - & - & - & 2.530 & 2.695 & 2.892                    
 \end{table}
 
 
-Sobre as unidades exclusivas do Cadastro Único, a sua maioria mais de 85%, se encontram na sede da Secretaria de Assistência Social ou em postos exclusivos dos municípios. Os demais percentuais são encontrados em outra unidade administrativa, em um serviço integrado, OSC´s, conselho ou escola.  
+Sobre a estrutura física das unidades exclusivas do Cadastro Único, a sua maioria, mais de 85%, se encontram na sede da Secretaria de Assistência Social (61%) ou em postos exclusivos dos municípios (24,3%). Os demais percentuais são encontrados em outra unidade administrativa, em um serviço integrado, OSC´s, conselho ou escola.  
 
-Quanto a presença de estrutura de Cadastro Único no orgão gestor e profissionais específicos, destaca-se que   
+Quanto a presença de estrutura física dos postos do Cadastro Único a acessibilidade avançou nos últimos anos conforme ... 
+
+<!-- o grafico só gerou 2022, mas as indicações estão em para os 3 últimos anos - verificar o erro -->
+
+```{r postcad-acessibilidade, fig.cap = "Evolução percentual de postos do Cadastro Único segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+
+tabela <- equip_acessibilidade(posto_cadunico_2020, q7_1, "2020", "1") %>%
+  bind_rows(equip_acessibilidade(posto_cadunico_2020, q7_2, "2020", "2")) %>% 
+  bind_rows(equip_acessibilidade(posto_cadunico_2020, q7_3, "2020", "3")) %>% 
+  bind_rows(equip_acessibilidade(posto_cadunico_2020, q7_4, "2020", "4")) %>% 
+
+  bind_rows(equip_acessibilidade(posto_cadunico_2021, q7_1, "2021", "1")) %>%
+  bind_rows(equip_acessibilidade(posto_cadunico_2021, q7_2, "2021", "2")) %>% 
+  bind_rows(equip_acessibilidade(posto_cadunico_2021, q7_3, "2021", "3")) %>% 
+  bind_rows(equip_acessibilidade(posto_cadunico_2021, q7_4, "2021", "4")) %>% 
+  
+  bind_rows(equip_acessibilidade(posto_cadunico_2022, q7_1, "2022", "1")) %>%
+  bind_rows(equip_acessibilidade(posto_cadunico_2022, q7_2, "2022", "2")) %>% 
+  bind_rows(equip_acessibilidade(posto_cadunico_2022, q7_3, "2022", "3")) %>% 
+  bind_rows(equip_acessibilidade(posto_cadunico_2022, q7_4, "2022", "4")) %>% 
+  ungroup() %>% 
+  mutate(Categoria=str_wrap(Categoria,width=34))
+
+
+ordenado<-tabela %>% 
+  filter(Ano == "2022") %>% 
+  arrange(Percentual) %>% 
+  select(Categoria)
+
+ordenado<-factor(ordenado, levels = ordenado$Categoria)
+
+ordenado2<-tabela %>%
+  select(Ano) %>% 
+  distinct() %>% 
+  arrange(Ano)
+
+ordenado2<-factor(ordenado2, levels = ordenado2$Ano)
+
+grafico<-tabela %>% 
+  mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
+  mutate(Ano = factor(Ano, levels = rev(levels(ordenado2)))) %>% 
+  ggplot(aes(x = Categoria, y = Percentual, group = Ano)) +
+  geom_col(aes(fill = Ano), position = "dodge") +
+  geom_text(aes(label = percent(Percentual), y=Percentual+0.03), position = position_dodge(width = 0.9)) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  coord_flip() +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.x = element_blank(),
+        axis.line.y = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+Em relação aos espaços de acessibilidade comparada a situação do imóvel, destaca-se que os postos do Cadastro Único próprios ou cedidos, possuem significativamente mais ascessibilidade que os imóveis alugados (\Cref{fig:postcad-acessibilidade-situacao}).
+
+
+```{r postcad-acessibilidade-situacao, fig.cap = "Percentual de Postos do Cadastro Único com existência de condições de acessibilidade de acordo com a Norma da ABNT, segundo situação do imóvel – Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+tabela <- equip_acessibilidade_situacao(posto_cadunico_2022, q5, q7_1, "1") %>%
+  bind_rows(equip_acessibilidade_situacao(posto_cadunico_2022, q5, q7_2, "2")) %>% 
+  bind_rows(equip_acessibilidade_situacao(posto_cadunico_2022, q5, q7_3, "3")) %>% 
+  bind_rows(equip_acessibilidade_situacao(posto_cadunico_2022, q5, q7_4, "4"))
+
+ordenado<-tabela %>% 
+  filter(Situacao == "Próprio") %>% 
+  arrange(Percentual) %>% 
+  select(Categoria)
+
+ordenado<-factor(ordenado, levels = ordenado$Categoria)
+
+grafico<-tabela %>% 
+  mutate(Categoria = factor(Categoria, levels = rev(levels(ordenado)))) %>% 
+  ggplot(aes(x = Situacao, y = Percentual, group = Categoria)) +
+  geom_col(aes(fill = Categoria), position = "dodge") +
+  geom_text(aes(label = percent(Percentual), y=Percentual+0.015), position = position_dodge(width = 0.9)) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=4, byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+
+Em relação a computadores com acesso a internet, é indicador bem presente
+
+
+```{r postcad-internet-percentual, fig.cap = "Evolução percentual de Cadastro Único com computadores com acesso à internet – Brasil;  2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_maior0_regiao_ano(posto_cadunico_2020, q10_2, IBGE, "2020") %>% 
+  bind_rows(f_maior0_regiao_ano(posto_cadunico_2021, q10_2, IBGE, "2021")) %>% 
+  bind_rows(f_maior0_regiao_ano(posto_cadunico_2022, q10_2, IBGE, "2022")) %>% 
+  
+  ggplot(aes(x = Região, y = Percentual, group = Ano)) +
+  geom_col(aes(fill = Ano), position="dodge") +
+  geom_text(aes(label = percent(Percentual), y=Percentual+.01), position = position_dodge(width = 0.9), angle = 90) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+
+
+
+no orgão gestor e profissionais específicos, destaca-se que   
 
 ```{r coord_cadunico, fig.cap = "Percentual de postos do Cadastro Único que possuem coordenador - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -3278,125 +3439,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 
 
-```{r postcad-acessibilidade, fig.cap = "Evolução percentual de postos do Cadastro Único segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
-
-tabela <- equip_acessibilidade(posto_cadunico_2020, q7_1, "2020", "1") %>%
-  bind_rows(equip_acessibilidade(posto_cadunico_2020, q7_2, "2020", "2")) %>% 
-  bind_rows(equip_acessibilidade(posto_cadunico_2020, q7_3, "2020", "3")) %>% 
-  bind_rows(equip_acessibilidade(posto_cadunico_2020, q7_4, "2020", "4")) %>% 
-
-  bind_rows(equip_acessibilidade(posto_cadunico_2021, q7_1, "2021", "1")) %>%
-  bind_rows(equip_acessibilidade(posto_cadunico_2021, q7_2, "2021", "2")) %>% 
-  bind_rows(equip_acessibilidade(posto_cadunico_2021, q7_3, "2021", "3")) %>% 
-  bind_rows(equip_acessibilidade(posto_cadunico_2021, q7_4, "2021", "4")) %>% 
-  
-  bind_rows(equip_acessibilidade(posto_cadunico_2022, q7_1, "2022", "1")) %>%
-  bind_rows(equip_acessibilidade(posto_cadunico_2022, q7_2, "2022", "2")) %>% 
-  bind_rows(equip_acessibilidade(posto_cadunico_2022, q7_3, "2022", "3")) %>% 
-  bind_rows(equip_acessibilidade(posto_cadunico_2022, q7_4, "2022", "4")) %>% 
-  ungroup() %>% 
-  mutate(Categoria=str_wrap(Categoria,width=34))
-
-
-ordenado<-tabela %>% 
-  filter(Ano == "2022") %>% 
-  arrange(Percentual) %>% 
-  select(Categoria)
-
-ordenado<-factor(ordenado, levels = ordenado$Categoria)
-
-ordenado2<-tabela %>%
-  select(Ano) %>% 
-  distinct() %>% 
-  arrange(Ano)
-
-ordenado2<-factor(ordenado2, levels = ordenado2$Ano)
-
-grafico<-tabela %>% 
-  mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
-  mutate(Ano = factor(Ano, levels = rev(levels(ordenado2)))) %>% 
-  ggplot(aes(x = Categoria, y = Percentual, group = Ano)) +
-  geom_col(aes(fill = Ano), position = "dodge") +
-  geom_text(aes(label = percent(Percentual), y=Percentual+0.03), position = position_dodge(width = 0.9)) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  coord_flip() +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.x = element_blank(),
-        axis.line.y = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
-
-grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-```
-
-
-
-```{r postcad-acessibilidade-situacao, fig.cap = "Percentual de Postos do Cadastro Único com existência de condições de acessibilidade de acordo com a Norma da ABNT, segundo situação do imóvel – Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
-
-tabela <- equip_acessibilidade_situacao(posto_cadunico_2022, q5, q7_1, "1") %>%
-  bind_rows(equip_acessibilidade_situacao(posto_cadunico_2022, q5, q7_2, "2")) %>% 
-  bind_rows(equip_acessibilidade_situacao(posto_cadunico_2022, q5, q7_3, "3")) %>% 
-  bind_rows(equip_acessibilidade_situacao(posto_cadunico_2022, q5, q7_4, "4"))
-
-ordenado<-tabela %>% 
-  filter(Situacao == "Próprio") %>% 
-  arrange(Percentual) %>% 
-  select(Categoria)
-
-ordenado<-factor(ordenado, levels = ordenado$Categoria)
-
-grafico<-tabela %>% 
-  mutate(Categoria = factor(Categoria, levels = rev(levels(ordenado)))) %>% 
-  ggplot(aes(x = Situacao, y = Percentual, group = Categoria)) +
-  geom_col(aes(fill = Categoria), position = "dodge") +
-  geom_text(aes(label = percent(Percentual), y=Percentual+0.015), position = position_dodge(width = 0.9)) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=4, byrow=TRUE))
-
-grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-```
-
-
-<!-- não sei porque não centro oeste ficou duplamente registrado   --> 
-
-```{r postcad-internet-percentual, fig.cap = "Evolução percentual de Cadastro Único com computadores com acesso à internet – Brasil;  2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
-
-grafico <- f_maior0_regiao_ano(posto_cadunico_2020, q10_2, Regiao, "2020") %>% 
-  bind_rows(f_maior0_regiao_ano(posto_cadunico_2021, q10_2, IBGE, "2021")) %>% 
-  bind_rows(f_maior0_regiao_ano(posto_cadunico_2022, q10_2, IBGE, "2022")) %>% 
-  
-  ggplot(aes(x = Região, y = Percentual, group = Ano)) +
-  geom_col(aes(fill = Ano), position="dodge") +
-  geom_text(aes(label = percent(Percentual), y=Percentual+.01), position = position_dodge(width = 0.9), angle = 90) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
-
-grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-```
 
 
 
@@ -5568,7 +5611,7 @@ grafico
 #  graph2office(file="graficos", append = TRUE)
 ```
 
-
+A sede e local especifico para funcionamento dos Coselhos é uma demanda 
 
 
 
@@ -5593,16 +5636,20 @@ cmas_sede  = function(df, q, ano){
 }
 
 grafico <- cmas_sede(cmun_2012, q8, "2012") %>%
-  #bind_rows(cmas_sede(cmun_2013, q8, "2013")) %>%
-  #bind_rows(cmas_sede(cmun_2014, q8, "2014")) %>%
-  #bind_rows(cmas_sede(cmun_2015, q8, "2015")) %>%
-  #bind_rows(cmas_sede(cmun_2016, q8, "2016")) %>%
-  bind_rows(cmas_sede(cmun_2017, q7, "2017")) %>%
-  #bind_rows(cmas_sede(cmun_2018, q8, "2018")) %>%
-  #bind_rows(cmas_sede(cmun_, q8, "2019")) %>%
-  #bind_rows(cmas_sede(cmun_2020, q8, "2018")) %>%
-  #bind_rows(cmas_sede(cmun_2021, q8, "2018")) %>%
+   #bind_rows(cmas_sede(cmun_2013, q8, "2013")) %>%
+   bind_rows(cmas_sede(cmun_2014, q9, "2014")) %>%
+   bind_rows(cmas_sede(cmun_2015, q9, "2015")) %>%
+   bind_rows(cmas_sede(cmun_2016, q6, "2016")) %>%
+   bind_rows(cmas_sede(cmun_2017, q7, "2017")) %>%
+   bind_rows(cmas_sede(cmun_2018, q_6, "2018")) %>%
+   bind_rows(cmas_sede(cmun_2019, q6, "2019")) %>%
+   bind_rows(cmas_sede(cmun_2020, q6, "2020")) %>%
+   bind_rows(cmas_sede(cmun_2021, q6, "2021")) %>%
    bind_rows(cmas_sede(cmun_2022, q6, "2022")) %>%
+  
+  
+  #2013 a base não ler, acho que é porque no banco as informações esão "sim" / "não"
+  #2019 ta com problema técnico no carregamento que não consigo ajeitar
  
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
 #  geom_col(aes(fill = Nível), position = "dodge") +
@@ -5629,7 +5676,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 
 
-```{r Ceas_sede, fig.cap = "Percentual de Conselhos Estaduais que possuem local/sede específico para funcionamento - Brasil, 2012 - 2017 - 2022"}
+```{r Ceas_sede, fig.cap = "Percentual de Conselhos Estaduais que possuem local/sede específico para funcionamento - Brasil, 2012 - 2022"}
 
 ceas_sede  = function(df, q, ano){
   q <- enquo(q)
@@ -5650,16 +5697,20 @@ ceas_sede  = function(df, q, ano){
 }
 
 grafico <- ceas_sede(cest_2012, q8, "2012") %>%
-  #bind_rows(ceas_sede(cest_2013, q8, "2013")) %>%
-  #bind_rows(ceas_sede(cest_2014, q8, "2014")) %>%
-  #bind_rows(ceas_sede(cest_2015, q8, "2015")) %>%
-  #bind_rows(ceas_sede(cest_2016, q8, "2016")) %>%
-   bind_rows(ceas_sede(cest_2017, q7, "2017")) %>%
-  #bind_rows(ceas_sede(cest_2018, q8, "2018")) %>%
-  #bind_rows(ceas_sede(cest_2019, "2019")) %>%
-  #bind_rows(ceas_sede(cest_2020, q8, "2018")) %>%
-  #bind_rows(ceas_sede(cest_2021, q8, "2018")) %>%
+   #bind_rows(ceas_sede(cest_2013, q8, "2013")) %>%
+   #bind_rows(ceas_sede(cest_2014, q9, "2014")) %>%
+    bind_rows(ceas_sede(cest_2015, q8, "2015")) %>%
+    bind_rows(ceas_sede(cest_2016, q6, "2016")) %>%
+    bind_rows(ceas_sede(cest_2017, q7, "2017")) %>%
+    #bind_rows(ceas_sede(cest_2018, q_6, "2018")) %>%
+    bind_rows(ceas_sede(cest_2019, q6, "2019")) %>%
+    bind_rows(ceas_sede(cest_2020, q6, "2020")) %>%
+    bind_rows(ceas_sede(cest_2021, q6, "2021")) %>%
    bind_rows(ceas_sede(cest_2022, q6, "2022")) %>%
+  
+  #2013 AS QUESTÕES ESÃO COM AS RESPOSTAS "";
+  #2014 incluiu "Não sabe"
+  
  
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
 #  geom_col(aes(fill = Nível), position = "dodge") +
@@ -5681,7 +5732,14 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-```{r Cmas_se, fig.cap = "Percentual de Conselhos municipais com secretarias executivas - Brasil, 2012 - 2017 - 2022"}
+
+
+
+
+
+
+
+```{r Cmas_se, fig.cap = "Percentual de Conselhos municipais com secretarias executivas exclusivas - Brasil, 2012 - 2017 - 2022"}
 
 cmas_se  = function(df, q, ano){
   q <- enquo(q)
@@ -5703,15 +5761,17 @@ cmas_se  = function(df, q, ano){
 
 grafico <- cmas_se(cmun_2012, q13, "2012") %>%
   #bind_rows(cmas_se(cmun_2013, q13, "2013")) %>%
-  #bind_rows(cmas_se(cmun_2014, q13, "2014")) %>%
-  #bind_rows(cmas_se(cmun_2015, q13, "2015")) %>%
-  #bind_rows(cmas_se(cmun_2016, q13, "2016")) %>%
-  bind_rows(cmas_sede(cmun_2017, q13, "2017")) %>%
-  #bind_rows(cmas_se(cmun_2018, q13, "2018")) %>%
-  #bind_rows(cmas_se(cmun_, q8, "2019")) %>%
-  #bind_rows(cmas_se(cmun_2020, q13, "2020")) %>%
-  #bind_rows(cmas_se(cmun_2021, q13, "2021")) %>%
+   bind_rows(cmas_se(cmun_2014, q19, "2014")) %>%
+   bind_rows(cmas_se(cmun_2015, q19, "2015")) %>%
+   bind_rows(cmas_se(cmun_2016, q14, "2016")) %>%
+   bind_rows(cmas_sede(cmun_2017, q14, "2017")) %>%
+   bind_rows(cmas_se(cmun_2018, q_13, "2018")) %>%
+  #bind_rows(cmas_se(cmun_, q13, "2019")) %>%
+   bind_rows(cmas_se(cmun_2020, q13, "2020")) %>%
+   bind_rows(cmas_se(cmun_2021, q13, "2021")) %>%
    bind_rows(cmas_se(cmun_2022, q13, "2022")) %>%
+  
+  #achei que as respostas 2012 desviaram um pouco, não consegui baixar a base ... em contato com Dionara.
  
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
 #  geom_col(aes(fill = Nível), position = "dodge") +
@@ -6049,11 +6109,135 @@ O Índice de Gestão Descentralizada do SUAS (IGD-SUAS) visa avaliar a qualidade
 O percentual de Conselhos Municipais de Assistência Social cujo IGD-SUAS era utilizado para custear despesas de funcionamento do Conselho foi maior em 2016 na região Nordeste (87,6%), seguida das regiões Norte (87,4%) e Centro-Oeste (87,4%).
 Foi observado aumento nos percentuais de Conselhos Municipais que utilizam o IGD em todas as regiões, com exceção da região Centro-Oeste, em que foi observada pequena queda de 1,2 pontos percentuais entre 2015 e 2016 (Gráfico xx).
 **Gráfico xx - Percentual de Conselhos Municipais de Assistência Social cujo IGD-SUAS era destinado a custear despesas de funcionamento do Conselho, segundo grandes regiões – Brasil, 2014 a 2017**
-```{r }
+
+```{r IGD_CMAS, fig.cap = "Percentual de conselhos municipais na qual são destinados pelo menos 3% dos IGB Bolsa Família e SUAS", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+cmas_igd  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "Sim"~"Sim",
+                             Nível == "Não Sabe"~"Não sabe",
+                             
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("Sim",
+                                            "Não",
+                                            "Não sabe"))) %>% 
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+grafico <- cmas_igd(cmun_2012, q7, "2012") %>%
+   bind_rows(cmas_igd(cmun_2013, q7, "2013")) %>%
+   bind_rows(cmas_igd(cmun_2014, q8, "2014")) %>%
+   bind_rows(cmas_igd(cmun_2015, q8, "2015")) %>%
+   bind_rows(cmas_igd(cmun_2016, q5, "2016")) %>%
+   bind_rows(cmas_igd(cmun_2017, q18, "2017")) %>%
+   bind_rows(cmas_igd(cmun_2018, q_17, "2018")) %>%
+   bind_rows(cmas_igd(cmun_2019, q17, "2019")) %>%
+   bind_rows(cmas_igd(cmun_2020, q20, "2020")) %>%
+   bind_rows(cmas_igd(cmun_2021, q20, "2021")) %>%
+   bind_rows(cmas_igd(cmun_2022, q20, "2022")) %>%
+  
+  #fazer a seleção das variaveis
+ 
+  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
+#  geom_col(aes(fill = Nível), position = "dodge") +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+
 
 ```
 
 Fonte: MDS, Censo SUAS.
+
+
+
+
+```{r IGD_CEAS, fig.cap = "Quantidade de conselhos estaduais na qual são destinados pelo menos 3% dos IGB Bolsa Família e SUAS", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+ceas_igd  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "Sim"~"Sim",
+                             
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("Sim",
+                                            "Não",
+                                            "Não sabe"))) %>% 
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+grafico <- ceas_igd(cest_2012, q7, "2012") %>%
+   bind_rows(ceas_igd(cest_2013, q7, "2013")) %>%
+   bind_rows(ceas_igd(cest_2014, q8, "2014")) %>%
+   bind_rows(ceas_igd(cest_2015, q8, "2015")) %>%
+   bind_rows(ceas_igd(cest_2016, q5, "2016")) %>%
+   bind_rows(ceas_igd(cest_2017, q18, "2017")) %>%
+   bind_rows(ceas_igd(cest_2018, q_17, "2018")) %>%
+   bind_rows(ceas_igd(cest_2019, q17, "2019")) %>%
+   bind_rows(ceas_igd(cest_2020, q20, "2020")) %>%
+   bind_rows(ceas_igd(cest_2021, q20, "2021")) %>%
+   bind_rows(ceas_igd(cest_2022, q20, "2022")) %>%
+  
+  #2013 as variaveis estão "" ver como ajeitar para leitura
+ 
+  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
+#  geom_col(aes(fill = Nível), position = "dodge") +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+
+
+```
+
+Fonte: MDS, Censo SUAS.
+
+
+
+
+
 
 **6.2.3 – Plano de Assistência Social**
 A NOB SUAS 2012, em seu Artigo 18, define o Plano de Assistência Social como um "instrumento de planejamento estratégico que organiza, regula e norteia a execução da PNAS na perspectiva do Sistema Único de Assistência Social (SUAS)". Assim, é fundamental que os Conselhos de Assistência Social deliberem sobre o Plano. 
@@ -6072,27 +6256,35 @@ cmas_pmas  = function(df, q, ano){
     select(!! ano := !! q) %>% 
     gather("Categoria","Nível") %>% 
     mutate(Nível = case_when(Nível == "Sim"~"Sim",
+                             Nível == "99" ~ "Não sabe",
                              TRUE ~ Nível)) %>% 
     filter(!is.na(Nível)) %>% 
     mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não"))) %>% 
+                                            "Não",
+                                            "Não sabe"))) %>% 
     group_by(Categoria, Nível) %>% 
     summarise(n=n()) %>% 
     group_by(Categoria) %>% 
     mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
 }
 
+
+
 grafico <- cmas_pmas(cmun_2012, q35_1, "2012") %>%
-  #bind_rows(cmas_pmas(cmun_2013, q, "2013")) %>%
-  #bind_rows(cmas_pmas(cmun_2014, q, "2014")) %>%
-  #bind_rows(cmas_pmas(cmun_2015, q, "2015")) %>%
-  #bind_rows(cmas_pmas(cmun_2016, q, "2016")) %>%
+  bind_rows(cmas_pmas(cmun_2013, q28, "2013")) %>%
+  bind_rows(cmas_pmas(cmun_2014, q28, "2014")) %>%
+  bind_rows(cmas_pmas(cmun_2015, q28, "2015")) %>%
+  bind_rows(cmas_pmas(cmun_2016, q21, "2016")) %>%
   bind_rows(cmas_pmas(cmun_2017, q38, "2017")) %>%
-  #bind_rows(cmas_pmas(cmun_2018, q, "2018")) %>%
+  bind_rows(cmas_pmas(cmun_2018, q_34_4, "2018")) %>%
   #bind_rows(cmas_pmas(cmun_, q, "2019")) %>%
-  #bind_rows(cmas_pmas(cmun_2020, q, "2020")) %>%
-  #bind_rows(cmas_pmas(cmun_2021, q, "2021")) %>%
-   bind_rows(cmas_pmas(cmun_2022, q33_4, "2022")) %>%
+  bind_rows(cmas_pmas(cmun_2020, q33_4, "2020")) %>%
+  bind_rows(cmas_pmas(cmun_2021, q33_4, "2021")) %>%
+  bind_rows(cmas_pmas(cmun_2022, q33_4, "2022")) %>%
+  
+  #2013 os dados da base estão "" por isso não consegue ler,
+  #todos arquivo de 2019 esta bloqueado para leitura, algum erro que não consigo identificar.
+  #2016 tem a opção 99, vou verificar o que representa.
  
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
 #  geom_col(aes(fill = Nível), position = "dodge") +
@@ -6138,7 +6330,7 @@ grafico <- ceas_se(cest_2012, q35_1, "2012") %>%
   #bind_rows(ceas_se(cest_2013, q8, "2013")) %>%
   #bind_rows(ceas_se(cest_2014, q8, "2014")) %>%
   #bind_rows(ceas_se(cest_2015, q8, "2015")) %>%
-  #bind_rows(ceas_se(cest_2016, q8, "2016")) %>%
+  #bind_rows(ceas_se(cest_2016, q38, "2016")) %>%
    bind_rows(ceas_se(cest_2017, q38, "2017")) %>%
   #bind_rows(ceas_se(cest_2018, q8, "2018")) %>%
   #bind_rows(ceas_se(cest_2019, "2019")) %>%
@@ -6189,15 +6381,17 @@ cmas_be  = function(df, q, ano){
 
 grafico <- cmas_be(cmun_2012, q38, "2012") %>%
   #bind_rows(cmas_be(cmun_2013, q, "2013")) %>%
-  #bind_rows(cmas_be(cmun_2014, q, "2014")) %>%
-  #bind_rows(cmas_be(cmun_2015, q, "2015")) %>%
-  #bind_rows(cmas_be(cmun_2016, q, "2016")) %>%
+  bind_rows(cmas_be(cmun_2014, q40, "2014")) %>%
+  bind_rows(cmas_be(cmun_2015, q38, "2015")) %>%
+  bind_rows(cmas_be(cmun_2016, q31, "2016")) %>%
   bind_rows(cmas_be(cmun_2017, q44, "2017")) %>%
-  #bind_rows(cmas_be(cmun_2018, q, "2018")) %>%
-  #bind_rows(cmas_be(cmun_, q, "2019")) %>%
-  #bind_rows(cmas_be(cmun_2020, q, "2020")) %>%
-  #bind_rows(cmas_be(cmun_2021, q, "2021")) %>%
-   bind_rows(cmas_be(cmun_2022, q36, "2022")) %>%
+  bind_rows(cmas_be(cmun_2018, q_39, "2018")) %>%
+  #bind_rows(cmas_be(cmun_2019, q37, "2019")) %>%
+  bind_rows(cmas_be(cmun_2020, q37, "2020")) %>%
+  bind_rows(cmas_be(cmun_2021, q37, "2021")) %>%
+  bind_rows(cmas_be(cmun_2022, q36, "2022")) %>%
+  
+  # a partir de 2020 a questão muda, mas o conteúdo da pergunta permanece, entretanto tenho dúvidas sobre o entendimento das respostas. Assim to pensando em manter apenas para os anos a partir de 2020.
  
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
 #  geom_col(aes(fill = Nível), position = "dodge") +
@@ -6220,7 +6414,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 ```
 
 
-```{r Ceas_be, fig.cap = "Percentual de Conselhos Municipais que deliberam sobre critérios de Benefícios Eventuais - Brasil, 2012 - 2017 - 2022"}
+```{r Ceas_be, fig.cap = "Percentual de Conselhos Estaduais que deliberam sobre critérios de Benefícios Eventuais - Brasil, 2012 - 2017 - 2022"}
 
 ceas_be  = function(df, q, ano){
   q <- enquo(q)
@@ -6314,39 +6508,122 @@ No que diz respeito à frequência de atividades realizadas pelos Conselhos Esta
 
 Fonte: MDS, Censo SUAS.
 
-**6.2.7 - Fiscalização**
-Em 2016, 36,4% dos Conselhos Municipais fiscalizavam as redes públicas e privadas, 53,6% apenas a rede pública, 2,3% apenas a rede privada e 7,7% não fiscalizavam serviços, programas, projetos e benefícios socioassistenciais do SUAS. O percentual de Conselhos Municipais que não realizava fiscalização aumentou em relação a 2015, enquanto o de Conselhos que fiscalizam tanto a rede pública quanto a rede privada diminuiu no mesmo período (Gráfico xx).
-**Gráfico xx - Percentual de Conselhos Municipais que fiscalizaram serviços, programas, projetos e benefícios socioassistenciais do SUAS – Brasil, 2017**
-```{r }
 
+
+```{r Cmas_ppa, fig.cap = "Percentual de Conselhos Municipais que deliberam sobre a proposta anual do orçamento do executivo - Brasil, 2012 - 2017 - 2022"}
+
+Cmas_ppa  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "Sim"~"Sim",
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("Sim",
+                                            "Não"))) %>% 
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+grafico <- Cmas_ppa(cmun_2012, q38, "2012") %>%
+  #bind_rows(Cmas_ppa(cmun_2013, q, "2013")) %>%
+  bind_rows(Cmas_ppa(cmun_2014, q31, "2014")) %>%
+  bind_rows(Cmas_ppa(cmun_2015, q31, "2015")) %>%
+  bind_rows(Cmas_ppa(cmun_2016, q24, "2016")) %>%
+  bind_rows(Cmas_ppa(cmun_2017, q42, "2017")) %>%
+  bind_rows(Cmas_ppa(cmun_2018, q_37, "2018")) %>%
+  #bind_rows(Cmas_ppa(cmun_2019, q37, "2019")) %>%
+  bind_rows(Cmas_ppa(cmun_2020, q34, "2020")) %>%
+  bind_rows(Cmas_ppa(cmun_2021, q34, "2021")) %>%
+  bind_rows(Cmas_ppa(cmun_2022, q34, "2022")) %>%
+  
+  # a partir de 2020 a questão muda, mas o conteúdo da pergunta permanece, entretanto tenho dúvidas sobre o entendimento das respostas. Assim to pensando em manter apenas para os anos a partir de 2020.
+ 
+  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
+#  geom_col(aes(fill = Nível), position = "dodge") +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-Fonte: MDS, Censo SUAS.
 
-Já a região Sul tinha o maior percentual de Conselhos Municipais que não realizavam fiscalização de serviços, programas, projetos e benefícios socioassistenciais do SUAS (11,3%). Nas regiões Norte, Nordeste e Centro-Oeste a maior parte dos Conselhos (68,7%, 74,2% e 55,7%, respectivamente) fiscalizava apenas a rede pública.  Já nas regiões Sudeste e Sul a maior parte dos Conselhos Municipais fiscalizava tanto a rede pública quanto a rede privada (53% e 45% dos Conselhos, respectivamente) (Gráfico xx).
-**Gráfico xx - Distribuição percentual de Conselhos Municipais que fiscalizaram serviços, programas, projetos e benefícios socioassistenciais do SUAS, segundo grandes regiões - Brasil, 2017**
-```{r }
 
+
+```{r Ceas_ppa, fig.cap = "Percentual de Conselhos Estaduais que deliberam sobre a proposta anual do orçamento do executivo - Brasil, 2012 - 2017 - 2022"}
+
+Ceas_ppa  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "Sim"~"Sim",
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("Sim",
+                                            "Não"))) %>% 
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+#falta colocar as variaveis dos questionários CEAS
+
+grafico <- Ceas_ppa(cest_2012, q29, "2012") %>%
+  #bind_rows(Ceas_ppa(cest_2013, q, "2013")) %>%
+  #bind_rows(Ceas_ppa(cest_2014, q40, "2014")) %>%
+  #bind_rows(Ceas_ppa(cest_2015, q38, "2015")) %>%
+  #bind_rows(Ceas_ppa(cest_2016, q31, "2016")) %>%
+  #bind_rows(Ceas_ppa(cest_2017, q44, "2017")) %>%
+  #bind_rows(Ceas_ppa(cest_2018, q_39, "2018")) %>%
+  #bind_rows(Ceas_ppa(cest_2019, q37, "2019")) %>%
+  #bind_rows(Ceas_ppa(cest_2020, q37, "2020")) %>%
+  #bind_rows(Ceas_ppa(cest_2021, q37, "2021")) %>%
+   bind_rows(Ceas_ppa(cest_2022, q34, "2022")) %>%
+  
+
+  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
+#  geom_col(aes(fill = Nível), position = "dodge") +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-Fonte: MDS, Censo SUAS.
 
-Quanto aos Conselhos Estaduais, 48,1% fiscalizavam serviços, programas, projetos e benefícios socioassistenciais tanto na rede pública quanto na rede privada, o maior percentual desde 2013. No ano de 2016, 25,9% dos conselhos estaduais supervisionavam apenas a rede pública, 18,5% não fiscalizavam, e 7,4% fiscalizavam apenas a rede privada (Gráfico xx).
-**Gráfico xx: Percentual de Conselhos Estaduais que fiscalizaram serviços, programas, projetos e benefícios socioassistenciais do SUAS – Brasil, 2017**
-```{r }
 
-```
-
-Fonte: MDS, Censo SUAS.
-
-Sobre a fiscalização e o acompanhamento do Programa Bolsa Família (PBF), observa-se que o percentual de Conselho Municipais que executavam a atividade vem aumentando desde 2012, atingindo 87,7% em 2016. 
-O percentual de Conselhos Estaduais que fiscalizavam e acompanhavam o PBF sofreu queda entre 2013 e 2015. Em 2016 foi observado aumento do percentual em relação aos dois anos anteriores, e 77,8% dos Conselhos Estaduais declararam executar a atividade (Gráfico xx).
-**Gráfico xx - Percentual de Conselhos Estaduais e Municipais que fiscalizam e acompanham o Programa Bolsa Família – Brasil, 2010 e 2017**
-```{r }
-
-```
-
-Fonte: MDS, Censo SUAS.
 
 **6.2.8 – Comissões Intergestores**
 A CIB e a CIT são espaços de negociação e pactuação de caráter permanente para discussão quanto aos aspectos operacionais da gestão do sistema descentralizado e participativo da assistência social que devem ser acompanhados pelos conselhos. Entretanto, foi possível observar que ao longo dos últimos anos tem caído a participação regular dos Conselhos Municipais junto a essas Instâncias. Em 2016, 15,7% dos Conselhos Municipais acompanhavam os processos de pactuação da CIB e CIT com regularidade (840) e 45,2% sem regularidade (2.422), totalizando 60,9% de Conselhos Municipais que informaram acompanhar os processos de pactuação (3.262). 
