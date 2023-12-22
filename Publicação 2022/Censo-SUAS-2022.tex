@@ -1,0 +1,3245 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  brazilian]{report}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{tabulary}
+\usepackage{hyperref}
+\usepackage{multirow}
+\usepackage{chngcntr}
+\usepackage{caption}
+\usepackage{floatrow}
+\floatsetup[figure]{capposition=top}
+\floatsetup[table]{capposition=top}
+\usepackage{titling}
+\usepackage{cleveref}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={CENSO SUAS 2022},
+  pdfauthor={Secretaria de Avaliação, Gestão da Informação e Cadastro Único; Secretaria Nacional de Assistência Social; Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{CENSO SUAS 2022}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{ANÁLISE DOS COMPONENTES DA POLÍTICA NACIONAL DE ASSISTÊNCIA
+SOCIAL}
+\author{Secretaria de Avaliação, Gestão da Informação e Cadastro
+Único \and Secretaria Nacional de Assistência Social \and Ministério do
+Desenvolvimento e Assistência Social, Família e Combate à Fome}
+\date{}
+
+\begin{document}
+\maketitle
+
+\addto\captionsbrazilian{\renewcommand{\figurename}{Gráfico}}
+\crefname{figure}{gráfico}{gráficos}
+
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+\counterwithout{footnote}{chapter}
+\captionsetup[figure]{labelfont=bf,textfont=bf}
+\captionsetup[table]{labelfont=bf,textfont=bf}
+\newcommand\fnote[1]{\captionsetup{font=small, textfont=normalfont}\caption*{#1}}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+
+\hypertarget{prefuxe1cio}{%
+\chapter*{Prefácio}\label{prefuxe1cio}}
+\addcontentsline{toc}{chapter}{Prefácio}
+
+A gestão de informação contribui para mostrar resultados, tornar mais
+transparente a evolução da política, bem como subsidiar no planejamento
+e aprimoramento da política pública. Eis uns dos objetivos a série
+histórica do Censo SUAS: uma análise dos componentes da política de
+Assistência social.
+
+A publicação do Censo SUAS teve sua primeira edição em 2010. Caderno
+publicado nos anos subsequentes que tem como objetivo apurar e
+evidenciar uma série de dados e de informações sobre infraestrutura,
+recursos humanos, serviços, benefícios, gestão e participação social no
+âmbito da assistência social. Esses dados e informações subsidiam
+gestores, técnicos e pesquisadores envolvidos no SUAS, a aprimorar
+ações, identificar êxitos e reestruturar pontos que não tenham atingido
+os resultados planejados.
+
+A partir do ano de 2018 esta publicação foi interrompida. E, após 5 anos
+a SAGICAD retorna o caderno do Censo SUAS, na qual resgata as
+informações anteriores e garante continuidade as informações do SUAS.
+Reforça-se com isso o papel estratégico da produção de dados,
+monitoramento e analise de políticas, superando a perda na qualidade da
+informação, apagão dos dados, falta de transparência e o negacionismo.
+
+Estes dados são coletados através do formulário do Censo do Sistema
+Único de Assistência Social (Censo SUAS), realizado anualmente desde
+2007, coleta informações sobre serviços, programas e projetos de
+assistência social realizados pelas unidades públicas e pela Rede
+Socioassistencial Privada do SUAS.
+
+Esta publicação apresenta os principais resultados do Censo SUAS 2022,
+organizados de forma a facilitar a leitura e a utilização do amplo
+conjunto de dados levantados. As informações estão organizadas segundo
+as temáticas: Gestão e Financiamento, Equipamentos, Serviços e
+Benefícios, Recursos Humanos, Participação Social e Indicadores de
+Desenvolvimento (IDs).
+
+Esta edição teve o olhar a luz do II Plano Decenal, na qual deu
+continuidade a maior parte dos conteúdos históricos, com acréscimos de
+temas como atenção a situação de migrantes, serviço de situação de
+emergência e calamidade pública, regionalização, bem como oferta de
+serviços a exemplo do serviço de proteção social no domicílio, família
+acolhedora entre outros e relação do SUAS com cadastro único para
+programas sociais.
+
+A consolidação das análises disponibilizadas nessa publicação reflete o
+esforço contínuo de aperfeiçoamento da cobertura do levantamento das
+informações, realizado conjuntamente pela Secretaria de Avaliação e
+Gestão da Informação (SAGI) e Secretaria Nacional de Assistência Social
+(SNAS). Esperamos que os resultados apresentados possam continuar
+contribuindo para subsidiar o debate qualificado e construtivo a
+respeito do SUAS e resulte em seu aprimoramento.
+
+Letícia Bartholo
+
+Secretária de Avaliação, Gestão da Informação e Cadastro Único
+
+André Quintão
+
+Secretária Nacional de Assistência Social
+
+\tableofcontents
+
+\hypertarget{apresentauxe7uxe3o}{%
+\chapter*{Apresentação}\label{apresentauxe7uxe3o}}
+\addcontentsline{toc}{chapter}{Apresentação}
+
+\hypertarget{a-assistuxeancia-social-no-brasil}{%
+\section*{A Assistência Social no
+Brasil}\label{a-assistuxeancia-social-no-brasil}}
+\addcontentsline{toc}{section}{A Assistência Social no Brasil}
+
+É muito real a presença do SUAS na vida do povo brasileiro. Conquistamos
+um Sistema Único que tem vinculação com XX \% da população inserida no
+Cadastro Único. A política de Assistência Social nas últimas décadas
+carrega uma conquistas da sociedade brasileira através de um projeto de
+seguranças sociais afiançadas por meio da proteção, vigilância e defesa
+de direitos. Parte deste projeto já foi colocado em prática, com
+decisões construídas junto com controle social. Hoje temos xxx ofertas
+de equipamentos sociais que visa potencializar a proteção social a
+população através dos serviços, programas, projetos e benefícios desta
+política. AS conquistas convivem com problemas e contradições, assim
+identificar e contruir alternativas para esses desafios também faz parte
+da contrução continua deste política pública.
+
+O início da estruturação da Assistência Social nos moldes atuais se deu
+a partir da promulgação da Constituição Federal de 1988, quando a
+assistência social passou a ser compreendida como direito do cidadão
+brasileiro e, portanto, como uma política pública de responsabilidade do
+Estado. É uma política de Seguridade Social não contributiva, que visa,
+em conjunto com outras políticas setoriais, a universalização dos
+direitos sociais.
+
+Atualmente as ações da Assistência Social são organizadas sob a forma do
+Sistema Único de Assistência Social (SUAS), que está fundado na gestão
+descentralizada e participativa, com gestão compartilhada,
+cofinanciamento e cooperação técnica entre os três entes federados. Além
+da União, estados e municípios, o SUAS é integrado pelos Conselhos de
+Assistência Social e pelas entidades e organizações de assistência
+social. A organização da Assistência Social está disposta na Lei
+Orgânica da Assistência Social (LOAS), de 7 de dezembro de 1993, em
+conformidade com a Política Nacional de Assistência Social (PNAS).
+
+No SUAS estão previstos dois tipos de proteção social: a básica e a
+especial, para prevenção de situações de vulnerabilidade e enfrentamento
+de situações de violações de direitos, respectivamente. Também no âmbito
+do SUAS são ofertados os benefícios assistenciais. As ações são
+empreendidas tanto pelas unidades públicas quanto pela rede
+socioassistencial privada do SUAS.
+
+Até atingir a forma atual de organização, a Assistência Social passou
+por mudanças significativas, consequência de inúmeros esforços que
+possibilitaram a ampliação de recursos, programas, benefícios e serviços
+voltados à população em situação de vulnerabilidade e risco social e/ou
+violação de direitos.
+
+Ao longo do século XXI, ainda que tenham sido instituídos alguns
+programas e elaboradas leis voltadas à proteção social, o acesso a
+direitos sociais era baseado na capacidade contributiva do trabalhador,
+excluindo uma grande parcela da população, incluindo a parcela que
+trabalhava no mercado informal.
+
+A partir de 1988, a Constituição Brasileira trouxe uma nova perspectiva
+para a proteção social, apresentando, pela primeira vez no Brasil, um
+modelo amplo de Seguridade Social, composto por Saúde, Previdência e
+Assistência Social, que prevê atendimento e cobertura universais. O
+modelo estipula ainda que os benefícios e serviços devem ser uniformes e
+equivalentes para a população rural e urbana. Prevê a integração entre
+governos, com participação dos três entes, e sociedade para a consecução
+dos objetivos estipulados.
+
+A assistência social foi reconhecida, portanto, como um direito da
+pessoa que dela precisar, sem necessidade de contribuição prévia à
+Seguridade Social. Tem por objetivos, de acordo com a Constituição
+Federal, ``a proteção à família, à maternidade, à infância, à
+adolescência e à velhice; o amparo às crianças e adolescentes carentes;
+a promoção da integração ao mercado de trabalho; a habilitação e
+reabilitação das pessoas portadoras de deficiência e a promoção de sua
+integração à vida comunitária; e a garantia de um salário mínimo de
+benefício mensal à pessoa portadora de deficiência e ao idoso que
+comprovem não possuir meios de prover à própria manutenção ou de tê-la
+provida por sua
+família''\footnote{BRASIL. Constituição da República Federativa do Brasil de 1988. Disponível em: \url{http://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm}. Acesso em 09/08/2018.}.
+
+Considerando a nova configuração da Assistência Social definida pela
+Constituição, foi sancionada em 7 de dezembro de 1993 a Lei nº 8.742, a
+Lei Orgânica da Assistência Social (LOAS). A LOAS estabelece para a
+Assistência Social os princípios de universalização dos direitos
+sociais, com igualdade de direitos de acesso no atendimento e respeito à
+dignidade do cidadão. A lei, que dispõe sobre a nova organização da
+Assistência Social, trouxe inovações importantes, como a participação
+social por meio de instâncias de controle social e a descentralização
+político-administrativa com primazia da responsabilidade do Estado, nas
+três esferas de governo, na condução da política. As competências da
+União, dos estados, do Distrito Federal e dos municípios estão definidas
+na LOAS, bem como o cofinanciamento dos benefícios, serviços, programas
+e projetos da Assistência Social. Nesse sentido, mostra-se fundamental a
+articulação e a coordenação entre os três entes da federação, que se dá
+por meio das Comissões Intergestores Tripartite (CIT) e Bipartite (CIB),
+que são instâncias de pactuação interfederativa para a operacionalização
+da gestão do SUAS.
+
+A partir da LOAS, uma série de ferramentas de institucionalização foram
+organizadas a fim de nortear a nova configuração da Assistência Social,
+como visto na \Cref{tab:marcos}.
+
+\begin{table}[]
+\caption{Marcos legais da Assistência Social no Brasil.}
+\label{tab:marcos}
+\resizebox{\textwidth}{!}{%
+\begin{tabulary}{17cm}{@{}CCCCCCCCC@{}}
+\toprule
+1993 & 1998 & 2004 & 2005      & 2006    & 2009                     & 2010                     & 2011            & 2012     \\ \midrule
+LOAS & PNAS & PNAS & NOB/ SUAS & NOB/ RH & Tipificação dos Serviços & Decreto 7.334 Censo SUAS & Lei 12.435 SUAS & NOB/ SUAS \\ \bottomrule
+\end{tabulary}%
+}
+\end{table}
+
+A primeira Política Nacional de Assistência Social (PNAS), prevista na
+LOAS, foi criada em 1998 e instituiu diretrizes para as ações da
+Assistência Social, representando uma base orientadora para
+procedimentos a serem adotados pelos gestores da política de assistência
+social em todo o país\footnote{Boscheti (2001)}.
+
+Em
+2003\footnote{As Conferências de Assistência Social deliberam as diretrizes para o aperfeiçoamento da Política de Assistência Social em cada uma das esferas governamentais (BRASIL, 2012).},
+a IV Conferência Nacional de Assistência Social teve como deliberação a
+construção e implementação do Sistema Único de Assistência Social
+(SUAS).
+
+Em 15 de outubro de 2004 foi aprovada pela Resolução nº 145 do Conselho
+Nacional de Assistência Social (CNAS) a PNAS, que trouxe alterações e
+definiu alguns elementos importantes para as políticas sociais. Dentre
+as novidades propostas, destacam-se o aperfeiçoamento da
+descentralização, a estruturação da participação da população, a
+fundamentação na centralidade na família para concepção e a
+implementação dos benefícios, programas e projetos (BRASIL, 2004).
+
+Em conjunto com a PNAS 2004, a Norma Operacional Básica NOB/SUAS 2005
+representou importante avanço no sentido de consolidar e implementar as
+diretrizes previstas na LOAS. A NOB/SUAS 2005 disciplina a gestão da
+política de assistência social a partir das definições constates na
+Constituição Federal, na LOAS e na PNAS, e normatiza a operacionalização
+do Sistema Único de Assistência Social (SUAS). A NOB/SUAS 2005 avança na
+integração, pactuação e coordenação entre as diversas esferas de
+governo, na organização das instâncias de gestão, articulação e controle
+da política, na proteção social, na instituição de arranjos para a
+prestação de serviços, e no financiamento, com definições sobre repasses
+regulares e mecanismos de transferências de recursos fundo a fundo
+baseada em pisos, critérios e indicadores de
+partilha\footnote{Norma Operacional Básica NOB/SUAS. Construindo as bases para a implantação do Sistema Único de Assistência Social. Disponível em:  (http://www.assistenciasocial.al.gov.br/sala-de-imprensa/arquivos/NOB-SUAS.pdf). Acesso em 26/10/2017}.
+
+A NOB/SUAS 2012 avançou na pactuação de metas e de resultados, e trouxe
+maior flexibilização para uso dos recursos, ampliando a autonomia dos
+municípios. Também trouxe avanços em relação à organização da Vigilância
+Socioassistencial e da gestão do trabalho, principalmente em relação à
+educação dos trabalhadores.
+
+Outro marco legal de destaque para a Assistência Social foi a
+Tipificação Nacional dos Serviços Socioassistenciais. Ela foi importante
+para padronizar a oferta dos serviços de proteção social básica e
+proteção social especial nacionalmente, especificando os conteúdos da
+oferta de serviços socioasisstenciais. A Tipificação traz detalhamentos
+importantes sobre ambiente físico, recursos materiais, recursos humanos,
+dentre outros. Tem-se, a partir da Tipificação, que os Serviços da
+Proteção Social Básica são compostos pelo Serviço de Proteção e
+Atendimento Integral à Família (PAIF), Serviço de Convivência e
+Fortalecimento de Vínculos e pelo Serviço de Proteção Social Básica no
+domicílio para pessoas com deficiência e idosas. Os Serviços da Proteção
+Social Básica buscam a prevenção de vulnerabilidades e riscos sociais.
+
+Os Serviços da Proteção Social Especial, destinada a indivíduos em
+situação de violação de direitos, por sua vez, dividem-se entre média e
+alta complexidade. No primeiro caso, enquadram-se o Serviço de Proteção
+e Atendimento Especializado a Famílias e Indivíduos (PAEFI), o Serviço
+Especializado em Abordagem Social e o Serviço de Proteção Social a
+Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade
+Assistida (LA), e de Prestação de Serviços à Comunidade (PSC). Na alta
+complexidade, estão os serviços de Acolhimento Institucional,
+Acolhimento em República, Acolhimento em Família Acolhedora e o Serviço
+de Proteção em Situações de Calamidades Públicas e de Emergências.
+
+As diversas atualizações de normativos realizadas desde a promulgação da
+Constituição de 1988 definem aspectos de gestão, financiamento,
+organização da prestação dos serviços, oferta de benefícios, estrutura,
+recursos humanos e de participação social para a Assistência Social.
+Nesse sentido, destaca-se a importância do Censo SUAS como ferramenta de
+acompanhamento e monitoramento dos diversos elementos que compõem o
+SUAS.
+
+\hypertarget{metodologia}{%
+\chapter{Metodologia}\label{metodologia}}
+
+Os caminhos metodológicos para a publicação do Censo SUAS traz tem seu
+percurso uma construção coletiva dos três entes federados. Pode-se dizer
+que o Censo SUAS se consolida em três grandes processos referentes às
+seguintes fases:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Ciclo da preparação,
+\item
+  Preenchimento dos formulários,
+\item
+  Tabulação dos dados e análise.
+\end{enumerate}
+
+\hypertarget{ciclo-da-preparauxe7uxe3o}{%
+\section{Ciclo da preparação}\label{ciclo-da-preparauxe7uxe3o}}
+
+A preparação se caracteriza como um momento em que as questões são
+revisadas com inclusão e exclusão de perguntas. Parte de um processo
+coordenado pela Vigilância Socioassistencial Nacional em que são
+debatidos e definidos de forma conjunta pela Secretaria Nacional de
+Assistência Social (SNAS) e pela Secretaria de Avaliação, Gestão da
+Informação e Cadastro Único (SAGICAD). Cada alteração tem como objetivo
+aprimorar e adequar as questões a partir das demandas da conjuntura.
+
+O primeiro formulário do Censo SUAS foi criado em 2007 como uma ficha de
+registro de caracterização básica dos CRAS, o levantamento passou a ser
+denominado de Censo CRAS. O SUAS foi expandindo as suas entregas,
+tipificando novos serviços e consequentemente a necessidade de conhecer
+melhor a execução desta política em vários aspectos trouxe novos
+formulários ao longo dos anos. Atualmente são 14 formulários com
+aproximadamente 6 mil variáveis. O quadro abaixo sinaliza esse percurso
+histórico da inclusão dos formulários temáticos.
+
+Ao longo desses dezesseis anos, o Censo tem como principal objetivo
+retratar as estruturas de gestão e de oferta de serviços do SUAS,
+produzindo informações que subsidiem o planejamento da política, o
+aperfeiçoamento do sistema, a formação dos trabalhadores e a prestação
+de contas à sociedade. Assim, é possível, a partir de seus resultados,
+monitorar e gerar ações e medidas que objetivam a resolução de
+dificuldades e o aprimoramento da gestão. Cabe destacar que o Censo SUAS
+foi uma das iniciativas premiadas\footnote{Em ENAP (2011)} na publicação
+de registro das dez ações premiadas do 16º Concurso Inovação na Gestão
+Pública Federal, há um breve relato histórico do Censo SUAS.
+
+Sobre o conteúdo dos formulários destacados na ilustração histórica,
+destaca-se os seguintes a partir da última publicação:
+
+\begin{itemize}
+\item
+  \textbf{Questionário Gestão Municipal:} 8 Blocos, são eles:
+  Identificação do Órgão Gestor; Gestão do SUAS; Serviços; Programas e
+  outras Ações Socioassistenciais; Benefícios Socioassistenciais,
+  CadÚnico e Transferência de Renda; Atuação durante a pandemia de
+  Covid-19 e Gestão do Trabalho.
+\item
+  \textbf{Questionário Gestão Estadual :} 8 Blocos, são eles:
+  Identificação do Órgão Gestor; Estrutura Administrativa e Gestão do
+  SUAS; Serviços e Benefícios; Regionalização dos Serviços de Média e
+  Alta Complexidade; Plano de Providência e Apoio Técnico; Comissão
+  Intergestores Bipartite (CIB); Funcionamento durante a pandemia de
+  Covid 19 e Gestão do Trabalho.
+\item
+  \textbf{Questionário Fundo Municipal:} 5 Blocos, são eles:
+  Identificação; Gestão de Recursos; Recursos Humanos e Responsável pelo
+  preenchimento.
+\item
+  \textbf{Questionário Fundo Estadual:} 6 Blocos, são eles:
+  Identificação; Cofinanciamento Estadual; Índice de Gestão
+  Descentralizada do Programa Auxílio Brasil; Gestão de Recursos;
+  Recursos Humanos e Responsável pelo preenchimento.
+\item
+  \textbf{Questionário Centro de Referência de Assistência Social
+  (CRAS):} 12 Blocos, são eles: Identificação; Estrutura Física; Serviço
+  de Proteção e Atendimento Integral a Família (PAIF); Serviço de
+  Convivência e Fortalecimento de Vínculos (SCFV); Serviços de PSB no
+  Domicílio para pessoas com Deficiência e idosas; Equipe Volante;
+  Benefícios socioassistenciais; Cadastro Único; Programa Auxílio
+  Brasil; Funcionamento do CRAS durante a pandemia de Covid 19; Programa
+  Criança Feliz; Gestão e Território; Gestão de Pessoas.
+\item
+  \textbf{Questionário Centro de Convivência:} 5 Blocos, são eles:
+  Identificação; Caracterização da Unidade; Serviços e Atividades;
+  Gestão; Gestão do trabalho.
+\item
+  \textbf{Questionário Centro de Referência Especializado de Assistência
+  Social (CREAS):} 11 Blocos, são eles: Identificação; Estrutura Física;
+  Serviço de Proteção e Atendimento Especializado a Famílias e
+  Indivíduos (PAEFI); Serviço de Proteção Social a Adolescentes em
+  Cumprimento de Medida Socioeducativa de Liberdade Assistida (LA) e de
+  Prestação de Serviços à Comunidade (PSC); Serviço de Abordagem Social;
+  Serviço de Proteção Social Especial para Pessoas com Deficiência,
+  Idosas e suas Famílias; Benefícios e Cadastro Único; Gestão e
+  território; Funcionamento durante a pandemia de Covid-19; Articulação
+  e Gestão de Pessoas.
+\item
+  \textbf{Questionário Centro de Referência Especializado para População
+  em Situação de Rua (Centro POP):} 8 Blocos, são eles: Identificação;
+  Estrutura Física; Funcionamento durante a pandemia de COVID-19;
+  Serviço Especializado para Pessoas em Situação de Rua; Serviço
+  Especializado em Abordagem Social; Benefícios, Cadastro Único Gestão e
+  Participação de Usuárias(os); Articulação e Gestão de Pessoas.
+\item
+  \textbf{Questionário do Centro Dia e similares:} 7 Blocos, são eles:
+  Identificação, Caracterização da Unidade, Serviços e atividades;
+  Estrutura Física; Perfil dos usuários; Funcionamento durante a
+  pandemia de Covid 19; Articulação; Serviços e Atividades e Gestão de
+  Pessoas.
+\item
+  \textbf{Questionário Unidades de Acolhimento:} 7 Blocos, são eles:
+  Identificação; Caracterização da Unidade; Características das usuárias
+  (os); Serviço de Acolhimento; Estrutura Física e Área de Localização
+  da Unidade; Funcionamento deste acolhimento durante a pandemia de
+  Covid 19 e Recursos Humanos.
+\item
+  \textbf{Questionário Família Acolhedora:} 4 Blocos, são eles:
+  Identificação, Caracteristica dos Acolhidas (os); Serviços de
+  Acolhimento; Funcionamento durante a pandemia de Covid 19; Famílias
+  Acolhedoras e Gestão de Pessoas.
+\item
+  \textbf{Questionário Postos de Cadastro Único:} 4 Blocos, são eles:
+  Identificação, Estrutura Física; Cadastro Único; Programa Bolsa
+  Família; Outras Atividades; Funcionamento dos postos e Gestão de
+  Pessoas.
+\item
+  \textbf{Questionário Conselhos Municipais de Assistência Social (CMAS)
+  e Conselho de Assistência Social do Distrito Federal (CAS/DF):} 10
+  Blocos, são eles: Identificação; Regulação; Infraestrutura do
+  Conselho; Secretaria Executiva; Orçamento dos Conselhos; Dinâmica de
+  Funcionamento; Rede Socioassistencial; Composição do Conselho;
+  Conselheiros (as) e Responsável pelo Preenchimento.
+\item
+  \textbf{Questionário Conselhos Estaduais de Assistência Social
+  (CEAS):} 10 Blocos, são eles: Identificação; Regulação; Infraestrutura
+  do Conselho; Secretaria Executiva; Orçamento dos Conselhos; Dinâmica
+  de Funcionamento; Rede Socioassistencial; Composição do Conselho;
+  Conselheiros (as) e Responsável pelo Preenchimento.
+\end{itemize}
+
+Após essa fase de decisão, os formulários são encaminhados para SAGICAD
+para processo de tabulação e geração de códigos. É importante destacar
+que os códigos das variáveis sofrem mudança conforme alteração das
+perguntas (inclusão e exclusão de perguntas). Este torna-se um desafio
+para o acompanhamento das respostas ao longo de períodos, haja vista
+inexistência de uma chave mestra.
+
+\hypertarget{preenchimento-dos-formuluxe1rios}{%
+\section{Preenchimento dos
+formulários}\label{preenchimento-dos-formuluxe1rios}}
+
+A coleta de dados envolve vários agentes públicos municipais e estaduais
+das gestões e controle social do SUAS. De acordo com a Norma Operacional
+Básica do SUAS / 2012 (NOBSUAS/2012) o processo de realização do Censo
+SUAS deve ser coordenado pela vigilância socioassistencial que deve
+apoiar no preenchimento zelando pela qualidade das informações
+coletadas.
+
+O Censo SUAS 2022 foi realizado, como todo ano, por meio de
+questionários eletrônicos disponíveis no portal da SAGI. O preenchimento
+em meio eletrônico é realizado apenas pelos órgãos gestores (estaduais e
+municipais) e conselhos de assistência social (estaduais e municipais).
+Destaca-se que, para preenchimento dos questionários, o usuário deve
+estar devidamente cadastrado na Rede SUAS e possuir uma senha de acesso.
+Os questionários, depois de preenchidos, devem ser salvos pelo
+respondente. O período de coleta foi entre outubro e dezembro de 2022,
+conforme cronograma da \Cref{tab:cronograma}.
+
+\begin{table}[]
+\centering
+\caption{Cronograma de preenchimento do Censo SUAS 2022 por questionário.}
+\label{tab:cronograma}
+\begin{tabular}{|l|c|c|}
+\hline
+\multicolumn{1}{|c|}{Questionário} & Abertura                      & Encerramento                  \\ \hline
+CRAS                               & \multirow{11}{*}{06/Out/2022} & \multirow{11}{*}{02/dez/2022} \\ \cline{1-1}
+Centros de Convivência             &                               &                               \\ \cline{1-1}
+CREAS (municipal e estadual)       &                               &                               \\ \cline{1-1}
+Centro POP                         &                               &                               \\ \cline{1-1}
+Centro DIA e Similares             &                               &                               \\ \cline{1-1}
+Unidades de Acolhimento 
+(municipal e estadual)             &                               &                               \\ \cline{1-1}
+Família Acolhedora                 &                               &                               \\ \cline{1-1}
+Posto de Cadastramento             &                               &                               \\ \cline{1-1}
+Fundos de Assistencia social 
+(municipal e estadual)             &                               &                               \\ \cline{1-1}
+Gestão (municipal e estadual)      &                               &                               \\ \cline{1-1}
+Conselhos (municipal e estadual)   &                               &                               \\ \hline
+\hline
+Período de Retificação             & 05/Dez/2022                   & 16/Dez/2022                   \\ \hline
+\end{tabular}
+\floatfoot{Fonte: MDS, Censo SUAS.}
+\end{table}
+
+\hypertarget{tabulauxe7uxe3o-dos-dados-e-anuxe1lise}{%
+\section{Tabulação dos dados e
+análise}\label{tabulauxe7uxe3o-dos-dados-e-anuxe1lise}}
+
+Aproximadamente 45 mil questionários foram coletadas. Os bancos de dados
+resultantes da coleta foram então submetidos a procedimentos de análise
+da integridade e consistência, bem como de limpeza de dados e de
+organização da estrutura final e da documentação das bases. Para cada
+base resultante de um tipo de questionário, foram realizados
+procedimentos de limpeza e organização específicos. Inicialmente,
+pretendeu-se manter o maior número possível de respondentes válidos.
+Para isso, foram considerados como válidos:
+
+\begin{itemize}
+\item
+  Questionários totalmente preenchidos e devidamente salvos pelos
+  respondentes;
+\item
+  Questionários preenchidos em sua totalidade, mas não devidamente
+  salvos por razões de sistema; e
+\item
+  Questionários preenchidos até 90\% de sua totalidade com pelo menos um
+  trabalhador registrado no bloco de Recursos Humanos do questionário.
+\end{itemize}
+
+Para análise dos dados, foram consideradas as quantidades de
+respondentes de acordo com os bancos de dados após tratamento realizado
+pela Coordenação-Geral de Planejamento e Vigilância Socioassistencial
+(CGPVIS/SNAS) descrito acima. A quantidade de unidades/órgãos
+considerados no banco de dados após tratamento constam nas
+\cref{tab:qtd_equipamentos,tab:qtd_orgaos}.
+
+\begin{table}[]
+\centering
+\caption{Quantidade de equipamentos respondentes segundo o Status Censo SUAS.}
+\label{tab:qtd_equipamentos}
+\begin{tabular}{@{}lc@{}}
+\toprule
+Equipamento             & Analisados após validação \\ \midrule
+CRAS                    & 8.240                     \\
+CREAS                   & 2.522                     \\
+Centro POP              & 230                       \\
+Centros de Convivência  & 8.510                     \\
+Unidade de Acolhimento  & 5.832                     \\
+Centros Dia e similares & 1.345                     \\ \bottomrule
+\end{tabular}
+\floatfoot{Fonte: MDS, Censo SUAS.}
+\end{table}
+
+A análise dos resultados do Censo SUAS 2022 compreende o SUAS como
+política social por meio dos componentes sistêmicos da PNAS, conforme
+seu estágio de institucionalização8. Para essa versão consideramos
+destaques do II Plano Descenal. A tentativa é aprofundar da compreensão
+universal do SUAS. A exposição da análise do Censo SUAS será realizada
+de acordo com seis eixos de análise, a
+saber\footnote{A forma de organização processual destas informações foram através do “R Markdown”. Tal metodologia foi inovadora para o ano de 2022 que antes era realizado a partir de planilhas e gráficos gerados pelo excel. Tal percurso representa maior confiabilidade nas informações, amplia as possibilidades de produção de gráficos, ganho no tempo para próximas publicações entre outras.}:
+
+\begin{itemize}
+\item
+  \textbf{Gestão e Financiamento do Sistema Único de Assistência
+  Social:} panorama geral da gestão e do financiamento em estados e
+  municípios, com a observação de aspectos como a estrutura
+  administrativa da gestão da assistência social, a atualização de
+  normativos, o apoio de estados aos municípios, as atividades de
+  cofinanciamento e transferência de recursos, funcionamento das
+  instâncias de pactuação, entre outras.
+\item
+  \textbf{Equipamentos, Serviços e Benefícios da Assistência Social:}
+  apresenta informações a respeito dos equipamentos da Assistência
+  Social e sua evolução ao longo do tempo, sua esturura e condições na
+  perspectiva de acessibilidade e equipamentos disponíveis. A integração
+  dos Serviços do SUAS no âmbito das proteções sociais, relação com o
+  Cadastro Único, Benefícios do SUAS, bem como Programas. Também
+  aborda-se sobre a Regionalização da proteção social Especial.
+\item
+  \textbf{Recursos Humanos do SUAS:} apresenta um panorama geral da
+  situação das trabalhadoras e trabalhadores do SUAS tanto nos
+  equipamentos da assistência social quanto nas gestões municipais e
+  estaduais, apresentando informações sobre quantitativo, tipo de
+  vínculo trabalhista, escolaridade, entre outros aspectos referentes à
+  gestão do trabalho, e sua evolução ao longo dos anos.
+\item
+  \textbf{Participação e controle social no SUAS:} apresenta os
+  resultados apurados pelo Censo SUAS para os Conselhos Municipais e
+  Estaduais de Assistência Social, considerando a estrutura
+  administrativa, a dinâmica de funcionamento e a composição
+\item
+  \textbf{Indicadores de Desenvolvimento (IDs):} apresenta os resultados
+  dos Indicadores de Desenvolvimento (IDs), uma das proposições da
+  Vigilância Socioassistencial para o acompanhamento e avaliação do
+  desenvolvimento de equipamentos CRAS e CREAS e Conselhos Municipais de
+  Assistência Social (CMAS). Os IDs buscam, por meio da análise de
+  diversos critérios, agrupados em diferentes dimensões, promover o
+  aprimoramento das ações a partir de seu monitoramento.
+\end{itemize}
+
+Espera-se que, a partir de uma avaliação com abordagem direcionada à
+análise integrada do SUAS e partindo dos dados dos órgãos de gestão das
+unidades de atendimento públicas e privadas e das instâncias
+administrativas e deliberativas, seja possível retratar o seu
+funcionamento e evolução como política social. Assim, amplia-se a
+compreensão acerca da rede de assistência social por parte dos gestores,
+trabalhadores e sociedade civil, permitindo uma apreensão crítica de seu
+funcionamento.
+
+\hypertarget{gestuxe3o-e-financiamento}{%
+\chapter{Gestão e Financiamento}\label{gestuxe3o-e-financiamento}}
+
+O Sistema Único de Assistência Social (SUAS) é definido pela Lei
+Orgânica da Assistência Social
+(LOAS)\footnote{Lei nº 8.742, de 7 de dezembro de 1993: Dispõe sobre a organização da Assistência Social e dá outras providências. (\url{http://www.planalto.gov.br/ccivil_03/Leis/L8742compilado.htm})}
+como um sistema descentralizado e participativo que organiza a gestão
+das ações na área de assistência social, a partir das diretrizes:
+descentralização político-administrativa, participação social e primazia
+da responsabilidade do Estado na condução da política de assistência
+social. Assim, tem como um de seus objetivos a consolidação da gestão
+compartilhada entre os três entes federados e do cofinanciamento.
+
+A LOAS, a NOB
+SUAS\footnote{Norma Operacional Básica NOB - SUAS 2012 (\url{http://www.mds.gov.br/webarquivos/arquivo/assistencia_social/nob_suas.pdf})}
+e outros normativos que regulam a assistência social definem as
+responsabilidades da União, Estados, Distrito Federal e Municípios no
+âmbito da gestão compartilhada, que incluem o cofinanciamento de
+serviços, programas e ações da assistência social. Estão previstas ainda
+instâncias de pactuação e interlocução entre os três entes federados: a
+Comissão Intergestores Bipartite (CIB), da qual participam
+representantes de estados e municípios, e a Comissão Intergestores
+Tripartite (CIT), da qual participam, além de estados e municípios,
+representantes do governo federal.
+
+A partir das informações contidas no Censo SUAS é possível ter um
+panorama geral da gestão e do financiamento em estados e municípios, com
+a observação de aspectos como a estrutura administrativa da gestão da
+assistência social, a atualização de normativos, o apoio de estados aos
+municípios, as atividades de cofinanciamento e transferência de
+recursos, funcionamento das instâncias de pactuação, entre outras. Nesse
+sentido, esta seção apresenta os principais resultados obtidos a partir
+das informações dos questionários de gestão estadual e gestão municipal.
+
+A estrutura administrativa na Política de Assistência Social e
+Constituição de areas essenciais são elementos importantes para gestão
+do SUAS. No ambito da gestão estadual, no que se refere a exclusividade
+da area de Assistência Social, percebe-se que nos úlimos 10 anos houve
+uma redução de areas exclusivas de assistencia social. Em 2012 existiam
+25,9\%
+\footnote{Estados: Amazonas, Acre, Pará, Amapá, Piauí, Paraíba, Sergipe e São Paulo}
+das secretarias estaduais exclusivas de Assistência Social, em 2022 esse
+número passa para 3,8\%, \footnote{Estado do Amazonas} redução
+significativa de 87,2\%.
+
+Conforme a \Cref{fig:estados_sec_exc}, 25 estados (96,4\%) a Secretaria
+estadual estava associada a uma ou mais políticas setoriais, sendo
+predominante os grupos de duas e três politicas setoriais .
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/estados_sec_exc-1} \caption[Percentual de Estados quanto a caracteristica de estrutura administrativa, 2012 - 2022 - Brasil]{Percentual de Estados quanto a caracteristica de estrutura administrativa, 2012 - 2022 - Brasil}\label{fig:estados_sec_exc}\floatfoot{Fonte: MDS, Censo SUAS}
+\end{figure}
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/estados-caracteristica-secretaria-2012-1} \caption[Percentual de Secretarias Estaduais de acordo com composição administrativa relacionada a outras políticas - Brasil, 2012]{Percentual de Secretarias Estaduais de acordo com composição administrativa relacionada a outras políticas - Brasil, 2012}\label{fig:estados-caracteristica-secretaria-2012}\floatfoot{Fonte: MDS, Censo SUAS, eval=FALSE}
+\end{figure}
+
+No que se refere aos municípios, esse cenário nacional se configurou
+como contrário ao das gestões Estaduais. Observa-se um aumento das
+secretarias exclusivas de Assistência Social ao longo dos anos
+\footnote{a partir de 2019 essa pergunta foi retirada do formulário de gestão municipal},
+com exceção da Região Nordeste
+(\Cref{fig:secretarias-municipais-exclusivas}).
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/secretarias-municipais-exclusivas-1} \caption[Percentual de Secretarias Municipais exclusivas de Assistência Social, segundo grandes regiões – Brasil, 2012 - 2017 e 2022]{Percentual de Secretarias Municipais exclusivas de Assistência Social, segundo grandes regiões – Brasil, 2012 - 2017 e 2022}\label{fig:secretarias-municipais-exclusivas}\floatfoot{Fonte: MDS, Censo SUAS.}
+\end{figure}
+
+Alguns órgãos gestores estaduais constituíram as áreas de assistência
+social como subdivisões administrativas em sua estrutura, como
+superintendências, departamentos, gerências, coordenações, dentre
+outras. De acordo com o último pacto de aprimoramento Estadual do
+SUAS\footnote{Resolução CNAS Nº2, de 16 de março de 2017} umas das
+prioridades ligadas ao aperfeiçoamento institucional é possuir na
+estrutura administrativa as seguintes areas:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  Proteção Social Básica;
+\item
+  Proteção Social Especial de Média e Alta Complexidade;
+\item
+  Gestão do SUAS, com suas subdivisões de Vigilância Socioassistencial,
+  Regulação do SUAS e Gestão do Trabalho; e
+\item
+  Gestão do Fundo Estadual de Assistência Social - FEAS.
+\end{enumerate}
+
+Observa-se que meta chega em 2022 com 22 (85\%) estados com as
+subdivisões administrativas das áreas de Proteção Social Básica,
+Proteção Social Especial e Gestão do SUAS constituídas formalmente. São
+4 areas que não possuem 100\% constituídas (formal e informal) são elas:
+Gestão do SUAS, Gestão do trabalho, Serviços e Beneficios e Regulação do
+SUAS. Esta última apesenta menor percentual de formalização, sendo
+38,5\% subdivisões constituídas formalmente conforme
+\Cref{fig:estados-constituicao-subdivisoes}.
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/estados-constituicao-subdivisoes_2012-1} \caption[Percentual de estados segundo característica da estrutura administrativa da Secretaria estadual de Assistência Social - Brasil,  2012]{Percentual de estados segundo característica da estrutura administrativa da Secretaria estadual de Assistência Social - Brasil,  2012}\label{fig:estados-constituicao-subdivisoes_2012}\floatfoot{Fonte: MDS, Censo SUAS, eval=FALSE}
+\end{figure}
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/estados-constituicao-subdivisoes-1} \caption[Percentual de estados segundo característica da estrutura administrativa da Secretaria estadual de Assistência Social - Brasil,  2022]{Percentual de estados segundo característica da estrutura administrativa da Secretaria estadual de Assistência Social - Brasil,  2022}\label{fig:estados-constituicao-subdivisoes}\floatfoot{Fonte: MDS, Censo SUAS.}
+\end{figure}
+
+No que se refere aos municípios, a última pactuação sobre estrutura
+administrativa a partir dos portes populacionais dos
+municípios\footnote{124ª reunião ordinária da CIT - Pacto de Aprimoramento do SUAS}
+prevê:
+
+\begin{itemize}
+\item
+  \textbf{municípios de pequeno I e II e médio porte:} 100\% dos
+  municípios com instituição formal, na estrutura do órgão gestor de
+  assistência social, as áreas constituídas de Proteção Social Básica,
+  Proteção Social Especial e a área de Gestão do SUAS com competência de
+  Vigilância Socioassistencial.
+\item
+  \textbf{municípios de grande porte e metrópole:} 100\% dos muncípios
+  com instituição formal, na estrutura do órgão gestor de assistência
+  social, áreas constituídas de Proteção Social Básica, Proteção Social
+  Especial, com subdivisão de Média e Alta Complexidade, Gestão
+  Financeira e Orçamentária, Gestão de Benefícios Assistenciais e
+  Transferência de Renda, área de Gestão do SUAS com competência de:
+  Gestão do Trabalho, Regulação do SUAS e Vigilância Socioassistencial.
+\end{itemize}
+
+A \Cref{fig:municipais-constituicao-subdivisoes} sinaliza que as areas
+do SUAS com maior percentual de constituição formal são respectivamente:
+Gestão do Cadastro Único e Bolsa Família, Gestão da Proteção Social
+Básica e Gestão do SUAS.
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/municipais-constituicao-subdivisoes-1} \caption[Distribuição dos órgãos gestores municipais segundo constituição/formalização de subdivisões administrativas - Brasil, 2022]{Distribuição dos órgãos gestores municipais segundo constituição/formalização de subdivisões administrativas - Brasil, 2022}\label{fig:municipais-constituicao-subdivisoes}\floatfoot{Fonte: MDS, Censo SUAS.}
+\end{figure}
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/municipais-constituicao-subdivisoes_2012-1} \caption[Distribuição dos órgãos gestores municipais segundo constituição/formalização de subdivisões administrativas - Brasil, 2012]{Distribuição dos órgãos gestores municipais segundo constituição/formalização de subdivisões administrativas - Brasil, 2012}\label{fig:municipais-constituicao-subdivisoes_2012}\floatfoot{Fonte: MDS, Censo SUAS, eval=FALSE}
+\end{figure}
+
+Observa-se também que Gestão do trabalho e Vigilância Socioassistencial
+são os mais altos percentuais de informalidade e não constituíção. A
+regulamentação destas areas essenciais devem estar previstas no
+organograma. A Lei do
+SUAS\footnote{Lei nº 12.435, de 06/07/2011 altera a Lei Organiza da Assistência Social (LOAS) - nº 8.742, de 07/.12.1993}
+que dispõe sobre a organização deste sistema, trazendo a estrutura de
+gestão que inclui estas areas acima.
+
+A uniformização da Lei do SUAS dos estados e municpípios em consonacia
+com a LOAS foi deliberação da X Conferência Nacional. Sobre essa
+disposição, observa-se que nas gestões estaduais, 58\% dos estados
+possuem Lei Estadual de regulamentação do SUAS (total de 15 estados). As
+últimas atualizações ocorreram a partir de 2017 (12 estados), com
+exceção de Minas Gerais em 2011 Goiás em 2015 e Mato Grosso do Sul em
+2016.
+
+Entratando, 11 estados que não possuem Lei do SUAS. Esse número estão
+presentes nas seguintes regiões do Brasil: 4 - Nordeste, 3 - Norte, 2 -
+Região Sul e 1 - Região
+Sudeste\footnote{ siglas dos Estado que não possuem Lei do SUAS - censo suas 2022: RR, PA, TO, PI, RN, SE, BA, SP, PR, SC e RS}.
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/estados-atualizacao-lei-1} \caption[Percentual de estados segundo ano de atualização da Lei Estadual de regulamentação do Sistema Único de Assistência Social (SUAS) - Brasil, 2022]{Percentual de estados segundo ano de atualização da Lei Estadual de regulamentação do Sistema Único de Assistência Social (SUAS) - Brasil, 2022}\label{fig:estados-atualizacao-lei}\floatfoot{Fonte: MDS, Censo SUAS.}
+\end{figure}
+
+Em 2022, 75\% dos municípios possuíam Lei Municipal de regulamentação do
+SUAS (4.170). Destes, a maioria, 91\% (3.798) aprovaram/atualizaram após
+2013 e 9\% (372) anterior a atualização da Lei
+Nacional\footnote{Lei nº 12.435, de 06/07/2011 altera a Lei Organiza da Assistência Social (LOAS) - nº 8.742, de 07/.12.1993}
+e a NOB SUAS/2012 conforme detalha a
+\Cref{fig:municipios-atualizacao-lei}. A inexistência de Lei é
+encontrada em 25\% (1.400) dos municípios que coorresponde.
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/municipios-atualizacao-lei-1} \caption[Percentual de municípios segundo ano de atualização da Lei Municipal de regulamentação do Sistema Único de Assistência Social (SUAS) - Brasil, 2022]{Percentual de municípios segundo ano de atualização da Lei Municipal de regulamentação do Sistema Único de Assistência Social (SUAS) - Brasil, 2022}\label{fig:municipios-atualizacao-lei}\floatfoot{Fonte: MDS, Censo SUAS.}
+\end{figure}
+
+No que se refere ao Planejamento, trata-se de uma obrigatoriedade para
+existência do Sistema Único e repasse de confinanciamento. O Plano
+Estadual de Assistência Social (PEAS) deve ser aprovado pelo Conselho
+Estadual de Assistência Social (CEAS). Nesta perspectiva, dados de 2022
+sinalizam que 1 estado declarou não possui r Plano Estadual de
+Assistência Social, quando a atualização, 20\% (5) dos estados
+atualizaram seu Plano no último ano conforme (\Cref{fig:PEAS}).
+\footnote{Para o ano de 2022 não houve a pergunta sobre Plano Municipal de Assistência}
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/PEAS-1} \caption[Percentual de Estados quanto a atualização do Plano Estadual de Assistência Social em 2022 - Brasil]{Percentual de Estados quanto a atualização do Plano Estadual de Assistência Social em 2022 - Brasil}\label{fig:PEAS}\floatfoot{Fonte: MDS, Censo SUAS}
+\end{figure}
+
+O Plano de apoio técnico aos municípios também é um produto a ser
+realizado pelos Estados e previsto no último pacto de aprimoramento
+Estadual do SUAS\footnote{Resolução CNAS Nº2, de 16 de março de 2017}.
+De acordo com Censo Suas 2022, 57,69\% dos estados possuem este plano
+pactuado na CIB. Este percentual reduziu em relação ao ano de 2017, na
+qual mais de 76\% dos Estados informaram possui este documento pactuado
+neste instância de comissão intergestores bipartite.
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/plan_apoio_tec-1} \caption[Percentual de Estados que possuiem Plano de Apoio Técnico pactuado na CIB - Brasil, 2013 - 2017 - 2022]{Percentual de Estados que possuiem Plano de Apoio Técnico pactuado na CIB - Brasil, 2013 - 2017 - 2022}\label{fig:plan_apoio_tec}\floatfoot{Fonte: MDS, Censo SUAS}
+\end{figure}
+
+A NOB SUAS 2012 também evidencia o papel dos estados frente as
+atribuições de apoio técnico e financeiro aos municípios
+\footnote{Capítulo III - NOBSUAS/2012} na qual compreende ações de:
+
+\begin{enumerate}
+\def\labelenumi{\Roman{enumi})}
+\tightlist
+\item
+  Capacitação;
+\item
+  Elaboração de normas e instrumentos;
+\item
+  Publicação de materiais informativos e de orientações técnicas;
+\item
+  Assessoramento e acompanhamento;
+\item
+  Incentivos financeiros.
+\end{enumerate}
+
+Em 2022, todos os estados informaram realizar alguma modalidade de apoio
+técnico aos municípios. Os maiores percentuais observados referiam-se ao
+Apoio Técnico individualizado a municípios específicos ofertado por
+96,2\% dos estados (25). Os menores percentuais eram referentes a
+Seminários 46,2\%, (12). Outras formas, além das discriminadas eram
+ofertadas por 15,4\% dos estados (\Cref{fig:estados-formas-apoio}).
+
+Entre 2013 e 2022 o percentual de estados que prestavam assessoramento
+técnico a distância aumentou significativamente, passando de 42,3\% (11)
+em 2013 para 92,3\% (24) em 2022.
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/estados-formas-apoio-1} \caption[Percentual de estados segundo formas de apoio técnico aos municípios - Brasil, 2022]{Percentual de estados segundo formas de apoio técnico aos municípios - Brasil, 2022}\label{fig:estados-formas-apoio}\floatfoot{Fonte: MDS, Censo SUAS.}
+\end{figure}
+
+Abaixo (\Cref{fig:munic_vit_estadual}) o percentual de municípios do
+Brasil que informam sobre recebimento de visitas da gestão estadual para
+apoio técnico.
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/munic_vit_estadual-1} \caption[Percentual de Municpioios que informam receber visitas de Apoio Técnico do Estado - Brasil, 2022]{Percentual de Municpioios que informam receber visitas de Apoio Técnico do Estado - Brasil, 2022}\label{fig:munic_vit_estadual}\floatfoot{Fonte: MDS, Censo SUAS}
+\end{figure}
+
+O modelo de gestão do SUAS preve cofinanciamento compartilhado entre os
+três entes
+federados.\footnote{Art. 30-A.  O cofinanciamento dos serviços, programas, projetos e benefícios eventuais, no que couber, e o aprimoramento da gestão da política de assistência social no Suas se efetuam por meio de transferências automáticas entre os fundos de assistência social e mediante alocação de recursos próprios nesses fundos nas 3 (três) esferas de governo.}.
+Nesta perspetiva, percebe-se um avanço nos últimos 10 anos sobre a
+participação dos estados no cofinanciamento estadual com participação de
+96,15\% (25) dos estados que informam cofinanciar os municípios
+(\Cref{fig:estados-cofinanciamento-municipios}).
+
+A forma de cofinanciamento de deve ser viabilizada por meio de
+transferência automática regular entre os fundos de assistência social
+(Fundo a Fundo). Sobre esse item, observa-se que em 2012, 26,63\% () dos
+estados realizavam cofinanciamento na modalidade de apenas Fundo a Fundo
+e 25,9\% () apenas por convenio (). Dado que avançou ao longo dos anos,
+em 2022, 88,46\% (23) dos estados que realizam cofinanciamneto regular e
+automático e nenhum estado apenas por convênio.
+
+Apesar destes avanços, há registros de não cofinanciamento estadual, na
+qual saiu de 25,93\% () no ano de 2012 para 3,85\% em 2022
+(1)\footnote{o Estado do Acre não cofinancia os municípios}.
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/estados-cofinanciamento-municipios-1} \caption[Percentual de estados segundo realização de cofinanciamento aos municípios - Brasil]{Percentual de estados segundo realização de cofinanciamento aos municípios - Brasil; 2012, 2017 e 2022}\label{fig:estados-cofinanciamento-municipios}\floatfoot{Fonte: MDS, Censo SUAS.}
+\end{figure}
+
+A (\Cref{fig:estados-blocos-recursos}) evidencia a quantidade de estados
+quando ao cofinanciamento aos municípios por blocos. Os dados dos
+últimos 10 anos, sinaliza que o número de estados que cofinanciam os
+municípios vem aumentando. Sobretudo o cofinanciamento da proteção
+social especial (Média e Alta Complexoidade), em seguida Benefícios
+Eventuais. No que se refere aos últimos 5 anos houve uma redução na
+destinação de recursos para proteção social básica e incetivos do SUAS.
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/estados-blocos-recursos-1} \caption[Número de estados segundo a destinação dos recursos transferidos aos municípios por blocos de financiamento - Brasil, 2013 a 2017]{Número de estados segundo a destinação dos recursos transferidos aos municípios por blocos de financiamento - Brasil, 2013 a 2017}\label{fig:estados-blocos-recursos}\floatfoot{Fonte: MDS, Censo SUAS.}
+\end{figure}
+
+Em 2016, 72,7\% dos municípios brasileiros recebiam recursos estaduais
+para o cofinanciamento da assistência social: 60,4\% fundo-a-fundo,
+4,5\% via convênio e 7,8\% por convênio e fundo-a-fundo.
+
+Nas regiões Centro-Oeste e Nordeste 53,4\% e 60,2\% dos municípios
+recebiam recursos estaduais para cofinanciamento, respectivamente. Nas
+regiões Sul e Sudeste esses valores eram 80,1\% e 97,8\%,
+respectivamente. Em todas as regiões, o recebimento de recursos
+estaduais era majoritariamente fundo-a-fundo
+(\Cref{fig:municipios-recebimento-recursos}).
+
+O ordenador de despesa responde pela emissão de empenho, autorização de
+pagamento dos recursos do fundo de assistencia social. Assim,
+recomenda-se que tenha amplo conhecimento sobre a política . O grafico
+abaixo (\Cref{fig:estado_ord_despesa}) o censo suas 2022 sinaliza que
+73\% dos gestores estaduais são ordenadores de dewspesa do fundo
+estadual. Dado que reduziu a partir de 2018.
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/estado_ord_despesa-1} \caption[Percentual de estados quanto a ordenação de despesa do fundo estadual - Brasil, 2018-2022]{Percentual de estados quanto a ordenação de despesa do fundo estadual - Brasil, 2018-2022}\label{fig:estado_ord_despesa}\floatfoot{Fonte: MDS, Censo SUAS.}
+\end{figure}
+
+No que se refere aos municípios, aproximadamente 80\% dos secretários
+(as) municipais são ordenadores de despesa do Fundo Municipal. Esse
+percentual aumentou referente ao ano de 2018 (77,2\%). A
+(\Cref{fig:munic_ord_despesa}) também mostra que os prefeitos (as)
+enquanto ordenadores de despesa da política de Assistência Social vem
+reduzindo ao longo dos anos. Dado que se revela como positivo, haja
+vista o gestor municipal encontra-se no cotidiano do planejamento desta
+política, sendo mais apropriado para tomar as decições sobre o
+orçamento.
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/munic_ord_despesa-1} \caption[Percentual de municípios quanto a ordenação de despesa do fundo estadual - Brasil, 2013 - 2022]{Percentual de municípios quanto a ordenação de despesa do fundo estadual - Brasil, 2013 - 2022}\label{fig:munic_ord_despesa}\floatfoot{Fonte: MDS, Censo SUAS.}
+\end{figure}
+
+No que se refere a Educação Permanente, em relação aos Estados que
+possuem Núcleo de Educação Permante, a (\Cref{fig:NUEP}) evidencia que
+88,5\% dos estados possuem esta instancia colegiada.
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/NUEP-1} \caption[Percentual de Estados que possuem Núcleo de Educação Permanete, 2022]{Percentual de Estados que possuem Núcleo de Educação Permanete, 2022}\label{fig:NUEP}\floatfoot{Fonte: MDS, Censo SUAS}
+\end{figure}
+
+Em relação ao Plano de Educação Permanente, em 2015, xx municípios
+indicaram ter Plano de Capacitação e Educação Permanente, o que equivale
+a 11,2\% dos respondentes. Em 2022 o número de municípios que informou
+ter o Plano foi superior: xx municípios, o que representava 14,9\% dos
+municípios respondentes.
+
+Esse número varia conforme região sendo a região Nordeste com melhor
+indice: 26,6\% dos municípios e a região sul com menor: 5,7\% dos
+municípios conforme apresenta a (\Cref{fig:municipios-possuem-plano})
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/municipios-possuem-plano-1} \caption[Percentual de municípios que possuem Plano de Capacitação e Educação Permanente, segundo grandes regiões - Brasil]{Percentual de municípios que possuem Plano de Capacitação e Educação Permanente, segundo grandes regiões - Brasil; 2015, 2017 e 2022}\label{fig:municipios-possuem-plano}\floatfoot{Fonte: MDS, Censo SUAS.}
+\end{figure}
+
+\#colocar estados com plano de educação permanente
+
+Em relação a concurso público,
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/conc_munic-1} \caption[Percentual de municípios que realizaram concursos para trabalhadores nível superior ou médio do SUAS - Brasil, 2020 - 2021 - 2022]{Percentual de municípios que realizaram concursos para trabalhadores nível superior ou médio do SUAS - Brasil, 2020 - 2021 - 2022}\label{fig:conc_munic}\floatfoot{Fonte: MDS, Censo SUAS}
+\end{figure}
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/conc_estado-1} \caption[Percentual de estados que realizaram concursos para trabalhadores nível superior do SUAS - Brasil, 2022]{Percentual de estados que realizaram concursos para trabalhadores nível superior do SUAS - Brasil, 2022}\label{fig:conc_estado}\floatfoot{Fonte: MDS, Censo SUAS}
+\end{figure}
+
+\hypertarget{cadastro-uxfanico}{%
+\section{Cadastro Único}\label{cadastro-uxfanico}}
+
+O Cadastro Único para Programas Sociais do Governo Federal estabelecido
+através do decreto nº 3.887/2001 tem a finalidade de coletar,
+sistematizar e disseminar informações que permitem a identificação e
+caracterização das condições socioeconômicas das famílias em situação de
+vulnerabilidade social, sobretudo para as famílias de baixa de renda.
+
+O objetivo é conhecer, incluir e aprimorar as políticas sociais, bem
+como potencializar acesso a Serviços, Programas, benefícios e Projetos.
+A gestão do Cadastro Único é compartilhada entre união, estados,
+municípios e distrito federal na qual cabe aos estados o apoio técnico,
+capacitação, monitoramento e avaliação. É nos municípios que estão os
+locais de cadastramento e toda gestão territorial da identificação das
+famílias neste cadastro público.
+
+As unidades do Cadastro Único podem ser encontradas em locais exclusivos
+ou na rede de atendimento socioassistencial de CRAS, CREAS, Centro Pop.
+Dados do Censo SUAS mostram uma evolução de locais de cadastramento. A
+partir de 2017 houve um aumento de 54\% de postos de Cadastro Único.
+Sobre a distribuição destes locais de Cadastro Único, destaca-se que em
+2022, 31\% (2.892) são unidades exclusivas de Cadastro Único e 68\%
+estão em unidades da rede socioassistencial
+\footnote{CRAS, CREAS e CENTRO POP} conforme pode ser observado na
+tabela \ref{tab:qtd_equipamentos}.
+
+\begin{table}[H]
+\centering
+\caption{Quantidade de Unidades de Cadastro Único}
+\label{tab:qtd_equipamentos}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+Unidades             & 2017  & 2018 & 2019 & 2020 &  2021 & 2022            \\ \midrule
+CRAS                    & 5.669 & 5.508 & 5.923 & 5.729 & 5.937 & 6.090         \\
+CREAS                   & 281 & 174 & 199 & 199 & 208 & 230                     \\
+Centro POP              & 112 & 83 & 84 & 108 & 106 & 115                       \\
+Postos Cadastro Único   & - & - & - & 2.530 & 2.695 & 2.892                       \\ \bottomrule
+\textbf{Total}                   &\textbf{6.062} & \textbf{5.765} & \textbf{6.206} & \textbf{8.566} & \textbf{8.946} & \textbf{9.327}          \\ \bottomrule
+\end{tabular}
+\floatfoot{Fonte: MDS, Censo SUAS.}
+\end{table}
+
+A respeito das unidades exclusivas do Cadastro Único destacados acima,
+61\% encontram-se na sede da Secretaria de Assistência Social e 24,3\%
+em estruturas especificas. Os demais percentuais são encontrados em
+outra unidade administrativa como, em um serviço integrado, OSC´s,
+conselho ou escola.
+
+No que se refere a gestão territorial, cabe as coordenações do Cadastro
+Único dos municípios atendimento, supervisão, monitoramento e avaliação
+dos processos de cadastramento, seja em postos específicos ou integradas
+as unidades da rede socioassistencial.
+
+A produção de informações articuladas com Vigilância Socioassitencial
+também é uma ação importante para identificação das famílias
+vulnerabilizadas no território. Esses dados devem subsidiar busca ativa,
+ações de atualização cadastral, bem como iniciativas de parcerias com
+outros orgãos. O gráfico (\Cref{fig:acoes_cad}) sinaliza as ações e
+atividades desenvolvidas nos postos do cadastro único
+\footnote{estas informações são dos postos que executam exclusivamente atividades do cadastro único}.
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/acoes_cad-1} \caption[Ações desenvolvidas no ambito pelos postos do Cadastro Único - Brasil, 2020, 2021 e 2022]{Ações desenvolvidas no ambito pelos postos do Cadastro Único - Brasil, 2020, 2021 e 2022}\label{fig:acoes_cad}\floatfoot{Fonte: MDS, Censo SUAS.}
+\end{figure}
+
+O grafico acima sinaliza que as ações de esclarecimento de dúvidas sobre
+serviços, programas e outros é realizada pela grande maioria das
+undiades do cadastro único (96,82\%). Já as ações de agendamento para
+atendimento é realziada por 64,35\% dos undiades, com redução ao longo
+dos anos.
+
+Faz parte de procedimentos de qualificação do Cadastro Único ações de
+averiguação e revisão cadastral. A averiguação é um processo de
+verificação das informações registradas no Cadastro Único por meio da
+comparação dos dados declarados pelas famílias com outros dados e
+registros administrativos do governo federal. Já a revisão é um
+procedimento de atualização das famílias com registros desatualizados. O
+tempo considerado para um cadastro desatualizado é de 24 meses. O
+gráfico (\Cref{fig:ave_cad}) refere-se as informações de Averiguação e
+Revisão cadastral no ambito dos postos dos Cadastro Único dos
+municípios. Nota-se que ao longo dos anos, essas ações aumentaram,
+sobretudo as ações de busca ativa e identificação do público de
+averiguação e revisão cadastral como público prioritário.
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/ave_cad-1} \caption[Ações averiguação e revisão desenvolvidas pelas Unidades do Cadastro Único - Brasil, 2020, 2021 e 2022]{Ações averiguação e revisão desenvolvidas pelas Unidades do Cadastro Único - Brasil, 2020, 2021 e 2022}\label{fig:ave_cad}\floatfoot{Fonte: MDS, Censo SUAS.}
+\end{figure}
+
+A visita domiciliar é uma forma de coleta das informações, essa ação
+objetiva assegurar o acesso a inclusão ou atualização na residencia da
+família. De acordo com informações do (\Cref{fig:visit_dom}) as
+situações mais frequentes para visita domiciliar são para averiguação
+cadastral e inclusão/atualização de dados do BPC (Benefício de Prestação
+Continuada) conforme (\Cref{fig:visit_dom}).
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/visit_dom-1} \caption[Situações mais frequentes de entrevistas domiciliares no Cadastro Único - Brasil, 2020, 2021 e 2022]{Situações mais frequentes de entrevistas domiciliares no Cadastro Único - Brasil, 2020, 2021 e 2022}\label{fig:visit_dom}\floatfoot{Fonte: MDS, Censo SUAS.}
+\end{figure}
+
+no orgão gestor e profissionais específicos, destaca-se que
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/coord_cadunico-1} \caption[Percentual de postos do Cadastro Único que possuem coordenador - Brasil, 2020 - 2021 - 2022]{Percentual de postos do Cadastro Único que possuem coordenador - Brasil, 2020 - 2021 - 2022}\label{fig:coord_cadunico}\floatfoot{Fonte: MDS, Censo SUAS}
+\end{figure}
+
+\hypertarget{considerauxe7uxf5es-finais}{%
+\section{Considerações Finais}\label{considerauxe7uxf5es-finais}}
+
+Os órgãos gestores da assistência social, tanto estaduais quanto
+municipais, são estruturas fundamentais para a execução integral do SUAS
+e da PNAS. Suas participações nos planejamentos das ações a serem
+executadas, na coordenação do recebimento de recursos e na distribuição
+dos mesmos segundo as prioridades de seu território de trabalho tem
+papel crucial na fluidez do Sistema como um todo e no funcionamento da
+Rede Socioassistencial.
+
+As subdivisões administrativas que apresentavam maior percentual de
+formalização nos órgãos gestores municipais eram as voltadas à Proteção
+Social Básica e à Gestão de Benefícios Assistenciais, presentes em
+62,5\% e 63,1\% dos municípios, respectivamente. As que apresentavam
+menores percentuais de formalização nos órgãos gestores municipais eram
+as de Regulação do SUAS (36,5\%), de Proteção Social Especial (35,6\%),
+de Vigilância Socioassistencial (31,1\%) e de Gestão do Trabalho
+(30,6\%).
+
+Os recursos recebidos via transação fundo-a-fundo, garantem maior
+qualidade na distribuição, já que estes são fiscalizados pelos órgãos de
+controle social e passam pelo crivo das Comissões Intergestores
+Bipartite e Tripartite. Sobre o repasse, destacam-se as regiões Norte e
+Nordeste que apresentam alto percentual de municípios que não repassam
+recursos a ONGs ou entidades privadas da assistência social.
+
+\hypertarget{unidades-serviuxe7os-e-benefuxedcios}{%
+\chapter{Unidades, Serviços e
+Benefícios}\label{unidades-serviuxe7os-e-benefuxedcios}}
+
+A assistência social organiza-se por dois tipos de proteção: a proteção
+social básica, definida no artigo 6º-A da Lei Orgânica da Assistência
+Social (LOAS) como um ``conjunto de serviços, programas, projetos e
+benefícios da assistência social que visa a prevenir situações de
+vulnerabilidade e risco social por meio do desenvolvimento de
+potencialidades e aquisições e do fortalecimento de vínculos familiares
+e comunitários'' e a proteção social especial, definida como ``conjunto
+de serviços, programas e projetos que tem por objetivo contribuir para a
+reconstrução de vínculos familiares e comunitários, a defesa de direito,
+o fortalecimento das potencialidades e aquisições e a proteção de
+famílias e indivíduos para o enfrentamento das situações de violação de
+direitos''\footnote{Lei nº 8.742, de 7 de dezembro de 1993 (Lei Orgânica da Assistência Social): Dispõe sobre a organização da Assistência Social e dá outras providências (\url{http://www.planalto.gov.br/ccivil_03/Leis/L8742compilado.htm}).}.
+
+Nesse contexto, este eixo de equipamentos, serviços e benefícíos da
+Assistência Social tem o objetivo de apresentar informações sobre a
+oferta dos equipamentos da Proteção Social Básica e Especial do SUAS
+integrada aos serviços e benefícios desta política.
+
+Para isso, os dados históricos desta publicação nos ajudam a identificar
+os avanços e tendências ao longo dos anos em relação a estrutura física
+destes equipamentos, oferta dos serviços e benefícios, demanda e perfis
+de públicos atendidos, oferta regionalizada a partir da resolução CIT
+33/2013, integração com Cadastro Único para programas sociais, natureza
+da oferta das unidades. Este conteúdo está dividido por proteções a
+saber:
+
+\begin{itemize}
+\item
+  \textbf{Proteção Social Básica:} PAIF (Serviço de Proteção e
+  Atendimento Integral à Família), SCFV (Serviços de Convivência e
+  Fortalecimento de Vínculos), Proteção Social Básica no Domicílio para
+  pessoas idosas e com deficiência,
+\item
+  \textbf{Proteção Social Especial Média Complexidadade:} PAEFI (Serviço
+  de Atendimento Especializado a Famílias e Indivíduos),Proteção Social
+  Especial no Domicílio para pessoas idosas e com Deficiência, Abordagem
+  Social, MSE (Medidas Socioeducativas em meio aberto), Serviço para
+  situações de emergência e/ou calamidade pública.
+\item
+  \textbf{Proteção Social Especial Alta Complexidade:} Tipos de unidades
+  de Serviço de Acolhimento Institucional, oferta de Serviços de Família
+  Acolhedora, bem como do Programa de Família Guardiã ou Extensa,
+  Serviçso ofertado em Centro Dia.
+\end{itemize}
+
+\hypertarget{proteuxe7uxe3o-social-buxe1sica}{%
+\section{Proteção Social Básica}\label{proteuxe7uxe3o-social-buxe1sica}}
+
+\hypertarget{centros-de-referuxeancia-de-assistuxeancia-social-cras}{%
+\subsection{Centros de Referência de Assistência Social
+(CRAS)}\label{centros-de-referuxeancia-de-assistuxeancia-social-cras}}
+
+Os Centros de Referência de Assistência Social (CRAS) são definidos pelo
+artigo 6º-C da Lei Orgânica de Assistência Social (LOAS) como unidades
+públicas municipais destinadas à prestação de serviços, programas de
+projetos da proteção social básica às famílias, devendo se localizar em
+áreas com maiores índices de vulnerabilidade e risco social.
+
+No Censo SUAS de 2022 foram identificados 8.557 CRAS, em 5.535
+municípios brasileiros, o que indica que há pelo menos um CRAS em 99,4\%
+dos municípios brasileiros.
+
+O quantitativo de CRAS dobrou entre 2007 e 2022, passando de 4.195
+unidades para 8.557. Desde 2007, 4.361 novas unidades de CRAS foram
+criadas nos territórios municipais - crescimento. O
+\Cref{fig:quantitativo-CRAS} apresenta a evolução do quantitativo de
+CRAS por grandes regiões de desenvolvimento.
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/quantitativo-CRAS-1} \caption[Evolução do quantitativo de CRAS, segundo grandes regiões]{Evolução do quantitativo de CRAS, segundo grandes regiões; 2007, 2012, 2017 e 2022}\label{fig:quantitativo-CRAS}\floatfoot{Fonte: MDS, Censo SUAS.}
+\end{figure}
+
+A Expansão em todo território nacional do número de CRAS evidencia a
+consolidação de uma referencia de equipamento público de Assistêrncia
+Social em todo território nacional. De acordo com os dados 98,95\%
+municípios possuem CRAS, ou seja apenas 35 municípios no Brasil não
+dispõe deste equipamento público\textbackslash footnote\{77\% deles
+localizados na Região Sul, 20\% na Região Sudeste e 3\% na região
+Nordeste.\}. Assim, pode-se dizer que o desafio da expansão teve avanços
+nestes últimos anos e deixa como nova demanda para reconstrução da
+universalização na perspectiva de cobertura e de cofinanciamento.
+
+Dados de 2022 sinalizam que 7.455 receben cofinanciamento federal. Isso
+representa 87\% dos CRAS existentes neste mesmo período. No que se
+refere a cobertura destes equipamentos sociais, estudos da Vigilancia
+Nacional sinaliza uma descobertura no Brasil de 2.480 equipametnos de
+CRAS. Estes dados são calculados com referencia ao número de famílias
+referenciadas no
+CRAS\footnote{PNAS 2004 sinaliza refencia de acompanhamento a partir dos portes populacionais, são eles: PPI: 2.500 famílias referenciadas por CRAS, PPII: 3.500 famílias referenciadas, Médio/Grande/Metrópole: 5000 famílias referencia por CRAS}:
+fracionada ao número de famílias inseridas no Cadastro Único com renda
+até 1/2 salário mínimo. O trabalho Social da Proteção Básica protetiva
+tem como categorias de analise para o trabalho social a matricialidade
+da família e a referencia do território. Assim, a universalização aliado
+a função de vigilancia socioassistencial é uma agenda necessária para o
+SUAS.
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/municipios-CRAS-1} \caption[Evolução do percentual de municípios com pelo menos um CRAS, segundo grandes regiões - Brasil, 2007 a 2017]{Evolução do percentual de municípios com pelo menos um CRAS, segundo grandes regiões - Brasil, 2007 a 2017}\label{fig:municipios-CRAS}\floatfoot{Fonte: MDS, Censo SUAS.}
+\end{figure}
+
+Em 2016, 2.334 CRAS informaram que havia povos e comunidades
+tradicionais em seu território de abrangência (28,3\% do total de CRAS).
+Desses, apenas 127 (5,4\%) indicaram não ter realizado atendimento a
+esse público. Esse percentual é inferior a 2015, quando o percentual foi
+de 6,7\% (147 unidades dos 2.191 CRAS com povos e comunidades
+tradicionais em seu território de abrangência).
+
+Dos 2.334 CRAS que informaram que havia povos e comunidades tradicionais
+em seu território de abrangência, 896 informaram ter atendido
+Comunidades Quilombolas (38,4\%), seguidos por 615 CRAS que informaram
+ter atendido Comunidades Ribeirinhas (26,3\%) e 611 que informaram ter
+atendido Povos Indígenas (26,2\%) (Gráfico 27).
+
+Os CRAS são considerados a porta de entrada da Assistência Social, sendo
+uma referência para a população no território. Nesse sentido, podem se
+articular com a rede de proteção social e com demais serviços ofertados
+no município, de forma a garantir o acesso da população aos direitos
+sociais.
+
+Em 2016, apenas 0,6\% dos CRAS informaram não ter articulação com
+serviços de educação, e 0,2\% informaram que o serviço não existia no
+município. Assim, 99,2\% dos CRAS informaram manter alguma articulação
+com serviços de educação, sendo os maiores percentuais referentes à
+existência de dados atualizados dos parceiros com quem o CRAS mantém
+articulação (94,8\%) e ao encaminhamento de usuários ao CRAS pelos
+serviços de educação (90,9\%). No mesmo ano, 0,3\% dos CRAS informaram
+não ter articulação com serviços de saúde e 0,1\% informaram que o
+serviço não existe no município. Dessa forma, 99,6\% dos CRAS informaram
+ter articulação com serviços de saúde, sendo os maiores percentuais
+referentes ao recebimento de usuários encaminhados pelo CRAS (96,4\%).
+
+\hypertarget{centros-de-convivuxeancia}{%
+\subsection{Centros de Convivência}\label{centros-de-convivuxeancia}}
+
+Os Centros de Convivência, juntamente com os Centros de Referência de
+Assistência Social (CRAS), são unidades que executam o Serviço de
+Convivência e Fortalecimento de Vínculos e compõem a Rede de Proteção
+Social Básica. Desde 2014 o número de Centros de Convivência no Brasil
+aumentou, passando de 7.882 unidades em 2014 para 8.454 em 2016, em um
+acréscimo de 572 unidades. A região Norte tem a menor quantidade de
+unidades (238 ou 2,8\% do total), seguida do Centro-Oeste com 568
+Unidades (ou 6,7\% do total). A região Sudeste tem o maior número de
+Centros de Convivência, com 4.035 Unidades (47,7\% do total)
+
+Os Centros de Convivência podem ser unidades públicas ou vinculadas a
+entidades de assistência social, inscritas nos Conselhos de Assistência
+Social do município ou do DF. Em 2016, 44,7\% dos Centros de Convivência
+eram governamentais (total de 3.781 unidades) e 55,3\% das unidades eram
+não governamentais (4.672 unidades). Desde 2014, o percentual de
+unidades de natureza não governamental vem se reduzindo, passando de
+57,4\% (4.521 unidades) para 55,3\% (4.672 unidades) em 2016 (Gráfico
+29).
+
+Em 2016, 31,2\% dos Centros de Convivência (2.636 unidades) possuíam
+rota acessível ao banheiro de acordo com a norma da ABNT (NBR9050),
+sendo a adaptação mais observada nas unidades. Todas as condições de
+acessibilidade melhoraram em relação aos anos anteriores, e o maior
+aumento foi verificado no percentual de Centros de Convivência com
+banheiros adaptados para pessoas com deficiência: estavam presentes em
+24,3\% das unidades em 2014 (1.918) e passaram a ser observados em
+28,3\% das unidades em 2016 (2.389) (Gráfico 30).
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/CRAS-PSB-1} \caption[Percentual de CRAS que executavam diretamente os Serviços de Proteção social Básica nos domicílios - Brasil, 2014 a 2022]{Percentual de CRAS que executavam diretamente os Serviços de Proteção social Básica nos domicílios - Brasil, 2014 a 2022}\label{fig:CRAS-PSB}\floatfoot{Fonte: MDS, Censo SUAS}
+\end{figure}
+
+\hypertarget{serviuxe7os-de-proteuxe7uxe3o-social-especial-muxe9dia-compexidade}{%
+\section{Serviços de Proteção Social Especial -- Média
+Compexidade}\label{serviuxe7os-de-proteuxe7uxe3o-social-especial-muxe9dia-compexidade}}
+
+A Proteção Social Especial de Média Complexidade organiza a oferta de
+serviços, programas e projetos de caráter especializado que requerem
+maior estruturação técnica e operativa, com competências e atribuições
+definidas, destinados ao atendimento a famílias e indivíduos em situação
+de risco pessoal e social, por violação de direitos. É ofertada pelos
+Centros de Referência Especializados de Assistência Social (CREAS),
+pelos Centros de Referência Especializados para População em Situação de
+Rua (Centro POP), e pelos Centro-Dia. No nível de Média Complexidade,
+são ofertados o Serviço de Proteção e Atendimento Especializado a
+Famílias e Indivíduos (PAEFI); o Serviço de Proteção Social a
+Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade
+Assistida e de Prestação de Serviços à Comunidade; o Serviço
+Especializado em Abordagem Social; o Serviço de Proteção Social Especial
+para Pessoas com Deficiência, Idosos e suas Famílias e o Serviço
+Especializado para Pessoas em Situação de Rua. O PAEFI é definido na
+Tipificação Nacional de Serviços Socioassistenciais18 como sendo o
+``serviço de apoio, orientação e acompanhamento a famílias com um ou
+mais de seus membros em situação de ameaça ou violação de direitos.
+Compreende atenções e orientações direcionadas para a promoção de
+direitos, a preservação e o fortalecimento de vínculos familiares,
+comunitários e sociais e para o fortalecimento da função protetiva das
+famílias diante do conjunto de condições que as vulnerabilizam e/ou as
+submetem a situações de risco pessoal e social.'' As situações de
+violência ou de violação de direitos para as quais teve mais CREAS
+oferecendo atendimento pelo PAEFI em 2016, contando separadamente o
+atendimento de cada CREAS a cada ciclo de vida do usuário (atendimento a
+crianças e adolescentes, atendimento a mulheres adultas, atendimento a
+homens adultos e atendimento a idosos), foram as situações de violência
+psicológica, de violência física e de pessoas com deficiência vítimas de
+violência ou de violação de direitos. Para as crianças e adolescentes, a
+situação para a qual teve mais CREAS oferecendo atendimento foi a de
+abuso sexual ou de violência sexual: 2464 de um total de 2521 CREAS
+ofereceram atendimento pelo PAEFI a essa situação. No atendimento a
+mulheres adultas, as situações de violência física e violência
+psicológica foram as que tiveram maior número de CREAS oferecendo
+atendimento. Já para os homens adultos, a situação que teve o maior
+número de CREAS oferecendo atendimento foi a de pessoas com deficiência
+vítimas de violência ou de violação de direitos. Violência psicológica
+foi a situação, em número de CREAS, com maior oferta de atendimento para
+idosos. As situações que tiveram o maior número de CREAS que não
+oferecem atendimento para elas foram as de tráfico de pessoas, de
+famílias com adolescentes em cumprimento de medida socioeducativa e de
+famílias com pessoas egressas do sistema prisional (Gráfico 112).
+Gráfico 112 - Número de CREAS que oferecem atendimento pelo PAEFI,
+segundo situações e ciclos de vida do usuário em situação de
+violência/violação de direitos - Brasil, 2016 Fonte: MDS, Censo SUAS.
+
+Do total de 2521 unidades de CREAS existentes em 2016 no Brasil, de
+99,0\% a 99,5\% delas realizaram as seguintes ações e atividades no
+âmbito do PAEFI: visitas domiciliares, acompanhamento individual ou
+familiar, encaminhamento para o CRAS, encaminhamento para serviços da
+rede de saúde e encaminhamento de famílias ou indivíduos para a rede de
+serviço socioassistencial. As ações e atividades que tiveram menor
+número de CREAS realizando-as foram as de orientação jurídico-social e
+de grupo ou oficina com famílias ou indivíduos, realizadas por 75,2\% e
+72,5\% das unidades, respectivamente (Gráfico 113). Gráfico 113 -
+Percentual de CREAS segundo ações e atividades realizadas no âmbito do
+PAEFI - Brasil, 2016 Fonte: MDS, Censo SUAS.
+
+O Serviço Especializado em Abordagem Social consiste na identificação,
+por equipes de educadores sociais, de pessoas e famílias em situação de
+risco pessoal nos ambientes públicos. Dentre as situações de risco
+enquadram-se o trabalho infantil, situação de rua, uso abusivo de
+drogas, exploração sexual de crianças e adolescentes, dentre outras. A
+abordagem é realizada em praças, feiras, locais de intensa circulação de
+pessoas e com existência de comércio, ruas, prédios abandonados, dentre
+outros espaços, e tem por objetivo garantir direitos por meio de
+inclusão em rede de serviços socioassistenciais e em outras políticas
+públicas. Ao analisar a oferta de serviço especializado em abordagem
+social pelos municípios em 2016, temos que 3.663 municípios, ou, 66,8\%
+dos 5.481 municípios que participaram do Censo, declararam não ofertar o
+serviço, um grande crescimento em relação a 2015, quando 2.831
+municípios (51,5\%) haviam declarado não ofertar o serviço. O local onde
+o maior número de municípios oferta o serviço é no(s) CREAS, onde 1.319
+municípios (24,1\%) declararam ofertá-lo (em 2015, 28,9\% dos municípios
+haviam declarado ofertar o serviço no(s) CREAS). Na sede ou no órgão
+gestor do município era o local onde 955 municípios (17,4\%) ofertavam o
+serviço em 2015, caindo esse número em 2016 para apenas 421 (7,7\%).
+Houve queda também no número de municípios que ofertavam o serviço
+especializado em abordagem social nos locais menos frequentes: no(s)
+Centro POP, em outra unidade pública e em entidade conveniada (Gráfico
+114). Gráfico 114 -- Quantidade de Municípios segundo oferta e local de
+oferta de serviço especializado em abordagem social - Brasil, 2015 e
+2016 Fonte: MDS, Censo SUAS.
+
+De acordo com o Censo SUAS 2016, 1.537 CREAS (61,0\%) realizaram a
+abordagem social, sendo 374 (14,8\%) com equipes exclusivas para
+abordagem e 1.163 (46,1\%) sem equipe exclusiva. Outras 185 (7,3\%)
+unidades não realizaram o serviço com sua própria equipe. Nestes casos,
+o serviço é referenciado ao CREAS, mas ofertado por outra entidade. Em
+relação a 2015, houve redução nos percentuais de CREAS que realizaram a
+abordagem social com equipe exclusiva, sem equipe exclusiva e por outra
+entidade referenciada ao CREAS. Portanto, houve um aumento no percentual
+e também no número absoluto de CREAS que não realizavam e não possuíam
+serviço de abordagem referenciado, passando de 28,1\% dos CREAS em 2015
+para 31,7\% em 2016. Nas regiões, só na região Sul não houve queda no
+percentual de CREAS que realizaram a abordagem social com equipe
+exclusiva, mas ainda assim essa região continua tendo o menor percentual
+entre as regiões, com 12,0\%. A região Sul foi também a única que teve
+aumento no percentual de CREAS que não realizavam o serviço de abordagem
+com equipe do CREAS, mas que tinham outra entidade referenciada ao CREAS
+realizando o serviço. Nas regiões Centro-Oeste e Nordeste houve aumento
+no percentual de CREAS que realizaram a abordagem social sem equipe
+exclusiva, de 55,3\% em 2015 para 57,8\% em 2016 no Centro-Oeste e de
+49,9\% em 2015 para 50,3\% em 2016 no Nordeste. Finalmente, apenas na
+região Centro-Oeste não houve aumento no percentual de CREAS que não
+realizavam nem possuíam o serviço de abordagem referenciado a eles
+(Tabela 9). Tabela 9 - Quantidade de CREAS que realizam o Serviço
+Especializado em Abordagem Social segundo grandes regiões -- Brasil,
+2016
+
+2016 ``Sim, com equipe exclusiva para Abordagem'' ``Sim, sem equipe
+exclusiva para Abordagem'' ``Não realiza com a equipe deste CREAS, mas
+no município existe Serviço de Abordagem referenciado a este CREAS''
+``Não realiza nem possui Serviço de Abordagem referenciado a este
+CREAS'' Norte 40 109 4 74 Nordeste 165 486 25 291 Sudeste 93 295 103 221
+Sul 47 144 34 167 Centro-Oeste 29 129 19 46 Brasil 374 1.163 185 799
+Fonte: MDS, Censo SUAS.
+
+O Serviço de Proteção Social a Adolescentes em Cumprimento de Medida
+Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à
+Comunidade (PSC), segundo definido na Tipificação Nacional de Serviços
+Socioassistenciais, ``tem por finalidade prover atenção
+socioassistencial e acompanhamento a adolescentes e jovens em
+cumprimento de medidas socioeducativas em meio aberto, determinadas
+judicialmente. Deve contribuir para o acesso a direitos e para a
+resignificação de valores na vida pessoal e social dos adolescentes e
+jovens. Para a oferta do serviço faz-se necessário a observância da
+responsabilização face ao ato infracional praticado, cujos direitos e
+obrigações devem ser assegurados de acordo com as legislações e
+normativas específicas para o cumprimento da medida.'' 19 Em 2016,
+37,5\% dos municípios atendiam a adolescentes em cumprimento de Medida
+Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à
+Comunidade (PSC) no CREAS do município, enquanto 35,7\% dos municípios
+encaminhava o atendimento desses adolescentes para o CRAS. Constatou-se
+ainda que 16,3\% dos municípios atendiam esses adolescentes pela equipe
+de referência da proteção social especial do município (órgão gestor) e
+que 9,9\% dos municípios não atendiam adolescentes em cumprimento de LA
+e de PSC (Gráfico 115). Gráfico 115: Percentual de municípios segundo
+forma de atendimento a adolescentes em cumprimento de Medida
+Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à
+Comunidade (PSC) - Brasil, 2016 Fonte: MDS, Censo SUAS.
+
+O número de CREAS que realizam o Serviço de Proteção Social a
+Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade
+Assistida (LA) e de Prestação de Serviços à Comunidade (PSC) vem
+crescendo desde 2010, passando de 1.099 unidades de CREAS naquele ano
+para 2.018 unidades em 2016. O percentual de CREAS que realizam esse
+serviço também cresceu, passando de 69,1\% dos CREAS em 2010 para 80,0\%
+em 2016, percentual quase igual ao de 2015 (81,0\%) (Gráfico 116).
+Gráfico 116 - Número e percentual de CREAS que realizam o Serviço de
+Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa
+de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade
+(PSC) - Brasil, 2010 a 2016 Fonte: MDS, Censo SUAS.
+
+O ``Serviço de Proteção Social Especial para Pessoas com Deficiência e
+Pessoas Idosas e suas famílias'' é definido na Tipificação Nacional de
+Serviços Socioassistenciais20 como sendo o ``serviço para a oferta de
+atendimento especializado a famílias com pessoas com deficiência e
+idosos com algum grau de dependência, que tiveram suas limitações
+agravadas por violações de direitos, tais como: exploração da imagem,
+isolamento, confinamento, atitudes discriminatórias e preconceituosas no
+seio da família, falta de cuidados adequados por parte do cuidador, alto
+grau de estresse do cuidador, desvalorização da
+potencialidade/capacidade da pessoa, dentre outras que agravam a
+dependência e comprometem o desenvolvimento da autonomia.'' As ações e
+atividades mais desenvolvidas pelos 1.342 Centros-Dia do país no âmbito
+do ``Serviço de Proteção Social Especial para Pessoas com Deficiência e
+Pessoas Idosas e suas famílias'', em 2016, foram a acolhida e escuta
+inicial, o encaminhamento para os serviços da rede de saúde, o
+encaminhamento para a rede de serviços socioassistenciais e a orientação
+sobre acesso ao BPC e outros benefícios, ações e atividades estas que
+foram desenvolvidas por 94,0\% a 96,6\% dos Centros-Dia. Na outra ponta,
+apenas 23,7\% dos Centros-Dia fizeram provimento de bens materiais, e
+22,8\% fizeram provisão de órteses e próteses (Gráfico 117) Gráfico 117
+- Percentual de Centros-Dia segundo ações e atividades desenvolvidas no
+âmbito do ``Serviço de Proteção Social Especial para Pessoas com
+Deficiência e Pessoas Idosas e suas famílias'' - Brasil, 2016 Fonte:
+MDS, Censo SUAS.
+
+Durante o mês de agosto de 2016, 66.251 adultos com deficiência foram
+atendidos em 85,7\% das 1.342 unidades Centro-Dia do país. No mesmo mês
+foram atendidas 45.021 crianças de 7 a 14 anos com deficiência,
+atendimento realizado em 77,5\% das unidades. Um percentual menor de
+unidades, 50,4\%, realizaram atendimento de idosos com deficiência,
+atendendo 7.883 idosos nessa condição, e apenas 16,5\% das unidades
+Centro-Dia atenderam naquele mesmo mês 5.268 idosos sem deficiência, mas
+dependentes pela idade (Gráfico 118). Gráfico 118 - Número de pessoas
+com deficiência e/ou dependência atendidas nas Unidades Centro-Dia
+durante o mês de agosto de 2016, segundo faixa etária e situação de
+deficiência ou dependência - Brasil, agosto de 2016 Fonte: MDS, Censo
+SUAS.
+
+O Centro POP é uma unidade pública voltada para o atendimento
+especializado à população em situação de rua. Deve ofertar,
+obrigatoriamente, o Serviço Especializado para Pessoas em Situação de
+Rua, que realiza atendimentos individuais e coletivos, oficinas e
+atividades de convívio e socialização, além de ações que incentivem o
+protagonismo e a participação social das pessoas em situação de rua. Em
+2016, assim como em 2015, no conjunto de 22 atividades realizadas pelos
+Centros POP e pesquisadas pelo Censo SUAS, 13 atividades eram realizadas
+por mais de 90\% desses Equipamentos. Neste ano, o apoio para obtenção
+de documentação pessoal chegou a ser realizado por 100\% dos 230 Centros
+POP do país (eram 235 Centro POP no país em 2015). Também como em 2015,
+as atividades menos realizadas no conjunto de unidades foram a
+orientação sociojurídica, agora realizada em 44,3\% dos Centros POP, e a
+avaliação para concessão de aluguel social, cujo percentual caiu de
+36,6\% das unidades pesquisadas em 2015 para 33,5\% em 2016 (Gráfico
+119). Gráfico 119 - Percentual de Centros POP segundo atividades
+realizadas - Brasil, 2016 Fonte: MDS, Censo SUAS.
+
+\hypertarget{centro-de-referuxeancia-especializada-de-assistuxeancia-social-creas}{%
+\subsection{Centro de Referência Especializada de Assistência Social --
+CREAS}\label{centro-de-referuxeancia-especializada-de-assistuxeancia-social-creas}}
+
+Os Centros de Referência Especializados de Assistência Social (CREAS)
+são unidades públicas estatais que ofertam serviços da Proteção Social
+Especial a pessoas e famílias em situação de risco pessoal ou social
+e/ou em situação de violação de direitos.
+
+O Censo SUAS 2016 registrou 2.521 CREAS no país: um incremento de 86
+novas unidades em relação ao ano anterior. As regiões Nordeste e Sudeste
+apresentaram os maiores números de CREAS, 967 e 712, respectivamente. As
+regiões com maior aumento de unidades foram a Nordeste, com 37 novas
+unidades, e a Sul, com 29 novas unidades. A região Centro-Oeste teve uma
+diminuição de 5 unidades (Gráfico 31).
+
+Entre 2009 a 2014, o Censo SUAS registrou redução na proporção de CREAS
+funcionando em imóveis próprios, que se estabilizou em 2015. Contudo, em
+2016 os percentuais aumentaram, chegando 27,5\% de CREAS alocados em
+imóveis próprios (694 unidades), com diminuição para 65\% funcionando em
+imóveis alugados (total de 1.639 unidades). Em 2016 7,5\% de CREAS
+funcionavam em imóveis cedidos (188 unidades). Esse percentual aumenta
+desde 2014, quando 4,1\% dos CREAS funcionavam em imóveis cedidos.
+(Gráfico 32).
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/creas-quantitativo-1} \caption[Evolução do quantitativo de CREAS, segundo grandes regiões]{Evolução do quantitativo de CREAS, segundo grandes regiões; 2012, 2017 e 2022}\label{fig:creas-quantitativo}\floatfoot{Fonte: MDS, Censo SUAS.}
+\end{figure}
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/CREAS-municipios-1} \caption[Evolução de CREAS por número de municípios, segundo grandes regiões - 2012, 2017 e 2022]{Evolução de CREAS por número de municípios, segundo grandes regiões - 2012, 2017 e 2022}\label{fig:CREAS-municipios}\floatfoot{Fonte: MDS, Censo SUAS.}
+\end{figure}
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/creas-regionais-1} \caption[Evolução de CREAS Regionais - por região]{Evolução de CREAS Regionais - por região}\label{fig:creas-regionais}\floatfoot{Fonte: MDS, Censo SUAS.}
+\end{figure}
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/CREAS-PSE-Domicilio-1} \caption[Percentual de CREAS que realizam Serviço de proteção social Especial para Pessoas com Deficiência, Idosas e suas Famílias, 2016 a 2022]{Percentual de CREAS que realizam Serviço de proteção social Especial para Pessoas com Deficiência, Idosas e suas Famílias, 2016 a 2022}\label{fig:CREAS-PSE-Domicilio}
+\end{figure}
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/CREAS-abordagem-social-1} \caption[Quantidade de CREAS que realizam o Serviço Especializado em Abordagem Social, 2018 - 2020 e 2022]{Quantidade de CREAS que realizam o Serviço Especializado em Abordagem Social, 2018 - 2020 e 2022}\label{fig:CREAS-abordagem-social}\floatfoot{Fonte: MDS, Censo SUAS}
+\end{figure}
+
+Os CREAS atendem a população que se encontra em risco pessoal ou social
+ou que teve seus direitos violados e atuam na orientação e
+encaminhamento das pessoas e famílias para os demais serviços da
+assistência social ou de outras áreas. Assim, a articulação com
+serviços, programas ou instituições no município para encaminhamento de
+famílias e indivíduos que estejam em atendimento nos CREAS é
+fundamental.
+
+\hypertarget{centro-de-referuxeancia-especializado-para-populauxe7uxe3o-em-situauxe7uxe3o-de-rua-centro-pop}{%
+\subsection{Centro de Referência Especializado para População em
+Situação de Rua -- Centro
+POP}\label{centro-de-referuxeancia-especializado-para-populauxe7uxe3o-em-situauxe7uxe3o-de-rua-centro-pop}}
+
+Os Centros de Referência Especializados para População em Situação de
+Rua (Centros POP) são unidades públicas que oferecem atendimento
+especializado para a população em situação de rua, no âmbito da proteção
+social especial de média complexidade.
+
+Entre 2011 e 2015 o número de Centros POP cresceu, passando de 90
+unidades para 235 no período. Contudo, houve uma redução cinco unidades
+entre 2015 e 2016, ano no qual foram registradas 230 unidades. A região
+Centro-Oeste foi a única que teve aumento, de uma unidade. A maior
+redução ocorreu na região Sudeste, quem em 2016 apesentava 102 Centros
+POP, cinco a menos que no ano anterior.
+
+A maior parte dos imóveis onde se localizavam os Centros POP em 2016
+eram alugados (68,3\%). Em 2016 foi observada uma mudança na tendência
+de crescimento de funcionamento de Centros POP em imóveis alugados
+observada desde 2012, com redução de 2,3 pontos percentuais em relação a
+2015. Foi observado um aumento de 1,8 pontos percentuais nos Centros POP
+que funcionam em imóvel próprio em relação ao ano anterior. O aumento no
+percentual de Centros POP funcionando em imóveis próprios observado em
+2016 é positivo, pois os riscos de mudanças no local de atendimento são
+menores nesse tipo de imóvel.
+
+Em 2016 as condições de acessibilidade nos Centros POP que estavam de
+acordo com a Norma da ABNT melhoraram em relação a 2015 em todos os
+aspectos, com exceção das rotas acessíveis aos espaços da unidade, que
+sofreram uma redução de 1,3 pontos percentuais em relação ao ano
+anterior. A existência de banheiros adaptados para pessoas com
+dificuldade de locomoção aumentou de 15,7\% em 2015 para 20,0\% dos
+Centros POP em 2016.
+
+Em 2016, dos 58 Centros POP que funcionavam em imóveis próprios, 34,5\%
+(20 unidades) tinham banheiro adaptado para pessoas com dificuldades de
+locomoção ou necessidades especiais de acordo com a Norma da ABNT,
+enquanto entre os 157 imóveis locados apenas 14,0\% (22 unidades) tinham
+essa adaptação. A rota acessível ao banheiro estava presente em 26,7\%
+dos 15 imóveis cedidos (4 unidades) e apenas 14,0\% dos imóveis locados
+(22 unidades) (Gráfico 39).
+
+Considerando que os Centros POP servem de apoio para que os usuários
+possam realizar atividades relacionadas à alimentação, higiene pessoal,
+guarda de pertences e outras, é importante que estejam equipados de
+forma a viabilizar essas atividades. Em 2016, 97,4\% dos Centros POP
+possuíam geladeira e 91,7\% possuíam fogão, 65,7\%, possuíam armários de
+uso individual e 43,9\% dispunham de máquina de lavar roupas. Todos os
+percentuais aumentaram em relação a 2015 (Gráfico 41). Gráfico 41:
+Percentual de Centros POP que possuem armários de uso individualizado,
+geladeira, fogão e máquina de lavar roupas -- Brasil, 2015 e 2016 Fonte:
+MDS, Censo SUAS.
+
+\hypertarget{centro-dia}{%
+\subsection{Centro-Dia}\label{centro-dia}}
+
+O Centro-Dia é uma unidade pública especializada que atende pessoas com
+deficiência e suas famílias, no âmbito da proteção social especial de
+média complexidade.
+
+No ano de 2016 existiam 1.345 Centros-Dia, localizados majoritariamente
+na região Sudeste (812 unidades ou 60,4\% do total). A região com o
+menor número de unidades era a Norte com 13 unidades (1,0\% do total).
+
+Observa-se que houve redução na quantidade de unidades nas regiões Norte
+(3 unidades a menos), Sul (34) e Centro-Oeste (7), e aumento nas regiões
+Nordeste (13 unidades a mais) e Sudeste (36) em relação ao ano de 2015
+(Gráfico 42). Houve um aumento de 5 unidades no Brasil em comparação ao
+ano anterior.
+
+Em 2016 a maior parte dos Centros-Dia estava localizada em imóveis
+próprios (63,3\% do total de unidades). Em seguida, vinham as Unidades
+localizadas em imóveis cedidos (20,0\%) e em imóveis alugados (14,9\%).
+Os percentuais não se alteraram muito em relação ao ano anterior: houve
+pequeno aumento nos percentuais de imóveis próprios e alugados e pequena
+redução nos percentuais de Centros-Dia funcionando em imóveis cedidos
+(Gráfico 43). Gráfico 43: Evolução da implantação de Centros-Dia segundo
+situação do imóvel (\%) -- Brasil, 2015 e 2016 Fonte: MDS, Censo SUAS.
+
+Em 2016 a maior parte dos Centros-Dia contava com condições de
+acessibilidade de acordo com a Norma da ABNT: 871 Unidades (64,8\% do
+total) possuíam banheiro adaptado, 824 (61,3\%) rota acessível ao
+banheiro, 764 (56,8\%) rota acessível aos espaços da unidade e 739
+(54,9\%) acesso principal adaptado. Não foram observadas alterações
+expressivas em relação ao ano anterior (Gráfico 44). Gráfico 44:
+Centros-Dia segundo condição de acessibilidade de acordo com a Norma da
+ABNT -- Brasil, 2015 e 2016 Fonte: MDS, Censo SUAS.
+
+\hypertarget{serviuxe7os-de-proteuxe7uxe3o-social-especial-alta-complexidade}{%
+\section{Serviços de Proteção Social Especial -- Alta
+Complexidade}\label{serviuxe7os-de-proteuxe7uxe3o-social-especial-alta-complexidade}}
+
+Os serviços de Proteção Social Especial de Alta Complexidade são
+organizados em diferentes modalidades de equipamentos, conforme o
+público, e destinam-se a famílias e/ou indivíduos afastados
+temporariamente do núcleo familiar e/ou comunitários de origem. O Plano
+Individual de Atendimento (PIA) é um instrumento que norteia as ações a
+serem realizadas para viabilizar a proteção integral, a reinserção
+familiar e comunitária e a autonomia de crianças e adolescentes
+afastados dos cuidados parentais e sob proteção de serviços de
+acolhimento. É uma estratégia de planejamento que, a partir do estudo
+aprofundado de cada caso, compreende a singularidade dos sujeitos e
+organiza as ações e atividades a serem desenvolvidas com a
+criança/adolescente e sua família durante o período de acolhimento21. Em
+2016, todas as 33 Unidades de Acolhimento exclusivas para crianças e
+adolescentes com deficiência que responderam à pergunta sobre se fazem
+PIA de cada pessoa acolhida informaram que fazem o PIA. Das 2.965
+Unidades de Acolhimento de crianças e adolescentes que responderam à
+pergunta sobre se fazem PIA de cada pessoa acolhida, 98,9\% informaram
+que fazem. Já nas Unidades de Acolhimento de pessoas idosas, esse
+percentual foi o menor, das 1.417 que responderam à pergunta, 80,3\%
+informaram que fazem o PIA de cada pessoa acolhida (Gráfico 120).
+Gráfico 120 -- Quantidade e percentual de Unidades de Acolhimento que
+fazem Plano Individual de Atendimento (PIA) de cada pessoa acolhida,
+segundo público - Brasil, 2016 Fonte: MDS, Censo SUAS.
+
+As atividades que, segundo relato das 5.781 unidades de acolhimento
+existentes no país em 2016, tiveram maior percentual de unidades que as
+promoveram sistematicamente, foram: elaboração de relatórios técnicos
+sobre casos em acompanhamento, relatado por 85,9\% das unidades;
+discussão de casos com outros profissionais da rede, relatado por 85,2\%
+das unidades; encaminhamento para retirada de documentos, relatado por
+82,9\% das unidades e passeios com usuários, relatado por 82,5\% das
+unidades. As atividades que tiveram menor percentual de unidades que
+relataram que as promoveram sistematicamente, foram: envio de relatório
+semestral para o judiciário (exclusivo para acolhimento de criança ou
+adolescente) e realização de reuniões com grupos de famílias dos
+usuários, relatadas por 49,0\% e 45,1\% das unidades, respectivamente.
+0,9\% das unidades relataram que não realizam nenhuma das atividades
+listadas (Gráfico 121). Gráfico 121 - Percentual de Unidades de
+Acolhimento segundo tipo de atividade promovida sistematicamente -
+Brasil, 2016 Fonte: MDS, Censo SUAS.
+
+O Serviço de Acolhimento em Família Acolhedora ``organiza o acolhimento
+de crianças e adolescentes, afastados da família por medida de proteção,
+em residência de famílias acolhedoras cadastradas. É previsto até que
+seja possível o retorno à família de origem ou, na sua impossibilidade,
+o encaminhamento para adoção. O serviço é o responsável por selecionar,
+capacitar, cadastrar e acompanhar as famílias acolhedoras, bem como
+realizar o acompanhamento da criança e/ou adolescente acolhido e sua
+família de origem.'' 22 Em todo Brasil, apenas 9,5\% dos municípios
+possuíam, em 2016, serviço de acolhimento em família acolhedora para
+criança e adolescente, sendo que 7,9\% dos municípios possuíam o serviço
+e ele era regulamentado por lei municipal. A região com maior percentual
+de municípios que possuíam esse serviço era a Sul, com 16,0\%, sendo que
+em 15,0\% o serviço era regulamentado por lei municipal, seguida da
+região Sudeste, também com percentuais de municípios que possuíam o
+serviço acima do percentual nacional. As regiões Nordeste e Centro-Oeste
+tinham os menores percentuais de municípios que possuíam o serviço,
+apenas 3,7\% no Nordeste e 4,8\% no Centro-Oeste, sendo que em ambas
+apenas 2,4\% dos municípios possuíam o serviço tendo ele regulamentado
+por lei municipal (Gráfico 122). Gráfico 122 - Percentual de municípios
+que possuem Serviço de Acolhimento em Família Acolhedora para Criança e
+Adolescente, e que possuem esse serviço regulamentado por lei municipal,
+segundo grandes regiões - Brasil, 2016 Fonte: MDS, Censo SUAS.
+
+522 municípios brasileiros em 2016 possuíam serviço de acolhimento em
+família acolhedora para criança e adolescente. Desses, um terço não
+tinha nenhuma família cadastrada pelo serviço e aptas a receber as
+crianças ou adolescentes com medidas protetivas. Quase a metade, 49,6\%,
+desses 522 municípios tinham apenas de 1 a 5 famílias cadastradas e
+aptas a receber as crianças ou adolescentes. Apenas 0,6\% dos 522
+municípios tinham mais de 50 famílias cadastradas pelo serviço e aptas a
+receber as crianças ou adolescentes (Gráfico 123). Gráfico 123 -
+Percentual de municípios segundo quantidade de famílias no município
+cadastradas pelo Serviço de Acolhimento em Família Acolhedora para
+Criança e Adolescente e aptas a receber as crianças/adolescentes com
+medidas protetivas - Brasil, 2016 Fonte: MDS, Censo SUAS.
+
+55,0\% dos 522 municípios brasileiros que em 2016 possuíam serviço de
+acolhimento em família acolhedora para crianças e adolescentes não
+tinham nenhuma criança ou adolescente sendo acolhidas por meio do
+serviço no município. Quase um terço, ou 32,0\% desses 522 municípios
+tinham apenas de 1 a 5 crianças ou adolescentes sendo acolhidas por meio
+do serviço. Apenas 0,8\% dos 522 municípios tinham mais de 50 crianças
+ou adolescentes sendo acolhidas (Gráfico 124). Gráfico 124 - Percentual
+de municípios por quantidade de crianças/adolescentes que estão sendo
+acolhidas por meio do Serviço de Família Acolhedora no município -
+Brasil, 2016 Fonte: MDS, Censo SUAS.
+
+Considerações Finais Os dados do Censo SUAS 2016 revelaram uma
+significativa aceleração no crescimento do percentual de CRAS que
+concederam benefícios eventuais (Gráfico 109), crescimento que vinha
+ocorrendo entre 2010 e 2015, mas em ritmo bem mais lento. Os maiores
+crescimentos observados foram no percentual de CRAS que concederam
+auxílio funeral, que cresceu 10,9 pontos percentuais, e que concederam
+auxílios relacionados à segurança alimentar, que cresceu 10,8 pontos
+percentuais. Por outro lado, foi observada queda no percentual de CRAS
+que executavam diretamente os Serviços de Convivência e Fortalecimento
+de Vínculos (Gráfico 102), que se aproximou dos menores percentuais da
+série histórica, observados em 2009 e 2010.
+
+UNIDADES DE ACOLHIMENTO As Unidades de Acolhimento são equipamentos que
+prestam serviços de proteção social especial de alta complexidade,
+atendendo pessoas e/ou famílias com vínculos familiares rompidos ou
+fragilizados, ou que estejam em situação de abandono, ameaça ou violação
+de direitos, de forma a garantir sua proteção integral. As informações
+sobre as Unidades de Acolhimento começaram a ser coletadas pelo Censo
+Suas a partir do ano de 2012. Entre 2012 e 2016 foram criadas 1.254
+novas Unidades, sendo 5.614 no total. A maior concentração de unidades
+no ano de 2016 é na região Sudeste do país, com 2.990 Unidades de
+Acolhimento.
+
+A maioria das Unidades de Acolhimento, em 2016, era composta por
+instituições não governamentais. Esse percentual variou pouco entre 2012
+e 2016, atingindo 64,7\% em 2016 (Gráfico 49). Gráfico 49: Percentual de
+Unidades de Acolhimento segundo natureza da unidade - Brasil, 2012 a
+2016 Fonte: MDS, Censo SUAS.
+
+No que se refere às condições de acessibilidade de acordo com a Norma da
+ABNT, é possível notar pequenas melhorias no percentual em três dos
+quatro quesitos investigados. A adaptação mais observada é a rota
+acessível ao banheiro, presente em 44,2\% das Unidades (2.479), e a
+menos observada é o acesso principal adaptado com rampas e rota
+acessível desde a calçada até o interior da unidade, presentes em 36,4\%
+das Unidades (2.044). O banheiro adaptado para pessoas com deficiência
+e/ou mobilidade reduzida, presente em 36,5\% das unidades em 2015
+(1.978), passou a ser observado em 39,1\% das unidades em 2016 (2.194)
+(Gráfico 50).
+
+Em 2016, 75,9\% dos computadores das Unidades de Acolhimento tinham
+acesso à internet, um aumento de 7,2 pontos percentuais em relação a
+2012 e redução de 0,5\% em relação ao ano anterior (Gráfico 51). Gráfico
+51: Percentual de Unidades de Acolhimento com computadores com acesso à
+internet -- Brasil, 2012 e 2016 Fonte: MDS, Censo SUAS.
+
+Em 2016, 50,4\% das Unidades de Acolhimento prestavam serviços de
+acolhimento a crianças e adolescentes (2.831 unidades). Desde 2014,
+cerca de 28\% das unidades acolheram idosos. Do total de 5.614 Unidades
+de Acolhimento do país em 2016, 80,1\% (4.498 unidades) tinham como
+principal público crianças e adolescentes ou pessoas idosas. No mesmo
+ano, 12,6\% das Unidades atendiam como principal público adultos e
+famílias (705 unidades) e 1,6\% (91 unidades) mulheres em situação de
+violência. O percentual de unidades de acolhimento que atendiam
+exclusivamente pessoas adultas com deficiência em 2016 era de 4,6\%, o
+que representava o total de 258 unidades, enquanto 0,6\% das unidades
+destinavam-se ao atendimento exclusivo de crianças e adolescentes com
+deficiência (35 Unidades). Em menor quantidade, 0,5\% das unidades
+acolhiam jovens egressos de serviço de acolhimento (27). Quando
+observados os anos 2014 a 2016, não foram observadas variações
+expressivas entre a proporção de unidades em relação ao público atendido
+(Gráfico 52). Gráfico 52: Percentual de Unidades de Acolhimento segundo
+público atendido. Brasil, 2014 a 2016 Fonte: MDS, Censo SUAS.
+
+Em 2016 existiam 163.364 vagas para atendimento nas Unidades de
+Acolhimento, considerando a capacidade máxima das 5.612 Unidades
+respondentes. Das 3.390 Unidades que tinham entre 0 e 20 vagas de
+capacidade máxima (60,4\% do total), 2.497 (44,5\% do total de unidades)
+eram voltadas ao atendimento de crianças e adolescentes. Das 1.667
+Unidades voltadas ao acolhimento de pessoas idosas, 708 possuíam de 21 a
+40 vagas. Foram identificadas 1.237 Unidades de Acolhimento que tinham
+entre 21 e 40 vagas para atendimento. Das 27 Unidades voltadas ao
+atendimento a jovens egressos de serviços de acolhimento, 21 tinham até
+20 vagas. Entre as 91 Unidades que atendiam mulheres em situação de
+violência, 72 tinham até 20 vagas. Das 123 unidades que tinham acima de
+100 vagas, 4 eram voltadas ao atendimento de crianças e adolescentes, 54
+a pessoas idosas, 60 a adultos e famílias e 5 exclusivas para pessoas
+adultas com deficiência (Gráfico 53). Gráfico 53: Número de Unidades de
+Acolhimento segundo capacidade máxima e público atendido - Brasil, 2016
+Fonte: MDS, Censo SUAS.
+
+Em 2016, 2.108 Unidades (37,6\%) tinham capacidade máxima (número de
+vagas) de acolhimento entre 11 a 20 pessoas, a maior concentração de
+unidades entre as categorias relacionadas. 3.390 Unidades de Acolhimento
+(60,4\%) tinham capacidade máxima para atendimento (número de vagas) de
+até 20 pessoas e 1.237 (22,0\%) tinham capacidade máxima para
+atendimento de 21 a 40 pessoas. Apenas 123 Unidades (2,2\%) tinham
+capacidade para atendimento de mais de 100 pessoas. Sobre as vagas
+ocupadas, 3.699 Unidades (65,9\%) acolhiam até 20 pessoas, 1.137
+(20,3\%) entre 21 e 40 pessoas e 80 (1,4\%) acolhiam mais de 100 pessoas
+(Gráfico 54). 156 Unidades (2,8\% do total) informaram não acolher
+nenhuma pessoa no momento do levantamento. Em média as Unidades de
+Acolhimento tinham, em 2016, 29 vagas de capacidade máxima e 22 vagas
+ocupadas. Gráfico 54: Número de Unidades de Acolhimento segundo
+capacidade máxima e quantidade de pessoas acolhidas - Brasil, 2016
+Fonte: MDS, Censo SUAS.
+
+Em 2016 existiam 5.614 Unidades de Acolhimento no país. Dessas, 2.217
+eram Abrigos institucionais (39,5\% do total de unidades), e 1.564
+Abrigos institucionais (Instituição de Longa Permanência para Idosos -
+ILPI), que representavam 27,9\% do total. As 23 repúblicas para jovens
+representavam 0,4\% do total de Unidades, os 18 Abrigos para famílias
+desabrigadas/desalojadas vítimas de desastres eram 0,3\% e as 12
+repúblicas eram 0,2\% total (Gráfico 55). Gráfico 55: Distribuição das
+Unidades de Acolhimento segundo tipo de instituição -- Brasil, 2016
+Fonte: MDS, Censo SUAS.
+
+As Unidades de Acolhimento podem se articular com outros serviços,
+programas ou instituições no município. Em 2016, 5,1\% das Unidades de
+Acolhimento informaram não ter nenhuma articulação com os CRAS, e 0,2\%
+informaram que não havia CRAS no município, enquanto 4,8\% e 28,3\%
+informaram não ter nenhuma articulação com CREAS e Conselho Tutelar,
+respectivamente. 12,7\% das Unidades de Acolhimento indicaram que não
+havia CREAS no município e 0,5\% informaram não haver Conselho Tutelar.
+Os menores percentuais referentes à articulação foram observados em
+relação aos Centros-Dia (55,2\% das Unidades de Acolhimento informaram
+não haver o equipamento no município e 27,3\% que não se articulam com
+esse equipamento) e aos Centros POP: 51,4\% das Unidades de Acolhimento
+informaram que não há Centro Pop no município e 21,4\% que não se
+articulam com essas unidades (Tabela 8). Tabela 8: Articulação das
+Unidades de Acolhimento com serviços, programas ou instituições
+existentes no município - Brasil, 2016
+
+Serviços, programas ou instituições com os quais a Unidade de
+Acolhimento mantém articulação Possui dados da localização (endereço,
+telefone etc.) Recebe usuários encaminhados por esta Unidade Encaminha
+usuários para esta Unidade Acompanha os encaminhamentos Realiza reuniões
+periódicas Troca Informações Realiza estudos de caso em conjunto
+Desenvolve atividades em parceria Não tem nenhuma articulação Serviço ou
+instituição não existente no município Conselho Tutelar 68,8\% 44,4\%
+35,6\% 32,5\% 25,1\% 54,5\% 31,8\% 26,6\% 28,3\% 0,5\% CRAS 88,4\%
+43,6\% 55,5\% 49,1\% 34,2\% 77,3\% 42,0\% 46,7\% 5,1\% 0,2\% CREAS
+76,3\% 48,3\% 52,3\% 52,0\% 41,8\% 70,7\% 50,6\% 42,5\% 4,8\% 12,7\%
+Centro-Dia 15,7\% 3,0\% 4,2\% 2,8\% 1,6\% 7,2\% 2,5\% 3,5\% 27,3\%
+55,2\% Centro de Referência Especializado para População em Situação de
+Rua -- Centro POP 25,0\% 11,1\% 9,6\% 8,0\% 6,9\% 16,6\% 8,6\% 7,0\%
+21,4\% 51,4\% Outras Unidades de Acolhimento 51,8\% 22,3\% 21,2\% 14,2\%
+17,3\% 42,9\% 19,8\% 22,0\% 18,6\% 23,9\% Fonte: MDS, Censo SUAS.
+
+ANÁLISE CONJUNTA Alguns equipamentos de prestação de serviços
+socioassistenciais estão instalados em imóveis compartilhados com outras
+unidades públicas de assistência social, unidades de saúde e outras
+diversas instituições. Em 2016, 27,8\% dos Centros de Convivência
+estavam situados em imóveis compartilhados, destes, 551 das unidades
+dividiam imóvel com escolas. Entre os CRAS, menos de 10\% usam imóveis
+compartilhados, o que representa uma diminuição de 0,8\% em relação ao
+ano de 2015. O percentual de Centros POP instalados em imóveis
+compartilhados era de 22,1\% em 2015, aumentando mais de 2 pontos
+percentuais no ano de 2016. Entre os CREAS, 17,9\% dividiam espaço em
+2016 (Gráfico 56). Gráfico 56: Percentual de Equipamentos instalados em
+imóvel compartilhado - Brasil, 2015 e 2016 Fonte: MDS, Censo SUAS.
+
+O atendimento a povos e comunidades tradicionais no SUAS deve respeitar
+suas tradições e cultura para garantir o acesso dessa parcela da
+população a serviços, benefícios e direitos sociais. O atendimento a
+esse público se dá em mais de um tipo de equipamento da assistência
+social. Em 2016, 29,1\% dos CREAS, 26,8\% dos CRAS e 16,3\% dos Centros
+de Convivência prestaram atendimento a povos e comunidades tradicionais.
+O atendimento a povos indígenas foi prestado por 10,6\% dos CREAS, 7,4\%
+dos CRAS e 2,6\% dos Centros de Convivência. Já o atendimento a
+quilombolas foi realizado por 10,9\% dos CRAS, 9,7\% dos CREAS e 3,2\%
+dos Centros de Convivência (Gráfico 57). Gráfico 57: Percentual de
+Unidades de Assistência Social que atenderam povos e comunidades
+tradicionais - Brasil, 2016 Fonte: MDS, Censo SUAS.
+
+Em 2016, mais de 92\% dos Centros POP e dos Centros-Dia ofereciam
+alimentação ou facilitavam o acesso ao público atendido. Nos Centros
+POP, 95,7\% ofereciam ou facilitavam o acesso à alimentação aos
+usuários, 90,4\% das Unidades (208) ofereciam lanche/ café da manhã,
+enquanto 23,5\% (54) ofereciam jantar e 8,7\% (20) o lanche/ café da
+noite. Nos Centros-Dia, 92,6\% das unidades ofertavam alimentação. Em
+termos absolutos esse percentual representa 1.246 unidades. Considerando
+as refeições oferecidas, 83,9\% das Unidades ofertavam lanche/ café da
+tarde, e 82,5\% ofertavam lanche/ café da manhã. Assim como nos Centros
+POP os menores percentuais foram observados em relação à oferta de
+jantar (9,7\%) e o lanche/ café da noite (1,9\%) (Gráfico 58). Gráfico
+58: Percentual de Centros POP e Centros DIA que facilitam o acesso ou
+oferecem alimentação aos usuários - Brasil, 2016 Fonte: MDS, Censo SUAS.
+
+A distribuição de equipamentos da Assistência Social segundo localização
+mostra que em 2016, mais da metade dos CRAS estava localizado em áreas
+urbanas centrais (53,0\% ou 4.368 unidades), enquanto 42,8\% (3.530
+unidades) estavam em áreas urbanas periféricas e 4,2\% (342 unidades) em
+áreas rurais. O equipamento com maior percentual de unidades localizadas
+em áreas urbanas centrais é o CREAS (81,8\% do total, o que corresponde
+a 2.062 unidades). Apenas 0,5\% dos CREAS (12 unidades) funcionam em
+área rural. Os Centros de Convivência, por sua vez, têm mais da metade
+de suas unidades localizadas em áreas urbanas periféricas (51,0\% do
+total, o que corresponde a 4.308 unidades) e 12,1\% de suas unidades
+(1020) localizadas em área rural (Gráfico 59). Gráfico 59: Distribuição
+de Equipamentos da Assistência Social segundo localização - Brasil, 2016
+Fonte: MDS, Censo SUAS.
+
+Considerações Finais Conforme apresentado ao longo desse capítulo, em
+2016 foram analisados pelo Censo SUAS 8.240 CRAS, 2.521 CREAS, 230
+Centros POP, 8.454 Centros de Convivência, 5.614 Unidades de Acolhimento
+e 1345 Centro Dia. Os dados mostraram que equipamentos como CRAS estão
+presentes em quase todos os municípios brasileiros e que as Unidades de
+Acolhimento mantêm sua trajetória de expansão em todo território
+nacional. Um resultado positivo é que o percentual de CRAS funcionando
+em imóvel próprio cresceu para 51,7\% e caiu para 39,6\% o percentual
+dos que se encontravam funcionando em imóveis alugados no ano de 2016.
+As condições de acessibilidade, a despeito da melhora contínua ao longo
+dos anos em alguns tipos de equipamentos, seguem sendo um desafio
+importante a ser superado para todos os equipamentos do SUAS. Com
+relação aos CRAS, o aspecto que apresentou maior adequação foi rota
+acessível ao banheiro, presente em 38,7\% das unidades do país. Quanto
+aos CREAS, os percentuais para todos os quesitos foram ainda menores,
+sendo o destaque positivo para o acesso principal adaptado com rampas e
+rota acessível desde a calçada do equipamento, presente em 26,8\% desses
+equipamentos.
+
+Capítulo 4 -- Recursos Humanos do SUAS A qualidade da oferta de
+serviços, programas e benefícios da assistência social está diretamente
+ligada a uma adequada gestão do trabalho no âmbito do SUAS. O
+dimensionamento das equipes, a capacitação dos profissionais e a
+estruturação das condições de trabalho são fundamentais nesse sentido.
+Um importante normativo para a gestão do trabalho é Norma Operacional
+Básica de Recursos Humanos do SUAS (NOB-RH/SUAS)13, que traz orientações
+e diretrizes, além de detalhamentos importantes sobre as equipes de
+referência, planos de carreira, cargos e salários, cofinanciamento,
+educação permanente, entre outros aspectos relevantes. Esta seção
+apresenta um panorama geral da situação das trabalhadoras e
+trabalhadores do SUAS, tanto nos equipamentos da assistência social
+quanto nas gestões municipais e estaduais, apresentando informações
+sobre quantitativo, tipo de vínculo trabalhista, escolaridade, entre
+outros aspectos referentes à gestão do trabalho, e sua evolução ao longo
+dos anos. Em 2016, as Gestões Municipais informaram ter 239.815
+trabalhadoras e trabalhadores exercendo funções/atividades ligadas à
+assistência social (inclusive aqueles lotados nas unidades públicas), o
+menor número desde 2012. Observando a série histórica é possível
+verificar que o número máximo de trabalhadores foi registrado no ano de
+2014, após sucessivos crescimentos desde 2010. Desde de 2015 esse número
+se reduziu, registrando em 2016 cerca de 17.000 trabalhadores a menos
+que em 2014 (Gráfico 60). Gráfico 60: Evolução da quantidade de
+trabalhadores nas Secretarias Municipais de Assistência Social - Brasil,
+2010 a 2016 Fonte: MDS, Censo SUAS.
+
+Os trabalhadores estatutários na gestão municipal representavam 38,1\%
+do total em 2016, o maior percentual entre as quatro categorias
+representadas. O percentual de estatutários em 2016 foi o maior desde
+2011: houve um aumento de 1,9 pontos percentuais em relação a 2015 e 4,1
+em relação a 2011. Foi observada queda nos percentuais da força de
+trabalho comissionada e com outros vínculos em relação a 2015: em 2016
+eles representavam 15,7\% e 34,6\% dos trabalhadores, respectivamente
+(Gráfico 61). Gráfico 61: Percentual de trabalhadores nas Secretarias
+Municipais de Assistência Social, segundo tipo de vínculo -- Brasil,
+2010 a 2016 Fonte: MDS, Censo SUAS.
+
+Em 2016, 15,2\% dos trabalhadores da gestão municipal tinham nível
+fundamental de escolaridade (36.494 pessoas), 47,2\% nível médio
+(113.112) e 37,6\% nível superior (90.209). Da totalidade de servidores
+com nível fundamental de escolaridade, 43,1\% eram estatutários. Entre
+os que tinham nível superior, 42,8\% eram estatutários, e entre os
+trabalhadores de nível médio 40,5\% eram de outros vínculos (Gráfico
+62). Gráfico 62: Percentual de trabalhadores nas Secretarias Municipais
+de Assistência Social, segundo tipo de vínculo e escolaridade -- Brasil,
+2016 Fonte: MDS, Censo SUAS.
+
+Dos 85.011 trabalhadores das Secretarias Municipais de Assistência
+Social que informaram sua formação superior em 2016, 33.559 (39,5\%)
+eram assistentes sociais, 15.702 eram psicólogos (18,5\%) e 10.069 eram
+pedagogos (11,8\% do total). Existiam 14.992 profissionais de outras
+formações de nível superior além das listadas (17,6\% do total) (Gráfico
+63). Gráfico 63: Formação profissional dos trabalhadores de nível
+superior nas Secretarias Municipais de Assistência Social -- Brasil,
+2016 Fonte: MDS, Censo SUAS.
+
+Em 2016, 468 Municípios informaram ter realizado concurso público para a
+Secretaria Municipal de Assistência Social no ano de 2015 (8,5\% do
+total de respondentes). Desses, 270 realizaram concurso para
+profissionais de nível médio e superior (4,9\% do total), 164 apenas
+para nível superior (3,0\%) e 34 apenas para nível médio (0,6\%)
+(Gráfico 64). Foram ofertadas 1.823 vagas de nível superior e 2.152 de
+nível médio. Os municípios informaram que 1.492 trabalhadores tomaram
+posse no concurso de nível superior (81,8\% das vagas foram ocupadas) e
+1.592 tomaram posse no concurso de nível médio (74,0\% das vagas foram
+ocupadas). Gráfico 64: Número de municípios segundo realização de
+concurso público para Secretarias Municipais de Assistência Social --
+Brasil, 2016 Fonte: MDS, Censo SUAS.
+
+O Artigo 6º da Lei Orgânica de Assistência Social (LOAS) estabelece que
+os recursos do cofinanciamento do SUAS poderão ser aplicados no
+pagamento dos profissionais que integrarem as equipes de referência. Em
+2016, 3.838 Municípios (70,0\% dos respondentes) informaram utilizar
+recursos do cofinanciamento federal de serviços (pisos dos serviços)
+para pagamento de servidores públicos (estatutários, empregados públicos
+celetistas ou concursados temporários) que integram as Equipes de
+Referência. Tanto o número absoluto quanto o percentual de municípios
+que utilizam o cofinanciamento federal para esse fim aumentaram desde
+2013 (Gráfico 65). Gráfico 65: Municípios que utilizam recursos do
+cofinanciamento federal de serviços para pagamento de servidores
+públicos que integram as equipes de referência -- Brasil, 2013 a 2016
+Fonte: MDS, Censo SUAS.
+
+A quantidade de trabalhadores nas Secretarias Estaduais de Assistência
+Social em 2016 era de 10.359 profissionais, considerando trabalhadores
+lotados na sede do órgão gestor e nas unidades públicas que ofertam
+serviços socioassistenciais. Esse quantitativo vem caindo desde 2010,
+ano em que foram registrados 19.785 trabalhadores. Entre 2015 e 2016 foi
+observada redução de 3.258 trabalhadores nas Secretarias Estaduais
+(Gráfico 66). Gráfico 66: Evolução da quantidade de trabalhadores nas
+Secretarias Estaduais de Assistência Social - Brasil, 2010 a 2016 Fonte:
+MDS, Censo SUAS.
+
+Em 2016, 48,2\% dos trabalhadores das Secretarias Estaduais de
+Assistência Social eram estatutários (4.997 trabalhadores). Esse
+percentual é superior ao observado em 2015. Foi observada redução na
+proporção de celetistas (queda de 5,6 pontos percentuais em relação a
+2015) e de trabalhadores com outros vínculos (redução de 4,5 pontos
+percentuais). Houve aumento de 6,6 pontos percentuais da proporção de
+trabalhadores comissionados em relação a 2015. Em relação ao total da
+série histórica, verifica-se a maior proporção de trabalhadores
+estatutários foi observada em 2011 (54,8\% do total de trabalhadores) e
+a menor em 2015 (44,8\% do total). Entre os anos de 2011 a 2013 mais de
+50\% dos trabalhadores eram estatutários (Gráfico 67). Gráfico 67:
+Percentual de trabalhadores nas Secretarias Estaduais de Assistência
+Social, segundo tipo de vínculo -- Brasil, 2010 a 2016 Fonte: MDS, Censo
+SUAS.
+
+Em 2016, 43,8\% dos trabalhadores das Secretarias Estaduais de
+Assistência Social tinham nível superior (4.536 pessoas). Foi a primeira
+vez desde 2010 que o percentual de profissionais de nível superior
+superou o percentual de nível médio. Em 2010 mais da metade dos
+trabalhadores tinham nível médio de escolaridade (52,7\%), passando a
+39,4\% em 2016 (redução de 13,3 pontos percentuais). Também foi
+observada redução nos percentuais de trabalhadores de nível fundamental:
+eram 21,6\% do total em 2010 e 16,8\% em 2016 (redução de 4,8 pontos
+percentuais) (Gráfico 68). Gráfico 68: Percentual de trabalhadores nas
+Secretarias Estaduais de Assistência Social, segundo escolaridade--
+Brasil, 2010 a 2016 Fonte: MDS, Censo SUAS.
+
+Dos 3.407 trabalhadores das Secretarias Estaduais de Assistência Social
+que informaram sua formação superior em 2016, 999 (29,3\%) eram
+assistentes sociais, 344 eram psicólogos (10,1\%), 310 eram pedagogos
+(9,1\%) e 274 eram advogados (8,0\%). Existiam 863 trabalhadores de
+outras formações de nível superior além das listadas (25,3\%) (Gráfico
+69). Gráfico 69: Formação profissional dos trabalhadores de nível
+superior nas Secretarias Estaduais de Assistência Social -- Brasil, 2016
+Fonte: MDS, Censo SUAS.
+
+Em 2016 havia 89.038 trabalhadores nos CRAS. Embora nesse ano existissem
+37.346 trabalhadores a mais que em 2010 nos CRAS, foi observada redução
+na quantidade desses em relação aos dois anos anteriores: 2.927
+profissionais a menos em relação a 2015 e 6.287 em relação a 2014, ano
+no qual foi registrado o maior número de trabalhadoras e trabalhadores
+nos CRAS (Gráfico 70). Gráfico 70: Evolução da quantidade de
+trabalhadores dos CRAS - Brasil, 2010 a 2016 Fonte: MDS, Censo SUAS.
+
+Em 2016, dos 89.038 trabalhadores do CRAS, 34,3\% eram servidores
+estatutários, 6,6\% celetistas e 9,4\% comissionados. A categoria
+``Outros Vínculos'', que representa 49,8\% do total, incluiu Servidores
+temporários (30,9\% do total), terceirizados (4,8\%), trabalhador de
+empresa/ cooperativa/ entidade prestadora de serviços (1,7\%),
+trabalhadores sem vínculo (1,2\%), voluntários (0,1\%), além de outros
+vínculos não permanentes (11,1\%). O percentual de trabalhadores
+estatutários cresceu desde 2014 e o de servidores de outros vínculos se
+reduziu no mesmo período (Gráfico 71). Gráfico 71: Percentual de
+trabalhadores nos CRAS, segundo tipo de vínculo -- Brasil, 2012 a 2016
+Fonte: MDS, Censo SUAS.
+
+O percentual de trabalhadores de nível fundamental tem caído desde 2012,
+passando de 12,5\% em 2012 para 10,1\% em 2016. A maior proporção de
+profissionais de nível superior foi observada em 2012 (49,3\% do total),
+que se reduziu até 2014, atingindo 44,1\% e passou a aumentar em 2015 e
+em 2016. Em 2016, 46,3\% dos trabalhadores tinham nível superior
+completo, sendo que 40,2\% tinham apenas ensino superior, 5,8\%
+especialização, e 0,4\% mestrado ou doutorado. Os trabalhadores de nível
+fundamental eram 10,1\% do total, sendo 0,2\% sem escolaridade, 3,7\%
+com nível fundamental incompleto, 3,7\% fundamental completo e 2,5\% com
+ensino médio incompleto (Gráfico 72). Gráfico 72: Percentual de
+trabalhadores nos CRAS, segundo escolaridade-- Brasil, 2012 a 2016
+Fonte: MDS, Censo SUAS.
+
+Em 2016, o grupo sem formação profissional seguiu como a maior categoria
+de trabalhadores nos Centros de Referência de Assistência Social (CRAS),
+totalizando 22.618 pessoas, seguido de profissionais de nível médio
+(22.543) e assistentes sociais (17.551). O número de assistentes sociais
+e de psicólogos permaneceu praticamente estável desde 2014, enquanto o
+de profissionais de nível médio e de trabalhadores sem formação
+profissional caiu desde o mesmo ano. A categoria ``Outras formações de
+nível superior'' totalizou 7.548 profissionais em 2016, sendo: 127
+terapeutas ocupacionais, 11 antropólogos, 691 administradores, 45
+economistas, 54 analistas de sistemas, 4 programadores, 76 sociólogos,
+119 fisioterapeutas, 88 nutricionistas, 78 enfermeiros, 4 médicos, 3
+cientistas políticos e 6.248 profissionais de outras formações
+superiores (Gráfico 73). Gráfico 73: Formação profissional dos
+trabalhadores dos CRAS - Brasil, 2012 a 2016 Fonte: MDS, Censo SUAS. (*)
+A categoria engloba os outros profissionais de nível superior, incluindo
+terapeuta ocupacional, antropólogo, administrador, economista, analista
+de sistema, programador, sociólogo, fisioterapeuta, nutricionista,
+enfermeiro, médico e cientista político.
+
+Em 2016, no que se refere à quantidade de trabalhadores segundo a função
+que exerciam nos CRAS, 24.886 profissionais atuavam como Técnicos de
+nível superior (27,9\% do total) e 18.124 como Educadores Sociais
+(20,4\% do total). Entre as funções categorizadas, as menos observadas
+foram a de estagiário, com 1.830 trabalhadores (2,1\% do total) e de
+cadastrador, com 2.430 trabalhadores (2,7\% do total). A função de
+coordenador(a) era exercida por 7.907 profissionais em 2016 (8,9\% do
+total) (Gráfico 74). Em 70,1\% dos CRAS, o Coordenador exercia
+exclusivamente a função, enquanto em 18,6\% das unidades o coordenador
+acumulava as funções com outra atividade da Secretaria Municipal de
+Assistência Social, e em 18,6\% acumulavam as funções de coordenador e
+de técnico no CRAS. Em 3,3\% das unidades não havia coordenador. Gráfico
+74: Quantidade de funcionários por CRAS segundo a função exercida -
+Brasil, 2016 Fonte: MDS, Censo SUAS.
+
+Em 2016, foram registrados 65.233 trabalhadoras/es nos Centros de
+Convivência. Entre 2014 e 2015 houve uma redução de 33.884 trabalhadores
+nas unidades. Já em 2016 foi observado um aumento de 5.009 profissionais
+em relação ao ano anterior, quando foram registrados 60.224
+trabalhadores (Gráfico 75). Gráfico 75: Evolução da quantidade de
+trabalhadores dos Centros de Convivência - Brasil, 2014 a 2016 Fonte:
+MDS, Censo SUAS.
+
+Em 2016, 28.234 trabalhadores dos Centros de Convivência eram empregados
+celetistas do setor privado (43,3\% do total), 7.646 eram servidores
+estatutários (11,7\%) e 3.692 eram empregados públicos celetistas
+(5,7\%). Dos 5.008 profissionais a mais registrados em 2016 em relação a
+2015, 2.378 (47,5\%) eram empregados celetistas do setor privado, e 704
+(14,1\%) servidores estatutários (Gráfico 76). Gráfico 76: Quantidade de
+trabalhadores dos Centros de Convivência segundo tipo de vínculo -
+Brasil, 2015 e 2016 Fonte: MDS, Censo SUAS.
+
+Dos profissionais dos Centros de Convivência no ano de 2016, 40,2\%
+tinham nível superior: 34,4\% (22.467 trabalhadores) tinham ensino
+superior completo, 5,1\% (3.345) especialização, 0,5\% (339) mestrado e
+0,1\% (74) doutorado. Os trabalhadores de nível fundamental eram 17,4\%
+do total (11.344 trabalhadores), sendo 0,5\% (353) sem escolaridade,
+6,5\% (4.224) com nível fundamental incompleto, 6,5\% (4.269) com nível
+fundamental completo e 3,8\% (2.498) com nível médio incompleto. A maior
+porcentagem foi observada para profissionais de nível médio (42,4\% do
+total de trabalhadores): 31,1\% tinham ensino médio completo e 11,3\%
+ensino superior incompleto (Gráfico 77). Gráfico 77: Percentual de
+trabalhadores dos Centros de Convivência segundo escolaridade - Brasil,
+2015 e 2016 Fonte: MDS, Censo SUAS.
+
+No que se refere às profissões dos trabalhadores nos Centros de
+Convivência, 18.517 (28,4\%) não tinham formação profissional e 17.362
+(26,6\%) eram profissionais de nível médio. A formação de nível superior
+com maior número de trabalhadores foi de pedagogo, com 6.378
+profissionais (que representavam 9,8\% do total), seguidos de
+assistentes sociais (4.463 ou 6,8\% do total) e de psicólogos (2.626 ou
+4,0\%) (Gráfico 78). Não houve variações expressivas em relação ao ano
+de 2015. Gráfico 78: Formação profissional dos trabalhadores dos Centros
+de Convivência - Brasil, 2015 e 2016 Fonte: MDS, Censo SUAS.
+
+Quanto a função exercida pelos trabalhadores dos Centros de Convivência
+em 2016, 19.184 desempenhavam a função de educador(a) social (29,4\% do
+total), e 9.961 de serviços gerais (15,3\%). Havia 5.164
+coordenadores(as), o que representava 7,9\% do total de trabalhadores. A
+função com o menor número de trabalhadores foi a de estagiário (1.130
+trabalhadores, ou 1,7\% do total) (Gráfico 79). Gráfico 79: Quantidade
+de trabalhadores dos Centros de Convivência segundo a função exercida -
+Brasil, 2016 Fonte: MDS, Censo SUAS.
+
+Quanto a equipe de recursos humanos dos CREAS observa-se desde 2010 que
+o número de profissionais vem aumentando progressivamente, passando de
+14.575 para 22.680 em 2016, o que representa um acréscimo de 8.105
+trabalhadores ao longo do período e 392 a mais em relação ao ano
+anterior (Gráfico 80). Gráfico 80: Evolução da quantidade de
+trabalhadores dos CREAS - Brasil, 2010 a 2016 Fonte: MDS, Censo SUAS.
+
+Desde 2012 observou-se um aumento na quantidade de trabalhadores
+estatutários nos CREAS, que passaram de 6.549 em 2012 (32,9\% do total)
+para 9.233 em 2016 (40,7\% do total), uma diferença de 2.684
+estatutários a mais no período, o que corresponde a 95,7\% do acréscimo
+de 2.804 ao total de trabalhadores observado entre os anos de 2012 e
+2016. Em 2016, os 9.233 servidores estatutários representavam 40,7\% do
+total, sendo o grupo mais numeroso. Eram seguidos dos 5.906 temporários
+(26,0\%), e de 2.061 trabalhadores de outros vínculos não permanentes
+(9,1\%). Os grupos menos numerosos eram voluntários (24 trabalhadores ou
+0,1\%) e sem vínculo (219 trabalhadores ou 1,0\%) (Gráfico 81). Gráfico
+81: Quantidade de trabalhadores nos CREAS segundo tipo de vínculo -
+Brasil, 2012 a 2016 Fonte: MDS, Censo SUAS.
+
+Desde 2012, a maior parte dos trabalhadores dos CREAS tinha nível
+superior: naquele momento eram 62,9\% dos trabalhadores (12.511),
+passando a 65,5\% em 2016 (14.863). Foi observada queda na proporção de
+trabalhadores de nível fundamental, de 8,3\% do total de trabalhadores
+em 2012 (1.654) para 7,5\% em 2016 (1.705) (Gráfico 82). Gráfico 82:
+Percentual de trabalhadores dos CREAS segundo escolaridade - Brasil,
+2012 a 2016 Fonte: MDS, Censo SUAS.
+
+Ao longo da série histórica, observou-se um aumento no quantitativo de
+assistentes sociais, que era a formação profissional com o maior número
+de trabalhadores nos CREAS em todos os anos observados. Em 2016,
+existiam 6.064 assistentes sociais (26,7\% dos trabalhadores dos CREAS).
+Na sequência aparecem os psicólogos, que totalizavam 4.376 profissionais
+(19,3\% do total), seguidos de profissionais de nível médio, que
+totalizavam 3.865 pessoas (17,0\% do total). Pode-se observar também que
+a quantidade de profissionais sem formação profissional vem se reduzindo
+desde 2012, atingindo o quantitativo de 3.893 pessoas em 2016 (17,2\% do
+total de trabalhadores) (Gráfico 83). Gráfico 83: Quantidade de
+trabalhadores dos CREAS segundo formação profissional - Brasil, 2012 a
+2016 Fonte: MDS, Censo SUAS. (*) A categoria engloba os outros
+profissionais de nível superior, incluindo terapeuta ocupacional,
+antropólogo, economista, analista de sistema, programador, sociólogo,
+fisioterapeuta, nutricionista, enfermeiro, médico e cientista político.
+
+A maior parte dos trabalhadores dos CREAS era de técnicos de nível
+superior: esses representavam 8.919 trabalhadores (44,9\% do total) em
+2012 e 10.636 (46,9\%) em 2016. Neste ano a função de educador social
+era exercida por 2.620 trabalhadores (11,6\% do total), a função apoio
+administrativo era exercida por 2.415 trabalhadores (10,6\%), enquanto a
+função Coordenador por 2.366 (10,4\%). As funções exercidas pelos
+menores quantitativos de trabalhadores em 2016 eram a de técnico de
+nível médio (322 trabalhadores ou 1,4\% do total) e de estagiário (500
+trabalhadores ou 2,2\% do total) (Gráfico 84). Gráfico 84: Quantidade de
+trabalhadores dos CREAS segundo a função exercida -- Brasil, 2012 a 2016
+Fonte: MDS, Censo SUAS.
+
+Entre 2011 e 2016, o quantitativo de trabalhadores atuando nos Centros
+de Referência Especializados em População em Situação de Rua (Centro
+POP) aumentou continuamente, com acréscimo de 1.929 trabalhadores no
+período, apesar de entre os anos de 2015 e 2016 ter sido registrado o
+menor aumento, com acréscimo de 8 trabalhadores (Gráfico 85). Gráfico
+85: Evolução da quantidade de trabalhadores dos Centros POP - Brasil,
+2011 a 2016 Fonte: MDS, Censo SUAS.
+
+Em 2016, 41,4\% dos trabalhadores eram estatutários (1.290 pessoas), a
+maior proporção entre as categorias selecionadas. Na sequência
+apareceram os servidores temporários (524 pessoas ou 16,8\% do total) e
+os terceirizados (378 trabalhadores, ou 12,1\% do total). Em 2016, foi
+observada a maior proporção de trabalhadores estatutários desde 2012:
+passaram de 39,5\% do total de trabalhadores em 2012 (646) para 41,4\%
+em 2016 (1.290 trabalhadores). Também aumentaram entre 2012 e 2016 o
+percentual e o número absoluto de trabalhadores temporários, que
+passaram de 12,2\% do total de trabalhadores 2012 (199) para 16,8\% 2016
+(524), embora a proporção venha se reduzindo desde 2014, quando os
+trabalhadores temporários eram 20,6\% do total (625). As categorias com
+menores percentuais em 2016 eram as de trabalhadores sem vínculo (1,0\%
+do total) e de voluntários (0,2\%) (Gráfico 86). Gráfico 86: Percentual
+de trabalhadores dos Centros POP segundo tipo de vínculo - Brasil, 2012
+a 2016 Fonte: MDS, Censo SUAS.
+
+Quanto ao nível de escolaridade dos profissionais dos Centros POP em
+2016, 47,6\% (1.482) tinham nível superior de escolaridade, um acréscimo
+de 3 pontos percentuais em relação a 2012. Foi observada redução na
+proporção de trabalhadores de nível fundamental ao longo do período
+chegando a 11,2\% em 2016 (Gráfico 87). Gráfico 87: Percentual de
+trabalhadores dos Centros POP segundo nível de escolaridade - Brasil,
+2012 a 2016 Fonte: MDS, Censo SUAS.
+
+Em 2016, dos 3.116 trabalhadores dos Centros POP, 1.392 (44,7\% do
+total) estavam na categoria ``sem formação profissional/ sem
+informação'', enquanto 296 (9,5\%) eram profissionais de nível médio.
+Entre as formações profissionais de nível superior detalhadas, havia 598
+assistentes sociais, (19,2\% do total), 325 psicólogos (10,4\%) e 99
+pedagogos (3,2\%). No comparativo entre os anos, observou-se queda no
+número de profissionais de nível médio entre 2015 e 2016 (661
+trabalhadores a menos) e aumento na quantidade de trabalhadores sem
+formação profissional/ sem informação. As demais categorias não sofreram
+alterações expressivas (Gráfico 88). Gráfico 88: Quantidade de
+trabalhadores dos Centros POP segundo formação profissional -- Brasil,
+2012 a 2016 Fonte: MDS, Censo SUAS. (*) A categoria ``Outro profissional
+de nível superior'' inclui administradores, sociólogos, terapeutas
+ocupacionais, fisioterapeutas, enfermeiros, nutricionistas, economistas,
+analistas de sistemas, cientistas políticos, programadores, antropólogos
+e profissionais de outras formações de nível superior.
+
+Entre 2012 e 2016, as funções de técnico de nível de ensino superior e
+Educador Social eram as exercidas pelo maior número de trabalhadores dos
+Centros de Referência Especializados para População em Situação de Rua
+(Centro POP). Em 2012, havia 467 educadores sociais (28,5\% dos
+trabalhadores) e 425 técnicos de nível superior (26,0\%). Em 2016 os
+números eram 883 (28,3\%) e 838 (26,9\%), respectivamente. Os
+coordenadores eram, em 2016, 223 trabalhadores (7,2\% do total) (Gráfico
+89). Gráfico 89: Número de trabalhadores dos Centros POP segundo a
+função exercida -- Brasil, 2012 a 2016 Fonte: MDS, Censo SUAS.
+
+Em 2016 foram registrados 25.151 trabalhadores nos Centros-Dia, 2.667 a
+mais que em 2015. Ao observar a distribuição de trabalhadores por
+grandes regiões, verifica-se que em 2016 havia 14.800 trabalhadores na
+região Sudeste (58,8\% do total), 5.053 na região Sul (20,1\%), 2.603 na
+região Nordeste (10,3\%), 2.469 na região Centro-Oeste (9,8\%) e 227 na
+região Norte (0,9\%). Entre 2015 e 2016 foi verificado aumento de 995
+trabalhadores na região Nordeste (Gráfico 90). Gráfico 90: Evolução da
+quantidade de trabalhadores dos Centros-Dia, segundo grandes regiões -
+Brasil, 2015 e 2016 Fonte: MDS, Censo SUAS.
+
+A maior parte dos trabalhadores nos Centros-Dia eram empregados
+celetistas do setor privado: em 2015 eram 12.844, representando 57,1\%
+do total, e em 2016 eram 14.104 pessoas, representando 56,1\% do total.
+O tipo de vínculo com o segundo maior percentual de trabalhadores foi o
+de servidores estatutários: eram 13,8\% do total (3.093 trabalhadores)
+em 2015 e 12,9\% (3.248 trabalhadores) em 2016 (Gráfico 91). Gráfico 91:
+Percentual de trabalhadores dos Centros-Dia segundo tipo de vínculo -
+Brasil, 2015 e 2016 Fonte: MDS, Censo SUAS.
+
+Quanto ao nível de escolaridade, em 2016 15.263 trabalhadores dos
+Centros-Dia (60,7\% do total) tinham nível superior. Embora tenha sido
+observado aumento de 1.330 trabalhadores de nível superior entre 2015 e
+2016, proporcionalmente esta categoria foi reduzida de 62,0\% dos 22.484
+trabalhadores em 2015 para 60,7\% dos 25.151 trabalhadores em 2016. Em
+2016 houve aumento de 893 trabalhadores de nível médio em relação a 2015
+(Gráfico 92). Gráfico 92: Quantidade de trabalhadores segundo nível de
+escolaridade nos Centros-Dia - Brasil, 2015 e 2016 Fonte: MDS, Censo
+SUAS.
+
+Já em relação a formação profissional dos 25.151 trabalhadores dos
+Centros-Dia em 2016, 3.315 profissionais tinham a formação profissional
+de pedagogo (13,2\% do total), o maior número entre as formações de
+nível superior categorizadas. Na sequência aparecem os profissionais de
+nível médio (2.584 pessoas, representando 10,3\% do total), os
+psicólogos (1.267 trabalhadores, ou 5,0\% do total) e os assistentes
+sociais (1.096 trabalhadores, o que representa 4,4\% do total). Em
+comparação ao ano de 2015, foi observado aumento na categoria ``não
+informado'': eram 764 trabalhadores em 2015 (3,4\% do total) e passaram
+a 6.819 (27,1\% do total), a categoria mais numerosa em 2016 (Gráfico
+93). Gráfico 93: Quantidade de trabalhadores dos Centros-Dia segundo
+formação profissional -- Brasil, 2015 e 2016 Fonte: MDS, Censo SUAS. (*)
+A categoria ``Outra formação de nível superior'' inclui advogados,
+antropólogos, economistas, analistas de sistemas, programadores,
+sociólogos, cientistas políticos, e profissionais de outras formações de
+nível superior.
+
+Em 2016, 8.493 trabalhadores dos Centros-Dia exerciam a função de
+técnico de nível superior (33,8\% do total de trabalhadores), 2.916 a
+função de orientadores/educadores sociais (11,6\%), 2.718 tinham função
+de serviços gerais (10,8\%), 2.034 trabalhadores tinham função de apoio
+administrativo (8,1\%), 1.198 profissionais eram cuidadores (4,8\%), 918
+eram coordenadores (3,8\%), 297 eram estagiários (1,2\%) e 253 eram
+auxiliares de cuidador (1,0\%). Já a categoria ``outros'' foi a segunda
+mais numerosa, com 6.324 trabalhadores (25,1\%). Em todas as regiões a
+categoria mais numerosa foi a de técnicos de nível superior, com exceção
+da região Centro-Oeste, na qual a categoria mais numerosa foi ``outros''
+(804 trabalhadores ou 32,6\% dos trabalhadores da região) (Gráfico 94).
+Gráfico 94: Quantidade de trabalhadores dos Centros-Dia segundo função e
+grandes regiões -- Brasil, 2016 Fonte: MDS, Censo SUAS.
+
+Em 2016 foram registrados 89.384 trabalhadores nas Unidades de
+Acolhimento, o maior número desde 2012. Nesse período, foi observado
+aumento de 22.358 trabalhadores nas Unidades. Houve queda na quantidade
+entre 2012 e 2013, mas desde então o número segue crescendo. Entre 2015
+e 2016 foi registrado aumento de 5.560 trabalhadores (Gráfico 95).
+Gráfico 95: Evolução da quantidade de trabalhadores das Unidades de
+Acolhimento - Brasil, 2012 a 2016 Fonte: MDS, Censo SUAS.
+
+Em relação ao tipo de vínculo dos trabalhadores, o maior percentual
+observado em 2016 foi de empregados celetistas do setor privado, que
+representavam 31,8\% do total de trabalhadores (28.388 trabalhadores).
+Em seguida apareceram os empregados públicos celetistas (16,5\% do
+total, o que representa 14.767 trabalhadores) e servidores estatutários
+(13,4\% do total ou 12.017 trabalhadores). Os menores percentuais foram
+de trabalhadores sem vínculo (1\% do total ou 871 trabalhadores) e
+voluntários (2,6\% do total ou 2.281) (Gráfico 96). Gráfico 96:
+Percentual de trabalhadores nas Unidades de Acolhimento segundo tipo de
+vínculo - Brasil, 2016 Fonte: MDS, Censo SUAS.
+
+Em 2016, 47,8\% dos trabalhadores das Unidades de Acolhimento tinham
+nível médio de escolaridade (42.683 trabalhadores), a categoria mais
+numerosa entre as três observadas. Os menores percentuais eram
+referentes aos trabalhadores de nível superior, que representavam em
+2016 24,6\% do total (22.022 trabalhadores). Foi observada redução de
+1,9 pontos percentuais na proporção de trabalhadores de nível
+fundamental entre 2013 e 2016. Os percentuais de trabalhadores com nível
+superior oscilaram pouco ao longo da série histórica (Gráfico 97).
+Gráfico 97: Percentual de trabalhadores das Unidades de Acolhimento
+segundo nível de escolaridade - Brasil, 2013 a 2016 Fonte: MDS, Censo
+SUAS.
+
+Quanto a formação profissional, em 2016 43.669 trabalhadores das
+Unidades de Acolhimento (48,9\% do total) eram profissionais de nível
+médio. O número de trabalhadores com essa formação cresceu desde 2014,
+tanto em números absolutos quanto proporcionalmente: passou de 20.853
+trabalhadores em 2014 (27,6\% do total) para 43.669 (48,9\%) em 2016. O
+contrário foi observado em relação aos trabalhadores sem formação
+profissional, segunda maior categoria: em 2014 eram 34.458 trabalhadores
+(45,6\% do total) e em 2016 eram 24.692 trabalhadores (27,6\% do total).
+Em 2016, as duas categorias somadas representavam 76,5\% do total de
+trabalhadores (68.381). A formação de nível superior com o maior número
+de trabalhadores foi a de assistente social, com 5.810 trabalhadores,
+que representavam 8,5\% do total em 2016, seguida de psicólogos (3.896
+trabalhadores ou 4,4\% do total). Ambas formações profissionais de nível
+superior foram as mais observadas também nos anos de 2014 e 2015
+(Gráfico 98). Gráfico 98: Quantidade de trabalhadores das Unidades de
+Acolhimento segundo formação profissional -- Brasil, 2014 a 2016 Fonte:
+MDS, Censo SUAS. (*) A categoria ``Outra formação de nível superior''
+inclui advogados, administradores, analistas de sistemas, antropólogos,
+cientistas políticos, economistas, fisioterapeutas, médicos,
+nutricionistas, programadores, sociólogos, terapeutas ocupacionais e
+profissionais de outras formações de nível superior.
+
+Com relação a função profissional dos trabalhadores nas unidades de
+acolhimento, em 2016 a função com o maior número de trabalhadores foi a
+de cuidador (20.657 profissionais ou 23,1\% do total de trabalhadores).
+Em seguida apareceram as funções de serviços gerais (17.941
+trabalhadores ou 20,1\% do total) e técnicos de nível superior (13.011
+ou 14,6\%). Entre 2015 e 2016 houve aumento de 3.937 pessoas na
+categoria ``outros''. Dentre as funções indicadas, o maior aumento na
+quantidade de trabalhadores foi observado para a função de cozinheiro,
+com acréscimo de 1.219 pessoas. A maior redução foi observada na função
+de serviços gerais, com redução de 1.380 trabalhadores no período
+(Gráfico 99). Gráfico 99: Quantidade de trabalhadores das Unidades de
+Acolhimento segundo função profissional -- Brasil, 2015 e 2016 Fonte:
+MDS, Censo SUAS.
+
+Em 2016, havia mais profissionais do sexo feminino que profissionais do
+sexo masculino nos equipamentos da assistência social. Nos Centros-Dia,
+84,5\% (21.255) eram do sexo feminino, enquanto 15,5\% (3.896) eram do
+sexo masculino, percentuais próximos aos observados nos CRAS, CREAS e
+Unidades de Acolhimento. Nos CRAS 81,8\% dos profissionais (72.853) eram
+do sexo feminino, assim como 81,0\% nos CREAS (18.380) e 80,7\% nas
+Unidades de Acolhimento (72.097). Os menores percentuais foram
+observados nos Centros POP: 65,3\% (2.036) eram do sexo feminino,
+enquanto 34,7\% eram do sexo masculino (1.080). Nos Centros de
+Convivência 77,4\% (50.459) eram do sexo feminino e 22,6\% (14.774) do
+sexo masculino) (Gráfico 100). Gráfico 100: Percentual de profissionais
+dos equipamentos de assistência social segundo sexo -- Brasil, 2016
+Fonte: MDS, Censo SUAS.
+
+Considerações Finais Em 2016 foram registrados pelo Censo SUAS os
+seguintes quantitativos de trabalhadores: 89.038 nos CRAS, 22.680 nos
+CREAS, 3.116 nos Centros POP, 89.384 nas Unidades de Acolhimento e
+65.233 nos Centros de Convivência. Para o mesmo ano, foram
+contabilizados 239.815 trabalhadores nas Secretarias Municipais de
+Assistência Social no país. A maior parte da força de trabalho da
+assistência social nos órgãos gestores estaduais e municipais é composta
+de servidores estatutários. Além disso, observa-se uma evolução positiva
+ao longo da série histórica no quantitativo de profissionais atuando nos
+Centros POP: em 2011, havia 1.187 e em 2016, 3.116 trabalhadores. Quanto
+à escolaridade dos trabalhadores das Secretarias Estaduais de
+Assistência Social, percebe-se que a maioria deles (43,8\%) possui
+ensino superior, tendo esse percentual aumentado em relação a 2015 e
+sendo o maior percentual desde o início da série histórica, em 2010. Por
+sua vez, o percentual de trabalhadores com ensino médio atingiu em 2016
+o menor valor da série histórica, 39,4\%. Os Centros de Convivência
+seguiram a tendência das demais unidades, contando com 40,2\% de
+profissionais de nível superior e 42,4\% com nível médio. Já as Unidades
+de Acolhimento, quando comparadas aos demais equipamentos, ainda
+apresentam um alto percentual de trabalhadores apenas com nível
+fundamental, 27,6\% Em que pese a expansão no número de trabalhadores, e
+aumento da escolaridade, a melhoria na qualidade dos atendimentos e
+serviços permanece como desafio para a gestão dos recursos humanos da
+assistência social no País.
+
+Capítulo 5 -- Serviços ofertados pelo SUAS Os programas e serviços
+prestados no âmbito da política pública de Assistência Social buscam
+garantir o acesso a direitos sociais a quem necessita. As famílias são
+as unidades de referência para a prestação de serviços
+socioassistenciais, que visam a fortalecer sua autonomia e seus vínculos
+externos e internos. Esses serviços buscam atender as necessidades
+básicas da população, por meio de atividades que promovam melhoria nas
+condições de vida. No âmbito do SUAS, a Proteção Social é dividida em
+Básica e Especial, de média ou alta complexidade, com foco nas famílias,
+indivíduos e grupos que necessitem. A Proteção Social Básica busca a
+prevenção dos riscos sociais, enquanto a Especial tem natureza mais
+protetiva, destinada a indivíduos que já se encontram em situação de
+risco. A concepção e a implementação dos serviços socioassistenciais são
+fundamentadas na centralidade da família. Os benefícios assistenciais,
+também parte da Política de Assistência Social, constituem direito dos
+cidadãos e dividem-se entre Benefícios de Prestação Continuada (BPC),
+que garante renda a maiores de 65 anos ou à pessoa com deficiência, e
+Benefícios Eventuais, concedidos em casos de nascimento, morte,
+situações de vulnerabilidade provisória e de calamidade pública. A
+gestão participativa e a descentralização político-administrativa são
+diretrizes centrais do SUAS. A União, os estados e os municípios possuem
+responsabilidades estabelecidas para a gestão e prestação dos serviços
+de assistência social, em um contexto de cooperação e articulação
+conjunta de ações, conforme atribuições previstas na Lei Orgânica da
+Assistência Social (LOAS) e na Política Nacional de Assistência Social
+(PNAS). Os serviços de caráter regional e os benefícios assistenciais
+que compõem a política de assistência social se enquadram nesse modelo
+de gestão. A PNAS é aplicada de forma integrada a outras políticas
+públicas sempre que as ações fugirem do escopo da Assistência Social.
+Este capítulo apresenta informações a respeito dos benefícios e dos
+serviços prestados ao público-alvo da Assistência Social. SERVIÇOS DE
+PROTEÇÃO SOCIAL BÁSICA Os Serviços da Proteção Social Básica são
+compostos pelo Serviço de Proteção e Atendimento Integral à Família
+(PAIF), Serviço de Convivência e Fortalecimento de Vínculos e pelo
+Serviço de Proteção Social Básica no domicílio para pessoas com
+deficiência e idosas. Os Serviços da Proteção Social Básica buscam a
+prevenção de vulnerabilidades e riscos sociais. O PAIF, segundo a
+Tipificação Nacional de Serviços Socioassistenciais14, ``consiste no
+trabalho social com famílias, de caráter continuado, com a finalidade de
+fortalecer a função protetiva das famílias, prevenir a ruptura dos seus
+vínculos, promover seu acesso e usufruto de direitos e contribuir na
+melhoria de sua qualidade de vida. Prevê o desenvolvimento de
+potencialidades e aquisições das famílias e o fortalecimento de vínculos
+familiares e comunitários, por meio de ações de caráter preventivo,
+protetivo e proativo. O trabalho social do PAIF deve utilizar-se também
+de ações nas áreas culturais para o cumprimento de seus objetivos, de
+modo a ampliar universo informacional e proporcionar novas vivências às
+famílias usuárias do serviço. As ações do PAIF não devem possuir caráter
+terapêutico''. O PAIF é ofertado nos Centros de Referência de
+Assistência Social (CRAS). Dentre os 8.240 CRAS em funcionamento em
+2016, 99,4\% realizaram visitas domiciliares, 99,1\% fizeram
+acompanhamento de famílias e 98,4\% encaminharam as famílias para
+inserção ou atualização no Cadastro Único. A atividade executada pelo
+menor percentual de CRAS em 2016 foi a elaboração de Plano de
+Acompanhamento Familiar, atividade realizada por 68,6\% dos CRAS
+(Gráfico 101). Gráfico 101 - Percentual de CRAS que desenvolveram ações
+e atividades no âmbito do Serviço de Proteção e Atendimento Integral à
+Família (PAIF) - Brasil, 2016 Fonte: MDS, Censo SUAS.
+
+Por sua vez, o Serviço de Convivência e Fortalecimento de Vínculos
+(SCFV), também segundo a Tipificação Nacional de Serviços
+Socioassistenciais15, é o ``serviço realizado em grupos, organizado a
+partir de percursos, de modo a garantir aquisições progressivas aos seus
+usuários, de acordo com o seu ciclo de vida, a fim de complementar o
+trabalho social com famílias e prevenir a ocorrência de situações de
+risco social. Forma de intervenção social planejada que cria situações
+desafiadoras, estimula e orienta os usuários na construção e
+reconstrução de suas histórias e vivências individuais e coletivas, na
+família e no território. Organiza-se de modo a ampliar trocas culturais
+e de vivências, desenvolver o sentimento de pertença e de identidade,
+fortalecer vínculos familiares e incentivar a socialização e a
+convivência comunitária. Possui caráter preventivo e proativo, pautado
+na defesa e afirmação dos direitos e no desenvolvimento de capacidades e
+potencialidades, com vistas ao alcance de alternativas emancipatórias
+para o enfrentamento da vulnerabilidade social''. Dentre os CRAS em
+funcionamento em 2016, 85,9\% prestavam diretamente serviços de
+Convivência e Fortalecimento de Vínculos (SCFV), o menor percentual
+desde 2011. O maior percentual foi registrado em 2013, com 92,6\% dos
+CRAS executando diretamente os SCFV (Gráfico 102). Gráfico 102 -
+Percentual de CRAS que executavam diretamente os Serviços de Convivência
+e Fortalecimento de Vínculos - Brasil, 2008 a 201616 Fonte: MDS, Censo
+SUAS.
+
+Ao analisar por público alvo dos serviços, verifica-se que 78,9\% dos
+CRAS atenderam idosos, número que ficou 2,8 pontos percentuais abaixo do
+que foi registrado em 2015. Quedas similares, entre 2,2 e 3,0 pontos
+percentuais ocorreram em todas as faixas etárias de público alvo
+(Gráfico 103). Gráfico 103 - Percentual de CRAS que executavam
+diretamente os Serviços de Convivência e Fortalecimento de Vínculos,
+segundo faixa etária atendida - Brasil, 2015 e 201617 Fonte: MDS, Censo
+SUAS.
+
+Ao analisar a oferta de Serviços de Convivência e Fortalecimento de
+Vínculos (SCFV) por região, verifica-se que a região Norte apresenta os
+maiores percentuais de CRAS que o executam, seguida da região Nordeste e
+da região Centro-Oeste. Essa ordem se repete nas faixas etárias dos
+idosos e das pessoas de 0 a 17 anos. Nas faixas etárias de 18 a 59 anos
+ocorre uma inversão entre as regiões, e a região Sudeste é a que
+apresenta os maiores percentuais de CRAS que atenderam esse público,
+seguida da região Sul (Gráfico 104). Gráfico 104: Percentual de CRAS que
+executam diretamente os serviços de Convivência e Fortalecimento de
+Vínculos, segundo grandes regiões - Brasil, 2016 Fonte: MDS, Censo SUAS.
+
+Os CRAS, Centros de Referência de Assistência Social, podem executar
+diretamente os Serviços de Convivência e Fortalecimento de Vínculos
+(SCFV), ou através de rede referenciada ao CRAS. Em 2016, houve queda no
+número de CRAS que possuíam rede referenciada para oferta desses
+serviços, em todas as faixas etárias de público atendido (Gráfico 105).
+Gráfico 105: Quantidade de CRAS cuja rede referenciada oferta Serviço de
+Convivência e Fortalecimento de Vínculos, segundo faixa etária atendida
+- Brasil, 2015 e 2016 Fonte: MDS, Censo SUAS.
+
+Os Serviços de Convivência e Fortalecimento de Vínculos podem ser
+ofertados nos CRAS ou nos Centros de Convivência. O percentual de
+Centros de Convivência que executaram diretamente esses serviços em cada
+faixa etária de público atendido se manteve praticamente estável entre
+2014 e 2016. O público de 7 a 14 foi o que teve o maior percentual de
+atendimento em 2016, 72,0\% dos 8.453 Centros de Convivência atenderam a
+essa faixa etária. Os públicos menos atendidos foram os das faixas
+etárias de 18 a 29 anos e de 30 a 59 anos, que foram atendidos em apenas
+22,9\% e 23,8\% dos Centros de Convivência, respectivamente (Gráfico
+106). Gráfico 106: Percentual de Centros de Convivência que executaram
+diretamente os Serviços de Convivência e Fortalecimento de Vínculos,
+segundo faixa etária atendida - Brasil, 2014 a 2016 Fonte: MDS, Censo
+SUAS.
+
+O percentual das 8.444 unidades de Centros de Convivência que promoveram
+sistematicamente oficinas em 2016 foi de 91,3\%. As atividades
+recreativas, palestras e reuniões com grupos de famílias dos usuários
+ocorrem em mais de 80\% das unidades. Apenas 19,8\% relataram ter
+promovido sistematicamente atividades de reforço escolar. Menos de 1\%
+não realizam nenhuma atividade do Serviço de Convivência (Gráfico 107).
+Gráfico 107: Percentual de unidades de Centros de Convivência que
+promoveram atividades do Serviço de Convivência - Brasil, 2016 Fonte:
+MDS, Censo SUAS.
+
+Entre os benefícios assistenciais, parte da Política de Assistência
+Social, estão os Benefícios Eventuais, que são concedidos em casos de
+nascimento, morte, situações de vulnerabilidade provisória e de
+calamidade pública. Em 2016, 97,0\% dos 5.481 municípios que responderam
+ao Censo SUAS concederam Auxílio Funeral, 93,2\% concederam outros
+benefícios eventuais para famílias em situação de vulnerabilidade
+temporária, 75,5\% concederam benefício eventual para a situação de
+calamidade pública e 70,7\% concederam Auxílio Natalidade (Gráfico 108).
+Gráfico 108: Percentual de municípios que concederam benefícios
+eventuais, segundo tipo de benefício ofertado - Brasil, 2016 Fonte: MDS,
+Censo SUAS.
+
+Em 2016 houve um crescimento no percentual de CRAS que concederam
+benefícios eventuais maior do que o crescimento que já vinha ocorrendo
+desde 2010. O percentual de CRAS que concederam auxílios relacionados à
+segurança alimentar, que já tinha subido de 45,1\% em 2010 para 62,8\%
+em 2015, chegou em 2016 a 73,6\%. O percentual de CRAS que concederam
+Auxílio Funeral, que já tinha crescido de 31,0\% em 2010 para 45,8\% em
+2015, chegou em 2016 a 56,7\%. Também cresceu significativamente o
+percentual de CRAS que concederam Auxílio Natalidade, de 38,4\% em 2015
+para 44,7\% em 2016, e que concederam passagens, de 32,0\% em 2015 para
+39,8\% em 2016. O percentual de CRAS que concederam outros benefícios
+chegou em 2016 a 30,4\%, ante 25,7\% em 2015 (Gráfico 109). Gráfico 109:
+Percentual de CRAS que concederam benefícios eventuais, segundo tipo de
+benefício - Brasil, 2010 a 2016 Fonte: MDS, Censo SUAS.
+
+Na análise das regiões do país, observa-se que a região Centro-Oeste,
+com 617 unidades de CRAS, foi a que teve maior percentual de CRAS que
+concederam os auxílios relacionados à segurança alimentar (85,1\%), o
+Auxílio Funeral (71,6\%), o Auxílio Natalidade (62,4\%) e passagens
+(54,9\%). Já no que se refere a outros benefícios, a região Sul foi a
+que teve o maior percentual de CRAS que concederam, com 39,1\% das suas
+1.517 unidades de CRAS (Gráfico 110). Gráfico 110 - Percentual de CRAS
+por concessão de benefícios, segundo tipo de benefício e grandes regiões
+- Brasil, 2016 Fonte: MDS, Censo SUAS.
+
+Em 2016, caiu em todas as regiões o percentual (e também o número
+absoluto) de unidades de CRAS que possuem equipe volante, que é uma
+equipe técnica adicional (além do número previsto pela NOB-RH/SUAS)
+específica para deslocamento visando o atendimento à população em
+territórios extensos e áreas isoladas. A região Norte é a que tinha o
+maior percentual de unidades de CRAS que possuem equipe volante, com
+35,2\%, seguida da região Centro-Oeste, com 28,4\% (Gráfico 111).
+Gráfico 111 - Percentual de unidades de CRAS que possuem equipe técnica
+adicional (além do número previsto pela NOB-RH/SUAS) específica para
+deslocamento visando o atendimento à população em territórios extensos e
+áreas isoladas, segundo grandes regiões - Brasil, 2011 a 2016 Fonte:
+MDS, Censo SUAS.
+
+\hypertarget{povos-tradicionais}{%
+\section{Povos Tradicionais}\label{povos-tradicionais}}
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/povos-tradicionais-1} \caption[Percentual de CREAS que atendem povos e comunidades tradicionais -  por grupos , Região - 2022]{Percentual de CREAS que atendem povos e comunidades tradicionais -  por grupos , Região - 2022}\label{fig:povos-tradicionais}\floatfoot{Fonte: MDS, Censo SUAS.}
+\end{figure}
+
+\hypertarget{benefuxedcios-eventuais}{%
+\section{Benefícios Eventuais}\label{benefuxedcios-eventuais}}
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/be-munic-1} \caption[Percentual de Municípios que concedem Benefícios Eventuais - 2022]{Percentual de Municípios que concedem Benefícios Eventuais - 2022}\label{fig:be-munic}\floatfoot{Fonte: MDS, Censo SUAS.}
+\end{figure}
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/be-local-1} \caption[Percentual de Municípios que concedem Benefícios Eventuais - 2022]{Percentual de Municípios que concedem Benefícios Eventuais - 2022}\label{fig:be-local}\floatfoot{Fonte: MDS, Censo SUAS.}
+\end{figure}
+
+\hypertarget{participauxe7uxe3o-social-e-controle-social}{%
+\chapter{Participação Social e Controle
+Social}\label{participauxe7uxe3o-social-e-controle-social}}
+
+A participação social é uma das diretrizes estabelecidas pela
+Constituição Federal de 1988 para a organização das ações da Assistência
+Social. Nesse sentido, a Lei Orgânica da Assistência Social (LOAS)
+\footnote{Lei nº 8.742, de 7 de dezembro de 1993: Dispõe sobre a organização da Assistência Social e dá outras providências. (\url{http://www.planalto.gov.br/ccivil_03/Leis/L8742compilado.htm})},
+que dispõe sobre a sua organização, instituiu em seu artigo 16 os
+Conselhos de Assistência Social em âmbito nacional, estadual e municipal
+como instâncias de deliberação colegiada do SUAS, cuja composição deve
+ser paritária entre governo e sociedade civil.
+
+Os Conselhos integram o Sistema Único de Assistência Social (SUAS),
+juntamente com o governo e as entidades e organizações de assistência
+social. A Resolução do Conselho Nacional de Assistência Social (CNAS) nº
+237/2006,
+\footnote{(\url{https://www.mpba.mp.br/sites/default/files/biblioteca/crianca-e-adolescente/suas/resolucoes/resolucao_n_237_2006.pdf})}
+estabelece em seu artigo 3º as competências dos Conselhos de Assistência
+Social, das quais se destacam: a aprovação da respectiva Política de
+Assistência Social, em consonância com a Política Nacional de
+Assistência Social (PNAS); a normatização e regulação de ações e
+prestação de serviços, em conjunto com a gestão; o acompanhamento,
+avaliação e fiscalização da gestão de recursos; a inscrição e a
+fiscalização das entidades e organizações da assistência social; e a
+aprovação da proposta orçamentária dos recursos da assistência social e
+dos critérios de partilha dos recursos, dentre outras atribuições.
+
+A mesma Resolução estabelece que na composição dos Conselhos deve haver,
+além de representantes do governo, representantes da sociedade civil,
+incluindo usuários, entidades e organizações de assistência social e
+entidades de trabalhadores do setor.
+
+Para garantir seu funcionamento adequado, a LOAS, em seu artigo 16,
+estabelece que os órgãos gestores de assistência social, aos quais estão
+vinculados os Conselhos de Assistência Social, devem prover a
+infraestrutura necessária ao seu funcionamento, garantindo recursos
+materiais, humanos e financeiros.
+
+Este bloco apresenta os resultados apurados pelo Censo SUAS para os
+Conselhos Municipais e Estaduais de Assistência Social, considerando as
+dimensões estrutura administrativa, dinâmica de funcionamento e
+composição.
+
+No que se refere aos dados do censo suas, o percentual de municípios que
+respondem ao formulário de Conselho Municipal de Assistência Social é
+acima de 90\%, com algumas variações entre 2012 e 2022. É importante
+pontuar que as variações no período analisado não significam
+necessariamente redução no número de municípios com conselhos, uma vez
+que podem ocorrer variações no número de conselhos municipais que
+respondem ao Censo SUAS.
+
+Abaixo o gráfico tras informações da quantidade de conselhos municipais,
+por região, que responderam ao Censo SUAS.
+
+A sede e local especifico para funcionamento dos Coselhos é uma demanda
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/Cmas_sede-1} \caption[Percentual de Conselhos municipais que possuem local/sede específico para funcionamento - Brasil, 2012 - 2017 - 2022]{Percentual de Conselhos municipais que possuem local/sede específico para funcionamento - Brasil, 2012 - 2017 - 2022}\label{fig:Cmas_sede}
+\end{figure}
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/Ceas_sede-1} \caption[Percentual de Conselhos Estaduais que possuem local/sede específico para funcionamento - Brasil, 2012 - 2022]{Percentual de Conselhos Estaduais que possuem local/sede específico para funcionamento - Brasil, 2012 - 2022}\label{fig:Ceas_sede}
+\end{figure}
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/Cmas_se-1} \caption[Percentual de Conselhos municipais com secretarias executivas exclusivas - Brasil, 2012 - 2017 - 2022]{Percentual de Conselhos municipais com secretarias executivas exclusivas - Brasil, 2012 - 2017 - 2022}\label{fig:Cmas_se}
+\end{figure}
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/Ceas_sec-1} \caption[Percentual de Conselhos Estaduais que possuem secretaria executiva - Brasil, 2012 - 2017 - 2022]{Percentual de Conselhos Estaduais que possuem secretaria executiva - Brasil, 2012 - 2017 - 2022}\label{fig:Ceas_sec}
+\end{figure}
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/Qtd_reuniao_cmas-1} \caption[Quantidade de reuniões realizadas nos conselhos municipais - Brasil, 2022]{Quantidade de reuniões realizadas nos conselhos municipais - Brasil, 2022}\label{fig:Qtd_reuniao_cmas}\floatfoot{Fonte: MDS, Censo SUAS.}
+\end{figure}
+
+Fonte: MDS, Censo SUAS.
+
+\textbf{6.2 -- Características dos Conselhos Municipais e Estaduais de
+Assistência Social} \textbf{6.2.1 -- Secretaria Executiva} A Secretaria
+Executiva é uma unidade administrativa de apoio e assessoramento técnico
+ao conselho e que tem como responsabilidade dar suporte à Presidência,
+ao Colegiado, Comissões e Grupos de Trabalhos para cumprimento de suas
+atribuições. Em 2016, o Censo SUAS verificou que 76,5\% dos Conselhos
+Municipais de Assistência Social possuíam Secretaria Executiva (4.100
+unidades), aumento de 8,4 pontos percentuais desde 2013. Quanto aos
+Conselhos Estaduais, todos possuíam Secretaria Executiva (Gráfico xx).
+\textbf{Gráfico xx - Distribuição percentual de Conselhos Estaduais e
+Municipais segundo a existência de Secretaria Executiva -- Brasil, 2013
+a 2017}
+
+Fonte: MDS, Censo SUAS.
+
+\textbf{6.2.2 -- IGD-SUAS} O Índice de Gestão Descentralizada do SUAS
+(IGD-SUAS) visa avaliar a qualidade da gestão descentralizada dos
+serviços, programas, projetos e benefícios socioassistenciais no âmbito
+dos municípios, estados e Distrito Federal, bem como a articulação
+intersetorial. Com base nesse indicador, o MDS repassa recursos aos
+municípios para que façam a gestão do programa, respeitando a previsão
+legal de aplicação obrigatória de 3\% dos recursos do IGD/PBF e do
+IGD/SUAS nos Conselho de Assistência Social. O percentual de Conselhos
+Municipais de Assistência Social cujo IGD-SUAS era utilizado para
+custear despesas de funcionamento do Conselho foi maior em 2016 na
+região Nordeste (87,6\%), seguida das regiões Norte (87,4\%) e
+Centro-Oeste (87,4\%). Foi observado aumento nos percentuais de
+Conselhos Municipais que utilizam o IGD em todas as regiões, com exceção
+da região Centro-Oeste, em que foi observada pequena queda de 1,2 pontos
+percentuais entre 2015 e 2016 (Gráfico xx). \textbf{Gráfico xx -
+Percentual de Conselhos Municipais de Assistência Social cujo IGD-SUAS
+era destinado a custear despesas de funcionamento do Conselho, segundo
+grandes regiões -- Brasil, 2014 a 2017}
+
+\includegraphics{Censo-SUAS-2022_files/figure-latex/IGD_CMAS-1}
+
+Fonte: MDS, Censo SUAS.
+
+\begin{figure}
+\includegraphics{Censo-SUAS-2022_files/figure-latex/IGD_CEAS-1} \caption[Quantidade de conselhos estaduais na qual são destinados pelo menos 3% dos IGB Bolsa Família e SUAS]{Quantidade de conselhos estaduais na qual são destinados pelo menos 3% dos IGB Bolsa Família e SUAS}\label{fig:IGD_CEAS}\floatfoot{Fonte: MDS, Censo SUAS.}
+\end{figure}
+
+Fonte: MDS, Censo SUAS.
+
+\textbf{6.2.3 -- Plano de Assistência Social} A NOB SUAS 2012, em seu
+Artigo 18, define o Plano de Assistência Social como um ``instrumento de
+planejamento estratégico que organiza, regula e norteia a execução da
+PNAS na perspectiva do Sistema Único de Assistência Social (SUAS)''.
+Assim, é fundamental que os Conselhos de Assistência Social deliberem
+sobre o Plano. Em 2016, 92,5\% dos Conselhos informaram que o município
+possuía Plano de Assistência Social (4.955 municípios), e 74,1\% que os
+estados possuíam o Plano (20 estados). 403 Conselhos informaram que o
+município não possuía Plano de Assistência Social em 2016. Considerando
+a totalidade dos Conselhos, 89,9\% dos Conselhos Municipais (4.816) e
+70,4\% dos Conselhos Estaduais (19) informaram deliberar sobre os Planos
+de Assistência Social. O percentual de Conselhos Municipais que
+deliberam sobre o Plano de Assistência Social se manteve constante desde
+2014. Entre os Conselhos Estaduais houve aumento em 2016 em relação ao
+ano anterior (Gráfico xx).
+
+\includegraphics{Censo-SUAS-2022_files/figure-latex/Cmas_plan-1}
+
+\includegraphics{Censo-SUAS-2022_files/figure-latex/Ceas_se-1}
+
+\includegraphics{Censo-SUAS-2022_files/figure-latex/Cmas_be-1}
+
+\includegraphics{Censo-SUAS-2022_files/figure-latex/Ceas_be-1}
+
+\textbf{6.2.4 -- Regimento interno} O Regimento interno do conselho é um
+conjunto de normas que rege, disciplina e regulamenta o seu
+funcionamento. Geralmente, é aprovado por meio de Resolução e contém o
+detalhamento de suas competências, de acordo com o que está definido na
+Lei Orgânica de Assistência Social (LOAS), na Lei de criação do conselho
+e na Resolução CNAS nº 237, de 2006. Foi possível observar que em 2016,
+4.501 Conselhos Municipais de Assistência Social (84\% do total)
+informaram possuir regimento interno, enquanto 858 Conselhos (16\% do
+total) informaram não possuir. Quando se observa a última atualização do
+regimento interno, tem-se que 2.852 Conselhos (63,4\% do total de
+conselhos que possuem regimento interno) realizaram a última atualização
+entre 2009 e 2016, enquanto 510 (11,3\%) atualizaram seus regimentos
+pela última vez entre 2005 e 2008. Observa-se que 1.139 Conselhos
+Municipais (25,3\%) atualizaram seu regimento interno pela última vez
+até o ano de 2004 (Gráfico xx). \textbf{Gráfico xx: Número de Conselhos
+Municipais de Assistência Social por período de atualização do Regimento
+Interno - Brasil, 2017}
+
+Fonte: MDS, Censo SUAS.
+
+\textbf{6.2.5 - Instância de controle social do Programa Bolsa Família
+(PBF)} O Conselho é a instancia de controle social do Programa Bolsa
+Família (PBF) e deve atuar no acompanhamento de todos os componentes do
+Programa, como: o Cadastro Único para Programas Sociais, a Gestão de
+benefícios, as condicionalidades, a fiscalização e as oportunidades de
+desenvolvimento das capacidades das famílias desenvolvidas ou
+articuladas pelo município e os programas complementares. No ano de
+2016, todos os Conselhos Estaduais exerciam o papel de instância de
+controle social do Programa Bolsa Família (PBF), 85,2\% deliberaram
+sobre os critérios de repasse de recursos para os municípios, 51,9\%
+deliberaram sobre os critérios de repasse de recursos para entidades e
+74,1\% deliberaram sobre proposta anual de orçamento do executivo.
+Quanto aos Conselhos Municipais, 89,1\% eram instância de controle
+social do PBF, 44,3\% deliberam sobre os critérios de repasse de
+recursos para entidades e 67,4\% deliberaram sobre a proposta anual de
+orçamento do executivo (Gráfico xx). Gráfico xx - Percentual de
+Conselhos Municipais e Estaduais segundo suas atribuições -- Brasil,
+2017
+
+Fonte: MDS, Censo SUAS.
+
+\textbf{6.2.6 -- Realização de atividades} Sobre a frequência de
+realização de atividades pelos Conselhos Municipais, observa-se as mais
+realizadas no ano de 2016 foram as visitas às unidades da rede
+socioassistencial, que ocorreram semestralmente em 28,5\% dos Conselhos
+Municipais, anualmente em 27,5\% e trimestralmente em 19,1\%. Também
+figuram dentre as atividades mais realizadas as ações de mobilização
+social e as reuniões ampliadas. 50,2\% dos Conselhos apontaram nunca
+acompanhar votações e discussões do Poder Legislativo local e 73,5\%
+nunca realizar reuniões descentralizadas (Gráfico xx).
+
+\textbf{Gráfico xx - Distribuição percentual de Conselhos Municipais por
+frequência com que realizam atividades -- Brasil, 2017}
+
+Fonte: MDS, Censo SUAS.
+
+No que diz respeito à frequência de atividades realizadas pelos
+Conselhos Estaduais, 51,9\% informaram nunca acompanhar as
+votações/discussões do Poder Legislativo local. Sobre a realização de
+reuniões, 40,7\% informaram realizar reuniões ampliadas anualmente,
+enquanto 29,6\% realizavam reuniões descentralizadas anualmente. Ações
+de mobilização social não eram realizadas por 40,7\% dos conselhos,
+enquanto 25,9\% nunca faziam visitas nas unidades de rede
+socioassistencial. Todos os Conselhos Estaduais indicaram receber
+denúncias em alguma periodicidade. Nenhum Conselho Estadual realizava
+reuniões descentralizadas e reuniões ampliadas mensalmente ou
+trimestralmente (Gráfico xx).
+
+\textbf{Gráfico xx - Distribuição percentual de Conselhos Estaduais por
+frequência com que realizam atividades -- Brasil, 2017}
+
+Fonte: MDS, Censo SUAS.
+
+\includegraphics{Censo-SUAS-2022_files/figure-latex/Cmas_ppa-1}
+
+\includegraphics{Censo-SUAS-2022_files/figure-latex/Ceas_ppa-1}
+
+\textbf{6.2.8 -- Comissões Intergestores} A CIB e a CIT são espaços de
+negociação e pactuação de caráter permanente para discussão quanto aos
+aspectos operacionais da gestão do sistema descentralizado e
+participativo da assistência social que devem ser acompanhados pelos
+conselhos. Entretanto, foi possível observar que ao longo dos últimos
+anos tem caído a participação regular dos Conselhos Municipais junto a
+essas Instâncias. Em 2016, 15,7\% dos Conselhos Municipais acompanhavam
+os processos de pactuação da CIB e CIT com regularidade (840) e 45,2\%
+sem regularidade (2.422), totalizando 60,9\% de Conselhos Municipais que
+informaram acompanhar os processos de pactuação (3.262). Entre os
+Conselhos Estaduais, observou-se uma oscilação entre 2010 e 2016 quanto
+aos percentuais de conselhos que acompanhavam os processos de pactuação
+da CIB e CIT com regularidade. Em 2016 esse percentual foi de 63,0\%,
+correspondendo a 11,1 pontos percentuais a menos que o ano anterior
+(Gráfico xx). \textbf{Gráfico xx - Percentual de Conselhos Estaduais e
+Municipais que acompanhavam os processos de pactuação da CIB e CIT --
+Brasil, 2010 a 2017}
+
+Fonte: MDS, Censo SUAS.
+
+\textbf{6.2.9 -- Publicação de deliberações e resoluções} Em 2016,
+92,6\% dos Conselhos Estaduais publicaram todas as suas
+deliberações/resoluções em diário oficial. Apenas 3,7\% (um estado)
+tinha a maioria das decisões publicadas e 3,7\% a metade. Mais de 40\%
+dos Conselhos Municipais não publicaram suas deliberações em Diário
+Oficial, 12,7\% publicaram a minoria das deliberações, enquanto 32,5\%
+publicaram todas as decisões em Diário Oficial (Gráfico xx).
+\textbf{Gráfico xx - Publicação em Diário Oficial das
+deliberações/resoluções dos Conselhos Municipais e Estaduais - Brasil,
+2017}
+
+Fonte: MDS, Censo SUAS.
+
+Considerações Finais Este capítulo teve por objetivo demonstrar como vem
+se dando a participação da sociedade civil na assistência social por
+meio dos Conselhos Estaduais e Municipais de Assistência Social. A
+partir de suas atribuições como responsáveis pela normatização,
+disciplina, acompanhamento, avaliação e fiscalização da gestão e a
+execução dos serviços, programas, projetos e benefícios
+socioassistenciais, essas instâncias compartilhadas entre representantes
+da sociedade e do governo são fundamentais para consolidar o controle
+social. Os dados do censo mostram que a institucionalização dos
+conselhos vem gradativamente se estruturando. Em 2016, todos os
+Conselhos Estaduais tinham Secretaria Executiva e, os Conselhos
+Municipais, desde 2013 apresentaram um aumento de 8,4 pontos percentuais
+na instituição dessa secretaria. Entretanto, o percentual de conselhos
+que fiscalizam serviços, programas, projetos e benefícios
+socioassistenciais segue como um desafio a ser superado. Em 2016, dentre
+os Conselhos Municipais, 53,6\% fiscalizavam apenas a rede pública e
+36,4\% fiscalizavam ambas as redes, pública e privada. Por sua vez,
+entre os Conselhos Estaduais 25,9\% fiscalizaram apenas a rede pública,
+enquanto 48,1\% fiscalizaram ambas as redes. Quanto ao acompanhamento e
+fiscalização da execução do Programa Bolsa Família, até 2015 ocorreu uma
+queda considerável no percentual de Conselhos Estaduais, passando de
+84,6\% no ano de 2013, para 65,4\% em 2014 e 63,0\% em 2015; porém, em
+2016, verifica-se um aumento relevante, alcançando 77,8\%. Já em relação
+aos Conselhos Municipais, o percentual vem crescendo, assim, o resultado
+em 2016 foi que 87,7\% fiscalizaram e acompanharam o Programa Bolsa
+Família. Analisando a distribuição do percentual da frequência de
+atividades realizadas pelos Conselhos Estaduais em 2016, percebe-se que
+51,9\% (14) deles nunca acompanharam votações/discussões do Poder
+Legislativo local, 44,4\% (12) nunca realizaram reuniões
+descentralizadas, 40,7\% (11) nunca realizaram ações de mobilização
+social, 29,6\% (8) realizaram anualmente visitas nas unidades da rede
+Socioassistencial, 40,7\% (11) realizavam anualmente reuniões ampliadas,
+enquanto 33,3\% (9) recebiam denúncia anualmente. Informações mais
+detalhadas sobre estrutura física, previsão orçamentária, composição,
+normatização e atividades realizadas pelo Conselhos Municipais e
+Estaduais de Assistência Social, além de outros dados sobre
+regulamentação de benefícios eventuais e inscrição das entidades e
+organizações de assistência social, serviços, programas, projetos e
+benefícios socioassistenciais poderão ser consultadas na versão
+eletrônica do CensoSUAS 2016 disponível em
+\url{https://aplicacoes.mds.gov.br/sagi/portal/index.php?grupo=105}.
+
+\hypertarget{estrutura-fuxedsica-das-unidades}{%
+\chapter{Estrutura Física das
+Unidades}\label{estrutura-fuxedsica-das-unidades}}
+
+\hypertarget{cras--}{%
+\section{CRAS -}\label{cras--}}
+
+A acessibilidade é fundamental para que os usuários consigam chegar até
+os serviços oferecidos pelos CRAS. Em 2016, 38,7\% das unidades
+declararam ter rota acessível ao banheiro de acordo com a Norma da ABNT
+(NBR9050), enquanto em 37,8\% havia rota acessível ais espaços do CRAS
+de acordo com a referida Norma. Embora nenhuma das adaptações de acordo
+com a Norma da ABNT tenha estado presente em mais de 40\% das unidades,
+todas as categorias relativas à acessibilidade continuam crescendo
+percentualmente em relação aos anos anteriores
+(\Cref{fig:CRAS-acessibilidade}).
+
+\includegraphics{Censo-SUAS-2022_files/figure-latex/CRAS-acessibilidade-1}
+
+Os CRAS são considerados a porta de entrada da Assistência Social, sendo
+uma referência para a população no território. Nesse sentido, podem se
+articular com a rede de proteção social e com demais serviços ofertados
+no município, de forma a garantir o acesso da população aos direitos
+sociais.
+
+Em 2016, verificou-se que as condições de acessibilidade em CRAS
+localizados em imóveis próprios eram melhores que nas unidades situadas
+em imóveis alugados ou cedidos. Entre os 4.263 CRAS que estavam
+instalados em imóveis próprios, 51,9\% (2.212 unidades) possuíam
+banheiro adaptado para pessoas com deficiência de acordo com a Norma
+ABNT (NBR9050) e 53,2\% (2.267) rotas acessíveis ao banheiro. Dos 3.259
+CRAS que funcionavam em imóveis alugados, 16,9\% (522 unidades) possuíam
+banheiro adaptado para pessoas com deficiência e 21,3\% (694 unidades)
+rota cessível ao banheiro. Entre os cedidos os percentuais eram 30,8 e
+31,3, respectivamente, considerando o total de 718 Unidades
+(\Cref{fig:CRAS-acessibilidade-situacao}).
+
+Considerando a totalidade dos CRAS (8.240), 27,5\% dos CRAS que tinham
+rota acessível ao banheiro de acordo com a Norma ABNT estavam instalados
+em imóveis próprios, contra 8,4\% em imóveis alugados.
+
+De todos os CRAS em imóveis próprios, apenas 3,0\% informaram não ter
+nenhuma condição de acessibilidade, ainda que em desacordo com a norma
+ABNT. Para os CRAS localizados em imóveis alugados esse percentual foi
+de 11,6\% e em imóveis cedidos de 8,4\%.
+
+\includegraphics{Censo-SUAS-2022_files/figure-latex/CRAS-acessibilidade-situacao-1}
+
+O número absoluto e o percentual de CRAS com acesso à internet
+aumentaram desde 2007. No ano de 2016, havia 7.835 CRAS com acesso à
+internet (\Cref{fig:CRAS-internet-quantitativo}), o que representa
+95,1\% das unidades (\Cref{fig:CRAS-internet-percentual}).
+
+\includegraphics{Censo-SUAS-2022_files/figure-latex/CRAS-internet-percentual-1}
+
+\hypertarget{creas--}{%
+\section{CREAS -}\label{creas--}}
+
+\includegraphics{Censo-SUAS-2022_files/figure-latex/creas-situacao-1}
+
+De acordo com os dados do Censo SUAS de 2016, 22,8\% dos CREAS possuíam
+banheiro adaptado para pessoas com mobilidade reduzida de acordo com a
+Norma da ABNT -- um crescimento de 1,9 pontos percentuais em relação ao
+ano anterior. A presença de acesso principal adaptado com rampas, rota
+acessível e calçada e de rota acessível ao banheiro apresentaram aumento
+de 1,7, 1,3 e 0,8 pontos percentuais, respectivamente.
+
+É possível observar aumento na proporção de CREAS com condições de
+acessibilidade de acordo com a ABNT em todos os quesitos avaliados entre
+os anos de 2010 e 2016. No entanto, os percentuais permanecem abaixo de
+30\% em todos os quesitos, o que explicita que a melhoria da
+acessibilidade nesses equipamentos ainda constitui grande desafio a ser
+superado (Gráfico 33).
+
+\includegraphics{Censo-SUAS-2022_files/figure-latex/creas-acessibilidade-1}
+
+\includegraphics{Censo-SUAS-2022_files/figure-latex/CREAS-acessibilidade-situacao-1}
+
+Considerando os 694 CREAS que funcionavam em imóveis próprios, 1.639 que
+funcionavam em imóveis alugados e as 188 unidades que funcionavam em
+imóveis cedidos em 2016, tem-se que as condições de acessibilidade eram
+melhores nos imóveis próprios: 47,4\% dos 694 CREAS que funcionavam em
+imóveis próprios tinham rota acessível ao banheiro de acordo com a Norma
+ABNT (329 unidades), enquanto 16,8\% dos CREAS que funcionavam em
+imóveis alugados e 27,1\% dos que funcionavam em imóveis cedidos tinham
+a mesma condição de acessibilidade (276 e 51 unidades, respectivamente).
+Nos CREAS que funcionavam em imóveis alugados o acesso adaptado com
+rampas e rotas acessíveis desde a calçada até a recepção foi observado
+em 19,2\% das unidades (314 CREAS) (Gráfico 34).
+
+A existência de computadores com acesso à internet é um importante
+aspecto a ser observado quando se avalia a infraestrutura dos CREAS. Em
+2016, 99,8\% dos CREAS possuíam acesso à internet. Em números absolutos,
+passou de 2.308 unidades em 2015, para 2.517 em 2016 (Gráfico 35).
+
+\includegraphics{Censo-SUAS-2022_files/figure-latex/CREAS-internet-percentual-1}
+
+\hypertarget{centro-pop}{%
+\section{Centro Pop}\label{centro-pop}}
+
+Em 2016, 89,6\% dos Centros POP tinham computador com acesso à internet.
+Apenas 2 unidades (0,9\% do total) informaram não possuir computador.
+Tanto os valores absolutos de unidades com computador com acesso à
+internet quanto o percentual total aumentaram desde 2014 (Gráfico 40).
+Gráfico 40: Frequência absoluta e percentual de Centros POP com
+computadores com acesso à internet -- Brasil, 2011 a 2016 Fonte: MDS,
+Censo SUAS.
+
+\hypertarget{centro-dia-1}{%
+\section{Centro Dia}\label{centro-dia-1}}
+
+\hypertarget{cadastro-uxfanico-1}{%
+\section{Cadastro Único}\label{cadastro-uxfanico-1}}
+
+Quanto a presença de estrutura física dos postos do Cadastro Único a
+acessibilidade \footnote{foram consideradas com ou sem ABNT} avançou nos
+últimos anos conforme \ldots{}
+
+\includegraphics{Censo-SUAS-2022_files/figure-latex/postcad-acessibilidade-1}
+
+Em relação aos espaços de acessibilidade comparada a situação do imóvel,
+destaca-se que os postos do Cadastro Único próprios ou cedidos, possuem
+significativamente mais ascessibilidade que os imóveis alugados
+(\Cref{fig:postcad-acessibilidade-situacao}).
+
+\includegraphics{Censo-SUAS-2022_files/figure-latex/postcad-acessibilidade-situacao-1}
+
+Em relação a computadores com acesso a internet, é indicador bem
+presente
+
+\includegraphics{Censo-SUAS-2022_files/figure-latex/postcad-internet-percentual-1}
+
+\hypertarget{indicadores-do-suas}{%
+\chapter{Indicadores do SUAS}\label{indicadores-do-suas}}
+
+\hypertarget{id-cras---induxedce-de-desenvolvimento-do-cras}{%
+\section{ID CRAS - Indíce de Desenvolvimento do
+CRAS}\label{id-cras---induxedce-de-desenvolvimento-do-cras}}
+
+\includegraphics{Censo-SUAS-2022_files/figure-latex/ID-CRAS-1}
+
+\includegraphics{Censo-SUAS-2022_files/figure-latex/ID-CRAS-nivel-1}
+
+\hypertarget{id-creas--induxedce-de-desenvolvimento-do-creas}{%
+\section{ID CREAS -Indíce de Desenvolvimento do
+CREAS}\label{id-creas--induxedce-de-desenvolvimento-do-creas}}
+
+\includegraphics{Censo-SUAS-2022_files/figure-latex/ID-CREAS-1}
+
+\includegraphics{Censo-SUAS-2022_files/figure-latex/ID-CREAS-nivel-1}
+
+\hypertarget{id-conselho---induxedce-de-desenvolvimento-dos-conselhos-municipais-de-assistuxeancia-social}{%
+\section{ID CONSELHO - Indíce de Desenvolvimento dos Conselhos
+Municipais de Assistência
+Social}\label{id-conselho---induxedce-de-desenvolvimento-dos-conselhos-municipais-de-assistuxeancia-social}}
+
+\includegraphics{Censo-SUAS-2022_files/figure-latex/ID-conselho-1}
+
+\includegraphics{Censo-SUAS-2022_files/figure-latex/ID-conselho-nivel-1}
+
+Estrutura Administrativa dos conselhos municipais piorou, sobretudo após
+2016.
+
+\includegraphics{Censo-SUAS-2022_files/figure-latex/id-conselho-estrutura-1}
+
+\includegraphics{Censo-SUAS-2022_files/figure-latex/id-conselho-dinamica-1}
+
+\includegraphics{Censo-SUAS-2022_files/figure-latex/id-conselho-composicao-1}
+
+Referências Bibliográficas: \%\_\_\_\_\_\_\_\_\_\_\_\_\_\_ (2012) Norma
+Operacional Básica, NOB-SUAS. Brasília, DF: MDS.
+\%\_\_\_\_\_\_\_\_\_\_\_\_\_\_ (2012) NOB-RH Anotada e Comentada --
+Brasília, DF: MDS; Secretaria Nacional de Assistência Social, 2011. 144
+p.; 23.
+
+\%\_\_\_\_\_\_\_\_\_\_\_\_\_\_ (2011) Lei Orgânica da Assistência Social
+- LOAS. Brasília, DF: MDS. \%\_\_\_\_\_\_\_\_\_\_\_\_\_\_ (2010)
+Orientação acerca dos Conselhos e do controle social da política pública
+de assistência social. Brasília, DF: MDS, Secretaria de Avaliação e
+Gestão da Informação; Secretaria Nacional de Assistência Social, 2013.
+\%\_\_\_\_\_\_\_\_\_\_\_\_\_\_ (prelo) Orientação técnicas da vigilância
+socioassistencial: versão preliminar. Brasília, DF: MDS, Secretaria
+Nacional de Assistência Social, 2013. \%\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+Caderno de Orientações sobre o Índice de Gestão Descentralizada do
+Sistema Único de Assistência Social -- IGDSUAS; Efetividade das
+Instituições Participativas no Brasil: Estratégias de Avaliação, 2012.
+\%\_\_\_\_\_\_\_\_\_\_\_\_\_\_Caderno de orientação do CNAS do processo
+eleitoral dos representantes da sociedade civil nos Conselhos, 2014.
+\%\_\_\_\_\_\_\_\_\_\_\_\_\_\_ Ministério do Desenvolvimento Social e
+Combate à Fome, UNESCO Concepção e gestão da proteção social não
+contributiva no Brasil. 2009.
+
+\%\_\_\_\_\_\_\_\_\_\_\_\_\_\_ Ministério do Desenvolvimento Social e
+Combate à Fome. GESTÃO DO TRABALHO NO ÂMBITO DO SUAS: Uma contribuição
+Necessária. -- Brasília, DF: MDS ; Secretaria Nacional de Assistência
+Social, 2011. 176 p.; 23.
+
+\%\_\_\_\_\_\_\_\_\_\_\_\_\_\_ Orientações conjuntas sobre os índices de
+gestão descentralizada do programa bolsa família (IGD-PBF) e do SUAS
+(IGDSUAS) e Orientações aos Conselhos Estaduais de Assistência Social
+para criação e implantação da comissão de acompanhamento aos Conselhos
+Municipais; CNAS; 2013. \%\_\_\_\_\_\_\_\_\_\_\_\_\_\_ Orientações
+gerais do Conselho Nacional de Assistência Social para a adequação da
+Lei de criação dos Conselhos às normativas vigentes e ao exercício do
+controle social no SUAS. \%\_\_\_\_\_\_\_\_\_\_\_\_\_\_Pacto de
+Aprimoramento da Gestão Municipal do SUAS (Resoluções CIT n°18 de 15 de
+julho de 2013). \%\_\_\_\_\_\_\_\_\_\_\_\_\_\_Pacto de Aprimoramento da
+Gestão Estadual do (Resoluções CIT n°19 de 5 de dezembro de 2013)
+\%\_\_\_\_\_\_\_\_\_\_\_\_\_\_ Pacto de Aprimoramento SUAS, Resolução
+CIT nº 32 de 31 de outubro de 2013 (revisão das prioridades e metas
+específicas para a gestão estadual e do Distrito Federal e os
+compromissos do governo federal). \%\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+Política Nacional de Educação Permanente do SUAS/ Ministério do
+Desenvolvimento Social e Combate à Fome -- 1ª ed.~-- Brasília: MDS,
+2013, 57p. \%\_\_\_\_\_\_\_\_\_\_\_\_\_\_Resolução nº 237, de 14 de
+dezembro de 2006 (Diretrizes para a estruturação, reformulação e
+funcionamento dos Conselhos de Assistência Social).
+\%\_\_\_\_\_\_\_\_\_\_\_\_\_\_ Tribunal de Contas da União. Controle
+exercido por conselhos da assistência social: módulo 1: assistência
+social no Brasil: políticas, recursos e controle / Tribunal de Contas da
+União. -- Brasília: TCU, Secretaria de Controle Externo da Previdência,
+do Trabalho e da Assistência Social, 2013.
+\%\_\_\_\_\_\_\_\_\_\_\_\_\_\_ Tribunal de Contas da União Orientações
+para Conselheiros da Área de Assistência Social / Tribunal de Contas da
+União. -- Brasília: TCU, 4ª Secretaria de Controle Externo, 2007.
+\%MERIGO, J. A implantação dos serviços socioassistenciais na região da
+associação de municípios da grande Florianópolis/SC: desafios e
+perspectivas!. Brasília, 2010. Disponível em: . Acesso em: 20 mar. 2015.
+\%MORETTO, S. e D. SILVEIRA (2010) A contribuição dos Conselhos de
+assistência social na materialização do Sistema Único de Assistência
+Social (SUAS). UNISUL. \%PIRES, Roberto Rocha C.(Org.) Efetividade das
+Instituições Participativas no Brasil: estratégias de avaliação.
+Diálogos para o desenvolvimento, Vol.7. \%ORIENTAÇÕES PARA ELABORAÇÃO DO
+PLANO INDIVIDUAL DE ATENDIMENTO DE CRIANÇAS E ADOLESCENTES EM SERVIÇOS
+DE ACOLHIMENTO, Brasília, abril de 2017. Ministério do Desenvolvimento
+Social e Agrário - Secretaria Nacional de Assistência Social -
+Departamento de Proteção Social Especial - Coordenação Geral de Serviços
+de Acolhimento
+
+\end{document}
