@@ -644,7 +644,7 @@ ge_2018 <- read_excel("../Censo SUAS 2018/7 - Gestão Estadual/Censo_SUAS_2018_G
 
 gerh_2018 <- read_excel("../Censo SUAS 2018/7 - Gestão Estadual/Censo_SUAS_2018_Gestão_Estadual_RH_divulgação.xlsx", sheet = 1)
 
-#ge_2019 <- read_excel("../Censo SUAS 2019/", sheet = 1)
+ge_2019 <- read_excel("../Censo SUAS 2019/8 - Gestão Estadual/Censo_SUAS_2019_dados_gerais_GE__divulgação.xlsx", sheet = 1)
 
 #gerh_2019 <- read_excel("../", sheet = 1)
 
@@ -652,7 +652,7 @@ ge_2020 <- read_excel("../Censo SUAS 2020/10 - Gestão Estadual/Censo_SUAS_2020_
 
 gerh_2020 <- read_excel("../Censo SUAS 2020/10 - Gestão Estadual/Censo_SUAS_2020_RH_Gestão_Estadual.xlsx", sheet = 1)
 
-#ge_2021 <- read_excel("../Censo SUAS 2021/8 - Gestão Estadual/Censo_SUAS_2021_Gestão_Estadual_Dados_Gerais_Divulgaçao.xlsx", sheet = 1)
+ge_2021 <- read_excel("../Censo SUAS 2021/8 - Gestão Estadual/Censo_SUAS_2021_Gestão_Estadual_Dados_Gerais_Divulgaçao.xlsx", sheet = 1)
 
 gerh_2021 <- read_excel("../Censo SUAS 2021/8 - Gestão Estadual/Censo_SUAS_2021_Gestão_Estadual_RH.xlsx", sheet = 1)
 
@@ -1513,10 +1513,12 @@ estados_sec_exc  = function(df, q, ano){
     select(!! ano := !! q) %>% 
     gather("Categoria","Nível") %>% 
     mutate(Nível = case_when(Nível == "Secretaria estadual exclusiva da área de Assistência Social"~"Secretaria estadual exclusiva da área de Assistência Social",
+                             Nível == "Secretaria estadual exclusiva da Área de Assistência Social"~"Secretaria estadual exclusiva da área de Assistência Social",
                              TRUE ~ Nível)) %>% 
     filter(!is.na(Nível)) %>% 
     mutate(Nível = factor(Nível, levels = c("Secretaria estadual exclusiva da área de Assistência Social",
                                             "Secretaria estadual em conjunto com outras políticas setoriais"))) %>% 
+    
     group_by(Categoria, Nível) %>% 
     summarise(n=n()) %>% 
     group_by(Categoria) %>% 
@@ -1524,16 +1526,18 @@ estados_sec_exc  = function(df, q, ano){
 }
 
 grafico <- estados_sec_exc(ge_2012, q1, "2012") %>%  
-#grafico <- estados_sec_exc(ge_2013, q1, "2013") %>%
-#grafico <- estados_sec_exc(ge_2014, q1, "2014") %>%
-#grafico <- estados_sec_exc(ge_2015, q1, "2015") %>%
-#grafico <- estados_sec_exc(ge_2016, q1, "2016") %>%
-#grafico <- estados_sec_exc(ge_2017, q1, "2017") %>%
-#grafico <- estados_sec_exc(ge_2018, q_1, "2018") %>%
-#grafico <- estados_sec_exc(ge_2019, q1, "2019") %>%
-#grafico <- estados_sec_exc(ge_2020, q1, "2020") %>%
-#grafico <- estados_sec_exc(ge_2021, q1, "2021") %>%
-#grafico <- estados_sec_exc(ge_2022, q1, "2022") %>%
+bind_rows(estados_sec_exc(ge_2013, q1, "2013")) %>%
+bind_rows(estados_sec_exc(ge_2014, q1, "2014")) %>%
+bind_rows(estados_sec_exc(ge_2015, q1, "2015")) %>%
+bind_rows(estados_sec_exc(ge_2016, q1, "2016")) %>%  
+bind_rows(estados_sec_exc(ge_2017, q1, "2017")) %>%  
+bind_rows(estados_sec_exc(ge_2018, q_1,"2018")) %>%  
+bind_rows(estados_sec_exc(ge_2019, q1, "2019")) %>%  
+bind_rows(estados_sec_exc(ge_2020, q1, "2020")) %>%  
+bind_rows(estados_sec_exc(ge_2021, q1, "2021")) %>%  
+bind_rows(estados_sec_exc(ge_2022, q1, "2022")) %>%    
+
+
   
   
 
@@ -3471,6 +3475,7 @@ As unidades do Cadastro Único podem ser encontradas em locais exclusivos
 ou na rede de atendimento socioassistencial de CRAS, CREAS, Centro Pop.
 Dados do Censo SUAS mostram uma evolução de locais de cadastramento. A
 partir de 2017 houve um aumento de 54% de postos de Cadastro Único.
+
 Sobre a distribuição destes locais de Cadastro Único, destaca-se que em
 2022, 31% (2.892) são unidades exclusivas de Cadastro Único e 68% estão
 em unidades da rede socioassistencial
@@ -3494,6 +3499,7 @@ Postos Cadastro Único   & - & - & - & 2.530 & 2.695 & 2.892                    
 \floatfoot{Fonte: MDS, Censo SUAS.}
 \end{table}
 ```
+
 A respeito das unidades exclusivas do Cadastro Único destacados acima,
 61% encontram-se na sede da Secretaria de Assistência Social e 24,3% em
 estruturas especificas. Os demais percentuais são encontrados em outra
@@ -3505,12 +3511,100 @@ No que se refere a gestão territorial, cabe as coordenações do Cadastro
 dos processos de cadastramento, seja em postos específicos ou integradas
 as unidades da rede socioassistencial.
 
-A produção de informações articuladas com Vigilância Socioassitencial
-também é uma ação importante para identificação das famílias
-vulnerabilizadas no território. Esses dados devem subsidiar busca ativa,
+O gráfico abaixo sinaliza que no âmbito da gestão municipal, as ações de levantamento de famílias para atualização e inclusão cadastral é a mais realizada e a menos utilizada se refere a ações de elaboração de análises utilizando dados do Cadastro Único (\Cref{fig:gestao_cad}).
+\footnote{estas informações são do formulário de Gestão Municipal na qual tem estas informações disponíveis a partir do ano de 2020}.
+
+```{r gestao_cad, fig.cap = "Ações desenvolvidas no ambito pelos postos do Cadastro Único - Brasil, 2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+gestao_cad= function(df, q, ano, cod_categoria){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+  cod_categoria <- quo_name(cod_categoria)
+
+#2020
+  categoria <- case_when(!! cod_categoria == "1"~"Levantamento do número de famílias que precisam ter seus cadastros incluídos ou atualizados",
+                         !! cod_categoria == "2"~"Monitoramento das ações de gestão do Cadastro Único",
+                         !! cod_categoria == "3"~"Elaboração de análises, sínteses e documentos utilizando os dados do Cadastro Único",
+                         !! cod_categoria == "4"~"Recebimento e tratamento de denúncias de prestação de informação inverídica ao Cadastro Único")
+                        
+                        
+
+  df %>%
+    select(!! q) %>% 
+    filter(!is.na(!! q)) %>% 
+    group_by(!! q) %>% 
+    summarise(n=n()) %>% 
+    mutate(Percentual = n/sum(n)) %>% 
+    filter(!! q == "Sim") %>% 
+    mutate("Categoria" = categoria, "Ano" = !! ano)
+}
+
+ tabela <- gestao_cad(gm_2022,q52_1,"2022","1") %>% 
+  #bind_rows(gestao_cad(gm_2020,q52_1,"2020","1")) %>%
+  #bind_rows(gestao_cad(gm_2020,q52_2,"2020","2")) %>% 
+  #bind_rows(gestao_cad(gm_2020,q52_3,"2020","3")) %>% 
+  #bind_rows(gestao_cad(gm_2020,q52_4,"2020","4")) %>% 
+   
+   #base GM2020 númerica - comunicado DGSUAS e aguardar reposição sistema da base nominal
+   
+   
+   bind_rows(gestao_cad(gm_2021,q52_1,"2021","1")) %>%
+   bind_rows(gestao_cad(gm_2021,q52_2,"2021","2")) %>% 
+   bind_rows(gestao_cad(gm_2021,q52_3,"2021","3")) %>% 
+   bind_rows(gestao_cad(gm_2021,q52_4,"2021","4")) %>%    
+   
+
+ #bind_rows(gestao_cad(gm_2022,q52_1,"2022","1")) %>%
+  bind_rows(gestao_cad(gm_2022,q52_2,"2022","2")) %>% 
+  bind_rows(gestao_cad(gm_2022,q52_3,"2022","3")) %>% 
+  bind_rows(gestao_cad(gm_2022,q52_4,"2022","4")) %>% 
+  
+   
+  
+
+  ungroup() %>% 
+  mutate(Categoria=str_wrap(Categoria,width=51))
+
+ordenado<-tabela %>% 
+  filter(Ano == "2022") %>% 
+  arrange(Percentual) %>% 
+  select(Categoria)
+
+ordenado<-factor(ordenado, levels = (ordenado$Categoria))
+
+ordenado2<-tabela %>%
+  select(Ano) %>% 
+  distinct() %>% 
+  arrange(Ano)
+
+ordenado2<-factor(ordenado2, levels = (ordenado2$Ano))
+
+grafico<-tabela %>% 
+  mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
+  mutate(Ano = factor(Ano, levels = rev(levels(ordenado2)))) %>% 
+  ggplot(aes(x = Categoria, y = Percentual, group = Ano)) +
+  geom_col(aes(fill = Ano), position = "dodge") +
+  geom_text(aes(label = percent(Percentual), y=Percentual+0.08), position = position_dodge(width = 0.9)) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  coord_flip() +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.x = element_blank(),
+        axis.line.y = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+Esses dados devem subsidiar busca ativa,
 ações de atualização cadastral, bem como iniciativas de parcerias com
 outros orgãos. O gráfico (\Cref{fig:acoes_cad}) sinaliza as ações e
-atividades desenvolvidas nos postos do cadastro único
+atividades desenvolvidas nos postos do Cadastro Único
 \footnote{estas informações são dos postos que executam exclusivamente atividades do cadastro único}.
 
 ```{r acoes_cad, fig.cap = "Ações desenvolvidas no ambito pelos postos do Cadastro Único - Brasil, 2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -3598,7 +3692,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 O grafico acima sinaliza que as ações de esclarecimento de dúvidas sobre
 serviços, programas e outros é realizada pela grande maioria das
-undiades do cadastro único (96,82%). Já as ações de agendamento para
+unidades do cadastro único (96,82%). Já as ações de agendamento para
 atendimento é realziada por 64,35% dos undiades, com redução ao longo
 dos anos.
 
@@ -3609,8 +3703,8 @@ comparação dos dados declarados pelas famílias com outros dados e
 registros administrativos do governo federal. Já a revisão é um
 procedimento de atualização das famílias com registros desatualizados. O
 tempo considerado para um cadastro desatualizado é de 24 meses. O
-gráfico (\Cref{fig:ave_cad}) refere-se as informações de Averiguação e
-Revisão cadastral no ambito dos postos dos Cadastro Único dos
+gráfico (\Cref{fig:ave_cad}) refere-se as informações de averiguação e
+eevisão cadastral no ambito dos postos dos Cadastro Único dos
 municípios. Nota-se que ao longo dos anos, essas ações aumentaram,
 sobretudo as ações de busca ativa e identificação do público de
 averiguação e revisão cadastral como público prioritário.
@@ -3625,7 +3719,7 @@ ave_cad= function(df, q, ano, cod_categoria){
 #2020
   categoria <- case_when(!! cod_categoria == "1"~"Realiza busca ativa às famílias",
                          !! cod_categoria == "2"~"Identifica às famílias como público prioritário para atendimento",
-                         !! cod_categoria == "3"~"Realiza multirões especificos para tender famílias",
+                         !! cod_categoria == "3"~"Realiza multirões especificos para atender famílias",
                          !! cod_categoria == "4"~"Realiza outras ações",
                          !! cod_categoria == "5"~"Não há ações específicas")
                         
@@ -3756,7 +3850,7 @@ CadunicoGPTE= function(df, q, ano, cod_categoria){
   bind_rows(CadunicoGPTE(posto_cadunico_2022,q21_8_1,"2022","8")) %>% 
   bind_rows(CadunicoGPTE(posto_cadunico_2022,q21_9_1,"2022","9")) %>%
    
-   #os dados em branco não são contabilizados ... a partir de 2021 cresce muito as marcações em braco por isso a discrepancia nas informações. Avaliar a pertinencia, spobretudo pq 2021 e 2022 são referentes a periodos pandemicos.
+   #os dados em branco não são contabilizados ... a partir de 2021 cresce muito as marcações em braco por isso a discrepancia nas informações. Avaliar a pertinencia, sobretudo pq 2021 e 2022 são referentes a periodos pandemicos.
    
 
   ungroup() %>% 
@@ -3900,9 +3994,13 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ```
 
-no orgão gestor e profissionais específicos, destaca-se que
 
-```{r coord_cadunico, fig.cap = "Percentual de postos do Cadastro Único que possuem coordenador - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+Sobre a existência de estrutura e gestão do Cadastro Único no SUAS. Foi destacado no gráfico (\Cref{fig: municipais-constituicao-subdivisoes}) que 95% dos municípios possuem a gestão do Cadastro Único instituídas (80,68% constituída formalmente e 14,32% constituída informalmente)  
+Em relação a existência de coordenador do Cadastro único nos postos de atendimento, o gráfico (\Cref{fig: coord_cadunico}) sinaliza aumento nos últimos anos, entretanto 31,8 dos postos do cadastro único possuem coordenador(a). 
+
+
+
+```{r coord_cadunico, fig.cap = "Percentual de Postos do Cadastro Único que possuem coordenador - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
 coord_cadunico  = function(df, q, ano){
   q <- enquo(q)
@@ -7175,7 +7273,7 @@ Conselhos Municipais de Assistência Social cujo IGD-SUAS era destinado a
 custear despesas de funcionamento do Conselho, segundo grandes regiões
 -- Brasil, 2014 a 2017**
 
-```{r IGD_CMAS, fig.footer="Fonte: MDS, Censo SUAS."}
+```{r IGD_CMAS, fig.cap = "Percentual de conselhos municipais na qual são destinados pelo menos 3% dos IGB Bolsa Família e SUAS", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 cmas_igd  = function(df, q, ano){
   q <- enquo(q)
@@ -7312,7 +7410,7 @@ deliberam sobre o Plano de Assistência Social se manteve constante desde
 2014. Entre os Conselhos Estaduais houve aumento em 2016 em relação ao
 ano anterior (Gráfico xx).
 
-```{r Cmas_plan}
+```{r Cmas_plan, fig.cap = "Percentual de Conselhos Municipais que possuem e que deliberaram sobre o Plano de Assistência Social - Brasil, 2012 - 2017 - 2022"}
 
 cmas_pmas  = function(df, q, ano){
   q <- enquo(q)
@@ -7372,7 +7470,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-```{r Ceas_se}
+```{r Ceas_se, fig.cap = "Percentual de Conselhos Estaduais que possuem e que deliberaram sobre o Plano de Assistência Social - Brasil, 2012 - 2017 - 2022"}
 
 ceas_pmas  = function(df, q, ano){
   q <- enquo(q)
@@ -7424,7 +7522,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-```{r Cmas_be}
+```{r Cmas_be, fig.cap = "Percentual de Conselhos Municipais que deliberam sobre critérios de Benefícios Eventuais - Brasil, 2012 - 2017 - 2022"}
 
 cmas_be  = function(df, q, ano){
   q <- enquo(q)
@@ -7478,7 +7576,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-```{r Ceas_be}
+```{r Ceas_be, fig.cap = "Percentual de Conselhos Estaduais que deliberam sobre critérios de Benefícios Eventuais - Brasil, 2012 - 2017 - 2022"}
 
 ceas_be  = function(df, q, ano){
   q <- enquo(q)
@@ -7618,7 +7716,7 @@ frequência com que realizam atividades -- Brasil, 2017**
 
 Fonte: MDS, Censo SUAS.
 
-```{r Cmas_ppa}
+```{r Cmas_ppa, fig.cap = "Percentual de Conselhos Municipais que deliberam sobre a proposta anual do orçamento do executivo - Brasil, 2012 - 2017 - 2022"}
 
 Cmas_ppa  = function(df, q, ano){
   q <- enquo(q)
@@ -7672,7 +7770,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-```{r Ceas_ppa}
+```{r Ceas_ppa, fig.cap = "Percentual de Conselhos Estaduais que deliberam sobre a proposta anual do orçamento do executivo - Brasil, 2012 - 2017 - 2022"}
 
 Ceas_ppa  = function(df, q, ano){
   q <- enquo(q)
@@ -7922,7 +8020,7 @@ as categorias relativas à acessibilidade continuam crescendo
 percentualmente em relação aos anos anteriores
 (\Cref{fig:CRAS-acessibilidade}).
 
-```{r CRAS-acessibilidade}
+```{r CRAS-acessibilidade, fig.cap = "Evolução percentual de CRAS segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2012, 2016 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 #tabela <- equip_acessibilidade(cras_2010, q10_1, "2010", "1") %>%
 #  bind_rows(equip_acessibilidade(cras_2010, q10_2, "2010", "2")) %>% 
@@ -8026,7 +8124,7 @@ nenhuma condição de acessibilidade, ainda que em desacordo com a norma
 ABNT. Para os CRAS localizados em imóveis alugados esse percentual foi
 de 11,6% e em imóveis cedidos de 8,4%.
 
-```{r CRAS-acessibilidade-situacao}
+```{r CRAS-acessibilidade-situacao, fig.cap = "Percentual de CRAS segundo condições de acessibilidade de acordo com a Norma da ABNT e por situação do imóvel – Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 #tabela <- equip_acessibilidade_situacao(cras_2016, q4, q9_1, "1") %>%
 #  bind_rows(equip_acessibilidade_situacao(cras_2016, q4, q9_2, "2")) %>% 
@@ -8146,7 +8244,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-```{r CRAS-internet-percentual}
+```{r CRAS-internet-percentual, fig.cap = "Evolução percentual de CRAS com computadores com acesso à internet – Brasil; 2007, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 grafico <- f_maior0_regiao_ano(cras_2007, `Acesso a Internet`, ibge, "2007") %>% 
   bind_rows(f_maior0_regiao_ano(cras_2012, q13b, Região, "2012")) %>% 
@@ -8173,7 +8271,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ## CREAS -
 
-```{r creas-situacao}
+```{r creas-situacao, fig.cap = "Evolução dos CREAS segundo situação do imóvel – Brasil; 2012, 2017 e 2022",fig.footer = "Fonte: MDS, Censo SUAS."}
 
 #grafico <- f_equip_imovel(creas_2012, q5, "2012") %>%
   #bind_rows(f_equip_imovel(creas_2008, situacao_imovel, "2008")) %>% 
@@ -8221,7 +8319,7 @@ os anos de 2010 e 2016. No entanto, os percentuais permanecem abaixo de
 acessibilidade nesses equipamentos ainda constitui grande desafio a ser
 superado (Gráfico 33).
 
-```{r creas-acessibilidade}
+```{r creas-acessibilidade, fig.cap = "Evolução percentual de CREAS segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 #tabela <- equip_acessibilidade(creas_2010, q9_1, "2010", "1") %>%
 #  bind_rows(equip_acessibilidade(creas_2010, q9_2, "2010", "2")) %>% 
@@ -8278,7 +8376,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-```{r CREAS-acessibilidade-situacao}
+```{r CREAS-acessibilidade-situacao, fig.cap = "Evolução percentual de CREAS segundo condições de acessibilidade de acordo com a Norma da ABNT e por situação do imóvel – Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 tabela <- equip_acessibilidade_situacao(creas_2022, q3, q9_1, "1") %>%
   bind_rows(equip_acessibilidade_situacao(creas_2022, q3, q9_2, "2")) %>% 
@@ -8329,7 +8427,8 @@ aspecto a ser observado quando se avalia a infraestrutura dos CREAS. Em
 2016, 99,8% dos CREAS possuíam acesso à internet. Em números absolutos,
 passou de 2.308 unidades em 2015, para 2.517 em 2016 (Gráfico 35).
 
-```{r CREAS-internet-percentual}
+```{r CREAS-internet-percentual, fig.cap = "Evolução percentual de CREAS com computadores com acesso à internet – Brasil, 2012 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
 
 
 grafico <- f_maior0_regiao_ano(creas_2012, q14, Região, "2012") %>% 
@@ -8412,8 +8511,7 @@ acessibilidade \footnote{foram consideradas com ou sem ABNT} avançou nos
 
 <!-- o grafico só gerou 2022, mas as indicações estão em para os 3 últimos anos - verificar o erro -->
 
-```{r postcad-acessibilidade}
-
+```{r postcad-acessibilidade, fig.cap = "Evolução percentual de postos do Cadastro Único segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 tabela <- equip_acessibilidade(posto_cadunico_2020, q7_1, "2020", "1") %>%
   bind_rows(equip_acessibilidade(posto_cadunico_2020, q7_2, "2020", "2")) %>% 
@@ -8475,7 +8573,7 @@ destaca-se que os postos do Cadastro Único próprios ou cedidos, possuem
 significativamente mais ascessibilidade que os imóveis alugados
 (\Cref{fig:postcad-acessibilidade-situacao}).
 
-```{r postcad-acessibilidade-situacao}
+```{r postcad-acessibilidade-situacao, fig.cap = "Percentual de Postos do Cadastro Único com existência de condições de acessibilidade de acordo com a Norma da ABNT, segundo situação do imóvel – Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 tabela <- equip_acessibilidade_situacao(posto_cadunico_2022, q5, q7_1, "1") %>%
   bind_rows(equip_acessibilidade_situacao(posto_cadunico_2022, q5, q7_2, "2")) %>% 
@@ -8512,7 +8610,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 Em relação a computadores com acesso a internet, é indicador bem
 presente
 
-```{r postcad-internet-percentual}
+```{r postcad-internet-percentual, fig.cap = "Evolução percentual de Cadastro Único com computadores com acesso à internet – Brasil;  2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 grafico <- f_maior0_regiao_ano(posto_cadunico_2020, q10_2, IBGE, "2020") %>% 
   bind_rows(f_maior0_regiao_ano(posto_cadunico_2021, q10_2, IBGE, "2021")) %>% 
@@ -8540,7 +8638,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ## ID CRAS - Indíce de Desenvolvimento do CRAS
 
-```{r ID-CRAS}
+```{r ID-CRAS, fig.cap = "Evolução das médias do ID CRAS, 2014 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 grafico <- f_grupo_media(idcras_2014, `IDCRAS 2014sintético`, "ID CRAS", "2014") %>%
   bind_rows(f_grupo_media(idcras_2014, `Dimensão Estrutura Física`, "Estrutura Física", "2014")) %>%
@@ -8608,7 +8706,7 @@ grafico <- f_grupo_media(idcras_2014, `IDCRAS 2014sintético`, "ID CRAS", "2014"
 grafico
 ```
 
-```{r ID-CRAS-nivel}
+```{r ID-CRAS-nivel, fig.cap = "Quantidade de CRAS em cada nível de ID, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 grafico <- f_quantitativo_niveis(idcras_2022, `Estrutura Física`, "Estrutura Física", niveis_ID) %>% 
   bind_rows(f_quantitativo_niveis(idcras_2022, `Recursos Humanos`, "Recursos Humanos", niveis_ID)) %>%
@@ -8636,7 +8734,7 @@ grafico
 
 ## ID CREAS -Indíce de Desenvolvimento do CREAS
 
-```{r ID-CREAS}
+```{r ID-CREAS, fig.cap = "Evolução das médias do ID CREAS, 2014 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 grafico <- f_grupo_media(idcreas_2014, `IDCREAS sintético`, "ID CREAS", "2014") %>%
   bind_rows(f_grupo_media(idcreas_2014, `Dimensão Estrutura Física`, "Estrutura Física", "2014")) %>%
@@ -8704,7 +8802,8 @@ grafico <- f_grupo_media(idcreas_2014, `IDCREAS sintético`, "ID CREAS", "2014")
 grafico
 ```
 
-```{r ID-CREAS-nivel}
+```{r ID-CREAS-nivel, fig.cap = "Quantidade de CREAS em cada nível de ID, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
 
 grafico <- f_quantitativo_niveis(idcreas_2022, `Estrutura Física`, "Estrutura Física", niveis_ID) %>% 
   bind_rows(f_quantitativo_niveis(idcreas_2022, `Recursos Humanos`, "Recursos Humanos", niveis_ID)) %>%
@@ -8732,7 +8831,7 @@ grafico
 
 ## ID CONSELHO - Indíce de Desenvolvimento dos Conselhos Municipais de Assistência Social
 
-```{r ID-conselho}
+```{r ID-conselho, fig.cap = "Evolução das médias do ID Conselho, 2014 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 grafico <- f_grupo_media(idconselho_2014, IDConselho, "ID Conselho", "2014") %>%
   bind_rows(f_grupo_media(idconselho_2014, `Estrutura Administrativa`, "Estrutura Administrativa", "2014")) %>%
@@ -8800,7 +8899,7 @@ grafico <- f_grupo_media(idconselho_2014, IDConselho, "ID Conselho", "2014") %>%
 grafico
 ```
 
-```{r ID-conselho-nivel}
+```{r ID-conselho-nivel, fig.cap = "Quantidade de Conselhos em cada nível de ID, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 grafico <- f_quantitativo_niveis(idconselho_2022, `Estrutura Administrativa`, "Estrutura Administrativa", niveis_ID) %>% 
   bind_rows(f_quantitativo_niveis(idconselho_2022, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", niveis_ID)) %>%
@@ -8837,7 +8936,7 @@ grafico
 Estrutura Administrativa dos conselhos municipais piorou, sobretudo após
 2016.
 
-```{r id-conselho-estrutura}
+```{r id-conselho-estrutura, fig.cap = "Evolução do ID Conselho - Dimensão Estrutura Administrativa - 2014 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 idconselho  = function(df, q, ano){
   q <- enquo(q)
@@ -8894,7 +8993,7 @@ grafico
 
 ```
 
-```{r id-conselho-dinamica}
+```{r id-conselho-dinamica, fig.cap = "Evolução do ID Conselho - Dimensão dinâmica de Funcionamento - 2014 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 idconselho  = function(df, q, ano){
   q <- enquo(q)
@@ -8951,7 +9050,7 @@ grafico
 
 ```
 
-```{r id-conselho-composicao}
+```{r id-conselho-composicao, fig.cap = "Evolução do ID Conselho - Composição do Conselho - 2014 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 idconselho  = function(df, q, ano){
   q <- enquo(q)
