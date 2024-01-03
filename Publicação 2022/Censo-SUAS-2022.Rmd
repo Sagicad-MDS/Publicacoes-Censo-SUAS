@@ -674,9 +674,11 @@ gm_2016 <- read_excel("../Censo SUAS 2016/Gestão Municipal/Censo_SUAS_2016_Gest
 
 gm_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Gestão_Municipal/Censo_SUAS_2017_Gestao_Municipal_divulgação.xlsx", sheet = "Base de Dados")
 
+gm_2018 <- read_excel("../Censo SUAS 2018/10 - Gestao Municipal/Censo SUAS 2018_Gestao_Municipal_Dados_Gerais_divulgacao.xlsx", sheet = 1)
+
 gm_2019 <- read_excel("../Censo SUAS 2018/Censo_SUAS_2019_Gestão_Municipal_dados_gerais_divulgacao.xlsx", sheet = 1)
 
-gm_2020 <- read_excel("../Censo SUAS 2020/9 - Gestão Municipal/Censo_SUAS_2020_Gestão_Municipal_dados gerais.xlsx", sheet = 1)
+gm_2020 <- read_excel("../Censo SUAS 2020/9 - Gestão Municipal/Censo_SUAS_2020_Gestão_Municipal_dados gerais.xls", sheet = 1)
 
 gm_rh_2020 <- read_excel("../Censo SUAS 2020/9 - Gestão Municipal/Censo_SUAS_2020_Gestão_Municipal_RH.xlsx", sheet = 1)
 
@@ -1489,19 +1491,14 @@ das informações dos questionários de gestão estadual e gestão municipal.
 A estrutura administrativa na Política de Assistência Social e
 Constituição de areas essenciais são elementos importantes para gestão
 do SUAS. No ambito da gestão estadual, no que se refere a exclusividade
-da area de Assistência Social, percebe-se que nos úlimos 10 anos houve
+da area de Assistência Social, percebe-se que nos últimos 10 anos houve
 uma redução de areas exclusivas de assistencia social. Em 2012 existiam
-25,9%
-\footnote{Estados: Amazonas, Acre, Pará, Amapá, Piauí, Paraíba, Sergipe e São Paulo}
+29,6% \footnote{Estados: Amazonas, Acre, Pará, Amapá, Piauí, Paraíba, Sergipe e São Paulo}
 das secretarias estaduais exclusivas de Assistência Social, em 2022 esse
 número passa para 3,8%, \footnote{Estado do Amazonas} redução
-significativa de 87,2%.
+significativa de 87,2% Conforme a \Cref{fig:estados_sec_exc}, 
 
-Conforme a \Cref{fig:estados_sec_exc}, 25 estados (96,4%) a Secretaria
-estadual estava associada a uma ou mais políticas setoriais, sendo
-predominante os grupos de duas e três politicas setoriais .
 
-<!-- os dados históricos dos estados que reduziram area específica de assistencia social são bem significativos, assim tentei trocar o grafico para mostrar essa informação, entretanto não estou conseguindo gerar todos os anos }. -->
 
 ```{r estados_sec_exc, fig.cap = "Percentual de Estados quanto a caracteristica de estrutura administrativa, 2012 - 2022 - Brasil", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -1665,13 +1662,76 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 No que se refere aos municípios, esse cenário nacional se configurou
-como contrário ao das gestões Estaduais. Observa-se um aumento das
-secretarias exclusivas de Assistência Social ao longo dos anos
+inverso ao das gestões Estaduais. Observa-se através (\Cref{fig:sec-munic-exc}) um aumento das
+secretarias exclusivas de Assistência Social ao longo dos anos até o período de 2019.
 \footnote{a partir de 2019 essa pergunta foi retirada do formulário de gestão municipal},
-com exceção da Região Nordeste
-(\Cref{fig:secretarias-municipais-exclusivas}).
 
-```{r secretarias-municipais-exclusivas, fig.cap = "Percentual de Secretarias Municipais exclusivas de Assistência Social, segundo grandes regiões – Brasil, 2012 - 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+
+```{r sec-munic-exc, fig.cap = "Percentual de Secretarias Municipais exclusivas de Assistência Social - Brasil, 2012 - a 2019", fig.footer = "Fonte: MDS, Censo SUAS"}
+
+sec_munic_exc  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "Secretaria municipal exclusiva da área de Assistência Social"~"Secretaria municipal exclusiva da área de Assistência Social",
+                             Nível == "Setor/Coordenadoria/Assessoria subordinado diretamente ao Gabinete do(a) Prefeito(a)"~"Setor/Coordenadoria/Assessoria subordinado diretamente ao Gabinete do(a) Prefeito(a)|",
+                             Nível == "Setor subordinado diretamente à chefia do Executivo"~"Setor/Coordenadoria/Assessoria subordinado diretamente ao Gabinete do(a) Prefeito(a)|",
+                             Nível == "Setor subordinado a outra secretaria"~"Secretaria municipal em conjunto com outras políticas setoriais",
+                             
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("Secretaria municipal exclusiva da área de Assistência Social",
+                            "Setor/Coordenadoria/Assessoria subordinado diretamente ao Gabinete do(a) Prefeito(a)|",
+                                            "Fundação Pública",
+                                            "Secretaria municipal em conjunto com outras políticas setoriais"))) %>% 
+    
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+grafico <- sec_munic_exc(gm_2012, q1, "2012") %>%  
+bind_rows(sec_munic_exc(gm_2013, q1, "2013")) %>%
+bind_rows(sec_munic_exc(gm_2014, q1, "2014")) %>%
+bind_rows(sec_munic_exc(gm_2015, q1, "2015")) %>%
+bind_rows(sec_munic_exc(gm_2016, q1, "2016")) %>%  
+bind_rows(sec_munic_exc(gm_2017, q1, "2017")) %>%  
+bind_rows(sec_munic_exc(gm_2018, q_1,"2018")) %>%  
+bind_rows(sec_munic_exc(gm_2019, q1, "2019")) %>%  
+ 
+
+# essa pergunta foi feita até 2019, após não se colocou mais
+  
+  
+
+ 
+  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
+#  geom_col(aes(fill = Nível), position = "dodge") +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+
+```{r secretarias-municipais-exclusivas, fig.cap = "Percentual de Secretarias Municipais exclusivas de Assistência Social, segundo grandes regiões – Brasil, 2012 - 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS.",eval=FALSE}
 
 #grafico <- f_selecao_regiao_ano(gm_2010, q1, "Secretaria municipal exclusiva da área de Assistência Social", Região, "2010") %>%
 #  bind_rows(f_selecao_regiao_ano(gm_2011, q1, "Secretaria Municipal exclusiva da área de Assistência Social", Região, "2011")) %>% 
@@ -1709,8 +1769,8 @@ social como subdivisões administrativas em sua estrutura, como
 superintendências, departamentos, gerências, coordenações, dentre
 outras. De acordo com o último pacto de aprimoramento Estadual do
 SUAS\footnote{Resolução CNAS Nº2, de 16 de março de 2017} umas das
-prioridades ligadas ao aperfeiçoamento institucional é possuir na
-estrutura administrativa as seguintes areas:
+prioridades para o aperfeiçoamento institucional é possuir na
+estrutura administrativa das seguintes areas:
 
 1)  Proteção Social Básica;
 2)  Proteção Social Especial de Média e Alta Complexidade;
@@ -1718,14 +1778,120 @@ estrutura administrativa as seguintes areas:
     Socioassistencial, Regulação do SUAS e Gestão do Trabalho; e
 4)  Gestão do Fundo Estadual de Assistência Social - FEAS.
 
-Observa-se que meta chega em 2022 com 22 (85%) estados com as
-subdivisões administrativas das áreas de Proteção Social Básica,
-Proteção Social Especial e Gestão do SUAS constituídas formalmente. São
-4 areas que não possuem 100% constituídas (formal e informal) são elas:
-Gestão do SUAS, Gestão do trabalho, Serviços e Beneficios e Regulação do
-SUAS. Esta última apesenta menor percentual de formalização, sendo 38,5%
-subdivisões constituídas formalmente conforme
-\Cref{fig:estados-constituicao-subdivisoes}.
+Observa-se em 2022 todas as areas avançaram formalmente nos últimos 10 anos. 
+As três areás formalmente mais instituídas são Proteção Social Básica,
+Proteção Social Especial com 88,46% estados com as subdivisões administrativas e Gestão do SUAS com 84,62% constituídas formalmente \Cref{fig:uf_subd}.
+
+
+
+
+```{r uf_subd, fig.cap = "Percentual segundo estrutura administrativa formal da Secretaria estadual de Assistência Social - Brasil, 2012 - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+uf_subd= function(df, q, ano, cod_categoria){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+  cod_categoria <- quo_name(cod_categoria)
+
+
+  categoria <- case_when(!! cod_categoria == "1"~"Gestão do SUAS",
+                         !! cod_categoria == "2"~"Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)",
+                         !! cod_categoria == "3"~"Gestão do Trabalho",
+                         !! cod_categoria == "4"~"Gestão Financeira e Orçamentária",
+                         !! cod_categoria == "5"~"Proteção Social Básica",
+                         !! cod_categoria == "6"~"Proteção Social Especial",
+                         !! cod_categoria == "7"~"Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais",
+                         !! cod_categoria == "8"~"Gestão do Cadastro Único e Programa Bolsa Família",
+                         !! cod_categoria == "9"~"Regulação do SUAS")
+                        
+       
+ # não conseguir colocar a de maneira informal
+
+  df %>%
+    select(!! q) %>% 
+    filter(!is.na(!! q)) %>% 
+    group_by(!! q) %>% 
+    summarise(n=n()) %>% 
+    mutate(Percentual = n/sum(n)) %>% 
+    filter(!! q == "Sim, na estrutura formal do órgão gestor") %>% 
+    mutate("Categoria" = categoria, "Ano" = !! ano)
+  
+  }
+
+ tabela <- uf_subd(ge_2012,q5_5,"2012","1") %>% 
+   bind_rows(uf_subd(ge_2012,q5_8,"2012","2")) %>%
+   bind_rows(uf_subd(ge_2012,q5_7,"2012","3")) %>% 
+   bind_rows(uf_subd(ge_2012,q5_6,"2012","4")) %>% 
+   bind_rows(uf_subd(ge_2012,q5_1,"2012","5")) %>%
+   bind_rows(uf_subd(ge_2012,q5_2,"2012","6")) %>% 
+   bind_rows(uf_subd(ge_2012,q5_4,"2012","7")) %>%
+   
+   
+  bind_rows(uf_subd(ge_2017,q3_1,"2017","1")) %>%
+  bind_rows(uf_subd(ge_2017,q3_2,"2017","2")) %>% 
+  bind_rows(uf_subd(ge_2017,q3_3,"2017","3")) %>% 
+  bind_rows(uf_subd(ge_2017,q3_5,"2017","4")) %>% 
+  bind_rows(uf_subd(ge_2017,q3_6,"2017","5")) %>% 
+  bind_rows(uf_subd(ge_2017,q3_7,"2017","6")) %>% 
+  bind_rows(uf_subd(ge_2017,q3_9,"2017","7")) %>%  
+  bind_rows(uf_subd(ge_2017,q3_8,"2017","8")) %>% 
+  bind_rows(uf_subd(ge_2017,q3_4,"2017","9")) %>%
+   
+  
+  bind_rows(uf_subd(ge_2022,q3_1,"2022","1")) %>%
+  bind_rows(uf_subd(ge_2022,q3_2,"2022","2")) %>% 
+  bind_rows(uf_subd(ge_2022,q3_3,"2022","3")) %>% 
+  bind_rows(uf_subd(ge_2022,q3_5,"2022","4")) %>% 
+  bind_rows(uf_subd(ge_2022,q3_6,"2022","5")) %>% 
+  bind_rows(uf_subd(ge_2022,q3_7,"2022","6")) %>% 
+  bind_rows(uf_subd(ge_2022,q3_9,"2022","7")) %>%  
+  bind_rows(uf_subd(ge_2022,q3_8,"2022","8")) %>% 
+  bind_rows(uf_subd(ge_2022,q3_4,"2022","9")) %>%
+   
+  
+
+  ungroup() %>% 
+  mutate(Categoria=str_wrap(Categoria,width=51))
+
+ordenado<-tabela %>% 
+  filter(Ano == "2022") %>% 
+  arrange(Percentual) %>% 
+  select(Categoria)
+
+ordenado<-factor(ordenado, levels = (ordenado$Categoria))
+
+ordenado2<-tabela %>%
+  select(Ano) %>% 
+  distinct() %>% 
+  arrange(Ano)
+
+ordenado2<-factor(ordenado2, levels = (ordenado2$Ano))
+
+grafico<-tabela %>% 
+  mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
+  mutate(Ano = factor(Ano, levels = rev(levels(ordenado2)))) %>% 
+  ggplot(aes(x = Categoria, y = Percentual, group = Ano)) +
+  geom_col(aes(fill = Ano), position = "dodge") +
+  geom_text(aes(label = percent(Percentual), y=Percentual+0.08), position = position_dodge(width = 0.9)) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  coord_flip() +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.x = element_blank(),
+        axis.line.y = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+
+
+
+
 
 ```{r estados-constituicao-subdivisoes_2012, fig.cap = "Percentual de estados segundo característica da estrutura administrativa da Secretaria estadual de Assistência Social - Brasil,  2012", fig.footer = "Fonte: MDS, Censo SUAS, eval=FALSE"}
 
@@ -1860,7 +2026,119 @@ do SUAS com maior percentual de constituição formal são respectivamente:
 Gestão do Cadastro Único e Bolsa Família, Gestão da Proteção Social
 Básica e Gestão do SUAS.
 
-```{r municipais-constituicao-subdivisoes, fig.cap = "Distribuição dos órgãos gestores municipais segundo constituição/formalização de subdivisões administrativas - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+```{r munic_sub, fig.cap = "Percentual segundo estrutura administrativa formal da Secretaria estadual de Assistência Social - Brasil, 2012 - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+munic_sub= function(df, q, ano, cod_categoria){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+  cod_categoria <- quo_name(cod_categoria)
+
+
+  categoria <- case_when(!! cod_categoria == "1"~"Gestão do SUAS",
+                         !! cod_categoria == "2"~"Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)",
+                         !! cod_categoria == "3"~"Gestão do Trabalho",
+                         !! cod_categoria == "4"~"Gestão Financeira e Orçamentária",
+                         !! cod_categoria == "5"~"Proteção Social Básica",
+                         !! cod_categoria == "6"~"Proteção Social Especial",
+                         !! cod_categoria == "7"~"Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais",
+                         !! cod_categoria == "8"~"Gestão do Cadastro Único e Programa Bolsa Família",
+                         !! cod_categoria == "9"~"Regulação do SUAS")
+                        
+       
+ # não conseguir colocar a de maneira informal
+
+  df %>%
+    select(!! q) %>% 
+    filter(!is.na(!! q)) %>% 
+    group_by(!! q) %>% 
+    summarise(n=n()) %>% 
+    mutate(Percentual = n/sum(n)) %>% 
+    filter(!! q == "Sim, na estrutura formal do órgão gestor") %>% 
+    mutate("Categoria" = categoria, "Ano" = !! ano)
+  
+  }
+
+ tabela <- munic_sub(gm_2012,q3f,"2012","1") %>% 
+   bind_rows(munic_sub(gm_2012,q3i,"2012","2")) %>%
+   #bind_rows(munic_sub(gm_2012,q3j,"2012","2")) %>%
+   bind_rows(munic_sub(gm_2012,q3g,"2012","3")) %>% 
+   bind_rows(munic_sub(gm_2012,q3c,"2012","4")) %>% 
+   bind_rows(munic_sub(gm_2012,q3a,"2012","5")) %>%
+   bind_rows(munic_sub(gm_2012,q3b,"2012","6")) %>% 
+   bind_rows(munic_sub(gm_2012,q3e,"2012","7")) %>%
+   
+   #queria somar q3i + q3j pois representa mesma informação consolidada.
+   
+   bind_rows(munic_sub(gm_2017,q3.1,"2017","1")) %>%
+   bind_rows(munic_sub(gm_2017,q3.2,"2017","2")) %>% 
+   bind_rows(munic_sub(gm_2017,q3.3,"2017","3")) %>% 
+   bind_rows(munic_sub(gm_2017,q3.5,"2017","4")) %>% 
+   bind_rows(munic_sub(gm_2017,q3.6,"2017","5")) %>% 
+   bind_rows(munic_sub(gm_2017,q3.7,"2017","6")) %>% 
+   bind_rows(munic_sub(gm_2017,q3.9,"2017","7")) %>%  
+   bind_rows(munic_sub(gm_2017,q3.8,"2017","8")) %>% 
+   bind_rows(munic_sub(gm_2017,q3.4,"2017","9")) %>%
+   
+  
+  bind_rows(munic_sub(gm_2022,q1_1,"2022","1")) %>%
+  bind_rows(munic_sub(gm_2022,q1_2,"2022","2")) %>% 
+  bind_rows(munic_sub(gm_2022,q1_3,"2022","3")) %>% 
+  bind_rows(munic_sub(gm_2022,q1_5,"2022","4")) %>% 
+  bind_rows(munic_sub(gm_2022,q1_6,"2022","5")) %>% 
+  bind_rows(munic_sub(gm_2022,q1_7,"2022","6")) %>% 
+  bind_rows(munic_sub(gm_2022,q1_9,"2022","7")) %>%  
+  bind_rows(munic_sub(gm_2022,q1_8,"2022","8")) %>% 
+  bind_rows(munic_sub(gm_2022,q1_4,"2022","9")) %>%
+   
+  
+
+  ungroup() %>% 
+  mutate(Categoria=str_wrap(Categoria,width=51))
+
+ordenado<-tabela %>% 
+  filter(Ano == "2022") %>% 
+  arrange(Percentual) %>% 
+  select(Categoria)
+
+ordenado<-factor(ordenado, levels = (ordenado$Categoria))
+
+ordenado2<-tabela %>%
+  select(Ano) %>% 
+  distinct() %>% 
+  arrange(Ano)
+
+ordenado2<-factor(ordenado2, levels = (ordenado2$Ano))
+
+grafico<-tabela %>% 
+  mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
+  mutate(Ano = factor(Ano, levels = rev(levels(ordenado2)))) %>% 
+  ggplot(aes(x = Categoria, y = Percentual, group = Ano)) +
+  geom_col(aes(fill = Ano), position = "dodge") +
+  geom_text(aes(label = percent(Percentual), y=Percentual+0.08), position = position_dodge(width = 0.9)) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  coord_flip() +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.x = element_blank(),
+        axis.line.y = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+
+
+
+
+
+
+```{r municipais-constituicao-subdivisoes, fig.cap = "Distribuição dos órgãos gestores municipais segundo constituição/formalização de subdivisões administrativas - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS,eval=FALSE"}
 
 # Questionários 2016:
 #tabela<-gm_2016 %>%
@@ -2225,11 +2503,12 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 No que se refere ao Planejamento, trata-se de uma obrigatoriedade para
 existência do Sistema Único e repasse de confinanciamento. O Plano
 Estadual de Assistência Social (PEAS) deve ser aprovado pelo Conselho
-Estadual de Assistência Social (CEAS). Nesta perspectiva, dados de 2022
-sinalizam que 1 estado declarou não possui r Plano Estadual de
-Assistência Social, quando a atualização, 20% (5) dos estados
-atualizaram seu Plano no último ano conforme (\Cref{fig:PEAS}).
-\footnote{Para o ano de 2022 não houve a pergunta sobre Plano Municipal de Assistência}
+Estadual de Assistência Social (CEAS).Os dados (\Cref{fig:PEAS}) sinalizam que a
+partir de 2020 há um descrecimo desta atualização com devida aprovação do conselho.
+\footnote{Para os anos de 2016, 2017, 2018 e 2019 as perguntas alteraram, impossibilitande a linha histórica}
+
+
+\footnote{Para os municípios não foi possivel fazer essa linha histórica em decorrencia de mudanças nas perguntas}
 
 ```{r PEAS, fig.cap = "Percentual de Estados quanto a atualização do Plano Estadual de Assistência Social em 2022 - Brasil", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -2240,7 +2519,8 @@ PEAS  = function(df, q, ano){
   df %>%
     select(!! ano := !! q) %>% 
     gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "Não"~"Não",
+    mutate(Nível = case_when(Nível == "Não possui"~"Não",
+                             
                              TRUE ~ Nível)) %>% 
     filter(!is.na(Nível)) %>% 
     mutate(Nível = factor(Nível, levels = c("Sim",
@@ -2251,9 +2531,16 @@ PEAS  = function(df, q, ano){
     mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
 }
 
-grafico <- PEAS(ge_2022, q5, "2022") %>%
+grafico <- PEAS(ge_2012,q8,"2012") %>%
+  bind_rows(PEAS(ge_2013,q9,"2013")) %>%
+  bind_rows(PEAS(ge_2014,q9,"2014")) %>%
+  bind_rows(PEAS(ge_2015,q9,"2015")) %>%
+    
+  bind_rows(PEAS(ge_2020,q5,"2020")) %>%
+  bind_rows(PEAS(ge_2021,q5,"2021")) %>%
+  bind_rows(PEAS(ge_2022,q5,"2022")) %>%
   
-  
+  #anos que as questões mudam: 2016, 2017,2018,2019
 
  
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
@@ -2284,7 +2571,7 @@ pactuado na CIB. Este percentual reduziu em relação ao ano de 2017, na
 qual mais de 76% dos Estados informaram possui este documento pactuado
 neste instância de comissão intergestores bipartite.
 
-```{r plan_apoio_tec, fig.cap = "Percentual de Estados que possuiem Plano de Apoio Técnico pactuado na CIB - Brasil, 2013 - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r plan_apoio_tec, fig.cap = "Percentual de Estados que possuiem Plano de Apoio Técnico pactuado na CIB - Brasil, 2013 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
 plan_apoio  = function(df, q, ano){
   q <- enquo(q)
@@ -2293,7 +2580,8 @@ plan_apoio  = function(df, q, ano){
   df %>%
     select(!! ano := !! q) %>% 
     gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "Sim"~"Sim",
+    mutate(Nível = case_when(Nível == "sim"~"Sim",
+                             Nível == "não"~"Não",
                              TRUE ~ Nível)) %>% 
     filter(!is.na(Nível)) %>% 
     mutate(Nível = factor(Nível, levels = c("Sim",
@@ -2305,15 +2593,15 @@ plan_apoio  = function(df, q, ano){
 }
 
 grafico <- plan_apoio(ge_2013, q85, "2013") %>%
-  #bind_rows(plan_apoio(ge_2014, q26, "2014")) %>% 
-  #bind_rows(plan_apoio(ge_2015, q19, "2015")) %>% 
-  #bind_rows(plan_apoio(ge_2016, q27, "2016")) %>% 
-  bind_rows(plan_apoio(ge_2017, q36, "2017")) %>%
-  #bind_rows(plan_apoio(ge_2018, q_18, "2018")) %>%
-  #bind_rows(plan_apoio(ge_, q18, "2019")) %>%
-  #bind_rows(plan_apoio(ge_2020, q20, "2020")) %>%
-  #bind_rows(plan_apoio(ge_2021, q18, "2021")) %>%
-  bind_rows(plan_apoio(ge_2022, q20, "2022")) %>%
+   bind_rows(plan_apoio(ge_2014, q26, "2014")) %>% 
+   bind_rows(plan_apoio(ge_2015, q19, "2015")) %>% 
+   bind_rows(plan_apoio(ge_2016, q27, "2016")) %>% 
+   bind_rows(plan_apoio(ge_2017, q36, "2017")) %>%
+   bind_rows(plan_apoio(ge_2018, q_18,"2018")) %>%
+   bind_rows(plan_apoio(ge_2019, q18, "2019")) %>%
+   bind_rows(plan_apoio(ge_2020, q20, "2020")) %>%
+   bind_rows(plan_apoio(ge_2021, q18, "2021")) %>%
+   bind_rows(plan_apoio(ge_2022, q20, "2022")) %>%
   
   #2012 não tem essa pergunta
   
@@ -2425,6 +2713,7 @@ ge_apoio_tecnico = function(df, q, ano, cod_categoria){
 #  bind_rows(ge_apoio_tecnico(ge_2015, q21_5, "2015", "5")) %>%
 #  bind_rows(ge_apoio_tecnico(ge_2015, q21_6, "2015", "6")) %>%
 #  bind_rows(ge_apoio_tecnico(ge_2015, q21_99, "2015", "7")) %>%
+
 #  bind_rows(ge_apoio_tecnico(ge_2016, q28_1, "2016", "1")) %>%
 #  bind_rows(ge_apoio_tecnico(ge_2016, q28_2, "2016", "2")) %>% 
 #  bind_rows(ge_apoio_tecnico(ge_2016, q28_3, "2016", "3")) %>% 
@@ -2439,6 +2728,10 @@ ge_apoio_tecnico = function(df, q, ano, cod_categoria){
 #  bind_rows(ge_apoio_tecnico(ge_2017, q37_5, "2017", "5")) %>%
 #  bind_rows(ge_apoio_tecnico(ge_2017, q37_6, "2017", "6")) %>%
 #  bind_rows(ge_apoio_tecnico(ge_2017, q37_99, "2017", "7")) %>% 
+ 
+
+#para o ano de 2022 as perguntas mudaram significativamente impossibilitando fazer a linha histórica
+
 tabela <- ge_apoio_tecnico(ge_2022, q21_1, "2022", "1") %>%
   bind_rows(ge_apoio_tecnico(ge_2022, q21_2, "2022", "2")) %>% 
   bind_rows(ge_apoio_tecnico(ge_2022, q21_3, "2022", "3")) %>% 
@@ -2643,7 +2936,7 @@ Abaixo (\Cref{fig:munic_vit_estadual}) o percentual de municípios do
 Brasil que informam sobre recebimento de visitas da gestão estadual para
 apoio técnico.
 
-```{r munic_vit_estadual, fig.cap = "Percentual de Municpioios que informam receber visitas de Apoio Técnico do Estado - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r munic_vit_estadual, fig.cap = "Percentual de Municpioios que informam receber visitas de Apoio Técnico do Estado - Brasil, 2020 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
 visit_estadual  = function(df, q, ano){
   q <- enquo(q)
@@ -2663,7 +2956,11 @@ visit_estadual  = function(df, q, ano){
     mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
 }
 
-grafico <- visit_estadual(gm_2022, q7_5, "2022") %>%
+grafico <- visit_estadual(gm_2020, q7_5, "2020") %>%
+  bind_rows(visit_estadual(gm_2021, q7_5, "2021")) %>%
+  bind_rows(visit_estadual(gm_2022, q7_5, "2022")) %>%
+  
+  #a partir de 2020 a pergunta foi alterada, impossibilizanto linha historica
   
   
  
@@ -2739,11 +3036,15 @@ ge_cofinanciamento = function(df, q, ano){
 #grafico <- ge_cofinanciamento(ge_2010, q24, "2010") %>%
 #  bind_rows(ge_cofinanciamento(ge_2011, q64, "2011")) %>%
 grafico <- ge_cofinanciamento(ge_2012, q64_0, "2012") %>%
-#  bind_rows(ge_cofinanciamento(ge_2013, q73, "2013")) %>%
-#  bind_rows(ge_cofinanciamento(ge_2014, q40, "2014")) %>% 
-#  bind_rows(ge_cofinanciamento(ge_2015, q32, "2015")) %>% 
-#  bind_rows(ge_cofinanciamento(ge_2016, q30, "2016")) %>% 
+  bind_rows(ge_cofinanciamento(ge_2013, q73, "2013")) %>%
+  bind_rows(ge_cofinanciamento(ge_2014, q40, "2014")) %>% 
+  bind_rows(ge_cofinanciamento(ge_2015, q32, "2015")) %>% 
+  bind_rows(ge_cofinanciamento(ge_2016, q30, "2016")) %>% 
   bind_rows(ge_cofinanciamento(ge_2017, q39, "2017")) %>%
+  bind_rows(ge_cofinanciamento(feas_2018, q_6, "2018")) %>% 
+  bind_rows(ge_cofinanciamento(feas_2019, q9, "2019")) %>% 
+  bind_rows(ge_cofinanciamento(feas_2020, q9, "2020")) %>%
+  bind_rows(ge_cofinanciamento(feas_2021, q9, "2021")) %>%
   bind_rows(ge_cofinanciamento(feas_2022, q9, "2022")) %>%
 
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
@@ -3378,11 +3679,11 @@ conc_munic  = function(df, q, ano){
 }
 
 grafico <- conc_munic(gm_2021, q72_1_1, "2021") %>%
-  #bind_rows(conc_munic(gm_2020, q72_1_1, "2020")) %>%
-  #bind_rows(conc_munic(gm_2021, q72_1_1, "2021")) %>%
-   bind_rows(conc_munic(gm_2022, q72_1_1, "2022")) %>%
+  bind_rows(conc_munic(gm_2022, q72_1_1, "2022")) %>%
   
-  #2020 as informações esão 1 e 0, onde 1=sim e não=0
+  #2020 a base não foi possivel gerar
+  #dados anteriores a 2019 sao perguntados de forma diferente
+  
  
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
 #  geom_col(aes(fill = Nível), position = "dodge") +
@@ -3413,7 +3714,8 @@ conc_estado  = function(df, q, ano){
   df %>%
     select(!! ano := !! q) %>% 
     gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "Sim"~"Sim",
+    mutate(Nível = case_when(Nível == "sim"~"Sim",
+                             Nível == "não"~"Não",
                              TRUE ~ Nível)) %>% 
     filter(!is.na(Nível)) %>% 
     mutate(Nível = factor(Nível, levels = c("Sim",
@@ -3424,13 +3726,16 @@ conc_estado  = function(df, q, ano){
     mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
 }
 
-grafico <- conc_estado(ge_2017, q16_1_1, "2017") %>%
-   #bind_rows(conc_estado(ge_2017, q16_1_1, "2017")) %>%
-   #bind_rows(conc_estado(ge_2018, q_36_1_1, "2018")) %>%
-   #bind_rows(conc_estado(ge_2019, q36_1_1, "2019")) %>%
+grafico <- conc_estado(ge_2013, q68a_1, "2013") %>%
+    bind_rows(conc_estado(ge_2014, q22a_1, "2014")) %>%
+    bind_rows(conc_estado(ge_2015, q15a_1, "2015")) %>%   
+    bind_rows(conc_estado(ge_2016, q11_1_1, "2016")) %>%
+    bind_rows(conc_estado(ge_2017, q16_1_1, "2017")) %>%
+    bind_rows(conc_estado(ge_2018, q_36_1_1, "2018")) %>%
+    bind_rows(conc_estado(ge_2019, q36_1_1, "2019")) %>%
     bind_rows(conc_estado(ge_2020, q46_1_1, "2020")) %>%
-   #bind_rows(conc_estado(ge_2021, q36_1_1, "2021")) %>%
-   bind_rows(conc_estado(ge_2022, q46_1_1, "2022")) %>%
+    bind_rows(conc_estado(ge_2021, q36_1, "2021")) %>%
+    bind_rows(conc_estado(ge_2022, q46_1_1, "2022")) %>%
   
   
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
