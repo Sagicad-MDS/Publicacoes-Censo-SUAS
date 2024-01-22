@@ -52,7 +52,9 @@ gera.graficos.office = FALSE;
 
 lista.de.pacotes = c("tinytex","tidyr", "purrr", "dplyr",
                      "lubridate","janitor","readxl","stringr",
-                     "repmis","survey","srvyr","scales",
+                     "repmis",
+#                     "survey","srvyr",
+                     "scales",
                      "ggrepel","renv") # escreva a lista de pacotes
 if(gera.graficos.office) lista.de.pacotes <- append(lista.de.pacotes, "export")
 
@@ -250,7 +252,7 @@ organizadas a fim de nortear a nova configuração da Assistência Social,
 como visto na \Cref{tab:marcos}.
 
 ```{=tex}
-\begin{table}[]
+\begin{table}[h]
 \caption{Marcos legais da Assistência Social no Brasil.}
 \label{tab:marcos}
 \resizebox{\textwidth}{!}{%
@@ -496,7 +498,7 @@ respondente. O período de coleta foi entre outubro e dezembro de 2022,
 conforme cronograma da \Cref{tab:cronograma}.
 
 ```{=tex}
-\begin{table}[]
+\begin{table}[h]
 \centering
 \caption{Cronograma de preenchimento do Censo SUAS 2022 por questionário.}
 \label{tab:cronograma}
@@ -548,12 +550,12 @@ Para isso, foram considerados como válidos:
 Para análise dos dados, foram consideradas as quantidades de
 respondentes de acordo com os bancos de dados após tratamento realizado
 pela Coordenação-Geral de Planejamento e Vigilância Socioassistencial
-(CGPVIS/SNAS) descrito acima. A quantidade de unidades/órgãos
-considerados no banco de dados após tratamento constam nas
-\cref{tab:qtd_equipamentos,tab:qtd_orgaos}.
+(CGPVIS/SNAS) descrito acima. A quantidade de unidades
+consideradas no banco de dados após tratamento constam na
+\cref{tab:qtd_equipamentos}.
 
 ```{=tex}
-\begin{table}[]
+\begin{table}[h]
 \centering
 \caption{Quantidade de equipamentos respondentes segundo o Status Censo SUAS.}
 \label{tab:qtd_equipamentos}
@@ -945,9 +947,9 @@ cpop_2021 <- read_excel("../Censo SUAS 2021/4 - Centro Pop/Censo_SUAS_2021_CPOP_
 
 cpoprh_2021 <- read_excel("../Censo SUAS 2021/4 - Centro Pop/Censo_SUAS_2021_CPOP_Dados_Gerais_divulgação.xlsx", sheet = 1)
 
-cpop_2022 <- read_excel("../Censo SUAS 2022/3 - Centro Pop/Censo_SUAS_2022_Centro_POP_dados_gerais.xlsx", sheet = 1)
+cpop_2022 <- read_excel("../Censo SUAS 2022/3 - CENTRO POP/Censo_SUAS_2022_Centro_POP_dados_gerais.xlsx", sheet = 1)
 
-cpoprh_2022 <- read_excel("../Censo SUAS 2022/3 - Centro Pop/Censo_SUAS_2022_Centro_POP_RH.xlsx", sheet = 1)
+cpoprh_2022 <- read_excel("../Censo SUAS 2022/3 - CENTRO POP/Censo_SUAS_2022_Centro_POP_RH.xlsx", sheet = 1)
 
 unac_2012 <- read_excel("../Censo SUAS 2012/Unidades de Acolhimento/Censo SUAS 2012_Unidades_de_Acolhimento_dadosgerais_divulgação.xlsx", sheet = 1)
 
@@ -3798,13 +3800,13 @@ Sobre a distribuição destes locais de Cadastro Único, destaca-se que em
 2022, 31% (2.892) são unidades exclusivas de Cadastro Único e 68% estão
 em unidades da rede socioassistencial
 \footnote{CRAS, CREAS e CENTRO POP} conforme pode ser observado na
-tabela \ref{tab:qtd_equipamentos}.
+tabela \ref{tab:qtd_unidades}.
 
 ```{=tex}
 \begin{table}[H]
 \centering
 \caption{Quantidade de Unidades de Cadastro Único}
-\label{tab:qtd_equipamentos}
+\label{tab:qtd_unidades}
 \begin{tabular}{@{}lcccccc@{}}
 \toprule
 Unidades             & 2017  & 2018 & 2019 & 2020 &  2021 & 2022            \\ \midrule
@@ -4325,8 +4327,8 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 ```
 
 
-Sobre a existência de estrutura e gestão do Cadastro Único no SUAS. Foi destacado no gráfico (\Cref{fig: municipais-constituicao-subdivisoes}) que 95% dos municípios possuem a gestão do Cadastro Único instituídas (80,68% constituída formalmente e 14,32% constituída informalmente)  
-Em relação a existência de coordenador do Cadastro único nos postos de atendimento, o gráfico (\Cref{fig: coord_cadunico}) sinaliza aumento nos últimos anos, entretanto 31,8 dos postos do cadastro único possuem coordenador(a). 
+Sobre a existência de estrutura e gestão do Cadastro Único no SUAS. Foi destacado no gráfico (\Cref{fig:municipais-constituicao-subdivisoes}) que 95% dos municípios possuem a gestão do Cadastro Único instituídas (80,68% constituída formalmente e 14,32% constituída informalmente)  
+Em relação a existência de coordenador do Cadastro único nos postos de atendimento, o gráfico (\Cref{fig:coord_cadunico}) sinaliza aumento nos últimos anos, entretanto 31,8 dos postos do cadastro único possuem coordenador(a). 
 
 
 
@@ -4528,7 +4530,7 @@ Sobre o número de famílias referenciadas a PNAS\footnote{PNAS/2004 - Política
 CRAS
 
 
-```{r municipios-CRAS, fig.cap = "Evolução do percentual de municípios com pelo menos um CRAS, segundo grandes regiões - Brasil, 2007 a 2017", fig.footer = "Fonte: MDS, Censo SUAS, eval=FALSE "}
+```{r municipios-CRAS, fig.cap = "Evolução do percentual de municípios com pelo menos um CRAS, segundo grandes regiões - Brasil, 2007 a 2017", fig.footer = "Fonte: MDS, Censo SUAS", eval=FALSE}
 
 grafico <- f_percentual_municipios_regiao_ano(cras_2007, ibge, "2007") %>%
 #  bind_rows(f_percentual_municipios_regiao_ano(cras_2008, IBGE, "2008")) %>% 
@@ -4563,7 +4565,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 
 
-```{r CRAS-porte, fig.cap = "Percentual de municípios por número de CRAS no município, segundo porte populacional estimado do município - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios".}
+```{r CRAS-porte, fig.cap = "Percentual de municípios por número de CRAS no município, segundo porte populacional estimado do município - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios"}
 
 cras_municipios <- cras_2017 %>%
   select(IBGE7) %>%
@@ -4824,9 +4826,10 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 ```
 
 O número absoluto e o percentual de CRAS com acesso à internet
-aumentaram desde 2007. No ano de 2016, havia 7.835 CRAS com acesso à
-internet (\Cref{fig:CRAS-internet-quantitativo}), o que representa 95,1%
-das unidades (\Cref{fig:CRAS-internet-percentual}).
+aumentaram desde 2007.
+<!-- No ano de 2016, havia 7.835 CRAS com acesso à -->
+<!-- internet (\Cref{fig:CRAS-internet-quantitativo}), o que representa 95,1% -->
+<!-- das unidades (\Cref{fig:CRAS-internet-percentual}). -->
 
 ```{r CRAS-internet, fig.cap = "Distribuição dos CRAS com computadores com acesso à internet; 2007, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval = FALSE}
 
@@ -6184,7 +6187,7 @@ saber:
 ### Serviços de Convivência e Fortalecimento de Vínculos (SCFV)
 
 
-```{r CRAS-SCFV, fig.cap = "Percentual de CRAS que executavam diretamente os Serviços de Convivência e Fortalecimento de Vínculos - Brasil, 2014 a 2022", fig.footer = "Fonte: MDS, Censo SUAS".}
+```{r CRAS-SCFV, fig.cap = "Percentual de CRAS que executavam diretamente os Serviços de Convivência e Fortalecimento de Vínculos - Brasil, 2014 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
 cras_scfv  = function(df, q, ano){
   q <- enquo(q)
@@ -7385,38 +7388,38 @@ menor aumento, com acréscimo de 8 trabalhadores (Gráfico 85). Gráfico
 
 
 
-```{r uf_equip_form, fig.cap ="Quantidade de Trabalhadores segundo a formação profissional - CRAS - Brasil, 2012 a 2022" }
+```{r uf-cras-form, fig.cap ="Quantidade de Trabalhadores segundo a formação profissional - CRAS - Brasil, 2012 a 2022" }
 
 ```
 
-```{r uf_equip_form, fig.cap ="Quantidade de Trabalhadores segundo a formação profissional - CREAS - Brasil, 2012 a 2022" }
+```{r uf-creas-form, fig.cap ="Quantidade de Trabalhadores segundo a formação profissional - CREAS - Brasil, 2012 a 2022" }
 
 ```
 
-```{r uf_equip_form, fig.cap ="Quantidade de Trabalhadores segundo a formação profissional - Centro Pop - Brasil, 2012 a 2022" }
-
-```
-
-
-
-```{r uf_equip_vol, fig.cap ="Percentual de unidades de CRAS que possuem equipe volante  - Brasil, 2012 a 2022" }
+```{r uf-cpop-form, fig.cap ="Quantidade de Trabalhadores segundo a formação profissional - Centro Pop - Brasil, 2012 a 2022" }
 
 ```
 
 
 
-```{r unid_acol, fig.cap ="Evolução da quantidade de trabalhadores (as) das Unidades de Acolhimento - Brasil, 2012 a 2022" }
-
-```
-
-
-```{r trab_sexo, fig.cap ="Percentual de trabalhadores (as) quanto ao sexo - estadual " }
+```{r uf-equip-vol, fig.cap ="Percentual de unidades de CRAS que possuem equipe volante  - Brasil, 2012 a 2022" }
 
 ```
 
 
 
-```{r trab_sexo, fig.cap ="Percentual de trabalhadores (as) quanto ao sexo - municipal " }
+```{r unid-acol, fig.cap ="Evolução da quantidade de trabalhadores (as) das Unidades de Acolhimento - Brasil, 2012 a 2022" }
+
+```
+
+
+```{r trab-sexo-estadual, fig.cap ="Percentual de trabalhadores (as) quanto ao sexo - estadual " }
+
+```
+
+
+
+```{r trab-sexo-municipal, fig.cap ="Percentual de trabalhadores (as) quanto ao sexo - municipal " }
 
 ```
 
