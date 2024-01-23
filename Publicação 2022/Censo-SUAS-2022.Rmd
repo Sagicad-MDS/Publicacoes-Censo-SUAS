@@ -3716,6 +3716,8 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ## Programas de execução própria executadas pelos estados
 
+
+
 ```{r be_uf_renda, fig.cap = "Programas de execução própria e/ou transferência de renda executadas pelos estados", fig.footer = "Fonte: MDS, Censo SUAS"}
 
 be_uf_renda  = function(df, q, ano){
@@ -3771,6 +3773,64 @@ grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
+O Cadastro Único é ferramenta que possibilita inserção a programas sociais no ambito dos três entes, o grafico abaixo sinaliza evolução dos estados que usam o cadastro único enquanto respostas de programas estaduais.
+
+```{r uf_usa_cad, fig.cap = "Programas usam Cadastro Único para seleção beneficiários", fig.footer = "Fonte: MDS, Censo SUAS"}
+
+be_uf_renda  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "sim"~"Sim",
+                             Nível == "não"~"Não",
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("Sim",
+                                            "Não"))) %>% 
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+grafico <- be_uf_renda(ge_2012, q33, "2012") %>%
+   #bind_rows(be_uf_renda(ge_2013, q43, "2013")) %>% 
+   #bind_rows(be_uf_renda(ge_2014, q74, "2014")) %>% 
+   #bind_rows(be_uf_renda(ge_2015, q61, "2015")) %>% 
+   #bind_rows(be_uf_renda(ge_2016, q24, "2016")) %>% 
+   #bind_rows(be_uf_renda(ge_2017, q27, "2017")) %>%
+   #bind_rows(be_uf_renda(ge_2018, q_11,"2018")) %>%
+   #bind_rows(be_uf_renda(ge_2019, q11, "2019")) %>%
+   #bind_rows(be_uf_renda(ge_2020, q10, "2020")) %>%
+   #bind_rows(be_uf_renda(ge_2021, q10, "2021")) %>%
+   bind_rows(be_uf_renda(ge_2022, q11_1, "2022")) %>%
+  
+  #em sistematização (2012 é outra pergunta, apenas 2022 estar correta)
+  
+ 
+  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
+#  geom_col(aes(fill = Nível), position = "dodge") +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
 
 
 ## Gestão do Cadastro Único
@@ -4518,14 +4578,8 @@ A Expansão em todo território nacional do número de CRAS evidencia a
 consolidação de uma referencia de equipamento público de Assistêrncia
 Social em todo território nacional. De acordo com os dados 98,95%
 municípios possuem CRAS, ou seja apenas 35 municípios no Brasil não
-dispõe deste equipamento público\\footnote{77% deles localizados na
-Região Sul, 20% na Região Sudeste e 3% na região Nordeste.}. Assim,
-pode-se dizer que o desafio da expansão teve avanços nestes últimos anos
-e deixa como nova demanda para reconstrução da universalização na
-perspectiva de cobertura e de cofinanciamento.
+dispõe deste equipamento público.
 
-Sobre o número de famílias referenciadas a PNAS\footnote{PNAS/2004 - Política Nacional de Assistência Social} deternima de acordo com portes populacionais dos municípios, são eles: PPI: 2.500 famílias referenciadas por CRAS, PPII: 3.500 famílias referenciadas, Médio/Grande/Metrópole: 5000 famílias referencia por CRAS.
-CRAS
 
 
 ```{r municipios-CRAS, fig.cap = "Evolução do percentual de municípios com pelo menos um CRAS, segundo grandes regiões - Brasil, 2007 a 2017", fig.footer = "Fonte: MDS, Censo SUAS, eval=FALSE "}
@@ -4561,6 +4615,13 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
+Ao observar o número de CRAS por municípios, levando-se em conta o porte populacional, verifica-se que os 35 municípios do país que não possuem CRAS estão concentrados em municípios de pequeno porte \Cref{fig:CRAS-porte}. Em relação a localização, destaca-se que 77% deles localizados na Região Sul, 20% na Região Sudeste e 3% na região Nordeste.
+
+Em relação a concentração de quantidade de CRAS, para os municípios de pequeno porte I e pequeno porte II, dispõem, em sua maioria de uma unidade de CRAS como referencia do território, sendo respectivamente 95,2% e 71,5%. Os municípios de médio porte, cerca de 67,3% possuem de 2 a 3 CRAS. Ja entre os municípios de grande porte, o grupo majoritário de unidades são entre 4 a 6 CRAS - 52,5%. 
+
+
+<!-- Sobre o número de famílias referenciadas a PNAS\footnote{PNAS/2004 - Política Nacional de Assistência Social} deternima de acordo com portes populacionais dos municípios, são eles: PPI: 2.500 famílias referenciadas por CRAS, PPII: 3.500 famílias referenciadas, Médio/Grande/Metrópole: 5000 famílias referencia por CRAS.
+CRAS -->
 
 
 ```{r CRAS-porte, fig.cap = "Percentual de municípios por número de CRAS no município, segundo porte populacional estimado do município - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios".}
