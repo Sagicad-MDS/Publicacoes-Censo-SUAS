@@ -2325,73 +2325,32 @@ presentes nas seguintes regiões do Brasil: 4 - Nordeste, 3 - Norte, 2 -
 Região Sul e 1 - Região
 Sudeste\footnote{ siglas dos Estado que não possuem Lei do SUAS - censo suas 2022: RR, PA, TO, PI, RN, SE, BA, SP, PR, SC e RS}.
 
-<!-- Valdson, é possível colocar em quantidade e não percentual? -->
-
-```{r estados-atualizacao-lei, fig.cap = "Percentual de estados segundo ano de atualização da Lei Estadual de regulamentação do Sistema Único de Assistência Social (SUAS) - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
-
-#Até 2017:
-#Percentual de estados segundo ano de atualização da Lei Estadual de regulamentação do Sistema Único de Assistência Social (SUAS), do Plano Estadual de Assistência Social (PEAS) e do Plano Estadual de Capacitação - Brasil, 2017
+```{r estados-atualizacao-lei, fig.cap = "Quantidade de estados por ano de atualização da Lei Estadual de regulamentação do Sistema Único de Assistência Social (SUAS) - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 tabela<-ge_2022 %>%
-# Questionários 2016:
-#  select("Última atualização da Lei Estadual de Regulamentação do SUAS"=q5,
-#         "Última atualização do PEAS com a respectiva aprovação pelo CEAS"=q6,
-#         "Última atualização do Plano Estadual de Capacitação"=q7) %>% 
-#-------------------
-# Questionários 2017:
-#  select("Última atualização da Lei Estadual de Regulamentação do SUAS"=q6,
-#         "Última atualização do PEAS com a respectiva aprovação pelo CEAS"=q7,
-#         "Última atualização do Plano Estadual de Capacitação"=q8) %>% 
-#-------------------
-# Questionários 2022:
   select("Última atualização da Lei Estadual de Regulamentação do SUAS"=q4) %>% 
-#-------------------
   gather("Categoria","Nível") %>% 
   mutate(Categoria=str_wrap(Categoria,width=22)) %>% 
-# Censo 2016:
-#  mutate(Nível = case_when(Nível <= 2011~"Até 2011",
-#                           TRUE ~ as.character(Nível))) %>% 
-#  mutate(Nível = factor(Nível, levels = c("Até 2011","2012","2013","2014","2015","2016"))) %>% 
-#-------------------
-# Censo 2017:
-#  mutate(Nível = case_when(Nível <= 2012~"Até 2012",
-#                           TRUE ~ as.character(Nível))) %>% 
-#  mutate(Nível = factor(Nível, levels = rev(c("Até 2012","2013","2014","2015","2016","2017")))) %>% 
-#-------------------
-# Censo 2022:
   mutate(Nível = case_when(Nível <= 2017~"Até 2017",
                            TRUE ~ as.character(Nível))) %>% 
   mutate(Nível = factor(Nível, levels = rev(c("Até 2017","2018","2019","2020","2021","2022")))) %>% 
 #-------------------
   group_by(Categoria, Nível) %>% 
   summarise(n=n()) %>% 
-  group_by(Categoria) %>% 
-  mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n))) %>% 
   filter(!is.na(Nível))
 
 ordenado<-tabela %>% 
-# Censo 2016:
-#  filter(Nível == "2016") %>% 
-#-------------------
-# Censo 2017:
-#  filter(Nível == "2017") %>% 
-#-------------------
-# Censo 2022:
   filter(Nível == "2022") %>% 
-#-------------------
-  arrange(Percentual) %>% 
+  arrange(n) %>% 
   select(Categoria)
 
 ordenado<-factor(ordenado, levels = ordenado$Categoria)
 
 grafico<-tabela %>% 
-  ungroup() %>% 
   mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
+  ggplot(aes(x = Categoria, y = n, group = Nível)) +
   geom_col(aes(fill = Nível), position = "dodge") +
-  geom_text(aes(label = percent(Percentual), y=Percentual+.015), position = position_dodge(width = 0.9)) +
-#  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-#  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  geom_text(aes(label = n), hjust = -0.5, position = position_dodge(width = 0.9)) +
   scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
   coord_flip() +
   theme(legend.position="bottom",
