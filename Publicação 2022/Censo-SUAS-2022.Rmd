@@ -2919,15 +2919,15 @@ Apesar destes avanços, há registros de não cofinanciamento estadual, na
 qual caiu de 25,93% (7) no ano de 2012 para 3,85% (1) em 2022
 (1)\footnote{o Estado do Acre não cofinancia os municípios}.
 
-<!-- Valdson para este grafico stados-cofinanciamento-municipios abaixo seria possível a gente não contar o DF? pois eles nesta configuração não se aplica}). -->
-
 ```{r estados-cofinanciamento-municipios, fig.cap = "Percentual de estados segundo realização de cofinanciamento aos municípios - Brasil; 2012 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
-ge_cofinanciamento = function(df, q, ano){
+ge_cofinanciamento = function(df, q, ano, ibge){
   q <- enquo(q)
   ano <- quo_name(ano)
+  ibge <- enquo(ibge)
 
   df %>%
+    filter(!! ibge != 53) %>% # Retira o DF, pois cofinanciamento aos municípios não se aplica ao DF
     select(!! ano := !! q) %>% 
     gather("Categoria","Nível") %>% 
     mutate(Nível = case_when(Nível == "Sim, fundo-a-fundo"~"Realiza apenas fundo-a-fundo",
@@ -2952,23 +2952,23 @@ ge_cofinanciamento = function(df, q, ano){
 
 #grafico <- ge_cofinanciamento(ge_2010, q24, "2010") %>%
 #  bind_rows(ge_cofinanciamento(ge_2011, q64, "2011")) %>%
-grafico <- ge_cofinanciamento(ge_2012, q64_0, "2012") %>%
-  bind_rows(ge_cofinanciamento(ge_2013, q73, "2013")) %>%
-  bind_rows(ge_cofinanciamento(ge_2014, q40, "2014")) %>% 
-  bind_rows(ge_cofinanciamento(ge_2015, q32, "2015")) %>% 
-  bind_rows(ge_cofinanciamento(ge_2016, q30, "2016")) %>% 
-  bind_rows(ge_cofinanciamento(ge_2017, q39, "2017")) %>%
-  bind_rows(ge_cofinanciamento(feas_2018, q_6, "2018")) %>% 
-  bind_rows(ge_cofinanciamento(feas_2019, q9, "2019")) %>% 
-  bind_rows(ge_cofinanciamento(feas_2020, q9, "2020")) %>%
-  bind_rows(ge_cofinanciamento(feas_2021, q9, "2021")) %>%
-  bind_rows(ge_cofinanciamento(feas_2022, q9, "2022")) %>%
+grafico <- ge_cofinanciamento(ge_2012, q64_0, "2012", codigo_ibge) %>%
+  bind_rows(ge_cofinanciamento(ge_2013, q73, "2013", IBGE)) %>%
+  bind_rows(ge_cofinanciamento(ge_2014, q40, "2014", IBGE)) %>%  
+  bind_rows(ge_cofinanciamento(ge_2015, q32, "2015", IBGE)) %>% 
+  bind_rows(ge_cofinanciamento(ge_2016, q30, "2016", IBGE)) %>% 
+  bind_rows(ge_cofinanciamento(ge_2017, q39, "2017", IBGE)) %>%
+  bind_rows(ge_cofinanciamento(feas_2018, q_6, "2018", IBGE)) %>% 
+  bind_rows(ge_cofinanciamento(feas_2019, q9, "2019", IBGE)) %>% 
+  bind_rows(ge_cofinanciamento(feas_2020, q9, "2020", IBGE)) %>%
+  bind_rows(ge_cofinanciamento(feas_2021, q9, "2021", IBGE)) %>%
+  bind_rows(ge_cofinanciamento(feas_2022, q9, "2022", IBGE)) %>%
 
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
 #  geom_col(aes(fill = Nível), position = "dodge") +
 #  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
   geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  geom_text(aes(y=Posição, label = label_percent(accuracy = 0.1, decimal.mark = ",")(Percentual))) +
   scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
   theme(legend.position="bottom",
         legend.title = element_blank(),
