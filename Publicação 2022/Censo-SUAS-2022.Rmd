@@ -1305,34 +1305,35 @@ f_situacao = function(df, situacao){
                                                          "Outro ou não informou")))
 }
 
-f_acessibilidade_ABNT = function(df, q, cod_categoria){
+f_acessibilidade = function(df, q){
   q <- enquo(q)
+
+  df %>%
+    mutate(!! q := case_when(!! q == "Sim, de acordo com a Norma da ABNT (NBR9050)"~"Sim",
+                             !! q == "Sim, de acordo com a Norma da ABNT"~"Sim",
+                             !! q == "Sim,de acordo com a Norma da ABNT (NBR9050)"~"Sim",
+                             !! q == "Sim, de acordo coma Norma da ABNT (NBR9050)"~"Sim",
+                             !! q == "SIM, De acordo com a Norma da ABNT"~"Sim",
+                             !! q == "SIM, De acordo com a Norma da ABNT (NBR9050)"~"Sim",
+                             !! q == "SIM De acordo com a Norma da ABNT (NBR9050)"~"Sim",
+                             !! q == "Sim, de acordo com a norma da ABNT"~"Sim",
+                             !! q == "Sim, De acordo com a Norma da ABNT (NBR9050)"~"Sim",
+                             !! q == "SIM Mas não estão de acordo com a Norma da ABNT(NBR9050)"~"Sim",
+                             !! q == "Sim, mas não estão de acordo com a Norma da ABNT(NBR9050)"~"Sim",
+                             !! q == "Sim, mas não estão de acordo com a Norma da ABNT"~"Sim",
+                             !! q == "Sim, mas, não estão de acordo com a Norma da ABNT(NBR9050)"~"Sim",
+                             !! q == 1~"Sim",
+                             TRUE ~ as.character(!! q)))
+}
+
+f_tipo_acessibilidade = function(df, cod_categoria){
   cod_categoria <- quo_name(cod_categoria)
 
   df %>%
-    filter(!! q == "Sim, de acordo com a Norma da ABNT (NBR9050)" |
-           !! q == "Sim, de acordo com a Norma da ABNT" |
-           !! q == "Sim,de acordo com a Norma da ABNT (NBR9050)" |
-           !! q == "Sim, de acordo coma Norma da ABNT (NBR9050)" |
-           !! q == "SIM, De acordo com a Norma da ABNT" |
-           !! q == "SIM, De acordo com a Norma da ABNT (NBR9050)" |
-           !! q == "SIM De acordo com a Norma da ABNT (NBR9050)"|
-           !! q == "Sim, de acordo com a norma da ABNT" |
-           !! q == "Sim, De acordo com a Norma da ABNT (NBR9050)" |
-           #!! q == "SIM Mas não estão de acordo com a Norma da ABNT(NBR9050)" |
-           #!! q == "Sim, mas não estão de acordo com a Norma da ABNT(NBR9050)" |
-           #!! q == "Sim, mas não estão de acordo com a Norma da ABNT" |
-           
-             
-           #coloquei acessibilidiade sem ser ABNT  
-             
-             
-           !! q == 1) %>%
     mutate("Categoria" = case_when(!! cod_categoria == "1"~"Acesso principal adaptado com rampas e rota acessível desde a calçada até a recepção",
                                    !! cod_categoria == "2"~"Rota acessível aos espaços (recepção, salas de atendimento e espaços de uso coletivo)",
                                    !! cod_categoria == "3"~"Rota acessível ao banheiro",
                                    !! cod_categoria == "4"~"Banheiro adaptado para pessoas com deficiência"))
-  
 }
 
 equip_acessibilidade = function(df, q, ano, cod_categoria){
@@ -1342,10 +1343,12 @@ equip_acessibilidade = function(df, q, ano, cod_categoria){
   df %>%
     select(!! q) %>% 
     filter(!is.na(!! q)) %>% 
+    f_acessibilidade(!! q) %>%
     group_by(!! q) %>% 
     summarise(n=n()) %>% 
     mutate(Percentual = n/sum(n)) %>% 
-    f_acessibilidade_ABNT(!! q, cod_categoria) %>%
+    filter(!! q == "Sim") %>%
+    f_tipo_acessibilidade(cod_categoria) %>%
     mutate("Ano" = !! ano)
 }
 
@@ -1358,11 +1361,13 @@ equip_acessibilidade_situacao = function(df, q_situacao, q_acessibilidade, cod_c
   df %>%
     select(!! q_situacao, !! q_acessibilidade) %>% 
     filter(!is.na(!! q_situacao) & !is.na(!! q_acessibilidade)) %>% 
+    f_acessibilidade(!! q_acessibilidade) %>%
     f_situacao(!! q_situacao) %>%
     group_by(!! q_situacao, !! q_acessibilidade) %>% 
     summarise(n=n()) %>% 
     mutate(Percentual = n/sum(n)) %>% 
-    f_acessibilidade_ABNT(!! q_acessibilidade, cod_categoria) %>%
+    filter(!! q_acessibilidade == "Sim") %>%
+    f_tipo_acessibilidade(cod_categoria) %>%
     mutate("Situacao" = !! q_situacao)
 }
 
@@ -4589,7 +4594,7 @@ as categorias relativas à acessibilidade continuam crescendo
 percentualmente em relação aos anos anteriores
 (\Cref{fig:CRAS-acessibilidade}).
 
-```{r CRAS-acessibilidade, fig.cap = "Evolução percentual de CRAS segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2012, 2016 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r CRAS-acessibilidade, fig.cap = "Evolução percentual de CRAS com condições de acessibilidade - Brasil; 2012, 2016 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 #tabela <- equip_acessibilidade(cras_2010, q10_1, "2010", "1") %>%
 #  bind_rows(equip_acessibilidade(cras_2010, q10_2, "2010", "2")) %>% 
@@ -4649,8 +4654,8 @@ grafico<-tabela %>%
   mutate(Ano = factor(Ano, levels = rev(levels(ordenado2)))) %>% 
   ggplot(aes(x = Categoria, y = Percentual, group = Ano)) +
   geom_col(aes(fill = Ano), position = "dodge") +
-  geom_text(aes(label = percent(Percentual), y=Percentual+0.03), position = position_dodge(width = 0.9)) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  geom_text(aes(label = label_percent(accuracy = 0.1, decimal.mark = ",")(Percentual)), hjust = -0.05, position = position_dodge(width = 0.9)) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .15))) +
   coord_flip() +
   theme(legend.position="bottom",
         legend.title = element_blank(),
@@ -4693,7 +4698,7 @@ nenhuma condição de acessibilidade, ainda que em desacordo com a norma
 ABNT. Para os CRAS localizados em imóveis alugados esse percentual foi
 de 11,6% e em imóveis cedidos de 8,4%.
 
-```{r CRAS-acessibilidade-situacao, fig.cap = "Percentual de CRAS segundo condições de acessibilidade de acordo com a Norma da ABNT e por situação do imóvel – Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r CRAS-acessibilidade-situacao, fig.cap = "Percentual de CRAS com condições de acessibilidade por situação do imóvel – Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 #tabela <- equip_acessibilidade_situacao(cras_2016, q4, q9_1, "1") %>%
 #  bind_rows(equip_acessibilidade_situacao(cras_2016, q4, q9_2, "2")) %>% 
@@ -4719,7 +4724,7 @@ grafico<-tabela %>%
   mutate(Categoria = factor(Categoria, levels = rev(levels(ordenado)))) %>% 
   ggplot(aes(x = Situacao, y = Percentual, group = Categoria)) +
   geom_col(aes(fill = Categoria), position = "dodge") +
-  geom_text(aes(label = percent(Percentual), y=Percentual+0.015), position = position_dodge(width = 0.9)) +
+  geom_text(aes(label = label_percent(accuracy = 0.1, decimal.mark = ",")(Percentual)), vjust = -0.2, position = position_dodge(width = 0.9)) +
   scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
   theme(legend.position="bottom",
         legend.title = element_blank(),
@@ -5014,7 +5019,7 @@ os anos de 2010 e 2016. No entanto, os percentuais permanecem abaixo de
 acessibilidade nesses equipamentos ainda constitui grande desafio a ser
 superado (Gráfico 33).
 
-```{r creas-acessibilidade, fig.cap = "Evolução percentual de CREAS segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r creas-acessibilidade, fig.cap = "Evolução percentual de CREAS com condições de acessibilidade - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 #tabela <- equip_acessibilidade(creas_2010, q9_1, "2010", "1") %>%
 #  bind_rows(equip_acessibilidade(creas_2010, q9_2, "2010", "2")) %>% 
@@ -5054,8 +5059,8 @@ grafico<-tabela %>%
   mutate(Ano = factor(Ano, levels = rev(levels(ordenado2)))) %>% 
   ggplot(aes(x = Categoria, y = Percentual, group = Ano)) +
   geom_col(aes(fill = Ano), position = "dodge") +
-  geom_text(aes(label = percent(Percentual), y=Percentual+0.03), position = position_dodge(width = 0.9)) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  geom_text(aes(label = label_percent(accuracy = 0.1, decimal.mark = ",")(Percentual)), hjust = -0.05, position = position_dodge(width = 0.9)) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .15))) +
   coord_flip() +
   theme(legend.position="bottom",
         legend.title = element_blank(),
@@ -5071,7 +5076,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-```{r CREAS-acessibilidade-situacao, fig.cap = "Evolução percentual de CREAS segundo condições de acessibilidade de acordo com a Norma da ABNT e por situação do imóvel – Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r CREAS-acessibilidade-situacao, fig.cap = "Evolução percentual de CREAS com condições de acessibilidade por situação do imóvel – Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 tabela <- equip_acessibilidade_situacao(creas_2022, q3, q9_1, "1") %>%
   bind_rows(equip_acessibilidade_situacao(creas_2022, q3, q9_2, "2")) %>% 
@@ -5089,7 +5094,7 @@ grafico<-tabela %>%
   mutate(Categoria = factor(Categoria, levels = rev(levels(ordenado)))) %>% 
   ggplot(aes(x = Situacao, y = Percentual, group = Categoria)) +
   geom_col(aes(fill = Categoria), position = "dodge") +
-  geom_text(aes(label = percent(Percentual), y=Percentual+0.015), position = position_dodge(width = 0.9)) +
+  geom_text(aes(label = label_percent(accuracy = 0.1, decimal.mark = ",")(Percentual)), vjust = -0.2, position = position_dodge(width = 0.9)) +
   scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
   theme(legend.position="bottom",
         legend.title = element_blank(),
@@ -5455,7 +5460,7 @@ Percentual de Centros POP que possuem armários de uso individualizado,
 geladeira, fogão e máquina de lavar roupas -- Brasil, 2015 e 2016 Fonte:
 MDS, Censo SUAS.
 
-```{r cpop-acessibilidade-situacao, fig.cap = "Percentual de Centros POP com existência de condições de acessibilidade de acordo com a Norma da ABNT, segundo situação do imóvel – Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS.",eval=FALSE}
+```{r cpop-acessibilidade-situacao, fig.cap = "Percentual de Centros POP com condições de acessibilidade segundo situação do imóvel – Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS.",eval=FALSE}
 
 tabela <- equip_acessibilidade_situacao(cpop_2022, q1, q7_1, "1") %>%
   bind_rows(equip_acessibilidade_situacao(cpop_2022, q1, q7_2, "2")) %>% 
@@ -5473,7 +5478,7 @@ grafico<-tabela %>%
   mutate(Categoria = factor(Categoria, levels = rev(levels(ordenado)))) %>% 
   ggplot(aes(x = Situacao, y = Percentual, group = Categoria)) +
   geom_col(aes(fill = Categoria), position = "dodge") +
-  geom_text(aes(label = percent(Percentual), y=Percentual+0.015), position = position_dodge(width = 0.9)) +
+  geom_text(aes(label = label_percent(accuracy = 0.1, decimal.mark = ",")(Percentual)), vjust = -0.2, position = position_dodge(width = 0.9)) +
   scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
   theme(legend.position="bottom",
         legend.title = element_blank(),
@@ -5769,7 +5774,7 @@ mobilidade reduzida, presente em 36,5% das unidades em 2015 (1.978),
 passou a ser observado em 39,1% das unidades em 2016 (2.194) (Gráfico
 50).
 
-```{r unac_acessibilidade, fig.cap = "Evolução percentual de Unidades de Acolhimento Municipais segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS,",eval=FALSE}
+```{r unac_acessibilidade, fig.cap = "Evolução percentual de Unidades de Acolhimento Municipais com condições de acessibilidade - Brasil; 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS",eval=FALSE}
 
 # Em 2012 não tem a informação sobre se a acessibilidade é de acordo com a Norma ABNT, esse detalhamento só tem a partir de 2015.
 tabela <- equip_acessibilidade(unac_2015, q42_1, "2015", "1") %>%
@@ -5806,8 +5811,8 @@ grafico<-tabela %>%
   mutate(Ano = factor(Ano, levels = rev(levels(ordenado2)))) %>% 
   ggplot(aes(x = Categoria, y = Percentual, group = Ano)) +
   geom_col(aes(fill = Ano), position = "dodge") +
-  geom_text(aes(label = percent(Percentual), y=Percentual+0.03), position = position_dodge(width = 0.9)) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  geom_text(aes(label = label_percent(accuracy = 0.1, decimal.mark = ",")(Percentual)), hjust = -0.05, position = position_dodge(width = 0.9)) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .15))) +
   coord_flip() +
   theme(legend.position="bottom",
         legend.title = element_blank(),
@@ -5917,7 +5922,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-```{r postcad-acessibilidade, fig.cap = "Evolução percentual de postos do Cadastro Único segundo condições de acessibilidade de acordo com a Norma da ABNT - Brasil; 2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r postcad-acessibilidade, fig.cap = "Evolução percentual de postos do Cadastro Único com condições de acessibilidade - Brasil; 2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 tabela <- equip_acessibilidade(posto_cadunico_2020, q7_1, "2020", "1") %>%
   bind_rows(equip_acessibilidade(posto_cadunico_2020, q7_2, "2020", "2")) %>% 
@@ -5957,8 +5962,8 @@ grafico<-tabela %>%
   mutate(Ano = factor(Ano, levels = rev(levels(ordenado2)))) %>% 
   ggplot(aes(x = Categoria, y = Percentual, group = Ano)) +
   geom_col(aes(fill = Ano), position = "dodge") +
-  geom_text(aes(label = percent(Percentual), y=Percentual+0.03), position = position_dodge(width = 0.9)) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  geom_text(aes(label = label_percent(accuracy = 0.1, decimal.mark = ",")(Percentual)), hjust = -0.05, position = position_dodge(width = 0.9)) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .15))) +
   coord_flip() +
   theme(legend.position="bottom",
         legend.title = element_blank(),
@@ -5979,7 +5984,7 @@ destaca-se que os postos do Cadastro Único próprios ou cedidos, possuem
 significativamente mais ascessibilidade que os imóveis alugados
 (\Cref{fig:postcad-acessibilidade-situacao}).
 
-```{r postcad-acessibilidade-situacao, fig.cap = "Percentual de Postos do Cadastro Único com existência de condições de acessibilidade de acordo com a Norma da ABNT, segundo situação do imóvel – Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r postcad-acessibilidade-situacao, fig.cap = "Percentual de Postos do Cadastro Único com condições de acessibilidade segundo situação do imóvel – Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 tabela <- equip_acessibilidade_situacao(posto_cadunico_2022, q5, q7_1, "1") %>%
   bind_rows(equip_acessibilidade_situacao(posto_cadunico_2022, q5, q7_2, "2")) %>% 
@@ -5997,7 +6002,7 @@ grafico<-tabela %>%
   mutate(Categoria = factor(Categoria, levels = rev(levels(ordenado)))) %>% 
   ggplot(aes(x = Situacao, y = Percentual, group = Categoria)) +
   geom_col(aes(fill = Categoria), position = "dodge") +
-  geom_text(aes(label = percent(Percentual), y=Percentual+0.015), position = position_dodge(width = 0.9)) +
+  geom_text(aes(label = label_percent(accuracy = 0.1, decimal.mark = ",")(Percentual)), vjust = -0.2, position = position_dodge(width = 0.9)) +
   scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
   theme(legend.position="bottom",
         legend.title = element_blank(),
