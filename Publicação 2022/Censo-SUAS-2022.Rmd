@@ -1190,8 +1190,7 @@ f_selecao_regiao_ano_com_na = function(df, q, selecao, regiao, ano){
     group_by(Região) %>% 
     mutate("Percentual" = n/sum(n)) %>% 
     filter(!! q == !! selecao) %>% 
-    mutate("Ano" = !! ano) %>% 
-    select(Região, Percentual, Ano)
+    mutate("Ano" = !! ano)
 }
 
 f_selecao_regiao_ano = function(df, q, selecao, regiao, ano){
@@ -5177,7 +5176,7 @@ funcionavam em imóveis cedidos (188 unidades). Esse percentual aumenta
 desde 2014, quando 4,1% dos CREAS funcionavam em imóveis cedidos.
 (Gráfico 32).
 
-```{r creas-quantitativo, fig.cap = "Evolução do quantitativo de CREAS, segundo grandes regiões; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r creas-quantitativo, fig.cap = "Evolução do quantitativo de CREAS; Brasil e grandes regiões; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
   grafico <- f_quantitativo_regiao_ano(creas_2012, IBGE, "2012") %>% 
 #  bind_rows(f_quantitativo_regiao_ano(creas_2013, IBGE, "2013")) %>% 
@@ -5206,7 +5205,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ```
 
-```{r CREAS-municipios, fig.cap = "Evolução de CREAS por número de municípios, segundo grandes regiões - 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r CREAS-municipios, fig.cap = "Evolução do percentual de municípios com CREAS, Brasil e grandes regiões - 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 #grafico <- f_percentual_municipios_regiao_ano(creas_2007, ibge, "2007") %>%
 #  bind_rows(f_percentual_municipios_regiao_ano(creas_2008, IBGE, "2008")) %>% 
@@ -5239,41 +5238,17 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-<!-- O IDEAL SERIA QUANTIDADE, MAS NÃO CONSEGUI FAZER-->
 
-```{r CREAS-municipios-2, fig.cap = "Evolução de CREAS Regionais (res. 21/2023)", fig.footer = "Fonte: MDS, Censo SUAS", eval=FALSE }
+```{r CREAS-quantidade-municipios, fig.cap = "Evolução do quatitativo de municípios com CREAS, Brasil e grandes regiões - 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-creas_reg  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
+grafico <- f_percentual_municipios_regiao_ano(creas_2012, IBGE, "2012") %>% 
+  bind_rows(f_percentual_municipios_regiao_ano(creas_2017, IBGE, "2017")) %>%
+  bind_rows(f_percentual_municipios_regiao_ano(creas_2022, IBGE, "2022")) %>%  
 
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "Regional"~"Regional",
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Regional",
-                                            "Municipal"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
-
-grafico <- creas_reg(creas_2017, q2, "2017") %>%
-  bind_rows(creas_reg(creas_2018, q1, "2018")) %>%
-  bind_rows(creas_reg(creas_2019, q1, "2019")) %>%
-  bind_rows(creas_reg(creas_2020, q1, "2020")) %>%
-  bind_rows(creas_reg(creas_2021, q1, "2021")) %>%
-  bind_rows(creas_reg(creas_2022, q1, "2022")) %>%
-
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position = "dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  ggplot(aes(x = Região, y = n, group = Ano)) +
+  geom_col(aes(fill = Ano), position="dodge") +
+  geom_text(aes(label = n), hjust = -0.1, position = position_dodge(width = 0.9), angle = 90) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .12))) +
   theme(legend.position="bottom",
         legend.title = element_blank(),
         axis.title = element_blank(),
@@ -5288,23 +5263,20 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-<!-- O ideal seria colocar em número em vez de percentual -->
 
-```{r creas-regionais, fig.cap = "Evolução de CREAS Regionais - por região", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r creas-regionais, fig.cap = "Evolução do quantitativo de CREAS Regionais, Brasil e grandes regiões - 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
-grafico <- f_selecao_regiao_ano (creas_2017, q2, "Regional", Região, "2017") %>%
-    bind_rows(f_selecao_regiao_ano(creas_2018, q1, "Regional", Região, "2018")) %>% 
-    #bind_rows(f_selecao_regiao_ano(creas_2019, q1, "Regional", Região, "2019")) %>% 
-    #bind_rows(f_selecao_regiao_ano(creas_2020, q1, "Regional", Região, "2020")) %>% 
-    bind_rows(f_selecao_regiao_ano(creas_2021, q1, "Regional", Regiao, "2021")) %>% 
+grafico <- f_selecao_regiao_ano(creas_2012, q2, "Regional", Região, "2012") %>%
+    bind_rows(f_selecao_regiao_ano(creas_2017, q2, "Regional", Região, "2017")) %>%
+#    bind_rows(f_selecao_regiao_ano(creas_2018, q1, "Regional", Região, "2018")) %>% 
+#    bind_rows(f_selecao_regiao_ano(creas_2019, q1, "Regional", Região, "2019")) %>% 
+#    bind_rows(f_selecao_regiao_ano(creas_2020, q1, "Regional", Região, "2020")) %>% 
+#    bind_rows(f_selecao_regiao_ano(creas_2021, q1, "Regional", Regiao, "2021")) %>% 
     bind_rows(f_selecao_regiao_ano(creas_2022, q1, "Regional", Região, "2022")) %>% 
     
-   #bind_rows(f_selecao_regiao_ano(gm_2022, q0_1, "Secretaria municipal exclusiva da área de Assistência Social", IBGE, "2022")) %>%
-   #não funcionou a função quantidade
-  
-  ggplot(aes(x = Região, y = Percentual, group = Ano)) +
+  ggplot(aes(x = Região, y = n, group = Ano)) +
   geom_col(aes(fill = Ano), position="dodge") +
-  geom_text(aes(label = percent(Percentual), y=Percentual+.05), position = position_dodge(width = 0.9), angle = 90) +
+  geom_text(aes(label = n), hjust = -0.1, position = position_dodge(width = 0.9), angle = 90) +
   scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
   theme(legend.position="bottom",
         legend.title = element_blank(),
