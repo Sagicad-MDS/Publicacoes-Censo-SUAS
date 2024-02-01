@@ -1218,6 +1218,7 @@ f_quantitativo_regiao_ano = function(df, regiao, ano){
 
   df %>%
     select(!! regiao) %>% 
+#    filter(!is.na(!! regiao)) %>% 
     mutate(!! regiao := case_when(substr(!! regiao,1,1) == "1"~"Norte",
                                   substr(!! regiao,1,1) == "2"~"Nordeste",
                                   substr(!! regiao,1,1) == "3"~"Sudeste",
@@ -4392,10 +4393,6 @@ unidades para 8.557. Desde 2007, 4.361 novas unidades de CRAS foram
 criadas nos territórios municipais - crescimento. O
 \Cref{fig:quantitativo-CRAS} apresenta a evolução do quantitativo de
 CRAS por grandes regiões de desenvolvimento.
-
-
-<!-- o grafico gerou NA, não consegui identificar o verificar o erro -->
-
 
 ```{r quantitativo-CRAS, fig.cap = "Evolução do quantitativo de CRAS, segundo grandes regiões; 2007, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
