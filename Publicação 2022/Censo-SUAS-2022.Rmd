@@ -588,7 +588,7 @@ saber\footnote{A forma de organização processual destas informações foram at
     transferência de recursos, funcionamento das instâncias de
     pactuação, entre outras.
 
--   **Equipamentos, Serviços e Benefícios da Assistência Social:**
+-   **Unidades, Serviços e Benefícios da Assistência Social:**
     apresenta informações a respeito dos equipamentos da Assistência
     Social e sua evolução ao longo do tempo, sua esturura e condições na
     perspectiva de acessibilidade e equipamentos disponíveis. A
@@ -1470,10 +1470,10 @@ Orgânica da Assistência Social
 (LOAS)\footnote{Lei nº 8.742, de 7 de dezembro de 1993: Dispõe sobre a organização da Assistência Social e dá outras providências. (\url{http://www.planalto.gov.br/ccivil_03/Leis/L8742compilado.htm})}
 como um sistema descentralizado e participativo que organiza a gestão
 das ações na área de assistência social, a partir das diretrizes:
-descentralização político-administrativa, participação social e primazia
+descentralização político administrativa, participação social e primazia
 da responsabilidade do Estado na condução da política de assistência
 social. Assim, tem como um de seus objetivos a consolidação da gestão
-compartilhada entre os três entes federados e do cofinanciamento.
+compartilhada dos os três entes federados.
 
 A LOAS, a NOB
 SUAS\footnote{Norma Operacional Básica NOB - SUAS 2012 (\url{http://www.mds.gov.br/webarquivos/arquivo/assistencia_social/nob_suas.pdf})}
@@ -1897,6 +1897,10 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 
 
+
+
+
+
 ```{r estados-constituicao-subdivisoes_2012, fig.cap = "Percentual de estados segundo característica da estrutura administrativa da Secretaria estadual de Assistência Social - Brasil,  2012", fig.footer = "Fonte: MDS, Censo SUAS, eval=FALSE"}
 
 tabela<-ge_2012 %>%
@@ -1952,7 +1956,8 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 
 
-Quando se observa também as areas instituídas informalmente conforme \Cref{fig:estados-constituicao-subdivisoes}, apenas os setores da Gestão do SUAS,Gestão do trabalho e regulação do SUAS não estão contituídas em 100% dos estados.  
+Quando se observa a regularização destas areas, há um grupo instituídas informalmente conforme \Cref{fig:estados-constituicao-subdivisoes}, e setores que ainda não estão consituídos em 100% dos estados, a saber Gestão do SUAS, Gestão do trabalho e regulação do SUAS.  
+
 
 
 ```{r estados-constituicao-subdivisoes, fig.cap = "Percentual de estados segundo característica da estrutura administrativa da Secretaria estadual de Assistência Social - Brasil,  2022", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -2147,7 +2152,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 Ao considerar a instituição informal, o \Cref{fig:municipais-constituicao-subdivisoes} 
 sinaliza que a Gestão do trabalho e Vigilância Socioassistencial
-são os mais altos percentuais de informalidade e não constituição. 
+são os mais altos percentuais de informalidade e não constituição. Destaca-se também a proteção social especial, area recomendada existir independe da presença de undiades de CREAS. 
 
 
 ```{r municipais-constituicao-subdivisoes, fig.cap = "Distribuição dos órgãos gestores municipais segundo constituição/formalização de subdivisões administrativas - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
@@ -2326,7 +2331,7 @@ exceção de Minas Gerais em 2011 Goiás em 2015 e Mato Grosso do Sul em
 
 Entratando, 11 estados que não possuem Lei do SUAS. Esse número estão
 presentes nas seguintes regiões do Brasil: 4 - Nordeste, 3 - Norte, 2 -
-Região Sul e 1 - Região
+Região Sul e 1 - Região Sudeste.
 Sudeste\footnote{ siglas dos Estado que não possuem Lei do SUAS - censo suas 2022: RR, PA, TO, PI, RN, SE, BA, SP, PR, SC e RS}.
 
 ```{r estados-atualizacao-lei, fig.cap = "Quantidade de estados por ano de atualização da Lei Estadual de regulamentação do Sistema Único de Assistência Social (SUAS) - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -2487,7 +2492,7 @@ Estadual do SUAS\footnote{Resolução CNAS Nº2, de 16 de março de 2017}.
 De acordo com Censo Suas 2022, 57,69% dos estados possuem este plano
 pactuado na CIB. Este percentual reduziu em relação ao ano de 2017, na
 qual mais de 76% dos Estados informaram possuir este documento pactuado
-nesta instância de comissão intergestores bipartite.
+nesta instância de comissão intergestores bipartite (CIB).
 
 ```{r plan_apoio_tec, fig.cap = "Percentual de Estados que possuem Plano de Apoio Técnico pactuado na CIB - Brasil, 2013 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -3433,7 +3438,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 ```
 
 No que se refere a Educação Permanente, nota-se um aumento dos estados que 
-possuem Núcleo de Educação Permante, a (\Cref{fig:NUEP}). 
+possuem Núcleo de Educação Permante (\Cref{fig:NUEP}). 
 
 O censo de 2022 sinaliza 88,5% (23) dos Estados possuem esta instancia colegiada 
 de maneira formal. Trata-se de um foro contituída pela participação e cooperação 
@@ -3491,8 +3496,8 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 ```
 
 Em relação ao Plano de Educação Permanente, de acordo com censo suas de 2021, 
-13,9% (xx) dos municípios possuem este plano. Esse percentual, como pode ser 
-observado (\Cref{fig:PNEP_Munic}) não avançaou muito nos últimos anos. 
+13,9% (769) dos municípios possuem este plano. Esse percentual, como pode ser 
+observado (\Cref{fig:PNEP_Munic})teve evolução residual últimos anos. 
 \footnote{Para o ano de 2022 essa pergunta foi extinta}.
 
 
@@ -3632,7 +3637,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ## Programas de execução própria executadas pelos estados
 
-
+Em relação aos programas próprios de transferência de renda executados pelos estados, percebe-se um aumento ao longo dos anos na qual em 2022, 76,9% dos estados informaram que possuem conforme(\Cref{fig:be_uf_renda}).
 
 ```{r be_uf_renda, fig.cap = "Programas de execução própria e/ou transferência de renda executadas pelos estados", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -3689,6 +3694,7 @@ grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
+
 O Cadastro Único é ferramenta que possibilita inserção a programas sociais no ambito dos três entes, o grafico abaixo sinaliza evolução dos estados que usam o cadastro único enquanto respostas de programas estaduais.
 
 ```{r uf_usa_cad, fig.cap = "Programas usam Cadastro Único para seleção beneficiários", fig.footer = "Fonte: MDS, Censo SUAS"}
@@ -3741,6 +3747,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 
 ## Gestão do Cadastro Único
+\footnote{o formulário do posto do cadastro único foi criado em 2020, assim a maioria das informações disponíveis terão referencia esta data}.
 
 O Cadastro Único para Programas Sociais do Governo Federal estabelecido
 através do decreto nº 3.887/2001 tem a finalidade de coletar,
@@ -3748,18 +3755,22 @@ sistematizar e disseminar informações que permitem a identificação e
 caracterização das condições socioeconômicas das famílias em situação de
 vulnerabilidade social, sobretudo para as famílias de baixa de renda.
 
-O objetivo é conhecer, incluir e aprimorar as políticas sociais, bem
-como potencializar acesso a Serviços, Programas, benefícios e Projetos.
+O objetivo é conhecer, incluir e aprimorar as políticas sociais através
+do acesso a Serviços, Programas, benefícios, identificação das famílias e 
+territórios vulnerabilizados, bem como ações intersetoriais.
+
+
 A gestão do Cadastro Único é compartilhada entre união, estados,
 municípios e distrito federal na qual cabe aos estados o apoio técnico,
 capacitação, monitoramento e avaliação. É nos municípios que estão os
 locais de cadastramento e toda gestão territorial da identificação das
 famílias neste cadastro público.
 
+ 
 As unidades do Cadastro Único podem ser encontradas em locais exclusivos
 ou na rede de atendimento socioassistencial de CRAS, CREAS, Centro Pop.
-Dados do Censo SUAS mostram uma evolução de locais de cadastramento. A
-partir de 2017 houve um aumento de 54% de postos de Cadastro Único.
+Dados do Censo SUAS mostram uma evolução de locais de cadastramento, sobretudo a 
+partir de 2017. 
 
 Sobre a distribuição destes locais de Cadastro Único, destaca-se que em
 2022, 31% (2.892) são unidades exclusivas de Cadastro Único e 68% estão
@@ -3786,7 +3797,7 @@ Postos Cadastro Único   & - & - & - & 2.530 & 2.695 & 2.892                    
 ```
 
 A respeito das unidades exclusivas do Cadastro Único destacados acima,
-61% encontram-se na sede da Secretaria de Assistência Social e 24,3% em
+61,0% encontram-se na sede da Secretaria de Assistência Social e 24,3% em
 estruturas especificas. Os demais percentuais são encontrados em outra
 unidade administrativa como, em um serviço integrado, OSC´s, conselho ou
 escola.
@@ -3796,13 +3807,14 @@ No que se refere a gestão territorial, cabe as coordenações do Cadastro
 dos processos de cadastramento, seja em postos específicos ou integradas
 as unidades da rede socioassistencial.
 
+
 O gráfico abaixo sinaliza que no âmbito da gestão municipal, as ações de 
-levantamento de famílias para atualização e inclusão cadastral é a mais 
+levantamento de famílias para atualização e inclusão cadastral são a mais 
 realizada. A menor proporção se refere a ações de elaboração de análises 
 utilizando dados do Cadastro Único (\Cref{fig:gestao_cad}).
 \footnote{estas informações são do formulário de Gestão Municipal na qual tem estas informações disponíveis a partir do ano de 2020}.
 
-```{r gestao_cad, fig.cap = "Ações desenvolvidas no ambito pelos postos do Cadastro Único - Brasil, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r gestao_cad, fig.cap = "Ações desenvolvidas no ambito pelos Postos do Cadastro Único - Brasil, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 gestao_cad= function(df, q, ano, cod_categoria){
   q <- enquo(q)
@@ -3992,7 +4004,7 @@ registros administrativos do governo federal. Já a revisão é um
 procedimento de atualização das famílias com registros desatualizados. O
 tempo considerado para um cadastro desatualizado é de 24 meses. O
 gráfico (\Cref{fig:ave_cad}) refere-se as informações de averiguação e
-eevisão cadastral no ambito dos postos dos Cadastro Único dos
+revisão cadastral no ambito dos postos dos Cadastro Único dos
 municípios. Nota-se que ao longo dos anos, essas ações aumentaram,
 sobretudo as ações de busca ativa e identificação do público de
 averiguação e revisão cadastral como público prioritário.
@@ -4081,102 +4093,52 @@ grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
-Sobre ações de busca ativa ...
-
-<!-- os dados em branco são contabilizados ... a partir de 2021 cresce muito as marcações em branco por isso a discrepancia nas informações. Avaliar a pertinencia, sobretudo pq 2021 e 2022 são referentes a periodos pandemicos.}). -->
 
 
-```{r CadunicoGPTE, fig.cap = "Ações de busca ativa para GPTE (Grupos e Povos tradicionais específicos) - Brasil, 2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS.",eval=FALSE}
+Em relação as informações de unidades de Postos do Cadasto Único e o atendimento de Grupos Tradicionais e Especificos - GPTEs, destaca-se através (\Cref{gptes_cadunico}) o percertual de unidades de postos do cadastro único que informam atender no período de 2020 a 2022. 
 
-CadunicoGPTE= function(df, q, ano, cod_categoria){
+```{r gptes_cadunico, fig.cap = "Unidades que realiza cadastramento de famílias pertencentes aos seguintes Grupos Tradicionais e Específicos - GPTEs - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+
+gptes_cadunico  = function(df, q, ano){
   q <- enquo(q)
   ano <- quo_name(ano)
-  cod_categoria <- quo_name(cod_categoria)
-
-#2020
-  categoria <- case_when(!! cod_categoria == "1"~"Povos indígenas",
-                         !! cod_categoria == "2"~"Comunidade Quilombola",
-                         !! cod_categoria == "3"~"Comunidade Ribeirinha",
-                         !! cod_categoria == "4"~"Povos Ciganos",
-                         !! cod_categoria == "5"~"Povos de Matriz Africana e de terreiro",
-                         !! cod_categoria == "6"~"Extrativistas",
-                         !! cod_categoria == "7"~"Pescadores artesanais",
-                         !! cod_categoria == "8"~"Ribeirinhas",
-                         !! cod_categoria == "9"~"Outros Grupos tradicionais e específicos")
 
   df %>%
-    select(!! q) %>% 
-    filter(!is.na(!! q)) %>% 
-    group_by(!! q) %>% 
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "Sim"~"Sim",
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("Sim",
+                                            "Não"))) %>% 
+    group_by(Categoria, Nível) %>% 
     summarise(n=n()) %>% 
-    mutate(Percentual = n/sum(n)) %>% 
-    filter(!! q == "Sim") %>% 
-    mutate("Categoria" = categoria, "Ano" = !! ano)
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
 }
 
- tabela <- CadunicoGPTE (posto_cadunico_2020,q21_1_1,"2020","1") %>% 
-  bind_rows(CadunicoGPTE(posto_cadunico_2020,q21_2_1,"2020","2")) %>% 
-  bind_rows(CadunicoGPTE(posto_cadunico_2020,q21_3_1,"2020","3")) %>% 
-  bind_rows(CadunicoGPTE(posto_cadunico_2020,q21_4_1,"2020","4")) %>% 
-  bind_rows(CadunicoGPTE(posto_cadunico_2020,q21_5_1,"2020","5")) %>%
-  bind_rows(CadunicoGPTE(posto_cadunico_2020,q21_6_1,"2020","6")) %>% 
-  bind_rows(CadunicoGPTE(posto_cadunico_2020,q21_7_1,"2020","7")) %>%
-  bind_rows(CadunicoGPTE(posto_cadunico_2020,q21_8_1,"2020","8")) %>% 
-  bind_rows(CadunicoGPTE(posto_cadunico_2020,q21_9_1,"2020","9")) %>%
-  bind_rows(CadunicoGPTE(posto_cadunico_2021,q21_1_1,"2021","1")) %>%
-  bind_rows(CadunicoGPTE(posto_cadunico_2021,q21_2_1,"2021","2")) %>% 
-  bind_rows(CadunicoGPTE(posto_cadunico_2021,q21_3_1,"2021","3")) %>% 
-  bind_rows(CadunicoGPTE(posto_cadunico_2021,q21_4_1,"2021","4")) %>% 
-  bind_rows(CadunicoGPTE(posto_cadunico_2021,q21_5_1,"2021","5")) %>%
-  bind_rows(CadunicoGPTE(posto_cadunico_2021,q21_6_1,"2021","6")) %>% 
-  bind_rows(CadunicoGPTE(posto_cadunico_2021,q21_7_1,"2021","7")) %>%
-  bind_rows(CadunicoGPTE(posto_cadunico_2021,q21_8_1,"2021","8")) %>% 
-  bind_rows(CadunicoGPTE(posto_cadunico_2021,q21_9_1,"2021","9")) %>%
-  bind_rows(CadunicoGPTE(posto_cadunico_2022,q21_1_1,"2022","1")) %>%
-  bind_rows(CadunicoGPTE(posto_cadunico_2022,q21_2_1,"2022","2")) %>% 
-  bind_rows(CadunicoGPTE(posto_cadunico_2022,q21_3_1,"2022","3")) %>% 
-  bind_rows(CadunicoGPTE(posto_cadunico_2022,q21_4_1,"2022","4")) %>% 
-  bind_rows(CadunicoGPTE(posto_cadunico_2022,q21_5_1,"2022","5")) %>%
-  bind_rows(CadunicoGPTE(posto_cadunico_2022,q21_6_1,"2022","6")) %>% 
-  bind_rows(CadunicoGPTE(posto_cadunico_2022,q21_7_1,"2022","7")) %>%
-  bind_rows(CadunicoGPTE(posto_cadunico_2022,q21_8_1,"2022","8")) %>% 
-  bind_rows(CadunicoGPTE(posto_cadunico_2022,q21_9_1,"2022","9")) %>%
-   
-   
-
-  ungroup() %>% 
-  mutate(Categoria=str_wrap(Categoria,width=51))
-
-ordenado<-tabela %>% 
-  filter(Ano == "2020") %>% 
-  arrange(Percentual) %>% 
-  select(Categoria)
-
-ordenado<-factor(ordenado, levels = ordenado$Categoria)
-
-ordenado2<-tabela %>%
-  select(Ano) %>% 
-  distinct() %>% 
-  arrange(Ano)
-
-ordenado2<-factor(ordenado2, levels = ordenado2$Ano)
-
-grafico<-tabela %>% 
-  mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
-  mutate(Ano = factor(Ano, levels = rev(levels(ordenado2)))) %>% 
-  ggplot(aes(x = Categoria, y = Percentual, group = Ano)) +
-  geom_col(aes(fill = Ano), position = "dodge") +
-  geom_text(aes(label = percent(Percentual), y=Percentual+0.08), position = position_dodge(width = 0.9)) +
+grafico <- gptes_cadunico(posto_cadunico_2020,q20_1,"2020") %>%
+          bind_rows(gptes_cadunico(posto_cadunico_2021,q20_1,"2021"))%>%
+          bind_rows(gptes_cadunico(posto_cadunico_2022,q20_1, "2022"))%>%
+        #gptes_cadunico(coord_cadunico(posto_cadunico_2022, q20_3, "2022"))%>%
+        #gptes_cadunico(coord_cadunico(posto_cadunico_2022, q20_3, "2022"))%>%
+        #gptes_cadunico(coord_cadunico(posto_cadunico_2022, q20_3, "2022"))%>%
+  
+ 
+  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
+#  geom_col(aes(fill = Nível), position = "dodge") +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
   scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  coord_flip() +
   theme(legend.position="bottom",
         legend.title = element_blank(),
         axis.title = element_blank(),
         axis.ticks = element_blank(),
-        axis.text.x = element_blank(),
-        axis.line.y = element_line(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
         panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
 
@@ -4184,108 +4146,6 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 ```
 
 
-
-
-<!-- SERÁ QUE CONSEGUIMOS COLOCAR OS EM BRANCO? OU COLOCAR EM QUANTIDADE?}). -->
-
-
-```{r povos-tradicionais_cad_cras, fig.cap = "Percentual de atendimentos do Cadastro Único de públicos GPTE nos CRAS - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
-
-
-CadunicoGPTE_cras= function(df, q, ano, cod_categoria){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-  cod_categoria <- quo_name(cod_categoria)
-
-#2020
-  categoria <- case_when(!! cod_categoria == "1"~"Povos indígenas",
-                         !! cod_categoria == "2"~"Comunidade Quilombola",
-                         !! cod_categoria == "3"~"Comunidade Ribeirinha",
-                         !! cod_categoria == "4"~"Povos Ciganos",
-                         !! cod_categoria == "5"~"Povos de Matriz Africana e de terreiro",
-                         !! cod_categoria == "6"~"Extrativistas",
-                         !! cod_categoria == "7"~"Pescadores artesanais",
-                         !! cod_categoria == "8"~"Ribeirinhas",
-                         !! cod_categoria == "9"~"Outros Grupos tradicionais e específicos")
-
-  df %>%
-    select(!! q) %>% 
-    filter(!is.na(!! q)) %>% 
-    group_by(!! q) %>% 
-    summarise(n=n()) %>% 
-    mutate(Percentual = n/sum(n)) %>% 
-    filter(!! q == "Sim") %>% 
-    mutate("Categoria" = categoria, "Ano" = !! ano)
-}
-
- tabela <- CadunicoGPTE_cras (cras_2022,q65_1_3,"2022","1") %>% 
-#bind_rows(CadunicoGPTE_cras(posto_cadunico_2020,q21_2_1,"2020","2")) %>% 
-#bind_rows(CadunicoGPTE_cras(posto_cadunico_2020,q21_3_1,"2020","3")) %>% 
-#bind_rows(CadunicoGPTE_cras(posto_cadunico_2020,q21_4_1,"2020","4")) %>% 
-#bind_rows(CadunicoGPTE_cras(posto_cadunico_2020,q21_5_1,"2020","5")) %>%
-#bind_rows(CadunicoGPTE_cras(posto_cadunico_2020,q21_6_1,"2020","6")) %>% 
-#bind_rows(CadunicoGPTE_cras(posto_cadunico_2020,q21_7_1,"2020","7")) %>%
-#bind_rows(CadunicoGPTE_cras(posto_cadunico_2020,q21_8_1,"2020","8")) %>% 
-  #bind_rows(CadunicoGPTE_cras(posto_cadunico_2020,q21_9_1,"2020","9")) %>%
-  #bind_rows(CadunicoGPTE_cras(posto_cadunico_2021,q21_1_1,"2021","1")) %>%
-  #bind_rows(CadunicoGPTE_cras(posto_cadunico_2021,q21_2_1,"2021","2")) %>% 
-  #bind_rows(CadunicoGPTE_cras(posto_cadunico_2021,q21_3_1,"2021","3")) %>% 
-  #bind_rows(CadunicoGPTE_cras(posto_cadunico_2021,q21_4_1,"2021","4")) %>% 
-  #bind_rows(CadunicoGPTE_cras(posto_cadunico_2021,q21_5_1,"2021","5")) %>%
-  #bind_rows(CadunicoGPTE_cras(posto_cadunico_2021,q21_6_1,"2021","6")) %>% 
-  #bind_rows(CadunicoGPTE_cras(posto_cadunico_2021,q21_7_1,"2021","7")) %>%
-  #bind_rows(CadunicoGPTE_cras(posto_cadunico_2021,q21_8_1,"2021","8")) %>% 
-  #bind_rows(CadunicoGPTE_cras(posto_cadunico_2021,q21_9_1,"2021","9")) %>%
-  #bind_rows(CadunicoGPTE_cras(posto_cadunico_2022,q21_1_1,"2022","1")) %>%
-  bind_rows(CadunicoGPTE_cras(cras_2022,q65_2_3,"2022","2")) %>% 
-  bind_rows(CadunicoGPTE_cras(cras_2022,q65_3_3,"2022","3")) %>% 
-  bind_rows(CadunicoGPTE_cras(cras_2022,q65_4_3,"2022","4")) %>% 
-  bind_rows(CadunicoGPTE_cras(cras_2022,q65_5_3,"2022","5")) %>%
-  bind_rows(CadunicoGPTE_cras(cras_2022,q65_6_3,"2022","6")) %>% 
-  bind_rows(CadunicoGPTE_cras(cras_2022,q65_7_3,"2022","7")) %>%
-  bind_rows(CadunicoGPTE_cras(cras_2022,q65_8_3,"2022","8")) %>% 
-  bind_rows(CadunicoGPTE_cras(cras_2022,q65_9_3,"2022","9")) %>%
-   
-   
-
-  ungroup() %>% 
-  mutate(Categoria=str_wrap(Categoria,width=51))
-
-ordenado<-tabela %>% 
-  filter(Ano == "2022") %>% 
-  arrange(Percentual) %>% 
-  select(Categoria)
-
-ordenado<-factor(ordenado, levels = ordenado$Categoria)
-
-ordenado2<-tabela %>%
-  select(Ano) %>% 
-  distinct() %>% 
-  arrange(Ano)
-
-ordenado2<-factor(ordenado2, levels = ordenado2$Ano)
-
-grafico<-tabela %>% 
-  mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
-  mutate(Ano = factor(Ano, levels = rev(levels(ordenado2)))) %>% 
-  ggplot(aes(x = Categoria, y = Percentual, group = Ano)) +
-  geom_col(aes(fill = Ano), position = "dodge") +
-  geom_text(aes(label = percent(Percentual), y=Percentual+0.08), position = position_dodge(width = 0.9)) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  coord_flip() +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.x = element_blank(),
-        axis.line.y = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
-
-grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-```
 A visita domiciliar permite uma aproximação com aspectos do cotidiano das famílias,
 trata-se de uma forma de coleta das informações por meio do encontro até as família. 
 Essa ação objetiva assegurar o acesso a inclusão ou atualização na residencia. 
@@ -4293,7 +4153,6 @@ De acordo com informações do (\Cref{fig:visit_dom}) as
 situações mais frequentes para visita domiciliar são para averiguação
 cadastral e inclusão/atualização de dados do BPC (Benefício de Prestação
 Continuada) conforme (\Cref{fig:visit_dom}).
-
 
 
 
@@ -4393,36 +4252,34 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 ```
 
 
-Sobre a existência de estrutura e gestão do Cadastro Único no SUAS. Foi destacado no gráfico (\Cref{fig:municipais-constituicao-subdivisoes}) que 95% dos municípios possuem a gestão do Cadastro Único instituídas (80,68% constituída formalmente e 14,32% constituída informalmente)  
-Em relação a existência de coordenador do Cadastro único nos postos de atendimento, o gráfico (\Cref{fig:coord_cadunico}) sinaliza aumento nos últimos anos, entretanto 31,8 dos postos do cadastro único possuem coordenador(a). 
+Em relação as ações de complementariedade com a rede socioassistencial, destaca-se que a maioria destas undiades de 
+cadastramento realiza encaminahmentos para rede socioassistencial de CRAS, CREAS, Centro POp entre outros.
 
+```{r redesuas, fig.cap = "Percentual de Postos do Cadastro Único que realizam encaminhamentos para rede - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-```{r atend-cadunico, fig.cap = "Percentual de postos do Cadastro Único - atendimento -2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS",eval=FALSE}
-
-atend  = function(df, q, ano){
+rede_suas  = function(df, q, ano){
   q <- enquo(q)
   ano <- quo_name(ano)
 
   df %>%
     select(!! ano := !! q) %>% 
     gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "A maioria das famílias é atendida no mesmo dia em que procuram esta unidade"~"A maioria das famílias é atendida no mesmo dia em que procuram esta unidade",
+    mutate(Nível = case_when(Nível == "Sim"~"Sim",
                              TRUE ~ Nível)) %>% 
     filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("A maioria das famílias é atendida no mesmo dia em que procuram esta unidade",
-                                            "A minoria das famílias é atendida no mesmo dia em que procuram esta unidade",
-                                            "Os atendimentos ocorrem apenas após agendamentos"))) %>% 
+    mutate(Nível = factor(Nível, levels = c("Sim",
+                                            "Não"))) %>% 
     group_by(Categoria, Nível) %>% 
     summarise(n=n()) %>% 
     group_by(Categoria) %>% 
     mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
 }
 
-grafico <- atend(posto_cadunico_2020, q17, "2020") %>%
-   bind_rows(atend(posto_cadunico_2021, q17, "2021")) %>% 
-   bind_rows(atend(posto_cadunico_2022, q17, "2022")) %>% 
-   
-
+grafico <- rede_suas(posto_cadunico_2020, q32_1, "2020") %>%
+        bind_rows(rede_suas(posto_cadunico_2021, q32_1, "2021"))%>%
+        bind_rows(rede_suas(posto_cadunico_2022, q32_1, "2022"))%>%
+  
+ 
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
 #  geom_col(aes(fill = Nível), position = "dodge") +
 #  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
@@ -4442,6 +4299,66 @@ grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
+
+O grafico abaixo (\Cref{fig:igdbolsa}) sinaliza sobre a existência da participação das unidades do Cadastro único no planejamento 
+dos recursos recebidos no âmbito do IGDPBF (Índice de Gestão Descentralizada da Gestão do Cadastro Único e Bolsa Família).
+TRata-se de um recurso repassado aos estados e municípios para apoio a gestão do Cadastro Único e Bolsa Família. Esta informação é referente 
+a respostas do dormulário dos potos de cadastramento em ambito dos municípios.
+
+```{r igdbolsa, fig.cap = "Unidades de Postos do Cadastro Único quanto a participação no planejamento do IGD Bolsa Família - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+
+igd_pbf  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "Não sabe informar"~"Não sabe informar",
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("Não, o planejamento é realizado exclusivamente pelo órgão gestor municipal",
+                                            "Sim, é ouvido e indica necessidades",
+                                            "Sim, indica necessidades e consegue influenciar no processo decisório",
+                                            "Não sabe informar"))) %>% 
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+grafico <- igd_pbf(posto_cadunico_2020, q29, "2020") %>%
+   bind_rows(igd_pbf(posto_cadunico_2021, q29, "2021")) %>% 
+   bind_rows(igd_pbf(posto_cadunico_2022, q29, "2022")) %>% 
+  
+  
+  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
+#  geom_col(aes(fill = Nível), position = "dodge") +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=2,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+
+<!-- colocar item abaixo na gestão do trabalho.}). -->
+
+Em relação a existência de coordenador(a) do Cadastro único nos postos de atendimento, o gráfico (\Cref{fig:coord_cadunico}) sinaliza aumento nos últimos anos, em 2022, 31,8% dos postos do Cadastro Único possuem coordenador(a). 
+
+
+
 
 ```{r coord_cadunico, fig.cap = "Percentual de Postos do Cadastro Único que possuem coordenador - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -4494,28 +4411,35 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ## Considerações Finais (revisar)
 
-Os órgãos gestores da assistência social, tanto estaduais quanto
-municipais, são estruturas fundamentais para a execução integral do SUAS
-e da PNAS. Suas participações nos planejamentos das ações a serem
-executadas, na coordenação do recebimento de recursos e na distribuição
-dos mesmos segundo as prioridades de seu território de trabalho tem
-papel crucial na fluidez do Sistema como um todo e no funcionamento da
-Rede Socioassistencial.
+A Assistência Social é uma política de previsibilidade constitucional 
+reafirmadas por Lei, Normas, decretos, pactos. Assim, faz-se essencial padrões de gestão e 
+comandos únicos em todos os entes federados. Os dados históricos sinalizam avanços e desafios 
+para gestão do SUAS.
 
-As subdivisões administrativas que apresentavam maior percentual de
-formalização nos órgãos gestores municipais eram as voltadas à Proteção
-Social Básica e à Gestão de Benefícios Assistenciais, presentes em 62,5%
-e 63,1% dos municípios, respectivamente. As que apresentavam menores
-percentuais de formalização nos órgãos gestores municipais eram as de
-Regulação do SUAS (36,5%), de Proteção Social Especial (35,6%), de
-Vigilância Socioassistencial (31,1%) e de Gestão do Trabalho (30,6%).
+Os órgãos gestores da assistência social, tanto estaduais quanto
+municipais, são estruturas fundamentais para a execução deste política. O significado
+do direito caminham junto com o planejamento, ofertas continuadas, padrões de respostas, comandos unicos etc.
+
+Assim, para consolidação desta política que faz-se universal nos territórios,é fundamental
+em todos entes federados estruturas administrativas indicadas nos pactos, Lei compatível com LOAS, 
+conforme deliberação das conferencias nacionais, comando único do gestor da pasta entre outros.  
+
+Os dados sinalizam avanços, a respeito das subdivisões administrativas que apresentavam maior percentual de
+formalização nos órgãos gestores estaduais em 88,5% dos estados. As que apresentavam menores
+percentuais de formalização nos órgãos gestores estaduais eram as de
+Regulação do SUAS (38,5%) e de Gestão do Trabalho (57,7%). Nos municípios, destaca-se forte presença de formalização
+das gestões do Cadastro Único e Bolsa Família, bem como a proteção social básica, com respectivamente 80,68% e 77,90% respectivamente.
 
 Os recursos recebidos via transação fundo-a-fundo, garantem maior
 qualidade na distribuição, já que estes são fiscalizados pelos órgãos de
 controle social e passam pelo crivo das Comissões Intergestores
-Bipartite e Tripartite. Sobre o repasse, destacam-se as regiões Norte e
-Nordeste que apresentam alto percentual de municípios que não repassam
-recursos a ONGs ou entidades privadas da assistência social.
+Bipartite e Tripartite. Sobre o repasse, destacam-se o avanço ao longo dos anos nesta forma repasse aliado ao cofinanciamento, sendo mais presente
+o cofinancimento a Proteção Social Especial.
+
+Destaca-se também um tópico novo e de importancia para gestão de informação do SUAS. O cadatsro único é uma ferramenta
+que visa potencializar as funções de proteção socia, vigilancia socioassitencial e defesa de direitos, Para isso, os dados 
+promovem acesso a serviços e progrmas, identificação das fmaílias e leitura dos territórios, bem como parcerias e ações intersetoriais.
+
 
 # Unidades do SUAS
 
@@ -5045,7 +4969,7 @@ grafico <- equip_cadunico(cras_2017, q35, "2017") %>%
         axis.text.y = element_blank(),
         axis.line.x = element_line(),
         panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  guides(fill=guide_legend(nrow=2,byrow=TRUE))
 
 grafico
 
@@ -5560,7 +5484,7 @@ grafico <- equip_Creas_cadunico(creas_2018, q44, "2018") %>%
         axis.text.y = element_blank(),
         axis.line.x = element_line(),
         panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  guides(fill=guide_legend(nrow=4,byrow=TRUE))
 
 grafico
 
@@ -5816,7 +5740,7 @@ grafico <- equip_cpop_cadunico(cpop_2018, q27, "2018") %>%
         axis.text.y = element_blank(),
         axis.line.x = element_line(),
         panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  guides(fill=guide_legend(nrow=3,byrow=TRUE))
 
 grafico
 
@@ -6256,6 +6180,22 @@ grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ```{r postcad-acessibilidade, fig.cap = "Evolução percentual de postos do Cadastro Único com condições de acessibilidade - Brasil; 2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -7235,11 +7175,6 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 
 
-
-
-
-
-
 ```{r povos-tradicionais, fig.cap = "Percentual de CREAS que atendem povos e comunidades tradicionais -  por grupos , Região - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 grafico <- f_selecao_regiao_ano (creas_2022, q52_1, "Sim", Região, "Povos Indígenas") %>%
@@ -7400,9 +7335,6 @@ grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
-
-
-
 
 
 
@@ -8340,7 +8272,7 @@ respondem ao Censo SUAS.
 Abaixo o gráfico tras informações da quantidade de conselhos municipais,
 por região, que responderam ao Censo SUAS.
 
-```{r }
+```{r qtd-cmas, fig.cap = "Quantidade de Conselhos Municipais de Assistência Social que preencheram censo suas"}
 
 grafico <- f_quantitativo_regiao_ano (cmun_2012, Região, "2012") %>% 
   #bind_rows(f_quantitativo_regiao_ano (cmun_2010, Região, "2010")) %>%
@@ -8936,9 +8868,9 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ```
 
+ceas O Conselho é a Instância de Controle Social do Programa Bolsa Família (Resolução CNAS 18/2013 e Resolução CNAS 15/2014) ...
 
-
-```{r }
+```{r ceas_igd, fig.cap = "igd"}
 
 ceas_igd  = function(df, q, ano){
   q <- enquo(q)
@@ -8997,7 +8929,72 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 ```
 
 
-```{r }
+
+
+```{r ceas_icspbf, fig.cap = "Conselhos Estaduais de Assistência Social que são instancia de controle Social do PBF"}
+
+ceas_icspbf  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "Sim"~"Sim",
+                             
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("Sim",
+                                            "Não",
+                                            "Não sabe"))) %>% 
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+grafico <- ceas_icspbf(cest_2012, q39, "2012") %>%
+   #bind_rows(ceas_icspbf(cest_2013, q40, "2013")) %>%
+   bind_rows(ceas_icspbf(cest_2014, q41, "2014")) %>%
+   bind_rows(ceas_icspbf(cest_2015, q39, "2015")) %>%
+   bind_rows(ceas_icspbf(cest_2016, q32, "2016")) %>%
+   bind_rows(ceas_icspbf(cest_2017, q47, "2017")) %>%
+   bind_rows(ceas_icspbf(cest_2018, q_43, "2018")) %>%
+   bind_rows(ceas_icspbf(cest_2019, q39, "2019")) %>%
+   bind_rows(ceas_icspbf(cest_2020, q40, "2020")) %>%
+   bind_rows(ceas_icspbf(cest_2021, q40, "2021")) %>%
+   bind_rows(ceas_icspbf(cest_2022, q40, "2022")) %>%
+  
+  #2013 as variaveis estão "" ver como ajeitar para leitura
+ 
+  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
+#  geom_col(aes(fill = Nível), position = "dodge") +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
+  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
+  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+
+
+```
+
+
+
+
+
+
+```{r cmas_icspbf, fig.cap = "Conselhos Municipais de Assistência Social que são instancia de controle Social do PBF" }
 
 cmas_pmas  = function(df, q, ano){
   q <- enquo(q)
@@ -9022,16 +9019,16 @@ cmas_pmas  = function(df, q, ano){
 
 
 grafico <- cmas_pmas(cmun_2012, q35_1, "2012") %>%
-  bind_rows(cmas_pmas(cmun_2013, q28, "2013")) %>%
-  bind_rows(cmas_pmas(cmun_2014, q28, "2014")) %>%
-  bind_rows(cmas_pmas(cmun_2015, q28, "2015")) %>%
-  bind_rows(cmas_pmas(cmun_2016, q21, "2016")) %>%
-  bind_rows(cmas_pmas(cmun_2017, q38, "2017")) %>%
-  bind_rows(cmas_pmas(cmun_2018, q_34_4, "2018")) %>%
-  #bind_rows(cmas_pmas(cmun_, q, "2019")) %>%
-  bind_rows(cmas_pmas(cmun_2020, q33_4, "2020")) %>%
-  bind_rows(cmas_pmas(cmun_2021, q33_4, "2021")) %>%
-  bind_rows(cmas_pmas(cmun_2022, q33_4, "2022")) %>%
+  bind_rows(cmas_pmas(cmun_2013, q40, "2013")) %>%
+  bind_rows(cmas_pmas(cmun_2014, q41, "2014")) %>%
+  bind_rows(cmas_pmas(cmun_2015, q39, "2015")) %>%
+  bind_rows(cmas_pmas(cmun_2016, q32, "2016")) %>%
+  bind_rows(cmas_pmas(cmun_2017, q47, "2017")) %>%
+  bind_rows(cmas_pmas(cmun_2018, q_43, "2018")) %>%
+  bind_rows(cmas_pmas(cmun_2019, q39, "2019")) %>%
+  bind_rows(cmas_pmas(cmun_2020, q40, "2020")) %>%
+  bind_rows(cmas_pmas(cmun_2021, q40, "2021")) %>%
+  bind_rows(cmas_pmas(cmun_2022, q40, "2022")) %>%
   
   #2013 os dados da base estão "" por isso não consegue ler,
   #todos arquivo de 2019 esta bloqueado para leitura, algum erro que não consigo identificar.
@@ -9109,7 +9106,8 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-```{r }
+
+```{r qtd_xxxx, fig.cap = "xxxxxx"}
 
 cmas_be  = function(df, q, ano){
   q <- enquo(q)
