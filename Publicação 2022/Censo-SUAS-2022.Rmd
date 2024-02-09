@@ -3815,7 +3815,7 @@ realizada. A menor proporção se refere a ações de elaboração de análises
 utilizando dados do Cadastro Único (\Cref{fig:gestao_cad}).
 \footnote{estas informações são do formulário de Gestão Municipal na qual tem estas informações disponíveis a partir do ano de 2020}.
 
-```{r gestao_cad, fig.cap = "Ações desenvolvidas no ambito pelos Postos do Cadastro Único - Brasil, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r gestao_cad, fig.cap = "Ações desenvolvidas no ambito da Gestão do Cadastro Único - Brasil, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 gestao_cad= function(df, q, ano, cod_categoria){
   q <- enquo(q)
