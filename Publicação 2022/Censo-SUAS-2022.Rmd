@@ -947,9 +947,9 @@ cpop_2021 <- read_excel("../Censo SUAS 2021/4 - Centro Pop/Censo_SUAS_2021_CPOP_
 
 cpoprh_2021 <- read_excel("../Censo SUAS 2021/4 - Centro Pop/Censo_SUAS_2021_CPOP_Dados_Gerais_divulgação.xlsx", sheet = 1)
 
-cpop_2022 <- read_excel("../Censo SUAS 2022/3 - Centro Pop/Censo_SUAS_2022_Centro_POP_dados_gerais.xlsx", sheet = 1)
+cpop_2022 <- read_excel("../Censo SUAS 2022/3 - CENTRO POP/Censo_SUAS_2022_Centro_POP_dados_gerais.xlsx", sheet = 1)
 
-cpoprh_2022 <- read_excel("../Censo SUAS 2022/3 - Centro Pop/Censo_SUAS_2021_Centro_POP_RH.xlsx", sheet = 1)
+cpoprh_2022 <- read_excel("../Censo SUAS 2022/3 - CENTRO POP/Censo_SUAS_2021_Centro_POP_RH.xlsx", sheet = 1)
 
 unac_2012 <- read_excel("../Censo SUAS 2012/Unidades de Acolhimento/Censo SUAS 2012_Unidades_de_Acolhimento_dadosgerais_divulgação.xlsx", sheet = 1)
 
@@ -991,7 +991,7 @@ unacrh_2019 <- read_excel("../Censo SUAS 2019/5 - Unidade de acolhimento/Censo_S
 
 unacrh_2021 <- read_excel("../Censo SUAS 2021/7 - Unidade de acolhimento/Censo_SUAS_2021_Unidade_Acolhimento_RH.xlsx", sheet = 1)
 
-unac_2022 <- read_excel("../Censo SUAS 2022/4 - Unidade de Acolhimento/Censo_SUAS_2022 _ Unidades_de_Acolhimento_dados_gerais.xlsx", sheet = 1)
+unac_2022 <- read_excel("../Censo SUAS 2022/4 - UNIDADE DE ACOLHIMENTO/Censo_SUAS_2022 _ Unidades_de_Acolhimento_dados_gerais.xlsx", sheet = 1)
 
 ceconv_2014 <- read_excel("../Censo SUAS 2014/Centros de Convivência/Bases de Dados/CensoSUAS2014_Convivência_Divulgação.xlsx", sheet = "Convivência 2014")
 
@@ -1218,6 +1218,7 @@ f_quantitativo_regiao_ano = function(df, regiao, ano){
 
   df %>%
     select(!! regiao) %>% 
+#    filter(!is.na(!! regiao)) %>% 
     mutate(!! regiao := case_when(substr(!! regiao,1,1) == "1"~"Norte",
                                   substr(!! regiao,1,1) == "2"~"Nordeste",
                                   substr(!! regiao,1,1) == "3"~"Sudeste",
@@ -4465,10 +4466,6 @@ unidades para 8.557. Desde 2007, 4.361 novas unidades de CRAS foram
 criadas nos territórios municipais - crescimento. O
 \Cref{fig:quantitativo-CRAS} apresenta a evolução do quantitativo de
 CRAS por grandes regiões de desenvolvimento.
-
-
-<!-- o grafico gerou NA, não consegui identificar o verificar o erro -->
-
 
 ```{r quantitativo-CRAS, fig.cap = "Evolução do quantitativo de CRAS, segundo grandes regiões; 2007, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
