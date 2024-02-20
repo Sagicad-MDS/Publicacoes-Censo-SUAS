@@ -4372,7 +4372,8 @@ promovem acesso a serviços e progrmas, identificação das fmaílias e leitura 
 
 # Unidades do SUAS
 
-Essa seção apresenta informações sobre as unidades físicas do SUAS e sua evolução ao longo do tempo. Esse item contempla as seguintes informações: a) quantidade de unidades administrativas de CRAS, CREAS, Centro Dia, Centro Pop ...
+Essa seção apresenta informações sobre as unidades físicas do SUAS e sua evolução ao longo do tempo. 
+Esse item contempla as seguintes informações: a) quantidade de unidades administrativas da rede socioassistencial,
 b) informações sobre acessibilidade, c) situação do imovél, d) disponibilidade de equipamentos como computador com acesso a internet.
 
 
@@ -4390,10 +4391,11 @@ municípios brasileiros, o que indica que há pelo menos um CRAS em 99,4%
 dos municípios brasileiros.
 
 O quantitativo de CRAS dobrou entre 2007 e 2022, passando de 4.195
-unidades para 8.557. Desde 2007, 4.361 novas unidades de CRAS foram
-criadas nos territórios municipais - crescimento. O
-\Cref{fig:quantitativo-CRAS} apresenta a evolução do quantitativo de
+unidades para 8.557. O \Cref{fig:quantitativo-CRAS} apresenta a evolução do quantitativo de
 CRAS por grandes regiões de desenvolvimento.
+
+<!-- verificar porque NA.}). -->
+
 
 ```{r quantitativo-CRAS, fig.cap = "Evolução do quantitativo de CRAS, segundo grandes regiões; 2007, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -4418,11 +4420,14 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 A Expansão em todo território nacional do número de CRAS evidencia a
 consolidação de uma referencia de equipamento público de Assistêrncia
-Social em todo território nacional. De acordo com os dados 98,95%
-municípios possuem CRAS, ou seja apenas 35 municípios no Brasil não
-dispõe deste equipamento público.
+Social em todo território nacional. De acordo com os dados 99,37%
+municípios possuem CRAS, ou seja apenas 34 municípios no Brasil não
+dispõe desta unidade pública.\footnote{estas informações são referentes ao preenchimento do Censo SUAS, 
+é possível que no determinado período esta undiade pública não tenha preenchido o forumulário}.
 
 
+Em relação a quantidade de CRAS por município, observa-se que 3 regiões o CRAS não estar universalizado, 
+sendo elas Nordeste, Sudeste e Sul conforme \Cref{fig:municipios-CRAS}.
 
 ```{r municipios-CRAS, fig.cap = "Evolução do percentual de municípios com pelo menos um CRAS, segundo grandes regiões - Brasil, 2007 a 2017", fig.footer = "Fonte: MDS, Censo SUAS", eval=FALSE}
 
@@ -4457,7 +4462,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-Ao observar o número de CRAS por municípios, levando-se em conta o porte populacional, verifica-se que os 35 municípios do país que não possuem CRAS estão concentrados em municípios de pequeno porte \Cref{fig:CRAS-porte}. Em relação a localização, destaca-se que 77% deles localizados na Região Sul, 20% na Região Sudeste e 3% na região Nordeste.
+Ao observar o número de CRAS por municípios, levando-se em conta o porte populacional, verifica-se que os 35 municípios do país que não possuem CRAS estão concentrados em municípios de pequeno porte \Cref{fig:CRAS-porte}.
 
 Em relação a concentração de quantidade de CRAS, para os municípios de pequeno porte I e pequeno porte II, dispõem, em sua maioria de uma unidade de CRAS como referencia do território, sendo respectivamente 95,2% e 71,5%. Os municípios de médio porte, cerca de 67,3% possuem de 2 a 3 CRAS. Ja entre os municípios de grande porte, o grupo majoritário de unidades são entre 4 a 6 CRAS - 52,5%. 
 
@@ -4535,7 +4540,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 <!-- Observa-se ainda aumento no percentual de CREAS que funcionam em imóveis cedidos: eram 8,7% (718 unidades) em 2016, o maior valor da série histórica (\Cref{fig:CRAS-imovel}). -->
 
 
-```{r sit_imovel, fig.cap = "Evolução dos CRAS segundo situação do imóvel – Brasil, 2007 a 2017", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r sit_imovel, fig.cap = "Evolução dos CRAS segundo situação do imóvel – Brasil, 2007 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 grafico <- f_equip_imovel(cras_2008, `situacao_imovel`, "2008") %>%
   #bind_rows(f_equip_imovel(cras_2007, v15, "2007")) %>% 
@@ -4549,6 +4554,16 @@ grafico <- f_equip_imovel(cras_2008, `situacao_imovel`, "2008") %>%
   bind_rows(f_equip_imovel(cras_2015, q4, "2015")) %>%
   bind_rows(f_equip_imovel(cras_2016, q4, "2016")) %>%
   bind_rows(f_equip_imovel(cras_2017, q4, "2017")) %>%
+  #bind_rows(f_equip_imovel(cras_2017, q4, "2017")) %>% 
+  #bind_rows(f_equip_imovel(cras_2017, q4, "2017")) %>% 
+  bind_rows(f_equip_imovel(cras_2020, q3, "2020")) %>% 
+  bind_rows(f_equip_imovel(cras_2021, q3, "2021")) %>% 
+  bind_rows(f_equip_imovel(cras_2022, q3, "2022")) %>%
+  
+  #2018 não fazem essa pergunta
+  #2019 não fazem essa pergunta
+  #2020
+  
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
   geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
   geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
@@ -4728,6 +4743,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 O número absoluto e o percentual de CRAS com acesso à internet
 aumentaram desde 2007.
+
 <!-- No ano de 2016, havia 7.835 CRAS com acesso à -->
 <!-- internet (\Cref{fig:CRAS-internet-quantitativo}), o que representa 95,1% -->
 <!-- das unidades (\Cref{fig:CRAS-internet-percentual}). -->
@@ -4906,7 +4922,7 @@ Centros de Convivência, com 4.035 Unidades (47,7% do total)
 
 grafico <- f_quantitativo_regiao_ano(ceconv_2014, Região, "2014") %>%
    bind_rows(f_quantitativo_regiao_ano(ceconv_2018, Regiao, "2018")) %>% 
-   bind_rows(f_quantitativo_regiao_ano(ceconv_2020, IBGE, "2020")) %>% 
+   #bind_rows(f_quantitativo_regiao_ano(ceconv_2020, IBGE, "2020")) %>% 
    bind_rows(f_quantitativo_regiao_ano(ceconv_2022, IBGE, "2022")) %>% 
    f_grafico_col_quantitativo(Região, n, Ano)
 
@@ -8130,17 +8146,47 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ```{r }
 
-grafico <- f_sim_nao(cmun_2012, q13, "2012") %>%
-  #bind_rows(f_sim_nao(cmun_2013, q13, "2013")) %>%
-   bind_rows(f_sim_nao(cmun_2014, q19, "2014")) %>%
-   bind_rows(f_sim_nao(cmun_2015, q19, "2015")) %>%
-   bind_rows(f_sim_nao(cmun_2016, q14, "2016")) %>%
-   bind_rows(f_sim_nao(cmun_2017, q14, "2017")) %>%
-   bind_rows(f_sim_nao(cmun_2018, q_13, "2018")) %>%
-  #bind_rows(f_sim_nao(cmun_, q13, "2019")) %>%
-   bind_rows(f_sim_nao(cmun_2020, q13, "2020")) %>%
-   bind_rows(f_sim_nao(cmun_2021, q13, "2021")) %>%
-   bind_rows(f_sim_nao(cmun_2022, q13, "2022")) %>%
+cmas_se  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "Sim"~"Sim",
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("Sim",
+                                            "Não"))) %>% 
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+grafico <- cmas_se(cmun_2012, q13, "2012") %>%
+  #bind_rows(cmas_se(cmun_2013, q13, "2013")) %>%
+   bind_rows(cmas_se(cmun_2014, q19, "2014")) %>%
+   bind_rows(cmas_se(cmun_2015, q19, "2015")) %>%
+   bind_rows(cmas_se(cmun_2016, q14, "2016")) %>%
+   #bind_rows(cmas_sede(cmun_2017, q14, "2017")) %>%
+   bind_rows(cmas_se(cmun_2018, q_13, "2018")) %>%
+  #bind_rows(cmas_se(cmun_, q13, "2019")) %>%
+   bind_rows(cmas_se(cmun_2020, q13, "2020")) %>%
+   bind_rows(cmas_se(cmun_2021, q13, "2021")) %>%
+   bind_rows(cmas_se(cmun_2022, q13, "2022")) %>%
+# =======
+# grafico <- f_sim_nao(cmun_2012, q13, "2012") %>%
+#   #bind_rows(f_sim_nao(cmun_2013, q13, "2013")) %>%
+#    bind_rows(f_sim_nao(cmun_2014, q19, "2014")) %>%
+#    bind_rows(f_sim_nao(cmun_2015, q19, "2015")) %>%
+#    bind_rows(f_sim_nao(cmun_2016, q14, "2016")) %>%
+#    bind_rows(f_sim_nao(cmun_2017, q14, "2017")) %>%
+#    bind_rows(f_sim_nao(cmun_2018, q_13, "2018")) %>%
+#   #bind_rows(f_sim_nao(cmun_, q13, "2019")) %>%
+#    bind_rows(f_sim_nao(cmun_2020, q13, "2020")) %>%
+#    bind_rows(f_sim_nao(cmun_2021, q13, "2021")) %>%
+#    bind_rows(f_sim_nao(cmun_2022, q13, "2022")) %>%
   
   #achei que as respostas 2012 desviaram um pouco, não consegui baixar a base ... em contato com Dionara.
  
@@ -8641,19 +8687,49 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 ```
 
 
-```{r qtd_xxxx, fig.cap = "xxxxxx"}
+```{r cmas-be, fig.cap = "Percentual de Conselho Municipal que aprovou em Resolução os critérios e prazos para acesso aos Benefícios Eventuais"}
 
-grafico <- f_sim_nao(cmun_2012, q38, "2012") %>%
-  #bind_rows(f_sim_nao(cmun_2013, q, "2013")) %>%
-  bind_rows(f_sim_nao(cmun_2014, q40, "2014")) %>%
-  bind_rows(f_sim_nao(cmun_2015, q38, "2015")) %>%
-  bind_rows(f_sim_nao(cmun_2016, q31, "2016")) %>%
-  bind_rows(f_sim_nao(cmun_2017, q44, "2017")) %>%
-  bind_rows(f_sim_nao(cmun_2018, q_39, "2018")) %>%
-  #bind_rows(f_sim_nao(cmun_2019, q37, "2019")) %>%
-  bind_rows(f_sim_nao(cmun_2020, q37, "2020")) %>%
-  bind_rows(f_sim_nao(cmun_2021, q37, "2021")) %>%
-  bind_rows(f_sim_nao(cmun_2022, q36, "2022")) %>%
+cmas_be  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "Sim"~"Sim",
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("Sim",
+                                            "Não"))) %>% 
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+grafico <- cmas_be(cmun_2012, q38, "2012") %>%
+   bind_rows(cmas_be(cmun_2013, q39, "2013")) %>%
+   bind_rows(cmas_be(cmun_2014, q40, "2014")) %>%
+   bind_rows(cmas_be(cmun_2015, q38, "2015")) %>%
+   bind_rows(cmas_be(cmun_2016, q31, "2016")) %>%
+   bind_rows(cmas_be(cmun_2017, q44, "2017")) %>%
+   bind_rows(cmas_be(cmun_2018, q_39, "2018")) %>%
+   bind_rows(cmas_be(cmun_2019, q35, "2019")) %>%
+   bind_rows(cmas_be(cmun_2020, q36, "2020")) %>%
+   bind_rows(cmas_be(cmun_2021, q37, "2021")) %>%
+   bind_rows(cmas_be(cmun_2022, q36, "2022")) %>%
+# =======
+# grafico <- f_sim_nao(cmun_2012, q38, "2012") %>%
+#   #bind_rows(f_sim_nao(cmun_2013, q, "2013")) %>%
+#   bind_rows(f_sim_nao(cmun_2014, q40, "2014")) %>%
+#   bind_rows(f_sim_nao(cmun_2015, q38, "2015")) %>%
+#   bind_rows(f_sim_nao(cmun_2016, q31, "2016")) %>%
+#   bind_rows(f_sim_nao(cmun_2017, q44, "2017")) %>%
+#   bind_rows(f_sim_nao(cmun_2018, q_39, "2018")) %>%
+#   #bind_rows(f_sim_nao(cmun_2019, q37, "2019")) %>%
+#   bind_rows(f_sim_nao(cmun_2020, q37, "2020")) %>%
+#   bind_rows(f_sim_nao(cmun_2021, q37, "2021")) %>%
+#   bind_rows(f_sim_nao(cmun_2022, q36, "2022")) %>%
   
   # a partir de 2020 a questão muda, mas o conteúdo da pergunta permanece, entretanto tenho dúvidas sobre o entendimento das respostas. Assim to pensando em manter apenas para os anos a partir de 2020.
  
@@ -8677,19 +8753,53 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-```{r }
+```{r ceas-be, fig.cap = "Percentual de Conselho estadual que aprovou em Resolução os critérios e prazos para acesso aos Benefícios Eventuais"}
 
-grafico <- f_sim_nao(cest_2012, q38, "2012") %>%
-  #bind_rows(f_sim_nao(cest_2013, q8, "2013")) %>%
-  #bind_rows(f_sim_nao(cest_2014, q8, "2014")) %>%
-  #bind_rows(f_sim_nao(cest_2015, q8, "2015")) %>%
-  #bind_rows(f_sim_nao(cest_2016, q8, "2016")) %>%
-   bind_rows(f_sim_nao(cest_2017, q44, "2017")) %>%
-  #bind_rows(f_sim_nao(cest_2018, q8, "2018")) %>%
-  #bind_rows(f_sim_nao(cest_2019, "2019")) %>%
-  #bind_rows(f_sim_nao(cest_2020, q8, "2018")) %>%
-  #bind_rows(f_sim_nao(cest_2021, q8, "2018")) %>%
-   bind_rows(f_sim_nao(cest_2022, q36, "2022")) %>%
+ceas_be  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "Sim"~"Sim",
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("Sim",
+                                            "Não"))) %>% 
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+grafico <- ceas_be(cest_2012, q38, "2012") %>%
+   #bind_rows(ceas_be(cest_2013, q39, "2013")) %>%
+   bind_rows(ceas_be(cest_2014, q40, "2014")) %>%
+   bind_rows(ceas_be(cest_2015, q38, "2015")) %>%
+  #bind_rows(ceas_be(cest_2016, q8, "2016")) %>%
+   bind_rows(ceas_be(cest_2017, q44, "2017")) %>%
+   bind_rows(ceas_be(cest_2018, q_39, "2018")) %>%
+   bind_rows(ceas_be(cest_2019, q35, "2019")) %>%
+   bind_rows(ceas_be(cest_2020, q36, "2020")) %>%
+   bind_rows(ceas_be(cest_2021, q36, "2021")) %>%
+   bind_rows(ceas_be(cest_2022, q36, "2022")) %>%
+  
+  
+  #2013 estar "sim e "não" com aspas, por isso não ler
+  #2016 muda pergunta, se o estado oferta e não aprovação
+# =======
+# grafico <- f_sim_nao(cest_2012, q38, "2012") %>%
+#   #bind_rows(f_sim_nao(cest_2013, q8, "2013")) %>%
+#   #bind_rows(f_sim_nao(cest_2014, q8, "2014")) %>%
+#   #bind_rows(f_sim_nao(cest_2015, q8, "2015")) %>%
+#   #bind_rows(f_sim_nao(cest_2016, q8, "2016")) %>%
+#    bind_rows(f_sim_nao(cest_2017, q44, "2017")) %>%
+#   #bind_rows(f_sim_nao(cest_2018, q8, "2018")) %>%
+#   #bind_rows(f_sim_nao(cest_2019, "2019")) %>%
+#   #bind_rows(f_sim_nao(cest_2020, q8, "2018")) %>%
+#   #bind_rows(f_sim_nao(cest_2021, q8, "2018")) %>%
+#    bind_rows(f_sim_nao(cest_2022, q36, "2022")) %>%
  
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
 #  geom_col(aes(fill = Nível), position = "dodge") +
