@@ -1528,6 +1528,34 @@ f_sim_nao  = function(df, q, ano){
     mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
 }
 
+f_nomex_somay_nomegrupo_semDF = function(df, nomex, somay, nomegrupo, uf){
+  nomex <- quo_name(nomex)
+  somay <- enquo(somay)
+  nomegrupo <- quo_name(nomegrupo)
+  uf <- enquo(uf)
+
+  df %>%
+    filter(!! uf != "DF") %>%
+    select(!! nomex := !! somay) %>% 
+    gather("Eixo_x","Eixo_y") %>% 
+#    filter(!is.na(Nível)) %>% 
+    group_by(Eixo_x) %>% 
+    summarise(Eixo_y = sum(Eixo_y)) %>% 
+    mutate("Grupo" = !! nomegrupo)
+}
+
+f_stack_col_percentual  = function(df, eixo_x, n, grupo){
+  eixo_x <- enquo(eixo_x)
+  n <- enquo(n)
+  grupo <- enquo(grupo)
+
+  df %>%
+    mutate(!! grupo := factor(!! grupo, levels = unique(!! grupo))) %>% 
+    arrange(!! grupo) %>% 
+    group_by(!! eixo_x) %>% 
+    mutate(Percentual = !! n/sum(!! n), Posição = (cumsum(!! n/sum(!! n)) - 0.5 * !! n/sum(!! n)))
+}
+
 ```
 
 # Gestão e Financiamento
@@ -7120,6 +7148,34 @@ segundo tipo de vínculo -- Brasil, 2010 a 2016 Fonte: MDS, Censo SUAS.
 
 ```{r uf_trab_vin, fig.cap ="Percentual de trabalhadores nas Secretarias Estaduais de Assistência Social, segundo tipo de vínculo - Brasil, 2010 a 2022" }
 
+grafico <- f_nomex_somay_nomegrupo_semDF(ge_2010, "2010", q34_1_4, "Estatutários", UF) %>%  
+  bind_rows(f_nomex_somay_nomegrupo_semDF(ge_2010, "2010", q34_2_4, "Celetistas", UF)) %>%  
+  bind_rows(f_nomex_somay_nomegrupo_semDF(ge_2010, "2010", q34_3_4, "Somente Comissionados", UF)) %>%  
+  bind_rows(f_nomex_somay_nomegrupo_semDF(ge_2010, "2010", q34_4_4, "Outros Vínculos", UF)) %>%
+
+  bind_rows(f_nomex_somay_nomegrupo_semDF(ge_2011, "2011", q55a4, "Estatutários", UF)) %>%  
+  bind_rows(f_nomex_somay_nomegrupo_semDF(ge_2011, "2011", q55b4, "Celetistas", UF)) %>%  
+  bind_rows(f_nomex_somay_nomegrupo_semDF(ge_2011, "2011", q55c4, "Somente Comissionados", UF)) %>%  
+  bind_rows(f_nomex_somay_nomegrupo_semDF(ge_2011, "2011", q55d4, "Outros Vínculos", UF)) %>%
+ 
+  f_stack_col_percentual(Eixo_x, Eixo_y, Grupo) %>%
+
+  ggplot(aes(x = Eixo_x, y = Percentual, group = Grupo)) +
+  geom_col(aes(fill = Grupo), position = position_stack(reverse = TRUE)) +
+  geom_text(aes(y=Posição, label = percent(Percentual))) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 
