@@ -661,6 +661,8 @@ gerh_2021 <- read_excel("../Censo SUAS 2021/8 - Gestão Estadual/Censo_SUAS_2021
 
 ge_2022 <- read_excel("../Censo SUAS 2022/10 - GESTAO ESTADUAL/Censo_SUAS_2022_Gestão_Estadual_Dados_gerais.xlsx", sheet = "Sheet1")
 
+gerh_2022 <- read_excel("../Censo SUAS 2022/10 - GESTAO ESTADUAL/Censo_SUAS_2022_Gestão_Estadual_RH.xlsx")
+
 gm_2010 <- read_excel("../Censo SUAS 2010/Gestão Municipal/Censo SUAS 2010_Gestão Municipal_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2010 GestãoMunicipal")
 
 gm_2011 <- read_excel("../Censo SUAS 2011/GESTÃO MUNICIPAL/Censo SUAS 2011_GestãoMunicipal_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2011 GestãoMunicipal")
@@ -1233,6 +1235,27 @@ f_quantitativo_regiao_ano = function(df, regiao, ano){
     mutate("Ano" = !! ano)
 }
 
+f_soma_regiao_ano = function(df, q, regiao, ano){
+  q <- enquo(q)
+  regiao <- enquo(regiao)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! q, !! regiao) %>% 
+    mutate(!! regiao := case_when(substr(!! regiao,1,1) == "1"~"Norte",
+                                  substr(!! regiao,1,1) == "2"~"Nordeste",
+                                  substr(!! regiao,1,1) == "3"~"Sudeste",
+                                  substr(!! regiao,1,1) == "4"~"Sul",
+                                  substr(!! regiao,1,1) == "5"~"Centro-Oeste",
+                                  TRUE ~ str_replace(!! regiao, "Região ", ""))) %>% 
+    group_by(!! regiao) %>% 
+    summarise(n=sum(!! q)) %>% 
+    spread(!! regiao, n, fill = 0) %>% 
+    mutate("Brasil" = rowSums(.[1:5])) %>% 
+    gather("Região","n") %>% 
+    mutate("Ano" = !! ano)
+}
+
 f_percentual_municipios_regiao_ano = function(df, municipio, ano){
   ano <- quo_name(ano)
   municipio <- enquo(municipio)
@@ -1273,6 +1296,26 @@ f_percentual_municipios_regiao_ano = function(df, municipio, ano){
                               Região == "5"~"Centro-Oeste",
                               Região == "6"~"Brasil")) %>% 
     mutate("Ano" = !! ano) 
+}
+
+f_grafico_col_quantitativo = function(df, x, y, grupo){
+  x <- enquo(x)
+  y <- enquo(y)
+  grupo <- enquo(grupo)
+
+  df %>%
+    ggplot(aes(x = !! x, y = !! y, group = !! grupo)) +
+    geom_col(aes(fill = !! grupo), position="dodge") +
+    geom_text(aes(label = format(!! y, big.mark=".")), hjust = -0.01, position = position_dodge(width = 0.9), angle = 90) +
+    scale_y_continuous(expand = expand_scale(mult = c(0, .15))) +
+    theme(legend.position="bottom",
+          legend.title = element_blank(),
+          axis.title = element_blank(),
+          axis.ticks = element_blank(),
+          axis.text.y = element_blank(),
+          axis.line.x = element_line(),
+          panel.background = element_blank()) +
+    guides(fill=guide_legend(nrow=1,byrow=TRUE))
 }
 
 f_situacao = function(df, situacao){
@@ -1460,6 +1503,29 @@ f_quantitativo_niveis = function(df, q_grupo, eixo_x, niveis){
     count(!! q_grupo, name = "n", .drop = F) %>%
     mutate("Eixo_X" = !! eixo_x) %>%  
     mutate("Grupo" = !! q_grupo) 
+}
+
+f_sim_nao  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>% 
+    gather("Categoria","Nível") %>% 
+    mutate(Nível = case_when(Nível == "Não possui"~"Não",
+                             Nível == "sim"~"Sim",
+                             Nível == "não"~"Não",
+                             Nível == "Não Sabe"~"Não sabe",
+                             Nível == "99" ~ "Não sabe",
+                             TRUE ~ Nível)) %>% 
+    filter(!is.na(Nível)) %>% 
+    mutate(Nível = factor(Nível, levels = c("Sim",
+                                            "Não",
+                                            "Não sabe"))) %>% 
+    group_by(Categoria, Nível) %>% 
+    summarise(n=n()) %>% 
+    group_by(Categoria) %>% 
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
 }
 
 ```
@@ -2436,33 +2502,14 @@ partir de 2020 há um descrecimo desta atualização com devida aprovação do c
 
 ```{r PEAS, fig.cap = "Percentual de Estados quanto a atualização do Plano Estadual de Assistência Social em 2022 - Brasil", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-PEAS  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "Não possui"~"Não",
-                             
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
-
-grafico <- PEAS(ge_2012,q8,"2012") %>%
-  bind_rows(PEAS(ge_2013,q9,"2013")) %>%
-  bind_rows(PEAS(ge_2014,q9,"2014")) %>%
-  bind_rows(PEAS(ge_2015,q9,"2015")) %>%
+grafico <- f_sim_nao(ge_2012,q8,"2012") %>%
+  bind_rows(f_sim_nao(ge_2013,q9,"2013")) %>%
+  bind_rows(f_sim_nao(ge_2014,q9,"2014")) %>%
+  bind_rows(f_sim_nao(ge_2015,q9,"2015")) %>%
     
-  bind_rows(PEAS(ge_2020,q5,"2020")) %>%
-  bind_rows(PEAS(ge_2021,q5,"2021")) %>%
-  bind_rows(PEAS(ge_2022,q5,"2022")) %>%
+  bind_rows(f_sim_nao(ge_2020,q5,"2020")) %>%
+  bind_rows(f_sim_nao(ge_2021,q5,"2021")) %>%
+  bind_rows(f_sim_nao(ge_2022,q5,"2022")) %>%
   
   #anos que as questões mudam: 2016, 2017,2018,2019
 
@@ -2497,35 +2544,16 @@ nesta instância de comissão intergestores bipartite (CIB).
 
 ```{r plan_apoio_tec, fig.cap = "Percentual de Estados que possuem Plano de Apoio Técnico pactuado na CIB - Brasil, 2013 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-plan_apoio  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "sim"~"Sim",
-                             Nível == "não"~"Não",
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
-
-grafico <- plan_apoio(ge_2013, q85, "2013") %>%
-   bind_rows(plan_apoio(ge_2014, q26, "2014")) %>% 
-   bind_rows(plan_apoio(ge_2015, q19, "2015")) %>% 
-   bind_rows(plan_apoio(ge_2016, q27, "2016")) %>% 
-   bind_rows(plan_apoio(ge_2017, q36, "2017")) %>%
-   bind_rows(plan_apoio(ge_2018, q_18,"2018")) %>%
-   bind_rows(plan_apoio(ge_2019, q18, "2019")) %>%
-   bind_rows(plan_apoio(ge_2020, q20, "2020")) %>%
-   bind_rows(plan_apoio(ge_2021, q18, "2021")) %>%
-   bind_rows(plan_apoio(ge_2022, q20, "2022")) %>%
+grafico <- f_sim_nao(ge_2013, q85, "2013") %>%
+   bind_rows(f_sim_nao(ge_2014, q26, "2014")) %>% 
+   bind_rows(f_sim_nao(ge_2015, q19, "2015")) %>% 
+   bind_rows(f_sim_nao(ge_2016, q27, "2016")) %>% 
+   bind_rows(f_sim_nao(ge_2017, q36, "2017")) %>%
+   bind_rows(f_sim_nao(ge_2018, q_18,"2018")) %>%
+   bind_rows(f_sim_nao(ge_2019, q18, "2019")) %>%
+   bind_rows(f_sim_nao(ge_2020, q20, "2020")) %>%
+   bind_rows(f_sim_nao(ge_2021, q18, "2021")) %>%
+   bind_rows(f_sim_nao(ge_2022, q20, "2022")) %>%
   
   #2012 não tem essa pergunta
   
@@ -2861,27 +2889,9 @@ visitas da gestão estadual para apoio técnico.Entretanto 62,5% informam não t
 
 ```{r munic_vit_estadual, fig.cap = "Percentual de Municipios que informam receber visitas de Apoio Técnico do Estado - Brasil, 2020 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-visit_estadual  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "Sim"~"Sim",
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
-
-grafico <- visit_estadual(gm_2020, q7_5, "2020") %>%
-  bind_rows(visit_estadual(gm_2021, q7_5, "2021")) %>%
-  bind_rows(visit_estadual(gm_2022, q7_5, "2022")) %>%
+grafico <- f_sim_nao(gm_2020, q7_5, "2020") %>%
+  bind_rows(f_sim_nao(gm_2021, q7_5, "2021")) %>%
+  bind_rows(f_sim_nao(gm_2022, q7_5, "2022")) %>%
   
   #a partir de 2020 a pergunta foi alterada, impossibilitando a linha histórica
   
@@ -3504,31 +3514,13 @@ observado (\Cref{fig:PNEP_Munic})teve evolução residual últimos anos.
 
 ```{r PNEP_Munic, fig.cap = "Percentual de municípios que possuem Plano de Capacitação e Educação Permanente, - Brasil; 2015, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-PNEP_Munic  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "sim"~"Sim",
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                             "Não"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
-
-grafico <- PNEP_Munic(gm_2015, q40, "2015") %>%
-    bind_rows(PNEP_Munic(gm_2016, q20, "2016")) %>%  
-    bind_rows(PNEP_Munic(gm_2017, q31, "2017")) %>%
-    bind_rows(PNEP_Munic(gm_2018, q_51, "2018")) %>%  
-    bind_rows(PNEP_Munic(gm_2019, q52, "2019")) %>%
-    #bind_rows(PNEP_Munic(gm_2020, q73, "2020")) %>%
-    bind_rows(PNEP_Munic(gm_2021, q73, "2021")) %>%
+grafico <- f_sim_nao(gm_2015, q40, "2015") %>%
+    bind_rows(f_sim_nao(gm_2016, q20, "2016")) %>%  
+    bind_rows(f_sim_nao(gm_2017, q31, "2017")) %>%
+    bind_rows(f_sim_nao(gm_2018, q_51, "2018")) %>%  
+    bind_rows(f_sim_nao(gm_2019, q52, "2019")) %>%
+    #bind_rows(f_sim_nao(gm_2020, q73, "2020")) %>%
+    bind_rows(f_sim_nao(gm_2021, q73, "2021")) %>%
   
   #pergunta foi extinta em 2022
   #2020 a base de dados não computou essa resposta - problemas de mineração (Dionada relatou).
@@ -3642,36 +3634,17 @@ Em relação aos programas próprios de transferência de renda executados pelos
 
 ```{r be_uf_renda, fig.cap = "Programas de execução própria e/ou transferência de renda executadas pelos estados", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-be_uf_renda  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "sim"~"Sim",
-                             Nível == "não"~"Não",
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
-
-grafico <- be_uf_renda(ge_2012, q33, "2012") %>%
-   bind_rows(be_uf_renda(ge_2013, q43, "2013")) %>% 
-   bind_rows(be_uf_renda(ge_2014, q74, "2014")) %>% 
-   bind_rows(be_uf_renda(ge_2015, q61, "2015")) %>% 
-   bind_rows(be_uf_renda(ge_2016, q24, "2016")) %>% 
-   bind_rows(be_uf_renda(ge_2017, q27, "2017")) %>%
-   bind_rows(be_uf_renda(ge_2018, q_11,"2018")) %>%
-   bind_rows(be_uf_renda(ge_2019, q11, "2019")) %>%
-   bind_rows(be_uf_renda(ge_2020, q10, "2020")) %>%
-   bind_rows(be_uf_renda(ge_2021, q10, "2021")) %>%
-   bind_rows(be_uf_renda(ge_2022, q10, "2022")) %>%
+grafico <- f_sim_nao(ge_2012, q33, "2012") %>%
+   bind_rows(f_sim_nao(ge_2013, q43, "2013")) %>% 
+   bind_rows(f_sim_nao(ge_2014, q74, "2014")) %>% 
+   bind_rows(f_sim_nao(ge_2015, q61, "2015")) %>% 
+   bind_rows(f_sim_nao(ge_2016, q24, "2016")) %>% 
+   bind_rows(f_sim_nao(ge_2017, q27, "2017")) %>%
+   bind_rows(f_sim_nao(ge_2018, q_11,"2018")) %>%
+   bind_rows(f_sim_nao(ge_2019, q11, "2019")) %>%
+   bind_rows(f_sim_nao(ge_2020, q10, "2020")) %>%
+   bind_rows(f_sim_nao(ge_2021, q10, "2021")) %>%
+   bind_rows(f_sim_nao(ge_2022, q10, "2022")) %>%
   
   #até 2019 a pergunta era execução própria, transferencia de renda e, a partir de 2020 a pergunta muda para programas de execução própria
   
@@ -3700,28 +3673,9 @@ O Cadastro Único é ferramenta que possibilita inserção a programas sociais n
 
 ```{r uf_usa_cad, fig.cap = "Programas usam Cadastro Único para seleção beneficiários", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-be_uf_renda  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "sim"~"Sim",
-                             Nível == "não"~"Não",
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
-
-grafico <- be_uf_renda(ge_2020, q11_1, "2020") %>%
-   bind_rows(be_uf_renda(ge_2021, q11_1, "2021")) %>%
-   bind_rows(be_uf_renda(ge_2022, q11_1, "2022")) %>%
+grafico <- f_sim_nao(ge_2020, q11_1, "2020") %>%
+   bind_rows(f_sim_nao(ge_2021, q11_1, "2021")) %>%
+   bind_rows(f_sim_nao(ge_2022, q11_1, "2022")) %>%
   
   
  
@@ -4096,34 +4050,16 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 ```
 
 
-Em relação as informações de unidades de Postos do Cadasto Único e o atendimento de Grupos Tradicionais e Especificos - GPTEs, destaca-se através (\Cref{gptes_cadunico}) o percertual de unidades de postos do cadastro único que informam atender no período de 2020 a 2022. 
+Em relação as informações de unidades de Postos do Cadasto Único e o atendimento de Grupos Tradicionais e Especificos - GPTEs, destaca-se através (\Cref{fig:gptes-cadunico}) o percertual de unidades de postos do cadastro único que informam atender no período de 2020 a 2022. 
 
-```{r gptes_cadunico, fig.cap = "Unidades que realiza cadastramento de famílias pertencentes aos seguintes Grupos Tradicionais e Específicos - GPTEs - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r gptes-cadunico, fig.cap = "Unidades que realizam cadastramento de famílias pertencentes aos seguintes Grupos Tradicionais e Específicos - GPTEs - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-gptes_cadunico  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "Sim"~"Sim",
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
-
-grafico <- gptes_cadunico(posto_cadunico_2020,q20_1,"2020") %>%
-          bind_rows(gptes_cadunico(posto_cadunico_2021,q20_1,"2021"))%>%
-          bind_rows(gptes_cadunico(posto_cadunico_2022,q20_1, "2022"))%>%
-        #gptes_cadunico(coord_cadunico(posto_cadunico_2022, q20_3, "2022"))%>%
-        #gptes_cadunico(coord_cadunico(posto_cadunico_2022, q20_3, "2022"))%>%
-        #gptes_cadunico(coord_cadunico(posto_cadunico_2022, q20_3, "2022"))%>%
+grafico <- f_sim_nao(posto_cadunico_2020,q20_1,"2020") %>%
+          bind_rows(f_sim_nao(posto_cadunico_2021,q20_1,"2021"))%>%
+          bind_rows(f_sim_nao(posto_cadunico_2022,q20_1, "2022"))%>%
+        #f_sim_nao(f_sim_nao(posto_cadunico_2022, q20_3, "2022"))%>%
+        #f_sim_nao(f_sim_nao(posto_cadunico_2022, q20_3, "2022"))%>%
+        #f_sim_nao(f_sim_nao(posto_cadunico_2022, q20_3, "2022"))%>%
   
  
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
@@ -4258,27 +4194,9 @@ cadastramento realiza encaminahmentos para rede socioassistencial de CRAS, CREAS
 
 ```{r redesuas, fig.cap = "Percentual de Postos do Cadastro Único que realizam encaminhamentos para rede - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-rede_suas  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "Sim"~"Sim",
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
-
-grafico <- rede_suas(posto_cadunico_2020, q32_1, "2020") %>%
-        bind_rows(rede_suas(posto_cadunico_2021, q32_1, "2021"))%>%
-        bind_rows(rede_suas(posto_cadunico_2022, q32_1, "2022"))%>%
+grafico <- f_sim_nao(posto_cadunico_2020, q32_1, "2020") %>%
+        bind_rows(f_sim_nao(posto_cadunico_2021, q32_1, "2021"))%>%
+        bind_rows(f_sim_nao(posto_cadunico_2022, q32_1, "2022"))%>%
   
  
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
@@ -4363,27 +4281,9 @@ Em relação a existência de coordenador(a) do Cadastro único nos postos de at
 
 ```{r coord_cadunico, fig.cap = "Percentual de Postos do Cadastro Único que possuem coordenador - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-coord_cadunico  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "Sim"~"Sim",
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
-
-grafico <- coord_cadunico(posto_cadunico_2020, q39_1, "2020") %>%
-        bind_rows(coord_cadunico(posto_cadunico_2021, q39_1, "2021"))%>%
-        bind_rows(coord_cadunico(posto_cadunico_2022, q39_1, "2022"))%>%
+grafico <- f_sim_nao(posto_cadunico_2020, q39_1, "2020") %>%
+        bind_rows(f_sim_nao(posto_cadunico_2021, q39_1, "2021"))%>%
+        bind_rows(f_sim_nao(posto_cadunico_2022, q39_1, "2022"))%>%
   
  
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
@@ -4476,26 +4376,14 @@ grafico <- f_quantitativo_regiao_ano(cras_2007, ibge, "2007") %>%
 #  bind_rows(f_quantitativo_regiao_ano(cras_2009, Região, "2009")) %>% 
 #  bind_rows(f_quantitativo_regiao_ano(cras_2010, Região, "2010")) %>% 
 #  bind_rows(f_quantitativo_regiao_ano(cras_2011, IBGE, "2011")) %>% 
-   bind_rows(f_quantitativo_regiao_ano(cras_2012, Região, "2012")) %>% 
+  bind_rows(f_quantitativo_regiao_ano(cras_2012, Região, "2012")) %>% 
 #  bind_rows(f_quantitativo_regiao_ano(cras_2013, Região, "2013")) %>% 
 #  bind_rows(f_quantitativo_regiao_ano(cras_2014, Região, "2014")) %>% 
 #  bind_rows(f_quantitativo_regiao_ano(cras_2015, Região, "2015")) %>% 
 #  bind_rows(f_quantitativo_regiao_ano(cras_2016, Região, "2016")) %>% 
-   bind_rows(f_quantitativo_regiao_ano(cras_2017, Região, "2017")) %>% 
-   bind_rows(f_quantitativo_regiao_ano(cras_2022, IBGE, "2022")) %>% 
-
-  ggplot(aes(x = Região, y = n, group = Ano)) +
-  geom_col(aes(fill = Ano), position="dodge") +
-  geom_text(aes(label = format(n, big.mark="."), y=n+300), position = position_dodge(width = 0.9), angle = 90, size = 2.5) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  bind_rows(f_quantitativo_regiao_ano(cras_2017, Região, "2017")) %>% 
+  bind_rows(f_quantitativo_regiao_ano(cras_2022, IBGE, "2022")) %>% 
+  f_grafico_col_quantitativo(Região, n, Ano)
 
 grafico
 
@@ -5008,20 +4896,7 @@ grafico <- f_quantitativo_regiao_ano(ceconv_2014, Região, "2014") %>%
    bind_rows(f_quantitativo_regiao_ano(ceconv_2018, Regiao, "2018")) %>% 
    #bind_rows(f_quantitativo_regiao_ano(ceconv_2020, IBGE, "2020")) %>% 
    bind_rows(f_quantitativo_regiao_ano(ceconv_2022, IBGE, "2022")) %>% 
-  
-  
-  ggplot(aes(x = Região, y = n, group = Ano)) +
-  geom_col(aes(fill = Ano), position="dodge") +
-  geom_text(aes(label = format(n, big.mark="."), y=n+300), position = position_dodge(width = 0.9), angle = 90, size = 2.5) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+   f_grafico_col_quantitativo(Região, n, Ano)
 
 grafico
 
@@ -5068,19 +4943,7 @@ das unidades em 2016 (2.389) (Gráfico 30).
 #  bind_rows(f_quantitativo_regiao_ano(creas_2016, IBGE7, "2016")) %>% 
    bind_rows(f_quantitativo_regiao_ano(creas_2017, IBGE, "2017")) %>%
    bind_rows(f_quantitativo_regiao_ano(creas_2022, IBGE, "2022")) %>%  
-
-  ggplot(aes(x = Região, y = n, group = Ano)) +
-  geom_col(aes(fill = Ano), position="dodge") +
-  geom_text(aes(label = format(n, big.mark="."), y=n+300), position = position_dodge(width = 0.9), angle = 90, size = 2.5) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+   f_grafico_col_quantitativo(Região, n, Ano)
 
 grafico
 
@@ -5397,24 +5260,12 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 ```
 
 
-```{r CREAS-quantidade-municipios, fig.cap = "Evolução do quatitativo de municípios com CREAS, Brasil e grandes regiões - 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r CREAS-quantidade-municipios, fig.cap = "Evolução do quantitativo de municípios com CREAS, Brasil e grandes regiões - 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
 grafico <- f_percentual_municipios_regiao_ano(creas_2012, IBGE, "2012") %>% 
   bind_rows(f_percentual_municipios_regiao_ano(creas_2017, IBGE, "2017")) %>%
   bind_rows(f_percentual_municipios_regiao_ano(creas_2022, IBGE, "2022")) %>%  
-
-  ggplot(aes(x = Região, y = n, group = Ano)) +
-  geom_col(aes(fill = Ano), position="dodge") +
-  geom_text(aes(label = n), hjust = -0.1, position = position_dodge(width = 0.9), angle = 90) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .12))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  f_grafico_col_quantitativo(Região, n, Ano)
 
 grafico
 
@@ -5425,26 +5276,14 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 ```{r creas-regionais, fig.cap = "Evolução do quantitativo de CREAS Regionais, Brasil e grandes regiões - 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 grafico <- f_selecao_regiao_ano(creas_2012, q2, "Regional", Região, "2012") %>%
-    bind_rows(f_selecao_regiao_ano(creas_2017, q2, "Regional", Região, "2017")) %>%
-#    bind_rows(f_selecao_regiao_ano(creas_2018, q1, "Regional", Região, "2018")) %>% 
-#    bind_rows(f_selecao_regiao_ano(creas_2019, q1, "Regional", Região, "2019")) %>% 
-#    bind_rows(f_selecao_regiao_ano(creas_2020, q1, "Regional", Região, "2020")) %>% 
-#    bind_rows(f_selecao_regiao_ano(creas_2021, q1, "Regional", Regiao, "2021")) %>% 
-    bind_rows(f_selecao_regiao_ano(creas_2022, q1, "Regional", Região, "2022")) %>% 
+  bind_rows(f_selecao_regiao_ano(creas_2017, q2, "Regional", Região, "2017")) %>%
+#  bind_rows(f_selecao_regiao_ano(creas_2018, q1, "Regional", Região, "2018")) %>% 
+#  bind_rows(f_selecao_regiao_ano(creas_2019, q1, "Regional", Região, "2019")) %>% 
+#  bind_rows(f_selecao_regiao_ano(creas_2020, q1, "Regional", Região, "2020")) %>% 
+#  bind_rows(f_selecao_regiao_ano(creas_2021, q1, "Regional", Regiao, "2021")) %>% 
+  bind_rows(f_selecao_regiao_ano(creas_2022, q1, "Regional", Região, "2022")) %>% 
+  f_grafico_col_quantitativo(Região, n, Ano)
     
-  ggplot(aes(x = Região, y = n, group = Ano)) +
-  geom_col(aes(fill = Ano), position="dodge") +
-  geom_text(aes(label = n), hjust = -0.1, position = position_dodge(width = 0.9), angle = 90) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
-
 grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
@@ -5552,20 +5391,8 @@ grafico <- f_quantitativo_regiao_ano(cpop_2012, Região, "2012") %>%
    #bind_rows(f_quantitativo_regiao_ano(cpop_2020, IBGE, "2020")) %>% 
    #bind_rows(f_quantitativo_regiao_ano(cpop_2021, IBGE, "2021")) %>% 
     bind_rows(f_quantitativo_regiao_ano(cpop_2022, IBGE, "2022")) %>% 
+  f_grafico_col_quantitativo(Região, n, Ano)
    
-  ggplot(aes(x = Região, y = n, group = Ano)) +
-  geom_col(aes(fill = Ano), position="dodge") +
-  geom_text(aes(label = format(n, big.mark="."), y=n+300), position = position_dodge(width = 0.9), angle = 90, size = 2.5) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
-
 grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
@@ -5790,21 +5617,8 @@ grafico <- f_quantitativo_regiao_ano(cedia_2015, Região, "2015") %>%
    #bind_rows(f_quantitativo_regiao_ano(cedia_2020, IBGE, "2020")) %>% 
    bind_rows(f_quantitativo_regiao_ano(cedia_2021, IBGE, "2021")) %>% 
    #bind_rows(f_quantitativo_regiao_ano(cedia_2022, IBGE, "2022")) %>% 
+  f_grafico_col_quantitativo(Região, n, Ano)
   
-  
-  ggplot(aes(x = Região, y = n, group = Ano)) +
-  geom_col(aes(fill = Ano), position="dodge") +
-  geom_text(aes(label = format(n, big.mark="."), y=n+300), position = position_dodge(width = 0.9), angle = 90, size = 2.5) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
-
 grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
@@ -6116,24 +5930,12 @@ acessibilidade \footnote{foram consideradas com ou sem ABNT} avançou nos
 ```{r postos-cadunico, fig.cap = "Evolução de Postos do Cadastro Único - 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS.",eval=FALSE}
 
 grafico <- f_quantitativo_regiao_ano(posto_cadunico_2020, Regiao, "2020") %>%
-    #bind_rows(f_quantitativo_regiao_ano(posto_cadunico_2021, IBGE, "2021")) %>%)
-    bind_rows(f_quantitativo_regiao_ano(posto_cadunico_2022, IBGE, "2022")) %>% 
+# bind_rows(f_quantitativo_regiao_ano(posto_cadunico_2021, IBGE, "2021")) %>%)
+  bind_rows(f_quantitativo_regiao_ano(posto_cadunico_2022, IBGE, "2022")) %>% 
+  f_grafico_col_quantitativo(Região, n, Ano)
   
   #ano 2021 não quer gerar, acho que pode ser erro no código do ibge
    
-  ggplot(aes(x = Região, y = n, group = Ano)) +
-  geom_col(aes(fill = Ano), position="dodge") +
-  geom_text(aes(label = format(n, big.mark="."), y=n+300), position = position_dodge(width = 0.9), angle = 90, size = 2.5) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
-
 grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
@@ -6309,7 +6111,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 Em relação a computadores com acesso a internet, é indicador bem
 presente
 
-```{r postcad-internet-percentual, fig.cap = "Evolução percentual de Cadastro Único com computadores com acesso à internet – Brasil;  2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r postcad-internet-percentual, fig.cap = "Evolução percentual de Postos do Cadastro Único com computadores com acesso à internet – Brasil;  2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 grafico <- f_maior0_regiao_ano(posto_cadunico_2020, q10_2, IBGE, "2020") %>% 
   bind_rows(f_maior0_regiao_ano(posto_cadunico_2021, q10_2, IBGE, "2021")) %>% 
@@ -6392,33 +6194,15 @@ saber:
 
 ```{r CRAS-SCFV, fig.cap = "Percentual de CRAS que executavam diretamente os Serviços de Convivência e Fortalecimento de Vínculos - Brasil, 2014 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-cras_scfv  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "Sim"~"Sim",
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
-
-grafico <- cras_scfv(cras_2014, q19, "2014") %>%
-  bind_rows(cras_scfv(cras_2015, q16, "2015")) %>% 
-  bind_rows(cras_scfv(cras_2016, q15, "2016")) %>% 
-  bind_rows(cras_scfv(cras_2017, q16, "2017")) %>% 
-  bind_rows(cras_scfv(cras_2018, q_16, "2018")) %>%
-  bind_rows(cras_scfv(cras_2019, q15, "2019")) %>%
-  #bind_rows(cras_scfv(cras_2020, q17, "2020")) %>%
-  bind_rows(cras_scfv(cras_2021, q17, "2021")) %>%
-  bind_rows(cras_scfv(cras_2022, q17, "2022")) %>%
+grafico <- f_sim_nao(cras_2014, q19, "2014") %>%
+  bind_rows(f_sim_nao(cras_2015, q16, "2015")) %>% 
+  bind_rows(f_sim_nao(cras_2016, q15, "2016")) %>% 
+  bind_rows(f_sim_nao(cras_2017, q16, "2017")) %>% 
+  bind_rows(f_sim_nao(cras_2018, q_16, "2018")) %>%
+  bind_rows(f_sim_nao(cras_2019, q15, "2019")) %>%
+  #bind_rows(f_sim_nao(cras_2020, q17, "2020")) %>%
+  bind_rows(f_sim_nao(cras_2021, q17, "2021")) %>%
+  bind_rows(f_sim_nao(cras_2022, q17, "2022")) %>%
   
  # em 2020 CRAS base estar númerica
   
@@ -6477,31 +6261,13 @@ referentes ao recebimento de usuários encaminhados pelo CRAS (96,4%).
 
 
 
-```{r CRAS-PSB, fig.cap = "Percentual de CRAS que executavam diretamente os Serviços de Proteção social Básica nos domicílios - Brasil, 2014 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r CRAS-PSB, fig.cap = "Percentual de CRAS que executavam diretamente os Serviços de Proteção Social Básica nos domicílios - Brasil, 2014 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-cras_psb  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "Sim"~"Sim",
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
-
-grafico <- cras_psb(cras_2018, q_24, "2018") %>%
-  bind_rows(cras_psb(cras_2019, q23, "2019")) %>%
-  #bind_rows(cras_psb(cras_2020, q24, "2020")) %>%
-   bind_rows(cras_psb(cras_2021, q24, "2021")) %>%
-   bind_rows(cras_psb(cras_2022, q24, "2022")) %>%
+grafico <- f_sim_nao(cras_2018, q_24, "2018") %>%
+  bind_rows(f_sim_nao(cras_2019, q23, "2019")) %>%
+  #bind_rows(f_sim_nao(cras_2020, q24, "2020")) %>%
+   bind_rows(f_sim_nao(cras_2021, q24, "2021")) %>%
+   bind_rows(f_sim_nao(cras_2022, q24, "2022")) %>%
   
   # essa pergunta  SURGE A PARTIR DE 2018
   # CRAS 2020 a base estar númerica - solicitei ;Dionara a atualziação no site
@@ -6744,30 +6510,12 @@ unidades pesquisadas em 2015 para 33,5% em 2016 (Gráfico 119). Gráfico
 
 ```{r CREAS-MSE, fig.cap = "Percentual de CREAS que realizam o Serviço de Proteção Social a Adolescentes em um cumprimento  Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC) - Brasil, 2010 a 2022", fig.footer = "Fonte: MDS, Censo SUAS", eval=FALSE}
 
-creas_mse  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "Sim"~"Sim",
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
-
-grafico <- creas_mse(creas_2017, q20, "2017") %>%
-  bind_rows(creas_mse(creas_2018, q16, "2018")) %>%
-  bind_rows(creas_mse(creas_2019, q15, "2019")) %>%
-  bind_rows(creas_mse(creas_2020, q20, "2020")) %>%
-  bind_rows(creas_mse(creas_2021, q20, "2021")) %>%
-  bind_rows(creas_mse(creas_2022, q20, "2022")) %>%
+grafico <- f_sim_nao(creas_2017, q20, "2017") %>%
+  bind_rows(f_sim_nao(creas_2018, q16, "2018")) %>%
+  bind_rows(f_sim_nao(creas_2019, q15, "2019")) %>%
+  bind_rows(f_sim_nao(creas_2020, q20, "2020")) %>%
+  bind_rows(f_sim_nao(creas_2021, q20, "2021")) %>%
+  bind_rows(f_sim_nao(creas_2022, q20, "2022")) %>%
   
  
   
@@ -6795,31 +6543,13 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ```{r CREAS-PSE-Domicilio, fig.cap = "Percentual de CREAS que realizam Serviço de proteção social Especial para Pessoas com Deficiência, Idosas e suas Famílias, 2016 a 2022"}
 
-creas_pse  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "Sim"~"Sim",
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
-
-grafico <- creas_pse(creas_2016, q38, "2016") %>%
-  bind_rows(creas_pse(creas_2017, q43, "2017")) %>%
-  #bind_rows(creas_pse(creas_2018, q35, "2018")) %>%
-  #bind_rows(creas_pse(creas_2019, q33, "2019")) %>%
-  #bind_rows(creas_pse(creas_2020, q38, "2020")) %>%
-  #bind_rows(creas_pse(creas_2021, q39, "2021")) %>%
-  #bind_rows(creas_pse(creas_2022, q38, "2022")) %>%
+grafico <- f_sim_nao(creas_2016, q38, "2016") %>%
+  bind_rows(f_sim_nao(creas_2017, q43, "2017")) %>%
+  #bind_rows(f_sim_nao(creas_2018, q35, "2018")) %>%
+  #bind_rows(f_sim_nao(creas_2019, q33, "2019")) %>%
+  #bind_rows(f_sim_nao(creas_2020, q38, "2020")) %>%
+  #bind_rows(f_sim_nao(creas_2021, q39, "2021")) %>%
+  #bind_rows(f_sim_nao(creas_2022, q38, "2022")) %>%
   
  # partir de 2018 muda as respostas, padronizar
   
@@ -7132,29 +6862,12 @@ calçada do equipamento, presente em 26,8% desses equipamentos.
 
 ```{r povos-tradicionais_cras, fig.cap = "Percentual de CRAS que atendem povos e grupos e comunidades tradicionais especificos -  por grupos , Região - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
-cras_gpte  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "Sim"~"Sim",
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
-grafico <- cras_gpte(cras_2022, q65_1_1, "2022") %>%
-  #bind_rows(cras-gpte(creas_2018, q16, "2018")) %>%
-  #bind_rows(cras-gpte(creas_2019, q15, "2019")) %>%
-  #bind_rows(cras-gpte(creas_2020, q20, "2020")) %>%
-  #bind_rows(cras-gpte(creas_2021, q20, "2021")) %>%
-  #bind_rows(cras-gpte(creas_2022, q20, "2022")) %>%
+grafico <- f_sim_nao(cras_2022, q65_1_1, "2022") %>%
+  #bind_rows(f_sim_nao(creas_2018, q16, "2018")) %>%
+  #bind_rows(f_sim_nao(creas_2019, q15, "2019")) %>%
+  #bind_rows(f_sim_nao(creas_2020, q20, "2020")) %>%
+  #bind_rows(f_sim_nao(creas_2021, q20, "2021")) %>%
+  #bind_rows(f_sim_nao(creas_2022, q20, "2022")) %>%
   
   #tentar computar a parte em branco ou colocar em quantidade
   
@@ -7382,28 +7095,30 @@ que em 2014 (Gráfico 60). Gráfico 60: Evolução da quantidade de
 trabalhadores nas Secretarias Municipais de Assistência Social - Brasil,
 2010 a 2016 Fonte: MDS, Censo SUAS.
 
-
-```{r qtd_trab_uf, fig.cap ="Evolução da quantidade de trabalhadores nas Secretarias Estaduais de Assistência Social - Brasil, 2012 a 2022" }
-
-```
-
-Fonte: MDS, Censo SUAS.
-
-
-```{r qtd_trab_munic, fig.cap ="Evolução da quantidade de trabalhadores nas Secretarias Estaduais de Assistência Social - Brasil, 2012 a 2022" }
-
-```
-
-
 A quantidade de trabalhadores nas Secretarias Estaduais de Assistência
 Social em 2016 era de 10.359 profissionais, considerando trabalhadores
 lotados na sede do órgão gestor e nas unidades públicas que ofertam
 serviços socioassistenciais. Esse quantitativo vem caindo desde 2010,
 ano em que foram registrados 19.785 trabalhadores. Entre 2015 e 2016 foi
 observada redução de 3.258 trabalhadores nas Secretarias Estaduais
-(Gráfico 66). Gráfico 66: Evolução da quantidade de trabalhadores nas
-Secretarias Estaduais de Assistência Social - Brasil, 2010 a 2016 Fonte:
-MDS, Censo SUAS.
+(Gráfico 66).
+
+```{r qtd-trab-uf, fig.cap ="Evolução da quantidade de trabalhadores nas Secretarias Estaduais de Assistência Social - Brasil e grandes regiões, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_soma_regiao_ano(ge_2012, q55e_4, Região, "2012") %>% 
+  bind_rows(f_soma_regiao_ano(ge_2017, q11_5_4, Região, "2017")) %>% 
+  bind_rows(f_quantitativo_regiao_ano(gerh_2022, IBGE, "2022")) %>% 
+  f_grafico_col_quantitativo(Região, n, Ano)
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+```{r qtd_trab_munic, fig.cap ="Evolução da quantidade de trabalhadores nas Secretarias Estaduais de Assistência Social - Brasil, 2012 a 2022" }
+
+```
+
 
 Em 2016, 48,2% dos trabalhadores das Secretarias Estaduais de
 Assistência Social eram estatutários (4.997 trabalhadores). Esse
@@ -8120,35 +7835,17 @@ O (\Cref{fig:conc_munic}) referencia a linha histórica dos últimos 10 anos.
 
 ```{r conc_munic, fig.cap = "Percentual de municípios que realizaram concursos para trabalhadores nível superior do SUAS - Brasil, - Brasil, 2012 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-conc_munic  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "Sim"~"Sim",
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
-
-grafico <- conc_munic(gm_2012, q43a_1, "2012") %>%
-  bind_rows(conc_munic(gm_2013, q36_8, "2013")) %>%
-  bind_rows(conc_munic(gm_2014, q51_1_1, "2014")) %>%
-  bind_rows(conc_munic(gm_2015, q38_1a, "2015")) %>%
-  bind_rows(conc_munic(gm_2016, q19_1, "2016")) %>%
-  bind_rows(conc_munic(gm_2017, q30.1.1, "2017")) %>%
-  bind_rows(conc_munic(gm_2018, q_50_1, "2018")) %>%
-  bind_rows(conc_munic(gm_2019, q51_1_1, "2019")) %>%
-  #bind_rows(conc_munic(gm_2020, q72_1_1, "2020")) %>%
-  bind_rows(conc_munic(gm_2021, q72_1_1, "2021")) %>%
-  bind_rows(conc_munic(gm_2022, q72_1_1, "2022")) %>%
+grafico <- f_sim_nao(gm_2012, q43a_1, "2012") %>%
+  bind_rows(f_sim_nao(gm_2013, q36_8, "2013")) %>%
+  bind_rows(f_sim_nao(gm_2014, q51_1_1, "2014")) %>%
+  bind_rows(f_sim_nao(gm_2015, q38_1a, "2015")) %>%
+  bind_rows(f_sim_nao(gm_2016, q19_1, "2016")) %>%
+  bind_rows(f_sim_nao(gm_2017, q30.1.1, "2017")) %>%
+  bind_rows(f_sim_nao(gm_2018, q_50_1, "2018")) %>%
+  bind_rows(f_sim_nao(gm_2019, q51_1_1, "2019")) %>%
+  #bind_rows(f_sim_nao(gm_2020, q72_1_1, "2020")) %>%
+  bind_rows(f_sim_nao(gm_2021, q72_1_1, "2021")) %>%
+  bind_rows(f_sim_nao(gm_2022, q72_1_1, "2022")) %>%
   
   
   
@@ -8180,35 +7877,16 @@ O (\Cref{fig:conc_estado}) mostra a linha histórica quanto a realização de co
 
 ```{r conc_estado, fig.cap = "Percentual de estados que realizaram concursos para trabalhadores nível superior do SUAS - Brasil, 2013 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-conc_estado  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "sim"~"Sim",
-                             Nível == "não"~"Não",
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
-
-grafico <- conc_estado(ge_2013, q68a_1, "2013") %>%
-    bind_rows(conc_estado(ge_2014, q22a_1, "2014")) %>%
-    bind_rows(conc_estado(ge_2015, q15a_1, "2015")) %>%   
-    bind_rows(conc_estado(ge_2016, q11_1_1, "2016")) %>%
-    bind_rows(conc_estado(ge_2017, q16_1_1, "2017")) %>%
-    bind_rows(conc_estado(ge_2018, q_36_1_1, "2018")) %>%
-    bind_rows(conc_estado(ge_2019, q36_1_1, "2019")) %>%
-    bind_rows(conc_estado(ge_2020, q46_1_1, "2020")) %>%
-    bind_rows(conc_estado(ge_2021, q46_1_1, "2021")) %>%
-    bind_rows(conc_estado(ge_2022, q46_1_1, "2022")) %>%
+grafico <- f_sim_nao(ge_2013, q68a_1, "2013") %>%
+    bind_rows(f_sim_nao(ge_2014, q22a_1, "2014")) %>%
+    bind_rows(f_sim_nao(ge_2015, q15a_1, "2015")) %>%   
+    bind_rows(f_sim_nao(ge_2016, q11_1_1, "2016")) %>%
+    bind_rows(f_sim_nao(ge_2017, q16_1_1, "2017")) %>%
+    bind_rows(f_sim_nao(ge_2018, q_36_1_1, "2018")) %>%
+    bind_rows(f_sim_nao(ge_2019, q36_1_1, "2019")) %>%
+    bind_rows(f_sim_nao(ge_2020, q46_1_1, "2020")) %>%
+    bind_rows(f_sim_nao(ge_2021, q46_1_1, "2021")) %>%
+    bind_rows(f_sim_nao(ge_2022, q46_1_1, "2022")) %>%
   
   
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
@@ -8285,7 +7963,7 @@ respondem ao Censo SUAS.
 Abaixo o gráfico tras informações da quantidade de conselhos municipais,
 por região, que responderam ao Censo SUAS.
 
-```{r qtd-cmas, fig.cap = "Quantidade de Conselhos Municipais de Assistência Social que preencheram censo suas"}
+```{r qtd-cmas, fig.cap = "Quantidade de Conselhos Municipais de Assistência Social que preencheram Censo SUAS"}
 
 grafico <- f_quantitativo_regiao_ano (cmun_2012, Região, "2012") %>% 
   #bind_rows(f_quantitativo_regiao_ano (cmun_2010, Região, "2010")) %>%
@@ -8301,19 +7979,7 @@ grafico <- f_quantitativo_regiao_ano (cmun_2012, Região, "2012") %>%
   #bind_rows(f_quantitativo_regiao_ano(cmun_2020, Região, "2020")) %>% 
   #bind_rows(f_quantitativo_regiao_ano(cmun_2021, IBGE, "2021")) %>% 
   bind_rows(f_quantitativo_regiao_ano(cmun_2022, IBGE, "2022")) %>% 
-
-  ggplot(aes(x = Região, y = n, group = Ano)) +
-  geom_col(aes(fill = Ano), position="dodge") +
-  geom_text(aes(label = format(n, big.mark="."), y=n+300), position = position_dodge(width = 0.9), angle = 90, size = 2.5) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  f_grafico_col_quantitativo(Região, n, Ano)
 
 grafico
 #grafico %>% 
@@ -8336,19 +8002,7 @@ grafico <- f_quantitativo_regiao_ano (cest_2012, IBGE, "2012") %>%
   #bind_rows(f_quantitativo_regiao_ano(cmun_2020, Região, "2020")) %>% 
   #bind_rows(f_quantitativo_regiao_ano(cmun_2021, IBGE, "2021")) %>% 
   bind_rows(f_quantitativo_regiao_ano(cest_2022, IBGE, "2022")) %>% 
-
-  ggplot(aes(x = Região, y = n, group = Ano)) +
-  geom_col(aes(fill = Ano), position="dodge") +
-  geom_text(aes(label = format(n, big.mark="."), y=n+300), position = position_dodge(width = 0.9), angle = 90, size = 2.5) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  f_grafico_col_quantitativo(Região, n, Ano)
 
 grafico
 #grafico %>% 
@@ -8358,35 +8012,17 @@ grafico
 
 ```{r}
 
-cmas_sede  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "Sim"~"Sim",
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
-
-grafico <- cmas_sede(cmun_2012, q8, "2012") %>%
-   #bind_rows(cmas_sede(cmun_2013, q8, "2013")) %>%
-   bind_rows(cmas_sede(cmun_2014, q9, "2014")) %>%
-   bind_rows(cmas_sede(cmun_2015, q9, "2015")) %>%
-   bind_rows(cmas_sede(cmun_2016, q6, "2016")) %>%
-   bind_rows(cmas_sede(cmun_2017, q7, "2017")) %>%
-   bind_rows(cmas_sede(cmun_2018, q_6, "2018")) %>%
-   bind_rows(cmas_sede(cmun_2019, q6, "2019")) %>%
-   bind_rows(cmas_sede(cmun_2020, q6, "2020")) %>%
-   bind_rows(cmas_sede(cmun_2021, q6, "2021")) %>%
-   bind_rows(cmas_sede(cmun_2022, q6, "2022")) %>%
+grafico <- f_sim_nao(cmun_2012, q8, "2012") %>%
+   #bind_rows(f_sim_nao(cmun_2013, q8, "2013")) %>%
+   bind_rows(f_sim_nao(cmun_2014, q9, "2014")) %>%
+   bind_rows(f_sim_nao(cmun_2015, q9, "2015")) %>%
+   bind_rows(f_sim_nao(cmun_2016, q6, "2016")) %>%
+   bind_rows(f_sim_nao(cmun_2017, q7, "2017")) %>%
+   bind_rows(f_sim_nao(cmun_2018, q_6, "2018")) %>%
+   bind_rows(f_sim_nao(cmun_2019, q6, "2019")) %>%
+   bind_rows(f_sim_nao(cmun_2020, q6, "2020")) %>%
+   bind_rows(f_sim_nao(cmun_2021, q6, "2021")) %>%
+   bind_rows(f_sim_nao(cmun_2022, q6, "2022")) %>%
   
   
   #2013 a base não ler, acho que é porque no banco as informações esão "sim" / "não"
@@ -8415,35 +8051,17 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ```{r }
 
-ceas_sede  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "Sim"~"Sim",
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
-
-grafico <- ceas_sede(cest_2012, q8, "2012") %>%
-   #bind_rows(ceas_sede(cest_2013, q8, "2013")) %>%
-   #bind_rows(ceas_sede(cest_2014, q9, "2014")) %>%
-    bind_rows(ceas_sede(cest_2015, q8, "2015")) %>%
-    bind_rows(ceas_sede(cest_2016, q6, "2016")) %>%
-    bind_rows(ceas_sede(cest_2017, q7, "2017")) %>%
-    #bind_rows(ceas_sede(cest_2018, q_6, "2018")) %>%
-    bind_rows(ceas_sede(cest_2019, q6, "2019")) %>%
-    bind_rows(ceas_sede(cest_2020, q6, "2020")) %>%
-    bind_rows(ceas_sede(cest_2021, q6, "2021")) %>%
-   bind_rows(ceas_sede(cest_2022, q6, "2022")) %>%
+grafico <- f_sim_nao(cest_2012, q8, "2012") %>%
+   #bind_rows(f_sim_nao(cest_2013, q8, "2013")) %>%
+   #bind_rows(f_sim_nao(cest_2014, q9, "2014")) %>%
+    bind_rows(f_sim_nao(cest_2015, q8, "2015")) %>%
+    bind_rows(f_sim_nao(cest_2016, q6, "2016")) %>%
+    bind_rows(f_sim_nao(cest_2017, q7, "2017")) %>%
+    #bind_rows(f_sim_nao(cest_2018, q_6, "2018")) %>%
+    bind_rows(f_sim_nao(cest_2019, q6, "2019")) %>%
+    bind_rows(f_sim_nao(cest_2020, q6, "2020")) %>%
+    bind_rows(f_sim_nao(cest_2021, q6, "2021")) %>%
+   bind_rows(f_sim_nao(cest_2022, q6, "2022")) %>%
   
   #2013 AS QUESTÕES ESÃO COM AS RESPOSTAS "";
   #2014 incluiu "Não sabe"
@@ -8501,6 +8119,18 @@ grafico <- cmas_se(cmun_2012, q13, "2012") %>%
    bind_rows(cmas_se(cmun_2020, q13, "2020")) %>%
    bind_rows(cmas_se(cmun_2021, q13, "2021")) %>%
    bind_rows(cmas_se(cmun_2022, q13, "2022")) %>%
+# =======
+# grafico <- f_sim_nao(cmun_2012, q13, "2012") %>%
+#   #bind_rows(f_sim_nao(cmun_2013, q13, "2013")) %>%
+#    bind_rows(f_sim_nao(cmun_2014, q19, "2014")) %>%
+#    bind_rows(f_sim_nao(cmun_2015, q19, "2015")) %>%
+#    bind_rows(f_sim_nao(cmun_2016, q14, "2016")) %>%
+#    bind_rows(f_sim_nao(cmun_2017, q14, "2017")) %>%
+#    bind_rows(f_sim_nao(cmun_2018, q_13, "2018")) %>%
+#   #bind_rows(f_sim_nao(cmun_, q13, "2019")) %>%
+#    bind_rows(f_sim_nao(cmun_2020, q13, "2020")) %>%
+#    bind_rows(f_sim_nao(cmun_2021, q13, "2021")) %>%
+#    bind_rows(f_sim_nao(cmun_2022, q13, "2022")) %>%
   
   #achei que as respostas 2012 desviaram um pouco, não consegui baixar a base ... em contato com Dionara.
  
@@ -8527,35 +8157,17 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ```{r }
 
-ceas_se  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "Sim"~"Sim",
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
-
-grafico <- ceas_se(cest_2012, q8, "2012") %>%
-  #bind_rows(ceas_se(cest_2013, q8, "2013")) %>%
-  #bind_rows(ceas_se(cest_2014, q8, "2014")) %>%
-  #bind_rows(ceas_se(cest_2015, q8, "2015")) %>%
-  #bind_rows(ceas_se(cest_2016, q8, "2016")) %>%
-   bind_rows(ceas_se(cest_2017, q7, "2017")) %>%
-  #bind_rows(ceas_se(cest_2018, q8, "2018")) %>%
-  #bind_rows(ceas_se(cest_2019, "2019")) %>%
-  #bind_rows(ceas_se(cest_2020, q8, "2018")) %>%
-  #bind_rows(ceas_se(cest_2021, q8, "2018")) %>%
-   bind_rows(ceas_se(cest_2022, q6, "2022")) %>%
+grafico <- f_sim_nao(cest_2012, q8, "2012") %>%
+  #bind_rows(f_sim_nao(cest_2013, q8, "2013")) %>%
+  #bind_rows(f_sim_nao(cest_2014, q8, "2014")) %>%
+  #bind_rows(f_sim_nao(cest_2015, q8, "2015")) %>%
+  #bind_rows(f_sim_nao(cest_2016, q8, "2016")) %>%
+   bind_rows(f_sim_nao(cest_2017, q7, "2017")) %>%
+  #bind_rows(f_sim_nao(cest_2018, q8, "2018")) %>%
+  #bind_rows(f_sim_nao(cest_2019, "2019")) %>%
+  #bind_rows(f_sim_nao(cest_2020, q8, "2018")) %>%
+  #bind_rows(f_sim_nao(cest_2021, q8, "2018")) %>%
+   bind_rows(f_sim_nao(cest_2022, q6, "2022")) %>%
  
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
 #  geom_col(aes(fill = Nível), position = "dodge") +
@@ -8824,38 +8436,17 @@ cmun_2010_regiao <- cmun_2010 %>%
 
 ```{r }
 
-cmas_igd  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "Sim"~"Sim",
-                             Nível == "Não Sabe"~"Não sabe",
-                             
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não",
-                                            "Não sabe"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
-
-grafico <- cmas_igd(cmun_2012, q7, "2012") %>%
-   bind_rows(cmas_igd(cmun_2013, q7, "2013")) %>%
-   bind_rows(cmas_igd(cmun_2014, q8, "2014")) %>%
-   bind_rows(cmas_igd(cmun_2015, q8, "2015")) %>%
-   bind_rows(cmas_igd(cmun_2016, q5, "2016")) %>%
-   bind_rows(cmas_igd(cmun_2017, q18, "2017")) %>%
-   bind_rows(cmas_igd(cmun_2018, q_17, "2018")) %>%
-   bind_rows(cmas_igd(cmun_2019, q17, "2019")) %>%
-   bind_rows(cmas_igd(cmun_2020, q20, "2020")) %>%
-   bind_rows(cmas_igd(cmun_2021, q20, "2021")) %>%
-   bind_rows(cmas_igd(cmun_2022, q20, "2022")) %>%
+grafico <- f_sim_nao(cmun_2012, q7, "2012") %>%
+   bind_rows(f_sim_nao(cmun_2013, q7, "2013")) %>%
+   bind_rows(f_sim_nao(cmun_2014, q8, "2014")) %>%
+   bind_rows(f_sim_nao(cmun_2015, q8, "2015")) %>%
+   bind_rows(f_sim_nao(cmun_2016, q5, "2016")) %>%
+   bind_rows(f_sim_nao(cmun_2017, q18, "2017")) %>%
+   bind_rows(f_sim_nao(cmun_2018, q_17, "2018")) %>%
+   bind_rows(f_sim_nao(cmun_2019, q17, "2019")) %>%
+   bind_rows(f_sim_nao(cmun_2020, q20, "2020")) %>%
+   bind_rows(f_sim_nao(cmun_2021, q20, "2021")) %>%
+   bind_rows(f_sim_nao(cmun_2022, q20, "2022")) %>%
   
   #fazer a seleção das variaveis
  
@@ -8885,37 +8476,17 @@ ceas O Conselho é a Instância de Controle Social do Programa Bolsa Família (R
 
 ```{r ceas_igd, fig.cap = "igd"}
 
-ceas_igd  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "Sim"~"Sim",
-                             
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não",
-                                            "Não sabe"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
-
-grafico <- ceas_igd(cest_2012, q7, "2012") %>%
-   bind_rows(ceas_igd(cest_2013, q7, "2013")) %>%
-   bind_rows(ceas_igd(cest_2014, q8, "2014")) %>%
-   bind_rows(ceas_igd(cest_2015, q8, "2015")) %>%
-   bind_rows(ceas_igd(cest_2016, q5, "2016")) %>%
-   bind_rows(ceas_igd(cest_2017, q18, "2017")) %>%
-   bind_rows(ceas_igd(cest_2018, q_17, "2018")) %>%
-   bind_rows(ceas_igd(cest_2019, q17, "2019")) %>%
-   bind_rows(ceas_igd(cest_2020, q20, "2020")) %>%
-   bind_rows(ceas_igd(cest_2021, q20, "2021")) %>%
-   bind_rows(ceas_igd(cest_2022, q20, "2022")) %>%
+grafico <- f_sim_nao(cest_2012, q7, "2012") %>%
+   bind_rows(f_sim_nao(cest_2013, q7, "2013")) %>%
+   bind_rows(f_sim_nao(cest_2014, q8, "2014")) %>%
+   bind_rows(f_sim_nao(cest_2015, q8, "2015")) %>%
+   bind_rows(f_sim_nao(cest_2016, q5, "2016")) %>%
+   bind_rows(f_sim_nao(cest_2017, q18, "2017")) %>%
+   bind_rows(f_sim_nao(cest_2018, q_17, "2018")) %>%
+   bind_rows(f_sim_nao(cest_2019, q17, "2019")) %>%
+   bind_rows(f_sim_nao(cest_2020, q20, "2020")) %>%
+   bind_rows(f_sim_nao(cest_2021, q20, "2021")) %>%
+   bind_rows(f_sim_nao(cest_2022, q20, "2022")) %>%
   
   #2013 as variaveis estão "" ver como ajeitar para leitura
  
@@ -8946,37 +8517,17 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ```{r ceas_icspbf, fig.cap = "Conselhos Estaduais de Assistência Social que são instancia de controle Social do PBF"}
 
-ceas_icspbf  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "Sim"~"Sim",
-                             
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não",
-                                            "Não sabe"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
-
-grafico <- ceas_icspbf(cest_2012, q39, "2012") %>%
-   #bind_rows(ceas_icspbf(cest_2013, q40, "2013")) %>%
-   bind_rows(ceas_icspbf(cest_2014, q41, "2014")) %>%
-   bind_rows(ceas_icspbf(cest_2015, q39, "2015")) %>%
-   bind_rows(ceas_icspbf(cest_2016, q32, "2016")) %>%
-   bind_rows(ceas_icspbf(cest_2017, q47, "2017")) %>%
-   bind_rows(ceas_icspbf(cest_2018, q_43, "2018")) %>%
-   bind_rows(ceas_icspbf(cest_2019, q39, "2019")) %>%
-   bind_rows(ceas_icspbf(cest_2020, q40, "2020")) %>%
-   bind_rows(ceas_icspbf(cest_2021, q40, "2021")) %>%
-   bind_rows(ceas_icspbf(cest_2022, q40, "2022")) %>%
+grafico <- f_sim_nao(cest_2012, q39, "2012") %>%
+   #bind_rows(f_sim_nao(cest_2013, q40, "2013")) %>%
+   bind_rows(f_sim_nao(cest_2014, q41, "2014")) %>%
+   bind_rows(f_sim_nao(cest_2015, q39, "2015")) %>%
+   bind_rows(f_sim_nao(cest_2016, q32, "2016")) %>%
+   bind_rows(f_sim_nao(cest_2017, q47, "2017")) %>%
+   bind_rows(f_sim_nao(cest_2018, q_43, "2018")) %>%
+   bind_rows(f_sim_nao(cest_2019, q39, "2019")) %>%
+   bind_rows(f_sim_nao(cest_2020, q40, "2020")) %>%
+   bind_rows(f_sim_nao(cest_2021, q40, "2021")) %>%
+   bind_rows(f_sim_nao(cest_2022, q40, "2022")) %>%
   
   #2013 as variaveis estão "" ver como ajeitar para leitura
  
@@ -9007,41 +8558,19 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 
 
-```{r cmas_icspbf, fig.cap = "Conselhos Municipais de Assistência Social que são instancia de controle Social do PBF" }
+```{r cmas_icspbf, fig.cap = "Conselhos Municipais de Assistência Social que são instancia de controle social do PBF" }
 
-cmas_pmas  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "Sim"~"Sim",
-                             Nível == "99" ~ "Não sabe",
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não",
-                                            "Não sabe"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
-
-
-
-grafico <- cmas_pmas(cmun_2012, q35_1, "2012") %>%
-  bind_rows(cmas_pmas(cmun_2013, q40, "2013")) %>%
-  bind_rows(cmas_pmas(cmun_2014, q41, "2014")) %>%
-  bind_rows(cmas_pmas(cmun_2015, q39, "2015")) %>%
-  bind_rows(cmas_pmas(cmun_2016, q32, "2016")) %>%
-  bind_rows(cmas_pmas(cmun_2017, q47, "2017")) %>%
-  bind_rows(cmas_pmas(cmun_2018, q_43, "2018")) %>%
-  bind_rows(cmas_pmas(cmun_2019, q39, "2019")) %>%
-  bind_rows(cmas_pmas(cmun_2020, q40, "2020")) %>%
-  bind_rows(cmas_pmas(cmun_2021, q40, "2021")) %>%
-  bind_rows(cmas_pmas(cmun_2022, q40, "2022")) %>%
+grafico <- f_sim_nao(cmun_2012, q35_1, "2012") %>%
+  bind_rows(f_sim_nao(cmun_2013, q40, "2013")) %>%
+  bind_rows(f_sim_nao(cmun_2014, q41, "2014")) %>%
+  bind_rows(f_sim_nao(cmun_2015, q39, "2015")) %>%
+  bind_rows(f_sim_nao(cmun_2016, q32, "2016")) %>%
+  bind_rows(f_sim_nao(cmun_2017, q47, "2017")) %>%
+  bind_rows(f_sim_nao(cmun_2018, q_43, "2018")) %>%
+  bind_rows(f_sim_nao(cmun_2019, q39, "2019")) %>%
+  bind_rows(f_sim_nao(cmun_2020, q40, "2020")) %>%
+  bind_rows(f_sim_nao(cmun_2021, q40, "2021")) %>%
+  bind_rows(f_sim_nao(cmun_2022, q40, "2022")) %>%
   
   #2013 os dados da base estão "" por isso não consegue ler,
   #todos arquivo de 2019 esta bloqueado para leitura, algum erro que não consigo identificar.
@@ -9069,35 +8598,17 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ```{r }
 
-ceas_pmas  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "Sim"~"Sim",
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
-
-grafico <- ceas_se(cest_2012, q35_1, "2012") %>%
-  #bind_rows(ceas_se(cest_2013, q8, "2013")) %>%
-  #bind_rows(ceas_se(cest_2014, q8, "2014")) %>%
-  #bind_rows(ceas_se(cest_2015, q8, "2015")) %>%
-  #bind_rows(ceas_se(cest_2016, q38, "2016")) %>%
-   bind_rows(ceas_se(cest_2017, q38, "2017")) %>%
-  #bind_rows(ceas_se(cest_2018, q8, "2018")) %>%
-  #bind_rows(ceas_se(cest_2019, "2019")) %>%
-  #bind_rows(ceas_se(cest_2020, q8, "2018")) %>%
-  #bind_rows(ceas_se(cest_2021, q8, "2018")) %>%
-   bind_rows(ceas_se(cest_2022, q33_4, "2022")) %>%
+grafico <- f_sim_nao(cest_2012, q35_1, "2012") %>%
+  #bind_rows(f_sim_nao(cest_2013, q8, "2013")) %>%
+  #bind_rows(f_sim_nao(cest_2014, q8, "2014")) %>%
+  #bind_rows(f_sim_nao(cest_2015, q8, "2015")) %>%
+  #bind_rows(f_sim_nao(cest_2016, q38, "2016")) %>%
+   bind_rows(f_sim_nao(cest_2017, q38, "2017")) %>%
+  #bind_rows(f_sim_nao(cest_2018, q8, "2018")) %>%
+  #bind_rows(f_sim_nao(cest_2019, "2019")) %>%
+  #bind_rows(f_sim_nao(cest_2020, q8, "2018")) %>%
+  #bind_rows(f_sim_nao(cest_2021, q8, "2018")) %>%
+   bind_rows(f_sim_nao(cest_2022, q33_4, "2022")) %>%
  
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
 #  geom_col(aes(fill = Nível), position = "dodge") +
@@ -9151,6 +8662,18 @@ grafico <- cmas_be(cmun_2012, q38, "2012") %>%
    bind_rows(cmas_be(cmun_2020, q36, "2020")) %>%
    bind_rows(cmas_be(cmun_2021, q37, "2021")) %>%
    bind_rows(cmas_be(cmun_2022, q36, "2022")) %>%
+# =======
+# grafico <- f_sim_nao(cmun_2012, q38, "2012") %>%
+#   #bind_rows(f_sim_nao(cmun_2013, q, "2013")) %>%
+#   bind_rows(f_sim_nao(cmun_2014, q40, "2014")) %>%
+#   bind_rows(f_sim_nao(cmun_2015, q38, "2015")) %>%
+#   bind_rows(f_sim_nao(cmun_2016, q31, "2016")) %>%
+#   bind_rows(f_sim_nao(cmun_2017, q44, "2017")) %>%
+#   bind_rows(f_sim_nao(cmun_2018, q_39, "2018")) %>%
+#   #bind_rows(f_sim_nao(cmun_2019, q37, "2019")) %>%
+#   bind_rows(f_sim_nao(cmun_2020, q37, "2020")) %>%
+#   bind_rows(f_sim_nao(cmun_2021, q37, "2021")) %>%
+#   bind_rows(f_sim_nao(cmun_2022, q36, "2022")) %>%
   
   # a partir de 2020 a questão muda, mas o conteúdo da pergunta permanece, entretanto tenho dúvidas sobre o entendimento das respostas. Assim to pensando em manter apenas para os anos a partir de 2020.
  
@@ -9209,6 +8732,18 @@ grafico <- ceas_be(cest_2012, q38, "2012") %>%
   
   #2013 estar "sim e "não" com aspas, por isso não ler
   #2016 muda pergunta, se o estado oferta e não aprovação
+# =======
+# grafico <- f_sim_nao(cest_2012, q38, "2012") %>%
+#   #bind_rows(f_sim_nao(cest_2013, q8, "2013")) %>%
+#   #bind_rows(f_sim_nao(cest_2014, q8, "2014")) %>%
+#   #bind_rows(f_sim_nao(cest_2015, q8, "2015")) %>%
+#   #bind_rows(f_sim_nao(cest_2016, q8, "2016")) %>%
+#    bind_rows(f_sim_nao(cest_2017, q44, "2017")) %>%
+#   #bind_rows(f_sim_nao(cest_2018, q8, "2018")) %>%
+#   #bind_rows(f_sim_nao(cest_2019, "2019")) %>%
+#   #bind_rows(f_sim_nao(cest_2020, q8, "2018")) %>%
+#   #bind_rows(f_sim_nao(cest_2021, q8, "2018")) %>%
+#    bind_rows(f_sim_nao(cest_2022, q36, "2022")) %>%
  
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
 #  geom_col(aes(fill = Nível), position = "dodge") +
@@ -9256,35 +8791,17 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ```{r }
 
-Cmas_ppa  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "Sim"~"Sim",
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
-
-grafico <- Cmas_ppa(cmun_2012, q38, "2012") %>%
-  #bind_rows(Cmas_ppa(cmun_2013, q, "2013")) %>%
-  bind_rows(Cmas_ppa(cmun_2014, q31, "2014")) %>%
-  bind_rows(Cmas_ppa(cmun_2015, q31, "2015")) %>%
-  bind_rows(Cmas_ppa(cmun_2016, q24, "2016")) %>%
-  bind_rows(Cmas_ppa(cmun_2017, q42, "2017")) %>%
-  bind_rows(Cmas_ppa(cmun_2018, q_37, "2018")) %>%
-  #bind_rows(Cmas_ppa(cmun_2019, q37, "2019")) %>%
-  bind_rows(Cmas_ppa(cmun_2020, q34, "2020")) %>%
-  bind_rows(Cmas_ppa(cmun_2021, q34, "2021")) %>%
-  bind_rows(Cmas_ppa(cmun_2022, q34, "2022")) %>%
+grafico <- f_sim_nao(cmun_2012, q38, "2012") %>%
+  #bind_rows(f_sim_nao(cmun_2013, q, "2013")) %>%
+  bind_rows(f_sim_nao(cmun_2014, q31, "2014")) %>%
+  bind_rows(f_sim_nao(cmun_2015, q31, "2015")) %>%
+  bind_rows(f_sim_nao(cmun_2016, q24, "2016")) %>%
+  bind_rows(f_sim_nao(cmun_2017, q42, "2017")) %>%
+  bind_rows(f_sim_nao(cmun_2018, q_37, "2018")) %>%
+  #bind_rows(f_sim_nao(cmun_2019, q37, "2019")) %>%
+  bind_rows(f_sim_nao(cmun_2020, q34, "2020")) %>%
+  bind_rows(f_sim_nao(cmun_2021, q34, "2021")) %>%
+  bind_rows(f_sim_nao(cmun_2022, q34, "2022")) %>%
   
   # a partir de 2020 a questão muda, mas o conteúdo da pergunta permanece, entretanto tenho dúvidas sobre o entendimento das respostas. Assim to pensando em manter apenas para os anos a partir de 2020.
  
@@ -9310,37 +8827,19 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ```{r }
 
-Ceas_ppa  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>% 
-    gather("Categoria","Nível") %>% 
-    mutate(Nível = case_when(Nível == "Sim"~"Sim",
-                             TRUE ~ Nível)) %>% 
-    filter(!is.na(Nível)) %>% 
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não"))) %>% 
-    group_by(Categoria, Nível) %>% 
-    summarise(n=n()) %>% 
-    group_by(Categoria) %>% 
-    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
-}
-
 #falta colocar as variaveis dos questionários CEAS
 
-grafico <- Ceas_ppa(cest_2012, q29, "2012") %>%
-  #bind_rows(Ceas_ppa(cest_2013, q, "2013")) %>%
-  #bind_rows(Ceas_ppa(cest_2014, q40, "2014")) %>%
-  #bind_rows(Ceas_ppa(cest_2015, q38, "2015")) %>%
-  #bind_rows(Ceas_ppa(cest_2016, q31, "2016")) %>%
-  #bind_rows(Ceas_ppa(cest_2017, q44, "2017")) %>%
-  #bind_rows(Ceas_ppa(cest_2018, q_39, "2018")) %>%
-  #bind_rows(Ceas_ppa(cest_2019, q37, "2019")) %>%
-  #bind_rows(Ceas_ppa(cest_2020, q37, "2020")) %>%
-  #bind_rows(Ceas_ppa(cest_2021, q37, "2021")) %>%
-   bind_rows(Ceas_ppa(cest_2022, q34, "2022")) %>%
+grafico <- f_sim_nao(cest_2012, q29, "2012") %>%
+  #bind_rows(f_sim_nao(cest_2013, q, "2013")) %>%
+  #bind_rows(f_sim_nao(cest_2014, q40, "2014")) %>%
+  #bind_rows(f_sim_nao(cest_2015, q38, "2015")) %>%
+  #bind_rows(f_sim_nao(cest_2016, q31, "2016")) %>%
+  #bind_rows(f_sim_nao(cest_2017, q44, "2017")) %>%
+  #bind_rows(f_sim_nao(cest_2018, q_39, "2018")) %>%
+  #bind_rows(f_sim_nao(cest_2019, q37, "2019")) %>%
+  #bind_rows(f_sim_nao(cest_2020, q37, "2020")) %>%
+  #bind_rows(f_sim_nao(cest_2021, q37, "2021")) %>%
+   bind_rows(f_sim_nao(cest_2022, q34, "2022")) %>%
   
 
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
@@ -9453,19 +8952,7 @@ grafico <- f_quantitativo_niveis(idcras_2022, `Estrutura Física`, "Estrutura F
   mutate(Eixo_X = factor(Eixo_X, levels = c("Estrutura Física",
                                             "Recursos Humanos",
                                             "Serviços & Benefícios"))) %>% 
-
-  ggplot(aes(x = Eixo_X, y = n, group = Grupo)) +
-  geom_col(aes(fill = Grupo), position="dodge") +
-  geom_text(aes(label = sprintf("%d", n)), position = position_dodge(width = 0.9), vjust = -0.5) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  f_grafico_col_quantitativo(Eixo_X, n, Grupo)
 
 grafico
 ```
@@ -9551,18 +9038,7 @@ grafico <- f_quantitativo_niveis(idcreas_2022, `Estrutura Física`, "Estrutura 
                                             "Recursos Humanos",
                                             "Serviços & Benefícios"))) %>% 
 
-  ggplot(aes(x = Eixo_X, y = n, group = Grupo)) +
-  geom_col(aes(fill = Grupo), position="dodge") +
-  geom_text(aes(label = sprintf("%d", n)), position = position_dodge(width = 0.9), vjust = -0.5) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  f_grafico_col_quantitativo(Eixo_X, n, Grupo)
 
 grafico
 ```
@@ -9646,19 +9122,7 @@ grafico <- f_quantitativo_niveis(idconselho_2022, `Estrutura Administrativa`, "E
   mutate(Eixo_X = factor(Eixo_X, levels = c("Estrutura Administrativa",
                                             "Dinâmica de Funcionamento",
                                             "Composição do Conselho"))) %>% 
-
-  ggplot(aes(x = Eixo_X, y = n, group = Grupo)) +
-  geom_col(aes(fill = Grupo), position="dodge") +
-  geom_text(aes(label = sprintf("%d", n)), position = position_dodge(width = 0.9), vjust = -0.5) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  f_grafico_col_quantitativo(Eixo_X, n, Grupo)
 
 grafico
 ```
