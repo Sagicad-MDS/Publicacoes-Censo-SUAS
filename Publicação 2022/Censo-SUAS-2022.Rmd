@@ -7983,7 +7983,7 @@ necessariamente redução no número de municípios com conselhos, uma vez
 que podem ocorrer variações no número de conselhos municipais que
 respondem ao Censo SUAS.
 
-Abaixo o gráfico tras informações da quantidade de conselhos municipais,
+Abaixo o gráfico trás informações da quantidade de conselhos municipais,
 por região, que responderam ao Censo SUAS.
 
 ```{r qtd-cmas, fig.cap = "Quantidade de Conselhos Municipais de Assistência Social que preencheram Censo SUAS"}
@@ -8009,7 +8009,7 @@ grafico
 #  graph2office(file="graficos", append = TRUE)
 ```
 
-```{r }
+```{r qtd-ceas, fig.cap = "Quantidade de Conselhos Estaduai de Assistência Social que preencheram Censo SUAS"}
 
 grafico <- f_quantitativo_regiao_ano (cest_2012, IBGE, "2012") %>% 
   #bind_rows(f_quantitativo_regiao_ano (cmun_2010, Região, "2010")) %>%
@@ -8031,7 +8031,7 @@ grafico
 #grafico %>% 
 #  graph2office(file="graficos", append = TRUE)
 ```
-
+A existência de sede para o funcionamento dos conselhos é essencial, pois além de garantir identidade na perspetiva de espaço na qual a população pode acessar, também assegura o trabalho do secretário (a) executivo e demais profissionais, dispõe de locais de arquivos e documentos, reuniões entre outros. No que se refere aos Conselhos Municipais de Assistencia Social o (\Cref{fig:cmas_sede}) destaca que 58,1% dos conselhos muncipais que responderam censo suas informam possuir sede para o funcionamento. Destaca-se que nos últimos 10 anos, teve aumento de 45,1% para 58,1 de municípios que possuem sede para conseLho de assistencia social, dado que representa aumento de 13% percentuais.  
 
 ```{r cmas_sede, fig.cap = "Percentual de Conselhos Municipais que possuem local/sede especcífico para funcionamento"}
 
@@ -8070,7 +8070,7 @@ grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
-
+Em realção aos Conselhos estaduais, atualmente 100% informam possuir sede especifica para funcionamento do controle social no SUAS conforme pdoe ser observado abaixo (\Cref{fig:ceas_sede}) 
 
 ```{r ceas_sede, fig.cap = "Percentual de Conselhos estaduais que possuem local/sede especcífico para funcionamento"}
 
@@ -8108,9 +8108,9 @@ grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
+E
 
-
-```{r cmas_se, fig.cap = "Percentual de Conselhos Municipais que possuem secretários (as) executivos exclusivamente no Conselho"}
+```{r cas_se, fig.cap = "Percentual de Conselhos Municipais que possuem secretários (as) executivos exclusivamente no Conselho"}
 
 cmas_se  = function(df, q, ano){
   q <- enquo(q)
@@ -8355,7 +8355,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 
 
-```{r qtd_reuniao, fig.cap = " xxx ")}
+```{r qtd_reuniao, fig.cap = "xxx"}
   
 cmun_2010_regiao <- cmun_2010 %>% 
   select(Região) %>% 
