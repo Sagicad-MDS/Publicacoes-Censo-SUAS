@@ -2862,7 +2862,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 No que se refere aos municípios, aproximadamente 80% dos secretários (as) municipais são ordenadores de despesa do Fundo Municipal. Esse percentual aumentou a partir de 2016.
 
-O (\Cref{fig:munic_ord_despesa}) também mostra que os prefeitos (as) enquanto ordenadores de despesa da política de Assistência Social vem reduzindo ao longo dos anos. Dado que se revela como positivo, haja vista o gestor municipal encontra-se no cotidiano do planejamento desta política pública, sendo mais apropriado para tomar as decisões sobre o orçamento.
+O (\Cref{fig:munic_ord_despesa}) também mostra que as/os prefeitas/os enquanto ordenadores de despesa da política de Assistência Social vem reduzindo ao longo dos anos. Dado que se revela como positivo, haja vista o gestor municipal encontra-se no cotidiano do planejamento desta política pública, sendo mais apropriado para tomar as decisões sobre o orçamento.
 
 ```{r munic_ord_despesa, fig.cap = "Percentual de municípios quanto a ordenação de despesa do Fundo Municipal - Brasil, 2013 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -3237,14 +3237,11 @@ O Cadastro Único para Programas Sociais do Governo Federal (Cadastro Único) in
 
 O objetivo é conhecer, incluir e aprimorar as políticas sociais através do acesso a Serviços, Programas, benefícios, identificação das famílias e territórios vulnerabilizados, bem como ações intersetoriais.
 
-
 A gestão do Cadastro Único é compartilhada entre união, estados, municípios e distrito federal na qual cabe aos estados o apoio técnico, capacitação, monitoramento e avaliação. É nos municípios que estão os locais de cadastramento e toda gestão territorial da identificação das famílias neste cadastro público.
 
- 
 As unidades do Cadastro Único podem ser encontradas em locais exclusivos ou na rede de atendimento socioassistencial de CRAS, CREAS, Centro Pop. Dados do Censo SUAS mostram uma evolução de locais de cadastramento, sobretudo a partir de 2017. 
 
-Sobre a distribuição destes locais de Cadastro Único, destaca-se que em 2022, 31% (2.892) são unidades exclusivas de Cadastro Único e 68% estão em unidades da rede socioassistencial \footnote{CRAS, CREAS e CENTRO POP} conforme pode ser observado na
-tabela \ref{tab:qtd_unidades}.
+Sobre a distribuição destes locais de Cadastro Único, destaca-se que em 2022, 31% (2.892) são unidades exclusivas de Cadastro Único e 68% estão em unidades da rede socioassistencial \footnote{CRAS, CREAS e CENTRO POP} conforme pode ser observado na tabela \ref{tab:qtd_unidades}.
 
 
 ```{=tex}
@@ -3366,14 +3363,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 ```
 
 
-O gráfico (\Cref{fig:acoes_cad}) sinaliza que as ações de esclarecimento de 
-dúvidas sobre serviços, programas entre outros são realizadas pela grande maioria das
-unidades do cadastro único (96,82%). Já as ações de agendamento para
-atendimento são realizadas por 64,35% das unidades, com redução ao longo
-dos anos.
-
-\footnote{estas informações são dos postos que executam exclusivamente 
-atividades do cadastro único}.
+O gráfico (\Cref{fig:acoes_cad}) sinaliza que as ações de esclarecimento de dúvidas sobre serviços, programas entre outros são realizadas pela grande maioria das unidades do cadastro único (96,82%). Já as ações de agendamento para atendimento são realizadas por 64,35% das unidades, com redução ao longo dos anos\footnote{estas informações são dos postos que executam exclusivamente atividades do cadastro único}.
 
 ```{r acoes_cad, fig.cap = "Ações desenvolvidas pelos postos do Cadastro Único - Brasil, 2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -6172,7 +6162,6 @@ grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
-E
 
 
 ```{r cas_se, fig.cap = "Percentual de Conselhos Municipais que possuem secretários (as) executivos exclusivamente no Conselho"}
