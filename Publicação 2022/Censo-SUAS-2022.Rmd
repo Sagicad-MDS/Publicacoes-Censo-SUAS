@@ -1233,6 +1233,25 @@ f_stack_col_percentual  = function(df, eixo_x, n, grupo){
     mutate(Percentual = !! n/sum(!! n), Posição = (cumsum(!! n/sum(!! n)) - 0.5 * !! n/sum(!! n)))
 }
 
+f_nomex_grupos_quantitativo = function(df, nomex, grupos){
+  nomex <- quo_name(nomex)
+  grupos <- enquo(grupos)
+
+  df %>%
+    select("Grupo" = !! grupos) %>% 
+    group_by(Grupo) %>% 
+    summarise("Eixo_y"=n()) %>% 
+    mutate("Eixo_x" = !! nomex)
+}
+
+f_nivel_ensino = function(df, nivel_ensino){
+  nivel_ensino <- enquo(nivel_ensino)
+
+  df %>%
+    mutate(!! nivel_ensino := case_when(!! nivel_ensino == "Nível fundamental"~"Nível Fundamental",
+                                        TRUE ~ !! nivel_ensino))
+}
+
 ```
 
 # Gestão e Financiamento
@@ -1268,27 +1287,20 @@ estados_sec_exc  = function(df, q, ano){
 }
 
 grafico <- estados_sec_exc(ge_2012, q1, "2012") %>%  
-bind_rows(estados_sec_exc(ge_2013, q1, "2013")) %>%
-bind_rows(estados_sec_exc(ge_2014, q1, "2014")) %>%
-bind_rows(estados_sec_exc(ge_2015, q1, "2015")) %>%
-bind_rows(estados_sec_exc(ge_2016, q1, "2016")) %>%  
-bind_rows(estados_sec_exc(ge_2017, q1, "2017")) %>%  
-bind_rows(estados_sec_exc(ge_2018, q_1,"2018")) %>%  
-bind_rows(estados_sec_exc(ge_2019, q1, "2019")) %>%  
-bind_rows(estados_sec_exc(ge_2020, q1, "2020")) %>%  
-bind_rows(estados_sec_exc(ge_2021, q1, "2021")) %>%  
-bind_rows(estados_sec_exc(ge_2022, q1, "2022")) %>%    
+  bind_rows(estados_sec_exc(ge_2013, q1, "2013")) %>%
+  bind_rows(estados_sec_exc(ge_2014, q1, "2014")) %>%
+  bind_rows(estados_sec_exc(ge_2015, q1, "2015")) %>%
+  bind_rows(estados_sec_exc(ge_2016, q1, "2016")) %>%  
+  bind_rows(estados_sec_exc(ge_2017, q1, "2017")) %>%  
+  bind_rows(estados_sec_exc(ge_2018, q_1,"2018")) %>%  
+  bind_rows(estados_sec_exc(ge_2019, q1, "2019")) %>%  
+  bind_rows(estados_sec_exc(ge_2020, q1, "2020")) %>%  
+  bind_rows(estados_sec_exc(ge_2021, q1, "2021")) %>%  
+  bind_rows(estados_sec_exc(ge_2022, q1, "2022")) %>%    
 
-
-  
-  
-
- 
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position = "dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
   geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  geom_text(aes(y=Posição, label = label_percent(accuracy = 0.1, decimal.mark = ",")(Percentual))) +
   scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
   theme(legend.position="bottom",
         legend.title = element_blank(),
@@ -1297,7 +1309,7 @@ bind_rows(estados_sec_exc(ge_2022, q1, "2022")) %>%
         axis.text.y = element_blank(),
         axis.line.x = element_line(),
         panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  guides(fill=guide_legend(nrow=2,byrow=TRUE))
 
 grafico
 
@@ -1344,7 +1356,8 @@ grafico <- ge_2022 %>%
   mutate(q1=factor(q1, levels=q1)) %>% 
   ggplot(aes(x="", y=per, fill=q1)) +
   geom_bar(stat="identity") +
-  geom_text(aes(label = percent(per)), position = position_stack(vjust = 0.5))  + 
+#  geom_text(aes(label = percent(per)), position = position_stack(vjust = 0.5))  + 
+  geom_text(aes(label = label_percent(accuracy = 0.1, decimal.mark = ",")(per)), position = position_stack(vjust = 0.5)) +
   coord_polar(theta = "y", direction = -1) +
   theme_void() +
   theme(legend.title = element_blank(),
@@ -1395,7 +1408,8 @@ grafico <- ge_2012 %>%
   mutate(q1=factor(q1, levels=q1)) %>% 
   ggplot(aes(x="", y=per, fill=q1)) +
   geom_bar(stat="identity") +
-  geom_text(aes(label = percent(per)), position = position_stack(vjust = 0.5))  + 
+#  geom_text(aes(label = percent(per)), position = position_stack(vjust = 0.5))  + 
+  geom_text(aes(label = label_percent(accuracy = 0.1, decimal.mark = ",")(per)), position = position_stack(vjust = 0.5)) +
   coord_polar(theta = "y", direction = -1) +
   theme_void() +
   theme(legend.title = element_blank(),
@@ -1443,18 +1457,12 @@ bind_rows(sec_munic_exc(gm_2016, q1, "2016")) %>%
 bind_rows(sec_munic_exc(gm_2017, q1, "2017")) %>%  
 bind_rows(sec_munic_exc(gm_2018, q_1,"2018")) %>%  
 bind_rows(sec_munic_exc(gm_2019, q1, "2019")) %>%  
- 
 
 # essa pergunta foi feita até 2019, após não se colocou mais
   
-  
-
- 
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position = "dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
   geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
+  geom_text_repel(aes(y=Posição, label = label_percent(accuracy = 0.1, decimal.mark = ",")(Percentual))) +
   scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
   theme(legend.position="bottom",
         legend.title = element_blank(),
@@ -1463,7 +1471,7 @@ bind_rows(sec_munic_exc(gm_2019, q1, "2019")) %>%
         axis.text.y = element_blank(),
         axis.line.x = element_line(),
         panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  guides(fill=guide_legend(nrow=4,byrow=TRUE))
 
 grafico
 
@@ -1486,7 +1494,8 @@ grafico <- f_selecao_regiao_ano(gm_2012, q1, "Secretaria municipal exclusiva da 
   
   ggplot(aes(x = Região, y = Percentual, group = Ano)) +
   geom_col(aes(fill = Ano), position="dodge") +
-  geom_text(aes(label = percent(Percentual), y=Percentual+.05), position = position_dodge(width = 0.9), angle = 90) +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+.05), position = position_dodge(width = 0.9), angle = 90) +
+  geom_text(aes(label = label_percent(accuracy = 0.1, decimal.mark = ",")(Percentual), y=Percentual+.05), position = position_dodge(width = 0.9), angle = 90) +
   scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
   theme(legend.position="bottom",
         legend.title = element_blank(),
@@ -1598,7 +1607,8 @@ grafico<-tabela %>%
   mutate(Ano = factor(Ano, levels = rev(levels(ordenado2)))) %>% 
   ggplot(aes(x = Categoria, y = Percentual, group = Ano)) +
   geom_col(aes(fill = Ano), position = "dodge") +
-  geom_text(aes(label = percent(Percentual), y=Percentual+0.08), position = position_dodge(width = 0.9)) +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+0.08), position = position_dodge(width = 0.9)) +
+  geom_text(aes(label = label_percent(accuracy = 0.1, decimal.mark = ",")(Percentual), y=Percentual+0.08), position = position_dodge(width = 0.9)) +
   scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
   coord_flip() +
   theme(legend.position="bottom",
@@ -5827,8 +5837,37 @@ Os trabalhadores estatutários na gestão municipal representavam 38,1% do total
 
 Em 2016, 15,2% dos trabalhadores da gestão municipal tinham nível fundamental de escolaridade (36.494 pessoas), 47,2% nível médio (113.112) e 37,6% nível superior (90.209). Da totalidade de servidores com nível fundamental de escolaridade, 43,1% eram estatutários. Entre os que tinham nível superior, 42,8% eram estatutários, e entre os trabalhadores de nível médio 40,5% eram de outros vínculos (Gráfico 62). Gráfico 62: Percentual de trabalhadores nas Secretarias Municipais de Assistência Social, segundo tipo de vínculo e escolaridade -- Brasil, 2016 Fonte: MDS, Censo SUAS.
 
-```{r uf_trab_form, fig.cap ="Percentual de trabalhadores nas Secretarias Estaduais de Assistência Social, segundo escolaridade - Brasil, 2012 a 2022" }
+```{r uf_trab_form, fig.cap ="Percentual de trabalhadores nas Secretarias Estaduais de Assistência Social, segundo escolaridade - Brasil, 2012, 2017 e 2022" }
 
+grafico <- f_nomex_somay_nomegrupo(ge_2012, "2012", q55e_1, "Nível Fundamental") %>%  
+  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "2012", q55e_2, "Nível Médio")) %>%  
+  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "2012", q55e_3, "Nível Superior")) %>%  
+
+  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "2017", q11_5_1, "Nível Fundamental")) %>%  
+  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "2017", q11_5_2, "Nível Médio")) %>%  
+  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "2017", q11_5_3, "Nível Superior")) %>% 
+
+  bind_rows(f_nomex_grupos_quantitativo(gerh_2022, "2022", d_51_9)) %>% 
+
+  f_nivel_ensino(Grupo) %>%
+  f_stack_col_percentual(Eixo_x, Eixo_y, Grupo) %>%
+
+  ggplot(aes(x = Eixo_x, y = Percentual, group = Grupo)) +
+  geom_col(aes(fill = Grupo), position = position_stack(reverse = TRUE)) +
+  geom_text(aes(y=Posição, label = percent(Percentual))) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r munic_trab_form, fig.cap =" Percentual de trabalhadores nas Secretarias municipais de Assistência Social, segundo escolaridade e profissão - Brasil, 2012 a 2022" }
