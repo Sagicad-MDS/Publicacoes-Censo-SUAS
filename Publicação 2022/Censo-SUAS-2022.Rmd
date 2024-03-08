@@ -1282,17 +1282,21 @@ f_grafico_col_quantitativo_flip = function(df, x, y, grupo){
     guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
 }
 
-f_grafico_col_stack_percent = function(df, x, y, grupo, legend_nrow){
+f_grafico_col_percent = function(df, x, y, grupo, legend_nrow){
   x <- enquo(x)
   y <- enquo(y)
   grupo <- enquo(grupo)
 
   df %>%
+    mutate(precisao = ifelse(!! y < 0.0995, 0.1, 1)) %>%
     ggplot(aes(x = !! x, y = !! y, group = !! grupo)) +
-    geom_col(aes(fill = !! grupo), position = position_stack(reverse = TRUE)) +
-    geom_text(aes(label = label_percent(accuracy = 0.1, decimal.mark = ",")(!! y)), 
-              position = position_stack(reverse = TRUE, vjust = .5)) +
-    scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+    geom_col(aes(fill = !! grupo), position = "dodge") +
+    geom_text(aes(label = label_percent(accuracy = precisao, decimal.mark = ",")(!! y)), 
+#              vjust = -0.2, 
+              hjust = -0.01, 
+              position = position_dodge(width = 0.9),
+              angle = 90) +
+    scale_y_continuous(expand = expand_scale(mult = c(0, .16))) +
     theme(legend.position="bottom",
           legend.title = element_blank(),
           axis.title = element_blank(),
@@ -1300,23 +1304,45 @@ f_grafico_col_stack_percent = function(df, x, y, grupo, legend_nrow){
           axis.text.y = element_blank(),
           axis.line.x = element_line(),
           panel.background = element_blank()) +
-    guides(fill=guide_legend(nrow=legend_nrow,byrow=TRUE))
+    guides(fill=guide_legend(nrow=legend_nrow, byrow=TRUE))
 }
 
-f_grafico_col_stack_percent_repel = function(df, x, y, grupo, legend_nrow){
+f_grafico_col_percent_flip = function(df, x, y, grupo, legend_nrow){
   x <- enquo(x)
   y <- enquo(y)
   grupo <- enquo(grupo)
 
   df %>%
+    mutate(precisao = ifelse(!! y < 0.0995, 0.1, 1)) %>%
+    ggplot(aes(x = !! x, y = !! y, group = !! grupo)) +
+    geom_col(aes(fill = !! grupo), position = "dodge") +
+    geom_text(aes(label = label_percent(accuracy = precisao, decimal.mark = ",")(!! y)), 
+              hjust = -0.05, 
+              position = position_dodge(width = 0.9)) +
+    scale_y_continuous(expand = expand_scale(mult = c(0, .15))) +
+    coord_flip() +
+    theme(legend.position="bottom",
+          legend.title = element_blank(),
+          axis.title = element_blank(),
+          axis.ticks = element_blank(),
+          axis.text.x = element_blank(),
+          axis.line.y = element_line(),
+          panel.background = element_blank()) +
+    guides(fill=guide_legend(nrow=legend_nrow, byrow=TRUE, reverse=TRUE))
+}
+
+f_grafico_col_stack_percent = function(df, x, y, grupo, legend_nrow){
+  x <- enquo(x)
+  y <- enquo(y)
+  grupo <- enquo(grupo)
+
+  df %>%
+    mutate(precisao = ifelse(!! y < 0.0995, 0.1, 1)) %>%
     ggplot(aes(x = !! x, y = !! y, group = !! grupo)) +
     geom_col(aes(fill = !! grupo), position = position_stack(reverse = TRUE)) +
-    geom_text_repel(aes(label = label_percent(accuracy = 0.1, decimal.mark = ",")(!! y)), 
+    geom_text_repel(aes(label = ifelse(!! y > 0.0005, label_percent(accuracy = precisao, decimal.mark = ",")(!! y), "")), 
                     position = position_stack(reverse = TRUE, vjust = .5), 
-                    direction = "y", 
-                    point.padding = NA, 
-                    box.padding = 0, 
-                    force = 0.0005) +
+                    point.size = NA) + 
     scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
     theme(legend.position="bottom",
           legend.title = element_blank(),
@@ -1334,9 +1360,10 @@ f_grafico_col_stack_percent_flip = function(df, x, y, grupo){
   grupo <- enquo(grupo)
 
   df %>%
+    mutate(precisao = ifelse(!! y < 0.0995, 0.1, 1)) %>%
     ggplot(aes(x = !! x, y = !! y)) +
     geom_col(aes(fill = !! grupo), position = position_stack(reverse = TRUE)) +
-    geom_text(aes(label = label_percent(accuracy = 1, decimal.mark = ",")(!! y)), 
+    geom_text(aes(label = ifelse(!! y > 0.0005, label_percent(accuracy = precisao, decimal.mark = ",")(!! y), "")), 
               position = position_stack(reverse = TRUE, vjust = .5)) +
     scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
     coord_flip() +
@@ -1355,14 +1382,12 @@ f_grafico_col_stack_percent_flip_repel = function(df, x, y, grupo){
   grupo <- enquo(grupo)
 
   df %>%
+    mutate(precisao = ifelse(!! y < 0.0995, 0.1, 1)) %>%
     ggplot(aes(x = !! x, y = !! y)) +
     geom_col(aes(fill = !! grupo), position = position_stack(reverse = TRUE)) +
-    geom_text_repel(aes(label = label_percent(accuracy = 0.1, decimal.mark = ",")(!! y)), 
+    geom_text_repel(aes(label = ifelse(!! y > 0.0005, label_percent(accuracy = precisao, decimal.mark = ",")(!! y), "")), 
                     position = position_stack(reverse = TRUE, vjust = .5),
-                    direction = "y", 
-                    point.padding = NA, 
-                    box.padding = 0, 
-                    force = 0.0005) +
+                    point.size = NA) + 
     scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
     coord_flip() +
     theme(legend.position="bottom",
@@ -1372,29 +1397,6 @@ f_grafico_col_stack_percent_flip_repel = function(df, x, y, grupo){
           axis.text.x = element_blank(),
           axis.line.y = element_line(),
           panel.background = element_blank())
-}
-
-f_grafico_col_percent_flip = function(df, x, y, grupo, legend_nrow){
-  x <- enquo(x)
-  y <- enquo(y)
-  grupo <- enquo(grupo)
-
-  df %>%
-    ggplot(aes(x = !! x, y = !! y, group = !! grupo)) +
-    geom_col(aes(fill = !! grupo), position = "dodge") +
-    geom_text(aes(label = label_percent(accuracy = 0.1, decimal.mark = ",")(!! y)), 
-              hjust = -0.05, 
-              position = position_dodge(width = 0.9)) +
-    scale_y_continuous(expand = expand_scale(mult = c(0, .16))) +
-    coord_flip() +
-    theme(legend.position="bottom",
-          legend.title = element_blank(),
-          axis.title = element_blank(),
-          axis.ticks = element_blank(),
-          axis.text.x = element_blank(),
-          axis.line.y = element_line(),
-          panel.background = element_blank()) +
-    guides(fill=guide_legend(nrow=legend_nrow, byrow=TRUE, reverse=TRUE))
 }
 
 ```
@@ -1594,7 +1596,7 @@ bind_rows(sec_munic_exc(gm_2019, q1, "2019")) %>%
 
 # essa pergunta foi feita até 2019, após não se colocou mais
 
-  f_grafico_col_stack_percent_repel(Categoria, Percentual, Nível, 4)
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 4)
 
 grafico
 
@@ -2171,7 +2173,7 @@ grafico <- f_sim_nao(ge_2012,q8,"2012") %>%
   
   #anos que as questões mudam: 2016, 2017,2018,2019
 
-  f_grafico_col_stack_percent_repel(Categoria, Percentual, Nível, 1)
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
  
 grafico
 
@@ -2195,7 +2197,7 @@ grafico <- f_sim_nao(ge_2013, q85, "2013") %>%
   
   #2012 não tem essa pergunta
   
-  f_grafico_col_stack_percent_repel(Categoria, Percentual, Nível, 1)
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
  
 grafico
 
@@ -2495,7 +2497,7 @@ grafico <- f_sim_nao(gm_2020, q7_5, "2020") %>%
   
   #a partir de 2020 a pergunta foi alterada, impossibilitando a linha histórica
   
-  f_grafico_col_stack_percent_repel(Categoria, Percentual, Nível, 1)
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
  
 grafico
 
@@ -2554,7 +2556,7 @@ grafico <- ge_cofinanciamento(ge_2012, q64_0, "2012", codigo_ibge) %>%
   bind_rows(ge_cofinanciamento(feas_2021, q9, "2021", IBGE)) %>%
   bind_rows(ge_cofinanciamento(feas_2022, q9, "2022", IBGE)) %>%
 
-  f_grafico_col_stack_percent_repel(Categoria, Percentual, Nível, 1)
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
 
 grafico
 
@@ -2815,7 +2817,7 @@ grafico <- ord_despesa(ge_2012, q44, "2012") %>%
   bind_rows(ord_despesa(feas_2021, q2, "2021")) %>%
   bind_rows(ord_despesa(feas_2022, q2, "2022")) %>% 
   
- f_grafico_col_stack_percent_repel(Categoria, Percentual, Nível, 2)
+ f_grafico_col_stack_percent(Categoria, Percentual, Nível, 2)
 
 grafico
 
@@ -2877,7 +2879,7 @@ grafico <- ord_despesa(gm_2012, q28, "2012") %>%
   
   #2019 - FMAS base númerica - Solicitei substituição a Dionara
 
-  f_grafico_col_stack_percent_repel(Categoria, Percentual, Nível, 4)
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 4)
   
 grafico
 
@@ -2973,7 +2975,7 @@ grafico <- nuep(ge_2020, q47, "2020") %>%
   
   #pergunta sugiu a partir de 2020
   
-  f_grafico_col_stack_percent_repel(Categoria, Percentual, Nível, 1)
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
  
 grafico
 
@@ -2996,7 +2998,7 @@ grafico <- f_sim_nao(gm_2015, q40, "2015") %>%
   #2020 a base de dados não computou essa resposta - problemas de mineração (Dionada relatou).
   #para os estados não há essa pergunta
   
-  f_grafico_col_stack_percent_repel(Categoria, Percentual, Nível, 1)
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
  
 grafico
 
@@ -3100,7 +3102,7 @@ grafico <- f_sim_nao(ge_2012, q33, "2012") %>%
   
   #até 2019 a pergunta era execução própria, transferencia de renda e, a partir de 2020 a pergunta muda para programas de execução própria
   
-  f_grafico_col_stack_percent_repel(Categoria, Percentual, Nível, 1)
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
  
 grafico
 
@@ -3115,7 +3117,7 @@ grafico <- f_sim_nao(ge_2020, q11_1, "2020") %>%
    bind_rows(f_sim_nao(ge_2021, q11_1, "2021")) %>%
    bind_rows(f_sim_nao(ge_2022, q11_1, "2022")) %>%
   
-   f_grafico_col_stack_percent_repel(Categoria, Percentual, Nível, 1)
+   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
  
 grafico
 
@@ -3404,7 +3406,7 @@ grafico <- f_sim_nao(posto_cadunico_2020,q20_1,"2020") %>%
         #f_sim_nao(f_sim_nao(posto_cadunico_2022, q20_3, "2022"))%>%
         #f_sim_nao(f_sim_nao(posto_cadunico_2022, q20_3, "2022"))%>%
   
-  f_grafico_col_stack_percent_repel(Categoria, Percentual, Nível, 1)
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
  
 grafico
 
@@ -3611,7 +3613,7 @@ grafico <- igd_pbf(posto_cadunico_2020, q29, "2020") %>%
    bind_rows(igd_pbf(posto_cadunico_2021, q29, "2021")) %>% 
    bind_rows(igd_pbf(posto_cadunico_2022, q29, "2022")) %>% 
   
-  f_grafico_col_stack_percent_repel(Categoria, Percentual, Nível, 4)
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 4)
   
 grafico
 
@@ -3631,7 +3633,7 @@ grafico <- f_sim_nao(posto_cadunico_2020, q39_1, "2020") %>%
   bind_rows(f_sim_nao(posto_cadunico_2021, q39_1, "2021"))%>%
   bind_rows(f_sim_nao(posto_cadunico_2022, q39_1, "2022"))%>%
   
-  f_grafico_col_stack_percent_repel(Categoria, Percentual, Nível, 1)
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
 
 grafico
 
@@ -3656,7 +3658,7 @@ Destaca-se também um tópico novo e de importancia para gestão de informação
 
 Essa seção apresenta informações sobre as unidades físicas do SUAS e sua evolução ao longo do tempo. Esse item contempla as seguintes informações: a) quantidade de unidades administrativas da rede socioassistencial, b) informações sobre acessibilidade, c) situação do imovél, d) disponibilidade de equipamentos como computador com acesso a internet.
 
-### Centros de Referência de Assistência Social (CRAS)
+## Centros de Referência de Assistência Social (CRAS)
 
 Os Centros de Referência de Assistência Social (CRAS) são definidos pelo artigo 6º-C da Lei Orgânica de Assistência Social (LOAS) como unidades públicas municipais destinadas à prestação de serviços, programas de projetos da proteção social básica às famílias, devendo se localizar em áreas com maiores índices de vulnerabilidade e risco social.
 
@@ -3775,18 +3777,7 @@ grafico <- dados %>%
   group_by(Porte) %>% 
   mutate("Percentual" = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n))) %>% 
 
-  ggplot(aes(x = Porte, y = Percentual, group = grupo)) +
-  geom_col(aes(fill = grupo), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=2,byrow=TRUE))
+  f_grafico_col_stack_percent(Porte, Percentual, grupo, 2)
 
 grafico
 
@@ -3822,20 +3813,9 @@ grafico <- f_equip_imovel(cras_2008, `situacao_imovel`, "2008") %>%
   #2018 não fazem essa pergunta
   #2019 não fazem essa pergunta
   #2020
-  
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+  
 grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
@@ -3901,19 +3881,7 @@ ordenado2<-factor(ordenado2, levels = ordenado2$Ano)
 grafico<-tabela %>% 
   mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
   mutate(Ano = factor(Ano, levels = rev(levels(ordenado2)))) %>% 
-  ggplot(aes(x = Categoria, y = Percentual, group = Ano)) +
-  geom_col(aes(fill = Ano), position = "dodge") +
-  geom_text(aes(label = label_percent(accuracy = 0.1, decimal.mark = ",")(Percentual)), hjust = -0.05, position = position_dodge(width = 0.9)) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .15))) +
-  coord_flip() +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.x = element_blank(),
-        axis.line.y = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
+  f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
 
@@ -3952,18 +3920,7 @@ ordenado<-factor(ordenado, levels = ordenado$Categoria)
 
 grafico<-tabela %>% 
   mutate(Categoria = factor(Categoria, levels = rev(levels(ordenado)))) %>% 
-  ggplot(aes(x = Situacao, y = Percentual, group = Categoria)) +
-  geom_col(aes(fill = Categoria), position = "dodge") +
-  geom_text(aes(label = label_percent(accuracy = 0.1, decimal.mark = ",")(Percentual)), vjust = -0.2, position = position_dodge(width = 0.9)) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=4, byrow=TRUE))
+  f_grafico_col_percent(Situacao, Percentual, Categoria, 4)
 
 grafico
 
@@ -4058,18 +4015,7 @@ grafico <- f_maior0_regiao_ano(cras_2007, `Acesso a Internet`, ibge, "2007") %>%
   bind_rows(f_maior0_regiao_ano(cras_2017, q12.2, Região, "2017")) %>% 
   bind_rows(f_maior0_regiao_ano(cras_2022, q11_2, IBGE, "2022")) %>% 
 
-  ggplot(aes(x = Região, y = Percentual, group = Ano)) +
-  geom_col(aes(fill = Ano), position="dodge") +
-  geom_text(aes(label = percent(Percentual), y=Percentual+.01), position = position_dodge(width = 0.9), angle = 90) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  f_grafico_col_percent(Região, Percentual, Ano, 1)
 
 grafico
 
@@ -4127,7 +4073,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-### Centros de Convivência
+## Centros de Convivência
 
 Os Centros de Convivência, juntamente com os Centros de Referência de Assistência Social (CRAS), são unidades que executam o Serviço de Convivência e Fortalecimento de Vínculos e compõem a Rede de Proteção Social Básica. Desde 2014 o número de Centros de Convivência no Brasil aumentou, passando de 7.882 unidades em 2014 para 8.454 em 2016, em um acréscimo de 572 unidades. A região Norte tem a menor quantidade de unidades (238 ou 2,8% do total), seguida do Centro-Oeste com 568 Unidades (ou 6,7% do total). A região Sudeste tem o maior número de Centros de Convivência, com 4.035 Unidades (47,7% do total)
 
@@ -4152,7 +4098,7 @@ Os Centros de Convivência podem ser unidades públicas ou vinculadas a entidade
 
 Em 2016, 31,2% dos Centros de Convivência (2.636 unidades) possuíam rota acessível ao banheiro de acordo com a norma da ABNT (NBR9050), sendo a adaptação mais observada nas unidades. Todas as condições de acessibilidade melhoraram em relação aos anos anteriores, e o maior aumento foi verificado no percentual de Centros de Convivência com banheiros adaptados para pessoas com deficiência: estavam presentes em 24,3% das unidades em 2014 (1.918) e passaram a ser observados em 28,3% das unidades em 2016 (2.389) (Gráfico 30).
 
-### Centro de Referência Especializada de Assistência Social -- CREAS
+## Centro de Referência Especializada de Assistência Social -- CREAS
 
 ```{r creas-quantitativo, fig.cap = "Evolução do quantitativo de CREAS, segundo grandes regiões; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -4215,18 +4161,7 @@ grafico <- dados %>%
   group_by(Porte) %>% 
   mutate("Percentual" = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n))) %>% 
 
-  ggplot(aes(x = Porte, y = Percentual, group = grupo)) +
-  geom_col(aes(fill = grupo), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=2,byrow=TRUE))
+  f_grafico_col_stack_percent(Porte, Percentual, grupo, 2)
 
 grafico
 
@@ -4248,20 +4183,8 @@ grafico <- f_equip_imovel(creas_2012, q5, "2012") %>%
   bind_rows(f_equip_imovel(creas_2017, q4, "2017")) %>%
   bind_rows(f_equip_imovel(creas_2022, q3, "2022")) %>%
  
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
   
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
-
 grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
@@ -4309,19 +4232,7 @@ ordenado2<-factor(ordenado2, levels = ordenado2$Ano)
 grafico<-tabela %>% 
   mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
   mutate(Ano = factor(Ano, levels = rev(levels(ordenado2)))) %>% 
-  ggplot(aes(x = Categoria, y = Percentual, group = Ano)) +
-  geom_col(aes(fill = Ano), position = "dodge") +
-  geom_text(aes(label = label_percent(accuracy = 0.1, decimal.mark = ",")(Percentual)), hjust = -0.05, position = position_dodge(width = 0.9)) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .15))) +
-  coord_flip() +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.x = element_blank(),
-        axis.line.y = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
+  f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
 
@@ -4344,18 +4255,7 @@ ordenado<-factor(ordenado, levels = ordenado$Categoria)
 
 grafico<-tabela %>% 
   mutate(Categoria = factor(Categoria, levels = rev(levels(ordenado)))) %>% 
-  ggplot(aes(x = Situacao, y = Percentual, group = Categoria)) +
-  geom_col(aes(fill = Categoria), position = "dodge") +
-  geom_text(aes(label = label_percent(accuracy = 0.1, decimal.mark = ",")(Percentual)), vjust = -0.2, position = position_dodge(width = 0.9)) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=4, byrow=TRUE))
+  f_grafico_col_percent(Situacao, Percentual, Categoria, 4)
 
 grafico
 
@@ -4371,21 +4271,10 @@ A existência de computadores com acesso à internet é um importante aspecto a 
 
 
 grafico <- f_maior0_regiao_ano(creas_2012, q14, Região, "2012") %>% 
-   bind_rows(f_maior0_regiao_ano(creas_2017, q13, IBGE, "2017")) %>% 
-   bind_rows(f_maior0_regiao_ano(creas_2022, q13, IBGE, "2022")) %>% 
+  bind_rows(f_maior0_regiao_ano(creas_2017, q13, IBGE, "2017")) %>% 
+  bind_rows(f_maior0_regiao_ano(creas_2022, q13, IBGE, "2022")) %>% 
 
-  ggplot(aes(x = Região, y = Percentual, group = Ano)) +
-  geom_col(aes(fill = Ano), position="dodge") +
-  geom_text(aes(label = percent(Percentual), y=Percentual+.01), position = position_dodge(width = 0.9), angle = 90) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  f_grafico_col_percent(Região, Percentual, Ano, 1)
 
 grafico
 
@@ -4400,7 +4289,7 @@ Entre 2009 a 2014, o Censo SUAS registrou redução na proporção de CREAS func
 
 =======
 
-```{r creas-qtd_munic, fig.cap = "Evolução do quantitativo de CREAS; Brasil e grandes regiões; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r creas-qtd_munic, fig.cap = "Evolução do quantitativo de CREAS; Brasil e grandes regiões; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
 
 #grafico <- f_percentual_municipios_regiao_ano(creas_2007, ibge, "2007") %>%
 #  bind_rows(f_percentual_municipios_regiao_ano(creas_2008, IBGE, "2008")) %>% 
@@ -4511,7 +4400,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-### Centro de Referência Especializado para População em Situação de Rua -- Centro POP
+## Centro de Referência Especializado para População em Situação de Rua -- Centro POP
 
 Os Centros de Referência Especializados para População em Situação de Rua (Centros POP) são unidades públicas que oferecem atendimento especializado para a população em situação de rua, no âmbito da proteção social especial de média complexidade.
 
@@ -4548,7 +4437,7 @@ Em 2016, dos 58 Centros POP que funcionavam em imóveis próprios, 34,5% (20 uni
 
 Considerando que os Centros POP servem de apoio para que os usuários possam realizar atividades relacionadas à alimentação, higiene pessoal, guarda de pertences e outras, é importante que estejam equipados de forma a viabilizar essas atividades. Em 2016, 97,4% dos Centros POP possuíam geladeira e 91,7% possuíam fogão, 65,7%, possuíam armários de uso individual e 43,9% dispunham de máquina de lavar roupas. Todos os percentuais aumentaram em relação a 2015 (Gráfico 41). Gráfico 41: Percentual de Centros POP que possuem armários de uso individualizado, geladeira, fogão e máquina de lavar roupas -- Brasil, 2015 e 2016 Fonte: MDS, Censo SUAS.
 
-```{r cpop-porte, fig.cap = "Percentual de municípios por número de CENTRO POP, segundo porte populacional - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios"}
+```{r cpop-porte, fig.cap = "Percentual de municípios por número de Centro POP, segundo porte populacional - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios"}
 
 cpop_municipios <- cpop_2022 %>%
   select(IBGE7) %>%
@@ -4562,20 +4451,20 @@ porte_municipios <- pop_municipios_2017 %>%
 
 dados <- cpop_municipios %>%
   full_join(porte_municipios, by = c("IBGE7" = "IBGE7")) %>%
-  mutate(grupo = case_when(is.na(n_centropop)~"Nenhum CENTRO POP",
-                            n_centropop == 0~"Nenhum CENTRO POP",
-                            n_centropop == 1~"1 CENTRO POP",
-                            n_centropop <= 3~"De 2 a 3 CENTRO POP",
-                            n_centropop <= 6~"De 4 a 6 CENTRO POP",
-                            n_centropop <= 10~"De 7 a 10 CENTRO POP",
-                            n_centropop > 10~"Mais de 10 CENTRO POP",
+  mutate(grupo = case_when(is.na(n_centropop)~"Nenhum Centro POP",
+                            n_centropop == 0~"Nenhum Centro POP",
+                            n_centropop == 1~"1 Centro POP",
+                            n_centropop <= 3~"De 2 a 3 Centro POP",
+                            n_centropop <= 6~"De 4 a 6 Centro POP",
+                            n_centropop <= 10~"De 7 a 10 Centro POP",
+                            n_centropop > 10~"Mais de 10 Centro POP",
                             TRUE~as.character(n_centropop))) %>%
-  mutate(grupo = factor(grupo, levels = c("Nenhum CENTRO POP",
-                                            "1 CENTRO POP",
-                                            "De 2 a 3 CENTRO POP",
-                                            "De 4 a 6 CENTRO POP",
-                                            "De 7 a 10 CENTRO POP",
-                                            "Mais de 10 CENTRO POP"))) %>% 
+  mutate(grupo = factor(grupo, levels = c("Nenhum Centro POP",
+                                            "1 Centro POP",
+                                            "De 2 a 3 Centro POP",
+                                            "De 4 a 6 Centro POP",
+                                            "De 7 a 10 Centro POP",
+                                            "Mais de 10 Centro POP"))) %>% 
   group_by(Porte, grupo) %>%
   summarise(n=n()) #%>%
 #  complete(grupo, fill = list(n=0))
@@ -4592,18 +4481,7 @@ grafico <- dados %>%
   group_by(Porte) %>% 
   mutate("Percentual" = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n))) %>% 
 
-  ggplot(aes(x = Porte, y = Percentual, group = grupo)) +
-  geom_col(aes(fill = grupo), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=2,byrow=TRUE))
+  f_grafico_col_stack_percent(Porte, Percentual, grupo, 2)
 
 grafico
 
@@ -4707,7 +4585,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-### Centro-Dia
+## Centro-Dia
 
 O Centro-Dia é uma unidade pública especializada que atende pessoas com deficiência e suas famílias, no âmbito da proteção social especial de média complexidade.
 
@@ -4777,20 +4655,20 @@ porte_municipios <- pop_municipios_2017 %>%
 
 dados <- unac_municipios %>%
   full_join(porte_municipios, by = c("IBGE7" = "IBGE7")) %>%
-  mutate(grupo = case_when(is.na(n_unac)~"Nenhum UNIDADE ACOLHIMENTO",
-                            n_unac == 0~"Nenhum UNIDADE ACOLHIMENTO",
-                            n_unac == 1~"1 UNIDADE ACOLHIMENTO",
-                            n_unac <= 3~"De 2 a 3 UNIDADE ACOLHIMENTO",
-                            n_unac <= 6~"De 4 a 6 UNIDADE ACOLHIMENTO",
-                            n_unac <= 10~"De 7 a 10 UNIDADE ACOLHIMENTO",
-                            n_unac > 10~"Mais de 10 UNIDADE ACOLHIMENTO",
+  mutate(grupo = case_when(is.na(n_unac)~"Nenhuma Unidade de Acolhimento",
+                            n_unac == 0~"Nenhuma Unidade de Acolhimento",
+                            n_unac == 1~"1 Unidade de Acolhimento",
+                            n_unac <= 3~"De 2 a 3 Unidades de Acolhimento",
+                            n_unac <= 6~"De 4 a 6 Unidades de Acolhimento",
+                            n_unac <= 10~"De 7 a 10 Unidades de Acolhimento",
+                            n_unac > 10~"Mais de 10 Unidades de Acolhimento",
                             TRUE~as.character(n_unac))) %>%
-  mutate(grupo = factor(grupo, levels = c("Nenhum UNIDADE ACOLHIMENTO",
-                                            "1 UNIDADE ACOLHIMENTO",
-                                            "De 2 a 3 UNIDADE ACOLHIMENTO",
-                                            "De 4 a 6 UNIDADE ACOLHIMENTO",
-                                            "De 7 a 10 UNIDADE ACOLHIMENTO",
-                                            "Mais de 10 UNIDADE ACOLHIMENTO"))) %>% 
+  mutate(grupo = factor(grupo, levels = c("Nenhuma Unidade de Acolhimento",
+                                            "1 Unidade de Acolhimento",
+                                            "De 2 a 3 Unidades de Acolhimento",
+                                            "De 4 a 6 Unidades de Acolhimento",
+                                            "De 7 a 10 Unidades de Acolhimento",
+                                            "Mais de 10 Unidades de Acolhimento"))) %>% 
   group_by(Porte, grupo) %>%
   summarise(n=n()) #%>%
 #  complete(grupo, fill = list(n=0))
@@ -4807,18 +4685,7 @@ grafico <- dados %>%
   group_by(Porte) %>% 
   mutate("Percentual" = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n))) %>% 
 
-  ggplot(aes(x = Porte, y = Percentual, group = grupo)) +
-  geom_col(aes(fill = grupo), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=2,byrow=TRUE))
+  f_grafico_col_stack_percent(Porte, Percentual, grupo, 3)
 
 grafico
 
@@ -4999,19 +4866,8 @@ ordenado2<-factor(ordenado2, levels = ordenado2$Ano)
 grafico<-tabela %>% 
   mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
   mutate(Ano = factor(Ano, levels = rev(levels(ordenado2)))) %>% 
-  ggplot(aes(x = Categoria, y = Percentual, group = Ano)) +
-  geom_col(aes(fill = Ano), position = "dodge") +
-  geom_text(aes(label = label_percent(accuracy = 0.1, decimal.mark = ",")(Percentual)), hjust = -0.05, position = position_dodge(width = 0.9)) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .15))) +
-  coord_flip() +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.x = element_blank(),
-        axis.line.y = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
+
+  f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
 
@@ -5036,18 +4892,8 @@ ordenado<-factor(ordenado, levels = ordenado$Categoria)
 
 grafico<-tabela %>% 
   mutate(Categoria = factor(Categoria, levels = rev(levels(ordenado)))) %>% 
-  ggplot(aes(x = Situacao, y = Percentual, group = Categoria)) +
-  geom_col(aes(fill = Categoria), position = "dodge") +
-  geom_text(aes(label = label_percent(accuracy = 0.1, decimal.mark = ",")(Percentual)), vjust = -0.2, position = position_dodge(width = 0.9)) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=4, byrow=TRUE))
+  
+  f_grafico_col_percent(Situacao, Percentual, Categoria, 4)
 
 grafico
 
@@ -5061,20 +4907,9 @@ Em relação a computadores com acesso a internet, é indicador bem presente
 grafico <- f_maior0_regiao_ano(posto_cadunico_2020, q10_2, IBGE, "2020") %>% 
   bind_rows(f_maior0_regiao_ano(posto_cadunico_2021, q10_2, IBGE, "2021")) %>% 
   bind_rows(f_maior0_regiao_ano(posto_cadunico_2022, q10_2, IBGE, "2022")) %>% 
-  
-  ggplot(aes(x = Região, y = Percentual, group = Ano)) +
-  geom_col(aes(fill = Ano), position="dodge") +
-  geom_text(aes(label = percent(Percentual), y=Percentual+.01), position = position_dodge(width = 0.9), angle = 90) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
+  f_grafico_col_percent(Região, Percentual, Ano, 1)
+  
 grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
@@ -5082,7 +4917,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 # Serviços e Benefícios ofertados pelo SUAS
 
-### Proteção Social
+## Proteção Social
 
 A assistência social organiza-se por dois tipos de proteção: a proteção social básica, definida no artigo 6º-A da Lei Orgânica da Assistência Social (LOAS) como um "conjunto de serviços, programas, projetos e benefícios da assistência social que visa a prevenir situações de vulnerabilidade e risco social por meio do desenvolvimento de potencialidades e aquisições e do fortalecimento de vínculos familiares e comunitários" e a proteção social especial, definida como "conjunto de serviços, programas e projetos que tem por objetivo contribuir para a reconstrução de vínculos familiares e comunitários, a defesa de direito, o fortalecimento das potencialidades e aquisições e a proteção de famílias e indivíduos para o enfrentamento das situações de violação de direitos"\footnote{Lei nº 8.742, de 7 de dezembro de 1993 (Lei Orgânica da Assistência Social): Dispõe sobre a organização da Assistência Social e dá outras providências (\url{http://www.planalto.gov.br/ccivil_03/Leis/L8742compilado.htm}).}.
 
@@ -5317,7 +5152,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 Os CREAS atendem a população que se encontra em risco pessoal ou social ou que teve seus direitos violados e atuam na orientação e encaminhamento das pessoas e famílias para os demais serviços da assistência social ou de outras áreas. Assim, a articulação com serviços, programas ou instituições no município para encaminhamento de famílias e indivíduos que estejam em atendimento nos CREAS é fundamental. <!-- Em 2016, apenas 0,3% dos CREAS não tinham nenhuma articulação com os CRAS e 0,1% informaram não ter a instituição no município. Assim, 99,6% dos CREAS mantinham alguma articulação com os CRAS, sendo os maiores percentuais observados em relação à existência de dados atualizados dos parceiros com quem o CREAS mantém articulação (98,1%), ao recebimento de usuários encaminhados pelos CREAS (97,9%) e ao recebimento de usuários encaminhados para os CREAS (97,0%). --> <!-- Sobre a articulação com o Conselho Tutelar, 0,6% dos CREAS informaram não ter nenhuma articulação e 0,2% informaram que não havia a instituição no município. Dessa forma, 99,2% dos CREAS informaram ter alguma articulação com o Conselho Tutelar, sendo os maiores percentuais observados em relação à posse de dados atualizados (97,9%) e o encaminhamento de usuários para os CREAS (96,2%). --> <!-- Os menores percentuais de articulação foram observados em relação aos Centros-Dia (80,8% dos CREAS informaram não haver o serviço no município e 5,6% que não se articulam com essas Unidade) e aos Centros POP (74,5% dos CREAS informaram que não havia serviço ou instituição no município e 3,5% que não se articulavam com essas unidades). --> <!-- 19,9% dos CREAS informaram não ter nenhuma articulação com serviços/ programas de segurança alimentar e 18,0% não se articular com Instituições de Ensino e Pesquisa (Tabela 6). -->
 
-#Proteção Social Especial de Alta Complexidade
+## Proteção Social Especial de Alta Complexidade
 
 ```{r unac-natureza-publico, fig.cap = "Percentual de Unidades de Acolhimento segundo natureza da unidade - Brasil, 2014 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -5556,7 +5391,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-## Gestão do Trabalho e recursos Humanos no SUAS
+# Gestão do Trabalho e recursos Humanos no SUAS
 
 A qualidade da oferta de serviços, programas e benefícios da assistência social está diretamente ligada a uma adequada gestão do trabalho no âmbito do SUAS. O dimensionamento das equipes, a capacitação dos profissionais e a estruturação das condições de trabalho são fundamentais nesse sentido. Um importante normativo para a gestão do trabalho é Norma Operacional Básica de Recursos Humanos do SUAS (NOB-RH/SUAS)13, que traz orientações e diretrizes, além de detalhamentos importantes sobre as equipes de referência, planos de carreira, cargos e salários, cofinanciamento, educação permanente, entre outros aspectos relevantes. Esta seção apresenta um panorama geral da situação das trabalhadoras e trabalhadores do SUAS, tanto nos equipamentos da assistência social quanto nas gestões municipais e estaduais, apresentando informações sobre quantitativo, tipo de vínculo trabalhista, escolaridade, entre outros aspectos referentes à gestão do trabalho, e sua evolução ao longo dos anos. Em 2016, as Gestões Municipais informaram ter 239.815 trabalhadoras e trabalhadores exercendo funções/atividades ligadas à assistência social (inclusive aqueles lotados nas unidades públicas), o menor número desde 2012. Observando a série histórica é possível verificar que o número máximo de trabalhadores foi registrado no ano de 2014, após sucessivos crescimentos desde 2010. Desde de 2015 esse número se reduziu, registrando em 2016 cerca de 17.000 trabalhadores a menos que em 2014 (Gráfico 60). Gráfico 60: Evolução da quantidade de trabalhadores nas Secretarias Municipais de Assistência Social - Brasil, 2010 a 2016 Fonte: MDS, Censo SUAS.
 
