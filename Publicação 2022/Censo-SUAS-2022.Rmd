@@ -1235,7 +1235,6 @@ f_nivel_ensino = function(df, nivel_ensino){
                                         TRUE ~ !! nivel_ensino))
 }
 
-
 f_grafico_col_quantitativo = function(df, x, y, grupo){
   x <- enquo(x)
   y <- enquo(y)
@@ -1354,7 +1353,7 @@ f_grafico_col_stack_percent = function(df, x, y, grupo, legend_nrow){
     guides(fill=guide_legend(nrow=legend_nrow,byrow=TRUE))
 }
 
-f_grafico_col_stack_percent_flip = function(df, x, y, grupo){
+f_grafico_col_stack_percent_flip = function(df, x, y, grupo, legend_nrow){
   x <- enquo(x)
   y <- enquo(y)
   grupo <- enquo(grupo)
@@ -1373,7 +1372,8 @@ f_grafico_col_stack_percent_flip = function(df, x, y, grupo){
           axis.ticks = element_blank(),
           axis.text.x = element_blank(),
           axis.line.y = element_line(),
-          panel.background = element_blank())
+          panel.background = element_blank()) +
+    guides(fill=guide_legend(nrow=legend_nrow,byrow=TRUE))
 }
 
 f_grafico_col_stack_percent_flip_repel = function(df, x, y, grupo){
@@ -1829,7 +1829,7 @@ grafico<-tabela %>%
   ungroup() %>% 
   mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
   mutate(Nível=str_wrap(Nível,width=22)) %>% 
-  f_grafico_col_stack_percent_flip(Categoria, Percentual, Nível)
+  f_grafico_col_stack_percent_flip(Categoria, Percentual, Nível, 1)
 
 grafico
 
@@ -2000,7 +2000,7 @@ grafico<-tabela %>%
   ungroup() %>% 
   mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
   mutate(Nível=str_wrap(Nível,width=22)) %>% 
-  f_grafico_col_stack_percent_flip(Categoria, Percentual, Nível)
+  f_grafico_col_stack_percent_flip(Categoria, Percentual, Nível, 1)
 
 grafico
 
@@ -4951,20 +4951,7 @@ grafico <- f_sim_nao(cras_2014, q19, "2014") %>%
   
  # em 2020 CRAS base estar númerica
   
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position = "dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
 
 grafico
 
@@ -4990,22 +4977,8 @@ grafico <- f_sim_nao(cras_2018, q_24, "2018") %>%
   # essa pergunta  SURGE A PARTIR DE 2018
   # CRAS 2020 a base estar númerica - solicitei ;Dionara a atualziação no site
   
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
   
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position = "dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
-
 grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
@@ -5078,20 +5051,7 @@ grafico <- f_sim_nao(creas_2016, q38, "2016") %>%
   
  # partir de 2018 muda as respostas, padronizar
   
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position = "dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
 
 grafico
 
@@ -5130,20 +5090,7 @@ grafico <- creas_psee(creas_2018, q35, "2018") %>%
  #antes de 2018 as respostas é sim e não;
  #em 2021 é alterada as categorias das respostas
   
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position = "dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 4)
 
 grafico
 
@@ -5229,28 +5176,11 @@ grafico <- f_sim_nao(cras_2022, q65_1_1, "2022") %>%
   
   #tentar computar a parte em branco ou colocar em quantidade
   
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
  
-  
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position = "dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
-
 grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-
-
 ```
 
 ```{r povos-tradicionais, fig.cap = "Percentual de CREAS que atendem povos e comunidades tradicionais -  por grupos , Região - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -5263,18 +5193,7 @@ grafico <- f_selecao_regiao_ano (creas_2022, q52_1, "Sim", Região, "Povos Indí
     bind_rows(f_selecao_regiao_ano(creas_2022, q52_6, "Sim", Região, "Comunidades Extrativistas")) %>% 
     #bind_rows(f_selecao_regiao_ano(creas_2022, q52_99, "Sim", Região, "outros povos e comunidades tradicionais")) %>% 
   
-  ggplot(aes(x = Região, y = Percentual, group = Ano)) +
-  geom_col(aes(fill = Ano), position="dodge") +
-  geom_text(aes(label = percent(Percentual), y=Percentual+.05), position = position_dodge(width = 0.9), angle = 90) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  f_grafico_col_percent(Região, Percentual, Ano, 2)
 
 grafico
 
@@ -5318,18 +5237,7 @@ grafico<-tabela %>%
   ungroup() %>% 
   mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
   mutate(Nível=str_wrap(Nível,width=22)) %>% 
-  ggplot(aes(x = Categoria, y = Percentual)) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text(aes(y=Posição, label = percent(Percentual))) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  coord_flip() +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.x = element_blank(),
-        axis.line.y = element_line(),
-        panel.background = element_blank())
+  f_grafico_col_stack_percent_flip(Categoria, Percentual, Nível, 1)
 
 grafico
 
@@ -5373,23 +5281,19 @@ grafico<-tabela %>%
   ungroup() %>% 
   mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
   mutate(Nível=str_wrap(Nível,width=22)) %>% 
-  ggplot(aes(x = Categoria, y = Percentual)) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text(aes(y=Posição, label = percent(Percentual))) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  coord_flip() +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.x = element_blank(),
-        axis.line.y = element_line(),
-        panel.background = element_blank())
+  f_grafico_col_stack_percent_flip(Categoria, Percentual, Nível, 2)
 
 grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
+
+  <!-- f_grafico_col_quantitativo(x, y, grupo) -->
+  <!-- f_grafico_col_quantitativo_flip(x, y, grupo) -->
+  <!-- f_grafico_col_percent(Região, Percentual, Ano, 1) -->
+  <!-- f_grafico_col_percent_flip(x, y, grupo, legend_nrow) -->
+  <!-- f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1) -->
+  <!-- f_grafico_col_stack_percent_flip(Categoria, Percentual, Nível, 1) -->
 
 # Gestão do Trabalho e recursos Humanos no SUAS
 
