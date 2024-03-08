@@ -1259,26 +1259,7 @@ f_nivel_ensino = function(df, nivel_ensino){
                                         TRUE ~ !! nivel_ensino))
 }
 
-f_grafico_col_numero = function(df, x, y){
-  x <- enquo(x)
-  y <- enquo(y)
-
-  df %>%
-    ggplot(aes(x = !! x, y = !! y)) +
-    geom_col(aes(fill = !! y), position="dodge") +
-    geom_text(aes(label = format(!! y, big.mark=".", digits = 3, decimal.mark = ",")),
-              vjust = -0.5,
-              position = position_dodge(width = 0.9)) +
-    scale_y_continuous(expand = expand_scale(mult = c(0, .15))) +
-    theme(legend.position="none",
-          axis.title = element_blank(),
-          axis.ticks = element_blank(),
-          axis.text.y = element_blank(),
-          axis.line.x = element_line(),
-          panel.background = element_blank())
-}
-
-f_grafico_col_group_numero = function(df, x, y, grupo, legend_nrow){
+f_grafico_col_quantitativo = function(df, x, y, grupo){
   x <- enquo(x)
   y <- enquo(y)
   grupo <- enquo(grupo)
@@ -5478,7 +5459,14 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-# Gestão do Trabalho e Recursos Humanos no SUAS
+  <!-- f_grafico_col_quantitativo(x, y, grupo) -->
+  <!-- f_grafico_col_quantitativo_flip(x, y, grupo) -->
+  <!-- f_grafico_col_percent(Região, Percentual, Ano, 1) -->
+  <!-- f_grafico_col_percent_flip(x, y, grupo, legend_nrow) -->
+  <!-- f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1) -->
+  <!-- f_grafico_col_stack_percent_flip(Categoria, Percentual, Nível, 1) -->
+
+# Gestão do Trabalho e recursos Humanos no SUAS
 
 A qualidade da oferta de serviços, programas e benefícios da assistência social está diretamente ligada a uma adequada gestão do trabalho no âmbito do SUAS. O dimensionamento das equipes, a capacitação dos profissionais e a estruturação das condições de trabalho são fundamentais nesse sentido. Um importante normativo para a gestão do trabalho é Norma Operacional Básica de Recursos Humanos do SUAS (NOB-RH/SUAS)13, que traz orientações e diretrizes, além de detalhamentos importantes sobre as equipes de referência, planos de carreira, cargos e salários, cofinanciamento, educação permanente, entre outros aspectos relevantes. Esta seção apresenta um panorama geral da situação das trabalhadoras e trabalhadores do SUAS, tanto nos equipamentos da assistência social quanto nas gestões municipais e estaduais, apresentando informações sobre quantitativo, tipo de vínculo trabalhista, escolaridade, entre outros aspectos referentes à gestão do trabalho, e sua evolução ao longo dos anos. Em 2016, as Gestões Municipais informaram ter 239.815 trabalhadoras e trabalhadores exercendo funções/atividades ligadas à assistência social (inclusive aqueles lotados nas unidades públicas), o menor número desde 2012. Observando a série histórica é possível verificar que o número máximo de trabalhadores foi registrado no ano de 2014, após sucessivos crescimentos desde 2010. Desde de 2015 esse número se reduziu, registrando em 2016 cerca de 17.000 trabalhadores a menos que em 2014 (Gráfico 60). Gráfico 60: Evolução da quantidade de trabalhadores nas Secretarias Municipais de Assistência Social - Brasil, 2010 a 2016 Fonte: MDS, Censo SUAS.
 
