@@ -1235,7 +1235,7 @@ f_nivel_ensino = function(df, nivel_ensino){
                                         TRUE ~ !! nivel_ensino))
 }
 
-f_grafico_col_quantitativo = function(df, x, y, grupo){
+f_grafico_col_numero = function(df, x, y, grupo, legend_nrow){
   x <- enquo(x)
   y <- enquo(y)
   grupo <- enquo(grupo)
@@ -1243,7 +1243,7 @@ f_grafico_col_quantitativo = function(df, x, y, grupo){
   df %>%
     ggplot(aes(x = !! x, y = !! y, group = !! grupo)) +
     geom_col(aes(fill = !! grupo), position="dodge") +
-    geom_text(aes(label = format(!! y, big.mark=".")),
+    geom_text(aes(label = format(!! y, big.mark=".", digits = 3, decimal.mark = ",")),
               hjust = -0.01, 
               position = position_dodge(width = 0.9), 
               angle = 90) +
@@ -1255,10 +1255,10 @@ f_grafico_col_quantitativo = function(df, x, y, grupo){
           axis.text.y = element_blank(),
           axis.line.x = element_line(),
           panel.background = element_blank()) +
-    guides(fill=guide_legend(nrow=1,byrow=TRUE))
+    guides(fill=guide_legend(nrow=legend_nrow,byrow=TRUE))
 }
 
-f_grafico_col_quantitativo_flip = function(df, x, y, grupo){
+f_grafico_col_numero_flip = function(df, x, y, grupo){
   x <- enquo(x)
   y <- enquo(y)
   grupo <- enquo(grupo)
@@ -1266,7 +1266,7 @@ f_grafico_col_quantitativo_flip = function(df, x, y, grupo){
   df %>%
     ggplot(aes(x = !! x, y = !! y, group = !! grupo)) +
     geom_col(aes(fill = !! grupo), position = "dodge") +
-    geom_text(aes(label = format(!! y, big.mark=".")),
+    geom_text(aes(label = format(!! y, big.mark=".", digits = 3, decimal.mark = ",")),
               hjust = -0.5, 
               position = position_dodge(width = 0.9)) +
     scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
@@ -1634,7 +1634,6 @@ grafico <- f_selecao_regiao_ano(gm_2012, q1, "Secretaria municipal exclusiva da 
 grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-
 ```
 
 Alguns órgãos gestores estaduais constituíram as áreas de assistência social como subdivisões administrativas em sua estrutura, como superintendências, departamentos, gerências, coordenações, dentre outras. De acordo com o último Pacto de aprimoramento Estadual do SUAS\footnote{Resolução CNAS Nº2, de 16 de março de 2017} umas das prioridades para o aperfeiçoamento institucional é possuir na estrutura administrativa das seguintes areas:
@@ -2122,7 +2121,7 @@ ordenado<-factor(ordenado, levels = ordenado$Categoria)
 
 grafico<-tabela %>% 
   mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
-  f_grafico_col_quantitativo_flip(Categoria, n, Nível)
+  f_grafico_col_numero_flip(Categoria, n, Nível)
 
 grafico
 
@@ -2642,7 +2641,7 @@ ordenado2<-factor(ordenado2, levels = ordenado2$Ano)
 grafico<-tabela %>% 
   mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
   mutate(Ano = factor(Ano, levels = rev(levels(ordenado2)))) %>% 
-  f_grafico_col_quantitativo_flip(Categoria, n, Ano)
+  f_grafico_col_numero_flip(Categoria, n, Ano)
 
 grafico
 
@@ -3496,7 +3495,6 @@ grafico<-tabela %>%
 grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-
 ```
 
 
@@ -3578,7 +3576,6 @@ grafico<-tabela %>%
 grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-
 ```
 
 O gráfico abaixo (\Cref{fig:igdbolsa}) sinaliza sobre a existência da participação das unidades do Cadastro único no planejamento 
@@ -3682,7 +3679,7 @@ grafico <- f_quantitativo_regiao_ano(cras_2007, ibge, "2007") %>%
 #  bind_rows(f_quantitativo_regiao_ano(cras_2016, Região, "2016")) %>% 
   bind_rows(f_quantitativo_regiao_ano(cras_2017, Região, "2017")) %>% 
   bind_rows(f_quantitativo_regiao_ano(cras_2022, IBGE, "2022")) %>% 
-  f_grafico_col_quantitativo(Região, n, Ano)
+  f_grafico_col_numero(Região, n, Ano, 1)
 
 grafico
 
@@ -4083,7 +4080,7 @@ grafico <- f_quantitativo_regiao_ano(ceconv_2014, Região, "2014") %>%
    bind_rows(f_quantitativo_regiao_ano(ceconv_2018, Regiao, "2018")) %>% 
    #bind_rows(f_quantitativo_regiao_ano(ceconv_2020, IBGE, "2020")) %>% 
    bind_rows(f_quantitativo_regiao_ano(ceconv_2022, IBGE, "2022")) %>% 
-   f_grafico_col_quantitativo(Região, n, Ano)
+   f_grafico_col_numero(Região, n, Ano, 1)
 
 grafico
 
@@ -4109,12 +4106,11 @@ Em 2016, 31,2% dos Centros de Convivência (2.636 unidades) possuíam rota acess
 #  bind_rows(f_quantitativo_regiao_ano(creas_2016, IBGE7, "2016")) %>% 
    bind_rows(f_quantitativo_regiao_ano(creas_2017, IBGE, "2017")) %>%
    bind_rows(f_quantitativo_regiao_ano(creas_2022, IBGE, "2022")) %>%  
-   f_grafico_col_quantitativo(Região, n, Ano)
+   f_grafico_col_numero(Região, n, Ano, 1)
 
 grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-
 ```
 
 ```{r CREAS-porte, fig.cap = "Percentual de municípios por número de CREAS, segundo porte populacional - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios"}
@@ -4327,7 +4323,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 grafico <- f_percentual_municipios_regiao_ano(creas_2012, IBGE, "2012") %>% 
   bind_rows(f_percentual_municipios_regiao_ano(creas_2017, IBGE, "2017")) %>%
   bind_rows(f_percentual_municipios_regiao_ano(creas_2022, IBGE, "2022")) %>%  
-  f_grafico_col_quantitativo(Região, n, Ano)
+  f_grafico_col_numero(Região, n, Ano, 1)
 
 grafico
 
@@ -4343,7 +4339,7 @@ grafico <- f_selecao_regiao_ano(creas_2012, q2, "Regional", Região, "2012") %>%
 #  bind_rows(f_selecao_regiao_ano(creas_2020, q1, "Regional", Região, "2020")) %>% 
 #  bind_rows(f_selecao_regiao_ano(creas_2021, q1, "Regional", Regiao, "2021")) %>% 
   bind_rows(f_selecao_regiao_ano(creas_2022, q1, "Regional", Região, "2022")) %>% 
-  f_grafico_col_quantitativo(Região, n, Ano)
+  f_grafico_col_numero(Região, n, Ano, 1)
     
 grafico
 
@@ -4426,7 +4422,7 @@ grafico <- f_quantitativo_regiao_ano(cpop_2012, Região, "2012") %>%
    #bind_rows(f_quantitativo_regiao_ano(cpop_2020, IBGE, "2020")) %>% 
    #bind_rows(f_quantitativo_regiao_ano(cpop_2021, IBGE, "2021")) %>% 
     bind_rows(f_quantitativo_regiao_ano(cpop_2022, IBGE, "2022")) %>% 
-  f_grafico_col_quantitativo(Região, n, Ano)
+  f_grafico_col_numero(Região, n, Ano, 1)
    
 grafico
 
@@ -4603,7 +4599,7 @@ grafico <- f_quantitativo_regiao_ano(cedia_2015, Região, "2015") %>%
    #bind_rows(f_quantitativo_regiao_ano(cedia_2020, IBGE, "2020")) %>% 
    bind_rows(f_quantitativo_regiao_ano(cedia_2021, IBGE, "2021")) %>% 
    #bind_rows(f_quantitativo_regiao_ano(cedia_2022, IBGE, "2022")) %>% 
-  f_grafico_col_quantitativo(Região, n, Ano)
+  f_grafico_col_numero(Região, n, Ano, 1)
   
 grafico
 
@@ -4765,7 +4761,7 @@ Quanto a presença de estrutura física dos postos do Cadastro Único a acessibi
 grafico <- f_quantitativo_regiao_ano(posto_cadunico_2020, Regiao, "2020") %>%
 # bind_rows(f_quantitativo_regiao_ano(posto_cadunico_2021, IBGE, "2021")) %>%)
   bind_rows(f_quantitativo_regiao_ano(posto_cadunico_2022, IBGE, "2022")) %>% 
-  f_grafico_col_quantitativo(Região, n, Ano)
+  f_grafico_col_numero(Região, n, Ano, 1)
   
   #ano 2021 não quer gerar, acho que pode ser erro no código do ibge
    
@@ -5288,13 +5284,6 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-  <!-- f_grafico_col_quantitativo(x, y, grupo) -->
-  <!-- f_grafico_col_quantitativo_flip(x, y, grupo) -->
-  <!-- f_grafico_col_percent(Região, Percentual, Ano, 1) -->
-  <!-- f_grafico_col_percent_flip(x, y, grupo, legend_nrow) -->
-  <!-- f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1) -->
-  <!-- f_grafico_col_stack_percent_flip(Categoria, Percentual, Nível, 1) -->
-
 # Gestão do Trabalho e recursos Humanos no SUAS
 
 A qualidade da oferta de serviços, programas e benefícios da assistência social está diretamente ligada a uma adequada gestão do trabalho no âmbito do SUAS. O dimensionamento das equipes, a capacitação dos profissionais e a estruturação das condições de trabalho são fundamentais nesse sentido. Um importante normativo para a gestão do trabalho é Norma Operacional Básica de Recursos Humanos do SUAS (NOB-RH/SUAS)13, que traz orientações e diretrizes, além de detalhamentos importantes sobre as equipes de referência, planos de carreira, cargos e salários, cofinanciamento, educação permanente, entre outros aspectos relevantes. Esta seção apresenta um panorama geral da situação das trabalhadoras e trabalhadores do SUAS, tanto nos equipamentos da assistência social quanto nas gestões municipais e estaduais, apresentando informações sobre quantitativo, tipo de vínculo trabalhista, escolaridade, entre outros aspectos referentes à gestão do trabalho, e sua evolução ao longo dos anos. Em 2016, as Gestões Municipais informaram ter 239.815 trabalhadoras e trabalhadores exercendo funções/atividades ligadas à assistência social (inclusive aqueles lotados nas unidades públicas), o menor número desde 2012. Observando a série histórica é possível verificar que o número máximo de trabalhadores foi registrado no ano de 2014, após sucessivos crescimentos desde 2010. Desde de 2015 esse número se reduziu, registrando em 2016 cerca de 17.000 trabalhadores a menos que em 2014 (Gráfico 60). Gráfico 60: Evolução da quantidade de trabalhadores nas Secretarias Municipais de Assistência Social - Brasil, 2010 a 2016 Fonte: MDS, Censo SUAS.
@@ -5306,7 +5295,7 @@ A quantidade de trabalhadores nas Secretarias Estaduais de Assistência Social e
 grafico <- f_soma_regiao_ano(ge_2012, q55e_4, Região, "2012") %>% 
   bind_rows(f_soma_regiao_ano(ge_2017, q11_5_4, Região, "2017")) %>% 
   bind_rows(f_quantitativo_regiao_ano(gerh_2022, IBGE, "2022")) %>% 
-  f_grafico_col_quantitativo(Região, n, Ano)
+  f_grafico_col_numero(Região, n, Ano, 1)
 
 grafico
 
@@ -5333,18 +5322,7 @@ grafico <- f_nomex_somay_nomegrupo(ge_2010, "2010", q34_1_4, "Estatutários") %>
  
   f_stack_col_percentual(Eixo_x, Eixo_y, Grupo) %>%
 
-  ggplot(aes(x = Eixo_x, y = Percentual, group = Grupo)) +
-  geom_col(aes(fill = Grupo), position = position_stack(reverse = TRUE)) +
-  geom_text(aes(y=Posição, label = percent(Percentual))) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  f_grafico_col_stack_percent(Eixo_x, Percentual, Grupo, 1)
 
 grafico
 
@@ -5370,18 +5348,7 @@ grafico <- f_nomex_somay_nomegrupo(ge_2012, "2012", q55e_1, "Nível Fundamental"
   f_nivel_ensino(Grupo) %>%
   f_stack_col_percentual(Eixo_x, Eixo_y, Grupo) %>%
 
-  ggplot(aes(x = Eixo_x, y = Percentual, group = Grupo)) +
-  geom_col(aes(fill = Grupo), position = position_stack(reverse = TRUE)) +
-  geom_text(aes(y=Posição, label = percent(Percentual))) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  f_grafico_col_stack_percent(Eixo_x, Percentual, Grupo, 1)
 
 grafico
 
@@ -5544,22 +5511,8 @@ grafico <- f_sim_nao(gm_2012, q43a_1, "2012") %>%
   
   #ano de 2020 não é possivel calcular por problemas na base de dados.
   
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
  
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position = "dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
-
 grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
@@ -5580,22 +5533,8 @@ grafico <- f_sim_nao(ge_2013, q68a_1, "2013") %>%
     bind_rows(f_sim_nao(ge_2021, q46_1_1, "2021")) %>%
     bind_rows(f_sim_nao(ge_2022, q46_1_1, "2022")) %>%
   
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
   
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position = "dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
-
 grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
@@ -5622,11 +5561,11 @@ Abaixo o gráfico tras informações da quantidade de conselhos municipais, por 
 
 grafico <- f_quantitativo_regiao_ano (cmun_2012, Região, "2012") %>% 
   bind_rows(f_quantitativo_regiao_ano(cmun_2022, IBGE, "2022")) %>% 
-  f_grafico_col_quantitativo(Região, n, Ano)
+  f_grafico_col_numero(Região, n, Ano, 1)
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 
@@ -5635,15 +5574,15 @@ grafico
 
 grafico <- f_quantitativo_regiao_ano (cest_2012, IBGE, "2012") %>% 
   bind_rows(f_quantitativo_regiao_ano(cest_2022, IBGE, "2022")) %>% 
-  f_grafico_col_quantitativo(Região, n, Ano)
+  f_grafico_col_numero(Região, n, Ano, 1)
 
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 A existência de sede para o funcionamento dos conselhos é essencial, pois além de garantir identidade na perspetiva de espaço na qual a população pode acessar, também assegura o trabalho do secretário (a) executivo e demais profissionais, dispõe de locais de arquivos e documentos, reuniões entre outros. No que se refere aos Conselhos Municipais de Assistencia Social o (\Cref{fig:cmas_sede}) destaca que 58,1% dos conselhos muncipais que responderam censo suas informam possuir sede para o funcionamento. Destaca-se que nos últimos 10 anos, teve aumento de 45,1% para 58,1 de municípios que possuem sede para conseLho de assistencia social, dado que representa aumento de 13% percentuais.  
 
-```{r cmas_sede, fig.cap = "Percentual de Conselhos Municipais que possuem local/sede especcífico para funcionamento"}
+```{r cmas_sede, fig.cap = "Percentual de Conselhos Municipais que possuem local/sede específico para funcionamento"}
 
 grafico <- f_sim_nao(cmun_2012, q8, "2012") %>%
    #bind_rows(f_sim_nao(cmun_2013, q8, "2013")) %>%
@@ -5661,27 +5600,14 @@ grafico <- f_sim_nao(cmun_2012, q8, "2012") %>%
   #2013 a base não ler, acho que é porque no banco as informações esão "sim" / "não"
   #2019 ta com problema técnico no carregamento que não consigo ajeitar
  
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position = "dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
 
 grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
-Em realção aos Conselhos estaduais, atualmente 100% informam possuir sede especifica para funcionamento do controle social no SUAS conforme pdoe ser observado abaixo (\Cref{fig:ceas_sede}) 
 
+Em realção aos Conselhos estaduais, atualmente 100% informam possuir sede especifica para funcionamento do controle social no SUAS conforme pdoe ser observado abaixo (\Cref{fig:ceas_sede}) 
 
 ```{r ceas_sede, fig.cap = "Percentual de Conselhos estaduais que possuem local/sede especcífico para funcionamento"}
 
@@ -5699,27 +5625,12 @@ grafico <- f_sim_nao(cest_2012, q8, "2012") %>%
   
   #2013 AS QUESTÕES ESTÃO com aspas nas respostas "SIM";
   
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
  
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position = "dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
-
 grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
-
 
 ```{r cas_se, fig.cap = "Percentual de Conselhos Municipais que possuem secretários (as) executivos exclusivamente no Conselho"}
 
@@ -5769,26 +5680,14 @@ cmas_se  = function(df, q, ano){
   
   #achei que as respostas 2012 desviaram um pouco, não consegui baixar a base ... em contato com Dionara.
  
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position = "dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
 
 grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
-```{r cmas_se, fig.cap = "Percentual de Conselhos Estaduais que possuem secretários (as) executivos exclusivamente no Conselho"}
+
+```{r cmas_se, fig.cap = "Percentual de Conselhos Estaduais que possuem secretárias/os executivas/os exclusivamente no Conselho"}
 
 
 grafico <- f_sim_nao(cest_2012, q13, "2012") %>%
@@ -5807,31 +5706,12 @@ grafico <- f_sim_nao(cest_2012, q13, "2012") %>%
   #2012, 2017 é perguntado apenas se existe SE, não pergunta de forma exclusiva
   #2015 pergunta é igual das demais, SE exclusiva
 
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
  
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position = "dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
-
 grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-
-
 ```
-
-
-
 
 ```{r qtdcmas_reuniao, fig.cap = "Proporção conselhos municipais quando a realização de reuniões plenárias do Conselho (ordinárias e extraordinárias)"}
 
@@ -5877,28 +5757,12 @@ ordenado<-factor(ordenado, levels = ordenado$Categoria)
 grafico<-tabela %>% 
   ungroup() %>% 
   mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-  geom_col(aes(fill = Nível), position = "dodge") +
-  geom_text(aes(label = percent(Percentual), y=Percentual+.015), position = position_dodge(width = 0.9)) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  coord_flip() +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.x = element_blank(),
-        axis.line.y = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
+  f_grafico_col_percent_flip(Categoria, Percentual, Nível, 1)
 
 grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
-
-
-
-
 
 ```{r qtdceas_reuniao, fig.cap = "Proporção conselhos estaduais quanto a realização de reuniões plenárias no ano anterior"}
 
@@ -5945,26 +5809,12 @@ ordenado<-factor(ordenado, levels = ordenado$Categoria)
 grafico<-tabela %>% 
   ungroup() %>% 
   mutate(Categoria = factor(Categoria, levels = levels(ordenado))) %>% 
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-  geom_col(aes(fill = Nível), position = "dodge") +
-  geom_text(aes(label = percent(Percentual), y=Percentual+.015), position = position_dodge(width = 0.9)) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  coord_flip() +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.x = element_blank(),
-        axis.line.y = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
+  f_grafico_col_percent_flip(Categoria, Percentual, Nível, 2)
 
 grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
-
-
 
 ```{r qtd_reuniao, fig.cap = "xxx"}
   
@@ -6160,26 +6010,11 @@ grafico <- f_sim_nao(cmun_2012, q7, "2012") %>%
   
   #fazer a seleção das variaveis
  
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position = "dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
 
 grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-
-
 ```
 
 ceas O Conselho é a Instância de Controle Social do Programa Bolsa Família (Resolução CNAS 18/2013 e Resolução CNAS 15/2014) ...
@@ -6200,26 +6035,11 @@ grafico <- f_sim_nao(cest_2012, q7, "2012") %>%
   
   #2013 as variaveis estão "" ver como ajeitar para leitura
  
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position = "dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
 
 grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-
-
 ```
 
 ```{r ceas_icspbf, fig.cap = "Conselhos Estaduais de Assistência Social que são instancia de controle Social do PBF"}
@@ -6238,26 +6058,11 @@ grafico <- f_sim_nao(cest_2012, q39, "2012") %>%
   
   #2013 as variaveis estão "" ver como ajeitar para leitura
  
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position = "dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
 
 grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-
-
 ```
 
 ```{r cmas_icspbf, fig.cap = "Conselhos Municipais de Assistência Social que são instancia de controle social do PBF" }
@@ -6278,20 +6083,7 @@ grafico <- f_sim_nao(cmun_2012, q35_1, "2012") %>%
   #todos arquivo de 2019 esta bloqueado para leitura, algum erro que não consigo identificar.
   #2016 tem a opção 99, vou verificar o que representa.
  
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position = "dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
 
 grafico
 
@@ -6312,20 +6104,7 @@ grafico <- f_sim_nao(cest_2012, q35_1, "2012") %>%
   #bind_rows(f_sim_nao(cest_2021, q8, "2018")) %>%
    bind_rows(f_sim_nao(cest_2022, q33_4, "2022")) %>%
  
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position = "dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
 
 grafico
 
@@ -6378,20 +6157,7 @@ grafico <- cmas_be(cmun_2012, q38, "2012") %>%
   
   # a partir de 2020 a questão muda, mas o conteúdo da pergunta permanece, entretanto tenho dúvidas sobre o entendimento das respostas. Assim to pensando em manter apenas para os anos a partir de 2020.
  
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position = "dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
 
 grafico
 
@@ -6446,20 +6212,7 @@ grafico <- ceas_be(cest_2012, q38, "2012") %>%
 #   #bind_rows(f_sim_nao(cest_2021, q8, "2018")) %>%
 #    bind_rows(f_sim_nao(cest_2022, q36, "2022")) %>%
  
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position = "dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
 
 grafico
 
@@ -6498,20 +6251,7 @@ grafico <- f_sim_nao(cmun_2012, q38, "2012") %>%
   
   # a partir de 2020 a questão muda, mas o conteúdo da pergunta permanece, entretanto tenho dúvidas sobre o entendimento das respostas. Assim to pensando em manter apenas para os anos a partir de 2020.
  
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position = "dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
 
 grafico
 
@@ -6534,21 +6274,7 @@ grafico <- f_sim_nao(cest_2012, q29, "2012") %>%
   #bind_rows(f_sim_nao(cest_2021, q37, "2021")) %>%
    bind_rows(f_sim_nao(cest_2022, q34, "2022")) %>%
   
-
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position = "dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
 
 grafico
 
@@ -6615,20 +6341,11 @@ grafico <- f_grupo_media(idcras_2014, `IDCRAS 2014sintético`, "ID CRAS", "2014"
                                           "Serviços & Benefícios",
                                           "ID CRAS"))) %>% 
 
-  ggplot(aes(x = Eixo_X, y = m, group = Grupo)) +
-  geom_col(aes(fill = Grupo), position="dodge") +
-  geom_text(aes(label = format(m, digits=3), y=m+0.3), position = position_dodge(width = 0.9), angle = 90, size = 3) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  f_grafico_col_numero(Eixo_X, m, Grupo, 1)
 
 grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r }
@@ -6640,9 +6357,11 @@ grafico <- f_quantitativo_niveis(idcras_2022, `Estrutura Física`, "Estrutura F
   mutate(Eixo_X = factor(Eixo_X, levels = c("Estrutura Física",
                                             "Recursos Humanos",
                                             "Serviços & Benefícios"))) %>% 
-  f_grafico_col_quantitativo(Eixo_X, n, Grupo)
+  f_grafico_col_numero(Eixo_X, n, Grupo, 1)
 
 grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r }
@@ -6697,20 +6416,11 @@ grafico <- f_grupo_media(idcreas_2014, `IDCREAS sintético`, "ID CREAS", "2014")
                                           "Serviços & Benefícios",
                                           "ID CREAS"))) %>%
 
-  ggplot(aes(x = Eixo_X, y = m, group = Grupo)) +
-  geom_col(aes(fill = Grupo), position="dodge") +
-  geom_text(aes(label = format(m, digits=3), y=m+0.3), position = position_dodge(width = 0.9), angle = 90, size = 3) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+  f_grafico_col_numero(Eixo_X, m, Grupo, 1)
 
 grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r }
@@ -6724,9 +6434,11 @@ grafico <- f_quantitativo_niveis(idcreas_2022, `Estrutura Física`, "Estrutura 
                                             "Recursos Humanos",
                                             "Serviços & Benefícios"))) %>% 
 
-  f_grafico_col_quantitativo(Eixo_X, n, Grupo)
+  f_grafico_col_numero(Eixo_X, n, Grupo, 1)
 
 grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r }
@@ -6781,20 +6493,11 @@ grafico <- f_grupo_media(idconselho_2014, IDConselho, "ID Conselho", "2014") %>%
                                           "Composição do Conselho",
                                           "ID Conselho"))) %>%
 
-  ggplot(aes(x = Eixo_X, y = m, group = Grupo)) +
-  geom_col(aes(fill = Grupo), position="dodge") +
-  geom_text(aes(label = format(m, digits=3), y=m+0.3), position = position_dodge(width = 0.9), angle = 90, size = 3) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=2,byrow=TRUE))
+  f_grafico_col_numero(Eixo_X, m, Grupo, 2)
 
 grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r }
@@ -6806,9 +6509,11 @@ grafico <- f_quantitativo_niveis(idconselho_2022, `Estrutura Administrativa`, "E
   mutate(Eixo_X = factor(Eixo_X, levels = c("Estrutura Administrativa",
                                             "Dinâmica de Funcionamento",
                                             "Composição do Conselho"))) %>% 
-  f_grafico_col_quantitativo(Eixo_X, n, Grupo)
+  f_grafico_col_numero(Eixo_X, n, Grupo, 1)
 
 grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r }
@@ -6848,28 +6553,11 @@ grafico <- idconselho(idconselho_2014, `Estrutura Administrativa`, "2014") %>%
    #bind_rows(idconselho(idconselho_2021, `Estrutura Administrativa`, "2021")) %>%
     bind_rows(idconselho(idconselho_2022, `Estrutura Administrativa`, "2022")) %>%
  
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
   
- 
- 
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position = "dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
-
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
 
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r }
@@ -6905,28 +6593,11 @@ grafico <- idconselho(idconselho_2014, `Dinâmica de Funcionamento`, "2014") %>%
    #bind_rows(idconselho(idconselho_2021, `Dinâmica de Funcionamento`, "2021")) %>%
     bind_rows(idconselho(idconselho_2022, `Dinâmica de Funcionamento`, "2022")) %>%
  
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
   
- 
- 
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position = "dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
-
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
 
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r }
@@ -6962,26 +6633,9 @@ grafico <- idconselho(idconselho_2014, `Composição do Conselho`, "2014") %>%
    #bind_rows(idconselho(idconselho_2021, `Composição do Conselho`, "2021")) %>%
     bind_rows(idconselho(idconselho_2022, `Composição do Conselho`, "2022")) %>%
  
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
   
- 
- 
-  ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
-#  geom_col(aes(fill = Nível), position = "dodge") +
-#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
-  geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
-  geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-  theme(legend.position="bottom",
-        legend.title = element_blank(),
-        axis.title = element_blank(),
-        axis.ticks = element_blank(),
-        axis.text.y = element_blank(),
-        axis.line.x = element_line(),
-        panel.background = element_blank()) +
-  guides(fill=guide_legend(nrow=1,byrow=TRUE))
-
 grafico
-#grafico %>% 
-#  graph2office(file="graficos", append = TRUE)
 
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
