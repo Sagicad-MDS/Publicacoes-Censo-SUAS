@@ -1,0 +1,43 @@
+Código;Nome
+UF;IBGE_codigo_ibge_Codigo IBGE
+Regiao;Regiao
+q_75_2;q_75_2_v13021_Data de nascimento
+q_75_3;q_75_3_v10901_Sexo
+q_75_5;q_75_5_v10902_Escolaridade
+q_75_6;q_75_6_v10903_Representação
+q_75_7;q_75_7_v10904_Função
+q_75_8;q_75_8_v10906_Data de Início do mandato
+q_75_9;q_75_9_v10907_Data de término do mandato
+q_75_10;q_75_10_v10908_CPF
+Idade;Idade
+Faixas_etarias;Faixas etárias dos Conselheiros
+TempoMandato;Tempo de mandato dos Conselheiros
+d75_5;d75_5_Níveis de escolaridade
+d75_5bin1;d75_5bin1_Nível fundamental - Conselheiros que possuem até o nível médio (inclui aqueles sem escolaridade)
+d75_5bin2;d75_5 bin2_Nível médio - Conselheiros com ensino superior incompleto e ensino médio completo
+d75_5bin3;d75_5bin3_Nível superior - inclui Conselheiros graduados, com especialização, mestrado ou doutorado
+d75_6bin1;d75_6bin1_Representante de usuários e organização de usuários
+d75_6bin2;d75_6bin2_.Representante de Entidades de Assistência Social
+d75_6bin3;d75_6bin3_Representante de organização dos trabalhadores
+d75_6bin4;d75_6bin4_Representante do Governo
+d75_6bin1_TIT;d75_6bin1_TIT_Representante Titular de usuários e organização de usuários
+d75_6bin1_SUPL;d75_6bin1_SUPL_Representante Suplente de usuários e organização de usuários
+d75_6bin2_TIT;d75_6bin2_TIT_Representante Titular de Entidades de Assistência Social
+d75_6bin2_SUPL;d75_6bin2_SUPL_Representante Suplente de Entidades de Assistência Social
+d75_6bin3_TIT; d75_6bin3_TIT_Representante Titular de organização dos trabalhadores
+d75_6bin3_SUPL;d75_6bin3_SUPL_Representante Suplente de organização dos trabalhadores
+d75_6bin4_TIT;d75_6bin4_TIT_Representante Titular do Governo
+d75_6bin4_SUPL;d75_6bin4_SUPL_Representante Suplente do Governo
+d75_6bin1_sum;d75_6bin1_sum_Representante de usuários e organização de usuários
+d75_6bin2_sum;d75_6bin2_sum_Representante de Entidades de Assistência Social
+d75_6bin3_sum;d75_6bin3_sum_Representante de organização dos trabalhadores
+d75_6bin4_sum;d75_6bin4_sum_Representante do Governo
+d75_6bin1_TIT_sum;d75_6bin1_TIT_sum.Representante Titular de usuários e organização de usuários
+d75_6bin1_SUPL_sum;d75_6bin1_SUPL_sum.Representante Suplente de usuários e organização de usuários
+d75_6bin2_TIT_sum;d75_6bin2_TIT_sum.Representante Titular de Entidades de Assistência Social
+d75_6bin2_SUPL_sum;d75_6bin2_SUPL_sum.Representante Suplente de Entidades de Assistência Social
+d75_6bin3_TIT_sum;d75_6bin3_TIT_sum.Representante Titular de organização dos trabalhadores
+d75_6bin3_SUPL_sum;d75_6bin3_SUPL_sum.Representante Suplente de organização dos trabalhadores
+d75_6bin4_TIT_sum;d75_6bin4_TIT_sum.Representante Titular do Governo
+d75_6bin4_SUPL_sum;d75_6bin4_SUPL_sum.Representante Suplente do Governo
+nu_conselheiros;Quantidade de conselheiros
