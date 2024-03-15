@@ -3985,6 +3985,20 @@ ordenado<-factor(ordenado, levels = ordenado$Categoria)
 grafico<-tabela %>%
   mutate(Categoria = factor(Categoria, levels = rev(levels(ordenado)))) %>%
   f_grafico_col_percent(Situacao, Percentual, Categoria, 4)
+###a antigo
+  # ggplot(aes(x = Situacao, y = Percentual, group = Categoria)) +
+  # geom_col(aes(fill = Categoria), position = "dodge") +
+  # geom_text(aes(label = label_percent(accuracy = 0.1, decimal.mark = ",")(Percentual)), vjust = -0.2, position = position_dodge(width = 0.9)) +
+  # scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  # theme(legend.position="bottom",
+  #       legend.title = element_blank(),
+  #       axis.title = element_blank(),
+  #       axis.ticks = element_blank(),
+  #       axis.text.y = element_blank(),
+  #       axis.line.x = element_line(),
+  #       panel.background = element_blank()) +
+  # guides(fill=guide_legend(nrow=4, byrow=TRUE))
+
 
 grafico
 
