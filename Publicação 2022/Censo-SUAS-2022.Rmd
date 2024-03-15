@@ -981,6 +981,26 @@ f_percentual_municipios_regiao_ano = function(df, municipio, ano){
     mutate("Ano" = !! ano)
 }
 
+f_grafico_col_quantitativo = function(df, x, y, grupo){
+  x <- enquo(x)
+  y <- enquo(y)
+  grupo <- enquo(grupo)
+
+  df %>%
+    ggplot(aes(x = !! x, y = !! y, group = !! grupo)) +
+    geom_col(aes(fill = !! grupo), position="dodge") +
+    geom_text(aes(label = format(!! y, big.mark=".")), hjust = -0.01, position = position_dodge(width = 0.9), angle = 90) +
+    scale_y_continuous(expand = expand_scale(mult = c(0, .15))) +
+    theme(legend.position="bottom",
+          legend.title = element_blank(),
+          axis.title = element_blank(),
+          axis.ticks = element_blank(),
+          axis.text.y = element_blank(),
+          axis.line.x = element_line(),
+          panel.background = element_blank()) +
+    guides(fill=guide_legend(nrow=1,byrow=TRUE))
+}
+
 f_situacao = function(df, situacao){
   situacao <- enquo(situacao)
 
