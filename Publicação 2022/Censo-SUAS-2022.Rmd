@@ -6191,7 +6191,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-```{r ceas_icspbf, fig.cap = "Conselhos Estaduais de Assistência Social que são instancia de controle Social do PBF"}
+```{r ceas_icspbf2, fig.cap = "Conselhos Estaduais de Assistência Social que são instancia de controle Social do PBF"}
 
 grafico <- f_sim_nao(cest_2012, q39, "2012") %>%
    #bind_rows(f_sim_nao(cest_2013, q40, "2013")) %>%
@@ -6475,7 +6475,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 
 
-```{r ceas_icspbf, fig.cap = "Percentual de Conselhos Estaduais de Assistência Social que são instancia de controle Social do PBF", eval=FALSE}
+```{r ceas_icspbf1, fig.cap = "Percentual de Conselhos Estaduais de Assistência Social que são instancia de controle Social do PBF", eval=FALSE}
 
 grafico <- f_sim_nao(cest_2012, q39, "2012") %>%
    #bind_rows(f_sim_nao(cest_2013, q40, "2013")) %>%
