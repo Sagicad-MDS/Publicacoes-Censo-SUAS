@@ -4544,38 +4544,38 @@ cdia_adp= function(df, q, ano, cod_categoria){
   categoria <- case_when(!! cod_categoria == "1"~"Sim, suporte de profissional com conhecimento em LIBRAS",
                          !! cod_categoria == "2"~"Sim, suporte de material em Braille",
                          !! cod_categoria == "3"~"Sim, suporte para leitores de telas de computador para pessoas com deficiência visual",
-                         !! cod_categoria == "4"~"Sim, outras adaptações e tecnologias assistivas para deficiência física",
-                         !! cod_categoria == "5"~"Sim, outras adaptações e tecnologias assistivas para deficiência intelectual e autismo",
-                         !! cod_categoria == "6"~"Sim, pisos especiais com relevos para sinalização voltados pessoa com  deficiência visual",
-                         !! cod_categoria == "7"~"Não há ações específicas")
+                         !! cod_categoria == "4"~"Sim, há outras adaptações ou estratégias para assegurar a acessibilidade as pessoas com deficiência auditiva/surdas e pessoas com deficiência visual",
+                         !! cod_categoria == "5"~"Sim, outras adaptações e tecnologias assistivas para deficiência física",
+                         !! cod_categoria == "6"~"Sim, outras adaptações e tecnologias assistivas para deficiência intelectual e autismo",
+                         !! cod_categoria == "7"~"Sim, pisos especiais com relevos para sinalização voltados para pessoa com  deficiência visual",
+                         !! cod_categoria == "0"~"Não há outras adaptações")
 
 
   df %>%
     select(!! q) %>%
-    filter(!is.na(!! q)) %>%
     group_by(!! q) %>%
     summarise(n=n()) %>%
     mutate(Percentual = n/sum(n)) %>%
-    filter(!! q == "Sim") %>%
+    filter(!! q == "Sim" | !! q == 1) %>%
     mutate("Categoria" = categoria, "Ano" = !! ano)
 }
 
  tabela <- cdia_adp (cedia_2015,q21_1,"2015","1") %>%
   bind_rows(cdia_adp(cedia_2015,q21_2,"2015","2")) %>%
   bind_rows(cdia_adp(cedia_2015,q21_3,"2015","3")) %>%
-  bind_rows(cdia_adp(cedia_2015,q21_4,"2015","4")) %>%
-  bind_rows(cdia_adp(cedia_2015,q21_5,"2015","5")) %>%
-  bind_rows(cdia_adp(cedia_2015,q21_6,"2015","6")) %>%
-  bind_rows(cdia_adp(cedia_2015,q21_7,"2015","7")) %>%
+  bind_rows(cdia_adp(cedia_2015,q21_4,"2015","5")) %>%
+  bind_rows(cdia_adp(cedia_2015,q21_5,"2015","6")) %>%
+  bind_rows(cdia_adp(cedia_2015,q21_6,"2015","7")) %>%
+  bind_rows(cdia_adp(cedia_2015,q21_7,"2015","0")) %>%
    
 
   bind_rows(cdia_adp(cedia_2018,q_20_1,"2018","1")) %>%
   bind_rows(cdia_adp(cedia_2018,q_20_2,"2018","2")) %>%
   bind_rows(cdia_adp(cedia_2018,q_20_3,"2018","3")) %>%
-  bind_rows(cdia_adp(cedia_2018,q_20_4,"2018","4")) %>%
-  bind_rows(cdia_adp(cedia_2018,q_20_5,"2018","5")) %>%
-  bind_rows(cdia_adp(cedia_2018,q_20_6,"2018","4")) %>%
-  bind_rows(cdia_adp(cedia_2018,q_20_0,"2018","5")) %>%
+  bind_rows(cdia_adp(cedia_2018,q_20_4,"2018","5")) %>%
+  bind_rows(cdia_adp(cedia_2018,q_20_5,"2018","6")) %>%
+  bind_rows(cdia_adp(cedia_2018,q_20_6,"2018","7")) %>%
+  bind_rows(cdia_adp(cedia_2018,q_20_0,"2018","0")) %>%
    
   
   bind_rows(cdia_adp(cedia_2022,q16_1,"2022","1")) %>%
@@ -4585,6 +4585,7 @@ cdia_adp= function(df, q, ano, cod_categoria){
   bind_rows(cdia_adp(cedia_2022,q16_5,"2022","5")) %>%
   bind_rows(cdia_adp(cedia_2022,q16_6,"2022","6")) %>%
   bind_rows(cdia_adp(cedia_2022,q16_7,"2022","7")) %>%
+  bind_rows(cdia_adp(cedia_2022,q16_0,"2022","0")) %>%
 
 
 
