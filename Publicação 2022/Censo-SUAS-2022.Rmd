@@ -4731,7 +4731,7 @@ grafico <- acolh_nat(unac_2012, q4, "2012") %>%
       bind_rows(acolh_nat(unac_2021, q3, "2021")) %>%
       bind_rows(acolh_nat(unac_2022, q3, "2022")) %>%
   
-  f_grafico_col_group_percent(Categoria, Percentual, Nível, 1)
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
 
 grafico
 
@@ -4822,29 +4822,38 @@ posto_cadunico = function(df, q, ano){
 
   df %>%
     select(!! ano := !! q) %>%
-    gather("Categoria","Nível") %>%
-    mutate(Nível = case_when(Nível == "Sede da Secretaria da Assistência Social ou congênere;"~"Sede da Secretaria da Assistência Social ou congênere;",
-                             TRUE ~ Nível)) %>%
-    filter(!is.na(Nível)) %>%
-    mutate(Nível = factor(Nível, levels = c("Sede da Secretaria da Assistência Social ou congênere;",
-                                            "Posto exclusivo para atendimento do Cadastro Único;",
-                                            "Outra unidade administrativa (Sede da Prefeitura, Sede de Outra Secretaria, Administração Regional, Sub-Prefeituras, Un",
-                                            "Escola",
-                                            "Entidade privada, Associação Comunitária ou ONG;",
-                                            "Conselho Municipal de Assistência Social, Conselho Tutelar ou outro conselho municipal;",
-                                            "Outro."))) %>%
+    gather("Grupo","Eixo_x") %>%
+    mutate(Eixo_x = case_when(
+      Eixo_x == "Sede da Secretaria da Assistência Social ou congênere;"~"Sede da Secretaria da Assistência Social ou congênere",
+      Eixo_x == "Outra unidade administrativa (Sede da Prefeitura, Sede de Outra Secretaria, Administração Regional, Sub-Prefeituras," |
+      Eixo_x == "Outra unidade administrativa (Sede da Prefeitura, Sede de Outra Secretaria, Administração Regional, Sub-Prefeituras, Un"~"Outra unidade administrativa (Sede da Prefeitura, Sede de Outra Secretaria, Administração Regional, Sub-Prefeituras, Unidades de outras políticas públicas, etc.)",
+      Eixo_x == "Posto exclusivo para atendimento do Cadastro Único;"~"Posto exclusivo para atendimento do Cadastro Único",
+      Eixo_x == "Serviço Integrado para o Cidadão (Na Hora, Vapt Vupt, Poupa Tempo, etc);"~"Serviço Integrado para o Cidadão (Na Hora, Vapt Vupt, Poupa Tempo, etc)",
+      Eixo_x == "Escola"~"Escola",
+      Eixo_x == "Entidade privada, Associação Comunitária ou ONG;"~"Entidade privada, Associação Comunitária ou ONG",
+      Eixo_x == "Conselho Municipal de Assistência Social, Conselho Tutelar ou outro conselho municipal;"~"Conselho Municipal de Assistência Social, Conselho Tutelar ou outro conselho municipal",
+      Eixo_x == "Outro."~"Outro",
+      TRUE ~ Eixo_x)) %>%
 
-    group_by(Categoria, Nível) %>%
+    group_by(Grupo, Eixo_x) %>%
     summarise(n=n()) %>%
-    group_by(Categoria) %>%
     mutate(Percentual = n/sum(n))
 }
 
-grafico <- posto_cadunico (posto_cadunico_2020, q1_0, "2020") %>%
-   bind_rows(posto_cadunico(posto_cadunico_2021, q1, "2021")) %>%
-   bind_rows(posto_cadunico(posto_cadunico_2022, q1, "2022")) %>%
+tabela <- posto_cadunico (posto_cadunico_2020, q1_0, "2020") %>%
+  bind_rows(posto_cadunico(posto_cadunico_2021, q1, "2021")) %>%
+  bind_rows(posto_cadunico(posto_cadunico_2022, q1, "2022")) %>%
 
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 5)
+  mutate(Eixo_x=str_wrap(Eixo_x,width=58))
+
+ordenado<-tabela %>%
+  filter(Grupo == "2022") %>%
+  arrange(Percentual) %>%
+  pull(Eixo_x)
+
+grafico<-tabela %>%
+  mutate(Eixo_x = factor(Eixo_x, levels = ordenado)) %>%
+  f_grafico_col_percent_flip(Eixo_x, Percentual, Grupo, 1)
 
 grafico
 
