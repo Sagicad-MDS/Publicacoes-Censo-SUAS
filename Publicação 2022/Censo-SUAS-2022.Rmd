@@ -35,8 +35,9 @@ editor_options:
 ---
 
 ```{=tex}
-\addto\captionsbrazilian{\renewcommand{\figurename}{Gráfico}}
+\renewcommand{\figurename}{Gráfico}
 \crefname{figure}{gráfico}{gráficos}
+\Crefname{figure}{Gráfico}{Gráficos}
 ```
 <!-- \newcommand{\subtitle}[1]{% -->
 
@@ -139,7 +140,7 @@ A assistência social foi reconhecida, portanto, como um direito da pessoa que d
 
 Considerando a nova configuração da Assistência Social definida pela Constituição, foi sancionada em 7 de dezembro de 1993 a Lei nº 8.742, a Lei Orgânica da Assistência Social (LOAS). A LOAS estabelece para a Assistência Social os princípios de universalização dos direitos sociais, com igualdade de direitos de acesso no atendimento e respeito à dignidade do cidadão. A lei, que dispõe sobre a nova organização da Assistência Social, trouxe inovações importantes, como a participação social por meio de instâncias de controle social e a descentralização político-administrativa com primazia da responsabilidade do Estado, nas três esferas de governo, na condução da política. As competências da União, dos estados, do Distrito Federal e dos municípios estão definidas na LOAS, bem como o cofinanciamento dos benefícios, serviços, programas e projetos da Assistência Social. Nesse sentido, mostra-se fundamental a articulação e a coordenação entre os três entes da federação, que se dá por meio das Comissões Intergestores Tripartite (CIT) e Bipartite (CIB), que são instâncias de pactuação interfederativa para a operacionalização da gestão do SUAS.
 
-A partir da LOAS, uma série de ferramentas de institucionalização foram organizadas a fim de nortear a nova configuração da Assistência Social, como visto na \Cref{tab:marcos}.
+A partir da LOAS, uma série de ferramentas de institucionalização foram organizadas a fim de nortear a nova configuração da Assistência Social, como visto na \cref{tab:marcos}.
 
 ```{=tex}
 \begin{table}[h]
@@ -156,7 +157,7 @@ LOAS & PNAS & PNAS & NOB/ SUAS & NOB/ RH & Tipificação dos Serviços & Decreto
 ```
 A primeira Política Nacional de Assistência Social (PNAS), prevista na LOAS, foi criada em 1998 e instituiu diretrizes para as ações da Assistência Social, representando uma base orientadora para procedimentos a serem adotados pelos gestores da política de assistência social em todo o país\footnote{Boscheti (2001)}.
 
-Em 2003\footnote{As Conferências de Assistência Social deliberam as diretrizes para o aperfeiçoamento da Política de Assistência Social em cada uma das esferas governamentais (BRASIL, 2012).},a IV Conferência Nacional de Assistência Social teve como deliberação a construção e implementação do Sistema Único de Assistência Social (SUAS).
+Em 2003\footnote{As Conferências de Assistência Social deliberam as diretrizes para o aperfeiçoamento da Política de Assistência Social em cada uma das esferas governamentais (BRASIL, 2012).}, a IV Conferência Nacional de Assistência Social teve como deliberação a construção e implementação do Sistema Único de Assistência Social (SUAS).
 
 Em 15 de outubro de 2004 foi aprovada pela Resolução nº 145 do Conselho Nacional de Assistência Social (CNAS) a PNAS, que trouxe alterações e definiu alguns elementos importantes para as políticas sociais. Dentre as novidades propostas, destacam-se o aperfeiçoamento da descentralização, a estruturação da participação da população, a fundamentação na centralidade na família para concepção e a implementação dos benefícios, programas e projetos (BRASIL, 2004).
 
@@ -224,7 +225,7 @@ Após essa fase de decisão, os formulários são encaminhados para SAGICAD para
 
 A coleta de dados envolve vários agentes públicos municipais e estaduais das gestões e controle social do SUAS. De acordo com a Norma Operacional Básica do SUAS / 2012 (NOBSUAS/2012) o processo de realização do Censo SUAS deve ser coordenado pela vigilância socioassistencial que deve apoiar no preenchimento zelando pela qualidade das informações coletadas.
 
-O Censo SUAS 2022 foi realizado, como todo ano, por meio de questionários eletrônicos disponíveis no portal da SAGI. O preenchimento em meio eletrônico é realizado apenas pelos órgãos gestores (estaduais e municipais) e conselhos de assistência social (estaduais e municipais). Destaca-se que, para preenchimento dos questionários, o usuário deve estar devidamente cadastrado na Rede SUAS e possuir uma senha de acesso. Os questionários, depois de preenchidos, devem ser salvos pelo respondente. O período de coleta foi entre outubro e dezembro de 2022, conforme cronograma da \Cref{tab:cronograma}.
+O Censo SUAS 2022 foi realizado, como todo ano, por meio de questionários eletrônicos disponíveis no portal da SAGI. O preenchimento em meio eletrônico é realizado apenas pelos órgãos gestores (estaduais e municipais) e conselhos de assistência social (estaduais e municipais). Destaca-se que, para preenchimento dos questionários, o usuário deve estar devidamente cadastrado na Rede SUAS e possuir uma senha de acesso. Os questionários, depois de preenchidos, devem ser salvos pelo respondente. O período de coleta foi entre outubro e dezembro de 2022, conforme cronograma da \cref{tab:cronograma}.
 
 ```{=tex}
 \begin{table}[h]
@@ -1444,7 +1445,7 @@ A LOAS, a NOB SUAS\footnote{Norma Operacional Básica NOB - SUAS 2012 (\url{http
 
 A partir das informações contidas no Censo SUAS é possível ter um panorama geral da gestão e do financiamento em estados e municípios, com a observação de aspectos como a estrutura administrativa da gestão da assistência social, a atualização de normativos, o apoio de estados aos municípios, as atividades de cofinanciamento e transferência de recursos, funcionamento das instâncias de pactuação, entre outras. Nesse sentido, esta seção apresenta os principais resultados obtidos a partir das informações dos questionários de gestão estadual e gestão municipal.
 
-A estrutura administrativa na Política de Assistência Social e Constituição de areas essenciais são elementos importantes para gestão do SUAS. No ambito da gestão estadual, no que se refere a exclusividade da area de Assistência Social, percebe-se que nos últimos 10 anos houve uma redução de areas específicas de Assistencia Social. Em 2012 existiam 29,6% \footnote{Estados: Amazonas, Acre, Pará, Amapá, Piauí, Paraíba, Sergipe e São Paulo} das secretarias estaduais exclusivas de Assistência Social, em 2022 esse número passa para 3,8%, \footnote{Estado do Amazonas} redução significativa de 87,2% Conforme a \Cref{fig:estados_sec_exc},
+A estrutura administrativa na Política de Assistência Social e Constituição de areas essenciais são elementos importantes para gestão do SUAS. No ambito da gestão estadual, no que se refere a exclusividade da area de Assistência Social, percebe-se que nos últimos 10 anos houve uma redução de areas específicas de Assistencia Social. Em 2012 existiam 29,6%\footnote{Estados: Amazonas, Acre, Pará, Amapá, Piauí, Paraíba, Sergipe e São Paulo} das secretarias estaduais exclusivas de Assistência Social, em 2022 esse número passa para 3,8%\footnote{Estado do Amazonas}, redução significativa de 87,2%, conforme o \cref{fig:estados_sec_exc}.
 
 ```{r estados_sec_exc, fig.cap = "Percentual de Estados quanto a caracteristica de estrutura administrativa, 2012 a 2022 - Brasil", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -1591,7 +1592,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
-No que se refere aos municípios, esse cenário nacional se configurou inverso ao das gestões Estaduais. Observa-se através (\Cref{fig:sec-munic-exc}) um aumento de 217 municípios (1,5 pontos percentuais) com secretarias exclusivas de Assistência Social do período de 2012 a 2019. \footnote{a partir de 2019 essa pergunta foi retirada do formulário de gestão municipal}.
+No que se refere aos municípios, esse cenário nacional se configurou inverso ao das gestões Estaduais. Observa-se através do \cref{fig:sec-munic-exc} um aumento de 217 municípios (1,5 pontos percentuais) com secretarias exclusivas de Assistência Social do período de 2012 a 2019\footnote{a partir de 2019 essa pergunta foi retirada do formulário de gestão municipal}.
 
 ```{r sec-munic-exc, fig.cap = "Percentual de Secretarias Municipais exclusivas de Assistência Social - Brasil, 2012 a 2019", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -1678,7 +1679,7 @@ Alguns órgãos gestores estaduais constituíram as áreas de assistência socia
 3)  Gestão do SUAS, com suas subdivisões de Vigilância Socioassistencial, Regulação do SUAS e Gestão do Trabalho; e
 4)  Gestão do Fundo Estadual de Assistência Social - FEAS.
 
-Observa-se avanço em todas as areas formalmente nos últimos 10 anos. As três áreas mais instituídas são: Proteção Social Básica, Proteção Social Especial com 88,46% e Gestão do SUAS com 84,62% \Cref{fig:uf_subd}.
+Observa-se avanço em todas as areas formalmente nos últimos 10 anos. As três áreas mais instituídas são: Proteção Social Básica, Proteção Social Especial com 88,46% e Gestão do SUAS com 84,62% (\Cref{fig:uf_subd}).
 
 ```{r uf_subd, fig.cap = "Percentual segundo estrutura administrativa formal da Secretaria Estadual de Assistência Social - Brasil, 2012 - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -1814,7 +1815,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ```
 
-Quando se observa a regularização destas areas, há um grupo instituídas informalmente conforme \Cref{fig:estados-constituicao-subdivisoes}, e setores que ainda não estão consituídos em 100% dos estados, a saber Gestão do SUAS, Gestão do trabalho e regulação do SUAS.
+Quando se observa a regularização destas areas, há um grupo instituídas informalmente conforme \cref{fig:estados-constituicao-subdivisoes}, e setores que ainda não estão consituídos em 100% dos estados, a saber Gestão do SUAS, Gestão do trabalho e regulação do SUAS.
 
 ```{r estados-constituicao-subdivisoes, fig.cap = "Percentual de estados segundo característica da estrutura administrativa da Secretaria Estadual de Assistência Social - Brasil,  2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -1864,10 +1865,7 @@ No que se refere aos municípios, a última pactuação sobre estrutura administ
 
 -   **municípios de grande porte e metrópole:** 100% dos muncípios com instituição formal, na estrutura do órgão gestor de assistência social, áreas constituídas de Proteção Social Básica, Proteção Social Especial, com subdivisão de Média e Alta Complexidade, Gestão Financeira e Orçamentária, Gestão de Benefícios Assistenciais e Transferência de Renda, área de Gestão do SUAS com competência de: Gestão do Trabalho, Regulação do SUAS e Vigilância Socioassistencial.
 
-A \Cref{fig:munic_sub} mostra crescimento formal de todas as areas administrativas. As areas do SUAS com maior percentual de constituição formal \footnote{A
-regulamentação destas areas essenciais devem estar previstas no
-organograma. A Lei do SUAS Lei nº 12.435, de 06/07/2011 altera a Lei Organiza da Assistência
-Social (LOAS) - nº 8.742, de 07/.12.1993} que dispõe sobre esta organização são respectivamente: Gestão do Cadastro Único e Bolsa Família, Gestão da Proteção Social Básica e Gestão do SUAS.
+O \cref{fig:munic_sub} mostra crescimento formal de todas as areas administrativas. As areas do SUAS com maior percentual de constituição formal\footnote{A regulamentação destas areas essenciais devem estar previstas no organograma. A Lei do SUAS Lei nº 12.435, de 06/07/2011 altera a Lei Organiza da Assistência Social (LOAS) - nº 8.742, de 07/.12.1993} que dispõe sobre esta organização são respectivamente: Gestão do Cadastro Único e Bolsa Família, Gestão da Proteção Social Básica e Gestão do SUAS.
 
 ```{r munic_sub, fig.cap = "Percentual segundo estrutura administrativa formal da Secretaria Municipal de Assistência Social - Brasil, 2012 - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -1952,7 +1950,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-Ao considerar a instituição informal, o \Cref{fig:municipais-constituicao-subdivisoes} sinaliza que a Gestão do trabalho e Vigilância Socioassistencial são os mais altos percentuais de informalidade e não constituição. Destaca-se também a proteção social especial, area recomendada existir independe da presença de undiades de CREAS.
+Ao considerar a instituição informal, o \cref{fig:municipais-constituicao-subdivisoes} sinaliza que a Gestão do trabalho e Vigilância Socioassistencial são os mais altos percentuais de informalidade e não constituição. Destaca-se também a proteção social especial, area recomendada existir independe da presença de undiades de CREAS.
 
 ```{r municipais-constituicao-subdivisoes, fig.cap = "Distribuição dos órgãos gestores municipais segundo constituição/formalização de subdivisões administrativas - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -2107,7 +2105,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 A uniformização da Lei do SUAS dos estados e municpípios em consonâcia com a LOAS foi deliberação da X Conferência Nacional. Sobre essa disposição, observa-se que nas gestões estaduais, 58% dos estados possuem Lei Estadual de regulamentação do SUAS (total de 15 estados). As últimas atualizações ocorreram a partir de 2017 (12 estados), com exceção de Minas Gerais em 2011 Goiás em 2015 e Mato Grosso do Sul em 2016.
 
-Entratando, 11 estados que não possuem Lei do SUAS. Esse número estão presentes nas seguintes regiões do Brasil: 4 - Nordeste, 3 - Norte, 2 - Região Sul e 1 - Região Sudeste. Sudeste\footnote{ siglas dos Estado que não possuem Lei do SUAS - censo suas 2022: RR, PA, TO, PI, RN, SE, BA, SP, PR, SC e RS}.
+Entratando, 11 estados que não possuem Lei do SUAS. Esse número estão presentes nas seguintes regiões do Brasil: 4 - Nordeste, 3 - Norte, 2 - Região Sul e 1 - Região Sudeste. Sudeste\footnote{ siglas dos Estado que não possuem Lei do SUAS - Censo SUAS 2022: RR, PA, TO, PI, RN, SE, BA, SP, PR, SC e RS}.
 
 ```{r estados-atualizacao-lei, fig.cap = "Quantidade de estados segundo último ano de atualização da Lei Estadual de regulamentação do Sistema Único de Assistência Social (SUAS) - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -2128,7 +2126,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-Em 2022, 75% dos municípios possuíam Lei Municipal de regulamentação do SUAS (4.170). Destes, a maioria, 91% (3.798) aprovaram/atualizaram após 2013 e 9% (372) anterior a atualização da Lei Nacional\footnote{Lei nº 12.435, de 06/07/2011 altera a Lei Organiza da Assistência Social (LOAS) - nº 8.742, de 07/.12.1993} e a NOB SUAS/2012 conforme detalha a \Cref{fig:municipios-atualizacao-lei}. A inexistência de Lei é encontrada em 25% (1.400) dos municípios.
+Em 2022, 75% dos municípios possuíam Lei Municipal de regulamentação do SUAS (4.170). Destes, a maioria, 91% (3.798) aprovaram/atualizaram após 2013 e 9% (372) anterior a atualização da Lei Nacional\footnote{Lei nº 12.435, de 06/07/2011 altera a Lei Organiza da Assistência Social (LOAS) - nº 8.742, de 07/.12.1993} e a NOB SUAS/2012 conforme detalha o \cref{fig:municipios-atualizacao-lei}. A inexistência de Lei é encontrada em 25% (1.400) dos municípios.
 
 ```{r municipios-atualizacao-lei, fig.cap = "Percentual de municípios segundo último ano de atualização da Lei Municipal de regulamentação do Sistema Único de Assistência Social (SUAS) - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -2152,7 +2150,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-No que se refere ao Planejamento, trata-se de uma obrigatoriedade para existência do Sistema Único e repasse de confinanciamento. O Plano Estadual de Assistência Social (PEAS) deve ser aprovado pelo Conselho Estadual de Assistência Social (CEAS). Os dados da \Cref{fig:PEAS} sinalizam que a partir de 2020 há um descrecimo desta atualização com devida aprovação do conselho.\footnote{Para os anos de 2016, 2017, 2018 e 2019 as perguntas alteraram, impossibilitande a linha histórica}\footnote{Para os municípios não foi possivel fazer essa linha histórica em decorrencia de mudanças nas perguntas}
+No que se refere ao Planejamento, trata-se de uma obrigatoriedade para existência do Sistema Único e repasse de confinanciamento. O Plano Estadual de Assistência Social (PEAS) deve ser aprovado pelo Conselho Estadual de Assistência Social (CEAS). Os dados do \cref{fig:PEAS} sinalizam que a partir de 2020 há um descrecimo desta atualização com devida aprovação do conselho\footnote{Para os anos de 2016, 2017, 2018 e 2019 as perguntas alteraram, impossibilitande a linha histórica}\footnote{Para os municípios não foi possivel fazer essa linha histórica em decorrencia de mudanças nas perguntas}.
 
 ```{r PEAS, fig.cap = "Percentual de Estados quanto a atualização do Plano Estadual de Assistência Social em 2022 - Brasil", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -2206,7 +2204,7 @@ III) Publicação de materiais informativos e de orientações técnicas;
 IV) Assessoramento e acompanhamento;
 V)  Incentivos financeiros.
 
-Em 2022, todos os estados informaram realizar alguma modalidade de apoio técnico aos municípios. Os maiores percentuais observados referiam-se ao Apoio Técnico individualizado a municípios específicos ofertado por 96,2% dos estados (25). Os menores percentuais eram referentes a Seminários 46,2%, (12). Outras formas, eram ofertadas por 15,4% dos estados (\Cref{fig:estados-formas-apoio}).
+Em 2022, todos os estados informaram realizar alguma modalidade de apoio técnico aos municípios. Os maiores percentuais observados referiam-se ao Apoio Técnico individualizado a municípios específicos ofertado por 96,2% dos estados (25). Os menores percentuais eram referentes a Seminários 46,2%, (12). Outras formas eram ofertadas por 15,4% dos estados (\Cref{fig:estados-formas-apoio}).
 
 Entre 2013 e 2022 o percentual de estados que prestavam assessoramento técnico a distância aumentou significativamente, passando de 42,3% (11) em 2013 para 92,3% (24) em 2022.
 
@@ -2471,7 +2469,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-Na \Cref{fig:munic_vit_estadual} os dados percentuais mostram um aumento gradual dos municípios que informam receber visitas da gestão estadual para apoio técnico. Entretanto 62,5% informam não ter recebido visita de apoio técnico no último ano.
+No \cref{fig:munic_vit_estadual} os dados percentuais mostram um aumento gradual dos municípios que informam receber visitas da gestão estadual para apoio técnico. Entretanto 62,5% informam não ter recebido visita de apoio técnico no último ano.
 
 ```{r munic_vit_estadual, fig.cap = "Percentual de Municipios que informam receber visitas de Apoio Técnico do Estado - Brasil, 2020 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -2488,7 +2486,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-O modelo de gestão do SUAS preve cofinanciamento compartilhado entre os três entes federados.\footnote{Art. 30-A.  O cofinanciamento dos serviços, programas, projetos e benefícios eventuais, no que couber, e o aprimoramento da gestão da política de assistência social no Suas se efetuam por meio de transferências automáticas entre os fundos de assistência social e mediante alocação de recursos próprios nesses fundos nas 3 (três) esferas de governo.}.
+O modelo de gestão do SUAS preve cofinanciamento compartilhado entre os três entes federados\footnote{Art. 30-A.  O cofinanciamento dos serviços, programas, projetos e benefícios eventuais, no que couber, e o aprimoramento da gestão da política de assistência social no Suas se efetuam por meio de transferências automáticas entre os fundos de assistência social e mediante alocação de recursos próprios nesses fundos nas 3 (três) esferas de governo.}.
 
 Nesta perspetiva, percebe-se um avanço nos últimos 10 anos sobre a participação dos estados no cofinanciamento estadual com participação de 96,15% (25) dos estados que informam cofinanciar os municípios (\Cref{fig:estados-cofinanciamento-municipios}).
 
@@ -2547,7 +2545,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-A \Cref{fig:estados-blocos-recursos} evidencia a quantidade de estados quando ao cofinanciamento aos municípios por blocos. Os dados dos últimos 10 anos, sinaliza que o número de estados que cofinanciam os municípios vem aumentando. Sobretudo o cofinanciamento da proteção social especial (Média e Alta Complexoidade), em seguida Benefícios Eventuais. No que se refere aos últimos 5 anos houve uma redução na destinação de recursos para proteção social básica e incetivos do SUAS.
+O \cref{fig:estados-blocos-recursos} evidencia a quantidade de estados quando ao cofinanciamento aos municípios por blocos. Os dados dos últimos 10 anos, sinaliza que o número de estados que cofinanciam os municípios vem aumentando. Sobretudo o cofinanciamento da proteção social especial (Média e Alta Complexoidade), em seguida Benefícios Eventuais. No que se refere aos últimos 5 anos houve uma redução na destinação de recursos para proteção social básica e incetivos do SUAS.
 
 ```{r estados-blocos-recursos, fig.cap = "Número de estados segundo a destinação dos recursos transferidos aos municípios por blocos de financiamento - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -2744,7 +2742,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-O ordenador de despesa responde pela emissão de empenho, autorização de pagamento dos recursos do fundo de assistencia social. Assim, recomenda-se que este tenha amplo conhecimento sobre a política. O gráfico da \Cref{fig:estado_ord_despesa} sinaliza que 73% dos gestores estaduais são ordenadores de despesa do fundo estadual. Dado que reduziu a partir de 2018.
+O ordenador de despesa responde pela emissão de empenho, autorização de pagamento dos recursos do fundo de assistencia social. Assim, recomenda-se que este tenha amplo conhecimento sobre a política. O \cref{fig:estado_ord_despesa} sinaliza que 73% dos gestores estaduais são ordenadores de despesa do fundo estadual. Dado que reduziu a partir de 2018.
 
 ```{r estado_ord_despesa, fig.cap = "Percentual de estados quanto a ordenação de despesa do Fundo Estadual - Brasil, 2018-2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -2800,7 +2798,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 No que se refere aos municípios, aproximadamente 80% dos secretários (as) municipais são ordenadores de despesa do Fundo Municipal. Esse percentual aumentou a partir de 2016.
 
-A \Cref{fig:munic_ord_despesa} também mostra que as/os prefeitas/os enquanto ordenadores de despesa da política de Assistência Social vem reduzindo ao longo dos anos. Dado que se revela como positivo, haja vista o gestor municipal encontra-se no cotidiano do planejamento desta política pública, sendo mais apropriado para tomar as decisões sobre o orçamento.
+O \cref{fig:munic_ord_despesa} também mostra que as/os prefeitas/os enquanto ordenadores de despesa da política de Assistência Social vem reduzindo ao longo dos anos. Dado que se revela como positivo, haja vista o gestor municipal encontra-se no cotidiano do planejamento desta política pública, sendo mais apropriado para tomar as decisões sobre o orçamento.
 
 ```{r munic_ord_despesa, fig.cap = "Percentual de municípios quanto a ordenação de despesa do Fundo Municipal - Brasil, 2013 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -2956,7 +2954,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-Em relação ao Plano de Educação Permanente, de acordo com censo suas de 2021, 13,9% (769) dos municípios possuem este plano. Esse percentual, como pode ser observado na \Cref{fig:PNEP_Munic}, teve evolução residual últimos anos.\footnote{Para o ano de 2022 essa pergunta foi extinta}.
+Em relação ao Plano de Educação Permanente, de acordo com censo suas de 2021, 13,9% (769) dos municípios possuem este plano. Esse percentual, como pode ser observado no \cref{fig:PNEP_Munic}, teve evolução residual últimos anos\footnote{Para o ano de 2022 essa pergunta foi extinta}.
 
 ```{r PNEP_Munic, fig.cap = "Percentual de municípios que possuem Plano de Capacitação e Educação Permanente, - Brasil; 2015, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -3058,7 +3056,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ## Programas de execução própria executadas pelos estados
 
-Em relação aos programas próprios de transferência de renda executados pelos estados, percebe-se um aumento ao longo dos anos na qual em 2022, 76,9% dos estados informaram que possuem conforme(\Cref{fig:be_uf_renda}).
+Em relação aos programas próprios de transferência de renda executados pelos estados, percebe-se um aumento ao longo dos anos na qual em 2022, 76,9% dos estados informaram que possuem conforme o \cref{fig:be_uf_renda}.
 
 ```{r be_uf_renda, fig.cap = "Programas de execução própria e/ou transferência de renda executadas pelos estados", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -3108,7 +3106,7 @@ A gestão do Cadastro Único é compartilhada entre união, estados, municípios
 
 As unidades do Cadastro Único podem ser encontradas em locais exclusivos ou na rede de atendimento socioassistencial de CRAS, CREAS, Centro Pop. Dados do Censo SUAS mostram uma evolução de locais de cadastramento, sobretudo a partir de 2017.
 
-Sobre a distribuição destes locais de Cadastro Único, destaca-se que em 2022, 31% (2.892) são unidades exclusivas de Cadastro Único e 68% estão em unidades da rede socioassistencial \footnote{CRAS, CREAS e CENTRO POP} conforme pode ser observado na tabela \ref{tab:qtd_unidades}.
+Sobre a distribuição destes locais de Cadastro Único, destaca-se que em 2022, 31% (2.892) são unidades exclusivas de Cadastro Único e 68% estão em unidades da rede socioassistencial\footnote{CRAS, CREAS e CENTRO POP} conforme pode ser observado na tabela \ref{tab:qtd_unidades}.
 
 
 ```{=tex}
@@ -3136,8 +3134,7 @@ escola.
 No que se refere a gestão territorial, cabe as coordenações do Cadastro Único dos municípios o atendimento, a supervisão, o monitoramento e a avaliação dos processos de cadastramento, seja em postos específicos ou integradas as unidades da rede socioassistencial.
 
 
-O gráfico abaixo (\Cref{fig:gestao_cad}) sinaliza que, no âmbito da gestão municipal, as ações de levantamento de famílias para atualização e inclusão cadastral são a mais realizada. A menor proporção se refere a ações de elaboração de análises utilizando dados do Cadastro Único (\Cref{fig:gestao_cad}).
-\footnote{estas informações são do formulário de Gestão Municipal, assim se referem a informações gerais que a gestão informa realizar, destaca-se também que estas informações estão disponíveis a partir do ano de 2020}.
+O \cref{fig:gestao_cad} sinaliza que, no âmbito da gestão municipal, as ações de levantamento de famílias para atualização e inclusão cadastral são a mais realizada. A menor proporção se refere a ações de elaboração de análises utilizando dados do Cadastro Único (\Cref{fig:gestao_cad})\footnote{estas informações são do formulário de Gestão Municipal, assim se referem a informações gerais que a gestão informa realizar, destaca-se também que estas informações estão disponíveis a partir do ano de 2020}.
 
 
 ```{r gestao_cad, fig.cap = "Ações desenvolvidas no âmbito da Gestão do Cadastro Único - Brasil, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -3208,7 +3205,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 ```
 
 
-O gráfico (\Cref{fig:acoes_cad}) sinaliza que as ações de esclarecimento de dúvidas sobre serviços, programas entre outros são realizadas pela grande maioria das unidades do cadastro único (96,82%). Já as ações de agendamento para atendimento são realizadas por 64,35% das unidades, com redução ao longo dos anos\footnote{estas informações são dos postos que executam exclusivamente atividades do cadastro único}.
+O \cref{fig:acoes_cad} sinaliza que as ações de esclarecimento de dúvidas sobre serviços, programas entre outros são realizadas pela grande maioria das unidades do cadastro único (96,82%). Já as ações de agendamento para atendimento são realizadas por 64,35% das unidades, com redução ao longo dos anos\footnote{estas informações são dos postos que executam exclusivamente atividades do cadastro único}.
 
 ```{r acoes_cad, fig.cap = "Ações desenvolvidas pelos postos do Cadastro Único - Brasil, 2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -3272,7 +3269,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 ```
 
 
-Faz parte de procedimentos de qualificação do Cadastro Único ações de averiguação e revisão cadastral. A averiguação é um processo de verificação das informações registradas no Cadastro Único por meio da comparação dos dados declarados pelas famílias com outros dados e registros administrativos do governo federal. Já a revisão é um procedimento de atualização das famílias com registros desatualizados. O tempo considerado para um cadastro desatualizado é de 24 meses. O seguinte gráfico (\Cref{fig:ave_cad}) refere-se as informações de averiguação e revisão cadastral no âmbito dos postos dos Cadastro Único dos municípios. Nota-se que ao longo dos anos, essas ações aumentaram,sobretudo as ações de busca ativa e identificação do público de averiguação e revisão cadastral como público prioritário.
+Faz parte de procedimentos de qualificação do Cadastro Único ações de averiguação e revisão cadastral. A averiguação é um processo de verificação das informações registradas no Cadastro Único por meio da comparação dos dados declarados pelas famílias com outros dados e registros administrativos do governo federal. Já a revisão é um procedimento de atualização das famílias com registros desatualizados. O tempo considerado para um cadastro desatualizado é de 24 meses. O \cref{fig:ave_cad} refere-se as informações de averiguação e revisão cadastral no âmbito dos postos dos Cadastro Único dos municípios. Nota-se que ao longo dos anos, essas ações aumentaram,sobretudo as ações de busca ativa e identificação do público de averiguação e revisão cadastral como público prioritário.
 
 
 ```{r ave_cad, fig.cap = "Ações de averiguação e revisão desenvolvidas pelas Unidades do Cadastro Único - Brasil, 2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -3339,7 +3336,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 ```
 
 
-Em relação as informações de unidades de Postos do Cadasto Único e o atendimento de Grupos Populacionais Tradicionais e Específicos - GPTEs, destaca-se através da (\Cref{fig:gptes-cadunico}) o percentual de unidades de postos do Cadastro Único que informam atender no período de 2020 a 2022.
+Em relação as informações de unidades de Postos do Cadasto Único e o atendimento de Grupos Populacionais Tradicionais e Específicos - GPTEs, destaca-se através do \cref{fig:gptes-cadunico} o percentual de unidades de postos do Cadastro Único que informam atender no período de 2020 a 2022.
 
 ```{r gptes-cadunico, fig.cap = "Unidades que realizam cadastramento de famílias pertencentes aos seguintes Grupos Tradicionais e Específicos - GPTEs - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -3357,7 +3354,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-O cadastramento domiciliar permite uma aproximação com aspectos do cotidiano das famílias, visto que a coleta das informações ocorre por meio do encontro da gestão até as famílias. Essa ação objetiva assegurar o acesso a inclusão ou atualização cadastral na residencia das pessoas. De acordo com informações da (\Cref{fig:visit_dom}) as situações mais frequentes para visita domiciliar são para averiguação cadastral e inclusão/atualização de dados do BPC (Benefício de Prestação Continuada - BPC).
+O cadastramento domiciliar permite uma aproximação com aspectos do cotidiano das famílias, visto que a coleta das informações ocorre por meio do encontro da gestão até as famílias. Essa ação objetiva assegurar o acesso a inclusão ou atualização cadastral na residencia das pessoas. De acordo com informações do \cref{fig:visit_dom} as situações mais frequentes para visita domiciliar são para averiguação cadastral e inclusão/atualização de dados do BPC (Benefício de Prestação Continuada - BPC).
 
 
 ```{r visit_dom, fig.cap = "Situações mais frequentes de entrevistas domiciliares no Cadastro Único - Brasil, 2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -3503,10 +3500,9 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-O gráfico abaixo (\Cref{fig:igdbolsa}) sinaliza sobre a existência da participação das unidades do Cadastro único no planejamento
-dos recursos recebidos no âmbito do IGD-PBF (Índice de Gestão Descentralizada da Gestão do Bolsa Família e Cadastro Único).
-Trata-se de um recurso repassado aos estados e municípios para apoio a gestão do Cadastro Único e Bolsa Família. Esta informação é referente
-a respostas do dormulário dos potos de cadastramento em âmbito dos municípios.
+O \cref{fig:igdbolsa} sinaliza sobre a existência da participação das unidades do Cadastro único no planejamento dos recursos recebidos no âmbito do IGD-PBF (Índice de Gestão Descentralizada da Gestão do Bolsa Família e Cadastro Único).
+
+Trata-se de um recurso repassado aos estados e municípios para apoio a gestão do Cadastro Único e Bolsa Família. Esta informação é referente a respostas do dormulário dos potos de cadastramento em âmbito dos municípios.
 
 
 ```{r igdbolsa, fig.cap = "Unidades de Postos do Cadastro Único quanto a participação no planejamento do IGD Bolsa Família - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
@@ -3545,7 +3541,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 <!-- colocar item abaixo coord_cadunico na gestão do trabalho.}). -->
 
 
-Em relação a existência de coordenador(a) do Cadastro Único nos postos de atendimento, o gráfico (\Cref{fig:coord_cadunico}) sinaliza aumento nos últimos anos, em 2022, 31,8% dos postos do Cadastro Único possuem coordenador(a).
+Em relação a existência de coordenador(a) do Cadastro Único nos postos de atendimento, o \cref{fig:coord_cadunico} sinaliza aumento nos últimos anos, em 2022, 31,8% dos postos do Cadastro Único possuem coordenador(a).
 
 
 
@@ -3586,7 +3582,7 @@ Os Centros de Referência de Assistência Social (CRAS) são definidos pelo arti
 
 No Censo SUAS de 2022 foram identificados 8.557 CRAS, em 5.535 municípios brasileiros, o que indica que há pelo menos um CRAS em 99,4% dos municípios brasileiros.
 
-O quantitativo de CRAS dobrou entre 2007 e 2022, passando de 4.195 unidades para 8.557. O \Cref{fig:quantitativo-CRAS} apresenta a evolução do quantitativo de CRAS por grandes regiões de desenvolvimento.
+O quantitativo de CRAS dobrou entre 2007 e 2022, passando de 4.195 unidades para 8.557. O \cref{fig:quantitativo-CRAS} apresenta a evolução do quantitativo de CRAS por grandes regiões de desenvolvimento.
 
 
 
@@ -3615,7 +3611,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-A Expansão em todo território nacional do número de CRAS evidencia a consolidação de uma referencia de equipamento público de Assistêrncia Social em todo território nacional. De acordo com os dados 99,37% municípios possuem CRAS, ou seja apenas 34 municípios no Brasil não dispõe desta unidade pública.\footnote{estas informações são referentes ao preenchimento do Censo SUAS, é possível que no determinado período esta unidade pública não tenha preenchido o forumulário}.
+A Expansão em todo território nacional do número de CRAS evidencia a consolidação de uma referencia de equipamento público de Assistêrncia Social em todo território nacional. De acordo com os dados 99,37% municípios possuem CRAS, ou seja apenas 34 municípios no Brasil não dispõe desta unidade pública\footnote{estas informações são referentes ao preenchimento do Censo SUAS, é possível que no determinado período esta unidade pública não tenha preenchido o forumulário}.
 
 ```{r municipios-CRAS, fig.cap = "Evolução do percentual de municípios com pelo menos um CRAS, segundo grandes regiões - Brasil, 2007 a 2017", fig.footer = "Fonte: MDS, Censo SUAS", eval=FALSE}
 
@@ -3654,7 +3650,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-Ao observar o número de CRAS por municípios, levando-se em conta o porte populacional, verifica-se que os 35 municípios do país que não possuem CRAS \footnote{é possível também que alguns deles não tenham respondido ao Censo SUAS} e estão concentrados em municípios de pequeno porte \Cref{fig:CRAS-porte}.
+Ao observar o número de CRAS por municípios, levando-se em conta o porte populacional, verifica-se que os 35 municípios do país que não possuem CRAS\footnote{é possível também que alguns deles não tenham respondido ao Censo SUAS} e estão concentrados em municípios de pequeno porte (\Cref{fig:CRAS-porte}).
 
 Em relação a concentração de quantidade de CRAS, para os municípios de pequeno porte I e pequeno porte II, dispõem, em sua maioria de uma unidade de CRAS como referencia do território, sendo respectivamente 95,2% e 71,5%. Os municípios de médio porte, cerca de 67,3% possuem de 2 a 3 CRAS. Ja entre os municípios de grande porte, o grupo majoritário de unidades são entre 4 a 6 CRAS - 52,5%.
 
@@ -3712,9 +3708,9 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-Os dados de CRAS que funcionam com imóvel próprio evoluiu significativamente de 2008 a 2022. Destaca-se que o primeiro ano da série histórica abaixo possuia (\Cref{fig:CRAS-imovel}) 43,7%  CRAS com imóvel próprio, dado que chega em 2022 com 59,62%. Dados com CRAS que funcionam com imóveis alugados passam por redução de 48,2% para 32,2%.
+Os dados de CRAS que funcionam com imóvel próprio evoluiu significativamente de 2008 a 2022. Destaca-se que o primeiro ano da série histórica possuia 43,7%  CRAS com imóvel próprio (\Cref{fig:CRAS-imovel}), dado que chega em 2022 com 59,62%. Dados com CRAS que funcionam com imóveis alugados passam por redução de 48,2% para 32,2%.
 
-Observa-se ainda aumento no percentual de CREAS que funcionam em imóveis cedido: eram 6,8% em 2008, o maior valor da série histórica chega a 9,1% conforme o \Cref{fig:CRAS-imovel}\footnote{Para os anos de 2018 e 2019 esse dado não foi computado no Censo SUAS}.
+Observa-se ainda aumento no percentual de CREAS que funcionam em imóveis cedido: eram 6,8% em 2008, o maior valor da série histórica chega a 9,1% conforme o \cref{fig:CRAS-imovel}\footnote{Para os anos de 2018 e 2019 esse dado não foi computado no Censo SUAS}.
 
 ```{r CRAS-imovel, fig.cap = "Evolução dos CRAS segundo situação do imóvel – Brasil, 2007 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -3746,7 +3742,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-A acessibilidade é importante para que os usuários da política consigam chegar até os serviços oferecidos pelos CRAS. Em 2016, 38,7% das unidades declararam ter rota acessível ao banheiro de acordo com a Norma da ABNT (NBR9050), enquanto que, em 37,8% havia rota acessível aos espaços do CRAS de acordo com a referida Norma. \footnote{foram considerados acesso adptado os imóveis que informam possui acessibildiade, de acordo com a norma ABNT ou não}. Embora nenhuma das adaptações de acordo com a Norma da ABNT tenha estado presente em mais de 40% das unidades, todas as categorias relativas à acessibilidade continuam crescendo percentualmente em relação aos anos anteriores (\Cref{fig:CRAS-acessibilidade}).
+A acessibilidade é importante para que os usuários da política consigam chegar até os serviços oferecidos pelos CRAS. Em 2016, 38,7% das unidades declararam ter rota acessível ao banheiro de acordo com a Norma da ABNT (NBR9050), enquanto que, em 37,8% havia rota acessível aos espaços do CRAS de acordo com a referida Norma\footnote{foram considerados acesso adptado os imóveis que informam possui acessibildiade, de acordo com a norma ABNT ou não}. Embora nenhuma das adaptações de acordo com a Norma da ABNT tenha estado presente em mais de 40% das unidades, todas as categorias relativas à acessibilidade continuam crescendo percentualmente em relação aos anos anteriores (\Cref{fig:CRAS-acessibilidade}).
 
 ```{r CRAS-acessibilidade, fig.cap = "Evolução percentual de CRAS com condições de acessibilidade - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -3840,7 +3836,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-O número absoluto e o percentual de CRAS com acesso à internet aumentam desde 2007 chegando no último ano desta série com mais de 99% das unidades com computadores com acesso a internet conforme o \Cref{fig:CRAS-internet-percentual}.
+O número absoluto e o percentual de CRAS com acesso à internet aumentam desde 2007 chegando no último ano desta série com mais de 99% das unidades com computadores com acesso a internet conforme o \cref{fig:CRAS-internet-percentual}.
 
 
 ```{r CRAS-internet, fig.cap = "Distribuição dos CRAS com computadores com acesso à internet; 2007, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval = FALSE}
@@ -4044,7 +4040,7 @@ Em 2016, 31,2% dos Centros de Convivência (2.636 unidades) possuíam rota acess
 
 Os Centros de Referência Especializados de Assistência Social (CREAS) são unidades públicas estatais que ofertam serviços da Proteção Social Especial a pessoas e famílias em situação de risco pessoal ou social e/ou em situação de violação de direitos.
 
-O Censo SUAS 2022 registrou 2.846 CREAS no país: um incremento de 679 novas unidades em relação aos últimos 10 anos. O gráfico abaixo \Cref{fig:creas-quantitativo} sinaliza esta evolução por Regiões do país. 
+O Censo SUAS 2022 registrou 2.846 CREAS no país: um incremento de 679 novas unidades em relação aos últimos 10 anos. O \cref{fig:creas-quantitativo} sinaliza esta evolução por Regiões do país. 
 
 
 ```{r creas-quantitativo, fig.cap = "Evolução do quantitativo de CREAS, segundo grandes regiões; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -4067,7 +4063,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-De acordo com os dados do grafico \Cref{fig:CREAS-porte} na qual sinaliza o número de CREAS por município, levando-se em conta o porte populacional, verifica-se que 54% dos municípios não possuem CREAS. Eeles estão concetrados nos municípios de Pequeno Porte I e II respectivamente com 77% e 5,3% dos municípios que não possuem esta unidade especializada.
+De acordo com os dados do \cref{fig:CREAS-porte} na qual sinaliza o número de CREAS por município, levando-se em conta o porte populacional, verifica-se que 54% dos municípios não possuem CREAS. Eeles estão concetrados nos municípios de Pequeno Porte I e II respectivamente com 77% e 5,3% dos municípios que não possuem esta unidade especializada.
 
 
 ```{r CREAS-porte, fig.cap = "Percentual de municípios por número de CREAS, segundo porte populacional - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios"}
@@ -4121,7 +4117,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-Ao observar a série histórica do \Cref{fig:creas-situacao}, é possível perceber que os imovéis próprios vem aumentando ao longo do tempo. Em 2012 eram 27% das unidades e, chegam em 2022 com 37%. Ao passo que os imóveis próprios aumentam em 10% pontos percentuais, os imovéis alugados descrecem neste mesmo ponto computado no censo suas de 2022 com 57% das undiades alugadas.Há também registros de imoveis cedidos na qual ao longo dos anos sinalziam um leva aumento.\footnote{Para os anos de 2018 e 2019 esse dado não foi computado no censo suas}
+Ao observar a série histórica do \cref{fig:creas-situacao}, é possível perceber que os imovéis próprios vem aumentando ao longo do tempo. Em 2012 eram 27% das unidades e, chegam em 2022 com 37%. Ao passo que os imóveis próprios aumentam em 10% pontos percentuais, os imovéis alugados descrecem neste mesmo ponto computado no censo suas de 2022 com 57% das undiades alugadas.Há também registros de imoveis cedidos na qual ao longo dos anos sinalizam um leva aumento\footnote{Para os anos de 2018 e 2019 esse dado não foi computado no Censo SUAS}.
 
 ```{r creas-situacao, fig.cap = "Evolução dos CREAS segundo situação do imóvel – Brasil; 2012, 2017 e 2022",fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -4151,11 +4147,11 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-De acordo com os dados do Censo SUAS de 2012, 33% dos CREAS possuíam banheiro adaptado para pessoas com mobilidade reduzida. Em 2022 há um crescimento de 22 pontos percentuais em relação ao ano de 2012, com 55% dos CREAS com essa estrutura adptada.\footnote{foram considerados acesso adptado os imóveis que informam possui acessibildiade, de acordo com a norma ABNT ou não}
+De acordo com os dados do Censo SUAS de 2012, 33% dos CREAS possuíam banheiro adaptado para pessoas com mobilidade reduzida. Em 2022 há um crescimento de 22 pontos percentuais em relação ao ano de 2012, com 55% dos CREAS com essa estrutura adptada\footnote{foram considerados acesso adptado os imóveis que informam possui acessibildiade, de acordo com a norma ABNT ou não}.
 
 A presença de acesso principal adaptado com rota ascessível aos espaços (recepção, salas de atendimento e espaços de uso coletivo) é a mais presente nas unidades de CREAS com destaque para 83% no CENSO SUAS  de 2022.
 
-O grafico \Cref{fig:creas-acessibilidade} referencia outras adpções como com rampas, rota acessível e calçada e de rota acessível ao banheiro. todas essas adaquações amliaram a acessibildiade ao longo dos anos.
+O \cref{fig:creas-acessibilidade} referencia outras adpções como com rampas, rota acessível e calçada e de rota acessível ao banheiro. todas essas adaquações amliaram a acessibildiade ao longo dos anos.
 
 
 ```{r creas-acessibilidade, fig.cap = "Evolução percentual de CREAS com condições de acessibilidade - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -4192,7 +4188,8 @@ grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
-O gráfico abaixo  \Cref{fig:CREAS-acessibilidade-situacao} através do Censo SUAS 2022 apurou a situação do imóvel com a presença das condições de acessibilidade. Os dados sinalizam que a acessibilidade é mais presente em imovéis próprios.
+
+O \cref{fig:CREAS-acessibilidade-situacao} através do Censo SUAS 2022 apurou a situação do imóvel com a presença das condições de acessibilidade. Os dados sinalizam que a acessibilidade é mais presente em imovéis próprios.
 
 ```{r CREAS-acessibilidade-situacao, fig.cap = "Evolução percentual de CREAS com condições de acessibilidade por situação do imóvel – Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -4216,7 +4213,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 ```
 
 
-A existência de computadores com acesso à internet é um importante aspecto a ser observado quando se avalia a infraestrutura dos CREAS. Em 2022, 99% dos CREAS possuem computadores com acesso à internet conforme \Cref{fig:CREAS-internet-percentual}. Números que avançou em todas as regiões, em especial, na Região Norte conforme linha histórica desta evolução apresentada no gráfico abaixo.
+A existência de computadores com acesso à internet é um importante aspecto a ser observado quando se avalia a infraestrutura dos CREAS. Em 2022, 99% dos CREAS possuem computadores com acesso à internet conforme o \cref{fig:CREAS-internet-percentual}. Números que avançou em todas as regiões, em especial, na Região Norte conforme linha histórica desta evolução apresentada no gráfico abaixo.
 
 ```{r CREAS-internet-percentual, fig.cap = "Evolução percentual de CREAS com computadores com acesso à internet – Brasil, 2012 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -4285,7 +4282,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 ```
 
 
-A oferta regionalizada de CREAS é uma estratégia que objetiva garantir a universalização do acesso e integralidade do antendimento da proteção socioassistencia especializada. Estar prevista através da Resolução 31/2013 do CNAS. Essa composição é organziada atarvés dos entes estaduais e o  \Cref{fig:creas-regionais} sinaliza a evolução dessa oferta.
+A oferta regionalizada de CREAS é uma estratégia que objetiva garantir a universalização do acesso e integralidade do antendimento da proteção socioassistencia especializada. Estar prevista através da Resolução 31/2013 do CNAS. Essa composição é organziada através dos entes estaduais e o \cref{fig:creas-regionais} sinaliza a evolução dessa oferta.
 
 
 ```{r creas-regionais, fig.cap = "Evolução do quantitativo de CREAS Regionais, Brasil e grandes regiões - 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -4309,7 +4306,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 Os Centros de Referência Especializados para População em Situação de Rua (Centros POP) são unidades públicas que oferecem atendimento especializado para a população em situação de rua, no âmbito da proteção social especial de média complexidade.
 
-Entre 2012 e 2022 o número de Centros POP cresceu, passando de 105 unidades para 237 no período. O \Cref{fig:quantitativo-CentroPop}sinaliza a essa evolução na escala de a cada 5 anos por Regiões do Brasil.
+Entre 2012 e 2022 o número de Centros POP cresceu, passando de 105 unidades para 237 no período. O \cref{fig:quantitativo-CentroPop} sinaliza a essa evolução na escala de a cada 5 anos por Regiões do Brasil.
 
 
 ```{r quantitativo-CentroPop, fig.cap = "Evolução do quantitativo de Centro Pop, 2012 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
@@ -4332,7 +4329,8 @@ grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
-Os Centro Pop estão presentes em municípios de grande porte e metrópoles, o \Cref{fig:cpop-porte} sinalzia que 59% dos municípios de grande poirte possui pelo menos uma unidade, e para metropoles 100% possuem unidades de centro pop, sendo 59% entre duas a três unidades, 24% uma unidade e 18% de 4 a 6 undiades de Centro Pop. Há presenta também em múnicípios de médio porte, com destaque para 5,9% dos municípios.
+
+Os Centro Pop estão presentes em municípios de grande porte e metrópoles, o \cref{fig:cpop-porte} sinaliza que 59% dos municípios de grande porte possui pelo menos uma unidade, e para metropoles 100% possuem unidades de centro pop, sendo 59% entre duas a três unidades, 24% uma unidade e 18% de 4 a 6 undiades de Centro Pop. Há presenta também em múnicípios de médio porte, com destaque para 5,9% dos municípios.
 
 ```{r cpop-porte, fig.cap = "Percentual de municípios por número de Centro POP, segundo porte populacional - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios"}
 
@@ -4385,7 +4383,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-Em relação a acessibilidade dos Centro Pop o \Cref{fig:cpop-acessibilidade-situacao} relaciona esta adaptação com a situação do imóvel. No geral todoas as adaptações de acessibildiade são superiores ao serem relacionadas com os imóveis alugados. Em relação aos imóveis cedidos, a adaptação de banheiro se sobressai em relação as demais situações dos imóveis. 
+Em relação a acessibilidade dos Centro Pop o \cref{fig:cpop-acessibilidade-situacao} relaciona esta adaptação com a situação do imóvel. No geral todoas as adaptações de acessibildiade são superiores ao serem relacionadas com os imóveis alugados. Em relação aos imóveis cedidos, a adaptação de banheiro se sobressai em relação as demais situações dos imóveis. 
 
 
 ```{r cpop-acessibilidade-situacao, fig.cap = "Percentual de Centros POP com condições de acessibilidade segundo situação do imóvel – Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -4409,7 +4407,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-Em 2016,95% dos Centros Pop destacam computador com acesso à internet em 2022. O gráfico \Cref{fig:cpop-internet-percentual} referencia essa evolução por Regiões do Brasil, as regiões Centro Oeste e Sul possuem 100% das undiades com acesso a internet e a região Norte com maior desafio de acesso, com 75% das unidades de Centro Pop com acesso a internet.
+Em 2016,95% dos Centros Pop destacam computador com acesso à internet em 2022. O \cref{fig:cpop-internet-percentual} referencia essa evolução por Regiões do Brasil, as regiões Centro Oeste e Sul possuem 100% das undiades com acesso a internet e a região Norte com maior desafio de acesso, com 75% das unidades de Centro Pop com acesso a internet.
 
 ```{r cpop-internet-percentual, fig.cap = "Percentual de Computadores nos Centro Pop com acesso a internet, 2012 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -4426,9 +4424,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ## Centro-Dia
 
-Centro Dia são unidades públicas especializadas para qtender pessoas com deficiência e suas famílias. Ela estar inserida no ambito da proteção social espceial de média complexidade. No ano de 2015 identifica-se no Brasil 1.340 unidades. Em 2022 há um crescimento de 40,7% destas undiades conforme pdoe ser observada no grafico \Cref{fig:quantitativo-Centrodia}.
-
-
+Centro Dia são unidades públicas especializadas para qtender pessoas com deficiência e suas famílias. Ela estar inserida no ambito da proteção social espceial de média complexidade. No ano de 2015 identifica-se no Brasil 1.340 unidades. Em 2022 há um crescimento de 40,7% destas unidades conforme pode ser observada no \cref{fig:quantitativo-Centrodia}.
 
 ```{r quantitativo-Centrodia, fig.cap = "Evolução do quantitativo de Centro dia, segundo grandes regiões; 2015 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -4447,7 +4443,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-Em relação a natureza destas unidades, o \Cref{fig:cdia-natureza} sinaliza a frequencia histórica de unidades referenciadas pelas Organizações da Sociedade Civil (OSCs). Das undiades destacadas no Censo SUAS 2022, 92,8% são ofertadas por OSCs.
+Em relação a natureza destas unidades, o \cref{fig:cdia-natureza} sinaliza a frequencia histórica de unidades referenciadas pelas Organizações da Sociedade Civil (OSCs). Das undiades destacadas no Censo SUAS 2022, 92,8% são ofertadas por OSCs.
 
 
 ```{r cdia-natureza, fig.cap = "Quantitativo de Centros Dia por Natureza da Unidade - BRASIL, 2015 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -4492,7 +4488,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ```
 
-Em relação a acessibilidade destas unidades, o banheiro acessivel é a adaptação mais presentes nestas unidades chegando nos registros do Censo SUAS de 2022 com 73%. Como trata-se de unidades especializadas para atenção a pessoas com deficiência, esse item é de funmental importância para assegurar acolhida e segurança a este público e suas famílias. O \Cref{fig:cdia-acessibilidade} sinaliza os locais e composição de acessibilidade, estes dados sinalizam um desafio para garantir as condições físicas de acesso ao público de pessoas com deficiência nas undiades de Centro Dia.
+Em relação a acessibilidade destas unidades, o banheiro acessivel é a adaptação mais presentes nestas unidades chegando nos registros do Censo SUAS de 2022 com 73%. Como trata-se de unidades especializadas para atenção a pessoas com deficiência, esse item é de funmental importância para assegurar acolhida e segurança a este público e suas famílias. O \cref{fig:cdia-acessibilidade} sinaliza os locais e composição de acessibilidade, estes dados sinalizam um desafio para garantir as condições físicas de acesso ao público de pessoas com deficiência nas undiades de Centro Dia.
 
 
 ```{r cdia-acessibilidade, fig.cap = "Evolução percentual de Centro Dia com condições de acessibilidade - Brasil; 2015, 2018 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -4636,7 +4632,7 @@ UNIDADES DE ACOLHIMENTO As Unidades de Acolhimento são equipamentos que prestam
 ```
 
 
-No que se refere a quantidade total destas unidades de acolhimento por porte populacional, destaca-se que há concentração nos municípios com porte populacional maiores. Todas as metrópoles possuem registro de mais de 10 unidades. O \Cref{fig:unac-porte} também sinaliza que 74% dos municípios de pequeno porte I não dispõem de serviços de alta complexidade. 
+No que se refere a quantidade total destas unidades de acolhimento por porte populacional, destaca-se que há concentração nos municípios com porte populacional maiores. Todas as metrópoles possuem registro de mais de 10 unidades. O \cref{fig:unac-porte} também sinaliza que 74% dos municípios de pequeno porte I não dispõem de serviços de alta complexidade. 
 
 Para os municípios menores a Resolução 31/2013 do CNAS sinaliza sobre a oferta regionalizada sobre a expansão qualificada dos serviços de Alta Complexidade para Criança e Adolescentes. Para esses municípios, faz-se importante diagnóstico para analise de oferta regionalziada desta unidade de alta complexidade.
 
@@ -4692,7 +4688,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-A maioria das Unidades de Acolhimento são executadas por Organizações da Sociedade Cívil (Osc). Esse percentual teve uma redução entre 2012 e 2022. Em 2012 estes dados sinalizam percentual de 66,4% das unidades de acolhimento com execução de OSC, registrando em 2022 63,4% conforme \Cref{fig:acolh_nat}
+A maioria das Unidades de Acolhimento são executadas por Organizações da Sociedade Cívil (Osc). Esse percentual teve uma redução entre 2012 e 2022. Em 2012 estes dados sinalizam percentual de 66,4% das unidades de acolhimento com execução de OSC, registrando em 2022 63,4% conforme o \cref{fig:acolh_nat}
 
 
 ```{r acolh_nat, fig.cap = "Quantitativo de Acolhimento Institucional por Natureza da Unidade - BRASIL, 2012 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -4740,7 +4736,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 ```
 
 
-No que se refere às condições de acessibilidade, é possível notar melhorias no percentual dos quatro quesitos de acessibilidade. A adaptação mais observada é a rota acessível ao banheiro, presente em 50,9% das Unidades, e a menos observada é o acesso principal adaptado com rampas e rota acessível desde a calçada até o interior da unidade, presentes em 49,2% das Unidades. O banheiro adaptado para pessoas com deficiência e/ou mobilidade reduzida, presente em 47,9% das unidades em 2022 e no que se refere ao acesso principal adaptado com rampas e e rota acessivel para o censo suas 2022 observa-se presente em 45,6% das unidades conforme \Cref{fig:unac_acessibilidade}.
+No que se refere às condições de acessibilidade, é possível notar melhorias no percentual dos quatro quesitos de acessibilidade. A adaptação mais observada é a rota acessível ao banheiro, presente em 50,9% das Unidades, e a menos observada é o acesso principal adaptado com rampas e rota acessível desde a calçada até o interior da unidade, presentes em 49,2% das Unidades. O banheiro adaptado para pessoas com deficiência e/ou mobilidade reduzida, presente em 47,9% das unidades em 2022 e no que se refere ao acesso principal adaptado com rampas e e rota acessivel para o censo suas 2022 observa-se presente em 45,6% das unidades conforme o \cref{fig:unac_acessibilidade}.
 
 
 ```{r unac_acessibilidade, fig.cap = "Evolução percentual de Unidades de Acolhimento Municipais com condições de acessibilidade - Brasil; 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
@@ -4774,7 +4770,7 @@ grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
-Em relação ao acesso a internet, observa-se uma evolução nos últimos 10 anos. Em 2012 62,2% das unidades possuem acesso a internet, o censo suas de 2022 destaca que 100% dos computadores das undiades possuem acesso a internet conforme \Cref{fig:unac-internet}.
+Em relação ao acesso a internet, observa-se uma evolução nos últimos 10 anos. Em 2012 62,2% das unidades possuem acesso a internet, o censo suas de 2022 destaca que 100% dos computadores das undiades possuem acesso a internet conforme o \cref{fig:unac-internet}.
 
 ```{r unac-internet, fig.cap = "Percentual de Computadores nas unidades de Acolhimento com acesso a internet, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -4811,8 +4807,8 @@ grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
-Em relação ao local onde estão estas undiades, o grafico abaixo \Cref{fig:posto_cadunico}. A maioria destas unidades, 60,9% encontra-se na secretaria de assistencia social. A segunda proporção são postos exclusivos, com detaque para algumas undiades presentes em escolas, conselhos e OSCS.
 
+Em relação ao local onde estão estas unidades, \Cref{fig:posto_cadunico}. A maioria destas unidades, 60,9% encontra-se na secretaria de assistencia social. A segunda proporção são postos exclusivos, com detaque para algumas undiades presentes em escolas, conselhos e OSCS.
 
 ```{r posto_cadunico, fig.cap = "Distribuição dos Postos do Cadastro Único - Brasil, 2020 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -4859,9 +4855,8 @@ grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
-A acessibildiade possui um leve avanço nos últimos anos, com execeção da rota ascessivel aos principais espaços os demais itens de acessbilidade avançaram conforme pode ser observado através \Cref{fig:postcad-acessibilidade}.
 
-
+A acessibilidade possui um leve avanço nos últimos anos, com execeção da rota ascessivel aos principais espaços os demais itens de acessbilidade avançaram conforme pode ser observado através do \cref{fig:postcad-acessibilidade}.
 
 ```{r postcad-acessibilidade, fig.cap = "Evolução percentual de postos do Cadastro Único com condições de acessibilidade - Brasil; 2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -4921,7 +4916,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-Em relação a computadores com acesso a internet, os dados do censo suas 2022 sinaliza que 99% das unidades dispõe de equipamentos com esta estrutura conforme pode ser observado \Cref{fig:postcad-internet-percentual}.
+Em relação a computadores com acesso a internet, os dados do censo suas 2022 sinaliza que 99% das unidades dispõe de equipamentos com esta estrutura conforme pode ser observado no \cref{fig:postcad-internet-percentual}.
 
 ```{r postcad-internet-percentual, fig.cap = "Evolução percentual de Postos do Cadastro Único com computadores com acesso à internet – Brasil;  2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -5578,7 +5573,7 @@ Em relação a realização de concurso público para trabalhadores (as) de nív
 
 Em 2016, 468 Municípios informaram ter realizado concurso público para a Secretaria Municipal de Assistência Social no ano de 2015 (8,5% do total de respondentes). Desses, 270 realizaram concurso para profissionais de nível médio e superior (4,9% do total), 164 apenas para nível superior (3,0%) e 34 apenas para nível médio (0,6%) (Gráfico 64). Foram ofertadas 1.823 vagas de nível superior e 2.152 de nível médio. Os municípios informaram que 1.492 trabalhadores tomaram posse no concurso de nível superior (81,8% das vagas foram ocupadas) e 1.592 tomaram posse no concurso de nível médio (74,0% das vagas foram ocupadas). Gráfico 64: Número de municípios segundo realização de concurso público para Secretarias Municipais de Assistência Social -- Brasil, 2016 Fonte: MDS, Censo SUAS.
 
-O (\Cref{fig:conc_munic}) referencia a linha histórica dos últimos 10 anos.
+O (\cref{fig:conc_munic}) referencia a linha histórica dos últimos 10 anos.
 
 ```{r conc_munic, fig.cap = "Percentual de municípios que realizaram concursos para trabalhadores nível superior do SUAS - Brasil, - Brasil, 2012 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -5605,7 +5600,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-O (\Cref{fig:conc_estado}) mostra a linha histórica quanto a realização de concurso para trablhadores de nível superior do SUAS pelos entes estaduais. Por pelos menos 5 anos neste periodo, nenhum estado realizadou concurso para nível superior no SUAS. Este dado mostra os desafios da gestão do trabalho.
+O \cref{fig:conc_estado} mostra a linha histórica quanto a realização de concurso para trablhadores de nível superior do SUAS pelos entes estaduais. Por pelos menos 5 anos neste periodo, nenhum estado realizadou concurso para nível superior no SUAS. Este dado mostra os desafios da gestão do trabalho.
 
 ```{r conc_estado, fig.cap = "Percentual de estados que realizaram concursos para trabalhadores nível superior do SUAS - Brasil, 2013 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -5637,7 +5632,7 @@ Outra resolução importante para organização do controle social no SUAS é a 
 
 Este bloco apresenta os resultados apurados pelo Censo SUAS para os Conselhos Municipais e Estaduais de Assistência Social, considerando as dimensões estrutura administrativa, dinâmica de funcionamento e composição.
 
-No que se refere aos dados do censo suas, o percentual de municípios que respondem ao formulário de Conselho Municipal de Assistência Social é acima de 95% no ano de 2022. É importante pontuar que as variações no período analisado através da \Cref{fig:qtd-cmas} não significa necessariamente redução no número de municípios com conselhos, este número pode representar o número de conselhos municipais que respondem ao Censo SUAS. Abaixo o gráfico tras informações da quantidade de conselhos municipais, por região, que responderam ao Censo SUAS.
+No que se refere aos dados do censo suas, o percentual de municípios que respondem ao formulário de Conselho Municipal de Assistência Social é acima de 95% no ano de 2022. É importante pontuar que as variações no período analisado através do \cref{fig:qtd-cmas} não significa necessariamente redução no número de municípios com conselhos, este número pode representar o número de conselhos municipais que respondem ao Censo SUAS. Abaixo o gráfico tras informações da quantidade de conselhos municipais, por região, que responderam ao Censo SUAS.
 
 
 ```{r qtd-cmas, fig.cap = "Quantidade de Conselhos Municipais de Assistência Social que preencheram Censo SUAS"}
@@ -5660,7 +5655,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-Em relação aos Conselhos Estaduais de Assistência Social, a \Cref{fig:qtd-ceas} sinaliza que 100% dos conselhos responderam ao formulário do Censo SUAS.
+Em relação aos Conselhos Estaduais de Assistência Social, o \cref{fig:qtd-ceas} sinaliza que 100% dos conselhos responderam ao formulário do Censo SUAS.
 
 ```{r qtd-ceas, fig.cap = "Quantidade de Conselhos Estaduais de Assistência Social"}
 
@@ -5682,7 +5677,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-A existência de sede para o funcionamento dos conselhos é essencial, pois além de garantir identidade na perspetiva de espaço na qual a população pode acessar, também assegura o trabalho da/o secretária/o executiva/o e demais profissionais. Dispor de locais de arquivos e documentos, reuniões entre outros. No que se refere aos Conselhos Municipais de Assistencia Social a \Cref{fig:cmas_sede} destaca que 58,1% dos conselhos muncipais que responderam censo suas informam possuir sede para o funcionamento. Destaca-se que nos últimos 10 anos, teve aumento de 45,1% para 58,1 de municípios que possuem sede para conseLho de assistencia social, dado que representa aumento de 13% percentuais.
+A existência de sede para o funcionamento dos conselhos é essencial, pois além de garantir identidade na perspetiva de espaço na qual a população pode acessar, também assegura o trabalho da/o secretária/o executiva/o e demais profissionais. Dispor de locais de arquivos e documentos, reuniões entre outros. No que se refere aos Conselhos Municipais de Assistencia Social o \cref{fig:cmas_sede} destaca que 58,1% dos conselhos muncipais que responderam censo suas informam possuir sede para o funcionamento. Destaca-se que nos últimos 10 anos, teve aumento de 45,1% para 58,1 de municípios que possuem sede para conseLho de assistencia social, dado que representa aumento de 13% percentuais.
 
 ```{r cmas_sede, fig.cap = "Percentual de Conselhos Municipais que possuem local/sede específico para funcionamento"}
 
@@ -5709,7 +5704,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-Em relação aos Conselhos Estaduais, atualmente 100% informam possuir sede específica para funcionamento do controle social no SUAS conforme pode ser observado na \Cref{fig:ceas_sede}.
+Em relação aos Conselhos Estaduais, atualmente 100% informam possuir sede específica para funcionamento do controle social no SUAS conforme pode ser observado no \cref{fig:ceas_sede}.
 
 ```{r ceas_sede, fig.cap = "Percentual de Conselhos estaduais que possuem local/sede especcífico para funcionamento"}
 
@@ -5734,7 +5729,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-As secretarias executivas dos Conselhos de Assistência Social é profissional de apoio direto ao funcionamento dos conselhos com o objetivo de fornecer suporte e assessoria técnica no cumprimento das suas competências. No que se refere a presença exclusiva destes profissionais nos conselhos municipais a \Cref{fig:cmas_se} sinaliza uma redução a partir de 2017. O último censo destaca 19,2% dos conselhos municipais possuem este profissional de forma exclusiva. Destaca-se que de acordo com resolução 100/2023 para os municípios de Pequeno portes I e II este profissional não precisa ser exclusivo.
+As secretarias executivas dos Conselhos de Assistência Social é profissional de apoio direto ao funcionamento dos conselhos com o objetivo de fornecer suporte e assessoria técnica no cumprimento das suas competências. No que se refere a presença exclusiva destes profissionais nos conselhos municipais o \cref{fig:cmas_se} sinaliza uma redução a partir de 2017. O último censo destaca 19,2% dos conselhos municipais possuem este profissional de forma exclusiva. Destaca-se que de acordo com resolução 100/2023 para os municípios de Pequeno portes I e II este profissional não precisa ser exclusivo.
 
 ```{r cmas_se, fig.cap = "Percentual de Conselhos Municipais que possuem secretárias/os executivos exclusivamente no Conselho"}
 
