@@ -3985,11 +3985,16 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 Os Centros de Convivência, juntamente com os Centros de Referência de Assistência Social (CRAS), são unidades que executam o Serviço de Convivência e Fortalecimento de Vínculos e compõem a Rede de Proteção Social Básica. Desde 2014 o número de Centros de Convivência no Brasil aumentou, passando de 7.882 unidades em 2014 para 8.454 em 2016, em um acréscimo de 572 unidades. A região Norte tem a menor quantidade de unidades (238 ou 2,8% do total), seguida do Centro-Oeste com 568 Unidades (ou 6,7% do total). A região Sudeste tem o maior número de Centros de Convivência, com 4.035 Unidades (47,7% do total)
 
-```{r quantitativo-CentroConv, fig.cap = "Evolução do quantitativo de Centro de Convivência, segundo grandes regiões; 2014, 2018, 2020 e 2022", fig.footer = "Fonte: MDS, Censo SUAS",eval=FALSE}
+```{r quantitativo-CentroConv, fig.cap = "Evolução do quantitativo de Centro de Convivência, segundo grandes regiões; 2014, 2016, 2018, 2020 e 2022", fig.footer = "Fonte: MDS, Censo SUAS",eval=FALSE}
 
 grafico <- f_quantitativo_regiao_ano(ceconv_2014, Região, "2014") %>%
-   bind_rows(f_quantitativo_regiao_ano(ceconv_2018, Regiao, "2018")) %>%
-   #bind_rows(f_quantitativo_regiao_ano(ceconv_2020, IBGE, "2020")) %>%
+   # bind_rows(f_quantitativo_regiao_ano(ceconv_2015, IBGE, "2015")) %>%
+   bind_rows(f_quantitativo_regiao_ano(ceconv_2016, IBGE, "2016")) %>%
+   # bind_rows(f_quantitativo_regiao_ano(ceconv_2017, IBGE, "2017")) %>%
+   bind_rows(f_quantitativo_regiao_ano(ceconv_2018, IBGE, "2018")) %>%
+   # bind_rows(f_quantitativo_regiao_ano(ceconv_2018, IBGE, "2019")) %>%
+    bind_rows(f_quantitativo_regiao_ano(ceconv_2020, IBGE, "2020")) %>%
+   # bind_rows(f_quantitativo_regiao_ano(ceconv_2021, IBGE, "2021")) %>%
    bind_rows(f_quantitativo_regiao_ano(ceconv_2022, IBGE, "2022")) %>%
    f_grafico_col_group_numero(Região, n, Ano, 1)
 
@@ -4051,15 +4056,15 @@ O Censo SUAS 2022 registrou 2.846 CREAS no país: um incremento de 679 novas uni
 ```{r creas-quantitativo, fig.cap = "Evolução do quantitativo de CREAS, segundo grandes regiões; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
   grafico <- f_quantitativo_regiao_ano(creas_2012, IBGE, "2012") %>%
-  bind_rows(f_quantitativo_regiao_ano(creas_2013, IBGE, "2013")) %>%
-  bind_rows(f_quantitativo_regiao_ano(creas_2014, IBGE, "2014")) %>%
+  # bind_rows(f_quantitativo_regiao_ano(creas_2013, IBGE, "2013")) %>%
+  # bind_rows(f_quantitativo_regiao_ano(creas_2014, IBGE, "2014")) %>%
   #bind_rows(f_quantitativo_regiao_ano(creas_2015, IBGE, "2015")) %>%
-  bind_rows(f_quantitativo_regiao_ano(creas_2016, IBGE7, "2016")) %>%
+  #bind_rows(f_quantitativo_regiao_ano(creas_2016, IBGE7, "2016")) %>%
   bind_rows(f_quantitativo_regiao_ano(creas_2017, IBGE, "2017")) %>%
-  bind_rows(f_quantitativo_regiao_ano(creas_2018, IBGE, "2018")) %>%
-  bind_rows(f_quantitativo_regiao_ano(creas_2019, IBGE, "2019")) %>%
-  bind_rows(f_quantitativo_regiao_ano(creas_2020, IBGE, "2020")) %>%
-  bind_rows(f_quantitativo_regiao_ano(creas_2021, IBGE, "2021")) %>%
+  # bind_rows(f_quantitativo_regiao_ano(creas_2018, IBGE, "2018")) %>%
+  # bind_rows(f_quantitativo_regiao_ano(creas_2019, IBGE, "2019")) %>%
+  # bind_rows(f_quantitativo_regiao_ano(creas_2020, IBGE, "2020")) %>%
+  # bind_rows(f_quantitativo_regiao_ano(creas_2021, IBGE, "2021")) %>%
   bind_rows(f_quantitativo_regiao_ano(creas_2022, IBGE, "2022")) %>%
   f_grafico_col_group_numero(Região, n, Ano, 1)
 
@@ -4219,7 +4224,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 A existência de computadores com acesso à internet é um importante aspecto a ser observado quando se avalia a infraestrutura dos CREAS. Em 2022, 99% dos CREAS possuem computadores com acesso à internet conforme \Cref{fig:CREAS-internet-percentual}. Números que avançou em todas as regiões, em especial, na Região Norte conforme linha histórica desta evolução apresentada no gráfico abaixo.
 
-```{r CREAS-internet-percentual, fig.cap = "Evolução percentual de CREAS com computadores com acesso à internet – Brasil, 2012 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r CREAS-internet-percentual, fig.cap = "Evolução percentual de CREAS com computadores com acesso à internet – Brasil, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 
 
@@ -4620,7 +4625,7 @@ cdia_adp= function(df, q, ano, cod_categoria){
   mutate(Categoria=str_wrap(Categoria,width=51))
 
 ordenado<-tabela %>%
-  filter(Ano == "2020") %>%
+  filter(Ano == "2022") %>%
   arrange(Percentual) %>%
   select(Categoria)
 
@@ -4766,7 +4771,7 @@ grafico <- acolh_nat(unac_2012, q4, "2012") %>%
       bind_rows(acolh_nat(unac_2017, q3, "2017")) %>%
       bind_rows(acolh_nat(unac_2018, q_3, "2018")) %>%
       bind_rows(acolh_nat(unac_2019, q3, "2019")) %>%
-      bind_rows(acolh_nat(unac_2020, q3, "2020")) %>%
+      #bind_rows(acolh_nat(una, q3, "2020")) %>%
       bind_rows(acolh_nat(unac_2021, q3, "2021")) %>%
       bind_rows(acolh_nat(unac_2022, q3, "2022")) %>%
 
@@ -4870,15 +4875,14 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ## Cadastro Único
 
-Quanto a presença das unidades do Cadastro Único, os dados do censo suas 2022 sinaliza xxx postos do Cadastro Único
-
+Quanto a presença das unidades do Cadastro Único, os dados do censo suas 2022 sinaliza 2.892 unidades exclusivas de Cadastro Único.\footnote{O formulário do cadastro único teve sua primeira versão em 2020, assim todos os dados referentes a este questionário terá o marco deste ano de inicio}
 
 
 
 ```{r postos-cadunico, fig.cap = "Evolução de Postos do Cadastro Único - 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS.",eval=FALSE}
 
 grafico <- f_quantitativo_regiao_ano(posto_cadunico_2020, Regiao, "2020") %>%
-# bind_rows(f_quantitativo_regiao_ano(posto_cadunico_2021, IBGE, "2021")) %>%)
+  #bind_rows(f_quantitativo_regiao_ano(posto_cadunico_2021, IBGE, "2021")) %>%)
   bind_rows(f_quantitativo_regiao_ano(posto_cadunico_2022, IBGE, "2022")) %>%
   f_grafico_col_group_numero(Região, n, Ano, 1)
 
@@ -4888,7 +4892,8 @@ grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
-Em relação ao local onde estão estas undiades, o grafico abaixo \Cref{fig:posto_cadunico}. A maioria destas unidades, 60,9% encontra-se na secretaria de assistencia social. A segunda proporção são postos exclusivos, com detaque para algumas undiades presentes em escolas, conselhos e OSCS.
+
+Em relação ao local onde estão estas unidades, o grafico abaixo \Cref{fig:posto_cadunico}. A maioria destas unidades, 60,9% encontra-se na secretaria de Assistencia Social. A segunda proporção são postos exclusivos, com detaque para algumas undiades presentes em escolas, conselhos e OSCS.
 
 
 ```{r posto_cadunico, fig.cap = "Distribuição dos Postos do Cadastro Único - Brasil, 2020 a 2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
@@ -4944,7 +4949,8 @@ grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
-A acessibildiade possui um leve avanço nos últimos anos, com execeção da rota ascessivel aos principais espaços os demais itens de acessbilidade avançaram conforme pode ser observado através \Cref{fig:postcad-acessibilidade}.
+
+A acessibilidade possui um leve avanço nos últimos anos, com execeção da rota ascessivel aos principais espaços os demais itens de acessbilidade avançaram conforme pode ser observado através \Cref{fig:postcad-acessibilidade}.
 
 
 
@@ -5023,6 +5029,11 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 # Serviços e Benefícios ofertados pelo SUAS
 
+Os Serviços do SUAS são oferta continuadas  ...
+
+Busca garantir acesso a  direitossociais a quem necessitam. A centralidade na família é \Cref{fig:quantitativo-CRAS}
+
+
 ## Proteção Social
 
 A assistência social organiza-se por dois tipos de proteção: a proteção social básica, definida no artigo 6º-A da Lei Orgânica da Assistência Social (LOAS) como um "conjunto de serviços, programas, projetos e benefícios da assistência social que visa a prevenir situações de vulnerabilidade e risco social por meio do desenvolvimento de potencialidades e aquisições e do fortalecimento de vínculos familiares e comunitários" e a proteção social especial, definida como "conjunto de serviços, programas e projetos que tem por objetivo contribuir para a reconstrução de vínculos familiares e comunitários, a defesa de direito, o fortalecimento das potencialidades e aquisições e a proteção de famílias e indivíduos para o enfrentamento das situações de violação de direitos"\footnote{Lei nº 8.742, de 7 de dezembro de 1993 (Lei Orgânica da Assistência Social): Dispõe sobre a organização da Assistência Social e dá outras providências (\url{http://www.planalto.gov.br/ccivil_03/Leis/L8742compilado.htm}).}.
@@ -5039,7 +5050,21 @@ Para isso, os dados históricos desta publicação nos ajudam a identificar os a
 
 ## Proteção Social Básica
 
+
+
 ### Serviço de Proteção e Atendimento Integral à Família (PAIF)
+
+
+O PAIF é serviço tipificado na qual tem a finalidade de fortalecer a função protetiva das famílias, prevenir a ruptura  dos seus vínculos, promover seu acesso e usufruto de direitos e contribuir na melhoria de sua qualidade de vida \footnote{Resolução CNAS Nº 109/2009 - Tipificação dos Serviços Socioassistenciais}. Esse serviço é ofertado através das unidades de CRAS destacadas acima 
+
+
+Os Serviços da Proteção Social Básica  devem ser referenciados e articulação com PAIF. 
+
+
+
+
+
+
 
 ### Serviços de Convivência e Fortalecimento de Vínculos (SCFV)
 
