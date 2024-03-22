@@ -4933,6 +4933,8 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 # Serviços e Benefícios ofertados pelo SUAS
 
+
+
 ## Proteção Social
 
 A assistência social organiza-se por dois tipos de proteção: a proteção social básica, definida no artigo 6º-A da Lei Orgânica da Assistência Social (LOAS) como um "conjunto de serviços, programas, projetos e benefícios da assistência social que visa a prevenir situações de vulnerabilidade e risco social por meio do desenvolvimento de potencialidades e aquisições e do fortalecimento de vínculos familiares e comunitários" e a proteção social especial, definida como "conjunto de serviços, programas e projetos que tem por objetivo contribuir para a reconstrução de vínculos familiares e comunitários, a defesa de direito, o fortalecimento das potencialidades e aquisições e a proteção de famílias e indivíduos para o enfrentamento das situações de violação de direitos"\footnote{Lei nº 8.742, de 7 de dezembro de 1993 (Lei Orgânica da Assistência Social): Dispõe sobre a organização da Assistência Social e dá outras providências (\url{http://www.planalto.gov.br/ccivil_03/Leis/L8742compilado.htm}).}.
@@ -4951,28 +4953,8 @@ Para isso, os dados históricos desta publicação nos ajudam a identificar os a
 
 ### Serviço de Proteção e Atendimento Integral à Família (PAIF)
 
-### Serviços de Convivência e Fortalecimento de Vínculos (SCFV)
 
-```{r CRAS-SCFV, fig.cap = "Percentual de CRAS que executavam diretamente os Serviços de Convivência e Fortalecimento de Vínculos - Brasil, 2014 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-grafico <- f_sim_nao(cras_2014, q19, "2014") %>%
-  bind_rows(f_sim_nao(cras_2015, q16, "2015")) %>%
-  bind_rows(f_sim_nao(cras_2016, q15, "2016")) %>%
-  bind_rows(f_sim_nao(cras_2017, q16, "2017")) %>%
-  bind_rows(f_sim_nao(cras_2018, q_16, "2018")) %>%
-  bind_rows(f_sim_nao(cras_2019, q15, "2019")) %>%
-  #bind_rows(f_sim_nao(cras_2020, q17, "2020")) %>%
-  bind_rows(f_sim_nao(cras_2021, q17, "2021")) %>%
-  bind_rows(f_sim_nao(cras_2022, q17, "2022")) %>%
-
- # em 2020 CRAS base estar númerica
-
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
-
-grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-```
 
 Em 2016, 2.334 CRAS informaram que havia povos e comunidades tradicionais em seu território de abrangência (28,3% do total de CRAS). Desses, apenas 127 (5,4%) indicaram não ter realizado atendimento a esse público. Esse percentual é inferior a 2015, quando o percentual foi de 6,7% (147 unidades dos 2.191 CRAS com povos e comunidades tradicionais em seu território de abrangência).
 
@@ -4981,6 +4963,39 @@ Dos 2.334 CRAS que informaram que havia povos e comunidades tradicionais em seu 
 Os CRAS são considerados a porta de entrada da Assistência Social, sendo uma referência para a população no território. Nesse sentido, podem se articular com a rede de proteção social e com demais serviços ofertados no município, de forma a garantir o acesso da população aos direitos sociais.
 
 Em 2016, apenas 0,6% dos CRAS informaram não ter articulação com serviços de educação, e 0,2% informaram que o serviço não existia no município. Assim, 99,2% dos CRAS informaram manter alguma articulação com serviços de educação, sendo os maiores percentuais referentes à existência de dados atualizados dos parceiros com quem o CRAS mantém articulação (94,8%) e ao encaminhamento de usuários ao CRAS pelos serviços de educação (90,9%). No mesmo ano, 0,3% dos CRAS informaram não ter articulação com serviços de saúde e 0,1% informaram que o serviço não existe no município. Dessa forma, 99,6% dos CRAS informaram ter articulação com serviços de saúde, sendo os maiores percentuais referentes ao recebimento de usuários encaminhados pelo CRAS (96,4%).
+
+
+
+
+### Serviços de Convivência e Fortalecimento de Vínculos (SCFV)
+
+A tônica do vínculo é um fator de Segurança Social, assim o SCFV no ambito do SUAS é um serviço tipificado e realizado através de grupos na qual objetiva garantir aquisições progressivas aos cidadãos usuários do SUAS. Trata-se de serviço complementar ao trabalho social com família e atua de forma preventiva a ocorrências de situações de risco social. De acordo com (\Cref{fig:CRAS-SCFV}), 82% dos CRAS possuem a oferta deste serviço na sua unidade.
+
+\footnote{o grafico abaixo não possui informação do ano de 2023 devido a ausencia desta pergunta no formulário no ano supracitado}.
+
+```{r CRAS-SCFV, fig.cap = "Percentual de CRAS que executavam diretamente os Serviços de Convivência e Fortalecimento de Vínculos - Brasil, 2014 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+
+grafico <- f_sim_nao(cras_2012, q19_1a, "2012") %>%
+  #bind_rows(f_sim_nao(cras_201, q19, "2013")) %>%
+  bind_rows(f_sim_nao(cras_2014, q19, "2014")) %>%
+  bind_rows(f_sim_nao(cras_2015, q16, "2015")) %>%
+  bind_rows(f_sim_nao(cras_2016, q15, "2016")) %>%
+  bind_rows(f_sim_nao(cras_2017, q16, "2017")) %>%
+  bind_rows(f_sim_nao(cras_2018, q_16, "2018")) %>%
+  bind_rows(f_sim_nao(cras_2019, q15, "2019")) %>%
+  bind_rows(f_sim_nao(cras_2020, q17, "2020")) %>%
+  bind_rows(f_sim_nao(cras_2021, q17, "2021")) %>%
+  bind_rows(f_sim_nao(cras_2022, q17, "2022")) %>%
+
+
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+
 
 ```{r CRAS-PSB, fig.cap = "Percentual de CRAS que executavam diretamente os Serviços de Proteção Social Básica nos domicílios - Brasil, 2014 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
