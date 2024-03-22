@@ -4951,25 +4951,88 @@ Para isso, os dados históricos desta publicação nos ajudam a identificar os a
 
 ## Proteção Social Básica
 
+A Proteção Social Básica possui uma atuação protetiva, proativa e preventiva. O objetivo é  antecipar possíveis desproteções sociais a que está sujeita a coletividade. 
+
 ### Serviço de Proteção e Atendimento Integral à Família (PAIF)
 
+O PAIF compõe um conjunto de atenções conjugada a seguranças sociais refereciadas a undiade de CRAS. De acordo com Tipificação Nacional dos Serviços Socioassistenciais, o PAIF "consiste no trabalho social com família, de caráter contínuado, com a finalidade de fortalecer as função protetiva das famílias, provenir a ruptura dos seus vínculos, promover seu acesso e usufruto do direito".
+
+A respeito das principais ações desenvolvidas no ambito do PAIF, destaca que as três atividades mais realizadas pelas unidades são visitas domiciliares, encaminhamento para o Cadastro Único e acolhida particularizada. O (\Cref{fig:paif_cras}) tambémn destaca que 91% das unidades informam que usam Prontuário para acompanhamento das famílias. Destaca-se que o registro do acompanhamento familiar é obrigatório através de Prontuário. \footnote{Manual de instruções para utilização do Prontuário SUAS}. Ainda conforme as atividades do PAIF destaca-se que a acolhida em grupo é a atividade que possuem menor percentual em relação a esse grupo de atividades mencionadas no gráfico
+
+\footnote{o gráfico abaixo possuem esse conjunto de informações a partir de do ano de 2015}.
+
+
+```{r paif_cras, fig.cap = "Atividades desenvolvidas pelos PAIF/CRAS - Brasil, 2015 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+paif_cras= function(df, q, ano, cod_categoria){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+  cod_categoria <- quo_name(cod_categoria)
+
+#2022
+  categoria <- case_when(!! cod_categoria == "1"~"Acolhida em Grupo realizada por profissional de nível superior",
+                         !! cod_categoria == "2"~"Acolhida Particularizada realizada por técnica(o) de nível superior",
+                         !! cod_categoria == "3"~"Grupo/oficina com famílias",
+                         !! cod_categoria == "4"~"Visitas Domiciliares",
+                         !! cod_categoria == "5"~"Acompanhamento de famílias",
+                         !! cod_categoria == "6"~"Encaminhamento para inserção/atualização de famílias no Cadastro Único",
+                         !! cod_categoria == "7"~"Registro dos acompanhamentos familiar em prontuário ou registro das famílias /acompanhadas",
+                         !! cod_categoria == "0"~"Oferta de Benefícios Eventuais")
+
+
+  df %>%
+    select(!! q) %>%
+    group_by(!! q) %>%
+    summarise(n=n()) %>%
+    mutate(Percentual = n/sum(n)) %>%
+    filter(!! q == "Sim" | !! q == 1) %>%
+    mutate("Categoria" = categoria, "Ano" = !! ano)
+}
+
+ tabela <- paif_cras (cras_2015,q13_1,"2015","1") %>%
+  bind_rows(paif_cras(cras_2015,q13_2,"2015","2")) %>%
+  bind_rows(paif_cras(cras_2015,q13_8,"2015","3")) %>%
+  bind_rows(paif_cras(cras_2015,q13_9,"2015","4")) %>%
+  bind_rows(paif_cras(cras_2015,q13_3,"2015","5")) %>%
+  bind_rows(paif_cras(cras_2015,q13_17,"2015","6")) %>%
+  bind_rows(paif_cras(cras_2015,q13_6,"2015","7")) %>%
+  bind_rows(paif_cras(cras_2015,q13_16,"2015","0")) %>% 
+   
+
+  bind_rows(paif_cras(cras_2022,q13_1,"2022","1")) %>%
+  bind_rows(paif_cras(cras_2022,q13_2,"2022","2")) %>%
+  bind_rows(paif_cras(cras_2022,q13_4,"2022","3")) %>%
+  bind_rows(paif_cras(cras_2022,q13_7,"2022","4")) %>%
+  bind_rows(paif_cras(cras_2022,q13_8,"2022","5")) %>%
+  bind_rows(paif_cras(cras_2022,q13_14,"2022","6")) %>%
+  bind_rows(paif_cras(cras_2022,q13_20,"2022","7")) %>%
+  bind_rows(paif_cras(cras_2022,q13_24,"2022","0")) %>%
 
 
 
-Em 2016, 2.334 CRAS informaram que havia povos e comunidades tradicionais em seu território de abrangência (28,3% do total de CRAS). Desses, apenas 127 (5,4%) indicaram não ter realizado atendimento a esse público. Esse percentual é inferior a 2015, quando o percentual foi de 6,7% (147 unidades dos 2.191 CRAS com povos e comunidades tradicionais em seu território de abrangência).
 
-Dos 2.334 CRAS que informaram que havia povos e comunidades tradicionais em seu território de abrangência, 896 informaram ter atendido Comunidades Quilombolas (38,4%), seguidos por 615 CRAS que informaram ter atendido Comunidades Ribeirinhas (26,3%) e 611 que informaram ter atendido Povos Indígenas (26,2%) (Gráfico 27).
+  ungroup() %>%
+  mutate(Categoria=str_wrap(Categoria,width=51))
 
-Os CRAS são considerados a porta de entrada da Assistência Social, sendo uma referência para a população no território. Nesse sentido, podem se articular com a rede de proteção social e com demais serviços ofertados no município, de forma a garantir o acesso da população aos direitos sociais.
+ordenado<-tabela %>%
+  filter(Ano == "2022") %>%
+  arrange(Percentual) %>%
+  pull(Categoria)
 
-Em 2016, apenas 0,6% dos CRAS informaram não ter articulação com serviços de educação, e 0,2% informaram que o serviço não existia no município. Assim, 99,2% dos CRAS informaram manter alguma articulação com serviços de educação, sendo os maiores percentuais referentes à existência de dados atualizados dos parceiros com quem o CRAS mantém articulação (94,8%) e ao encaminhamento de usuários ao CRAS pelos serviços de educação (90,9%). No mesmo ano, 0,3% dos CRAS informaram não ter articulação com serviços de saúde e 0,1% informaram que o serviço não existe no município. Dessa forma, 99,6% dos CRAS informaram ter articulação com serviços de saúde, sendo os maiores percentuais referentes ao recebimento de usuários encaminhados pelo CRAS (96,4%).
+grafico<-tabela %>%
+  mutate(Categoria = factor(Categoria, levels = ordenado)) %>%
+  f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
+grafico
 
-
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
 
 ### Serviços de Convivência e Fortalecimento de Vínculos (SCFV)
 
 A tônica do vínculo é um fator de Segurança Social, assim o SCFV no ambito do SUAS é um serviço tipificado e realizado através de grupos na qual objetiva garantir aquisições progressivas aos cidadãos usuários do SUAS. Trata-se de serviço complementar ao trabalho social com família e atua de forma preventiva a ocorrências de situações de risco social. De acordo com (\Cref{fig:CRAS-SCFV}), 82% dos CRAS possuem a oferta deste serviço na sua unidade.
+
+Há também esta oferta por meio de Unidades de Centro de Concivência conforme já mencionado  (\Cref{fig:quantitativo-CentroConv}) 
 
 \footnote{o grafico abaixo não possui informação do ano de 2023 devido a ausencia desta pergunta no formulário no ano supracitado}.
 
@@ -4994,21 +5057,88 @@ grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
-
+Em relação ao Serviços de Proteção Social Básica no domicílio para Pessoas Idosas e com Deficiência, estar previsto na Tipificação dos Serviços Socioassistenciais. Recetemente com a resolução CNAS Nº 117/2023 atualzia a tipificação incluindo crianças e gestantes como público alvo da modalidade deste serviços. \footnote{RESOLUÇÃO CNAS/MDS Nº 117, DE 28 DE AGOSTO DE 2023}. Os dados do (\Cref{fig:CRAS-PSB})sinaliza um aumento de 3 pontos percentuais no periodo de 2018 e 2022. \footnote{essa pergunta surge a partir de 2018}. Atualmente 73% das unidades informam possui a oferta deste serviço.
 
 
 ```{r CRAS-PSB, fig.cap = "Percentual de CRAS que executavam diretamente os Serviços de Proteção Social Básica nos domicílios - Brasil, 2014 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
 grafico <- f_sim_nao(cras_2018, q_24, "2018") %>%
   bind_rows(f_sim_nao(cras_2019, q23, "2019")) %>%
-  #bind_rows(f_sim_nao(cras_2020, q24, "2020")) %>%
+   bind_rows(f_sim_nao(cras_2020, q24, "2020")) %>%
    bind_rows(f_sim_nao(cras_2021, q24, "2021")) %>%
    bind_rows(f_sim_nao(cras_2022, q24, "2022")) %>%
-
-  # essa pergunta  SURGE A PARTIR DE 2018
-  # CRAS 2020 a base estar númerica - solicitei ;Dionara a atualziação no site
+  
 
   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+Em relação a atendimento Povos e comunidades Tradicionais Em 2018, 31% dos CRAS informaram que possue povos e comunidades tradicionais em seu território de abrangência. Esse dado avança em relação ao ano de 2012. \footnote{a partir de 2019 a pergunta é alterada}
+
+
+
+```{r povos-tradicionais_cras, fig.cap = "Percentual de CRAS que possuem povos e comunidades tradicionais no território de abrangencia, 2012 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_sim_nao(cras_2012, q40, "2012") %>%
+  bind_rows(f_sim_nao(cras_2013, q51, "2013")) %>%
+  bind_rows(f_sim_nao(cras_2014, q52, "2014")) %>%
+  bind_rows(f_sim_nao(cras_2015, q44, "2015")) %>%
+  bind_rows(f_sim_nao(cras_2016, q37, "2016")) %>%
+  bind_rows(f_sim_nao(cras_2017, q42, "2017")) %>%
+  bind_rows(f_sim_nao(cras_2018, q_47, "2018")) %>%
+  
+  #bind_rows(f_sim_nao(cras_2019, q46, "2019")) %>%
+  #bind_rows(f_sim_nao(cras_2020, q64, "2020")) %>%
+    #bind_rows(f_sim_nao(creas_2021, q20, "2021")) %>%
+  #bind_rows(f_sim_nao(cras_2022, q65_1_1, "2022")) %>%
+
+  #tentar computar a parte em branco ou colocar em quantidade
+
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+Em relação a especifidade desse público atendidos pelo PAIF e PAEF, destaca-se que há registros de atendimento tanto nos CRAS como nos CREAS.  Dados do Censo SUAS 2022 sinaliza que os povos mais atendiemtnos em nivel de Brasil são Indígenas e Quilombolas. O (\Cref{fig:CRAS-tradicionais}) traz estes dados por regiões.
+
+```{r CRAS-tradicionais, fig.cap = "Percentual de CRAS que atendem povos e comunidades tradicionais -  por grupos , Região - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_selecao_regiao_ano (cras_2022, q65_1_1, "Sim", IBGE, "Povos Indígenas")%>%
+    bind_rows(f_selecao_regiao_ano(cras_2022, q65_2_1, "Sim", IBGE, "Comunidade Quilombola"))%>%
+    bind_rows(f_selecao_regiao_ano(cras_2022, q65_3_1, "Sim", IBGE, "Comunidade Ribeirinha"))%>%
+    bind_rows(f_selecao_regiao_ano(cras_2022, q65_4_1, "Sim", IBGE, "Povos Ciganos"))%>%
+    bind_rows(f_selecao_regiao_ano(cras_2022, q65_5_1, "Sim", IBGE, "Povos de Matriz Africana e de terreiro"))%>%
+    bind_rows(f_selecao_regiao_ano(cras_2022, q65_6_1, "Sim", IBGE, "Comunidades Extrativistas"))%>%
+    bind_rows(f_selecao_regiao_ano(cras_2022, q65_9_1, "Sim", IBGE, "outros povos e comunidades tradicionais"))%>%
+
+  f_grafico_col_group_percent(Região, Percentual, Ano, 4)
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+
+
+
+
+
+
+
+
+```{r creas-tradicionais, fig.cap = "Percentual de CREAS que atendem povos e comunidades tradicionais -  por grupos , Região - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_selecao_regiao_ano (creas_2022, q52_1, "Sim", Região, "Povos Indígenas") %>%
+    bind_rows(f_selecao_regiao_ano(creas_2022, q52_2, "Sim", Região, "Comunidade Quilombola")) %>%
+    bind_rows(f_selecao_regiao_ano(creas_2022, q52_4, "Sim", Região, "Comunidade Ribeirinha")) %>%
+    bind_rows(f_selecao_regiao_ano(creas_2022, q52_6, "Sim", Região, "Povos de Matriz Africana e de terreiro")) %>%
+    bind_rows(f_selecao_regiao_ano(creas_2022, q52_6, "Sim", Região, "Comunidades Extrativistas")) %>%
+    bind_rows(f_selecao_regiao_ano(creas_2022, q52_99, "Sim", Região, "outros povos e comunidades tradicionais")) %>%
+
+  f_grafico_col_group_percent(Região, Percentual, Ano, 2)
 
 grafico
 
@@ -5017,7 +5147,69 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ## Serviços de Proteção Social Especial -- Média Compexidade
 
-A Proteção Social Especial de Média Complexidade organiza a oferta de serviços, programas e projetos de caráter especializado que requerem maior estruturação técnica e operativa, com competências e atribuições definidas, destinados ao atendimento a famílias e indivíduos em situação de risco pessoal e social, por violação de direitos. É ofertada pelos Centros de Referência Especializados de Assistência Social (CREAS), pelos Centros de Referência Especializados para População em Situação de Rua (Centro POP), e pelos Centro-Dia. No nível de Média Complexidade, são ofertados o Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos (PAEFI); o Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida e de Prestação de Serviços à Comunidade; o Serviço Especializado em Abordagem Social; o Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosos e suas Famílias e o Serviço Especializado para Pessoas em Situação de Rua. O PAEFI é definido na Tipificação Nacional de Serviços Socioassistenciais18 como sendo o "serviço de apoio, orientação e acompanhamento a famílias com um ou mais de seus membros em situação de ameaça ou violação de direitos. Compreende atenções e orientações direcionadas para a promoção de direitos, a preservação e o fortalecimento de vínculos familiares, comunitários e sociais e para o fortalecimento da função protetiva das famílias diante do conjunto de condições que as vulnerabilizam e/ou as submetem a situações de risco pessoal e social." As situações de violência ou de violação de direitos para as quais teve mais CREAS oferecendo atendimento pelo PAEFI em 2016, contando separadamente o atendimento de cada CREAS a cada ciclo de vida do usuário (atendimento a crianças e adolescentes, atendimento a mulheres adultas, atendimento a homens adultos e atendimento a idosos), foram as situações de violência psicológica, de violência física e de pessoas com deficiência vítimas de violência ou de violação de direitos. Para as crianças e adolescentes, a situação para a qual teve mais CREAS oferecendo atendimento foi a de abuso sexual ou de violência sexual: 2464 de um total de 2521 CREAS ofereceram atendimento pelo PAEFI a essa situação. No atendimento a mulheres adultas, as situações de violência física e violência psicológica foram as que tiveram maior número de CREAS oferecendo atendimento. Já para os homens adultos, a situação que teve o maior número de CREAS oferecendo atendimento foi a de pessoas com deficiência vítimas de violência ou de violação de direitos. Violência psicológica foi a situação, em número de CREAS, com maior oferta de atendimento para idosos. As situações que tiveram o maior número de CREAS que não oferecem atendimento para elas foram as de tráfico de pessoas, de famílias com adolescentes em cumprimento de medida socioeducativa e de famílias com pessoas egressas do sistema prisional (Gráfico 112). Gráfico 112 - Número de CREAS que oferecem atendimento pelo PAEFI, segundo situações e ciclos de vida do usuário em situação de violência/violação de direitos - Brasil, 2016 Fonte: MDS, Censo SUAS.
+A Proteção Social Especial de Média Complexidade organiza a oferta de serviços, programas e projetos de caráter especializado que requerem maior estruturação técnica e operativa, com competências e atribuições definidas, destinados ao atendimento a famílias e indivíduos em situação de risco pessoal e social, por violação de direitos. É ofertada pelos Centros de Referência Especializados de Assistência Social (CREAS), pelos Centros de Referência Especializados para População em Situação de Rua (Centro POP), e pelos Centro-Dia. No nível de Média Complexidade, são ofertados o Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos (PAEFI); o Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida e de Prestação de Serviços à Comunidade; o Serviço Especializado em Abordagem Social; o Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosos e suas Famílias e o Serviço Especializado para Pessoas em Situação de Rua. 
+
+
+### Serviço de Proteção e Atendimento e Atendimento Especializado a Famílias e Indivíduos (PAEFI)
+
+O PAEFI é definido na Tipificação Nacional de Serviços Socioassistenciais18 como sendo o "serviço de apoio, orientação e acompanhamento a famílias com um ou mais de seus membros em situação de ameaça ou violação de direitos. Compreende atenções e orientações direcionadas para a promoção de direitos, a preservação e o fortalecimento de vínculos familiares, comunitários e sociais e para o fortalecimento da função protetiva das famílias diante do conjunto de condições que as vulnerabilizam e/ou as submetem a situações de risco pessoal e social." 
+
+As situações de violência ou de violação de direitos para as quais teve mais CREAS oferecendo atendimento pelo PAEFI em 2016, contando separadamente o atendimento de cada CREAS a cada ciclo de vida do usuário (atendimento a crianças e adolescentes, atendimento a mulheres adultas, atendimento a homens adultos e atendimento a idosos), foram as situações de violência psicológica, de violência física e de pessoas com deficiência vítimas de violência ou de violação de direitos. Para as crianças e adolescentes, a situação para a qual teve mais CREAS oferecendo atendimento foi a de abuso sexual ou de violência sexual: 2464 de um total de 2521 CREAS ofereceram atendimento pelo PAEFI a essa situação. No atendimento a mulheres adultas, as situações de violência física e violência psicológica foram as que tiveram maior número de CREAS oferecendo atendimento. Já para os homens adultos, a situação que teve o maior número de CREAS oferecendo atendimento foi a de pessoas com deficiência vítimas de violência ou de violação de direitos. Violência psicológica foi a situação, em número de CREAS, com maior oferta de atendimento para idosos. As situações que tiveram o maior número de CREAS que não oferecem atendimento para elas foram as de tráfico de pessoas, de famílias com adolescentes em cumprimento de medida socioeducativa e de famílias com pessoas egressas do sistema prisional (Gráfico 112). Gráfico 112 - Número de CREAS que oferecem atendimento pelo PAEFI, segundo situações e ciclos de vida do usuário em situação de violência/violação de direitos - Brasil, 2016 Fonte: MDS, Censo SUAS.
+
+# fazer grafico abaixo com questão 16 - censo suas 2022
+
+```{r paef, fig.cap = "Percentual de CREAS que realizam Serviço de proteção social Especial para Pessoas com Deficiência, Idosas e suas Famílias, 2018 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+creas_paefi = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>%
+    gather("Grupo","Eixo_x") %>%
+    mutate(Eixo_x = case_when(
+      #Eixo_x == "Sim, sem equipe específica para o serviço;"~"Sim, sem equipe específica",
+      #Eixo_x == "Não realiza, nem possui o Serviço no município;"~"Não realiza, nem possui o Serviço no município",
+      #Eixo_x == "Não realiza com a equipe deste CREAS, mas no município existe o Serviço"~"Não realiza com a equipe deste CREAS, mas no município existe o Serviço",
+      #Eixo_x == "Sim, com equipe específica para o serviço",
+      #Eixo_x == "Conselho Municipal de Assistência Social, Conselho Tutelar ou outro conselho municipal;"~"Conselho Municipal de Assistência Social, Conselho Tutelar ou outro conselho municipal",
+      #Eixo_x == "Outro."~"Outro",
+      TRUE ~ Eixo_x)) %>%
+
+    group_by(Grupo, Eixo_x) %>%
+    summarise(n=n()) %>%
+    mutate(Percentual = n/sum(n))
+}
+
+tabela <- creas_paefi(creas_2018,q35,"2018") %>%
+  bind_rows(creas_paefi(creas_2019, q33, "2019")) %>%
+  bind_rows(creas_paefi(creas_2020, q38, "2020")) %>%
+  bind_rows(creas_paefi(creas_2021, q38, "2021")) %>%
+  bind_rows(creas_paefi(creas_2022, q38, "2022")) %>%
+
+  mutate(Eixo_x=str_wrap(Eixo_x,width=58))
+
+ordenado<-tabela %>%
+  filter(Grupo == "2018") %>%
+  arrange(Percentual) %>%
+  pull(Eixo_x)
+
+grafico<-tabela %>%
+  mutate(Eixo_x = factor(Eixo_x, levels = ordenado)) %>%
+  f_grafico_col_percent_flip(Eixo_x, Percentual, Grupo, 1)
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+
+
+
+
+
+
+
 
 Do total de 2521 unidades de CREAS existentes em 2016 no Brasil, de 99,0% a 99,5% delas realizaram as seguintes ações e atividades no âmbito do PAEFI: visitas domiciliares, acompanhamento individual ou familiar, encaminhamento para o CRAS, encaminhamento para serviços da rede de saúde e encaminhamento de famílias ou indivíduos para a rede de serviço socioassistencial. As ações e atividades que tiveram menor número de CREAS realizando-as foram as de orientação jurídico-social e de grupo ou oficina com famílias ou indivíduos, realizadas por 75,2% e 72,5% das unidades, respectivamente (Gráfico 113). Gráfico 113 - Percentual de CREAS segundo ações e atividades realizadas no âmbito do PAEFI - Brasil, 2016 Fonte: MDS, Censo SUAS.
 
@@ -5055,11 +5247,67 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 <!-- GRAFICO ABAIXO A PARTIR DE 2018 MUDA AS RESPOSTAS padronizar a partir de 2018 (shirley) -->
 
+\footnote{Série só possível de ser selecionada historicametne a partir de 2018}
+
+```{r creas-pse-Domicilio, fig.cap = "Percentual de CREAS que realizam Serviço de proteção social Especial para Pessoas com Deficiência, Idosas e suas Famílias, 2018 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+creas_pse = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>%
+    gather("Grupo","Eixo_x") %>%
+    mutate(Eixo_x = case_when(
+      #Eixo_x == "Sim, sem equipe específica para o serviço;"~"Sim, sem equipe específica",
+      #Eixo_x == "Não realiza, nem possui o Serviço no município;"~"Não realiza, nem possui o Serviço no município",
+      #Eixo_x == "Não realiza com a equipe deste CREAS, mas no município existe o Serviço"~"Não realiza com a equipe deste CREAS, mas no município existe o Serviço",
+      #Eixo_x == "Sim, com equipe específica para o serviço",
+      #Eixo_x == "Conselho Municipal de Assistência Social, Conselho Tutelar ou outro conselho municipal;"~"Conselho Municipal de Assistência Social, Conselho Tutelar ou outro conselho municipal",
+      #Eixo_x == "Outro."~"Outro",
+      TRUE ~ Eixo_x)) %>%
+
+    group_by(Grupo, Eixo_x) %>%
+    summarise(n=n()) %>%
+    mutate(Percentual = n/sum(n))
+}
+
+tabela <- creas_pse(creas_2018,q35,"2018") %>%
+  bind_rows(creas_pse(creas_2019, q33, "2019")) %>%
+  bind_rows(creas_pse(creas_2020, q38, "2020")) %>%
+  bind_rows(creas_pse(creas_2021, q38, "2021")) %>%
+  bind_rows(creas_pse(creas_2022, q38, "2022")) %>%
+
+  mutate(Eixo_x=str_wrap(Eixo_x,width=58))
+
+ordenado<-tabela %>%
+  filter(Grupo == "2018") %>%
+  arrange(Percentual) %>%
+  pull(Eixo_x)
+
+grafico<-tabela %>%
+  mutate(Eixo_x = factor(Eixo_x, levels = ordenado)) %>%
+  f_grafico_col_percent_flip(Eixo_x, Percentual, Grupo, 1)
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+
+
+
+
+
+
+
+
 ```{r CREAS-PSE-Domicilio, fig.cap = "Percentual de CREAS que realizam Serviço de proteção social Especial para Pessoas com Deficiência, Idosas e suas Famílias, 2016 a 2022"}
 
 grafico <- f_sim_nao(creas_2016, q38, "2016") %>%
   bind_rows(f_sim_nao(creas_2017, q43, "2017")) %>%
-  #bind_rows(f_sim_nao(creas_2018, q35, "2018")) %>%
+  bind_rows(f_sim_nao(creas_2018, q35, "2018")) %>%
+  
   #bind_rows(f_sim_nao(creas_2019, q33, "2019")) %>%
   #bind_rows(f_sim_nao(creas_2020, q38, "2020")) %>%
   #bind_rows(f_sim_nao(creas_2021, q39, "2021")) %>%
@@ -5179,42 +5427,7 @@ Considerações Finais Conforme apresentado ao longo desse capítulo, em 2016 fo
 # 2017: q66 / 2018: q34 / 2019: q32 / 2020: q38 / 2021: q38 / 2022: q38
 ```
 
-## Povos Tradicionais
 
-```{r povos-tradicionais_cras, fig.cap = "Percentual de CRAS que atendem povos e grupos e comunidades tradicionais especificos -  por grupos , Região - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
-
-grafico <- f_sim_nao(cras_2022, q65_1_1, "2022") %>%
-  #bind_rows(f_sim_nao(creas_2018, q16, "2018")) %>%
-  #bind_rows(f_sim_nao(creas_2019, q15, "2019")) %>%
-  #bind_rows(f_sim_nao(creas_2020, q20, "2020")) %>%
-  #bind_rows(f_sim_nao(creas_2021, q20, "2021")) %>%
-  #bind_rows(f_sim_nao(creas_2022, q20, "2022")) %>%
-
-  #tentar computar a parte em branco ou colocar em quantidade
-
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
-
-grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-```
-
-```{r povos-tradicionais, fig.cap = "Percentual de CREAS que atendem povos e comunidades tradicionais -  por grupos , Região - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
-
-grafico <- f_selecao_regiao_ano (creas_2022, q52_1, "Sim", Região, "Povos Indígenas") %>%
-    bind_rows(f_selecao_regiao_ano(creas_2022, q52_2, "Sim", Região, "Comunidade Quilombola")) %>%
-    #bind_rows(f_selecao_regiao_ano(creas_2022, q52_3, "Sim", Regiao, "Povos Ciganos")) %>%
-    bind_rows(f_selecao_regiao_ano(creas_2022, q52_4, "Sim", Região, "Comunidade Ribeirinha")) %>%
-    bind_rows(f_selecao_regiao_ano(creas_2022, q52_6, "Sim", Região, "Povos de Matriz Africana e de terreiro")) %>%
-    bind_rows(f_selecao_regiao_ano(creas_2022, q52_6, "Sim", Região, "Comunidades Extrativistas")) %>%
-    #bind_rows(f_selecao_regiao_ano(creas_2022, q52_99, "Sim", Região, "outros povos e comunidades tradicionais")) %>%
-
-  f_grafico_col_group_percent(Região, Percentual, Ano, 2)
-
-grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-```
 
 ## Benefícios Eventuais
 
