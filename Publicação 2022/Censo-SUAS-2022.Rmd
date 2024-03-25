@@ -4933,7 +4933,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 # Serviços e Benefícios ofertados pelo SUAS
 
-
+A proteção remonta um conjunto de direitos que é viabilizado através do acesso a serviços, benefícios programas voltados ao atendimento de demandas de proteção social. A atuação deve estar integrada as funções de Vigilância Socioassistencial, Proteção,e defesa de direitos.
 
 ## Proteção Social
 
@@ -5030,9 +5030,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ### Serviços de Convivência e Fortalecimento de Vínculos (SCFV)
 
-A tônica do vínculo é um fator de Segurança Social, assim o SCFV no ambito do SUAS é um serviço tipificado e realizado através de grupos na qual objetiva garantir aquisições progressivas aos cidadãos usuários do SUAS. Trata-se de serviço complementar ao trabalho social com família e atua de forma preventiva a ocorrências de situações de risco social. De acordo com (\Cref{fig:CRAS-SCFV}), 82% dos CRAS possuem a oferta deste serviço na sua unidade.
-
-Há também esta oferta por meio de Unidades de Centro de Concivência conforme já mencionado  (\Cref{fig:quantitativo-CentroConv}) 
+A tônica do vínculo é um fator de Segurança Social. O SCFV no ambito do SUAS é um serviço tipificado e realizado através de grupos na qual objetiva garantir aquisições progressivas aos cidadãos usuários do SUAS. Trata-se de serviço que afrima da natureza relacional no processode proteção e complementar ao trabalho social com família e atua de forma preventiva a ocorrências de situações de risco social. De acordo com (\Cref{fig:CRAS-SCFV}), 82% dos CRAS possuem a oferta deste serviço na sua unidade. Há também esta oferta por meio de Unidades de Centro de Concivência conforme já mencionado  (\Cref{fig:quantitativo-CentroConv}) 
 
 \footnote{o grafico abaixo não possui informação do ano de 2023 devido a ausencia desta pergunta no formulário no ano supracitado}.
 
