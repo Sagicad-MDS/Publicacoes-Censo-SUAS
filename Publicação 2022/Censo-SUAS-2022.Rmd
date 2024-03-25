@@ -1239,9 +1239,10 @@ f_grafico_col_numero = function(df, x, y){
   df %>%
     ggplot(aes(x = !! x, y = !! y)) +
     geom_col(aes(fill = !! y), position="dodge") +
-    geom_text(aes(label = format(!! y, big.mark=".", digits = 3, decimal.mark = ",")),
+    geom_text_repel(aes(label = format(!! y, big.mark=".", digits = 3, decimal.mark = ",")),
               vjust = -0.5, 
-              position = position_dodge(width = 0.9)) +
+              position = position_dodge(width = 0.9),
+              point.size = NA) +
     scale_y_continuous(expand = expand_scale(mult = c(0, .15))) +
     theme(legend.position="none",
           axis.title = element_blank(),
@@ -1259,11 +1260,12 @@ f_grafico_col_group_numero = function(df, x, y, grupo, legend_nrow){
   df %>%
     ggplot(aes(x = !! x, y = !! y, group = !! grupo)) +
     geom_col(aes(fill = !! grupo), position="dodge") +
-    geom_text(aes(label = format(!! y, big.mark=".", digits = 3, decimal.mark = ",")),
+    geom_text_repel(aes(label = format(!! y, big.mark=".", digits = 3, decimal.mark = ",")),
               hjust = -0.01,
               position = position_dodge(width = 0.9),
-              angle = 90) +
-    scale_y_continuous(expand = expand_scale(mult = c(0, .15))) +
+              angle = 90,
+              point.size = NA) +
+    scale_y_continuous(expand = expand_scale(mult = c(0, .16))) +
     theme(legend.position="bottom",
           legend.title = element_blank(),
           axis.title = element_blank(),
@@ -1274,7 +1276,7 @@ f_grafico_col_group_numero = function(df, x, y, grupo, legend_nrow){
     guides(fill=guide_legend(nrow=legend_nrow,byrow=TRUE))
 }
 
-f_grafico_col_numero_flip = function(df, x, y, grupo){
+f_grafico_col_numero_flip = function(df, x, y, grupo, legend_nrow){
   x <- enquo(x)
   y <- enquo(y)
   grupo <- enquo(grupo)
@@ -1283,8 +1285,9 @@ f_grafico_col_numero_flip = function(df, x, y, grupo){
     ggplot(aes(x = !! x, y = !! y, group = fct_rev(!! grupo))) +
     geom_col(aes(fill = !! grupo), position = "dodge") +
     geom_text(aes(label = format(!! y, big.mark=".", digits = 3, decimal.mark = ",")),
-              hjust = -0.5,
-              position = position_dodge(width = 0.9)) +
+              hjust = -0.1,
+              position = position_dodge(width = 0.9),
+              check_overlap = TRUE) +
     scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
     coord_flip() +
     theme(legend.position="bottom",
@@ -1294,7 +1297,7 @@ f_grafico_col_numero_flip = function(df, x, y, grupo){
           axis.text.x = element_blank(),
           axis.line.y = element_line(),
           panel.background = element_blank()) +
-    guides(fill=guide_legend(nrow=1, byrow=TRUE))
+    guides(fill=guide_legend(nrow=legend_nrow, byrow=TRUE))
 }
 
 f_grafico_col_percent = function(df, x, y){
@@ -1305,9 +1308,10 @@ f_grafico_col_percent = function(df, x, y){
     mutate(precisao = ifelse(!! y < 0.0995, 0.1, 1)) %>%
     ggplot(aes(x = !! x, y = !! y)) +
     geom_col(aes(fill = !! y), position = "dodge") +
-    geom_text(aes(label = label_percent(accuracy = precisao, decimal.mark = ",")(!! y)),
+    geom_text_repel(aes(label = label_percent(accuracy = precisao, decimal.mark = ",")(!! y)),
               vjust = -0.5,
-              position = position_dodge(width = 0.9)) +
+              position = position_dodge(width = 0.9),
+              point.size = NA) +
     scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
     theme(legend.position="none",
           axis.title = element_blank(),
@@ -1326,11 +1330,11 @@ f_grafico_col_group_percent = function(df, x, y, grupo, legend_nrow){
     mutate(precisao = ifelse(!! y < 0.0995, 0.1, 1)) %>%
     ggplot(aes(x = !! x, y = !! y, group = !! grupo)) +
     geom_col(aes(fill = !! grupo), position = "dodge") +
-    geom_text(aes(label = label_percent(accuracy = precisao, decimal.mark = ",")(!! y)),
-#              vjust = -0.2,
+    geom_text_repel(aes(label = label_percent(accuracy = precisao, decimal.mark = ",")(!! y)),
               hjust = -0.01,
               position = position_dodge(width = 0.9),
-              angle = 90) +
+              angle = 90,
+              point.size = NA) +
     scale_y_continuous(expand = expand_scale(mult = c(0, .16))) +
     theme(legend.position="bottom",
           legend.title = element_blank(),
@@ -1353,8 +1357,9 @@ f_grafico_col_percent_flip = function(df, x, y, grupo, legend_nrow){
     geom_col(aes(fill = !! grupo), position = "dodge") +
     geom_text(aes(label = label_percent(accuracy = precisao, decimal.mark = ",")(!! y)),
               hjust = -0.05,
-              position = position_dodge(width = 0.9)) +
-    scale_y_continuous(expand = expand_scale(mult = c(0, .15))) +
+              position = position_dodge(width = 0.9),
+              check_overlap = TRUE) +
+    scale_y_continuous(expand = expand_scale(mult = c(0, .12))) +
     coord_flip() +
     theme(legend.position="bottom",
           legend.title = element_blank(),
@@ -1399,8 +1404,9 @@ f_grafico_col_stack_percent_flip = function(df, x, y, grupo, legend_nrow){
     ggplot(aes(x = !! x, y = !! y)) +
     geom_col(aes(fill = !! grupo), position = position_stack(reverse = TRUE)) +
     geom_text(aes(label = ifelse(!! y > 0.0005, label_percent(accuracy = precisao, decimal.mark = ",")(!! y), "")),
-              position = position_stack(reverse = TRUE, vjust = .5)) +
-    scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+              position = position_stack(reverse = TRUE, vjust = .5),
+              check_overlap = TRUE) +
+    scale_y_continuous(expand = expand_scale(mult = c(0, 0.05))) +
     coord_flip() +
     theme(legend.position="bottom",
           legend.title = element_blank(),
@@ -1410,29 +1416,6 @@ f_grafico_col_stack_percent_flip = function(df, x, y, grupo, legend_nrow){
           axis.line.y = element_line(),
           panel.background = element_blank()) +
     guides(fill=guide_legend(nrow=legend_nrow,byrow=TRUE))
-}
-
-f_grafico_col_stack_percent_flip_repel = function(df, x, y, grupo){
-  x <- enquo(x)
-  y <- enquo(y)
-  grupo <- enquo(grupo)
-
-  df %>%
-    mutate(precisao = ifelse(!! y < 0.0995, 0.1, 1)) %>%
-    ggplot(aes(x = !! x, y = !! y)) +
-    geom_col(aes(fill = !! grupo), position = position_stack(reverse = TRUE)) +
-    geom_text_repel(aes(label = ifelse(!! y > 0.0005, label_percent(accuracy = precisao, decimal.mark = ",")(!! y), "")),
-                    position = position_stack(reverse = TRUE, vjust = .5),
-                    point.size = NA) +
-    scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
-    coord_flip() +
-    theme(legend.position="bottom",
-          legend.title = element_blank(),
-          axis.title = element_blank(),
-          axis.ticks = element_blank(),
-          axis.text.x = element_blank(),
-          axis.line.y = element_line(),
-          panel.background = element_blank())
 }
 
 ```
@@ -1817,7 +1800,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 Quando se observa a regularização destas areas, há um grupo instituídas informalmente conforme \cref{fig:estados-constituicao-subdivisoes}, e setores que ainda não estão consituídos em 100% dos estados, a saber Gestão do SUAS, Gestão do trabalho e regulação do SUAS.
 
-```{r estados-constituicao-subdivisoes, fig.cap = "Percentual de estados segundo característica da estrutura administrativa da Secretaria Estadual de Assistência Social - Brasil,  2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r estados-constituicao-subdivisoes, fig.cap = "Percentual de estados segundo característica da estrutura administrativa da Secretaria Estadual de Assistência Social - Brasil,  2022", fig.footer = "Fonte: MDS, Censo SUAS.", fig.height = 6}
 
 tabela<-ge_2022 %>%
 # Questionário 2022:
@@ -1834,7 +1817,7 @@ tabela<-ge_2022 %>%
 
 #-------------------
   gather("Categoria","Nível") %>%
-  mutate(Categoria=str_wrap(Categoria,width=39)) %>%
+  mutate(Categoria=str_wrap(Categoria,width=28)) %>%
   mutate(Nível = case_when(Nível=="Sim, na estrutura formal do órgão gestor"~"Constituída formalmente",
                            Nível=="Sim, de maneira informal"~"Constituída informalmente",
                            TRUE ~ Nível)) %>%
@@ -1934,7 +1917,7 @@ munic_sub= function(df, q, ano, cod_categoria){
 
 
   ungroup() %>%
-  mutate(Categoria=str_wrap(Categoria,width=51))
+  mutate(Categoria=str_wrap(Categoria,width=49))
 
 ordenado<-tabela %>%
   filter(Ano == "2022") %>%
@@ -2614,7 +2597,7 @@ ordenado<-tabela %>%
 
 grafico<-tabela %>%
   mutate(Categoria = factor(Categoria, levels = ordenado)) %>%
-  f_grafico_col_numero_flip(Categoria, n, Ano)
+  f_grafico_col_numero_flip(Categoria, n, Ano, 1)
 
 grafico
 
@@ -4046,15 +4029,15 @@ O Censo SUAS 2022 registrou 2.846 CREAS no país: um incremento de 679 novas uni
 ```{r creas-quantitativo, fig.cap = "Evolução do quantitativo de CREAS, segundo grandes regiões; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
   grafico <- f_quantitativo_regiao_ano(creas_2012, IBGE, "2012") %>%
-  bind_rows(f_quantitativo_regiao_ano(creas_2013, IBGE, "2013")) %>%
-  bind_rows(f_quantitativo_regiao_ano(creas_2014, IBGE, "2014")) %>%
-  #bind_rows(f_quantitativo_regiao_ano(creas_2015, IBGE, "2015")) %>%
-  bind_rows(f_quantitativo_regiao_ano(creas_2016, IBGE7, "2016")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(creas_2013, IBGE, "2013")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(creas_2014, IBGE, "2014")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(creas_2015, IBGE, "2015")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(creas_2016, IBGE7, "2016")) %>%
   bind_rows(f_quantitativo_regiao_ano(creas_2017, IBGE, "2017")) %>%
-  bind_rows(f_quantitativo_regiao_ano(creas_2018, IBGE, "2018")) %>%
-  bind_rows(f_quantitativo_regiao_ano(creas_2019, IBGE, "2019")) %>%
-  bind_rows(f_quantitativo_regiao_ano(creas_2020, IBGE, "2020")) %>%
-  bind_rows(f_quantitativo_regiao_ano(creas_2021, IBGE, "2021")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(creas_2018, IBGE, "2018")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(creas_2019, IBGE, "2019")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(creas_2020, IBGE, "2020")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(creas_2021, IBGE, "2021")) %>%
   bind_rows(f_quantitativo_regiao_ano(creas_2022, IBGE, "2022")) %>%
   f_grafico_col_group_numero(Região, n, Ano, 1)
 
@@ -4626,9 +4609,65 @@ UNIDADES DE ACOLHIMENTO As Unidades de Acolhimento são equipamentos que prestam
 
 <!-- preciso descobrir o erro -->
 
-```{r unac-natureza, fig.cap = "Quantidade de Unidades de Acolhimento por Público Atendido  - 2014 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r unac-publico, fig.cap = "Quantidade de Unidades de Acolhimento por principal público atendido  - 2014 - 2022", fig.footer = "Fonte: MDS, Censo SUAS.", fig.height = 10}
 
+prepara_dados = function(df, q, nome_grupo){
+  q <- enquo(q)
+  nome_grupo <- quo_name(nome_grupo)
 
+  df %>%
+    select(!! nome_grupo := !! q) %>%
+    gather("Grupo2","Grupo1") %>%
+    mutate(Grupo1 = case_when(
+      Grupo1 == "Crianças adolescentes" |
+      Grupo1 == "Crianças/adolescentes"~"Crianças / Adolescentes",
+      Grupo1 == "Adultos e famílias em situação de rua e ou migrantes" |
+      Grupo1 == "Adultos e famílias em situação de rua e/ou migrantes" |
+      Grupo1 == "Famílias desabrigadas desalojadas" |
+      Grupo1 == "Famílias desabrigadas/desalojadas" |
+      Grupo1 == "Adultos e famílias" |
+      Grupo1 == "Adultas(os) e famílias"~"Adultas/os e famílias",
+      Grupo1 == "Exclusivamente para pessoas adultas com Deficiência" |
+      Grupo1 == "Exclusivamente pessoas adultas com Deficiência"~"Exclusivamente pessoas adultas com deficiência",
+      Grupo1 == "Exclusivamente crianças adolescente com Deficiência" |
+      Grupo1 == "Exclusivamente crianças/adolescente com Deficiência"~"Exclusivamente crianças/adolescente com deficiência",
+      Grupo1 == "Mulheres em situação de violência"~"Mulheres em situação de violência doméstica ou familiar",
+      Grupo1 == "Jovens egressos de serviços de acolhimento" |
+      Grupo1 == "Jovens egressas(os) de serviços de acolhimento"~"Jovens egressas/os de serviços de acolhimento",
+      Grupo1 == "Pessoas Idosas"~"Pessoas idosas",
+      TRUE ~ Grupo1)) %>%
+
+    filter(!is.na(Grupo1)) %>%
+    group_by(Grupo2, Grupo1) %>%
+    summarise(n=n()) %>%
+    mutate(Percentual = n/sum(n))
+}
+
+tabela <- prepara_dados (unac_2014, q2, "2014") %>%
+  bind_rows(prepara_dados(unac_2015, q2, "2015")) %>%
+  bind_rows(prepara_dados(unac_2016, q2_1, "2016")) %>%
+  bind_rows(prepara_dados(unac_2017, q1.1, "2017")) %>%
+  bind_rows(prepara_dados(unac_2018, q_1_1, "2018")) %>%
+  bind_rows(prepara_dados(unac_2019, q1_1, "2019")) %>%
+  bind_rows(prepara_dados(unac_2020, q1_1, "2020")) %>%
+  bind_rows(prepara_dados(unac_2021, q1_1, "2021")) %>%
+  bind_rows(prepara_dados(unac_2022, q1_1, "2022")) %>%
+
+  mutate(Grupo1=str_wrap(Grupo1,width=21))
+
+ordenado<-tabela %>%
+  arrange(n) %>%
+  ungroup() %>%
+  distinct(Grupo1) %>%
+  pull(Grupo1)
+
+grafico<-tabela %>%
+  mutate(Grupo1 = factor(Grupo1, levels = ordenado)) %>%
+  f_grafico_col_numero_flip(Grupo1, n, Grupo2, 2)
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 
