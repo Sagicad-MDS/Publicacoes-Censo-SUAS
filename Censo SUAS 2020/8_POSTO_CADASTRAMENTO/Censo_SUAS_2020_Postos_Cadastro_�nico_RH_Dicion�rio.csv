@@ -1,0 +1,55 @@
+﻿Variável;Rótulo
+NU_IDENTIFICADOR;NU_IDENTIFICADOR_id_posto_cadastramento_NU_IDENTIFICADOR
+IBGE;IBGE_codigo_ibge_IBGE
+IBGE7;IBGE7_IBGE7_codigo IBGE com 7 digitos
+Regiao;Regiao_Região_Região
+UF;UF_Nome_UF_UF
+Município;Município_Município_Município
+areaKm2;areaKm2_area Km2_area Km2
+Pop_total_2010;Pop_Total_2010_Pop_total_2010_Pop_total_2010
+Pop_Urbana2010;Pop_Urbana2010_Pop_Urbana2010_Pop_Urbana2010
+Pop_Rural2010;Pop_Rural2010_Pop_Rural2010_Pop_Rural2010
+Porte_pop2010;Porte_pop2010_Porte_pop2010_Porte_pop2010
+q40_2;q40_2_v14508_40.2. Data de Nascimento DD/MM/AAAA
+q40_3;q40_3_v14509_40.3. Sexo
+q40_7;q40_7_v14513_40.7. Dados do RG UF
+q40_8;q40_8_v14514_40.8. Escolaridade
+q40_9;q40_9_v14515_40.9. Profissão
+q40_10;q40_10_v14516_40.10. Vínculo
+q40_11;q40_11_v14517_40.11. Função
+q40_12;q40_12_v14518_40.12. Carga horária SEMANAL
+q40_13;q40_13_v14519_40.13. Início do Mandato (DD/MM/AAA)
+q40_11_recodificada;
+DataCenso;"COMPUTE DataCenso=""31.08.2020"""
+DataCenso_2020;DataCenso recodificada
+q40_2_rec;q40_2_data nascimento recodificada
+Idade;Idade
+Faixas_etarias;Faixas etárias dos Trabalhadores dos POSTO
+d_40_8;d_40_8_Níveis de escolaridade
+d_40_8bin1;d_40_8bin1_Nível fundamental - Trabalhadores que possuem até o nível médio (inclui aqueles sem escolaridade)
+d_40_8bin2;d_40_8bin2_Nível médio - Trabalhadores com ensino superior incompleto e ensino médio completo
+d_40_8bin3;d_40_8bin3_Nível superior - inclui Trabalhadores graduados, com especialização, mestrado ou doutorado
+d_40_9;d_40_9_Profissão
+d_40_9bin1;d_40_9bin1_Pedagogo
+d_40_9bin2;d_40_9bin2_Assistente Social
+d_40_9bin3;d_40_9bin3_Antropólogo
+d_40_9bin4;d_40_9bin4_Advogado
+d_40_9bin5;d_40_9bin5_Psicologo
+d_40_10;d_40_10_Tipo de vínculo
+d_40_10bin1;d_40_10bin1_Servidor Estatutário
+d_40_10bin2; d_40_10bin2_Empregado Público (CLT)
+d_40_10bin3;d_40_10bin3_Comissionado
+d_40_10bin4;"d_40_10bin4_Outros vínculos não permanentes - inclui Trabalhador de Empresas/Cooperativa/Entidade Prestadora de Serviços; Voluntários; Servidor Temporário; Sem vínculo; Terceirizado e Outro vínculo não permanente"
+d_40_8bin1_sum;Número de trabalhadores de Nível fundamental (inclui trabalhadores sem escolaridade, fundamental incompleto e ensino médio incompleto)
+d_40_8bin2_sum;Número de trabalhadores de Nível médio (inclui trabalhadores com ensino superior incompleto)
+d_40_8bin3_sum;Número de trabalhadores de Nível superior (inclui trabalhadores com especialização, mestrado e doutorado)
+d_40_9bin1_sum;Número de Pedagogos
+d_40_9bin2_sum;Número de Assistentes Sociais
+d_40_9bin3_sum;Número de Antropólogos
+d_40_9bin4_sum;Número de Advogados
+d_40_9bin5_sum;Número de Psicólogos
+d_40_10bin1_sum;Número de Servidores Estatutários
+d_40_10bin2_sum;Número de Empregados Públicos(CLT)
+d_40_10bin3_sum;Número de Comissionados
+d_40_10bin4_sum;Número de profissionais com outros vínculos não permanentes
+nu_trabalhador;Número de trabalhadores no POSTO

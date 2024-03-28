@@ -1,0 +1,90 @@
+IBGE;IBGE_codigo_ibge_IBGE
+IBGE7;IBGE7_codigo IBGE com 7 digitos
+Região;Grande Região
+UF;Nome_UF_UF
+Município;Município_Município
+area;Área Territorial Km2
+Pop_Total2010;População Total - Censo IBGE 2010
+Pop_Urbana2010;Pop_Urbana2010_Pop_Urbana2010
+Pop_Rural2010;Pop_Rural2010_Pop_Rural2010
+Porte_pop2010;Porte_pop2010_Porte_pop2010
+quest_incompleto;questionário do município incompleto
+q65_3;q65_3_v14720_65.3. Sexo
+q65_7;q65_7_v14722_65.7. Dados do RG: UF
+q65_9;q65_9_v14725_65.9. Escolaridade
+q65_10;q65_10_v14726_65.10. Profissão
+q65_11;q65_11_v14727_65.11. Vínculo
+q65_12;q65_12_v11359_65.12. Cargo
+q65_13;q65_13_v14728_65.13. Carga horária SEMANAL
+q65_14;q65_14_v14729_65.14. Início do Mandato (DD/MM/AAAA)
+q65_15;q65_15_v14730_65.15. Principal área de atuação
+q65_16;q65_16_v14731_65.16. Segunda principal área de atuação
+q65_17;q65_17_v14732_65.17. Terceira principal área de atuação
+DataCenso;"COMPUTE DataCenso=""31.08.2019"""
+DataCenso_2019;DataCenso recodificada
+q65_2_rec;q65_2_data nascimento recodificada
+Idade;Idade
+Faixas_etarias;Faixas etárias dos trabalhadores Gestão Municipal
+d_65_9;d_65_9_Níveis de escolaridade
+d_65_9bin1;d_65_9bin1_Nível fundamental - Trabalhadores da gestão que possuem até o nível médio (inclui aqueles sem escolaridade)
+d_65_9bin2;d_65_9bin2_Nível médio - Trabalhadores da gestão com ensino superior incompleto e ensino médio completo
+d_65_9bin3;d_65_9bin3_Nível superior - inclui Trabalhadores da gestão graduados, com especialização, mestrado ou doutorado
+d_65_10;d_65_10_Profissão
+d_65_10bin1;d_65_10bin1_Pedagogo
+d_65_10bin2;d_65_10bin2_Assistente Social
+d_65_10bin3;d_65_10bin3_Antropólogo
+d_65_10bin4;d_65_10bin4_Advogado
+d_65_10bin5;d_65_10bin5_Psicologo
+d_65_11;d_65_11_Tipo de vínculo
+d_65_11bin1;d_65_11bin1_Servidor Estatutário
+d_65_11bin2; d_65_11bin2_Empregado Público (CLT)
+d_65_11bin3;d_65_11bin3_Comissionado
+d_65_11bin4;"d_65_11bin4_Outros vínculos não permanentes - inclui Trabalhador de Empresas/Cooperativa/Entidade Prestadora de Serviços; Voluntários; Servidor Temporário; Sem vínculo; Terceirizado e Outro vínculo não permanente"
+d_65_15_1bin_Gestão;d_65_15_1bin_Gestão - Principal serviço/atividade
+d_65_15_1bin_Gestão_do_SUAS;d_65_15_1bin_Gestão do SUAS - Principal serviço/atividade
+d_65_15_1bin_Vigilância_Socioassistencial;d_65_15_1bin_Vigilância Socioassistencial - Principal serviço/atividade
+d_65_15_1bin_Gestão_do_Trabalho; d_65_15_1bin_Gestão do Trabalho- Principal serviço/atividade
+d_65_15_1bin_Regulação_do_SUAS;d_65_15_1bin_Regulação do SUAS - Principal serviço/atividade
+d_65_15_1bin_Gestão_Financeira_Orçamentária;d_65_15_1bin_Gestão Financeira e Orçamentária - Principal serviço/atividade
+d_65_15_1bin_PSB;d_65_15_1bin_PSB - Principal serviço/atividade
+d_65_15_1bin_PSE_Média_Complexidade;d_65_15_1bin_PSE Média Complexidade - Principal serviço/atividade
+d_65_15_1bin_PSE_Alta_Complexidade;d_65_15_1bin_PSE Alta Complexidade - Principal serviço/atividade
+d_65_15_1bin_Gestão_CadÚnico_PBF;d_65_15_1bin_Gestão do Cadastro Único e Programa Bolsa Família - Principal serviço/atividade
+d_65_15_1bin_Gestão_Benefícios_Assistenciais;d_65_15_1bin_Gestão de Benefícios Assistenciais - Principal serviço/atividade
+d_65_15_1bin_Outros;d_65_15_1bin_Outros - Principal serviço/atividade
+d_65_16_2bin_Gestão;d_65_16_2bin_Gestão - Principal serviço/atividade
+d_65_16_2bin_Gestão_do_SUAS;d_65_16_2bin_Gestão do SUAS - Principal serviço/atividade
+d_65_16_2bin_Vigilância_Socioassistencial;d_65_16_2bin_Vigilância Socioassistencial - Principal serviço/atividade
+d_65_16_2bin_Gestão_do_Trabalho; d_65_16_2bin_Gestão do Trabalho- Principal serviço/atividade
+d_65_16_2bin_Regulação_do_SUAS;d_65_16_2bin_Regulação do SUAS - Principal serviço/atividade
+d_65_16_2bin_Gestão_Financeira_Orçamentária;d_65_16_2bin_Gestão Financeira e Orçamentária - Principal serviço/atividade
+d_65_16_2bin_PSB;d_65_16_2bin_PSB - Principal serviço/atividade
+d_65_16_2bin_PSE_Média_Complexidade;d_65_16_2bin_PSE Média Complexidade - Principal serviço/atividade
+d_65_16_2bin_PSE_Alta_Complexidade;d_65_16_2bin_PSE Alta Complexidade - Principal serviço/atividade
+d_65_16_2bin_Gestão_CadÚnico_PBF;d_65_16_2bin_Gestão do Cadastro Único e Programa Bolsa Família - Principal serviço/atividade
+d_65_16_2bin_Gestão_Benefícios_Assistenciais;d_65_16_2bin_Gestão de Benefícios Assistenciais - Principal serviço/atividade
+d_65_16_2bin_Outros;d_65_16_2bin_Outros - Principal serviço/atividade
+d_65_17_3bin_Gestão;d_65_17_3bin_Gestão - Principal serviço/atividade
+d_65_17_3bin_Gestão_do_SUAS;d_65_17_3bin_Gestão do SUAS - Principal serviço/atividade
+d_65_17_3bin_Vigilância_Socioassistencial;d_65_17_3bin_Vigilância Socioassistencial - Principal serviço/atividade
+d_65_17_3bin_Gestão_do_Trabalho; d_65_17_3bin_Gestão do Trabalho- Principal serviço/atividade
+d_65_17_3bin_Regulação_do_SUAS;d_65_17_3bin_Regulação do SUAS - Principal serviço/atividade
+d_65_17_3bin_Gestão_Financeira_Orçamentária;d_65_17_3bin_Gestão Financeira e Orçamentária - Principal serviço/atividade
+d_65_17_3bin_PSB;d_65_17_3bin_PSB - Principal serviço/atividade
+d_65_17_3bin_PSE_Média_Complexidade;d_65_17_3bin_PSE Média Complexidade - Principal serviço/atividade
+d_65_17_3bin_PSE_Alta_Complexidade;d_65_17_3bin_PSE Alta Complexidade - Principal serviço/atividade
+d_65_17_3bin_Gestão_CadÚnico_PBF;d_65_17_3bin_Gestão do Cadastro Único e Programa Bolsa Família - Principal serviço/atividade
+d_65_17_3bin_Gestão_Benefícios_Assistenciais;d_65_17_3bin_Gestão de Benefícios Assistenciais - Principal serviço/atividade
+d_65_17_3bin_Outros;d_65_17_3bin_Outros - Principal serviço/atividade
+d_65_Gestão;Atividades de Gestão - mencionada, no minimo, 1 vez
+d_65_Gestão_do_SUAS;Gestão do SUAS - mencionada, no mínimo, 1 vez
+d_65_Vigilância_Socioassistencial;Vigilância Socioassistencial - mencionada, no mínimo, 1 vez
+d_65_Gestão_do_Trabalho;Gestão do Trabalho - mencionada, no mínimo, 1 vez
+d_65_Regulação_do_SUAS;Regulação do SUAS -  mencionada, no mínimo, 1 vez
+d_65_Gestão_Financeira_Orçamentária;Gestão Financeira e Orçamentária - mencionada, no mínimo, 1 vez
+d_65_PSB;Proteção Social Básica - mencionada, no mínimo, 1 vez
+d_65_PSE_Média_Complexidade;PSE_Média_Complexidade - mencionada, no mínimo, 1 vez
+d_65_PSE_Alta_Complexidade;PSE_Alta_Complexidade - mencionada, no mínimo, 1 vez
+d_65_Gestão_CadÚnico_PBF;Gestão do Cadastro Único e Programa Bolsa Família - mencionado, no mínimo, 1 vez
+d_65_Gestão_Benefícios_Assistenciais;Gestão de Benefícios Assistenciais (BPC, benefícios eventuais) - mencionado, no mínimo, 1 vez
+d_65_Outros;Outras atividades - mencionadas, no mínimo, 1 vez

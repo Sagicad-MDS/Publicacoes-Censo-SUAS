@@ -425,9 +425,9 @@ crasrh_2021 <- read_excel("../Censo SUAS 2021/1 - CRAS/Censo_SUAS_2021_CRAS_RH.x
 
 cras_2022 <- read_excel("../Censo SUAS 2022/1_CRAS/Censo_SUAS_2022_CRAS_Dados_Gerais_Divulgação.xlsx", sheet = 1)
 
-posto_cadunico_2020 <- read_excel("../Censo SUAS 2020/5 - Postos do cadunico/Censo_SUAS_2020_Postos_Cadastro_Único_Dados_Gerais.xlsx", sheet = 1)
+posto_cadunico_2020 <- read_excel("../Censo SUAS 2020/8_POSTO_CADASTRAMENTO/Censo_SUAS_2020_Postos_Cadastro_Único_Dados_Gerais.xlsx", sheet = 1)
 
-posto_cadunicorh_2020 <- read_excel("../Censo SUAS 2020/5 - Postos do cadunico/Censo_SUAS_2020_Postos_Cadastro_Único_RH.xlsx", sheet = 1)
+posto_cadunicorh_2020 <- read_excel("../Censo SUAS 2020/8_POSTO_CADASTRAMENTO/Censo_SUAS_2020_Postos_Cadastro_Único_RH.xlsx", sheet = 1)
 
 posto_cadunico_2021 <- read_excel("../Censo SUAS 2021/14 - Postos do CadUnico/Censo_SUAS_2021_Posto_Cadastramento_Dados_Gerais_Divulgação.xlsx", sheet = 1)
 
@@ -473,9 +473,9 @@ creas_2019 <- read_excel("../Censo SUAS 2019/2 - CREAS/Censo_SUAS_2019_CREAS_Dad
 
 creasrh_2019 <- read_excel("../Censo SUAS 2019/2 - CREAS/Censo_SUAS_2019_RH_CREAS_divulgação.xlsx", sheet = 1)
 
-creas_2020 <- read_excel("../Censo SUAS 2020/2 - CREAS/Censo_SUAS_CREAS_2020_Dados_Gerais_divulgacao_revisado.xlsx", sheet = 1)
+creas_2020 <- read_excel("../Censo SUAS 2020/CREAS/Censo_SUAS_CREAS_2020_Dados_Gerais_divulgacao_revisado.xlsx", sheet = 1)
 
-#creasrh_2020 <- read_excel("../Censo SUAS 2020/2 - CREAS/Censo_SUAS_CREAS_2020_RH_divulgacao.xlsx", sheet = 1)
+#creasrh_2020 <- read_excel("../Censo SUAS 2020/CREAS/Censo_SUAS_CREAS_2020_RH_divulgacao.xlsx", sheet = 1)
 
 creas_2021 <- read_excel("../Censo SUAS 2021/2 - CREAS/Censo_SUAS_2021_CREAS_Dados_Gerais_Divulgação.xlsx", sheet = 1)
 
@@ -619,9 +619,9 @@ cpop_2019 <- read_excel("../Censo SUAS 2019/3 - Centro Pop/Censo_SUAS_2019_Centr
 
 cpoprh_2019 <- read_excel("../Censo SUAS 2019/3 - Centro Pop/Censo_SUAS_2019_Centro_POP_RH.xlsx", sheet = 1)
 
-cpop_2020 <- read_excel("../Censo SUAS 2020/8 - Centro Pop/CensoSUAS_2020_Dados_Gerais_Centro_POP.xlsx", sheet = 1)
+cpop_2020 <- read_excel("../Censo SUAS 2020/3_CENTRO_POP/CensoSUAS_2020_Dados_Gerais_Centro_POP.xlsx", sheet = 1)
 
-cpoprh_2020 <- read_excel("../Censo SUAS 2020/8 - Centro Pop/CensoSUAS_2020_RH_Centro_POP.xlsx", sheet = 1)
+cpoprh_2020 <- read_excel("../Censo SUAS 2020/3_CENTRO_POP/CensoSUAS_2020_RH_Centro_POP.xlsx", sheet = 1)
 
 cpop_2021 <- read_excel("../Censo SUAS 2021/4 - Centro Pop/Censo_SUAS_2021_CPOP_Dados_Gerais_divulgação.xlsx", sheet = 1)
 
@@ -663,9 +663,9 @@ unac_2019 <- read_excel("../Censo SUAS 2019/5 - Unidade de acolhimento/Censo_SUA
 
 unacrh_2019 <- read_excel("../Censo SUAS 2019/5 - Unidade de acolhimento/Censo_SUAS_2019_RH_Acolhimento.xlsx", sheet = 1)
 
-unac_2020 <- read_excel("../Censo SUAS 2020/Censo_SUAS_2020_DG_Acolhimento.xlsx", sheet = 1)
+unac_2020 <- read_excel("../Censo SUAS 2020/Unidade_de_Acolhimento/Censo_SUAS_2020_DG_Acolhimento.xlsx", sheet = 1)
 
-unacrh_2020 <- read_excel("../Censo SUAS 2020/Censo_SUAS_2020_RH_Acolhimento.xlsx", sheet = 1)
+unacrh_2020 <- read_excel("../Censo SUAS 2020/Unidade_de_Acolhimento/Censo_SUAS_2020_RH_Acolhimento.xlsx", sheet = 1)
 
 unac_2021 <- read_excel("../Censo SUAS 2021/7 - Unidade de acolhimento/Censo_SUAS_2021_Unidade_Acolhimento_Dados_Gerais_Divulgação.xlsx", sheet = 1)
 
@@ -689,9 +689,9 @@ ceconvrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Centro_Convivenc
 
 ceconv_2018 <- read_excel("../Censo SUAS 2018/6 - Centro Convivência/CENSO_SUAS_2018_Centro_Convivencia_Dados_gerais_divulgacao.xls", sheet = 1)
 
-ceconv_2020 <- read_excel("../Censo SUAS 2020/10 - centro convivencia/Censo_SUAS_2020_Centro_Convivencia_dados_gerais.xlsx", sheet = 1)
+ceconv_2020 <- read_excel("../Censo SUAS 2020/5_CENTRO_CONVIVENCIA/Censo_SUAS_2020_Centro_Convivencia_dados_gerais.xlsx", sheet = 1)
 
-ceconvrh_2020 <- read_excel("../Censo SUAS 2020/10 - centro convivencia/Censo_SUAS_2020_Centro_Convivencia_RH.xlsx", sheet = 1)
+ceconvrh_2020 <- read_excel("../Censo SUAS 2020/5_CENTRO_CONVIVENCIA/Censo_SUAS_2020_Centro_Convivencia_RH.xlsx", sheet = 1)
 
 ceconv_2021 <- read_excel("../Censo SUAS 2021/10 - centro convivencia/Censo_SUAS_2021_Centro_Convivencia_Dados_Gerais_Divulgação.xls", sheet = 1)
 
@@ -721,9 +721,9 @@ cedia_2019 <- read_excel("../Censo SUAS 2019/6 - Centro Dia/Censo_SUAS_2019_Dado
 
 cediarh_2019 <- read_excel("../Censo SUAS 2019/6 - Centro Dia/Censo_SUAS_2019_Centro_DIA_RH_divulgação.xlsx", sheet = 1)
 
-cedia_2020 <- read_excel("../Censo SUAS 2020/10 - Centro Dia/Censo_SUAS_2020_Centro_Dia_Dados_Gerais.xls", sheet = 1)
+cedia_2020 <- read_excel("../Censo SUAS 2020/6_CENTRO_DIA/Censo_SUAS_2020_Centro_Dia_Dados_Gerais.xls", sheet = 1)
 
-cediarh_2020 <- read_excel("../Censo SUAS 2020/10 - Centro Dia/Censo_SUAS_2020_Centro_Dia_RH.xlsx", sheet = 1)
+cediarh_2020 <- read_excel("../Censo SUAS 2020/6_CENTRO_DIA/Censo_SUAS_2020_Centro_Dia_RH.xlsx", sheet = 1)
 
 cedia_2021 <- read_excel("../Censo SUAS 2021/6 - Centro Dia/Censo_SUAS_2021_Centro_Dia_Dados_Gerais_Divulgação.xls", sheet = 1)
 
