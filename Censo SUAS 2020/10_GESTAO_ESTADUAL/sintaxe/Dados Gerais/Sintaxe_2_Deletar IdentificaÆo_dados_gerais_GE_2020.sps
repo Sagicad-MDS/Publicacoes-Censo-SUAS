@@ -1,0 +1,20 @@
+
+DELETE VARIABLES  
+v9622
+v12048.
+
+
+DELETE VARIABLES  
+q52_1
+q52_2
+q52_3
+q52_4
+q52_5
+q52_6
+q53_1
+q53_2
+q53_3
+q53_4
+q53_5
+q53_6.
+

@@ -319,17 +319,17 @@ ge_2016 <- read_excel("../Censo SUAS 2016/Gestão Estadual/Censo SUAS Gestão Es
 
 ge_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Gestão_Estadual/Censo SUAS 2017_Gestão Estadual_divulgação.xlsx", sheet = "Base de dados")
 
-ge_2018 <- read_excel("../Censo SUAS 2018/7 - Gestão Estadual/Censo_SUAS_2018_Gestão_Estadual_Dados_Gerais_divulgaçao.xlsx", sheet = 1)
+ge_2018 <- read_excel("../Censo SUAS 2018/9.GestÆo Estadual/Censo_SUAS_2018_Gestão_Estadual_Dados_Gerais_divulgaçao.xlsx", sheet = 1)
 
-gerh_2018 <- read_excel("../Censo SUAS 2018/7 - Gestão Estadual/Censo_SUAS_2018_Gestão_Estadual_RH_divulgação.xlsx", sheet = 1)
+gerh_2018 <- read_excel("../Censo SUAS 2018/9.GestÆo Estadual/Censo_SUAS_2018_Gestão_Estadual_RH_divulgação.xlsx", sheet = 1)
 
-ge_2019 <- read_excel("../Censo SUAS 2019/8 - Gestão Estadual/Censo_SUAS_2019_dados_gerais_GE__divulgação.xlsx", sheet = 1)
+ge_2019 <- read_excel("../Censo SUAS 2019/GestÆo Estadual/Censo_SUAS_2019_dados_gerais_GE__divulgação.xlsx", sheet = 1)
 
 #gerh_2019 <- read_excel("../", sheet = 1)
 
-ge_2020 <- read_excel("../Censo SUAS 2020/10 - Gestão Estadual/Censo_SUAS_2020_dados_gerais_Gestão_Estadual.xlsx", sheet = 1)
+ge_2020 <- read_excel("../Censo SUAS 2020/10_GESTAO_ESTADUAL/Censo_SUAS_2020_dados_gerais_Gestão_Estadual.xlsx", sheet = 1)
 
-gerh_2020 <- read_excel("../Censo SUAS 2020/10 - Gestão Estadual/Censo_SUAS_2020_RH_Gestão_Estadual.xlsx", sheet = 1)
+gerh_2020 <- read_excel("../Censo SUAS 2020/10_GESTAO_ESTADUAL/Censo_SUAS_2020_RH_Gestão_Estadual.xlsx", sheet = 1)
 
 ge_2021 <- read_excel("../Censo SUAS 2021/8 - Gestão Estadual/Censo_SUAS_2021_Gestão_Estadual_Dados_Gerais_Divulgaçao.xlsx", sheet = 1) %>%
   filter(IBGE < 53) # No arquivo tem uma linha em branco com o código do município de Fortaleza
@@ -567,17 +567,17 @@ cmun_2019 <- read_excel("../Censo SUAS 2019/12 - CMAS/Censo_SUAS_2019_Dados_gera
 
 cmunrh_2019 <- read_excel("../Censo SUAS 2019/12 - CMAS/Censo_SUAS_2019_Dados_gerais_RH_Conselho_Municipal_divulgação.xlsx", sheet = 1)
 
-cmun_2020 <- read_excel("../Censo SUAS 2020/4 - CMAS/Censo_SUAS_2020_Conselho_municipal_Dados_Gerais.xlsx", sheet = 1)
+cmun_2020 <- read_excel("../Censo SUAS 2020/Conselho Municipal/Censo_SUAS_2020_Conselho_municipal_Dados_Gerais.xlsx", sheet = 1)
 
-cmunrh_2020 <- read_excel("../Censo SUAS 2020/4 - CMAS/Censo_SUAS_2020_Conselho_municipal_RH.xlsx", sheet = 1)
+cmunrh_2020 <- read_excel("../Censo SUAS 2020/Conselho Municipal/Censo_SUAS_2020_Conselho_municipal_RH.xlsx", sheet = 1)
 
 cmun_2021 <- read_excel("../Censo SUAS 2021/12 - CMAS/Censo_SUAS_2021_Conselho_Municipal_Dados_Gerais_Divulgação.xlsx", sheet = 1)
 
 cmunrh_2021 <- read_excel("../Censo SUAS 2021/12 - CMAS/Censo_SUAS_2021_Conselho_Municipal_RH.xlsx", sheet = 1)
 
-cmun_2022 <- read_excel("../Censo SUAS 2022/12 - CMAS/Censo_SUAS_2022_Conselho_Municipal_Dados_gerais.xlsx", sheet = 1)
+cmun_2022 <- read_excel("../Censo SUAS 2022/13 - CONSELHO MUNICIPAL/Censo_SUAS_2022_Conselho_Municipal_Dados_gerais.xlsx", sheet = 1)
 
-cmunrh_2022 <- read_excel("../Censo SUAS 2022/12 - CMAS/Censo_SUAS_2022_Conselho_Municipal_RH.xlsx", sheet = 1)
+cmunrh_2022 <- read_excel("../Censo SUAS 2022/13 - CONSELHO MUNICIPAL/Censo_SUAS_2022_Conselho_Municipal_RH.xlsx", sheet = 1)
 
 rpriv_2010 <- read_excel("../Censo SUAS 2010/Rede Privada/Censo SUAS 2010_Rede privada_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2010 Rede Privada")
 
@@ -1171,10 +1171,13 @@ f_sim_nao  = function(df, q, ano){
   df %>%
     select(!! ano := !! q) %>%
     gather("Categoria","Nível") %>%
-    mutate(Nível = case_when(Nível == "Não possui"~"Não",
-                             Nível == "sim"~"Sim",
-                             Nível == "não"~"Não",
-                             Nível == "Não Sabe"~"Não sabe",
+    mutate(Nível = case_when(Nível == "sim" |
+                             Nível == '    "Sim"'~"Sim",
+                             Nível == "Não possui" |
+                             Nível == "não" |
+                             Nível == '    "Não"'~"Não",
+                             Nível == "Não Sabe" |
+                             Nível == '    "Não sabe"' |
                              Nível == "99" ~ "Não sabe",
                              TRUE ~ Nível)) %>%
     filter(!is.na(Nível)) %>%
@@ -1185,6 +1188,30 @@ f_sim_nao  = function(df, q, ano){
     summarise(n=n()) %>%
     group_by(Categoria) %>%
     mutate(Percentual = n/sum(n))
+}
+
+f_sim  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! q) %>%
+    mutate(!! q := case_when(!! q == "sim" |
+                             !! q == '    "Sim"'~"Sim",
+                             !! q == "Não possui" |
+                             !! q == "não" |
+                             !! q == '    "Não"'~"Não",
+                             !! q == "Não Sabe" |
+                             !! q == '    "Não sabe"' |
+                             !! q == "99" ~ "Não sabe",
+                             TRUE ~ !! q)) %>%
+    mutate(!! q := factor(!! q, levels = c("Sim",
+                                           "Não",
+                                           "Não sabe"))) %>% 
+    count(!! q, name = "n", .drop = F) %>%
+    mutate(Percentual = n/sum(n)) %>%
+    filter(!! q == "Sim")  %>%
+    mutate("Categoria" = !! ano)
 }
 
 f_nomex_somay_nomegrupo = function(df, nomex, somay, nomegrupo){
@@ -2135,20 +2162,21 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 No que se refere ao Planejamento, trata-se de uma obrigatoriedade para existência do Sistema Único e repasse de confinanciamento. O Plano Estadual de Assistência Social (PEAS) deve ser aprovado pelo Conselho Estadual de Assistência Social (CEAS). Os dados do \cref{fig:PEAS} sinalizam que a partir de 2020 há um descrecimo desta atualização com devida aprovação do conselho\footnote{Para os anos de 2016, 2017, 2018 e 2019 as perguntas alteraram, impossibilitande a linha histórica}\footnote{Para os municípios não foi possivel fazer essa linha histórica em decorrencia de mudanças nas perguntas}.
 
-```{r PEAS, fig.cap = "Percentual de Estados quanto a atualização do Plano Estadual de Assistência Social em 2022 - Brasil", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r PEAS, fig.cap = "Percentual de Estados quanto a atualização do Plano Estadual de Assistência Social no ano do Censo - Brasil, 2020 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-grafico <- f_sim_nao(ge_2012,q8,"2012") %>%
-  bind_rows(f_sim_nao(ge_2013,q9,"2013")) %>%
-  bind_rows(f_sim_nao(ge_2014,q9,"2014")) %>%
-  bind_rows(f_sim_nao(ge_2015,q9,"2015")) %>%
+grafico <- 
+# de 2012 a 2015 a pergunta não é sobre atualização, é sobre ter o plano. Precisaria pegar a informação sobre atualização no ano do Censo da pergunta sobre o último ano de atualização.
+#  f_sim(ge_2012,q8,"2012") %>%
+#  bind_rows(f_sim(ge_2013,q9,"2013")) %>%
+#  bind_rows(f_sim(ge_2014,q9,"2014")) %>%
+#  bind_rows(f_sim(ge_2015,q9,"2015")) %>%
 
-  bind_rows(f_sim_nao(ge_2020,q5,"2020")) %>%
-  bind_rows(f_sim_nao(ge_2021,q5,"2021")) %>%
-  bind_rows(f_sim_nao(ge_2022,q5,"2022")) %>%
+  f_sim(ge_2020,q5,"2020") %>%
+  bind_rows(f_sim(ge_2021,q5,"2021")) %>%
+  bind_rows(f_sim(ge_2022,q5,"2022")) %>%
 
   #anos que as questões mudam: 2016, 2017,2018,2019
-
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+  f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 
@@ -2159,20 +2187,20 @@ O Plano de apoio técnico aos municípios também é um produto a ser realizado 
 
 ```{r plan_apoio_tec, fig.cap = "Percentual de Estados que possuem Plano de Apoio Técnico pactuado na CIB - Brasil, 2013 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-grafico <- f_sim_nao(ge_2013, q85, "2013") %>%
-   bind_rows(f_sim_nao(ge_2014, q26, "2014")) %>%
-   bind_rows(f_sim_nao(ge_2015, q19, "2015")) %>%
-   bind_rows(f_sim_nao(ge_2016, q27, "2016")) %>%
-   bind_rows(f_sim_nao(ge_2017, q36, "2017")) %>%
-   bind_rows(f_sim_nao(ge_2018, q_18,"2018")) %>%
-   bind_rows(f_sim_nao(ge_2019, q18, "2019")) %>%
-   bind_rows(f_sim_nao(ge_2020, q20, "2020")) %>%
-   bind_rows(f_sim_nao(ge_2021, q18, "2021")) %>%
-   bind_rows(f_sim_nao(ge_2022, q20, "2022")) %>%
+grafico <- f_sim(ge_2013, q85, "2013") %>%
+   bind_rows(f_sim(ge_2014, q26, "2014")) %>%
+   bind_rows(f_sim(ge_2015, q19, "2015")) %>%
+   bind_rows(f_sim(ge_2016, q27, "2016")) %>%
+   bind_rows(f_sim(ge_2017, q36, "2017")) %>%
+   bind_rows(f_sim(ge_2018, q_18,"2018")) %>%
+   bind_rows(f_sim(ge_2019, q18, "2019")) %>%
+   bind_rows(f_sim(ge_2020, q20, "2020")) %>%
+   bind_rows(f_sim(ge_2021, q18, "2021")) %>%
+   bind_rows(f_sim(ge_2022, q20, "2022")) %>%
 
   #2012 não tem essa pergunta
 
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+  f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 
@@ -2456,13 +2484,13 @@ No \cref{fig:munic_vit_estadual} os dados percentuais mostram um aumento gradual
 
 ```{r munic_vit_estadual, fig.cap = "Percentual de Municipios que informam receber visitas de Apoio Técnico do Estado - Brasil, 2020 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-grafico <- f_sim_nao(gm_2020, q7_5, "2020") %>%
-  bind_rows(f_sim_nao(gm_2021, q7_5, "2021")) %>%
-  bind_rows(f_sim_nao(gm_2022, q7_5, "2022")) %>%
+grafico <- f_sim(gm_2020, q7_5, "2020") %>%
+  bind_rows(f_sim(gm_2021, q7_5, "2021")) %>%
+  bind_rows(f_sim(gm_2022, q7_5, "2022")) %>%
 
   #a partir de 2020 a pergunta foi alterada, impossibilitando a linha histórica
 
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+  f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 
@@ -2941,19 +2969,19 @@ Em relação ao Plano de Educação Permanente, de acordo com censo suas de 2021
 
 ```{r PNEP_Munic, fig.cap = "Percentual de municípios que possuem Plano de Capacitação e Educação Permanente, - Brasil; 2015, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-grafico <- f_sim_nao(gm_2015, q40, "2015") %>%
-    bind_rows(f_sim_nao(gm_2016, q20, "2016")) %>%
-    bind_rows(f_sim_nao(gm_2017, q31, "2017")) %>%
-    bind_rows(f_sim_nao(gm_2018, q_51, "2018")) %>%
-    bind_rows(f_sim_nao(gm_2019, q52, "2019")) %>%
-    #bind_rows(f_sim_nao(gm_2020, q73, "2020")) %>%
-    bind_rows(f_sim_nao(gm_2021, q73, "2021")) %>%
+grafico <- f_sim(gm_2015, q40, "2015") %>%
+    bind_rows(f_sim(gm_2016, q20, "2016")) %>%
+    bind_rows(f_sim(gm_2017, q31, "2017")) %>%
+    bind_rows(f_sim(gm_2018, q_51, "2018")) %>%
+    bind_rows(f_sim(gm_2019, q52, "2019")) %>%
+    #bind_rows(f_sim(gm_2020, q73, "2020")) %>%
+    bind_rows(f_sim(gm_2021, q73, "2021")) %>%
 
   #pergunta foi extinta em 2022
   #2020 a base de dados não computou essa resposta - problemas de mineração (Dionada relatou).
   #para os estados não há essa pergunta
 
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+  f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 
@@ -3039,25 +3067,39 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ## Programas de execução própria executadas pelos estados
 
-Em relação aos programas próprios de transferência de renda executados pelos estados, percebe-se um aumento ao longo dos anos na qual em 2022, 76,9% dos estados informaram que possuem conforme o \cref{fig:be_uf_renda}.
+Em relação aos programas próprios de transferência de renda executados pelos estados, percebe-se um aumento ao longo dos anos na qual em 2022, 65% dos estados informaram que possuem conforme o \cref{fig:be_uf_renda}.
 
-```{r be_uf_renda, fig.cap = "Programas de execução própria e/ou transferência de renda executadas pelos estados", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r be_uf_propria, fig.cap = "Percentual de estados que possuem programas de execução própria", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-grafico <- f_sim_nao(ge_2012, q33, "2012") %>%
-   bind_rows(f_sim_nao(ge_2013, q43, "2013")) %>%
-   bind_rows(f_sim_nao(ge_2014, q74, "2014")) %>%
-   bind_rows(f_sim_nao(ge_2015, q61, "2015")) %>%
-   bind_rows(f_sim_nao(ge_2016, q24, "2016")) %>%
-   bind_rows(f_sim_nao(ge_2017, q27, "2017")) %>%
-   bind_rows(f_sim_nao(ge_2018, q_11,"2018")) %>%
-   bind_rows(f_sim_nao(ge_2019, q11, "2019")) %>%
-   bind_rows(f_sim_nao(ge_2020, q10, "2020")) %>%
-   bind_rows(f_sim_nao(ge_2021, q10, "2021")) %>%
-   bind_rows(f_sim_nao(ge_2022, q10, "2022")) %>%
+grafico <- 
+   bind_rows(f_sim(ge_2020, q10, "2020")) %>%
+   bind_rows(f_sim(ge_2021, q10, "2021")) %>%
+   bind_rows(f_sim(ge_2022, q10, "2022")) %>%
 
   #até 2019 a pergunta era execução própria, transferencia de renda e, a partir de 2020 a pergunta muda para programas de execução própria
+# ATUALIZAÇÃO: na verdade a partir de 2020 tem as duas perguntas: programa próprio de transferência de renda e programas de execução própria. Mantidos nesse gráfico apenas os anos com a pergunta sobre programas de execução própria e criado outro gráfico apenas com as perguntas sobre programa próprio de transferência de renda.
 
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+  f_grafico_col_percent(Categoria, Percentual)
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+```{r be_uf_renda, fig.cap = "Percentual de estados que possuem programa próprio de transferência de renda", fig.footer = "Fonte: MDS, Censo SUAS"}
+
+grafico <- f_sim(ge_2012, q33, "2012") %>%
+   bind_rows(f_sim(ge_2013, q43, "2013")) %>%
+   bind_rows(f_sim(ge_2014, q74, "2014")) %>%
+   bind_rows(f_sim(ge_2015, q61, "2015")) %>%
+   bind_rows(f_sim(ge_2016, q24, "2016")) %>%
+   bind_rows(f_sim(ge_2017, q27, "2017")) %>%
+   bind_rows(f_sim(ge_2018, q_11,"2018")) %>%
+   bind_rows(f_sim(ge_2019, q11, "2019")) %>%
+   bind_rows(f_sim(ge_2020, q9, "2020")) %>%
+   bind_rows(f_sim(ge_2021, q9, "2021")) %>%
+   bind_rows(f_sim(ge_2022, q9, "2022")) %>%
+
+  f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 
@@ -3066,13 +3108,13 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 O Cadastro Único é ferramenta que possibilita inserção a programas sociais no ambito dos três entes, o grafico abaixo sinaliza evolução dos estados que usam o cadastro único enquanto respostas de programas estaduais.
 
-```{r uf_usa_cad, fig.cap = "Programas usam Cadastro Único para seleção beneficiários", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r uf_usa_cad, fig.cap = "Percentual de estados que possuem programas de execução própria utilizando o Cadastro Único para seleção dos beneficiários", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-grafico <- f_sim_nao(ge_2020, q11_1, "2020") %>%
-   bind_rows(f_sim_nao(ge_2021, q11_1, "2021")) %>%
-   bind_rows(f_sim_nao(ge_2022, q11_1, "2022")) %>%
+grafico <- f_sim(ge_2020, q11_1, "2020") %>%
+   bind_rows(f_sim(ge_2021, q11_1, "2021")) %>%
+   bind_rows(f_sim(ge_2022, q11_1, "2022")) %>%
 
-   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 
@@ -3311,16 +3353,13 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 Em relação as informações de unidades de Postos do Cadasto Único e o atendimento de Grupos Populacionais Tradicionais e Específicos - GPTEs, destaca-se através do \cref{fig:gptes-cadunico} o percentual de unidades de postos do Cadastro Único que informam atender no período de 2020 a 2022.
 
-```{r gptes-cadunico, fig.cap = "Unidades que realizam cadastramento de famílias pertencentes aos seguintes Grupos Tradicionais e Específicos - GPTEs - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r gptes-cadunico, fig.cap = "Unidades que realizam cadastramento de famílias pertencentes a Grupos Tradicionais e Específicos (GPTEs) - Brasil, 2020 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-grafico <- f_sim_nao(posto_cadunico_2020,q20_1,"2020") %>%
-          bind_rows(f_sim_nao(posto_cadunico_2021,q20_1,"2021"))%>%
-          bind_rows(f_sim_nao(posto_cadunico_2022,q20_1, "2022"))%>%
-        #f_sim_nao(f_sim_nao(posto_cadunico_2022, q20_3, "2022"))%>%
-        #f_sim_nao(f_sim_nao(posto_cadunico_2022, q20_3, "2022"))%>%
-        #f_sim_nao(f_sim_nao(posto_cadunico_2022, q20_3, "2022"))%>%
+grafico <- f_sim(posto_cadunico_2020,q20_1,"2020") %>%
+          bind_rows(f_sim(posto_cadunico_2021,q20_1,"2021"))%>%
+          bind_rows(f_sim(posto_cadunico_2022,q20_1, "2022"))%>%
 
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+  f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 
@@ -3511,11 +3550,11 @@ Em relação a existência de coordenador(a) do Cadastro Único nos postos de at
 
 ```{r coord_cadunico, fig.cap = "Percentual de Postos do Cadastro Único que possuem coordenador - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-grafico <- f_sim_nao(posto_cadunico_2020, q39_1, "2020") %>%
-  bind_rows(f_sim_nao(posto_cadunico_2021, q39_1, "2021"))%>%
-  bind_rows(f_sim_nao(posto_cadunico_2022, q39_1, "2022"))%>%
+grafico <- f_sim(posto_cadunico_2020, q39_1, "2020") %>%
+  bind_rows(f_sim(posto_cadunico_2021, q39_1, "2021"))%>%
+  bind_rows(f_sim(posto_cadunico_2022, q39_1, "2022"))%>%
 
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+  f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 
@@ -5044,20 +5083,19 @@ A tônica do vínculo é um fator de Segurança Social. O SCFV no ambito do SUAS
 
 ```{r CRAS-SCFV, fig.cap = "Percentual de CRAS que executavam diretamente os Serviços de Convivência e Fortalecimento de Vínculos - Brasil, 2014 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-grafico <- f_sim_nao(cras_2012, q19_1a, "2012") %>%
-  #bind_rows(f_sim_nao(cras_201, q19, "2013")) %>%
-  bind_rows(f_sim_nao(cras_2014, q19, "2014")) %>%
-  bind_rows(f_sim_nao(cras_2015, q16, "2015")) %>%
-  bind_rows(f_sim_nao(cras_2016, q15, "2016")) %>%
-  bind_rows(f_sim_nao(cras_2017, q16, "2017")) %>%
-  bind_rows(f_sim_nao(cras_2018, q_16, "2018")) %>%
-  bind_rows(f_sim_nao(cras_2019, q15, "2019")) %>%
-  bind_rows(f_sim_nao(cras_2020, q17, "2020")) %>%
-  bind_rows(f_sim_nao(cras_2021, q17, "2021")) %>%
-  bind_rows(f_sim_nao(cras_2022, q17, "2022")) %>%
+grafico <- f_sim(cras_2012, q19_1a, "2012") %>%
+  #bind_rows(f_sim(cras_201, q19, "2013")) %>%
+  bind_rows(f_sim(cras_2014, q19, "2014")) %>%
+  bind_rows(f_sim(cras_2015, q16, "2015")) %>%
+  bind_rows(f_sim(cras_2016, q15, "2016")) %>%
+  bind_rows(f_sim(cras_2017, q16, "2017")) %>%
+  bind_rows(f_sim(cras_2018, q_16, "2018")) %>%
+  bind_rows(f_sim(cras_2019, q15, "2019")) %>%
+  bind_rows(f_sim(cras_2020, q17, "2020")) %>%
+  bind_rows(f_sim(cras_2021, q17, "2021")) %>%
+  bind_rows(f_sim(cras_2022, q17, "2022")) %>%
 
-
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+  f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 
@@ -5068,14 +5106,13 @@ Em relação ao Serviços de Proteção Social Básica no domicílio para Pessoa
 
 ```{r CRAS-PSB, fig.cap = "Percentual de CRAS que executavam diretamente os Serviços de Proteção Social Básica nos domicílios - Brasil, 2014 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-grafico <- f_sim_nao(cras_2018, q_24, "2018") %>%
-  bind_rows(f_sim_nao(cras_2019, q23, "2019")) %>%
-   bind_rows(f_sim_nao(cras_2020, q24, "2020")) %>%
-   bind_rows(f_sim_nao(cras_2021, q24, "2021")) %>%
-   bind_rows(f_sim_nao(cras_2022, q24, "2022")) %>%
+grafico <- f_sim(cras_2018, q_24, "2018") %>%
+  bind_rows(f_sim(cras_2019, q23, "2019")) %>%
+   bind_rows(f_sim(cras_2020, q24, "2020")) %>%
+   bind_rows(f_sim(cras_2021, q24, "2021")) %>%
+   bind_rows(f_sim(cras_2022, q24, "2022")) %>%
   
-
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+  f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 
@@ -5086,17 +5123,15 @@ Em relação a atendimento Povos e comunidades Tradicionais, em 2018, 31% dos CR
 
 ```{r povos-tradicionais_cras, fig.cap = "Percentual de CRAS que possuem povos e comunidades tradicionais no território de abrangencia, 2012 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
-grafico <- f_sim_nao(cras_2012, q40, "2012") %>%
-  bind_rows(f_sim_nao(cras_2013, q51, "2013")) %>%
-  bind_rows(f_sim_nao(cras_2014, q52, "2014")) %>%
-  bind_rows(f_sim_nao(cras_2015, q44, "2015")) %>%
-  bind_rows(f_sim_nao(cras_2016, q37, "2016")) %>%
-  bind_rows(f_sim_nao(cras_2017, q42, "2017")) %>%
-  bind_rows(f_sim_nao(cras_2018, q_47, "2018")) %>%
+grafico <- f_sim(cras_2012, q40, "2012") %>%
+  bind_rows(f_sim(cras_2013, q51, "2013")) %>%
+  bind_rows(f_sim(cras_2014, q52, "2014")) %>%
+  bind_rows(f_sim(cras_2015, q44, "2015")) %>%
+  bind_rows(f_sim(cras_2016, q37, "2016")) %>%
+  bind_rows(f_sim(cras_2017, q42, "2017")) %>%
+  bind_rows(f_sim(cras_2018, q_47, "2018")) %>%
  
-
-
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+  f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 
@@ -5473,16 +5508,16 @@ Durante o mês de agosto de 2016, 66.251 adultos com deficiência foram atendido
 
 O Centro POP é uma unidade pública voltada para o atendimento especializado à população em situação de rua. Deve ofertar, obrigatoriamente, o Serviço Especializado para Pessoas em Situação de Rua, que realiza atendimentos individuais e coletivos, oficinas e atividades de convívio e socialização, além de ações que incentivem o protagonismo e a participação social das pessoas em situação de rua. Em 2016, assim como em 2015, no conjunto de 22 atividades realizadas pelos Centros POP e pesquisadas pelo Censo SUAS, 13 atividades eram realizadas por mais de 90% desses Equipamentos. Neste ano, o apoio para obtenção de documentação pessoal chegou a ser realizado por 100% dos 230 Centros POP do país (eram 235 Centro POP no país em 2015). Também como em 2015, as atividades menos realizadas no conjunto de unidades foram a orientação sociojurídica, agora realizada em 44,3% dos Centros POP, e a avaliação para concessão de aluguel social, cujo percentual caiu de 36,6% das unidades pesquisadas em 2015 para 33,5% em 2016 (Gráfico 119). Gráfico 119 - Percentual de Centros POP segundo atividades realizadas - Brasil, 2016 Fonte: MDS, Censo SUAS.
 
-```{r CREAS-MSE, fig.cap = "Percentual de CREAS que realizam o Serviço de Proteção Social a Adolescentes em um cumprimento  Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC) - Brasil, 2010 a 2022", fig.footer = "Fonte: MDS, Censo SUAS", eval=FALSE}
+```{r CREAS-MSE, fig.cap = "Percentual de CREAS que realizam o Serviço de Proteção Social a Adolescentes em um cumprimento Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC) - Brasil, 2010 a 2022", fig.footer = "Fonte: MDS, Censo SUAS", eval=FALSE}
 
-grafico <- f_sim_nao(creas_2017, q20, "2017") %>%
-  bind_rows(f_sim_nao(creas_2018, q16, "2018")) %>%
-  bind_rows(f_sim_nao(creas_2019, q15, "2019")) %>%
-  bind_rows(f_sim_nao(creas_2020, q20, "2020")) %>%
-  bind_rows(f_sim_nao(creas_2021, q20, "2021")) %>%
-  bind_rows(f_sim_nao(creas_2022, q20, "2022")) %>%
+grafico <- f_sim(creas_2017, q20, "2017") %>%
+  bind_rows(f_sim(creas_2018, q16, "2018")) %>%
+  bind_rows(f_sim(creas_2019, q15, "2019")) %>%
+  bind_rows(f_sim(creas_2020, q20, "2020")) %>%
+  bind_rows(f_sim(creas_2021, q20, "2021")) %>%
+  bind_rows(f_sim(creas_2022, q20, "2022")) %>%
 
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+  f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 
@@ -5540,18 +5575,18 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ```{r CREAS-PSE-Domicilio, fig.cap = "Percentual de CREAS que realizam Serviço de proteção social Especial para Pessoas com Deficiência, Idosas e suas Famílias, 2016 a 2022"}
 
-grafico <- f_sim_nao(creas_2016, q38, "2016") %>%
-  bind_rows(f_sim_nao(creas_2017, q43, "2017")) %>%
-  bind_rows(f_sim_nao(creas_2018, q35, "2018")) %>%
+grafico <- f_sim(creas_2016, q38, "2016") %>%
+  bind_rows(f_sim(creas_2017, q43, "2017")) %>%
+#  bind_rows(f_sim(creas_2018, q35, "2018")) %>%
   
-  #bind_rows(f_sim_nao(creas_2019, q33, "2019")) %>%
-  #bind_rows(f_sim_nao(creas_2020, q38, "2020")) %>%
-  #bind_rows(f_sim_nao(creas_2021, q39, "2021")) %>%
-  #bind_rows(f_sim_nao(creas_2022, q38, "2022")) %>%
+  #bind_rows(f_sim(creas_2019, q33, "2019")) %>%
+  #bind_rows(f_sim(creas_2020, q38, "2020")) %>%
+  #bind_rows(f_sim(creas_2021, q39, "2021")) %>%
+  #bind_rows(f_sim(creas_2022, q38, "2022")) %>%
 
  # partir de 2018 muda as respostas, padronizar
 
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+  f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 
@@ -6077,23 +6112,23 @@ O (\cref{fig:conc_munic}) referencia a linha histórica dos últimos 10 anos.
 
 ```{r conc_munic, fig.cap = "Percentual de municípios que realizaram concursos para trabalhadores nível superior do SUAS - Brasil, - Brasil, 2012 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-grafico <- f_sim_nao(gm_2012, q43a_1, "2012") %>%
-  bind_rows(f_sim_nao(gm_2013, q36_8, "2013")) %>%
-  bind_rows(f_sim_nao(gm_2014, q51_1_1, "2014")) %>%
-  bind_rows(f_sim_nao(gm_2015, q38_1a, "2015")) %>%
-  bind_rows(f_sim_nao(gm_2016, q19_1, "2016")) %>%
-  bind_rows(f_sim_nao(gm_2017, q30.1.1, "2017")) %>%
-  bind_rows(f_sim_nao(gm_2018, q_50_1, "2018")) %>%
-  bind_rows(f_sim_nao(gm_2019, q51_1_1, "2019")) %>%
-  #bind_rows(f_sim_nao(gm_2020, q72_1_1, "2020")) %>%
-  bind_rows(f_sim_nao(gm_2021, q72_1_1, "2021")) %>%
-  bind_rows(f_sim_nao(gm_2022, q72_1_1, "2022")) %>%
+grafico <- f_sim(gm_2012, q43a_1, "2012") %>%
+  bind_rows(f_sim(gm_2013, q36_8, "2013")) %>%
+  bind_rows(f_sim(gm_2014, q51_1_1, "2014")) %>%
+  bind_rows(f_sim(gm_2015, q38_1a, "2015")) %>%
+  bind_rows(f_sim(gm_2016, q19_1, "2016")) %>%
+  bind_rows(f_sim(gm_2017, q30.1.1, "2017")) %>%
+  bind_rows(f_sim(gm_2018, q_50_1, "2018")) %>%
+  bind_rows(f_sim(gm_2019, q51_1_1, "2019")) %>%
+  #bind_rows(f_sim(gm_2020, q72_1_1, "2020")) %>%
+  bind_rows(f_sim(gm_2021, q72_1_1, "2021")) %>%
+  bind_rows(f_sim(gm_2022, q72_1_1, "2022")) %>%
 
 
 
   #ano de 2020 não é possivel calcular por problemas na base de dados.
 
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+  f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 
@@ -6104,18 +6139,18 @@ O \cref{fig:conc_estado} mostra a linha histórica quanto a realização de conc
 
 ```{r conc_estado, fig.cap = "Percentual de estados que realizaram concursos para trabalhadores nível superior do SUAS - Brasil, 2013 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-grafico <- f_sim_nao(ge_2013, q68a_1, "2013") %>%
-    bind_rows(f_sim_nao(ge_2014, q22a_1, "2014")) %>%
-    bind_rows(f_sim_nao(ge_2015, q15a_1, "2015")) %>%
-    bind_rows(f_sim_nao(ge_2016, q11_1_1, "2016")) %>%
-    bind_rows(f_sim_nao(ge_2017, q16_1_1, "2017")) %>%
-    bind_rows(f_sim_nao(ge_2018, q_36_1_1, "2018")) %>%
-    bind_rows(f_sim_nao(ge_2019, q36_1_1, "2019")) %>%
-    bind_rows(f_sim_nao(ge_2020, q46_1_1, "2020")) %>%
-    bind_rows(f_sim_nao(ge_2021, q46_1_1, "2021")) %>%
-    bind_rows(f_sim_nao(ge_2022, q46_1_1, "2022")) %>%
+grafico <- f_sim(ge_2013, q68a_1, "2013") %>%
+    bind_rows(f_sim(ge_2014, q22a_1, "2014")) %>%
+    bind_rows(f_sim(ge_2015, q15a_1, "2015")) %>%
+    bind_rows(f_sim(ge_2016, q11_1_1, "2016")) %>%
+    bind_rows(f_sim(ge_2017, q16_1_1, "2017")) %>%
+    bind_rows(f_sim(ge_2018, q_36_1_1, "2018")) %>%
+    bind_rows(f_sim(ge_2019, q36_1_1, "2019")) %>%
+    bind_rows(f_sim(ge_2020, q46_1_1, "2020")) %>%
+    bind_rows(f_sim(ge_2021, q46_1_1, "2021")) %>%
+    bind_rows(f_sim(ge_2022, q46_1_1, "2022")) %>%
 
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+  f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 
@@ -6180,23 +6215,23 @@ A existência de sede para o funcionamento dos conselhos é essencial, pois alé
 
 ```{r cmas_sede, fig.cap = "Percentual de Conselhos Municipais que possuem local/sede específico para funcionamento"}
 
-grafico <- f_sim_nao(cmun_2012, q8, "2012") %>%
-   #bind_rows(f_sim_nao(cmun_2013, q8, "2013")) %>%
-   bind_rows(f_sim_nao(cmun_2014, q9, "2014")) %>%
-   bind_rows(f_sim_nao(cmun_2015, q9, "2015")) %>%
-   bind_rows(f_sim_nao(cmun_2016, q6, "2016")) %>%
-   bind_rows(f_sim_nao(cmun_2017, q7, "2017")) %>%
-   bind_rows(f_sim_nao(cmun_2018, q_6, "2018")) %>%
-   bind_rows(f_sim_nao(cmun_2019, q6, "2019")) %>%
-   bind_rows(f_sim_nao(cmun_2020, q6, "2020")) %>%
-   bind_rows(f_sim_nao(cmun_2021, q6, "2021")) %>%
-   bind_rows(f_sim_nao(cmun_2022, q6, "2022")) %>%
+grafico <- f_sim(cmun_2012, q8, "2012") %>%
+   #bind_rows(f_sim(cmun_2013, q8, "2013")) %>%
+   bind_rows(f_sim(cmun_2014, q9, "2014")) %>%
+   bind_rows(f_sim(cmun_2015, q9, "2015")) %>%
+   bind_rows(f_sim(cmun_2016, q6, "2016")) %>%
+   bind_rows(f_sim(cmun_2017, q7, "2017")) %>%
+   bind_rows(f_sim(cmun_2018, q_6, "2018")) %>%
+   bind_rows(f_sim(cmun_2019, q6, "2019")) %>%
+   bind_rows(f_sim(cmun_2020, q6, "2020")) %>%
+   bind_rows(f_sim(cmun_2021, q6, "2021")) %>%
+   bind_rows(f_sim(cmun_2022, q6, "2022")) %>%
 
 
   #2013 a base não ler, acho que é porque no banco as informações esão "sim" / "não"
   #2019 ta com problema técnico no carregamento que não consigo ajeitar
 
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+  f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 
@@ -6207,21 +6242,21 @@ Em relação aos Conselhos Estaduais, atualmente 100% informam possuir sede espe
 
 ```{r ceas_sede, fig.cap = "Percentual de Conselhos estaduais que possuem local/sede especcífico para funcionamento"}
 
-grafico <- f_sim_nao(cest_2012, q8, "2012") %>%
-    #bind_rows(f_sim_nao(cest_2013, q8, "2013")) %>%
-    bind_rows(f_sim_nao(cest_2014, q9, "2014")) %>%
-    bind_rows(f_sim_nao(cest_2015, q8, "2015")) %>%
-    bind_rows(f_sim_nao(cest_2016, q6, "2016")) %>%
-    bind_rows(f_sim_nao(cest_2017, q7, "2017")) %>%
-    bind_rows(f_sim_nao(cest_2018, q_6, "2018")) %>%
-    bind_rows(f_sim_nao(cest_2019, q6, "2019")) %>%
-    bind_rows(f_sim_nao(cest_2020, q6, "2020")) %>%
-    bind_rows(f_sim_nao(cest_2021, q6, "2021")) %>%
-   bind_rows(f_sim_nao(cest_2022, q6, "2022")) %>%
+grafico <- f_sim(cest_2012, q8, "2012") %>%
+    #bind_rows(f_sim(cest_2013, q8, "2013")) %>%
+    bind_rows(f_sim(cest_2014, q9, "2014")) %>%
+    bind_rows(f_sim(cest_2015, q8, "2015")) %>%
+    bind_rows(f_sim(cest_2016, q6, "2016")) %>%
+    bind_rows(f_sim(cest_2017, q7, "2017")) %>%
+    bind_rows(f_sim(cest_2018, q_6, "2018")) %>%
+    bind_rows(f_sim(cest_2019, q6, "2019")) %>%
+    bind_rows(f_sim(cest_2020, q6, "2020")) %>%
+    bind_rows(f_sim(cest_2021, q6, "2021")) %>%
+   bind_rows(f_sim(cest_2022, q6, "2022")) %>%
 
   #2013 AS QUESTÕES ESTÃO com aspas nas respostas "SIM";
 
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+  f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 
@@ -6230,54 +6265,24 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 As secretarias executivas dos Conselhos de Assistência Social é profissional de apoio direto ao funcionamento dos conselhos com o objetivo de fornecer suporte e assessoria técnica no cumprimento das suas competências. No que se refere a presença exclusiva destes profissionais nos conselhos municipais o \cref{fig:cmas_se} sinaliza uma redução a partir de 2017. O último censo destaca 19,2% dos conselhos municipais possuem este profissional de forma exclusiva. Destaca-se que de acordo com resolução 100/2023 para os municípios de Pequeno portes I e II este profissional não precisa ser exclusivo.
 
-```{r cmas_se, fig.cap = "Percentual de Conselhos Municipais que possuem secretárias/os executivos exclusivamente no Conselho"}
+```{r cmas_se, fig.cap = "Percentual de Conselhos Municipais que possuem secretárias/os executivas/os trabalhando exclusivamente no Conselho"}
 
-cmas_se  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>%
-    gather("Categoria","Nível") %>%
-    mutate(Nível = case_when(Nível == "Sim"~"Sim",
-                             TRUE ~ Nível)) %>%
-    filter(!is.na(Nível)) %>%
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não"))) %>%
-    group_by(Categoria, Nível) %>%
-    summarise(n=n()) %>%
-    group_by(Categoria) %>%
-    mutate(Percentual = n/sum(n))
-}
-
-#grafico <- cmas_se(cmun_2012, q13, "2012") %>%
-  #bind_rows(cmas_se(cmun_2013, q13, "2013")) %>%
-  #bind_rows(cmas_se(cmun_2014, q19, "2014")) %>%
-  #bind_rows(cmas_se(cmun_2015, q19, "2015")) %>%
-  #bind_rows(cmas_se(cmun_2016, q14, "2016")) %>%
-  #bind_rows(cmas_sede(cmun_2017, q14, "2017")) %>%
-  #bind_rows(cmas_se(cmun_2018, q_13, "2018")) %>%
-  #bind_rows(cmas_se(cmun_, q13, "2019")) %>%
-  #bind_rows(cmas_se(cmun_2020, q13, "2020")) %>%
-  #bind_rows(cmas_se(cmun_2021, q13, "2021")) %>%
-  #bind_rows(cmas_se(cmun_2022, q13, "2022")) %>%
-# =======
- grafico <- f_sim_nao(cmun_2014, q19, "2014") %>%
-    #bind_rows(f_sim_nao(cmun_2012, q13, "2012")) %>%
-    #bind_rows(f_sim_nao(cmun_2013, q13, "2013")) %>%
-    #bind_rows(f_sim_nao(cmun_2014, q19, "2014")) %>%
-    bind_rows(f_sim_nao(cmun_2015, q19, "2015")) %>%
-    bind_rows(f_sim_nao(cmun_2016, q14, "2016")) %>%
-    bind_rows(f_sim_nao(cmun_2017, q14, "2017")) %>%
-    bind_rows(f_sim_nao(cmun_2018, q_13, "2018")) %>%
-   #bind_rows(f_sim_nao(cmun_, q13, "2019")) %>%
-    bind_rows(f_sim_nao(cmun_2020, q13, "2020")) %>%
-    bind_rows(f_sim_nao(cmun_2021, q13, "2021")) %>%
-    bind_rows(f_sim_nao(cmun_2022, q13, "2022")) %>%
+grafico <- f_sim(cmun_2014, q19, "2014") %>%
+    #bind_rows(f_sim(cmun_2012, q13, "2012")) %>%
+    #bind_rows(f_sim(cmun_2013, q13, "2013")) %>%
+    #bind_rows(f_sim(cmun_2014, q19, "2014")) %>%
+    bind_rows(f_sim(cmun_2015, q19, "2015")) %>%
+    bind_rows(f_sim(cmun_2016, q14, "2016")) %>%
+    bind_rows(f_sim(cmun_2017, q14, "2017")) %>%
+    bind_rows(f_sim(cmun_2018, q_13, "2018")) %>%
+   #bind_rows(f_sim(cmun_, q13, "2019")) %>%
+    bind_rows(f_sim(cmun_2020, q13, "2020")) %>%
+    bind_rows(f_sim(cmun_2021, q13, "2021")) %>%
+    bind_rows(f_sim(cmun_2022, q13, "2022")) %>%
 
   #achei que as respostas 2012 desviaram um pouco, não consegui baixar a base ... em contato com Dionara.
 
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+  f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 
@@ -6288,23 +6293,23 @@ Em relação aos conselhos estaduais, a partir de 2017 identifica-se uma reduç�
 
 ```{r ceas_se, fig.cap = "Percentual de Conselhos Estaduais que possuem secretárias/os executivas/os exclusivamente no Conselho"}
 
-grafico <- f_sim_nao(cest_2012, q13, "2012") %>%
-   #bind_rows(f_sim_nao(cest_2013, q19, "2013")) %>%
-   bind_rows(f_sim_nao(cest_2014, q19, "2014")) %>%
-   bind_rows(f_sim_nao(cest_2015, q19, "2015")) %>%
-   bind_rows(f_sim_nao(cest_2016, q13, "2016")) %>%
-   bind_rows(f_sim_nao(cest_2017, q13, "2017")) %>%
-   #bind_rows(f_sim_nao(cest_2018, q13, "2018")) %>%
-   bind_rows(f_sim_nao(cest_2019, q13, "2019")) %>%
-   bind_rows(f_sim_nao(cest_2020, q13, "2020")) %>%
-   bind_rows(f_sim_nao(cest_2021, q13, "2021")) %>%
-   bind_rows(f_sim_nao(cest_2022, q13, "2022")) %>%
+grafico <- f_sim(cest_2012, q13, "2012") %>%
+   #bind_rows(f_sim(cest_2013, q19, "2013")) %>%
+   bind_rows(f_sim(cest_2014, q19, "2014")) %>%
+   bind_rows(f_sim(cest_2015, q19, "2015")) %>%
+   bind_rows(f_sim(cest_2016, q13, "2016")) %>%
+   bind_rows(f_sim(cest_2017, q13, "2017")) %>%
+   #bind_rows(f_sim(cest_2018, q13, "2018")) %>%
+   bind_rows(f_sim(cest_2019, q13, "2019")) %>%
+   bind_rows(f_sim(cest_2020, q13, "2020")) %>%
+   bind_rows(f_sim(cest_2021, q13, "2021")) %>%
+   bind_rows(f_sim(cest_2022, q13, "2022")) %>%
 
   #2013 as variaveis estão "" ver como ajeitar para leitura
   #2012, 2017 é perguntado apenas se existe SE, não pergunta de forma exclusiva então retirei
   #2015 pergunta é igual das demais, SE exclusiva
 
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+  f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 
@@ -6568,21 +6573,21 @@ Sobre a proposta
 
 ```{r cmas-ppa, fig.cap = "Conselhos municipais que deliberaram sobre a proposta anual de orçamento do executivo"}
 
-grafico <- f_sim_nao(cmun_2012, q38, "2012") %>%
-  #bind_rows(f_sim_nao(cmun_2013, q, "2013")) %>%
-  bind_rows(f_sim_nao(cmun_2014, q31, "2014")) %>%
-  bind_rows(f_sim_nao(cmun_2015, q31, "2015")) %>%
-  bind_rows(f_sim_nao(cmun_2016, q24, "2016")) %>%
-  bind_rows(f_sim_nao(cmun_2017, q42, "2017")) %>%
-  bind_rows(f_sim_nao(cmun_2018, q_37, "2018")) %>%
-  #bind_rows(f_sim_nao(cmun_2019, q37, "2019")) %>%
-  bind_rows(f_sim_nao(cmun_2020, q34, "2020")) %>%
-  bind_rows(f_sim_nao(cmun_2021, q34, "2021")) %>%
-  bind_rows(f_sim_nao(cmun_2022, q34, "2022")) %>%
+grafico <- f_sim(cmun_2012, q38, "2012") %>%
+  #bind_rows(f_sim(cmun_2013, q, "2013")) %>%
+  bind_rows(f_sim(cmun_2014, q31, "2014")) %>%
+  bind_rows(f_sim(cmun_2015, q31, "2015")) %>%
+  bind_rows(f_sim(cmun_2016, q24, "2016")) %>%
+  bind_rows(f_sim(cmun_2017, q42, "2017")) %>%
+  bind_rows(f_sim(cmun_2018, q_37, "2018")) %>%
+  #bind_rows(f_sim(cmun_2019, q37, "2019")) %>%
+  bind_rows(f_sim(cmun_2020, q34, "2020")) %>%
+  bind_rows(f_sim(cmun_2021, q34, "2021")) %>%
+  bind_rows(f_sim(cmun_2022, q34, "2022")) %>%
 
   #2013 as variaveis estão "" ver como ajeitar para leitura
 
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+  f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 
@@ -6591,21 +6596,21 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ```{r ceas_icspbf2, fig.cap = "Conselhos Estaduais de Assistência Social que são instancia de controle Social do PBF"}
 
-grafico <- f_sim_nao(cest_2012, q39, "2012") %>%
-   #bind_rows(f_sim_nao(cest_2013, q40, "2013")) %>%
-   bind_rows(f_sim_nao(cest_2014, q41, "2014")) %>%
-   bind_rows(f_sim_nao(cest_2015, q39, "2015")) %>%
-   bind_rows(f_sim_nao(cest_2016, q32, "2016")) %>%
-   bind_rows(f_sim_nao(cest_2017, q47, "2017")) %>%
-   bind_rows(f_sim_nao(cest_2018, q_43, "2018")) %>%
-   bind_rows(f_sim_nao(cest_2019, q39, "2019")) %>%
-   bind_rows(f_sim_nao(cest_2020, q40, "2020")) %>%
-   bind_rows(f_sim_nao(cest_2021, q40, "2021")) %>%
-   bind_rows(f_sim_nao(cest_2022, q40, "2022")) %>%
+grafico <- f_sim(cest_2012, q39, "2012") %>%
+   #bind_rows(f_sim(cest_2013, q40, "2013")) %>%
+   bind_rows(f_sim(cest_2014, q41, "2014")) %>%
+   bind_rows(f_sim(cest_2015, q39, "2015")) %>%
+   bind_rows(f_sim(cest_2016, q32, "2016")) %>%
+   bind_rows(f_sim(cest_2017, q47, "2017")) %>%
+   bind_rows(f_sim(cest_2018, q_43, "2018")) %>%
+   bind_rows(f_sim(cest_2019, q39, "2019")) %>%
+   bind_rows(f_sim(cest_2020, q40, "2020")) %>%
+   bind_rows(f_sim(cest_2021, q40, "2021")) %>%
+   bind_rows(f_sim(cest_2022, q40, "2022")) %>%
 
   #2013 as variaveis estão "" ver como ajeitar para leitura
 
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+  f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 
@@ -6618,19 +6623,19 @@ Os conselhos estaduais sinalizam que 69,2% aprovam PPA
 
 #falta colocar as variaveis dos questionários CEAS
 
-grafico <- f_sim_nao(cest_2012, q29, "2012") %>%
-   #bind_rows(f_sim_nao(cest_2013, q30, "2013")) %>%
-   bind_rows(f_sim_nao(cest_2014, q31, "2014")) %>%
-   bind_rows(f_sim_nao(cest_2015, q31, "2015")) %>%
-   bind_rows(f_sim_nao(cest_2016, q24, "2016")) %>%
-   bind_rows(f_sim_nao(cest_2017, q42, "2017")) %>%
-   bind_rows(f_sim_nao(cest_2018, q_37, "2018")) %>%
-   bind_rows(f_sim_nao(cest_2019, q33, "2019")) %>%
-   bind_rows(f_sim_nao(cest_2020, q34, "2020")) %>%
-   bind_rows(f_sim_nao(cest_2021, q34, "2021")) %>%
-   bind_rows(f_sim_nao(cest_2022, q34, "2022")) %>%
+grafico <- f_sim(cest_2012, q29, "2012") %>%
+   #bind_rows(f_sim(cest_2013, q30, "2013")) %>%
+   bind_rows(f_sim(cest_2014, q31, "2014")) %>%
+   bind_rows(f_sim(cest_2015, q31, "2015")) %>%
+   bind_rows(f_sim(cest_2016, q24, "2016")) %>%
+   bind_rows(f_sim(cest_2017, q42, "2017")) %>%
+   bind_rows(f_sim(cest_2018, q_37, "2018")) %>%
+   bind_rows(f_sim(cest_2019, q33, "2019")) %>%
+   bind_rows(f_sim(cest_2020, q34, "2020")) %>%
+   bind_rows(f_sim(cest_2021, q34, "2021")) %>%
+   bind_rows(f_sim(cest_2022, q34, "2022")) %>%
 
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+  f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 
@@ -6639,51 +6644,21 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ```{r cmas-be, fig.cap = "Percentual de CMAS que aprovou em Resolução os critérios e prazos para acesso aos Benefícios Eventuais"}
 
-cmas_be  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-
-  df %>%
-    select(!! ano := !! q) %>%
-    gather("Categoria","Nível") %>%
-    mutate(Nível = case_when(Nível == "Sim"~"Sim",
-                             TRUE ~ Nível)) %>%
-    filter(!is.na(Nível)) %>%
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não"))) %>%
-    group_by(Categoria, Nível) %>%
-    summarise(n=n()) %>%
-    group_by(Categoria) %>%
-    mutate(Percentual = n/sum(n))
-}
-
-grafico <- cmas_be(cmun_2012, q38, "2012") %>%
-#   bind_rows(cmas_be(cmun_2013, q39, "2013")) %>%
-   bind_rows(cmas_be(cmun_2014, q40, "2014")) %>%
-   bind_rows(cmas_be(cmun_2015, q38, "2015")) %>%
-   bind_rows(cmas_be(cmun_2016, q31, "2016")) %>%
-   bind_rows(cmas_be(cmun_2017, q44, "2017")) %>%
-   bind_rows(cmas_be(cmun_2018, q_39, "2018")) %>%
-   bind_rows(cmas_be(cmun_2019, q35, "2019")) %>%
-   bind_rows(cmas_be(cmun_2020, q36, "2020")) %>%
-#   bind_rows(cmas_be(cmun_2021, q37, "2021")) %>%
-   bind_rows(cmas_be(cmun_2022, q36, "2022")) %>%
-# =======
-# grafico <- f_sim_nao(cmun_2012, q38, "2012") %>%
-#   #bind_rows(f_sim_nao(cmun_2013, q, "2013")) %>%
-#   bind_rows(f_sim_nao(cmun_2014, q40, "2014")) %>%
-#   bind_rows(f_sim_nao(cmun_2015, q38, "2015")) %>%
-#   bind_rows(f_sim_nao(cmun_2016, q31, "2016")) %>%
-#   bind_rows(f_sim_nao(cmun_2017, q44, "2017")) %>%
-#   bind_rows(f_sim_nao(cmun_2018, q_39, "2018")) %>%
-#   #bind_rows(f_sim_nao(cmun_2019, q37, "2019")) %>%
-#   bind_rows(f_sim_nao(cmun_2020, q37, "2020")) %>%
-#   bind_rows(f_sim_nao(cmun_2021, q37, "2021")) %>%
-#   bind_rows(f_sim_nao(cmun_2022, q36, "2022")) %>%
+ grafico <- f_sim(cmun_2012, q38, "2012") %>%
+#   bind_rows(f_sim_nao(cmun_2013, q39, "2013")) %>%
+   bind_rows(f_sim(cmun_2014, q40, "2014")) %>%
+   bind_rows(f_sim(cmun_2015, q38, "2015")) %>%
+   bind_rows(f_sim(cmun_2016, q31, "2016")) %>%
+   bind_rows(f_sim(cmun_2017, q44, "2017")) %>%
+   bind_rows(f_sim(cmun_2018, q_39, "2018")) %>%
+   bind_rows(f_sim(cmun_2019, q35, "2019")) %>%
+   bind_rows(f_sim(cmun_2020, q36, "2020")) %>%
+#   bind_rows(f_sim(cmun_2021, q37, "2021")) %>%
+   bind_rows(f_sim(cmun_2022, q36, "2022")) %>%
 
   # a partir de 2020 a questão muda, mas o conteúdo da pergunta permanece, entretanto tenho dúvidas sobre o entendimento das respostas. Assim to pensando em manter apenas para os anos a partir de 2020.
 
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+  f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 
@@ -6692,53 +6667,21 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ```{r ceas-be, fig.cap = "Percentual de CEAS que aprovou em Resolução os critérios e prazos para acesso aos Benefícios Eventuais"}
 
-ceas_be  = function(df, q, ano){
-  q <- enquo(q)
-  ano <- quo_name(ano)
+ grafico <- f_sim(cest_2012, q38, "2012") %>%
+   bind_rows(f_sim(cest_2013, q39, "2013")) %>%
+   bind_rows(f_sim(cest_2014, q40, "2014")) %>%
+   bind_rows(f_sim(cest_2015, q38, "2015")) %>%
+#   bind_rows(f_sim(cest_2016, q8, "2016")) %>%
+   bind_rows(f_sim(cest_2017, q44, "2017")) %>%
+   bind_rows(f_sim(cest_2018, q_39, "2018")) %>%
+   bind_rows(f_sim(cest_2019, q35, "2019")) %>%
+   bind_rows(f_sim(cest_2020, q36, "2020")) %>%
+   bind_rows(f_sim(cest_2021, q36, "2021")) %>%
+   bind_rows(f_sim(cest_2022, q36, "2022")) %>%
 
-  df %>%
-    select(!! ano := !! q) %>%
-    gather("Categoria","Nível") %>%
-    mutate(Nível = case_when(Nível == "Sim"~"Sim",
-                             TRUE ~ Nível)) %>%
-    filter(!is.na(Nível)) %>%
-    mutate(Nível = factor(Nível, levels = c("Sim",
-                                            "Não"))) %>%
-    group_by(Categoria, Nível) %>%
-    summarise(n=n()) %>%
-    group_by(Categoria) %>%
-    mutate(Percentual = n/sum(n))
-}
-
-grafico <- ceas_be(cest_2012, q38, "2012") %>%
-   #bind_rows(ceas_be(cest_2013, q39, "2013")) %>%
-   bind_rows(ceas_be(cest_2014, q40, "2014")) %>%
-   bind_rows(ceas_be(cest_2015, q38, "2015")) %>%
-  #bind_rows(ceas_be(cest_2016, q8, "2016")) %>%
-   bind_rows(ceas_be(cest_2017, q44, "2017")) %>%
-   bind_rows(ceas_be(cest_2018, q_39, "2018")) %>%
-   bind_rows(ceas_be(cest_2019, q35, "2019")) %>%
-   bind_rows(ceas_be(cest_2020, q36, "2020")) %>%
-   bind_rows(ceas_be(cest_2021, q36, "2021")) %>%
-   bind_rows(ceas_be(cest_2022, q36, "2022")) %>%
-
-
-  #2013 estar "sim e "não" com aspas, por isso não ler
   #2016 muda pergunta, se o estado oferta e não aprovação
-# =======
-# grafico <- f_sim_nao(cest_2012, q38, "2012") %>%
-#   #bind_rows(f_sim_nao(cest_2013, q8, "2013")) %>%
-#   #bind_rows(f_sim_nao(cest_2014, q8, "2014")) %>%
-#   #bind_rows(f_sim_nao(cest_2015, q8, "2015")) %>%
-#   #bind_rows(f_sim_nao(cest_2016, q8, "2016")) %>%
-#    bind_rows(f_sim_nao(cest_2017, q44, "2017")) %>%
-#   #bind_rows(f_sim_nao(cest_2018, q8, "2018")) %>%
-#   #bind_rows(f_sim_nao(cest_2019, "2019")) %>%
-#   #bind_rows(f_sim_nao(cest_2020, q8, "2018")) %>%
-#   #bind_rows(f_sim_nao(cest_2021, q8, "2018")) %>%
-#    bind_rows(f_sim_nao(cest_2022, q36, "2022")) %>%
 
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+    f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 
@@ -6775,7 +6718,7 @@ O Conselho é a Instância de Controle Social do Programa Bolsa Família (Resolu
 ```{r ceas_igd, fig.cap = "Percentual de CEAS quanto a destinação mínimo 3 perc dos IGD Bolsa e IGD SUAS"}
 
 grafico <- f_sim_nao(cest_2012, q7, "2012") %>%
-#   bind_rows(f_sim_nao(cest_2013, q7, "2013")) %>%
+   bind_rows(f_sim_nao(cest_2013, q7, "2013")) %>%
    bind_rows(f_sim_nao(cest_2014, q8, "2014")) %>%
    bind_rows(f_sim_nao(cest_2015, q8, "2015")) %>%
    bind_rows(f_sim_nao(cest_2016, q5, "2016")) %>%
@@ -6785,8 +6728,6 @@ grafico <- f_sim_nao(cest_2012, q7, "2012") %>%
    bind_rows(f_sim_nao(cest_2020, q20, "2020")) %>%
    bind_rows(f_sim_nao(cest_2021, q20, "2021")) %>%
    bind_rows(f_sim_nao(cest_2022, q20, "2022")) %>%
-
-  #2013 as variaveis estão "" ver como ajeitar para leitura
 
   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
 
@@ -6799,23 +6740,22 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ```{r cmas_icspbf, fig.cap = "Conselhos Municipais de Assistência Social que são instancia de controle social do PBF", eval=FALSE}
 
-grafico <- f_sim_nao(cmun_2012, q35_1, "2012") %>%
-  bind_rows(f_sim_nao(cmun_2013, q40, "2013")) %>%
-  bind_rows(f_sim_nao(cmun_2014, q41, "2014")) %>%
-  bind_rows(f_sim_nao(cmun_2015, q39, "2015")) %>%
-  bind_rows(f_sim_nao(cmun_2016, q32, "2016")) %>%
-  bind_rows(f_sim_nao(cmun_2017, q47, "2017")) %>%
-  bind_rows(f_sim_nao(cmun_2018, q_43, "2018")) %>%
-  bind_rows(f_sim_nao(cmun_2019, q39, "2019")) %>%
-  bind_rows(f_sim_nao(cmun_2020, q40, "2020")) %>%
-  bind_rows(f_sim_nao(cmun_2021, q40, "2021")) %>%
-  bind_rows(f_sim_nao(cmun_2022, q40, "2022")) %>%
+grafico <- f_sim(cmun_2012, q35_1, "2012") %>%
+  bind_rows(f_sim(cmun_2013, q40, "2013")) %>%
+  bind_rows(f_sim(cmun_2014, q41, "2014")) %>%
+  bind_rows(f_sim(cmun_2015, q39, "2015")) %>%
+  bind_rows(f_sim(cmun_2016, q32, "2016")) %>%
+  bind_rows(f_sim(cmun_2017, q47, "2017")) %>%
+  bind_rows(f_sim(cmun_2018, q_43, "2018")) %>%
+  bind_rows(f_sim(cmun_2019, q39, "2019")) %>%
+  bind_rows(f_sim(cmun_2020, q40, "2020")) %>%
+  bind_rows(f_sim(cmun_2021, q40, "2021")) %>%
+  bind_rows(f_sim(cmun_2022, q40, "2022")) %>%
 
-  #2013 os dados da base estão "" por isso não consegue ler,
   #todos arquivo de 2019 esta bloqueado para leitura, algum erro que não consigo identificar.
   #2016 tem a opção 99, vou verificar o que representa.
 
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+  f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 
@@ -6824,21 +6764,19 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ```{r ceas_icspbf1, fig.cap = "Percentual de Conselhos Estaduais de Assistência Social que são instancia de controle Social do PBF", eval=FALSE}
 
-grafico <- f_sim_nao(cest_2012, q39, "2012") %>%
-   #bind_rows(f_sim_nao(cest_2013, q40, "2013")) %>%
-   bind_rows(f_sim_nao(cest_2014, q41, "2014")) %>%
-   bind_rows(f_sim_nao(cest_2015, q39, "2015")) %>%
-   bind_rows(f_sim_nao(cest_2016, q32, "2016")) %>%
-   bind_rows(f_sim_nao(cest_2017, q47, "2017")) %>%
-   bind_rows(f_sim_nao(cest_2018, q_43, "2018")) %>%
-   bind_rows(f_sim_nao(cest_2019, q39, "2019")) %>%
-   bind_rows(f_sim_nao(cest_2020, q40, "2020")) %>%
-   bind_rows(f_sim_nao(cest_2021, q40, "2021")) %>%
-   bind_rows(f_sim_nao(cest_2022, q40, "2022")) %>%
+grafico <- f_sim(cest_2012, q39, "2012") %>%
+   bind_rows(f_sim(cest_2013, q40, "2013")) %>%
+   bind_rows(f_sim(cest_2014, q41, "2014")) %>%
+   bind_rows(f_sim(cest_2015, q39, "2015")) %>%
+   bind_rows(f_sim(cest_2016, q32, "2016")) %>%
+   bind_rows(f_sim(cest_2017, q47, "2017")) %>%
+   bind_rows(f_sim(cest_2018, q_43, "2018")) %>%
+   bind_rows(f_sim(cest_2019, q39, "2019")) %>%
+   bind_rows(f_sim(cest_2020, q40, "2020")) %>%
+   bind_rows(f_sim(cest_2021, q40, "2021")) %>%
+   bind_rows(f_sim(cest_2022, q40, "2022")) %>%
 
-  #2013 as variaveis estão "" ver como ajeitar para leitura
-
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+  f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 
@@ -7204,19 +7142,19 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 #falta colocar as variaveis dos questionários CEAS
 
-grafico <- f_sim_nao(cest_2012, q29, "2012") %>%
-  #bind_rows(f_sim_nao(cest_2013, q, "2013")) %>%
-  #bind_rows(f_sim_nao(cest_2014, q40, "2014")) %>%
-  #bind_rows(f_sim_nao(cest_2015, q38, "2015")) %>%
-  #bind_rows(f_sim_nao(cest_2016, q31, "2016")) %>%
-  #bind_rows(f_sim_nao(cest_2017, q44, "2017")) %>%
-  #bind_rows(f_sim_nao(cest_2018, q_39, "2018")) %>%
-  #bind_rows(f_sim_nao(cest_2019, q37, "2019")) %>%
-  #bind_rows(f_sim_nao(cest_2020, q37, "2020")) %>%
-  #bind_rows(f_sim_nao(cest_2021, q37, "2021")) %>%
-   bind_rows(f_sim_nao(cest_2022, q34, "2022")) %>%
+grafico <- f_sim(cest_2012, q29, "2012") %>%
+  #bind_rows(f_sim(cest_2013, q, "2013")) %>%
+  #bind_rows(f_sim(cest_2014, q40, "2014")) %>%
+  #bind_rows(f_sim(cest_2015, q38, "2015")) %>%
+  #bind_rows(f_sim(cest_2016, q31, "2016")) %>%
+  #bind_rows(f_sim(cest_2017, q44, "2017")) %>%
+  #bind_rows(f_sim(cest_2018, q_39, "2018")) %>%
+  #bind_rows(f_sim(cest_2019, q37, "2019")) %>%
+  #bind_rows(f_sim(cest_2020, q37, "2020")) %>%
+  #bind_rows(f_sim(cest_2021, q37, "2021")) %>%
+   bind_rows(f_sim(cest_2022, q34, "2022")) %>%
 
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+  f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 
