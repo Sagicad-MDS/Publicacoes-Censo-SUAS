@@ -437,6 +437,7 @@ posto_cadunico_2022 <- read_excel("../Censo SUAS 2022/8 - POSTO DE CADASTRAMENTO
 
 posto_cadunicorh_2022 <- read_excel("../Censo SUAS 2022/8 - POSTO DE CADASTRAMENTO/Censo _SUAS_ 2022_Posto_cadastramentoo_RH.xlsx", sheet = 1)
 
+creas_2009 <- read_excel("../Censo SUAS 2009/CREAS/Censo CREAS 2009_final.xlsx", sheet = 1)
 creas_2010 <- read_excel("../Censo SUAS 2010/CREAS/Censo SUAS 2010_CREAS_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2010 CREAS")
 
 creas_2011 <- read_excel("../Censo SUAS 2011/CREAS/Censo SUAS 2011_CREAS_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2011 CREAS")
@@ -4029,16 +4030,17 @@ O Censo SUAS 2022 registrou 2.846 CREAS no país: um incremento de 679 novas uni
 
 ```{r creas-quantitativo, fig.cap = "Evolução do quantitativo de CREAS, segundo grandes regiões; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
-  grafico <- f_quantitativo_regiao_ano(creas_2012, IBGE, "2012") %>%
-#  bind_rows(f_quantitativo_regiao_ano(creas_2013, IBGE, "2013")) %>%
-#  bind_rows(f_quantitativo_regiao_ano(creas_2014, IBGE, "2014")) %>%
-#  bind_rows(f_quantitativo_regiao_ano(creas_2015, IBGE, "2015")) %>%
-#  bind_rows(f_quantitativo_regiao_ano(creas_2016, IBGE7, "2016")) %>%
-  bind_rows(f_quantitativo_regiao_ano(creas_2017, IBGE, "2017")) %>%
-#  bind_rows(f_quantitativo_regiao_ano(creas_2018, IBGE, "2018")) %>%
-#  bind_rows(f_quantitativo_regiao_ano(creas_2019, IBGE, "2019")) %>%
-#  bind_rows(f_quantitativo_regiao_ano(creas_2020, IBGE, "2020")) %>%
-#  bind_rows(f_quantitativo_regiao_ano(creas_2021, IBGE, "2021")) %>%
+  grafico <- f_quantitativo_regiao_ano(creas_2009, IBGE, "2009") %>%
+# bind_rows(f_quantitativo_regiao_ano(creas_2012, IBGE, "2012") %>%
+ bind_rows(f_quantitativo_regiao_ano(creas_2013, IBGE, "2013")) %>%
+# bind_rows(f_quantitativo_regiao_ano(creas_2014, IBGE, "2014")) %>%
+# bind_rows(f_quantitativo_regiao_ano(creas_2015, IBGE, "2015")) %>%
+# bind_rows(f_quantitativo_regiao_ano(creas_2016, IBGE7, "2016")) %>%
+# # bind_rows(f_quantitativo_regiao_ano(creas_2017, IBGE, "2017")) %>%
+   bind_rows(f_quantitativo_regiao_ano(creas_2018, IBGE, "2018")) %>%
+   bind_rows(f_quantitativo_regiao_ano(creas_2019, IBGE, "2019")) %>%
+#   bind_rows(f_quantitativo_regiao_ano(creas_2020, IBGE, "2020")) %>%
+  # bind_rows(f_quantitativo_regiao_ano(creas_2021, IBGE, "2021")) %>%
   bind_rows(f_quantitativo_regiao_ano(creas_2022, IBGE, "2022")) %>%
   f_grafico_col_group_numero(Região, n, Ano, 1)
 
