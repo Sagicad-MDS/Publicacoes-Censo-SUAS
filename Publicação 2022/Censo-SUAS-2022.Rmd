@@ -4336,7 +4336,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-Os Centro Pop estão presentes em municípios de grande porte e metrópoles, o \cref{fig:cpop-porte} sinaliza que 59% dos municípios de grande porte possui pelo menos uma unidade, e para metropoles 100% possuem unidades de centro pop, sendo 59% entre duas a três unidades, 24% uma unidade e 18% de 4 a 6 undiades de Centro Pop. Há presenta também em múnicípios de médio porte, com destaque para 5,9% dos municípios.
+Os Centro Pop estão presentes em municípios de grande porte e metrópoles, o \cref{fig:cpop-porte} sinaliza que 59% dos municípios de grande porte possui pelo menos uma unidade, e para metrópoles 100% possuem unidades de centro pop, sendo 59% entre duas a três unidades, 24% uma unidade e 18% de 4 a 6 undiades de Centro Pop. Há presente também em múnicípios de médio porte, com destaque para 5,9% dos municípios.
 
 ```{r cpop-porte, fig.cap = "Percentual de municípios por número de Centro POP, segundo porte populacional - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios"}
 
@@ -4389,10 +4389,10 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-Em relação a acessibilidade dos Centro Pop o \Cref{fig:cpop-acessibilidade-situacao} relaciona esta adaptação com a situação do imóvel. No geral todoas as adaptações de acessibildiade são superiores ao serem relacionadas com os imóveis alugados. Em relação aos imóveis cedidos, a adaptação de banheiro se sobressai em relação as demais situações dos imóveis.
+Em relação a acessibilidade dos Centro Pop o \Cref{fig:cpop-acessibilidade-situacao} relaciona esta adaptação com a situação do imóvel. No geral todo as adaptações de acessibildiade são superiores ao serem relacionadas com os imóveis alugados. Em relação aos imóveis cedidos, a adaptação de banheiro se sobressai em relação as demais situações dos imóveis.
 
 
-Em relação a acessibilidade dos Centro Pop o \cref{fig:cpop-acessibilidade-situacao} relaciona esta adaptação com a situação do imóvel. No geral todoas as adaptações de acessibildiade são superiores ao serem relacionadas com os imóveis alugados. Em relação aos imóveis cedidos, a adaptação de banheiro se sobressai em relação as demais situações dos imóveis.
+Em relação a acessibilidade dos Centro Pop o \cref{fig:cpop-acessibilidade-situacao} relaciona esta adaptação com a situação do imóvel. No geral todo as adaptações de acessibilidade são superiores ao serem relacionadas com os imóveis alugados. Em relação aos imóveis cedidos, a adaptação de banheiro se sobressai em relação as demais situações dos imóveis.
 
 
 ```{r cpop-acessibilidade-situacao, fig.cap = "Percentual de Centros POP com condições de acessibilidade segundo situação do imóvel – Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -4416,7 +4416,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-Em 2016,95% dos Centros Pop destacam computador com acesso à internet em 2022. O \cref{fig:cpop-internet-percentual} referencia essa evolução por Regiões do Brasil, as regiões Centro Oeste e Sul possuem 100% das undiades com acesso a internet e a região Norte com maior desafio de acesso, com 75% das unidades de Centro Pop com acesso a internet.
+Em 2016, 95% dos Centros Pop destacam computador com acesso à internet em 2022. O \cref{fig:cpop-internet-percentual} referencia essa evolução por Regiões do Brasil, as regiões Centro-Oeste e Sul possuem 100% das unidades com acesso à internet e a região Norte com maior desafio de acesso, com 75% das unidades de Centro Pop com acesso à internet.
 
 ```{r cpop-internet-percentual, fig.cap = "Percentual de Computadores nos Centro Pop com acesso a internet, 2012 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -4436,7 +4436,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ## Centro-Dia
 
-Centro Dia são unidades públicas especializadas para qtender pessoas com deficiência e suas famílias. Ela estar inserida no ambito da proteção social espceial de média complexidade. No ano de 2015 identifica-se no Brasil 1.340 unidades. Em 2022 há um crescimento de 40,7% destas unidades conforme pode ser observada no \cref{fig:quantitativo-Centrodia}.
+Centro Dia são unidades públicas especializadas para atender pessoas com deficiência e suas famílias. Ela está inserida no âmbito da proteção social especial de média complexidade. No ano de 2015 identifica-se no Brasil 1.340 unidades. Em 2022 há um crescimento de 40,7% destas unidades, conforme pode ser observada no \cref{fig:quantitativo-Centrodia}.
 
 ```{r quantitativo-Centrodia, fig.cap = "Evolução do quantitativo de Centro dia, segundo grandes regiões; 2015 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -4455,7 +4455,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-Em relação a natureza destas unidades, o \cref{fig:cdia-natureza} sinaliza a frequencia histórica de unidades referenciadas pelas Organizações da Sociedade Civil (OSCs). Das undiades destacadas no Censo SUAS 2022, 92,8% são ofertadas por OSCs.
+Em relação a natureza destas unidades, o \cref{fig:cdia-natureza} sinaliza a frequência histórica de unidades referenciadas pelas Organizações da Sociedade Civil (OSCs). Das unidades destacadas no Censo SUAS 2022, 92,8% são ofertadas por OSCs.
 
 
 ```{r cdia-natureza, fig.cap = "Quantitativo de Centros Dia por Natureza da Unidade - BRASIL, 2015 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -4500,7 +4500,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ```
 
-Em relação a acessibilidade destas unidades, o banheiro acessivel é a adaptação mais presentes nestas unidades chegando nos registros do Censo SUAS de 2022 com 73%. Como trata-se de unidades especializadas para atenção a pessoas com deficiência, esse item é de funmental importância para assegurar acolhida e segurança a este público e suas famílias. O \cref{fig:cdia-acessibilidade} sinaliza os locais e composição de acessibilidade, estes dados sinalizam um desafio para garantir as condições físicas de acesso ao público de pessoas com deficiência nas undiades de Centro Dia.
+Em relação a acessibilidade destas unidades, o banheiro acessivel é a adaptação mais presente nestas unidades chegando nos registros do Censo SUAS de 2022 com 73%. Como trata-se de unidades especializadas para atenção a pessoas com deficiência, esse item é de fundamental importância para assegurar acolhida e segurança a este público e suas famílias. O \cref{fig:cdia-acessibilidade} sinaliza os locais e composição de acessibilidade, estes dados sinalizam um desafio para garantir as condições físicas de acesso ao público de pessoas com deficiência nas unidades de Centro Dia.
 
 
 ```{r cdia-acessibilidade, fig.cap = "Evolução percentual de Centro Dia com condições de acessibilidade - Brasil; 2015, 2018 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -4536,7 +4536,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 
 
-Além disto, há outras adaptações importantes netsas undiades, coo tecnologias assistidas, suportes com materiais em Braile, profissionais com conhecimento em Libras entre outros destacados no grafico abaixo:
+Além disto, há outras adaptações importantes netsas undiades, dentre elas as tecnologias assistidas, suportes com materiais em braille, profissionais com conhecimento em libras entre outros destacados no gráfico abaixo:
 
 <!-- preciso descobrir o erro -->
 
