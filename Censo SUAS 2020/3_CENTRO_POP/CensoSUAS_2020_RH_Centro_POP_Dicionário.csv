@@ -1,0 +1,89 @@
+﻿Variável;Rótulo
+NU_IDENTIFICADOR;NU_IDENTIFICADOR _id_creas_pop_NU_IDENTIFICADOR
+IBGE;IBGE_codigo_ibge_IBGE
+IBGE7;IBGE7_IBGE7_codigo IBGE com 7 digitos
+Região;Regiao_Região_Região
+UF;UF_Nome_UF_UF
+Município;Município_Município_Município
+area;areaKm2_area Km2_area Km2
+Pop_Total2010;Pop_total_2010_Pop_total_2010_Pop_total_2010
+Pop_Urbana2010;Pop_Urbana2010_Pop_Urbana2010_Pop_Urbana2010
+Pop_Rural2010;Pop_Rural2010_Pop_Rural2010_Pop_Rural2010
+Porte_pop2010;Porte_pop2010_Porte_pop2010_Porte_pop2010
+q44_3;q44_3_v10248_44.3. Sexo
+q44_9;q44_9_v10252_44.9. Escolaridade
+q44_10;q44_10_v10253_44.10. Profissão
+q44_11;q44_11_v10254_44.11. Vínculo
+q44_12;q44_12_v10255_44.12. Função
+q44_13;q44_13_v10256_44.13. Carga horária SEMANAL
+q44_14;q44_14_v10257_44.14. Início do exercício da função
+q44_15_1;q44_15_1_v10258_44.15.1. Serviços/Atividade a qual o profissional está vinculado - Principal serviço/atividade
+q44_15_2;q44_15_2_v10259_44.15.2. Serviços/Atividade a qual o profissional está vinculado - Segundo principal serviço/atividade
+q44_15_3;q44_15_3_v10260_44.15.3. Serviços/Atividade a qual o profissional está vinculado - Terceiro principal serviço/atividade
+DataCenso;"COMPUTE DataCenso=""31.08.2020"""
+DataCenso_2020;DataCenso recodificada
+q44_2_rec;q44_2_data nascimento recodificada
+Idade;Idade
+Faixas_etarias;Faixas etárias dos Trabalhadores dos Centro POP
+d_44_9;d_44_9_Níveis de escolaridade
+d_44_11;d_44_11_Tipo de vínculo
+d_44_9bin1;d_44_9bin1_Nível fundamental - trabalhadores que possuem até o nível médio (inclui aqueles sem escolaridade)
+d_44_9bin2;d_44_9bin2_Nível médio - trabalhadores com ensino superior incompleto e ensino médio completo
+d_44_9bin3;d_44_9bin3_Nível superior - inclui trabalhadores graduados, com especialização, mestrado ou doutorado
+d_44_10bin1;d_44_10bin1_Pedagogo
+d_44_10bin2;d_44_10bin2_Assistente Social
+d_44_10bin3;d_44_10bin3_Antropólogo
+d_44_10bin4;d_44_10bin4_Advogado
+d_44_10bin5;d_44_10bin5_Psicólogo
+d_44_11bin1;d_44_11bin1_Servidor Estatutário
+d_44_11bin2;d_44_11bin2_Empregado Público (CLT)
+d_44_11bin3;d_44_11bin3_Comissionado
+d_44_11bin4;"d_44_11bin4_Outros vínculos não permanentes - inclui Trabalhador de Empresas/Cooperativa/Entidade Prestadora de Serviços; Voluntários; Servidor Temporário; Sem vínculo; Terceirizado e Outro vínculo não permanente"
+d_44_9bin1_sum;d_44.9bin1_Número de trabalhadores de Nível fundamental (inclui trabalhadores sem escolaridade, fundamental incompleto e ensino médio incompleto)
+d_44_9bin2_sum;d_44.9bin2_Número de trabalhadores de Nível médio (inclui trabalhadores com ensino superior incompleto)
+d_44_9bin3_sum;d_44.9bin3_Número de trabalhadores de Nível superior (inclui trabalhadores com especialização, mestrado e doutorado)
+d_44_10bin1_sum;d_44.10bin1_sum_Número de Pedagogos
+d_44_10bin2_sum;d_44.10bin2_sum_Número de Assistentes Sociais
+d_44_10bin3_sum;d_44.10bin3_sum_Número de Antropólogos
+d_44_10bin4_sum;d_44.10bin4_sum_Número de Advogados
+d_44_10bin5_sum;d_44.10bin5_sum_Número de Psicólogos
+d_44_11bin1_sum;d_44.11bin1_Número de Servidores Estatutários
+d_44_11bin2_sum;d_44.11bin2_Número de Empregados Públicos(CLT)
+d_44_11bin3_sum;d_44.11bin3_Número de Comissionados
+d_44_11bin4_sum;d_44.11bin4_Número de profissionais com outros vínculos não permanentes (inclui Trabalhador de Empresas/Cooperativa/Entidade Prestadora de Serviços/Voluntários/Ser. Temporário/Sem vínculo/Terceirizado e Outro vínculo não permanente)
+nu_trabalhadores;Número de trabalhadores na unidade executora do Centro POP
+d_44_15_1bin_Gestão;d_44_15_1bin_Gestão - Principal serviço/atividade
+d_44_15_1bin_PopRua;d_44_15_1bin_PopRua - Principal serviço/atividade
+d_44_15_1bin_Abordagem;d_44_15_1bin_Abordagem - Principal serviço/atividade
+d_44_15_1bin_Cadastramento;d_44_15_1bin_Cadastramento - Principal serviço/atividade
+d_44_15_1bin_Outros;d_44_15_1bin_Outros - Principal serviço/atividade
+d_44_15_2bin_Gestão;d_44_15_2bin_Gestão - Principal serviço/atividade
+d_44_15_2bin_PopRua;d_44_15_2bin_PopRua - Principal serviço/atividade
+d_44_15_2bin_Abordagem;d_44_15_2bin_Abordagem - Principal serviço/atividade
+d_44_15_2bin_Cadastramento;d_44_15_2bin_Cadastramento - Principal serviço/atividade
+d_44_15_2bin_Outros;d_44_15_2bin_Outros - Principal serviço/atividade
+d_44_15_3bin_Gestão;d_44_15_3bin_Gestão - Principal serviço/atividade
+d_44_15_3bin_PopRua;d_44_15_3bin_PopRua - Principal serviço/atividade
+d_44_15_3bin_Abordagem;d_44_15_3bin_Abordagem - Principal serviço/atividade
+d_44_15_3bin_Cadastramento;d_44_15_3bin_Cadastramento - Principal serviço/atividade
+d_44_15_3bin_Outros;d_44_15_3bin_Outros - Principal serviço/atividade
+Gestao;Atividades de Gestão - mencionada, no minimo, 1 vez
+PopRua;PopRua - mencionado, no mínimo, 1 vez
+Abordagem;Abordagem - mencionado, no mínimo, 1 vez
+Cadastramento;Cadastramento e/ou atualização cadastral (CadÚnico) -  mencionado, no mínimo, 1 vez
+Outros;Outras atividades - mencionadas, no mínimo, 1 vez
+d_44_15_1bin_Gestão_sum;d_44_15_1bin_Gestão_Gestão - Principal serviço/atividade
+d_44_15_1bin_PopRua_sum;d_44_15_1bin_PopRua_PopRua - Principal serviço/atividade
+d_44_15_1bin_Abordagem_sum;d_44_15_1bin_Abordagem_Abordagem - Principal serviço/atividade
+d_44_15_1bin_Cadastramento_sum;d_44_15_1bin_Cadastramento_Cadastramento - Principal serviço/atividade
+d_44_15_1bin_Outros_sum;d_44_15_1bin_Outros_Outros - Principal serviço/atividade
+d_44_15_2bin_Gestão_sum;d_44_15_2bin_Gestão_Gestão - Segundo principal serviço/atividade
+d_44_15_2bin_PopRua_sum;d_44_15_2bin_PopRua_PopRua - Segundo principal serviço/atividade
+d_44_15_2bin_Abordagem_sum;d_44_15_2bin_Abordagem_Abordagem - Segundo principal serviço/atividade
+d_44_15_2bin_Cadastramento_sum;d_44_15_2bin_Cadastramento_Cadastramento - Segundo principal serviço/atividade
+d_44_15_2bin_Outros_sum;d_44_15_2bin_Outros_Outros - Segundo principal serviço/atividade
+d_44_15_3bin_Gestão_sum;d_44_15_3bin_Gestão_Gestão - Terceiro principal serviço/atividade
+d_44_15_3bin_PopRua_sum;d_44_15_3bin_PopRua_PopRua - Terceiro principal serviço/atividade
+d_44_15_3bin_Abordagem_sum;d_44_15_3bin_Abordagem_Abordagem - Terceiro principal serviço/atividade
+d_44_15_3bin_Cadastramento_sum;d_44_15_3bin_Cadastramento_Cadastramento - Terceiro principal serviço/atividade
+d_44_15_3bin_Outros_sum;d_44_15_3bin_Outros_Outros - Terceiro principal serviço/atividade

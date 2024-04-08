@@ -1,0 +1,724 @@
+﻿Variável;Rótulo
+NU_IDENTIFICADOR;NU_IDENTIFICADOR_id_posto_cadastramento_NU_IDENTIFICADOR
+IBGE;IBGE_codigo_ibge_IBGE
+IBGE7;IBGE7_IBGE7_codigo IBGE com 7 digitos
+Regiao;Regiao_Região_Região
+UF;UF_Nome_UF_UF
+Município;Município_Município_Município
+areaKm2;areaKm2_area Km2_area Km2
+Pop_total_2010;Pop_Total_2010_Pop_total_2010_Pop_total_2010
+Pop_Urbana2010;Pop_Urbana2010_Pop_Urbana2010_Pop_Urbana2010
+Pop_Rural2010;Pop_Rural2010_Pop_Rural2010_Pop_Rural2010
+Porte_pop2010;Porte_pop2010_Porte_pop2010_Porte_pop2010
+Latitude;Latitude_p_latitude_71. Latitude:
+Longitude;Longitude _p_longitude_72. Longitude:
+q0_1;q0_1_v8362_0.1. Denominação
+q0_2;q0_2_v8363_0.2. Selecione o Tipo de Logradouro (avenida, rua, etc):
+q0_3;q0_3_v8364_0.3. Endereço:
+q0_4;q0_4_v8365_0.4. Número:
+q0_5;q0_5_v8366_0.5. Complemento:
+q0_6;q0_6_v8367_0.6. Bairro:
+q0_7;q0_7_v8368_0.7. Ponto de Referência:
+q0_8;q0_8_v8369_0.8. CEP:
+q0_9;q0_9_v8370_0.9. Município:
+q0_10;q0_10_v8371_0.10. UF:
+q0_11;q0_11_v8372_0.11. E-mail:
+q0_12;q0_12_v8373_0.12. DDD - Telefone:
+q0_13;q0_13_v8374_0.13. Ramal:
+q0_14;q0_14_v8375_0.14. Fax:
+q1_0;q1_0_v15648_1.0. Este local é:
+q1_1;q1_1_v15649_1.1. Qual?
+q2_1;q2_1_v15650_2.1. Horário de funcionamento - dias por semana
+q2_2;q2_2_v15651_2.2. Horário de funcionamento - horas POR SEMANA
+q3_0;q3_0_v15652_3.0. Indique se a Unidade está localizada em:
+q4_0;q4_0_v15653_4.0. O local onde funciona a Unidade é servido por transporte público (ônibus/trem/metrô/barcas)?
+q5_0;q5_0_v15654_5.0. Situação do imóvel onde se localiza a Unidade:
+q6_1;q6_1_v15657_6.1. Salas para atendimento de apenas uma família por vez:
+q6_2;q6_2_v15658_6.2. Salas com 2 a 5 guichês de atendimento
+q6_3;q6_3_v15660_6.3. Salas com 6 a 10 guichês de atendimento
+q6_4;q6_4_v15661_6.4. Salas com 11 a 15 guichês de atendimento
+q6_5;q6_5_v15662_6.5. Salas com mais de 15 guichês de atendimento
+q6_6;q6_6_v15663_6.6. Salas exclusivas de coordenação, equipe técnica ou administração
+q6_7;q6_7_v15664_6.7. Banheiros
+q6_8;q6_8_v15665_6.8. Recepção
+q6_9;q6_9_v15666_6.9. Cozinha/Copa
+q6_10;q6_10_v15667_6.10. Almoxarifado
+q6_11;q6_11_v15668_6.11. Salas para Arquivos
+q7_1;q7_1_v15670_7.1. Acesso principal adaptado com rampas e rota acessível desde a calçada até a recepção do posto
+q7_2;"q7_2_v15672_7.2. Rota acessível aos espaços do posto (recepção, salas de atendimento e espaços de uso coletivo);"
+q7_3;q7_3_v15673_7.3. Rota acessível ao banheiro
+q7_4;q7_4_v15674_7.4. Banheiro adaptado para pessoas com deficiência
+q8_1;q8_1_v15675_1_8. Além dos itens acima, há outras adaptações para assegurar a acessibilidade desta Unidade?1: Sim, suporte de profissional com conhecimento em LIBRAS
+q8_2;q8_2_v15675_2_8. Além dos itens acima, há outras adaptações para assegurar a acessibilidade desta Unidade?2: Sim, suporte de material em braile
+q8_3;q8_3_v15675_3_8. Além dos itens acima, há outras adaptações para assegurar a acessibilidade desta Unidade?3: Sim, suporte para leitores de telas de computador para pessoas com deficiência visual
+q8_4;q8_4_v15675_4_8. Além dos itens acima, há outras adaptações para assegurar a acessibilidade?4: Sim, há outras adaptações para assegurar acessibilidade às pessoas com deficiência auditiva/surdas e pessoas com deficiência visual neste posto.
+q8_5;q8_5_v15675_5_8. Além dos itens acima, há outras adaptações para assegurar a acessibilidade desta Unidade?5: Sim, outras adaptações e tecnologias assistivas para deficiência física.
+q8_6;q8_6_v15675_6_8. Além dos itens acima, há outras adaptações para assegurar a acessibilidade desta Unidade?6: Sim, outras adaptações e tecnologias assistivas para deficiência intelectual e autismo.
+q8_7;q8_7_v15675_7_8. Além dos itens acima, há outras adaptações para assegurar a acessibilidade desta Unidade?7: Sim, pisos especiais com relevos para sinalização voltados pessoa com deficiência visual
+q8_0;q8_0_v15675_0_8. Além dos itens acima, há outras adaptações para assegurar a acessibilidade desta Unidade?0: Não há outras adaptações
+q8_4_99;q8_4_99_v15676_8.4.99. Qual(is)
+q8_5_99;q8_5_99_v15677_8.5.99. Qual(is)?
+q8_6_99;q8_6_99_v15678_8.6.99. Qual(is)?
+q9_1;q9_1_v15679_1_9. Indique os equipamentos e materiais disponíveis, em perfeito funcionamento, para o desenvolvimento dos serviços desta Unidade1: Telefone
+q9_2;q9_2_v15679_2_9. Indique os equipamentos e materiais disponíveis, em perfeito funcionamento, para o desenvolvimento dos serviços desta Unidade2: Celular da unidade
+q9_3;q9_3_v15679_3_9. Indique os equipamentos e materiais disponíveis, em perfeito funcionamento, para o desenvolvimento dos serviços desta Unidade3: Impressora
+q9_4;q9_4_v15679_4_9. Indique os equipamentos e materiais disponíveis, em perfeito funcionamento, para o desenvolvimento dos serviços desta Unidade4: Máquina Copiadora
+q9_5;q9_5_v15679_5_9. Indique os equipamentos e materiais disponíveis, em perfeito funcionamento, para o desenvolvimento dos serviços desta Unidade5: Televisão (TV)
+q9_6;q9_6_v15679_6_9. Indique os equipamentos e materiais disponíveis, em perfeito funcionamento, para o desenvolvimento dos serviços desta Unidade6: Equipamento de som
+q9_7;q9_7_v15679_7_9. Indique os equipamentos e materiais disponíveis, em perfeito funcionamento, para o desenvolvimento dos serviços desta Unidade7: DVD
+q9_8;q9_8_v15679_8_9. Indique os equipamentos e materiais disponíveis, em perfeito funcionamento, para o desenvolvimento dos serviços desta Unidade8: Datashow
+q9_9;q9_9_v15679_9_9. Indique os equipamentos e materiais disponíveis, em perfeito funcionamento, para o desenvolvimento dos serviços desta Unidade9: Veículo de uso exclusivo
+q9_10;q9_10_v15679_10_9. Indique os equipamentos e materiais disponíveis, em perfeito funcionamento, para o desenvolvimento dos serviços desta Unidade10: Veículo de uso compartilhado
+q9_11;q9_11_v15679_11_9. Indique os equipamentos e materiais disponíveis, em perfeito funcionamento, para o desenvolvimento dos serviços desta Unidade11: Acervo bibliográfico
+q9_12;q9_12_v15679_12_9. Indique os equipamentos e materiais disponíveis, em perfeito funcionamento, para o desenvolvimento dos serviços desta Unidade12: Brinquedoteca
+q9_13;q9_13_v15679_13_9. Indique os equipamentos e materiais disponíveis, em perfeito funcionamento, para o desenvolvimento dos serviços desta Unidade13: Brinquedos
+q9_14;q9_14_v15679_14_9. Indique os equipamentos e materiais disponíveis, em perfeito funcionamento, para o desenvolvimento dos serviços desta Unidade14: Materiais pedagógicos, culturais e esportivos
+q9_15;q9_15_v15679_15_9. Indique os equipamentos e materiais disponíveis, em perfeito funcionamento, para o desenvolvimento dos serviços desta Unidade15: Bebedouros ou filtro de água disponível ao público
+q9_16;q9_16_v15679_16_9. Indique os equipamentos e materiais disponíveis, em perfeito funcionamento, para o desenvolvimento dos serviços desta Unidade16: Ar condicionado ou ventilador
+q9_1_99;q9_1_99_v15680_9.1.99. Quantos telefones:
+q9_2_99;q9_2_99_v15681_9.2.99. Quantos celulares da unidade:
+q9_3_99;q9_3_99_v15682_9.3.99. Quantas impressoras:
+q9_4_99;q9_4_99_v15683_9.4.99. Quantas máquinas copiadoras:
+q9_9_99;q9_9_99_v15684_9.9.99. Quantos veículos de uso exclusivo:
+q9_10_99;q9_10_99_v15685_9.10.99. Quantos veículos de uso compartilhado:
+q10_1;q10_1_v15686_10.1. Quantidade total de computadores na Unidade
+q10_2;q10_2_v15688_10.2. Destes, quantos estão conectados à internet
+q11_1;q11_1_v15690_11.1. Utiliza internet em outro local por insuficiência de acesso
+q11_2;q11_2_v15691_11.2. Precisa revezar entre os profissionais para utilizar a internet
+q11_3;q11_3_v15692_11.3. Tem que solicitar ao usuário que aguarde enquanto a internet está instável
+q11_4;q11_4_v15693_11.4. Tem que reagendar o atendimento por falta de internet
+q12_1;q12_1_v15695_12.1. Sistema de Cadastro Único
+q12_2;q12_2_v15696_12.2. RelCad - Relatórios de Informações Gerenciais do Cadastro Único
+q12_3;q12_3_v15697_12.3. CECAD – Sistema de consulta, seleção e extração de dados do Cadastro Único para Programas Sociais do Governo Federal gerido pela SAGI/MC
+q12_4;q12_4_v15698_12.4. Módulo de Acompanhamento Familiar do SICON - Sistema de Condicionalidades do Programa Bolsa Família
+q12_5;q12_5_v15699_12.5. SICON - Sistema de Condicionalidades do Programa Bolsa Família - demais módulos
+q12_6;q12_6_v15700_12.6. SIBEC - Sistema de Benefícios ao Cidadão
+q12_7;q12_7_v15701_12.7. Módulo Administração off-line (disponível no SIGPBF)– Sistema que permite solicitações de administração de benefícios, quando essas não são possíveis diretamente no SIBEC
+q12_8;q12_8_v15702_12.8. Outros sistemas estaduais e ou municipais
+q13_1;q13_1_v15703_1_13. Indique as ações e atividades desenvolvidas pela equipe no âmbito do Cadastro Único:1: Divulgação das ações de cadastramento
+q13_2;q13_2_v15703_2_13. Indique as ações e atividades desenvolvidas pela equipe no âmbito do Cadastro Único:2: Realização de parcerias com outros órgãos
+q13_3;q13_3_v15703_3_13. Indique as ações e atividades desenvolvidas pela equipe no âmbito do Cadastro Único:3: Busca ativa (entrevista domiciliar, mutirão e ações itinerantes) com a finalidade de inclusão e atualização cadastral
+q13_4;q13_4_v15703_4_13. Indique as ações e atividades desenvolvidas pela equipe no âmbito do Cadastro Único:4: Ação para prestar informações às famílias sobre o Cadastro Único (Reuniões de acolhida, palestra etc)
+q13_5;q13_5_v15703_5_13. Indique as ações e atividades desenvolvidas pela equipe no âmbito do Cadastro Único:5: Agendamento prévio para a realização da entrevista para inclusão/atualização cadastral
+q13_6;q13_6_v15703_6_13. Indique as ações e atividades desenvolvidas pela equipe no âmbito do Cadastro Único:6: Triagem de atendimento – identificação de demandas e/ou documentação civil antes da entrevista
+q13_7;q13_7_v15703_7_13. Indique as ações e atividades desenvolvidas pela equipe no âmbito do Cadastro Único:7: Entrevista para inclusão cadastral
+q13_8;q13_8_v15703_8_13. Indique as ações e atividades desenvolvidas pela equipe no âmbito do Cadastro Único:8: Entrevista para atualização cadastral
+q13_9;q13_9_v15703_9_13. Indique as ações e atividades desenvolvidas pela equipe no âmbito do Cadastro Único:9: Fornecimento de comprovante de cadastramento por demanda das famílias
+q13_10;q13_10_v15703_10_13. Indique as ações e atividades desenvolvidas pela equipe no âmbito do Cad Único:10: Esclarecimento de dúvidas sobre o Cadastro Único e os programas, serviços e benefícios que as famílias participam ou buscam participar
+q13_11;q13_11_v15703_11_13. Indique as ações e atividades desenvolvidas pela equipe desta Unidade no âmbito do Cadastro Único:11: Encaminhamento para obtenção de Documentação pessoal
+q13_12;q13_12_v15703_12_13. Indique as ações e atividades desenvolvidas pela equipe desta Unidade no âmbito do Cadastro Único:12: Encaminhamento de famílias ou indivíduos para a rede de serviço socioassistencial
+q13_13;q13_13_v15703_13_13. Indique as ações e atividades desenvolvidas pela equipe no âmbito do Cad Único:13: Encaminhamento para programas usuários do Cadastro Único, para acesso a benefícios ou outras políticas públicas
+q13_14;q13_14_v15703_14_13. Indique as ações e atividades desenvolvidas pela equipe no âmbito do Cad Único:14: Emissão de registro técnico (parecer, relatório, formulário etc) no processo de averiguação cadastral ou apuração de denúncias
+q13_15;q13_15_v15703_15_13. Indique as ações e atividades desenvolvidas pela equipe no âmbito do Cadastro Único:15: Conferência/ crítica dos formulários preenchidos no papel
+q13_16;q13_16_v15703_16_13. Indique as ações e atividades desenvolvidas pela equipe no âmbito do Cad Único:16: Verificação, correção ou encaminhamento de pendências no cadastro das famílias e pessoas apontadas pelo Sistema de Cadastro Único
+q13_17;q13_17_v15703_17_13. Indique as ações e atividades desenvolvidas pela equipe no âmbito do Cadastro Único:17: Arquivamento de formulários
+q13_18;q13_18_v15703_18_13. Indique as ações e atividades desenvolvidas pela equipe no âmbito do Cadastro Único:18: Recebimento e tratamento de denúncias de prestação de informação inverídica
+q13_99;q13_99_v15703_99_13. Indique as ações e atividades desenvolvidas pela equipe desta no âmbito do Cadastro Único:99: Outras.
+q13_99_1;q13_99_1_v15704_13.99.1. Quais?
+q14_1;q14_1_v15706_14.1. Total de indivíduos atendidos neste posto do Cadastro Único:
+q14_98_1;q14_98_1_v15707_0_14.98.1. Não sabe informar0: Não sabe informar
+q14_2;q14_2_v15792_14.2. Destes, qual o total de indivíduos que realizaram entrevista para inclusão cadastral
+q14_98_2;q14_98_2_v15793_0_14.98.2. Não sabe informar0: Não sabe informar
+q14_3;q14_3_v15708_14.3. Destes, qual o total de indivíduos que realizaram entrevista para atualização cadastral:
+q14_98_3;q14_98_3_v15791_0_14.98.3. Não sabe informar0: Não sabe informar
+q15_1;q15_1_v15710_15.1. Entre o agendamento e a realização do atendimento
+q15_98_1;q15_98_1_v15794_0_15.98.1. Não realiza0: Não realiza
+q15_2;q15_2_v15711_15.2. Após a entrevista, para que os dados coletados em formulário em papel sejam inseridos no sistema
+q15_98_2;q15_98_2_v15795_0_15.98.2. Não realiza0: Não realiza
+q15_3;q15_3_v15712_15.3. A espera de uma família nesta Unidade até que o atendimento seja iniciado
+q15_98_3;q15_98_3_v15796_0_15.98.3. Não sabe0: Não realiza
+q15_4;q15_4_v15713_15.4. A primeira entrevista de uma família para o Cadastro Único (inclusão cadastral)
+q15_98_4;q 15_98_4_v15797_0_15.98.4. Não sabe0: Não realiza
+q15_5;q15_5_v15714_15.5. A atualização cadastral de uma família no Cadastro Único
+q15_98_5;q15_98_5_v15798_0_15.98.5. Não sabe0: Não realiza
+q16;q16_v15715_16. Como é feito o registro das informações da entrevista no Cadastro Único?
+q17;q17_v15716_17. Em geral, como ocorre o atendimento de demandas urgentes das famílias relacionadas ao Cadastro Único nesta Unidade?
+q18_1;q18_1_v15717_1_18. São feitas ações específicas para atender demandas de Averiguação e Revisão Cadastral?1: Sim, as famílias de Averiguação e Revisão Cadastral são alvo de busca ativa
+q18_2;q18_2_v15717_2_18. São feitas ações específicas para atender demandas de Averiguação e Revisão Cadastral?2: Sim, as famílias de Averiguação e Revisão Cadastral fazem parte do público prioritário de atendimento na unidade
+q18_3;q18_3_v15717_3_18. São feitas ações específicas para atender demandas de Averiguação e Revisão Cadastral?3: Sim, há mutirões em dias específicos para atender o público de Averiguação e Revisão Cadastral
+q18_99;q18_99_v15717_99_18. São feitas ações específicas para atender demandas de Averiguação e Revisão Cadastral?99: Sim, outros.
+q18_0;q18_0_v15717_0_18. São feitas ações específicas para atender demandas de Averiguação e Revisão Cadastral?0: Não há ações específicas para atender o público de Averiguação e Revisão Cadastral.
+q18_99_1;q18_99_1_v15718_18.99.1. Qual(is)?
+q19_1;q19_1_v15720_19.1. Para a inclusão ou atualização cadastral de forma geral
+q19_2;q19_2_v15721_19.2. Para apurar denúncias:
+q19_3;q19_3_v15722_19.3. Para famílias incluídas em Averiguação Cadastral:
+q19_4;q19_4_v15723_19.4. Para inclusão ou atualização de dados de famílias com beneficiários do Benefício de Prestação Continuada (BPC):
+q19_5;q19_5_v15724_19.5. Para inclusão ou atualização de dados de famílias pertencentes à Grupos Populacionais Tradicionais ou Específicos (GPTEs):
+q19_6;q19_6_v15725_19.6. Para inclusão ou atualização de dados de famílias que moram em locais de difícil acesso:
+q19_99;q19_99_v15726_19.99. Outros:
+q19_99_1;q19_99_1_v15727_19.99.1. Qual?
+q20_1;q20_1_v15728_1_20. Esta Unidade realiza cadastramento de famílias pertencentes aos seguintes Grupos Tradicionais e Específicos?1: Não atende
+q20_2;q20_2_v15728_2_20. Esta Unidade realiza cadastramento de famílias pertencentes aos seguintes Grupos Tradicionais e Específicos?2: Famílias indígenas
+q20_3;q20_3_v15728_3_20. Esta Unidade realiza cadastramento de famílias pertencentes aos seguintes Grupos Tradicionais e Específicos?3: Famílias quilombolas
+q20_4;q20_4_v15728_4_20. Esta Unidade realiza cadastramento de famílias pertencentes aos seguintes Grupos Tradicionais e Específicos?4: Famílias ciganas
+q20_5;q20_5_v15728_5_20. Esta Unidade realiza cadastramento de famílias pertencentes aos seguintes Grupos Tradicionais e Específicos?5: Famílias pertencentes às comunidades de terreiro
+q20_6;q20_6_v15728_6_20. Esta Unidade realiza cadastramento de famílias pertencentes aos seguintes Grupos Tradicionais e Específicos?6: Famílias extrativistas
+q20_7;q20_7_v15728_7_20. Esta Unidade realiza cadastramento de famílias pertencentes aos seguintes Grupos Tradicionais e Específicos?7: Famílias de pescadores artesanais
+q20_8;q20_8_v15728_8_20. Esta Unidade realiza cadastramento de famílias pertencentes aos seguintes Grupos Tradicionais e Específicos?8: Famílias ribeirinhas
+q20_9;q20_9_v15728_9_20. Esta Unidade realiza cadastramento de famílias pertencentes aos seguintes Grupos Tradicionais e Específicos?9: Famílias acampadas
+q20_10;q20_10_v15728_10_20. Esta Unidade realiza cadastramento de famílias pertencentes aos seguintes Grupos Tradicionais e Específicos?10: Famílias de assentados da reforma agrária
+q20_11;q20_11_v15728_11_20. Esta Unidade realiza cadastramento de famílias pertencentes aos seguintes Grupos Tradicionais e Específicos?11: Famílias de agricultores familiares
+q20_12;q20_12_v15728_12_20. Esta Unidade realiza cadastramento de famílias pertencentes aos seguintes Grupos Tradicionais e Específicos?12: Famílias de beneficiárias do Programa Nacional de Crédito Fundiário
+q20_13;q20_13_v15728_13_20. Esta Unidade realiza cadastramento de famílias pertencentes aos seguintes Grupos Tradicionais e Específicos?13: Famílias de atingidas por empreendimentos de infraestrutura
+q20_14;q20_14_v15728_14_20. Esta Unidade realiza cadastramento de famílias pertencentes aos seguintes Grupos Tradicionais e Específicos?14: Famílias de presos do sistema carcerário
+q20_15;q20_15_v15728_15_20. Esta Unidade realiza cadastramento de famílias pertencentes aos seguintes Grupos Tradicionais e Específicos?15: Famílias de catadores de material reciclável
+q20_16;q20_16_v15728_16_20. Esta Unidade realiza cadastramento de famílias pertencentes aos seguintes Grupos Tradicionais e Específicos?16: Famílias ou pessoas em situação de rua
+q20_17;q20_17_v15728_17_20. Esta Unidade realiza cadastramento de famílias pertencentes aos seguintes Grupos Tradicionais e Específicos?17: Famílias de pessoas resgatadas do trabalho análogo ao escravo
+q20_18;q20_18_v15728_18_20. Esta Unidade realiza cadastramento de famílias pertencentes aos seguintes Grupos Tradicionais e Específicos?18: Famílias com crianças/adolescentes identificados em situação de Trabalho Infantil
+q21_1_1;q21_1_1_v15730_1_21.1. Povos indigenas1: Busca ativa para inclusão/ atualização cadastral na comunidade
+q21_1_2;q21_1_2_v15730_2_21.1. Povos indigenas2: Reunião/palestra informativa na comunidade
+q21_1_3;q21_1_3_v15730_3_21.1. Povos indigenas3: Reunião/ações em parceria com lideranças
+q21_1_4;q21_1_4_v15730_4_21.1. Povos indigenas4: Reuniões/ações em parceria com outros órgãos/secretarias
+q21_1_99;q21_1_99_v15730_99_21.1. Povos indigenas99: Outras ações (responda a questão 22)
+q21_1_0;q21_1_0_v15730_0_21.1. Povos indigenas0: Não realiza ações específicas
+q21_2_1;q21_2_1_v15799_1_21.2. Comunidade Quilombola1: Busca ativa para inclusão/ atualização cadastral na comunidade
+q21_2_2;q21_2_2_v15799_2_21.2. Comunidade Quilombola2: Reunião/palestra informativa na comunidade
+q21_2_3;q21_2_3_v15799_3_21.2. Comunidade Quilombola3: Reunião/ações em parceria com lideranças
+q21_2_4;q21_2_4_v15799_4_21.2. Comunidade Quilombola4: Reuniões/ações em parceria com outros órgãos/secretarias
+q21_2_99;q21_2_99_v15799_99_21.2. Comunidade Quilombola99: Outras ações (responda a questão 22)
+q21_2_0;q21_2_0_v15799_0_21.2. Comunidade Quilombola0: Não realiza ações específicas
+q21_3_1;q21_3_1_v15731_1_21.3. Comunidade Ribeirinha1: Busca ativa para inclusão/ atualização cadastral na comunidade
+q21_3_2;q21_3_2_v15731_2_21.3. Comunidade Ribeirinha2: Reunião/palestra informativa na comunidade
+q21_3_3;q21_3_3_v15731_3_21.3. Comunidade Ribeirinha3: Reunião/ações em parceria com lideranças
+q21_3_4;q21_3_4_v15731_4_21.3. Comunidade Ribeirinha4: Reuniões/ações em parceria com outros órgãos/secretarias
+q21_3_99;q21_3_99_v15731_99_21.3. Comunidade Ribeirinha99: Outras ações (responda a questão 22)
+q21_3_0;q21_3_0_v15731_0_21.3. Comunidade Ribeirinha0: Não realiza ações específicas
+q21_4_1;q21_4_1_v15732_1_21.4. Povos ciganos1: Busca ativa para inclusão/ atualização cadastral na comunidade
+q21_4_2;q21_4_2_v15732_2_21.4. Povos ciganos2: Reunião/palestra informativa na comunidade
+q21_4_3;q21_4_3_v15732_3_21.4. Povos ciganos3: Reunião/ações em parceria com lideranças
+q21_4_4;q21_4_4_v15732_4_21.4. Povos ciganos4: Reuniões/ações em parceria com outros órgãos/secretarias
+q21_4_5;q21_4_5_v15732_5_21.4. Povos ciganos5: Outras ações (responda a questão 22)
+q21_4_6;q21_4_6_v15732_6_21.4. Povos ciganos6: Não realiza ações específicas
+q21_5_1;q21_5_1_v15733_1_21.5. Povos de Matriz Africana e de terreiro1: Busca ativa para inclusão/ atualização cadastral na comunidade
+q21_5_2;q21_5_2_v15733_2_21.5. Povos de Matriz Africana e de terreiro2: Reunião/palestra informativa na comunidade
+q21_5_3;q21_5_3_v15733_3_21.5. Povos de Matriz Africana e de terreiro3: Reunião/ações em parceria com lideranças
+q21_5_4;q21_5_4_v15733_4_21.5. Povos de Matriz Africana e de terreiro4: FReuniões/ações em parceria com outros órgãos/secretarias
+q21_5_99;q21_5_99_v15733_99_21.5. Povos de Matriz Africana e de terreiro99: Outras ações (responda a questão 22)
+q21_5_0;q21_5_0_v15733_0_21.5. Povos de Matriz Africana e de terreiro0: Não realiza ações específicas
+q21_6_1;q21_6_1_v15800_1_21.6. Extrativistas1: Busca ativa para inclusão/ atualização cadastral na comunidade
+q21_6_2;q21_6_2_v15800_2_21.6. Extrativistas2: Reunião/palestra informativa na comunidade
+q21_6_3;q21_6_3_v15800_3_21.6. Extrativistas3: Reunião/ações em parceria com lideranças
+q21_6_4;q21_6_4_v15800_4_21.6. Extrativistas4: Reuniões/ações em parceria com outros órgãos/secretarias
+q21_6_99;q21_6_99_v15800_99_21.6. Extrativistas99: Outras ações (responda a questão 22)
+q21_6_0;q21_6_0_v15800_0_21.6. Extrativistas0: Não realiza ações específicas
+q21_7_1;q21_7_1_v15801_1_21.7. Pescadores artesanais1: Busca ativa para inclusão/ atualização cadastral na comunidade
+q21_7_2;q21_7_2_v15801_2_21.7. Pescadores artesanais2: Reunião/palestra informativa na comunidade
+q21_7_3;q21_7_3_v15801_3_21.7. Pescadores artesanais3: Reunião/ações em parceria com lideranças
+q21_7_4;q21_7_4_v15801_4_21.7. Pescadores artesanais4: Reuniões/ações em parceria com outros órgãos/secretarias
+q21_7_99;q21_7_99_v15801_99_21.7. Pescadores artesanais99: Outras ações (responda a questão 22)
+q21_7_0;q21_7_0_v15801_0_21.7. Pescadores artesanais0: Não realiza ações específicas
+q21_8_1;q21_8_1_v15734_1_21.8. Ribeirinhas (famílias em calhas de rios)1: Busca ativa para inclusão/ atualização cadastral na comunidade
+q21_8_2;q21_8_2_v15734_2_21.8. Ribeirinhas (famílias em calhas de rios)2: Reunião/palestra informativa na comunidade
+q21_8_3;q21_8_3_v15734_3_21.8. Ribeirinhas (famílias em calhas de rios)3: Reunião/ações em parceria com lideranças
+q21_8_4;q21_8_4_v15734_4_21.8. Ribeirinhas (famílias em calhas de rios)4: Reuniões/ações em parceria com outros órgãos/secretarias
+q21_8_5;q21_8_5_v15734_5_21.8. Ribeirinhas (famílias em calhas de rios)5: Outras ações (responda a questão 22)
+q21_8_6;q21_8_6_v15734_6_21.8. Ribeirinhas (famílias em calhas de rios)6: Não realiza ações específicas
+q21_9_1;q21_9_1_v15735_1_21.9. Outros Grupos tradicionais e específicos. Qual?1: Busca ativa para inclusão/ atualização cadastral na comunidade
+q21_9_2;q21_9_2_v15735_2_21.9. Outros Grupos tradicionais e específicos. Qual?2: Reunião/palestra informativa na comunidade
+q21_9_3;q21_9_3_v15735_3_21.9. Outros Grupos tradicionais e específicos. Qual?3: Reunião/ações em parceria com lideranças
+q21_9_4;q21_9_4_v15735_4_21.9. Outros Grupos tradicionais e específicos. Qual?4: Reuniões/ações em parceria com outros órgãos/secretarias
+q21_9_99;q21_9_99_v15735_99_21.9. Outros Grupos tradicionais e específicos. Qual?99: Outras ações (responda a questão 22)
+q21_9_0;q21_9_0_v15735_0_21.9. Outros Grupos tradicionais e específicos. Qual?0: Não realiza ações específicas
+q21_99_1;q21_99_1_v15802_21.99.1. Qual?
+q22;q22_v15736_22. Nos últimos 12 meses, caso tenha marcado “Outras ações” na questão anterior, informe qual (is) outra(s) ações:
+q23_0;q23_0_v15737_0_23. Indique as ações e atividades desenvolvidas pela equipe desta Unidade em relação à gestão de benefícios do PBF:0: Não realiza ações e atividades relacionadas à gestão de benefícios do PBF(pule para a questão 25
+q23_1;q23_1_v15737_1_23. Indique as ações e atividades desenvolvidas pela equipe em relação à gestão de benefícios do PBF:1: As ações e atividades relacionadas à gestão de benefícios do PBF são encaminhadas para o CRAS ou outros serviços da rede
+q23_2;q23_2_v15737_2_23. Indique as ações e atividades desenvolvidas em relação à gestão de benefícios do PBF:2: Esclarecimentos individuais de dúvidas sobre regras do Programa suspensão e cancelamento
+q23_3;q23_3_v15737_3_23. Indique as ações e atividades desenvolvidas pela equipe desta Unidade em relação à gestão de benefícios do PBF:3: Ações coletivas para prestar informações às famílias sobre regras do Programa
+q23_4;q23_4_v15737_4_23. Indique as ações e atividades desenvolvidas pela equipe desta Unidade em relação à gestão de benefícios do PBF:4: Manutenção de benefícios diretamente no SIBEC
+q23_5;q23_5_v15737_5_23. Indique as ações e atividades desenvolvidas pela equipe desta Unidade em relação à gestão de benefícios do PBF:5: Registro das manutenções benefícios no Formulário Padrão de Gestão de Benefícios (FPGB) e seu arquivamento
+q23_6;q23_6_v15737_6_23. Indique as ações e atividades desenvolvidas pela equipe desta Unidade em relação à gestão de benefícios doPBF:6: Solicitação de manutenção de benefícios pelo módulo de Administração Off-line do SigPBF
+q23_7;q23_7_v15737_7_23. Indique as ações e atividades desenvolvidas pela equipe desta Unidade em relação à gestão de benefícios do PBF:7: Elaboração de ofícios à Senarc a respeito da administração de benefícios
+q23_8;q23_8_v15737_8_23. Indique as ações e atividades desenvolvidas pela equipe desta Unidade em relação à gestão de benefícios do Programa Bolsa Família:8: Emissão de declaração de troca de responsável familiar para recebimento do benefício
+q23_9;q23_9_v15737_9_23. Indique as ações e atividades desenvolvidas pela equipe desta Unidade em relação à gestão de benefícios do PBF:9: Emissão de declaração especial para recebimentto (quando em situações de emergência e calamidade pública)
+q23_10;q23_10_v15737_10_23. Indique as ações e atividades desenvolvidas pela equipe desta Unidade em relação à gestão de benefícios do PBF:10: Esclarecimentos sobre o conteúdo de mensagens no extrato de pagamentos, recebida pelo beneficiário
+q23_11;q23_11_v15737_11_23. Indique as ações e atividades desenvolvidas pela equipe desta Unidade em relação à gestão de benefícios do PBF:11: Esclarecimentos sobre pagamentos: entrega, desbloqueio e ativação do Cartão e calendário de pagamento
+q23_12;q23_12_v15737_12_23. Indique as ações e atividades desenvolvidas pela equipe desta Unidade em relação à gestão de benefícios do PBF:12: Orientação sobre como denunciar irregularidades no pagamento e no atendimento dos canais da CAIXA
+q23_13;q23_13_v15737_13_23. Indique as ações e atividades desenvolvidas pela equipe desta Unidade em relação à gestão de benefícios do Programa Bolsa Família:13: Registro de denúncias de recebimento indevido de benefícios
+q23_14;q23_14_v15737_14_23. Indique as ações e atividades desenvolvidas pela equipe desta Unidade em relação à gestão de benefícios do Programa Bolsa Família:14: Apuração de denúncias de recebimento indevido de benefícios
+q23_99_1;q23_99_1_v15737_99_23. Indique as ações e atividades desenvolvidas pela equipe desta Unidade em relação à gestão de benefícios do Programa Bolsa Família:99: Outros
+q23_99;q23_99_v15738_23.99. Quais outras ações e atividades desenvolvidas pela equipe desta Unidade em relação à gestão de benefícios do Programa Bolsa Família?
+q24_1;q24_1_v15739_1_24. Indique quais são as dificuldades enfrentadas por este posto em relação à gestão de benefícios do PBF:1: Não há dificuldades
+q24_2;q24_2_v15739_2_24. Indique quais são as dificuldades enfrentadas por este posto em relação à gestão de benefícios do PBF:2: Falta de capacitação da equipe do posto sobre as regras do Programa
+q24_3;q24_3_v15739_3_24. Indique quais são as dificuldades enfrentadas por este posto em relação à gestão de benefícios do PBF:3: As regras do Programa são complexas
+q24_4;q24_4_v15739_4_24. Indique quais são as dificuldades enfrentadas por este posto em relação à gestão de benefícios do PBF:4: As informações disponibilizadas pelo MC sobre as regras do Programa são de difícil compreensão
+q24_5;q24_5_v15739_5_24. Indique quais são as dificuldades enfrentadas por este posto em relação à gestão de benefícios do PBF:5: As informações disponibilizadas pelo Ministério da Cidadania sobre as regras do Programa são de difícil acesso
+q24_6;q24_6_v15739_6_24. Indique quais são as dificuldades enfrentadas por este posto em relação à gestão de benefícios do Programa Bolsa Família:6: Falta de informações sobre as regras do Programa
+q24_7;q24_7_v15739_7_24. Indique quais são as dificuldades enfrentadas por este posto em relação à gestão de benefícios do PBF:7: Falta de material informativo para disponibilizar no posto sobre as regras do Programa (cartazes, folders, filipetas)
+q24_8;q24_8_v15739_8_24. Indique quais são as dificuldades enfrentadas por este posto em relação à gestão de benefícios do PBF:8: Baixa qualidade da internet
+q24_9;q24_9_v15739_9_24. Indique quais são as dificuldades enfrentadas por este posto em relação à gestão de benefícios do PBF:9: Falta de acesso à internet
+q24_10;q24_10_v15739_10_24. Indique quais são as dificuldades enfrentadas por este posto em relação à gestão de benefícios do PBF:10: Equipe do posto não tem acesso ao SIBEC
+q24_11;q24_11_v15739_11_24. Indique quais são as dificuldades enfrentadas por este posto em relação à gestão de benefícios do PBF:11: Instabilidade do SIBEC
+q24_12;q24_12_v15739_12_24. Indique quais são as dificuldades enfrentadas por este posto em relação à gestão de benefícios do PBF:12: Equipe do posto não tem acesso ao SigPBF
+q24_13;q24_13_v15739_13_24. Indique quais são as dificuldades enfrentadas por este posto em relação à gestão de benefícios doPBF:13: Instabilidade do SigPBF
+q24_14;q24_14_v15739_14_24. Indique quais são as dificuldades enfrentadas por este posto em relação à gestão de benefícios do PBF:14: Grande número de atendimentos em decorrência dos processos de gestão de benefícios:
+q24_15;q24_15_v15739_15_24. Indique quais são as dificuldades enfrentadas em relação à gestão de benefícios do PBF:15: Grande número de atendimentos: bloqueios e suspensões de condicionalidades e de não localizados no sistema de ensino
+q24_16;q24_16_v15739_16_24. Indique quais são as dificuldades enfrentadas em relação à gestão de benefícios do PBF:16: Grande número de atendimentos: suspensões em decorrência do recebimento do seguro-defeso
+q24_17;q24_17_v15739_17_24. Indique quais são as dificuldades enfrentadas por este posto em relação à gestão de benefícios do PBF:17: Número reduzido de pessoas na equipe para suprir a demanda de atendimento
+q24_18;q24_18_v15739_18_24. Indique quais são as dificuldades enfrentadas por este posto em relação à gestão de benefícios do PBF:18: Outros.
+q24_1_1;q24_1_1_v15740_24.1. Quais outras dificuldades enfrentadas por este posto em relação à gestão de benefícios do Programa Bolsa Família?
+q25_0;q25_0_v15742_0_25. Indique as ações e atividades desenvolvidas pela equipe desta Unidade em relação às famílias em descumprimento de condicionalidades:0: Não realiza atividades com famílias em descumprimento de condicionalidades
+q25_1;q25_1_v15742_1_25. Indique as ações e atividades desenvolvidas em relação às famílias em descumprimento de condicionalidades:1: Esclarecimentos às famílias sobre as regras de condicionalidades durante o atendimento particularizado
+q25_2;q25_2_v15742_2_25. Indique as ações e atividades desenvolvidas em relação às famílias em descumprimento de condicionalidades:2: Interação com as escolas dos beneficiários em descumprimento
+q25_3;q25_3_v15742_3_25. Indique as ações e atividades desenvolvidas pela em relação às famílias em descumprimento de condicionalidades:3: Interação com a equipe de saúde no município responsável pelo acompanhamento das condicionalidades de saúde
+q25_4;q25_4_v15742_4_25. Indique as ações e atividades desenvolvidas em relação às famílias em descumprimento de condicionalidades:4: Ação para prestar informações às famílias sobre as condicionalidades (palestras, oficinas em grupo, etc)
+q25_5;q25_5_v15742_5_25. Indique as ações e atividades desenvolvidas em relação às famílias em descumprimento condicionalidades:5: Busca ativa com a finalidade de facilitar a apresentação de recurso pelas famílias
+q25_6;q25_6_v15742_6_25. Indique as ações e atividades desenvolvidas pela equipe desta Unidade em relação às famílias em descumprimento de condicionalidades:6: Fornecimento de comprovante do registro de recurso para as famílias
+q25_7;q25_7_v15742_7_25. Indique as ações e atividades desenvolvidas pela equipe desta Unidade em relação às famílias em descumprimento de condicionalidades:7: Arquivamento da documentação comprobatória apresentada pela família no registro do recurso
+q25_8;q25_8_v15742_8_25. Indique as ações e atividades desenvolvidas em relação às famílias em descumprimento de condicionalidades:8: Encaminhamento de famílias ou indivíduos para outros serviços, programas ou benefícios socioassistenciais
+q25_9;q25_9_v15742_9_25. Indique as ações e atividades desenvolvidas em relação às famílias em descumprimento de condicionalidades:9: Encaminhamento de famílias ou indivíduos para outras políticas públicas (educação, saúde, habitação, trabalho, et
+q25_99;q25_99_v15742_99_25. Indique as ações e atividades desenvolvidas pela equipe desta Unidade em relação às famílias em descumprimento de condicionalidades:99: Outros.
+q25_99_1;q25_99_1_v15743_25.99. Indique quais outras ações e atividades desenvolvidas pela equipe desta Unidade em relação às famílias em descumprimento de condicionalidades:
+q26;q26_v15746_26. Este posto realiza registro de RECURSO por descumprimento de condicionalidades do Programa Bolsa Família?
+q27;q27_v15747_27. Considerando SOMENTE as famílias em descumprimento de condicionalidades, informe por quais formas as famílias podem acessar esta Unidades para apresentar RECURSO?
+q28_1;q28_1_v15748_1_28. Este posto recebe denúncia de fraudes de recebimento de benefícios do Programa Bolsa Família e qual o tratamento dado?1: Sim, as denúncias são tratadas aqui e depois encaminhadas à Secretaria Municipal
+q28_2;q28_2_v15748_2_28. Este posto recebe denúncia de fraudes de recebimento de benefícios do Programa Bolsa Família e qual o tratamento dado?2: Sim, as denúncias são encaminhadas para tratamento pela Secretaria Municipal
+q28_99;q28_99_v15748_99_28. Este posto recebe denúncia de fraudes de recebimento de benefícios do Programa Bolsa Família e qual o tratamento dado?99: Outros.
+q28_0;q28_0_v15748_0_28. Este posto recebe denúncia de fraudes de recebimento de benefícios do Programa Bolsa Família e qual o tratamento dado?0: Não recebemos denúncias
+q28_98;q28_98_v15748_98_28. Este posto recebe denúncia de fraudes de recebimento de benefícios do Programa Bolsa Família e qual o tratamento dado?98: Não sei informar
+q28_1_1;q28_1_1_v15749_28.1. Qual?
+q29;q29_v15750_29. Esta unidade participa do planejamento dos recursos recebidos no âmbito do IGD-PBF?
+q30_1_1;q30_1_1_v15752_1_30.1. Benefício de Prestação Continuada1: ...realiza cadastro de pessoas que já são ou poderão ser usuárias/beneficiárias do programa/atividade/benefício
+q30_1_2;q30_1_2_v15752_2_30.1. Benefício de Prestação Continuada2: ...presta orientações
+q30_1_3;q30_1_3_v15752_3_30.1. Benefício de Prestação Continuada3: ...encaminha a família para os locais de gestão/oferta
+q30_1_4;q30_1_4_v15752_4_30.1. Benefício de Prestação Continuada4: ...realiza atividades de gestão/oferta neste posto
+q30_1_5;q30_1_5_v15752_5_30.1. Benefício de Prestação Continuada5: .... naõ tem informações suficientes sobre o programa/atividade/benefício
+q30_1_0;q30_1_0_v15752_0_30.1. Benefício de Prestação Continuada0: ...não possui ação específica
+q30_2_1;q30_2_1_v15753_1_30.2. Carteira do idoso1: ...realiza cadastro de pessoas que já são ou poderão ser usuárias/beneficiárias do programa/atividade/benefício
+q30_2_2;q30_2_2_v15753_2_30.2. Carteira do idoso2: ...presta orientações
+q30_2_3;q30_2_3_v15753_3_30.2. Carteira do idoso3: ...encaminha a família para os locais de gestão/oferta
+q30_2_4;q30_2_4_v15753_4_30.2. Carteira do idoso4: ...realiza atividades de gestão/oferta neste posto
+q30_2_5;q30_2_5_v15753_5_30.2. Carteira do idoso5: .... naõ tem informações suficientes sobre o programa/atividade/benefício
+q30_2_0;q30_2_0_v15753_0_30.2. Carteira do idoso0: ...não possui ação específica
+q30_3_1;q30_3_1_v15754_1_30.3. Serviços de Convivência e Fortalecimento de Vínculos1: ...realiza cadastro de pessoas que já são ou poderão ser usuárias/beneficiárias do programa/atividade/benefício
+q30_3_2;q30_3_2_v15754_2_30.3. Serviços de Convivência e Fortalecimento de Vínculos2: ...presta orientações
+q30_3_3;q30_3_3_v15754_3_30.3. Serviços de Convivência e Fortalecimento de Vínculos3: ...encaminha a família para os locais de gestão/oferta
+q30_3_4;q30_3_4_v15754_4_30.3. Serviços de Convivência e Fortalecimento de Vínculos4: ...realiza atividades de gestão/oferta neste posto
+q30_3_5;q30_3_5_v15754_5_30.3. Serviços de Convivência e Fortalecimento de Vínculos5: .... naõ tem informações suficientes sobre o programa/atividade/benefício
+q30_3_0;q30_3_0_v15754_0_30.3. Serviços de Convivência e Fortalecimento de Vínculos0: ...não possui ação específica
+q30_4_1;q30_4_1_v15755_1_30.4. Programa Criança Feliz1: ...realiza cadastro de pessoas que já são ou poderão ser usuárias/beneficiárias do programa/atividade/benefício
+q30_4_2;q30_4_2_v15755_2_30.4. Programa Criança Feliz2: ...presta orientações
+q30_4_3;q30_4_3_v15755_3_30.4. Programa Criança Feliz3: ...encaminha a família para os locais de gestão/oferta
+q30_4_4;q30_4_4_v15755_4_30.4. Programa Criança Feliz4: ...realiza atividades de gestão/oferta neste posto
+q30_4_5;q30_4_5_v15755_5_30.4. Programa Criança Feliz5: .... naõ tem informações suficientes sobre o programa/atividade/benefício
+q30_4_6;q30_4_6_v15755_6_30.4. Programa Criança Feliz6: ...não possui ação específica
+q30_5_1;q30_5_1_v15756_1_30.5. Programa de Erradicação do Trabalho Infantil1: ...realiza cadastro de pessoas que já são ou poderão ser usuárias/beneficiárias do programa/atividade/benefício
+q30_5_2;q30_5_2_v15756_2_30.5. Programa de Erradicação do Trabalho Infantil2: ...presta orientações
+q30_5_3;q30_5_3_v15756_3_30.5. Programa de Erradicação do Trabalho Infantil3: ...encaminha a família para os locais de gestão/oferta
+q30_5_4;q30_5_4_v15756_4_30.5. Programa de Erradicação do Trabalho Infantil4: ...realiza atividades de gestão/oferta neste posto
+q30_5_5;q30_5_5_v15756_5_30.5. Programa de Erradicação do Trabalho Infantil5: .... naõ tem informações suficientes sobre o programa/atividade/benefício
+q30_5_0;q30_5_0_v15756_0_30.5. Programa de Erradicação do Trabalho Infantil0: ...não possui ação específica
+q30_6_1;q30_6_1_v15757_1_30.6. Plano Progredir - Programa Nacional do Microcrédito Produtivo Orientado1: ...realiza cadastro de pessoas que já são ou poderão ser usuárias/beneficiárias do programa/atividade/benefício
+q30_6_2;q30_6_2_v15757_2_30.6. Plano Progredir - Programa Nacional do Microcrédito Produtivo Orientado2: ...presta orientações
+q30_6_3;q30_6_3_v15757_3_30.6. Plano Progredir - Programa Nacional do Microcrédito Produtivo Orientado3: ...encaminha a família para os locais de gestão/oferta
+q30_6_4;q30_6_4_v15757_4_30.6. Plano Progredir - Programa Nacional do Microcrédito Produtivo Orientado4: ...realiza atividades de gestão/oferta neste posto
+q30_6_5;q30_6_5_v15757_5_30.6. Plano Progredir - Programa Nacional do Microcrédito Produtivo Orientado5: .... naõ tem informações suficientes sobre o programa/atividade/benefício
+q30_6_0;q30_6_0_v15757_0_30.6. Plano Progredir - Programa Nacional do Microcrédito Produtivo Orientado0: ...não possui ação específica
+q30_7_1;q30_7_1_v15857_1_30.7. Tarifa Social de Energia Elétrica1: ...realiza cadastro de pessoas que já são ou poderão ser usuárias/beneficiárias do programa/atividade/benefício
+q30_7_2;q30_7_2_v15857_2_30.7. Tarifa Social de Energia Elétrica2: ...presta orientações
+q30_7_3;q30_7_3_v15857_3_30.7. Tarifa Social de Energia Elétrica3: ...encaminha a família para os locais de gestão/oferta
+q30_7_4;q30_7_4_v15857_4_30.7. Tarifa Social de Energia Elétrica4: ...realiza atividades de gestão/oferta neste posto
+q30_7_5;q30_7_5_v15857_5_30.7. Tarifa Social de Energia Elétrica5: .... naõ tem informações suficientes sobre o programa/atividade/benefício
+q30_7_0;q30_7_0_v15857_0_30.7. Tarifa Social de Energia Elétrica0: ...não possui ação específica
+q30_8_1;q30_8_1_v15858_1_30.8. Programa Minha Casa Minha Vida1: ...realiza cadastro de pessoas que já são ou poderão ser usuárias/beneficiárias do programa/atividade/benefício
+q30_8_2;q30_8_2_v15858_2_30.8. Programa Minha Casa Minha Vida2: ...presta orientações
+q30_8_3;q30_8_3_v15858_3_30.8. Programa Minha Casa Minha Vida3: ...encaminha a família para os locais de gestão/oferta
+q30_8_4;q30_8_4_v15858_4_30.8. Programa Minha Casa Minha Vida4: ...realiza atividades de gestão/oferta neste posto
+q30_8_5;q30_8_5_v15858_5_30.8. Programa Minha Casa Minha Vida5: .... não tem informações suficientes sobre o programa/atividade/benefício
+q30_8_0;q30_8_0_v15858_0_30.8. Programa Minha Casa Minha Vida0: ...não possui ação específica
+q30_9_1;q30_9_1_v15859_1_30.9. Aposentadoria para Pessoas de Baixa Renda/ Facultativo de Baixa Renda1: ...realiza cadastro de pessoas que já são ou poderão ser usuárias/beneficiárias do programa/atividade/benefício
+q30_9_2;q30_9_2_v15859_2_30.9. Aposentadoria para Pessoas de Baixa Renda/ Facultativo de Baixa Renda2: ...presta orientações
+q30_9_3;q30_9_3_v15859_3_30.9. Aposentadoria para Pessoas de Baixa Renda/ Facultativo de Baixa Renda3: ...encaminha a família para os locais de gestão/oferta
+q30_9_4;q30_9_4_v15859_4_30.9. Aposentadoria para Pessoas de Baixa Renda/ Facultativo de Baixa Renda4: ...realiza atividades de gestão/oferta neste posto
+q30_9_5;q30_9_5_v15859_5_30.9. Aposentadoria para Pessoas de Baixa Renda/ Facultativo de Baixa Renda5: .... naõ tem informações suficientes sobre o programa/atividade/benefício
+q30_9_0;q30_9_0_v15859_0_30.9. Aposentadoria para Pessoas de Baixa Renda/ Facultativo de Baixa Renda0: ...não possui ação específica
+q30_10_1;q30_10_1_v15860_1_30.10. Telefone Popular1: ...realiza cadastro de pessoas que já são ou poderão ser usuárias/beneficiárias do programa/atividade/benefício
+q30_10_2;q30_10_2_v15860_2_30.10. Telefone Popular2: ...presta orientações
+q30_10_3;q30_10_3_v15860_3_30.10. Telefone Popular3: ...encaminha a família para os locais de gestão/oferta
+q30_10_4;q30_10_4_v15860_4_30.10. Telefone Popular4: ...realiza atividades de gestão/oferta neste posto
+q30_10_5;q30_10_5_v15860_5_30.10. Telefone Popular5: .... naõ tem informações suficientes sobre o programa/atividade/benefício
+q30_10_0;q30_10_0_v15860_0_30.10. Telefone Popular0: ...não possui ação específica
+q30_11_1;q30_11_1_v15861_1_30.11. Isenção de Pagamento de Taxa de Inscrição em Concursos Públicos1: ...realiza cadastro de pessoas que já são ou poderão ser usuárias/beneficiárias do programa/atividade/benefício
+q30_11_2;q30_11_2_v15861_2_30.11. Isenção de Pagamento de Taxa de Inscrição em Concursos Públicos2: ...presta orientações
+q30_11_3;q30_11_3_v15861_3_30.11. Isenção de Pagamento de Taxa de Inscrição em Concursos Públicos3: ...encaminha a família para os locais de gestão/oferta
+q30_11_4;q30_11_4_v15861_4_30.11. Isenção de Pagamento de Taxa de Inscrição em Concursos Públicos4: ...realiza atividades de gestão/oferta neste posto
+q30_11_5;q30_11_5_v15861_5_30.11. Isenção de Pagamento de Taxa de Inscrição em Concursos Públicos5: .... naõ tem informações suficientes sobre o programa/atividade/benefício
+q30_11_0;q30_11_0_v15861_0_30.11. Isenção de Pagamento de Taxa de Inscrição em Concursos Públicos0: ...não possui ação específica
+q30_12_1;q30_12_1_v15862_1_30.12. Programas Cisternas1: ...realiza cadastro de pessoas que já são ou poderão ser usuárias/beneficiárias do programa/atividade/benefício
+q30_12_2;q30_12_2_v15862_2_30.12. Programas Cisternas2: ...presta orientações
+q30_12_3;q30_12_3_v15862_3_30.12. Programas Cisternas3: ...encaminha a família para os locais de gestão/oferta
+q30_12_4;q30_12_4_v15862_4_30.12. Programas Cisternas4: ...realiza atividades de gestão/oferta neste posto
+q30_12_5;q30_12_5_v15862_5_30.12. Programas Cisternas5: .... naõ tem informações suficientes sobre o programa/atividade/benefício
+q30_12_0;q30_12_0_v15862_0_30.12. Programas Cisternas0: ...não possui ação específica
+q30_13_1;q30_13_1_v15863_1_30.13. Programa de Fomento às Atividades Produtivas Rurais/ Assistência Técnica e Extensão Rural1: ...realiza cadastro de pessoas que já são ou poderão ser usuárias/beneficiárias do programa/atividade/benefício
+q30_13_2;q30_13_2_v15863_2_30.13. Programa de Fomento às Atividades Produtivas Rurais/ Assistência Técnica e Extensão Rural2: ...presta orientações
+q30_13_3;q30_13_3_v15863_3_30.13. Programa de Fomento às Atividades Produtivas Rurais/ Assistência Técnica e Extensão Rural3: ...encaminha a família para os locais de gestão/oferta
+q30_13_4;q30_13_4_v15863_4_30.13. Programa de Fomento às Atividades Produtivas Rurais/ Assistência Técnica e Extensão Rural4: ...realiza atividades de gestão/oferta neste posto
+q30_13_5;q30_13_5_v15863_5_30.13. Programa de Fomento às Atividades Produtivas Rurais/ Assistência Técnica e Extensão Rural5: .... naõ tem informações suficientes sobre o programa/atividade/benefício
+q30_13_0;q30_13_0_v15863_0_30.13. Programa de Fomento às Atividades Produtivas Rurais/ Assistência Técnica e Extensão Rural0: ...não possui ação específica
+q30_14_1;q30_14_1_v15864_1_30.14. Programa Nacional de Reforma Agrária1: ...realiza cadastro de pessoas que já são ou poderão ser usuárias/beneficiárias do programa/atividade/benefício
+q30_14_2;q30_14_2_v15864_2_30.14. Programa Nacional de Reforma Agrária2: ...presta orientações
+q30_14_3;q30_14_3_v15864_3_30.14. Programa Nacional de Reforma Agrária3: ...encaminha a família para os locais de gestão/oferta
+q30_14_4;q30_14_4_v15864_4_30.14. Programa Nacional de Reforma Agrária4: ...realiza atividades de gestão/oferta neste posto
+q30_14_5;q30_14_5_v15864_5_30.14. Programa Nacional de Reforma Agrária5: .... não tem informações suficientes sobre o programa/atividade/benefício
+q30_14_0;q30_14_0_v15864_0_30.14. Programa Nacional de Reforma Agrária0: ...não possui ação específica
+q30_15_1;q30_15_1_v15865_1_30.15. Programa Nacional de Crédito Fundiário1: ...realiza cadastro de pessoas que já são ou poderão ser usuárias/beneficiárias do programa/atividade/benefício
+q30_15_2;q30_15_2_v15865_2_30.15. Programa Nacional de Crédito Fundiário2: ...presta orientações
+q30_15_3;q30_15_3_v15865_3_30.15. Programa Nacional de Crédito Fundiário3: ...encaminha a família para os locais de gestão/oferta
+q30_15_4;q30_15_4_v15865_4_30.15. Programa Nacional de Crédito Fundiário4: ...realiza atividades de gestão/oferta neste posto
+q30_15_5;q30_15_5_v15865_5_30.15. Programa Nacional de Crédito Fundiário5: .... não tem informações suficientes sobre o programa/atividade/benefício
+q30_15_0;q30_15_0_v15865_0_30.15. Programa Nacional de Crédito Fundiário0: ...não possui ação específica
+q30_16_1;q30_16_1_v15869_1_30.16. Crédito Instalação do Programa Nacional de Reforma Agrária1: ...realiza cadastro de pessoas que já são ou poderão ser usuárias/beneficiárias do programa/atividade/benefício
+q30_16_2;q30_16_2_v15869_2_30.16. Crédito Instalação do Programa Nacional de Reforma Agrária2: ...presta orientações
+q30_16_3;q30_16_3_v15869_3_30.16. Crédito Instalação do Programa Nacional de Reforma Agrária3: ...encaminha a família para os locais de gestão/oferta
+q30_16_4;q30_16_4_v15869_4_30.16. Crédito Instalação do Programa Nacional de Reforma Agrária4: ...realiza atividades de gestão/oferta neste posto
+q30_16_5;q30_16_5_v15869_5_30.16. Crédito Instalação do Programa Nacional de Reforma Agrária5: .... naõ tem informações suficientes sobre o programa/atividade/benefício
+q30_16_0;q30_16_0_v15869_0_30.16. Crédito Instalação do Programa Nacional de Reforma Agrária0: ...não possui ação específica
+q30_17_1;q30_17_1_v15880_1_30.17. Identidade Jovem (ID Jovem)1: ...realiza cadastro de pessoas que já são ou poderão ser usuárias/beneficiárias do programa/atividade/benefício
+q30_17_2;q30_17_2_v15880_2_30.17. Identidade Jovem (ID Jovem)2: ...presta orientações
+q30_17_3;q30_17_3_v15880_3_30.17. Identidade Jovem (ID Jovem)3: ...encaminha a família para os locais de gestão/oferta
+q30_17_4;q30_17_4_v15880_4_30.17. Identidade Jovem (ID Jovem)4: ...realiza atividades de gestão/oferta neste posto
+q30_17_5;q30_17_5_v15880_5_30.17. Identidade Jovem (ID Jovem)5: .... não tem informações suficientes sobre o programa/atividade/benefício
+q30_17_0;q30_17_0_v15880_0_30.17. Identidade Jovem (ID Jovem)0: ...não possui ação específica
+q30_18_1;q30_18_1_v15883_1_30.18. Ação de Distribuição de Alimentos1: ...realiza cadastro de pessoas que já são ou poderão ser usuárias/beneficiárias do programa/atividade/benefício
+q30_18_2;q30_18_2_v15883_2_30.18. Ação de Distribuição de Alimentos2: ...presta orientações
+q30_18_3;q30_18_3_v15883_3_30.18. Ação de Distribuição de Alimentos3: ...encaminha a família para os locais de gestão/oferta
+q30_18_4;q30_18_4_v15883_4_30.18. Ação de Distribuição de Alimentos4: ...realiza atividades de gestão/oferta neste posto
+q30_18_5;q30_18_5_v15883_5_30.18. Ação de Distribuição de Alimentos5: .... não tem informações suficientes sobre o programa/atividade/benefício
+q30_18_0;q30_18_0_v15883_0_30.18. Ação de Distribuição de Alimentos0: ...não possui ação específica
+q30_19_1;q30_19_1_v15885_1_30.19. Concessão de bolsas por entidades com Certificação  com atuação na área da educação (CEBAS-Educação)1: ...realiza cadastro de pessoas que já são ou poderão ser usuárias/beneficiárias do programa/atividade/benefício
+q30_19_2;q30_19_2_v15885_2_30.19. Concessão de bolsas por entidades com Certificação com atuação na área da educação (CEBAS-Educação)2: ...presta orientações
+q30_19_3;q30_19_3_v15885_3_30.19. Concessão de bolsas por entidades com Certificação de Entidades Beneficentes de Assistência Social com atuação na área da educação (CEBAS-Educação)3: ...encaminha a família para os locais de gestão/oferta
+q30_19_4;q30_19_4_v15885_4_30.19. Concessão de bolsas por entidades com Certificação com atuação na área da educação (CEBAS-Educação)4: ...realiza atividades de gestão/oferta neste posto
+q30_19_5;q30_19_5_v15885_5_30.19. Concessão de bolsas por entidades com Certificação com atuação na área da educação (CEBAS-Educação)5: .... não tem informações suficientes sobre o programa/atividade/benefício
+q30_19_0;q30_19_0_v15885_0_30.19. Concessão de bolsas por entidades com Certificação com atuação na área da educação (CEBAS-Educação)0: ...não possui ação específica
+q30_20_1;q30_20_1_v15886_1_30.20. Isenções na taxa de inscrição para o Exame Nacional do Ensino Médio (Enem)1: ...realiza cadastro de pessoas que já são ou poderão ser usuárias/beneficiárias do programa/atividade/benefício
+q30_20_2;q30_20_2_v15886_2_30.20. Isenções na taxa de inscrição para o Exame Nacional do Ensino Médio (Enem)2: ...presta orientações
+q30_20_3;q30_20_3_v15886_3_30.20. Isenções na taxa de inscrição para o Exame Nacional do Ensino Médio (Enem)3: ...encaminha a família para os locais de gestão/oferta
+q30_20_4;q30_20_4_v15886_4_30.20. Isenções na taxa de inscrição para o Exame Nacional do Ensino Médio (Enem)4: ...realiza atividades de gestão/oferta neste posto
+q30_20_5;q30_20_5_v15886_5_30.20. Isenções na taxa de inscrição para o Exame Nacional do Ensino Médio (Enem)5: .... não tem informações suficientes sobre o programa/atividade/benefício
+q30_20_0;q30_20_0_v15886_0_30.20. Isenções na taxa de inscrição para o Exame Nacional do Ensino Médio (Enem)0: ...não possui ação específica
+q30_21_1;q30_21_1_v15887_1_30.21. Sistema de Seleção Unificada - Sisu/Lei de cotas1: ...realiza cadastro de pessoas que já são ou poderão ser usuárias/beneficiárias do programa/atividade/benefício
+q30_21_2;q30_21_2_v15887_2_30.21. Sistema de Seleção Unificada - Sisu/Lei de cotas2: ...presta orientações
+q30_21_3;q30_21_3_v15887_3_30.21. Sistema de Seleção Unificada - Sisu/Lei de cotas3: ...encaminha a família para os locais de gestão/oferta
+q30_21_4;q30_21_4_v15887_4_30.21. Sistema de Seleção Unificada - Sisu/Lei de cotas4: ...encaminha a família para os locais de gestão/oferta ...realiza atividades de gestão/oferta neste posto
+q30_21_5;q30_21_5_v15887_5_30.21. Sistema de Seleção Unificada - Sisu/Lei de cotas5: .... não tem informações suficientes sobre o programa/atividade/benefício
+q30_21_6;q30_21_6_v15887_6_30.21. Sistema de Seleção Unificada - Sisu/Lei de cotas6: ...não possui ação específica
+q30_22_1;q30_22_1_v15888_1_30.22. Programa de Urbanização de Assentamento Precários1: ...realiza cadastro de pessoas que já são ou poderão ser usuárias/beneficiárias do programa/atividade/benefício
+q30_22_2;q30_22_2_v15888_2_30.22. Programa de Urbanização de Assentamento Precários2: ...presta orientações
+q30_22_3;q30_22_3_v15888_3_30.22. Programa de Urbanização de Assentamento Precários3: ...encaminha a família para os locais de gestão/oferta
+q30_22_4;q30_22_4_v15888_4_30.22. Programa de Urbanização de Assentamento Precários4: ...realiza atividades de gestão/oferta neste posto
+q30_22_5;q30_22_5_v15888_5_30.22. Programa de Urbanização de Assentamento Precários5: .... não tem informações suficientes sobre o programa/atividade/benefício
+q30_22_0;q30_22_0_v15888_0_30.22. Programa de Urbanização de Assentamento Precários0: ...não possui ação específica
+q30_23_1;q30_23_1_v15889_1_30.23. Programa Estratégia Brasil Amigo da Pessoa Idosa1: ...realiza cadastro de pessoas que já são ou poderão ser usuárias/beneficiárias do programa/atividade/benefício
+q30_23_2;q30_23_2_v15889_2_30.23. Programa Estratégia Brasil Amigo da Pessoa Idosa2: ...presta orientações
+q30_23_3;q30_23_3_v15889_3_30.23. Programa Estratégia Brasil Amigo da Pessoa Idosa3: ...encaminha a família para os locais de gestão/oferta
+q30_23_4;q30_23_4_v15889_4_30.23. Programa Estratégia Brasil Amigo da Pessoa Idosa4: ...realiza atividades de gestão/oferta neste posto
+q30_23_5;q30_23_5_v15889_5_30.23. Programa Estratégia Brasil Amigo da Pessoa Idosa5: .... não tem informações suficientes sobre o programa/atividade/benefício
+q30_23_0;q30_23_0_v15889_0_30.23. Programa Estratégia Brasil Amigo da Pessoa Idosa0: ...não possui ação específica
+q30_24_1;q30_24_1_v15890_1_30.24. Projeto Dom Hélder Câmara1: ...realiza cadastro de pessoas que já são ou poderão ser usuárias/beneficiárias do programa/atividade/benefício
+q30_24_2;q30_24_2_v15890_2_30.24. Projeto Dom Hélder Câmara2: ...presta orientações
+q30_24_3;q30_24_3_v15890_3_30.24. Projeto Dom Hélder Câmara3: ...encaminha a família para os locais de gestão/oferta
+q30_24_4;q30_24_4_v15890_4_30.24. Projeto Dom Hélder Câmara4: ...realiza atividades de gestão/oferta neste posto
+q30_24_5;q30_24_5_v15890_5_30.24. Projeto Dom Hélder Câmara5: .... não tem informações suficientes sobre o programa/atividade/benefício
+q30_24_0;q30_24_0_v15890_0_30.24. Projeto Dom Hélder Câmara0: ...não possui ação específica
+q31_0_1;q31_0_1_v16328_1_31.0.1. Habilita Programa 11: 
+q31_1_1;q31_1_1_v15759_31.1.1. Nome do Programa:
+q31_2_1_1;q31_2_1_1_v15760_1_31.2.1. Área de atuação:1: Assistência Social
+q31_2_1_2;q31_2_1_2_v15760_2_31.2.1. Área de atuação:2: Transferência de renda
+q31_2_1_3;q31_2_1_3_v15760_3_31.2.1. Área de atuação:3: Descontos/isenções
+q31_2_1_4;q31_2_1_4_v15760_4_31.2.1. Área de atuação:4: Saúde
+q31_2_1_5;q31_2_1_5_v15760_5_31.2.1. Área de atuação:5: Educação
+q31_2_1_6;q31_2_1_6_v15760_6_31.2.1. Área de atuação:6: Moradia
+q31_2_1_7;q31_2_1_7_v15760_7_31.2.1. Área de atuação:7: Trabalho e emprego
+q31_2_1_8;q31_2_1_8_v15760_8_31.2.1. Área de atuação:8: Segurança alimentar
+q31_2_1_99;q31_2_1_99_v15760_99_31.2.1. Área de atuação:99: Outra
+q31_99_1;q31_99_1_v15761_31.99.1. Qual outra área de atuação?
+q31_3_1;q31_3_1_v15762_31.3.1. Programa Estadual ou municipal?
+q31_4_1_1;q31_4_1_1_v15763_1_31.4.1. Em relação a este programa, este posto:1: realiza o cadastro
+q31_4_1_2;q31_4_1_2_v15763_2_31.4.1. Em relação a este programa, este posto:2: presta orientação
+q31_4_1_3;q31_4_1_3_v15763_3_31.4.1. Em relação a este programa, este posto:3: encaminha para os locais de oferta/gestão
+q31_4_1_4;q31_4_1_4_v15763_4_31.4.1. Em relação a este programa, este posto:4: realiza atividades de gestão/oferta neste posto
+q31_4_1_0;q31_4_1_0_v15763_0_31.4.1. Em relação a este programa, este posto:0: não possui ação específica
+q31_0_2;q31_0_2_v16331_1_31.0.2. Habilita Programa 21: 
+q31_1_2;q31_1_2_v16313_31.1.2. Nome do Programa:
+q31_2_2_1;q31_2_2_1_v16316_1_31.2.2. Área de atuação:1: Assistência Social
+q31_2_2_2;q31_2_2_2_v16316_2_31.2.2. Área de atuação:2: Transferência de Renda
+q31_2_2_3;q31_2_2_3_v16316_3_31.2.2. Área de atuação:3: Descontos/isenções
+q31_2_2_4;q31_2_2_4_v16316_4_31.2.2. Área de atuação:4: Saúde
+q31_2_2_5;q31_2_2_5_v16316_5_31.2.2. Área de atuação:5: Educação
+q31_2_2_6;q31_2_2_6_v16316_6_31.2.2. Área de atuação:6: Moradia
+q31_2_2_7;q31_2_2_7_v16316_7_31.2.2. Área de atuação:7: Trabalho e emprego
+q31_2_2_8;q31_2_2_8_v16316_8_31.2.2. Área de atuação:8: Segurança alimentar
+q31_2_2_99;q31_2_2_99_v16316_99_31.2.2. Área de atuação:99: Outra
+q31_99_2;q31_99_2_v16325_31.99.2. Qual outra área de atuação?
+q31_3_2;q31_3_2_v16319_31.3.2. Programa Estadual ou municipal?
+q31_4_2_1;q31_4_2_1_v16322_1_31.4.2. Em relação a este programa, este posto:1: realiza o cadastro
+q31_4_2_2;q31_4_2_2_v16322_2_31.4.2. Em relação a este programa, este posto:2: presta orientação
+q31_4_2_3;q31_4_2_3_v16322_3_31.4.2. Em relação a este programa, este posto:3: encaminha para os locais de oferta/gestão
+q31_4_2_4;q31_4_2_4_v16322_4_31.4.2. Em relação a este programa, este posto:4: realiza atividades de gestão/oferta neste posto
+q31_4_2_0;q31_4_2_0_v16322_0_31.4.2. Em relação a este programa, este posto:0: não possui ação específica
+q31_0_3;q31_0_3_v16329_1_31.0.3. Habilita Programa 31: 
+q31_1_3;q31_1_3_v16314_31.1.3. Nome do Programa:
+q31_2_3_1;q31_2_3_1_v16317_1_31.2.3. Área de atuação:1: Assistência Social
+q31_2_3_2;q31_2_3_2_v16317_2_31.2.3. Área de atuação:2: Transferência de Renda
+q31_2_3_3;q31_2_3_3_v16317_3_31.2.3. Área de atuação:3: Descontos/isenções
+q31_2_3_4;q31_2_3_4_v16317_4_31.2.3. Área de atuação:4: Saúde
+q31_2_3_5;q31_2_3_5_v16317_5_31.2.3. Área de atuação:5: Educação
+q31_2_3_6;q31_2_3_6_v16317_6_31.2.3. Área de atuação:6: Moradia
+q31_2_3_7;q31_2_3_7_v16317_7_31.2.3. Área de atuação:7: Trabalho e emprego
+q31_2_3_8;q31_2_3_8_v16317_8_31.2.3. Área de atuação:8: Segurança alimentar
+q31_2_3_99;q31_2_3_99_v16317_99_31.2.3. Área de atuação:99: Outra
+q31_99_3;q31_99_3_v16326_31.99.3. Qual outra área de atuação?
+q31_3_3;q31_3_3_v16320_31.3.3. Programa Estadual ou municipal?
+q31_4_3_1;q31_4_3_1_v16323_1_31.4.3. Em relação a este programa, este posto:1: realiza o cadastro
+q31_4_3_2;q31_4_3_2_v16323_2_31.4.3. Em relação a este programa, este posto:2: presta orientação
+q31_4_3_3;q31_4_3_3_v16323_3_31.4.3. Em relação a este programa, este posto:3: encaminha para os locais de oferta/gestão
+q31_4_3_4;q31_4_3_4_v16323_4_31.4.3. Em relação a este programa, este posto:4: realiza atividades de gestão/oferta neste posto
+q31_4_3_0;q31_4_3_0_v16323_0_31.4.3. Em relação a este programa, este posto:0: não possui ação específica
+q31_0_4;q31_0_4_v16330_1_31.0.4. Habilita Programa 41: 
+q31_1_4;q31_1_4_v16315_31.1.4. Nome do Programa:
+q31_2_4_1;q31_2_4_1_v16318_1_31.2.4. Área de atuação:1: Assistência Social
+q31_2_4_2;q31_2_4_2_v16318_2_31.2.4. Área de atuação:2: Transferência de Renda
+q31_2_4_3;q31_2_4_3_v16318_3_31.2.4. Área de atuação:3: Descontos/isenções
+q31_2_4_4;q31_2_4_4_v16318_4_31.2.4. Área de atuação:4: Saúde
+q31_2_4_5;q31_2_4_5_v16318_5_31.2.4. Área de atuação:5: Educação
+q31_2_4_6;q31_2_4_6_v16318_6_31.2.4. Área de atuação:6: Moradia
+q31_2_4_7;q31_2_4_7_v16318_7_31.2.4. Área de atuação:7: Trabalho e emprego
+q31_2_4_8;q31_2_4_8_v16318_8_31.2.4. Área de atuação:8: Segurança alimentar
+q31_2_4_99;q31_2_4_99_v16318_99_31.2.4. Área de atuação:99: Outra
+q31_99_4;q31_99_4_v16327_31.99.4. Qual outra área de atuação?
+q31_3_4;q31_3_4_v16321_31.3.4. Programa Estadual ou municipal?
+q31_4_4_1;q31_4_4_1_v16324_1_31.4.4. Em relação a este programa, este posto:1: realiza o cadastro
+q31_4_4_2;q31_4_4_2_v16324_2_31.4.4. Em relação a este programa, este posto:2: presta orientação
+q31_4_4_3;q31_4_4_3_v16324_3_31.4.4. Em relação a este programa, este posto:3: encaminha para os locais de oferta/gestão
+q31_4_4_4;q31_4_4_4_v16324_4_31.4.4. Em relação a este programa, este posto:4: realiza atividades de gestão/oferta neste posto
+q31_4_4_0;q31_4_4_0_v16324_0_31.4.4. Em relação a este programa, este posto:0: não possui ação específica
+q32_0;q32_0_v15764_0_32. Qual a relação deste posto de Cadastro Único com os outros equipamentos da rede socioassistencial?0: Este posto não se relaciona com outros equipamentos da rede socioassitencial
+q32_1;q32_1_v15764_1_32. Qual a relação deste posto de Cadastro Único com os outros equipamentos?1: Este posto encaminha as famílias para a rede socioassistencial de referência para inclusão em serviços (CRAS, CREAS, Centro Pop, outros)
+q32_2;q32_2_v15764_2_32. Qual a relação deste posto de Cadastro Único com os outros equipamentos?2: Este posto encaminha as famílias para a rede socioassistencial de referência para acesso a benefícios eventuais
+q32_3;q32_3_v15764_3_32. Qual a relação deste posto de Cadastro Único com os outros equipamentos?3: Este posto atende famílias para inclusão e atualização cadastral encaminhadas pela rede socioassistencial
+q32_4;q32_4_v15764_4_32. Qual a relação deste posto de Cadastro Único com outros equipamentos?4: Um profissional equipe do Cad Único deste posto está alocado em outro equipamento para fazer interlocução do Cad Único com programas
+q32_5;"q32_5_v15764_5_32. Qual a relação deste posto de Cadastro Único com outros equipamentos rede socioassistencial?5: realiza Busca Ativa (cadastramento domiciliar, ações itinerantes, mutirões, etc) em conjunto com a rede socioassistencial;"
+q33_1;q33_1_v15765_1_33. Este posto realiza atividades relacionadas ao BPC?1: Sim, atividades relacionadas ao acompanhamento e gestão do BPC
+q33_2;q33_2_v15765_2_33. Este posto realiza atividades relacionadas ao BPC?2: Sim, assistência a requerentes do BPC quanto ao preenchimento de requerimento ao INSS
+q33_3;q33_3_v15765_3_33. Este posto realiza atividades relacionadas ao BPC?3: Sim, realizam requerimento para obtenção do BPC (prescindem de Acordos de Cooperação Técnica)
+q33_99;q33_99_v15765_99_33. Este posto realiza atividades relacionadas ao BPC?99: Sim, outras.
+q33_0;q33_0_v15765_0_33. Este posto realiza atividades relacionadas ao BPC?0: Não
+q33_99_1;q33_99_1_v15766_33.99. Qual outra atividade relacionada ao BPC?
+q34_0;q34_0_v16241_34.0. Este posto ficou fechado em todo tempo da pandemia
+q34_1;q34_1_v15768_34.1. Ofertou atendimento presencial ao público em geral
+q34_2;q34_2_v15769_34.2. Ofertou apenas os atendimentos presenciais agendados
+q34_3;q34_3_v15770_34.3. Ofertou atendimentos/acompanhamento apenas para o público prioritário
+q34_4;q34_4_v15771_34.4. Ofertou os atendimento das demandas do Cadastro Único
+q34_5;q34_5_v15772_34.5. Ofertou os atendimento das demandas do Auxílio Emergencial
+q34_6;q34_6_v15774_34.6. Ofertou os atendimentos das demandas do Programa Bolsa Família
+q34_7;q34_7_v15775_34.7. Ofertou atendimento remoto por telefone e aplicativos de videoconferência
+q34_8;q34_8_v15776_34.8. Realizou visitas domiciliares
+q34_99;q34_99_v15777_34.99. Outro.
+q34_99_1;q34_99_1_v15778_34.99.1. Qual?
+q35_1;q35_1_v15779_1_35. Como estava a jornada de trabalho das(os) profissionais durante a pandemia ?1: Teve que ampliar o número de profissionais
+q35_2;q35_2_v15779_2_35. Como estava a jornada de trabalho das(os) profissionais durante a pandemia ?2: Com jornada de trabalho normal (semelhante a jornada anterior a pandemia)
+q35_3;q35_3_v15779_3_35. Como estava a jornada de trabalho das(os) profissionais durante a pandemia ?3: Com jornada de trabalho reduzida
+q35_99;q35_99_v15779_99_35. Como estava a jornada de trabalho das(os) profissionais durante a pandemia ?99: Outros
+q35_99_1;q35_99_1_v15780_35.99. Qual?
+q36;q36_v15781_36. Os trabalhadores deste posto tiveram acesso a Equipamentos de Proteção Individual?
+q37_0;q37_0_v15782_0_37. Este posto realizou algumas destas atividades em relação ao Auxílio Emergencial0: Não realizou nenhuma atividade em relação ao Auxílio Emergencial (siga para a questão 40)
+q37_2;q37_2_v15782_2_37. Este posto realizou algumas destas atividades em relação ao Auxílio Emergencial2: Prestou orientação às famílias já atendidas/acompanhadas por este posto
+q37_3;q37_3_v15782_3_37. Este posto realizou algumas destas atividades em relação ao Auxílio Emergencial3: Prestou orientações às famílias da comunidades em geral
+q37_4;q37_4_v15782_4_37. Este posto realizou algumas destas atividades em relação ao Auxílio Emergencial4: Auxiliou as famílias no preenchimento das solicitações
+q37_5;q37_5_v15782_5_37. Este posto realizou algumas destas atividades em relação ao Auxílio Emergencial5: Realizou busca ativa de famílias para preenchimento das solicitações
+q37_6;q37_6_v15782_6_37. Este posto realizou algumas destas atividades relação Auxílio Emergencial6: Realizou parcerias com Defensorias Públicas, judiciário e outros órgãos para orientação e atendimento famílias para preenchimento das solicitações
+q37_99_1;q37_99_1_v15782_99_37. Este posto realizou algumas destas atividades em relação ao Auxílio Emergencial99: Outros
+q37_99;q37_99_v15783_37.99. Qual?
+q38_1;q38_1_v15784_1_38. Indique se há na equipe do Cadastro Único e Programa Bolsa Família trabalhadores aptos a realizar o atendimento com conhecimento em:1: Conhecimento em LIBRAS
+q38_2;q38_2_v15784_2_38. Indique se há na equipe do Cadastro Único e Programa Bolsa Família trabalhadores aptos a realizar o atendimento com conhecimento em:2: Conhecimento em línguas estrangeiras (espanhol, inglês e francês)
+q38_3;q38_3_v15784_3_38. Indique se há na equipe do Cadastro Único e Programa Bolsa Família trabalhadores aptos a realizar o atendimento com conhecimento em:3: Conhecimento em línguas indígenas
+q38_99;q38_99_v15784_99_38. Indique se há na equipe do Cadastro Único e Programa Bolsa Família trabalhadores aptos a realizar o atendimento com conhecimento em:99: Outros
+q38_0;q38_0_v15784_0_38. Indique se há na equipe do Cadastro Único e Programa Bolsa Família trabalhadores aptos a realizar o atendimento com conhecimento em:0: Nenhuma das anteriores
+q38_99_1;q38_99_1_v15785_38.99.1. Qual?
+q39_1;q39_1_v15786_1_39. O/A coordenador(a) desta Unidade:1: exerce exclusivamente a função de coordenador(a) deste posto
+q39_2;q39_2_v15786_2_39. O/A coordenador(a) desta Unidade:2: acumula as funções de coordenador(a) e de gestor do Cadastro Único
+q39_3;q39_3_v15786_3_39. O/A coordenador(a) desta Unidade:3: acumula as funções de coordenador(a) e de gestor do Cadastro Único e PBF
+q39_4;q39_4_v15786_4_39. O/A coordenador(a) desta Unidade:4: acumula as funções de coordenador(a) e de equipe de cadastramento
+q39_5;q39_5_v15786_5_39. O/A coordenador(a) desta Unidade:5: acumula as funções de coordenador(a) com outra atividade da Secretaria Municipal de Assistência Social
+q39_6;q39_6_v15786_6_39. O/A coordenador(a) desta Unidade:6: acumula as funções de coordenador(a) e de gestão/atendimento de outro programa usuário do Cadastro Único
+q39_0;q39_0_v15786_0_39. O/A coordenador(a) desta Unidade:0: não há coordenador(a) neste posto
+q39_6_99;q39_6_99_v15787_39.6.99. Acumula as funções de coordenador(a) e de gestão/atendimento de outro programa usuário do Cadastro Único. Qual?
+q41_4_1;q41_4_1_v14523_1_41.4. Identificação da pessoa responsável pelas informações prestadas pelo Posto do Cadastro Único - Cargo/Função1: Coordenador(a) do posto
+q41_4_2;q41_4_2_v14523_2_41.4. Identificação da pessoa responsável pelas informações prestadas pelo Posto do Cadastro Único - Cargo/Função2: Técnica(o) de nível superior do posto
+q41_4_3;q41_4_3_v14523_3_41.4. Identificação da pessoa responsável pelas informações prestadas pelo Posto do Cadastro Único - Cargo/Função3: Outro
+q42_4_1;q42_4_1_v14530_1_42.4. Identificação do(a) agente responsável, no órgão gestor da Assistência Social, pelas informações declaradas neste formulário - Cargo/Função1: Secretária(o) Municipal de Assistência Social ou congênere
+q42_4_2;q42_4_2_v14530_2_42.4. Identificação do(a) agente responsável, no órgão gestor da Assistência Social, pelas informações Cargo/Função2: Diretor(a)/Coordenador(a)/Responsável pela área de proteção básica no município
+q42_4_3;q42_4_3_v14530_3_42.4. Identificação do(a) agente responsável, no órgão gestor da Assistência Social, pelas informações declaradas neste formulário - Cargo/Função3: Técnica(o) da Secretaria Municipal de Assistência Social ou congênere
+q42_4_4;q42_4_4_v14530_4_42.4. Identificação do(a) agente responsável, no órgão gestor da Assistência Social, pelas informações declaradas neste formulário - Cargo/Função4: Outros
+q20_2_velha;
+q20_3_velha;
+q20_4_velha;
+q20_5_velha;
+q20_6_velha;
+q20_7_velha;
+q20_8_velha;
+q20_9_velha;
+q20_10_velha;
+q20_11_velha;
+q20_12_velha;
+q20_13_velha;
+q20_14_velha;
+q20_15_velha;
+q20_16_velha;
+q20_17_velha;
+q20_18_velha;
+q21_1_1_velha;
+q21_1_2_velha;
+q21_1_3_velha;
+q21_1_4_velha;
+q21_1_99_velha;
+q21_1_0_velha;
+q21_2_1_velha;
+q21_2_2_velha;
+q21_2_3_velha;
+q21_2_4_velha;
+q21_2_99_velha;
+q21_2_0_velha;
+q21_3_1_velha;
+q21_3_2_velha;
+q21_3_3_velha;
+q21_3_4_velha;
+q21_3_99_velha;
+q21_3_0_velha;
+q21_4_1_velha;
+q21_4_2_velha;
+q21_4_3_velha;
+q21_4_4_velha;
+q21_4_5_velha;
+q21_4_6_velha;
+q21_5_1_velha;
+q21_5_2_velha;
+q21_5_3_velha;
+q21_5_4_velha;
+q21_5_99_velha;
+q21_5_0_velha;
+q21_6_1_velha;
+q21_6_2_velha;
+q21_6_3_velha;
+q21_6_4_velha;
+q21_6_99_velha;
+q21_6_0_velha;
+q21_7_1_velha;
+q21_7_2_velha;
+q21_7_3_velha;
+q21_7_4_velha;
+q21_7_99_velha;
+q21_7_0_velha;
+q21_8_1_velha;
+q21_8_2_velha;
+q21_8_3_velha;
+q21_8_4_velha;
+q21_8_5_velha;
+q21_8_6_velha;
+q21_9_1_velha;
+q21_9_2_velha;
+q21_9_3_velha;
+q21_9_4_velha;
+q21_9_99_velha;
+q21_9_0_velha;
+q23_1_velha;
+q23_2_velha;
+q23_3_velha;
+q23_4_velha;
+q23_5_velha;
+q23_6_velha;
+q23_7_velha;
+q23_8_velha;
+q23_9_velha;
+q23_10_velha;
+q23_11_velha;
+q23_12_velha;
+q23_13_velha;
+q23_14_velha;
+q23_99_1_velha;
+q24_1_velha;
+q24_2_velha;
+q24_3_velha;
+q24_4_velha;
+q24_5_velha;
+q24_6_velha;
+q24_7_velha;
+q24_8_velha;
+q24_9_velha;
+q24_10_velha;
+q24_11_velha;
+q24_12_velha;
+q24_13_velha;
+q24_14_velha;
+q24_15_velha;
+q24_16_velha;
+q24_17_velha;
+q24_18_velha;
+q25_1_velha;
+q25_2_velha;
+q25_3_velha;
+q25_4_velha;
+q25_5_velha;
+q25_6_velha;
+q25_7_velha;
+q25_8_velha;
+q25_9_velha;
+q25_99_velha;
+q27_velha;
+q34_1_velha;
+q34_2_velha;
+q34_3_velha;
+q34_4_velha;
+q34_5_velha;
+q34_6_velha;
+q34_7_velha;
+q34_8_velha;
+q34_99_velha;
+q35_1_velha;
+q35_2_velha;
+q35_3_velha;
+q35_99_velha;
+q36_velha;
+q37_0_velha;
+q37_2_velha;
+q37_3_velha;
+q37_4_velha;
+q37_5_velha;
+q37_6_velha;
+d_2;d_2_Total de horas por semana que o Posto encontra-se em funcionamento
+d_6_atend;d_6_atend.Total de salas utilizadas para atendimento individual ou coletivo
+d_6_atend_categoria;d_6_atend_categoria.Total de salas utilizadas para atendimento individual ou coletivo
+d_6_adm_atend;d_6_adm_atend.Total de salas utilizadas para atendimento e para atividades administrativas
+d_6_adm_atend_categoria;d_6_adm_atend_categoria.Total de salas utilizadas para atendimento e para atividades administrativas
+d_6_7_banheiros;d_6_7_banheiros.Quantidade total de banheiros
+d_9_1_99;d_9_1_99.Quantidade de telefones
+d_9_2_99;d_9_2_99.Quantidade de celulares da unidade
+d_9_3_99;d_9_3_99.Quantidade de impressoras
+d_9_4_99;d_9_4_99.Quantidade de máquinas copiadoras
+d_9_9_99;d_9_9_99.Quantidade de veículos de uso exclusivo
+d_9_10_99;d_9_10_99.Quantidade de veículos de uso compartilhado
+d_10_1;d_10_1.Quantidade de computadores, em perfeito funcionamento
+d_10_2;d_10_2.Quantidade de computadores conectados à internet
+d_14_1;d_14_1. Total de pessoas atendidas pelo Posto
+d_14_2;d_14_2. Total de indivíduos que realizaram entrevista para inclusão cadastral
+d_14_3;d_14_3. Total de indivíduos que realizaram entrevista para atualização cadastral
+d_15_1;d_15_1. Tempo médio entre o agendamento e a realização do atendimento
+d_15_2;d_15_2. Tempo médio para que dados coletados sejam inseridos no sistema
+d_15_3;d_15_3. Tempo médio de espera de uma família nesta Unidade até que o atendimento seja iniciado
+d_15_4;d_15_4. Tempo médio de duração da primeira entrevista de uma família para o Cadastro Único (inclusão cadastral)
+d_15_5;d_15_5. Tempo médio de duração da atualização cadastral de uma família no Cadastro Único
+d_40_8bin1_sum;Número de trabalhadores de Nível fundamental (inclui trabalhadores sem escolaridade, fundamental incompleto e ensino médio incompleto)
+d_40_8bin2_sum;Número de trabalhadores de Nível médio (inclui trabalhadores com ensino superior incompleto)
+d_40_8bin3_sum;Número de trabalhadores de Nível superior (inclui trabalhadores com especialização, mestrado e doutorado)
+d_40_9bin1_sum;Número de Pedagogos
+d_40_9bin2_sum;Número de Assistentes Sociais
+d_40_9bin3_sum;Número de Antropólogos
+d_40_9bin4_sum;Número de Advogados
+d_40_9bin5_sum;Número de Psicólogos
+d_40_10bin1_sum;Número de Servidores Estatutários
+d_40_10bin2_sum;Número de Empregados Públicos(CLT)
+d_40_10bin3_sum;Número de Comissionados
+d_40_10bin4_sum;Número de profissionais com outros vínculos não permanentes
+nu_trabalhador;Número de trabalhadores no POSTO
