@@ -345,9 +345,9 @@ gm_2010 <- read_excel("../Censo SUAS 2010/Gestão Municipal/Censo SUAS 2010_Gest
 
 gm_2011 <- read_excel("../Censo SUAS 2011/GESTÃO MUNICIPAL/Censo SUAS 2011_GestãoMunicipal_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2011 GestãoMunicipal")
 
-gm_2012 <- read_excel("../Censo SUAS 2012/Gestão Municipal+DF/Censo SUAS 2012_GestaoMunicipal+DF_divulgação.xlsx")
+gm_2012 <- read_excel("../Censo SUAS 2012/Gestão Municipal+DF/Censo SUAS 2012_GestaoMunicipal+DF_divulgação.xlsx", sheet = 1)
 
-gm_2013 <- read_excel("../Censo SUAS 2013/Gestão Municipal/Censo_SUAS_2013_Gestão_Municipal_Dados_Gerais_Divulgação.xlsx", sheet = "Gestão Municipal 2013")
+gm_2013 <- read_excel("../Censo SUAS 2013/Gestão Municipal/Censo_SUAS_2013_Gestão_Municipal_Dados_Gerais_Divulgação.xlsx", sheet = 1)
 
 gm_2014 <- read_excel("../Censo SUAS 2014/Gestão Municipal/Bases de Dados/CensoSUAS2014_GestãoMunicipal_Divulgação.xlsx", sheet = "Gestão Municipal 2014")
 
@@ -355,7 +355,7 @@ gm_2015 <- read_excel("../Censo SUAS 2015/Gestão Municipal/CensoSUAS_2015_Gest�
 
 gm_2016 <- read_excel("../Censo SUAS 2016/Gestão Municipal/Censo_SUAS_2016_Gestao_Municipal_divulgacao.xlsx", sheet = "Censo Gestão Municipal 16")
 
-gm_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Gestão_Municipal/Censo_SUAS_2017_Gestao_Municipal_divulgação.xlsx", sheet = "Base de Dados")
+gm_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Gestão_Municipal/Censo_SUAS_2017_Gestao_Municipal_divulgação.xlsx", sheet = 1)
 
 gm_2018 <- read_excel("../Censo SUAS 2018/10 - Gestao Municipal/Censo SUAS 2018_Gestao_Municipal_Dados_Gerais_divulgacao.xlsx")
 
@@ -366,6 +366,10 @@ gm_2020 <- read_excel("../Censo SUAS 2020/9 - Gestão Municipal/Censo_SUAS_2020_
 gm_rh_2020 <- read_excel("../Censo SUAS 2020/9 - Gestão Municipal/Censo_SUAS_2020_Gestão_Municipal_RH.xlsx")
 
 gm_2021 <- read_excel("../Censo SUAS 2021/3 - Gestao Municipal/Censo_SUAS_2021_Gestão_Municipal_Dados_Gerais_Divulgação.xlsx")
+
+gm_rh_2012 <- read_excel("../Censo SUAS 2012/Gestão Municipal+DF/2012_GM.xlsx", sheet = 1)
+
+#gm_rh_2013 <- read_excel("../Censo SUAS 2013/Gestão Municipal/Censo_SUAS_2013_Gestão_Municipal_Dados_Gerais_Divulgação.xlsx", sheet = 1)
 
 gm_rh_2021 <- read_excel("../Censo SUAS 2021/3 - Gestao Municipal/Censo_SUAS_Gestão_Municipal_RH.xlsx")
 
@@ -4078,15 +4082,15 @@ O Censo SUAS 2022 registrou 2.846 CREAS no país: um incremento de 679 novas uni
 
 ```{r creas-quantitativo, fig.cap = "Evolução do quantitativo de CREAS, segundo grandes regiões; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
-  grafico <- f_quantitativo_regiao_ano(creas_2009, IBGE, "2009") %>%
-# bind_rows(f_quantitativo_regiao_ano(creas_2012, IBGE, "2012") %>%
- bind_rows(f_quantitativo_regiao_ano(creas_2013, IBGE, "2013")) %>%
-# bind_rows(f_quantitativo_regiao_ano(creas_2014, IBGE, "2014")) %>%
-# bind_rows(f_quantitativo_regiao_ano(creas_2015, IBGE, "2015")) %>%
-# bind_rows(f_quantitativo_regiao_ano(creas_2016, IBGE7, "2016")) %>%
-# # bind_rows(f_quantitativo_regiao_ano(creas_2017, IBGE, "2017")) %>%
-   bind_rows(f_quantitativo_regiao_ano(creas_2018, IBGE, "2018")) %>%
-   bind_rows(f_quantitativo_regiao_ano(creas_2019, IBGE, "2019")) %>%
+  grafico <- f_quantitativo_regiao_ano(creas_2012, IBGE, "2012") %>%
+   #bind_rows(f_quantitativo_regiao_ano(creas_2009, IBGE, "2009")) %>%
+   # bind_rows(f_quantitativo_regiao_ano(creas_2013, IBGE, "2013")) %>%
+   # bind_rows(f_quantitativo_regiao_ano(creas_2014, IBGE, "2014")) %>%
+   # bind_rows(f_quantitativo_regiao_ano(creas_2015, IBGE, "2015")) %>%
+   # bind_rows(f_quantitativo_regiao_ano(creas_2016, IBGE7, "2016")) %>%
+   bind_rows(f_quantitativo_regiao_ano(creas_2017, IBGE, "2017")) %>%
+   # bind_rows(f_quantitativo_regiao_ano(creas_2018, IBGE, "2018")) %>%
+   # bind_rows(f_quantitativo_regiao_ano(creas_2019, IBGE, "2019")) %>%
 #   bind_rows(f_quantitativo_regiao_ano(creas_2020, IBGE, "2020")) %>%
   # bind_rows(f_quantitativo_regiao_ano(creas_2021, IBGE, "2021")) %>%
   bind_rows(f_quantitativo_regiao_ano(creas_2022, IBGE, "2022")) %>%
@@ -4269,9 +4273,9 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
  # bind_rows(f_percentual_municipios_regiao_ano(creas_2010, ibge, "2010")) %>%
  #bind_rows(f_percentual_municipios_regiao_ano(creas_2011, IBGE, "2011")) %>%
 grafico <- f_percentual_municipios_regiao_ano(creas_2012, IBGE, "2012") %>%
-  bind_rows(f_percentual_municipios_regiao_ano(creas_2013, IBGE, "2013")) %>%
-  bind_rows(f_percentual_municipios_regiao_ano(creas_2014, IBGE, "2014")) %>%
-#  bind_rows(f_percentual_municipios_regiao_ano(creas_2015, IBGE, "2015")) %>%
+  #bind_rows(f_percentual_municipios_regiao_ano(creas_2013, IBGE, "2013")) %>%
+  #bind_rows(f_percentual_municipios_regiao_ano(creas_2014, IBGE, "2014")) %>%
+  #bind_rows(f_percentual_municipios_regiao_ano(creas_2015, IBGE, "2015")) %>%
   bind_rows(f_percentual_municipios_regiao_ano(creas_2016, IBGE7, "2016")) %>%
   bind_rows(f_percentual_municipios_regiao_ano(creas_2017, IBGE, "2017")) %>%
   bind_rows(f_percentual_municipios_regiao_ano(creas_2018, IBGE, "2018")) %>%
@@ -5003,13 +5007,13 @@ Busca garantir acesso a  direitos sociais a quem necessitam. A centralidade na f
 
 #Considerações Finais
 
-Esta versão do Censo SUAS 2022 analisou xx unidades da Assistência Social. Observa-se que no ambito a Proteção Básica existiu um crescimento de 11% nos últimos 10 anos. Acessibilidade: melhora sobretudo os que possuem imóvel próprio que chegam a ter 28 pontos percentuais de diferença em relação aos imóveis alugados. 
+O Censo SUAS 2022 neste item identificou a oferta de 30.824 unidades da Assistência Social. São 8.557 CRAS, 7.837 Centro de Convivência, 2.846 CREAS, 33 CREAS Regionais, 237 Centro Pop, 1.886 Centro Dia, 2.892 unidades exclusivas de Cadastro Único e 6.536 unidades de acolhimento institucional (Crianças e adolescentes,Pessoas Idosas, Adultos e Famílias, Pessoas com deficiência, Mulheres em situação de Violência Doméstica, Jovens egressos serviços de acolhimento).Os dados mostram forte presença no território nacional com destaque para crescimentonos últimos 10 anos.
 
-No que se refere ao CREAS, observa-se um crescimento de 31% destas unidades nos últimos 10 anos. As condições de Acessibilidade dos CREAS também evoluem, sobretudo os que possuem imóvel próprio com 28,4% de diferença em relação aos imovéis alugados.
+No ambito a Proteção Básica existiu um crescimento de 11% nos últimos 10 anos. em relação a Acessibilidade há melhora, sobretudo os que possuem imóvel próprio que chegam a ter 28 pontos percentuais de diferença em relação aos imóveis alugados. 
 
-Os Centro Pop crescem 126% ao longo dos últimos 10 anos (confirmar)
+No que se refere a Proteção Social Especial, nos CREAS, observa-se um crescimento de 31% destas unidades nos últimos 10 anos. As condições de acessibilidade dos CREAS também avança, sobretudo os que possuem imóvel próprio com 28,4% de diferença em relação aos imovéis alugados. Os Centro Pop crescem 126% ao longo dos últimos 10 anos, assim como acessibildiade também, sobretudo para os imvéis próprios.Em relação as Unidades de Acolhimento Institucional 45% delas são da modalidade de Criança e Adolescente, em seguida para públicos de pessoas Idosas e Adultos e Famílias. O centro dia se destacam com elvolução de 41%, bem como nas condições de ascessibilidade. Para essa modalidade de oferta, 93% são através de OCS (Organizações da sociedade Civil).
 
-Em relação as Unidades de Acolhimento Institucional 45% delas são da modalidade de Criança e Adolescente, em seguida para públicos de pessoas Idosas e Adultos e Famílias.
+A oferta do Cadastro Único nas unidades, em especial de CRAS avançou 3,8 pontos percentuais nos últis 10 anos, esse dado se torna significativamente maior quando relacionado com equipe exclusiva para esta finalidade que avança 25 pontos percentuais neste mesmo período. Por fim, destaca-se a inclusão digital sob a ótica do acesso a internet como algo praticamente universalizado nas unidades do SUAS. 
 
 
 
@@ -5296,7 +5300,7 @@ paefi_creas= function(df, q, ano, cod_categoria){
   mutate(Categoria=str_wrap(Categoria,width=51))
 
 ordenado<-tabela %>%
-  filter(Ano == "2019") %>%
+  filter(Ano == "2022") %>%
   arrange(Percentual) %>%
   pull(Categoria)
 
@@ -6028,7 +6032,7 @@ A quantidade de trabalhadoras (es) nas Secretarias Estaduais de Assistência Soc
 
 
 
-```{r qtd-trab-uf, fig.cap ="Evolução da quantidade de trabalhadores nas Secretarias Estaduais de Assistência Social - Brasil e grandes regiões, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r qtd-trab-uf, fig.cap ="Evolução da quantidade de trabalhadores (as) nas Secretarias Estaduais de Assistência Social - Brasil e grandes regiões, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 grafico <- f_soma_regiao_ano(ge_2012, q55e_4, Região, "2012") %>%
   bind_rows(f_soma_regiao_ano(ge_2017, q11_5_4, Região, "2017")) %>%
@@ -6043,9 +6047,20 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 <!-- as Gestões Municipais informaram ter 239.815 trabalhadoras e trabalhadores exercendo funções/atividades ligadas à assistência social (inclusive aqueles lotados nas unidades públicas), o menor número desde 2012. Observando a série histórica é possível verificar que o número máximo de trabalhadores foi registrado no ano de 2014, após sucessivos crescimentos desde 2010. Desde de 2015 esse número se reduziu, registrando em 2016 cerca de 17.000 trabalhadores a menos que em 2014 (Gráfico 60). Gráfico 60: Evolução da quantidade de trabalhadores nas Secretarias Municipais de Assistência Social - Brasil, 2010 a 2016 Fonte: MDS, Censo SUAS.-->.
 
+\footnote{os dados totais de trabalhadores da gestão municipal para o ano de 2017 não foram possíveis de serem quantificados em decorrência de alterações na modalidade de respostas na base de dados}
 
+<!--Valdson, na pratica dos dados de 2022 estão ok, mas na formula tem regi~çoes que não estão somando -->.
 
 ```{r qtd_trab_munic, fig.cap ="Evolução da quantidade de trabalhadores nas Secretarias Municipais de Assistência Social - Brasil, 2012 a 2022" }
+
+grafico <- f_soma_regiao_ano(gm_2012, q38e_4, codigo_ibge, "2012") %>%
+  #bind_rows(f_soma_regiao_ano(gm_2017, d28.5.4, IBGE, "2017")) %>%
+  bind_rows(f_quantitativo_regiao_ano(gm_2022, IBGE, "2022")) %>%
+  f_grafico_col_group_numero(Região, n, Ano, 1)
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 
 ```
 
@@ -6140,9 +6155,9 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 <!--Os trabalhadores estatutários na gestão municipal representavam 38,1% do total em 2016, o maior percentual entre as quatro categorias representadas. O percentual de estatutários em 2016 foi o maior desde 2011: houve um aumento de 1,9 pontos percentuais em relação a 2015 e 4,1 em relação a 2011. Foi observada queda nos percentuais da força de trabalho comissionada e com outros vínculos em relação a 2015: em 2016 eles representavam 15,7% e 34,6% dos trabalhadores, respectivamente (Gráfico 61). Gráfico 61: Percentual de trabalhadores nas Secretarias Municipais de Assistência Social, segundo tipo de vínculo -- Brasil, 2010 a 2016 Fonte: MDS, Censo SUAS.-->.
 
-<!--fazer para as gestoes municipais-->.
+<!--Valdson, também não consgeui gerar este gráfico, entretanto os codigos das questões estão certinhas, deve aer alguma outra coisa que não estopu conseguindo -->.
 
-```{r munic_trab_vin, fig.cap ="Percentual de trabalhadores nas Secretarias Municipais de Assistência Social, segundo tipo de vínculo - Brasil, 2010 a 2022", eval=FALSE}
+```{r munic_trab_vin, fig.cap ="Percentual de trabalhadores nas Secretarias Municipais de Assistência Social, segundo tipo de vínculo - Brasil, 2012 a 2022", eval=FALSE}
 
 f_vinculo = function(df, vinculo){
   vinculo <- enquo(vinculo)
@@ -6158,38 +6173,34 @@ f_vinculo = function(df, vinculo){
       !! vinculo == "Servidor(a) Temporária(o)"~"Servidoras/es Temporárias/os",
       !! vinculo == "Terceirizada(o)"~"Terceirizadas/os",
       !! vinculo == "Trabalhador(a) de Empresa/ Cooperativa/ Entidade Prestadora de Serviços"~"Trabalhadoras/es de Empresa, Cooperativa ou Entidade Prestadora de Serviços",
-      !! vinculo == "Voluntária(o)"~"Voluntárias/os",
+      # !! vinculo == "Voluntária(o)"~"Voluntárias/os",
       TRUE ~ as.character(!! vinculo))) %>%
   mutate(!! vinculo := str_wrap(!! vinculo, width=40))
 }
 
-# grafico <- f_nomex_somay_nomegrupo(ge_2012, "2012", q55a_4, "Estatutários") %>%
-#   bind_rows(f_nomex_somay_nomegrupo(ge_2012, "2012", q55b_4, "Celetistas")) %>%
-#   bind_rows(f_nomex_somay_nomegrupo(ge_2012, "2012", q55c_4, "Somente Comissionados")) %>%
-#   bind_rows(f_nomex_somay_nomegrupo(ge_2012, "2012", q55d_4, "Outros Vínculos")) %>%
+grafico <- f_nomex_somay_nomegrupo(gm_rh_2012, "2012", q37a_4, "Estatutários") %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2012, "2012", q37b_4, "Celetistas")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2012, "2012", q37c_4, "Somente Comissionados")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2012, "2012", q37d_4, "Outros Vínculos")) %>%
+
+ 
   
- 
-  # bind_rows(f_nomex_somay_nomegrupo(ge_2010, "2010", q34_1_4, "Estatutários")) %>%
-  # bind_rows(f_nomex_somay_nomegrupo(ge_2010, "2010", q34_2_4, "Celetistas")) %>%
-  # bind_rows(f_nomex_somay_nomegrupo(ge_2010, "2010", q34_3_4, "Somente Comissionados")) %>%
-  # bind_rows(f_nomex_somay_nomegrupo(ge_2010, "2010", q34_4_4, "Outros Vínculos")) %>%
-
-  # bind_rows(f_nomex_somay_nomegrupo(ge_2011, "2011", q55a4, "Estatutários")) %>%
-  # bind_rows(f_nomex_somay_nomegrupo(ge_2011, "2011", q55b4, "Celetistas")) %>%
-  # bind_rows(f_nomex_somay_nomegrupo(ge_2011, "2011", q55c4, "Somente Comissionados")) %>%
-  # bind_rows(f_nomex_somay_nomegrupo(ge_2011, "2011", q55d4, "Outros Vínculos")) %>%
-
- 
+  # bind_rows(f_nomex_somay_nomegrupo(gm_2016, "2016", q17_1_4, "Estatutários")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(gm_2016, "2016", q17_2_4, "Celetistas")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(gm_2016, "2016", q17_3_4, "Somente Comissionados")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(gm_2016, "2016", q17_4_4, "Outros Vínculos")) %>%
   # 
-  # bind_rows(f_nomex_somay_nomegrupo(ge_2013, "2013", q66a_4, "Estatutários")) %>%
-  # bind_rows(f_nomex_somay_nomegrupo(ge_2013, "2013", q66b_4, "Celetistas")) %>%
-  # bind_rows(f_nomex_somay_nomegrupo(ge_2013, "2013", q66c_4, "Somente Comissionados")) %>%
-  # bind_rows(f_nomex_somay_nomegrupo(ge_2013, "2013", q66d_4, "Outros Vínculos")) %>%
   # 
-  # bind_rows(f_nomex_somay_nomegrupo(ge_2014, "2014", q19a_4, "Estatutários")) %>%
-  # bind_rows(f_nomex_somay_nomegrupo(ge_2014, "2014", q19b_4, "Celetistas")) %>%
-  # bind_rows(f_nomex_somay_nomegrupo(ge_2014, "2014", q19c_4, "Somente Comissionados")) %>%
-  # bind_rows(f_nomex_somay_nomegrupo(ge_2014, "2014", q19d_4, "Outros Vínculos")) %>%
+  #  
+  # bind_rows(f_nomex_somay_nomegrupo(gm_2017, "2017", q28.1.4, "Estatutários")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(gm_2017, "2017", q28.2.4, "Celetistas")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(gm_2017, "2017", q28.3.4, "Somente Comissionados")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(gm_2017, "2017", q28.4.4, "Outros Vínculos")) %>%
+  #  
+  # bind_rows(f_nomex_somay_nomegrupo(gm_2018, "2018", q19a_4, "Estatutários")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(gm_2018, "2018", q19b_4, "Celetistas")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(gm_2018, "2018", q19c_4, "Somente Comissionados")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(gm_2018, "2018", q19d_4, "Outros Vínculos")) %>%
   # 
   # bind_rows(f_nomex_somay_nomegrupo(ge_2015, "2015", q13a_4, "Estatutários")) %>%
   # bind_rows(f_nomex_somay_nomegrupo(ge_2015, "2015", q13b_4, "Celetistas")) %>%
@@ -6207,14 +6218,14 @@ f_vinculo = function(df, vinculo){
   # bind_rows(f_nomex_somay_nomegrupo(ge_2017, "2017", q11_4_4, "Outros Vínculos")) %>%
 
   # bind_rows(f_nomex_grupos_quantitativo(gerh_2018, "2018", q_37_11)) %>%
-  # 
-  # bind_rows(f_nomex_grupos_quantitativo(gerh_2019, "2019", q37_11)) %>%
-  # 
-  # bind_rows(f_nomex_grupos_quantitativo(gerh_2020, "2020", q51_11)) %>%
+  
+   # bind_rows(f_nomex_grupos_quantitativo(gm_2019, "2019", Numero_de_trabalhadores)) %>%
+   # 
+   # bind_rows(f_nomex_grupos_quantitativo(gm_2020, "2020", N_BREAK)) %>%
 
-#  bind_rows(f_nomex_grupos_quantitativo(gerh_2021, "2021", q51_11)) %>%
+   #bind_rows(f_nomex_grupos_quantitativo(gm_rh_2021, "2021", nu_trabalhador)) %>%
 
-  # bind_rows(f_nomex_grupos_quantitativo(gerh_2022, "2022", q51_11)) %>%
+   #bind_rows(f_nomex_grupos_quantitativo(gmrh_2022, "2022", `nu_trabalhador`)) %>%
 
   f_vinculo(Grupo) %>%
 
@@ -6262,6 +6273,26 @@ Em 2016, 15,2% dos trabalhadores da gestão municipal tinham nível fundamental 
 <!--fazer para as gestoes municipais-->.
 
 ```{r munic_trab_form, fig.cap =" Percentual de trabalhadores nas Secretarias municipais de Assistência Social, segundo escolaridade e profissão - Brasil, 2012 a 2022" }
+
+grafico <- f_nomex_somay_nomegrupo(gm_rh_2012, "2012", q37e_1, "Nível Fundamental") %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2012, "2012", q37e_2, "Nível Médio")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2012, "2012", q37e_3, "Nível Superior")) %>%
+
+  # bind_rows(f_nomex_somay_nomegrupo(gm_2017, "2017", q28.5.1, "Nível Fundamental")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(gm_2017, "2017", q28.5.2, "Nível Médio")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(gm_2017, "2017", q28.5.3, "Nível Superior")) %>%
+
+  bind_rows(f_nomex_grupos_quantitativo(gmrh_2022, "2022", d81_9)) %>%
+
+  f_nivel_ensino(Grupo) %>%
+
+  f_calcula_percentual(Eixo_x, Grupo, Eixo_y) %>%
+
+  f_grafico_col_stack_percent(Eixo_x, Percentual, Grupo, 1)
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 
 ```
 
