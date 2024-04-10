@@ -1127,41 +1127,6 @@ f_equip_imovel = function(df, q, ano){
     mutate(Percentual = n/sum(n))
 }
 
-
-f_situacao2 = function(df, situacao2){
-  situacao2 <- enquo(situacao2)
-
-  df %>%
-    mutate(!! Situacao2 := case_when(!! Situacao2 == "Crianças adolescentes"~"Crianças/adolescentes",
-                                    !! situacao2 == "Crianças adolescentes"~"Crianças/adolescentes",
-                                    !! situacao2 == "Crianças/adolescentes"~"Crianças/adolescentes",
-                                    !! situacao2 == "Adultos e famílias em situação de rua e/ou migrantes"~"Adultos e famílias",
-                                    !! situacao2 == "Adultos e famílias em situação de rua e ou migrantes"~"Adultos e famílias",
-                                    !! situacao2 == "Exclusivamente para pessoas adultas com Deficiência"~"Adultos e famílias",
-                                    !! situacao2 == "Adultos e famílias"~"Exclusivamente pessoas adultas com deficiência",
-                                    !! situacao2 == "Mulheres em situação de violência doméstica ou familiar"~" Mulheres em situação de violência",
-                                    !! situacao2 == "Jovens egressas(os) de serviços de acolhimento"~"Jovens egressos de serviços de acolhimento",
-                                    !! situacao2 == "Jovens egressas(os) de serviços de acolhimento"~"Jovens egressos de serviços de acolhimento",
-                                    !! situacao2 == "Jovens egressos de serviços de acolhimento"~"Jovens egressos de serviços de acolhimento",
-                                    !! situacao2 == "Exclusivamente crianças adolescente com Deficiência"~"Exclusivamente crianças/adolescente com Deficiência",
-                                    !! situacao2 == "Pessoas idosas"~"Pessoas idosas",
-                                    !! situacao == "Pessoa com deficiência sem critério de idade"~"Outro",
-                                    !! situacao == "Usuários de substância psicoativas"~"Outro",
-                                    !! situacao == "Substâncias psicoativas"~"Outro",
-                                    !! situacao == "Famílias desabrigadas desalojadas"~"Outro",
-                                    is.na(!! situacao)~"Outro",
-                                    TRUE ~ as.character(!! situacao2))) %>%
-    mutate(!! Situacao2 := factor(!! Situacao2, levels = c("Crianças/adolescentes",
-                                                         "Adultos e famílias",
-                                                        "Exclusivamente pessoas adultas com deficiência",
-                                                        "Mulheres em situação de violência",
-                                                        "Jovens egressos de serviços de acolhimento",
-                                                        "Exclusivamente crianças adolescente com Deficiência",
-                                                        "Pessoas idosas",
-                                                        "Outro")))
-
-}
-
 f_grupo_media = function(df, q_media, grupo, eixo_x){
   grupo <- quo_name(grupo)
   q_media <- enquo(q_media)
@@ -1173,20 +1138,6 @@ f_grupo_media = function(df, q_media, grupo, eixo_x){
     summarise(m=mean(!! q_media)) %>%
     mutate("Eixo_X" = !! eixo_x) %>%
     mutate("Grupo" = !! grupo)
-}
-
-f_situacao3 = function(df, situacao3){
-  situacao <- enquo(situacao)
-
-  df %>%
-    mutate(!! situacao3 := case_when(!! situacao3 == "Sim, com equipe exclusiva para esta finalidade"~"sim",
-                                    !! situacao3 == "Sim, com a equipe responsável pelo PAIF"~"sim",
-                                    !! situacao3 == "Sim, com equipe exclusiva para esta finalidade"~"sim",
-                                    !! situacao3 == "Não"~"Não",
-                                    is.na(!! situacao3)~"Não",
-                                    TRUE ~ as.character(!! situacao3))) %>%
-    mutate(!! situacao3 := factor(!! situacao, levels = c("sim",
-                                                          "Não")))
 }
 
 f_quantitativo_niveis = function(df, q_grupo, eixo_x, niveis){
@@ -1286,14 +1237,6 @@ f_nomex_grupos_quantitativo = function(df, nomex, grupos){
     group_by(Grupo) %>%
     summarise("Eixo_y"=n()) %>%
     mutate("Eixo_x" = !! nomex)
-}
-
-f_nivel_ensino = function(df, nivel_ensino){
-  nivel_ensino <- enquo(nivel_ensino)
-
-  df %>%
-    mutate(!! nivel_ensino := case_when(!! nivel_ensino == "Nível fundamental"~"Nível Fundamental",
-                                        TRUE ~ !! nivel_ensino))
 }
 
 f_grafico_col_numero = function(df, x, y){
@@ -1419,7 +1362,7 @@ f_grafico_col_percent_flip = function(df, x, y, grupo, legend_nrow){
     mutate(precisao = ifelse(!! y < 0.0995, 0.1, 1)) %>%
     ggplot(aes(x = !! x, y = !! y, group = fct_rev(!! grupo))) +
     geom_col(aes(fill = !! grupo), position = "dodge") +
-    geom_text(aes(label = label_percent(accuracy = precisao, decimal.mark = ",")(!! y)),
+    geom_text(aes(label = ifelse(!! y, label_percent(accuracy = precisao, decimal.mark = ",")(!! y), "")),
               hjust = -0.05,
               position = position_dodge(width = 0.9),
               check_overlap = TRUE) +
@@ -1494,7 +1437,10 @@ A partir das informações contidas no Censo SUAS é possível ter um panorama g
 
 A estrutura administrativa na Política de Assistência Social e Constituição de areas essenciais são elementos importantes para gestão do SUAS. No ambito da gestão estadual, no que se refere a exclusividade da area de Assistência Social, percebe-se que nos últimos 10 anos houve uma redução de areas específicas de Assistencia Social. Em 2012 existiam 29,6%\footnote{Estados: Amazonas, Acre, Pará, Amapá, Piauí, Paraíba, Sergipe e São Paulo} das secretarias estaduais exclusivas de Assistência Social, em 2022 esse número passa para 3,8%\footnote{Estado do Amazonas}, redução significativa de 87,2%, conforme o \cref{fig:estados_sec_exc}.
 
-```{r estados_sec_exc, fig.cap = "Percentual de Estados quanto a caracteristica de estrutura administrativa, 2012 a 2022 - Brasil", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r estados_sec_exc, fig.cap = "Percentual de Estados quanto a caracteristica de estrutura administrativa - Brasil, 2012 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+
+# Avaliar fazer o gráfico apenas com o percentual das secretarias exclusivas.
+# Avaliar fazer gráficos de estado com quantidade em vez de percentual
 
 estados_sec_exc  = function(df, q, ano){
   q <- enquo(q)
@@ -1503,12 +1449,13 @@ estados_sec_exc  = function(df, q, ano){
   df %>%
     select(!! ano := !! q) %>%
     gather("Categoria","Nível") %>%
-    mutate(Nível = case_when(Nível == "Secretaria estadual exclusiva da área de Assistência Social"~"Secretaria estadual exclusiva da área de Assistência Social",
-                             Nível == "Secretaria estadual exclusiva da Área de Assistência Social"~"Secretaria estadual exclusiva da área de Assistência Social",
-                             TRUE ~ Nível)) %>%
+    mutate(Nível = case_when(
+      Nível == "Secretaria estadual exclusiva da Área de Assistência Social"~"Secretaria estadual exclusiva da área de Assistência Social",
+      TRUE ~ Nível)) %>%
     filter(!is.na(Nível)) %>%
-    mutate(Nível = factor(Nível, levels = c("Secretaria estadual exclusiva da área de Assistência Social",
-                                            "Secretaria estadual em conjunto com outras políticas setoriais"))) %>%
+    mutate(Nível = factor(Nível, levels = c(
+      "Secretaria estadual exclusiva da área de Assistência Social",
+      "Secretaria estadual em conjunto com outras políticas setoriais"))) %>%
 
     group_by(Categoria, Nível) %>%
     summarise(n=n()) %>%
@@ -1641,26 +1588,30 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 No que se refere aos municípios, esse cenário nacional se configurou inverso ao das gestões Estaduais. Observa-se através do \cref{fig:sec-munic-exc} um aumento de 217 municípios (1,5 pontos percentuais) com secretarias exclusivas de Assistência Social do período de 2012 a 2019\footnote{a partir de 2019 essa pergunta foi retirada do formulário de gestão municipal}.
 
-```{r sec-munic-exc, fig.cap = "Percentual de Secretarias Municipais exclusivas de Assistência Social - Brasil, 2012 a 2019", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r sec-munic-exc, fig.cap = "Percentual de Secretarias Municipais quanto a caracteristica de estrutura administrativa - Brasil, 2012 a 2019", fig.footer = "Fonte: MDS, Censo SUAS"}
 
 sec_munic_exc  = function(df, q, ano){
   q <- enquo(q)
   ano <- quo_name(ano)
 
+  w_nivel <- 52
   df %>%
     select(!! ano := !! q) %>%
     gather("Categoria","Nível") %>%
-    mutate(Nível = case_when(Nível == "Secretaria municipal exclusiva da área de Assistência Social"~"Secretaria municipal exclusiva da área de Assistência Social",
-                             Nível == "Setor/Coordenadoria/Assessoria subordinado diretamente ao Gabinete do(a) Prefeito(a)"~"Setor/Coordenadoria/Assessoria subordinado diretamente ao Gabinete do(a) Prefeito(a)|",
-                             Nível == "Setor subordinado diretamente à chefia do Executivo"~"Setor/Coordenadoria/Assessoria subordinado diretamente ao Gabinete do(a) Prefeito(a)|",
-                             Nível == "Setor subordinado a outra secretaria"~"Secretaria municipal em conjunto com outras políticas setoriais",
-
-                             TRUE ~ Nível)) %>%
+    mutate(Nível = case_when(
+      Nível == "Setor/Coordenadoria/Assessoria subordinado diretamente ao Gabinete do(a) Prefeito(a)" |
+      Nível == "Setor/Coordenadoria/Assessoria subordinado diretamente ao Gabinete do(a) Prefeito(a)|" |
+      Nível == "Setor subordinado diretamente à chefia do Executivo"~"Setor/Coordenadoria/Assessoria subordinado/a diretamente ao Gabinete da/o Prefeita/o",
+      Nível == "Setor subordinado a outra secretaria"~"Secretaria municipal em conjunto com outras políticas setoriais",
+      TRUE ~ Nível)) %>%
     filter(!is.na(Nível)) %>%
-    mutate(Nível = factor(Nível, levels = c("Secretaria municipal exclusiva da área de Assistência Social",
-                            "Setor/Coordenadoria/Assessoria subordinado diretamente ao Gabinete do(a) Prefeito(a)|",
-                                            "Fundação Pública",
-                                            "Secretaria municipal em conjunto com outras políticas setoriais"))) %>%
+    mutate(Nível=str_wrap(Nível, width=w_nivel)) %>%
+    mutate(Nível = factor(Nível, levels = str_wrap(c(
+      "Secretaria municipal exclusiva da área de Assistência Social",
+      "Setor/Coordenadoria/Assessoria subordinado/a diretamente ao Gabinete da/o Prefeita/o",
+      "Fundação Pública",
+      "Secretaria municipal em conjunto com outras políticas setoriais"),
+      width=w_nivel))) %>%
 
     group_by(Categoria, Nível) %>%
     summarise(n=n()) %>%
@@ -1668,18 +1619,19 @@ sec_munic_exc  = function(df, q, ano){
     mutate(Percentual = n/sum(n))
 }
 
-grafico <- sec_munic_exc(gm_2012, q1, "2012") %>%
-bind_rows(sec_munic_exc(gm_2013, q1, "2013")) %>%
-bind_rows(sec_munic_exc(gm_2014, q1, "2014")) %>%
-bind_rows(sec_munic_exc(gm_2015, q1, "2015")) %>%
-bind_rows(sec_munic_exc(gm_2016, q1, "2016")) %>%
-bind_rows(sec_munic_exc(gm_2017, q1, "2017")) %>%
-bind_rows(sec_munic_exc(gm_2018, q_1,"2018")) %>%
-bind_rows(sec_munic_exc(gm_2019, q1, "2019")) %>%
+grafico <- 
+  sec_munic_exc(gm_2012, q1, "2012") %>%
+  bind_rows(sec_munic_exc(gm_2013, q1, "2013")) %>%
+  bind_rows(sec_munic_exc(gm_2014, q1, "2014")) %>%
+  bind_rows(sec_munic_exc(gm_2015, q1, "2015")) %>%
+  bind_rows(sec_munic_exc(gm_2016, q1, "2016")) %>%
+  bind_rows(sec_munic_exc(gm_2017, q1, "2017")) %>%
+  bind_rows(sec_munic_exc(gm_2018, q_1,"2018")) %>%
+  bind_rows(sec_munic_exc(gm_2019, q1, "2019")) %>%
 
 # essa pergunta foi feita até 2019, após não se colocou mais
 
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 4)
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 2)
 
 grafico
 
@@ -1728,26 +1680,28 @@ Alguns órgãos gestores estaduais constituíram as áreas de assistência socia
 
 Observa-se avanço em todas as areas formalmente nos últimos 10 anos. As três áreas mais instituídas são: Proteção Social Básica, Proteção Social Especial com 88,46% e Gestão do SUAS com 84,62% (\Cref{fig:uf_subd}).
 
-```{r uf_subd, fig.cap = "Percentual segundo estrutura administrativa formal da Secretaria Estadual de Assistência Social - Brasil, 2012 - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r uf_subd, fig.cap = "Percentual de estados segundo subdivisões administrativas constituídas na estrutura formal do órgão gestor - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+# Avaliar se gráficos de estados não ficariam melhor em quantidade em vez de percentual
 
 uf_subd= function(df, q, ano, cod_categoria){
   q <- enquo(q)
   ano <- quo_name(ano)
   cod_categoria <- quo_name(cod_categoria)
 
-
-  categoria <- case_when(!! cod_categoria == "1"~"Gestão do SUAS",
-                         !! cod_categoria == "2"~"Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)",
-                         !! cod_categoria == "3"~"Gestão do Trabalho",
-                         !! cod_categoria == "4"~"Gestão Financeira e Orçamentária",
-                         !! cod_categoria == "5"~"Proteção Social Básica",
-                         !! cod_categoria == "6"~"Proteção Social Especial",
-                         !! cod_categoria == "7"~"Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais",
-                         !! cod_categoria == "8"~"Gestão do Cadastro Único e Programa Bolsa Família",
-                         !! cod_categoria == "9"~"Regulação do SUAS")
-
+  categoria <- case_when(
+    !! cod_categoria == "1"~"Gestão do SUAS",
+    !! cod_categoria == "2"~"Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)",
+    !! cod_categoria == "3"~"Gestão do Trabalho",
+    !! cod_categoria == "4"~"Gestão Financeira e Orçamentária",
+    !! cod_categoria == "5"~"Proteção Social Básica",
+    !! cod_categoria == "6"~"Proteção Social Especial",
+    !! cod_categoria == "7"~"Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais",
+    !! cod_categoria == "8"~"Gestão do Cadastro Único e Programa Bolsa Família",
+    !! cod_categoria == "9"~"Regulação do SUAS")
 
  # não conseguir colocar a de maneira informal
+ # Como já tem dois agrupamentos (tipo de estrutura administrativa e ano) complica colocar um terceiro agrupamento (pra mostrar formal e informal). Teria que ver em que modelo de gráfico daria pra fazer (tridimensional, talvez?). Outra opção é fazer apenas para 2022, substituindo o agrupamento "ano" pelo agrupamento indicando formal e informal.
 
   df %>%
     select(!! q) %>%
@@ -1757,16 +1711,37 @@ uf_subd= function(df, q, ano, cod_categoria){
     mutate(Percentual = n/sum(n)) %>%
     filter(!! q == "Sim, na estrutura formal do órgão gestor") %>%
     mutate("Categoria" = categoria, "Ano" = !! ano)
+}
 
-  }
+uf_subd_vazio= function(ano, cod_categoria){
+  ano <- quo_name(ano)
+  cod_categoria <- quo_name(cod_categoria)
 
- tabela <- uf_subd(ge_2012,q5_5,"2012","1") %>%
-   bind_rows(uf_subd(ge_2012,q5_8,"2012","2")) %>%
-   bind_rows(uf_subd(ge_2012,q5_7,"2012","3")) %>%
-   bind_rows(uf_subd(ge_2012,q5_6,"2012","4")) %>%
-   bind_rows(uf_subd(ge_2012,q5_1,"2012","5")) %>%
-   bind_rows(uf_subd(ge_2012,q5_2,"2012","6")) %>%
-   bind_rows(uf_subd(ge_2012,q5_4,"2012","7")) %>%
+  categoria <- case_when(
+    !! cod_categoria == "1"~"Gestão do SUAS",
+    !! cod_categoria == "2"~"Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)",
+    !! cod_categoria == "3"~"Gestão do Trabalho",
+    !! cod_categoria == "4"~"Gestão Financeira e Orçamentária",
+    !! cod_categoria == "5"~"Proteção Social Básica",
+    !! cod_categoria == "6"~"Proteção Social Especial",
+    !! cod_categoria == "7"~"Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais",
+    !! cod_categoria == "8"~"Gestão do Cadastro Único e Programa Bolsa Família",
+    !! cod_categoria == "9"~"Regulação do SUAS")
+
+  data.frame("Categoria" = categoria, "Ano" = ano, n = 0, Percentual = 0)
+#  data.frame("Categoria" = categoria, "Ano" = ano)
+}
+
+tabela <- 
+  uf_subd(ge_2012,q5_5,"2012","1") %>%
+  bind_rows(uf_subd(ge_2012,q5_8,"2012","2")) %>%
+  bind_rows(uf_subd(ge_2012,q5_7,"2012","3")) %>%
+  bind_rows(uf_subd(ge_2012,q5_6,"2012","4")) %>%
+  bind_rows(uf_subd(ge_2012,q5_1,"2012","5")) %>%
+  bind_rows(uf_subd(ge_2012,q5_2,"2012","6")) %>%
+  bind_rows(uf_subd(ge_2012,q5_4,"2012","7")) %>%
+  bind_rows(uf_subd_vazio("2012","8")) %>%
+  bind_rows(uf_subd_vazio("2012","9")) %>%
 
 
   bind_rows(uf_subd(ge_2017,q3_1,"2017","1")) %>%
@@ -1789,8 +1764,6 @@ uf_subd= function(df, q, ano, cod_categoria){
   bind_rows(uf_subd(ge_2022,q3_9,"2022","7")) %>%
   bind_rows(uf_subd(ge_2022,q3_8,"2022","8")) %>%
   bind_rows(uf_subd(ge_2022,q3_4,"2022","9")) %>%
-
-
 
   ungroup() %>%
   mutate(Categoria=str_wrap(Categoria,width=51))
@@ -1868,23 +1841,25 @@ Quando se observa a regularização destas areas, há um grupo instituídas info
 
 tabela<-ge_2022 %>%
 # Questionário 2022:
-  select("Gestão do SUAS"=q3_1,
-         "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q3_2,
-         "Gestão do Trabalho"=q3_3,
-         "Regulação do SUAS"=q3_4,
-         "Gestão Financeira e Orçamentária"=q3_5,
-         "Proteção Social Básica"=q3_6,
-         "Proteção Social Especial"=q3_7,
-         "Gestão do Cadastro Único e Programa Bolsa Família"=q3_8,
-         "Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais)"=q3_9,
-         "Programa Criança Feliz"=q3_10) %>%
+  select(
+    "Gestão do SUAS"=q3_1,
+    "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q3_2,
+    "Gestão do Trabalho"=q3_3,
+    "Regulação do SUAS"=q3_4,
+    "Gestão Financeira e Orçamentária"=q3_5,
+    "Proteção Social Básica"=q3_6,
+    "Proteção Social Especial"=q3_7,
+    "Gestão do Cadastro Único e Programa Bolsa Família"=q3_8,
+    "Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais)"=q3_9,
+    "Programa Criança Feliz"=q3_10) %>%
 
 #-------------------
   gather("Categoria","Nível") %>%
   mutate(Categoria=str_wrap(Categoria,width=28)) %>%
-  mutate(Nível = case_when(Nível=="Sim, na estrutura formal do órgão gestor"~"Constituída formalmente",
-                           Nível=="Sim, de maneira informal"~"Constituída informalmente",
-                           TRUE ~ Nível)) %>%
+  mutate(Nível = case_when(
+    Nível=="Sim, na estrutura formal do órgão gestor"~"Constituída formalmente",
+    Nível=="Sim, de maneira informal"~"Constituída informalmente",
+    TRUE ~ Nível)) %>%
   group_by(Categoria, Nível) %>%
   summarise(n=n()) %>%
   group_by(Categoria) %>%
@@ -5712,7 +5687,7 @@ O Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioedu
 
 " 19 Em 2016, 37,5% dos municípios atendiam a adolescentes em cumprimento de Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC) no CREAS do município, enquanto 35,7% dos municípios encaminhava o atendimento desses adolescentes para o CRAS. Constatou-se ainda que 16,3% dos municípios atendiam esses adolescentes pela equipe de referência da proteção social especial do município (órgão gestor) e que 9,9% dos municípios não atendiam adolescentes em cumprimento de LA e de PSC (Gráfico 115). Gráfico 115: Percentual de municípios segundo forma de atendimento a adolescentes em cumprimento de Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC) - Brasil, 2016 Fonte: MDS, Censo SUAS.
 
-O (\Cref{fig:CREAS-MSE}) sinaliza que 89% dos CREAS ofertam esse serviços, esse número aumentou 8 pontos percentuais se comparado a ano de 2017.\footnote\footnote{gráfico são a partir do ano de 2017 em decorrência do início da modalidade da pergunta no formulário do Censo SUAS}
+<!-- O \Cref{fig:CREAS-MSE} sinaliza que 89% dos CREAS ofertam esse serviços, esse número aumentou 8 pontos percentuais se comparado a ano de 2017.\footnote{gráfico são a partir do ano de 2017 em decorrência do início da modalidade da pergunta no formulário do Censo SUAS} -->
 
 
 
@@ -6244,6 +6219,14 @@ Quanto a escolaridade dos trabalhadores (as) das Secretarias Estaduais de Assist
 
 
 ```{r uf_trab_form, fig.cap ="Percentual de trabalhadores (as) nas Secretarias Estaduais de Assistência Social, segundo escolaridade - Brasil; 2012, 2017 e 2022" }
+
+f_nivel_ensino = function(df, nivel_ensino){
+  nivel_ensino <- enquo(nivel_ensino)
+
+  df %>%
+    mutate(!! nivel_ensino := case_when(!! nivel_ensino == "Nível fundamental"~"Nível Fundamental",
+                                        TRUE ~ !! nivel_ensino))
+}
 
 grafico <- f_nomex_somay_nomegrupo(ge_2012, "2012", q55e_1, "Nível Fundamental") %>%
   bind_rows(f_nomex_somay_nomegrupo(ge_2012, "2012", q55e_2, "Nível Médio")) %>%
