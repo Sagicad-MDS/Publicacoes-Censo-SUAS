@@ -6255,7 +6255,7 @@ Em 2016, 15,2% dos trabalhadores da gestão municipal tinham nível fundamental 
 
 <!--fazer para as gestoes municipais-->.
 
-```{r munic_trab_form, fig.cap =" Percentual de trabalhadores nas Secretarias municipais de Assistência Social, segundo escolaridade e profissão - Brasil, 2012 a 2022" }
+```{r munic_trab_form, fig.cap =" Percentual de trabalhadores nas Secretarias municipais de Assistência Social, segundo escolaridade e profissão - Brasil, 2012 a 2022",eval=FALSE} 
 
 grafico <- f_nomex_somay_nomegrupo(gm_rh_2012, "2012", q37e_1, "Nível Fundamental") %>%
   bind_rows(f_nomex_somay_nomegrupo(gm_rh_2012, "2012", q37e_2, "Nível Médio")) %>%

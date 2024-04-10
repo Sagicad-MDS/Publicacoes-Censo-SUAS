@@ -5,19 +5,16 @@
 \documentclass[
   brazilian]{report}
 \usepackage{amsmath,amssymb}
+\usepackage{lmodern}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math} % this also loads fontspec
+  \usepackage{unicode-math}
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
-\fi
-\usepackage{lmodern}
-\ifPDFTeX\else
-  % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -72,7 +69,7 @@
 \fi
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same}
+\urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
   pdftitle={CENSO SUAS 2022},
   pdfauthor={Secretaria de Avaliação, Gestão da Informação e Cadastro Único; Secretaria Nacional de Assistência Social; Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome},
@@ -1725,22 +1722,39 @@ centralidade na família é \Cref{fig:quantitativo-CRAS}
 
 \#Considerações Finais
 
-O Censo SUAS 2022 analisou a oferta das unidades da Assistência Social.
-São Observa-se que no ambito a Proteção Básica existiu um crescimento de
-11\% nos últimos 10 anos. Acessibilidade: melhora sobretudo os que
+O Censo SUAS 2022 neste item identificou a oferta de 30.824 unidades da
+Assistência Social. São 8.557 CRAS, 7.837 Centro de Convivência, 2.846
+CREAS, 33 CREAS Regionais, 237 Centro Pop, 1.886 Centro Dia, 2.892
+unidades exclusivas de Cadastro Único e 6.536 unidades de acolhimento
+institucional (Crianças e adolescentes,Pessoas Idosas, Adultos e
+Famílias, Pessoas com deficiência, Mulheres em situação de Violência
+Doméstica, Jovens egressos serviços de acolhimento).Os dados mostram
+forte presença no território nacional com destaque para crescimentonos
+últimos 10 anos.
+
+No ambito a Proteção Básica existiu um crescimento de 11\% nos últimos
+10 anos. em relação a Acessibilidade há melhora, sobretudo os que
 possuem imóvel próprio que chegam a ter 28 pontos percentuais de
 diferença em relação aos imóveis alugados.
 
-No que se refere ao CREAS, observa-se um crescimento de 31\% destas
-unidades nos últimos 10 anos. As condições de Acessibilidade dos CREAS
-também evoluem, sobretudo os que possuem imóvel próprio com 28,4\% de
-diferença em relação aos imovéis alugados.
+No que se refere a Proteção Social Especial, nos CREAS, observa-se um
+crescimento de 31\% destas unidades nos últimos 10 anos. As condições de
+acessibilidade dos CREAS também avança, sobretudo os que possuem imóvel
+próprio com 28,4\% de diferença em relação aos imovéis alugados. Os
+Centro Pop crescem 126\% ao longo dos últimos 10 anos, assim como
+acessibildiade também, sobretudo para os imvéis próprios.Em relação as
+Unidades de Acolhimento Institucional 45\% delas são da modalidade de
+Criança e Adolescente, em seguida para públicos de pessoas Idosas e
+Adultos e Famílias. O centro dia se destacam com elvolução de 41\%, bem
+como nas condições de ascessibilidade. Para essa modalidade de oferta,
+93\% são através de OCS (Organizações da sociedade Civil).
 
-Os Centro Pop crescem 126\% ao longo dos últimos 10 anos (confirmar)
-
-Em relação as Unidades de Acolhimento Institucional 45\% delas são da
-modalidade de Criança e Adolescente, em seguida para públicos de pessoas
-Idosas e Adultos e Famílias.
+A oferta do Cadastro Único nas unidades, em especial de CRAS avançou 3,8
+pontos percentuais nos últis 10 anos, esse dado se torna
+significativamente maior quando relacionado com equipe exclusiva para
+esta finalidade que avança 25 pontos percentuais neste mesmo período.
+Por fim, destaca-se a inclusão digital sob a ótica do acesso a internet
+como algo praticamente universalizado nas unidades do SUAS.
 
 \hypertarget{serviuxe7os-e-benefuxedcios-ofertados-pelo-suas}{%
 \chapter{Serviços e Benefícios ofertados pelo
@@ -2214,6 +2228,10 @@ período de 10 anos.
 \end{figure}
 
 .
+
+.
+
+\footnote{os dados totais de trabalhadores da gestão municipal para o ano de 2017 não foram possíveis de serem quantificados em decorrência de alterações na modalidade de respostas na base de dados}
 
 .
 
