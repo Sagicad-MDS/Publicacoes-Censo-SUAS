@@ -325,7 +325,7 @@ gerh_2018 <- read_excel("../Censo SUAS 2018/9.GestÆo Estadual/Censo_SUAS_2018_G
 
 ge_2019 <- read_excel("../Censo SUAS 2019/GestÆo Estadual/Censo_SUAS_2019_dados_gerais_GE__divulgação.xlsx")
 
-gerh_2019 <- read_excel("../Censo SUAS 2019/GestÆo Estadual/Censo_SUAS_2019_RH_GE_divulgaÆo.xlsx")
+gerh_2019 <- read_excel("../Censo SUAS 2019/GestÆo Estadual/Censo_SUAS_2019_dados_gerais_GE_RH_divulgaÆo.xlsx",sheet = 1)
 
 ge_2020 <- read_excel("../Censo SUAS 2020/10_GESTAO_ESTADUAL/Censo_SUAS_2020_dados_gerais_Gestão_Estadual.xlsx")
 
@@ -333,6 +333,8 @@ gerh_2020 <- read_excel("../Censo SUAS 2020/10_GESTAO_ESTADUAL/Censo_SUAS_2020_R
 
 ge_2021 <- read_excel("../Censo SUAS 2021/8 - Gestão Estadual/Censo_SUAS_2021_Gestão_Estadual_Dados_Gerais_Divulgaçao.xlsx") %>%
   filter(IBGE < 53) # No arquivo tem uma linha em branco com o código do município de Fortaleza
+
+gerh_2021 <- read_excel("../Censo SUAS 2021/8 - Gestão Estadual/Censo_SUAS_2021_Gestão_Estadual_RH.xlsx")
 
 # ATENÇÃO: Verificar por que no arquivo de RH de 2021 têm dados com o código do município de Fortaleza-CE, além dos dados com o código do Ceará
 #gerh_2021 <- read_excel("../Censo SUAS 2021/8 - Gestão Estadual/Censo_SUAS_2021_Gestão_Estadual_RH.xlsx")
@@ -345,21 +347,37 @@ gm_2010 <- read_excel("../Censo SUAS 2010/Gestão Municipal/Censo SUAS 2010_Gest
 
 gm_2011 <- read_excel("../Censo SUAS 2011/GESTÃO MUNICIPAL/Censo SUAS 2011_GestãoMunicipal_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2011 GestãoMunicipal")
 
-gm_2012 <- read_excel("../Censo SUAS 2012/Gestão Municipal+DF/Censo SUAS 2012_GestaoMunicipal+DF_divulgação.xlsx", sheet = 1)
+gm_2012 <- read_excel("../Censo SUAS 2012/Gestão Municipal+DF/2012_GM.xlsx", sheet = 1)
+
+gm_rh_2012 <- read_excel("../Censo SUAS 2012/Gestão Municipal+DF/2012_GM.xlsx", sheet = 1)
 
 gm_2013 <- read_excel("../Censo SUAS 2013/Gestão Municipal/Censo_SUAS_2013_Gestão_Municipal_Dados_Gerais_Divulgação.xlsx", sheet = 1)
 
+gm_rh_2013 <- read_excel("../Censo SUAS 2013/Gestão Municipal/Censo_SUAS_2013_Gestão_Municipal_Dados_Gerais_Divulgação.xlsx", sheet = 1)
+
 gm_2014 <- read_excel("../Censo SUAS 2014/Gestão Municipal/Bases de Dados/CensoSUAS2014_GestãoMunicipal_Divulgação.xlsx", sheet = "Gestão Municipal 2014")
+
+gm_rh_2014 <- read_excel("../Censo SUAS 2014/Gestão Municipal/Bases de Dados/CensoSUAS2014_GestãoMunicipal_Divulgação.xlsx", sheet = 1)
 
 gm_2015 <- read_excel("../Censo SUAS 2015/Gestão Municipal/CensoSUAS_2015_GestãoMunicipal_DIVULGAÇÃO.xlsx", sheet = "Dados_GM_2015")
 
+gm_rh_2015 <- read_excel("../Censo SUAS 2015/Gestão Municipal/CensoSUAS_2015_GestãoMunicipal_DIVULGAÇÃO.xlsx", sheet = 1)
+
 gm_2016 <- read_excel("../Censo SUAS 2016/Gestão Municipal/Censo_SUAS_2016_Gestao_Municipal_divulgacao.xlsx", sheet = "Censo Gestão Municipal 16")
+
+gm_rh_2016 <- read_excel("../Censo SUAS 2016/Gestão Municipal/Censo_SUAS_2016_Gestao_Municipal_divulgacao.xlsx", sheet = 3)
 
 gm_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Gestão_Municipal/Censo_SUAS_2017_Gestao_Municipal_divulgação.xlsx", sheet = 1)
 
+gm_rh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Gestão_Municipal/Censo_SUAS_2017_Gestao_Municipal_divulgação.xlsx", sheet = 1)
+
 gm_2018 <- read_excel("../Censo SUAS 2018/10 - Gestao Municipal/Censo SUAS 2018_Gestao_Municipal_Dados_Gerais_divulgacao.xlsx")
 
-gm_2019 <- read_excel("../Censo SUAS 2018/Censo_SUAS_2019_Gestão_Municipal_dados_gerais_divulgacao.xlsx")
+gm_rh_2018 <- read_excel("../Censo SUAS 2018/10 - Gestao Municipal/Censo_SUAS_2018_Gestao_Municipal_RH_divulgacao.xlsx",sheet = 1)
+
+gm_2019 <- read_excel("../Censo SUAS 2018/Censo_SUAS_2019_Gestão_Municipal_dados_gerais_divulgacao.xlsx",sheet = 1)
+
+gm_rh_2019 <- read_excel("../Censo SUAS 2019/7 - Gestão Municipal/Censo_SUAS_2019_Gestao_Municipal_RH_divulgacao.xlsx",sheet = 1)
 
 gm_2020 <- read_excel("../Censo SUAS 2020/9 - Gestão Municipal/Censo_SUAS_2020_Gestão_Municipal_dados gerais.xls")
 
@@ -367,15 +385,11 @@ gm_rh_2020 <- read_excel("../Censo SUAS 2020/9 - Gestão Municipal/Censo_SUAS_20
 
 gm_2021 <- read_excel("../Censo SUAS 2021/3 - Gestao Municipal/Censo_SUAS_2021_Gestão_Municipal_Dados_Gerais_Divulgação.xlsx")
 
-gm_rh_2012 <- read_excel("../Censo SUAS 2012/Gestão Municipal+DF/2012_GM.xlsx", sheet = 1)
+gm_rh_2021 <- read_excel("../Censo SUAS 2021/3 - Gestao Municipal/Censo_SUAS_Gestão_Municipal_RH.xlsx",sheet = 1)
 
-#gm_rh_2013 <- read_excel("../Censo SUAS 2013/Gestão Municipal/Censo_SUAS_2013_Gestão_Municipal_Dados_Gerais_Divulgação.xlsx", sheet = 1)
+gm_2022 <- read_excel("../Censo SUAS 2022/9 - GESTÃO MUNICIPAL/Censo_SUAS_2022_Gestão_Municipal_dados_gerais.xlsx",sheet = 1)
 
-gm_rh_2021 <- read_excel("../Censo SUAS 2021/3 - Gestao Municipal/Censo_SUAS_Gestão_Municipal_RH.xlsx")
-
-gm_2022 <- read_excel("../Censo SUAS 2022/9 - GESTÃO MUNICIPAL/Censo_SUAS_2022_Gestão_Municipal_dados_gerais.xlsx")
-
-gmrh_2022 <- read_excel("../Censo SUAS 2022/9 - GESTÃO MUNICIPAL/Censo_SUAS_2022_Gestão_Municipal_RH.xlsx")
+gmrh_2022 <- read_excel("../Censo SUAS 2022/9 - GESTÃO MUNICIPAL/Censo_SUAS_2022_Gestão_Municipal_RH.xlsx",sheet = 1)
 
 cras_2007 <- read_excel("../Censo SUAS 2007/CRAS/Censo SUAS CRAS 2007.xls")
 
@@ -4410,7 +4424,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-Em 2016,95% dos Centros Pop destacam computador com acesso à internet em 2022. O \cref{fig:cpop-internet-percentual} referencia essa evolução por Regiões do Brasil, as regiões Centro Oeste e Sul possuem 100% das undiades com acesso a internet e a região Norte com maior desafio de acesso, com 75% das unidades de Centro Pop com acesso a internet.
+Em 2022,95% dos Centros Pop destacam computador com acesso à internet. O \cref{fig:cpop-internet-percentual} referencia essa evolução por Regiões do Brasil, as regiões Centro Oeste e Sul possuem 100% das undiades com acesso a internet e a região Norte com maior desafio de acesso, com 75% das unidades de Centro Pop com acesso a internet.
 
 ```{r cpop-internet-percentual, fig.cap = "Percentual de Computadores nos Centro Pop com acesso a internet, 2012 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -6003,14 +6017,16 @@ A qualidade da oferta de serviços, programas e benefícios da assistência soci
 
 Esta seção apresenta um panorama geral da situação das trabalhadoras e trabalhadores do SUAS, tanto nos equipamentos da assistência social quanto nas gestões municipais e estaduais, apresentando informações sobre quantitativo, tipo de vínculo trabalhista, escolaridade, entre outros aspectos referentes à gestão do trabalho, e sua evolução ao longo dos anos. 
 
-A quantidade de trabalhadoras (es) nas Secretarias Estaduais de Assistência Social em 2012 era de 16.742 profissionais, considerando trabalhadores lotados na sede do órgão gestor e nas unidades públicas que ofertam serviços socioassistenciais. Esse quantitativo vem caindo, em 2022 passou a ter 4.275, redução de 12.467 trabalhadoras (es) neste período de 10 anos. 
+A quantidade de trabalhadores (as) nas Secretarias Estaduais de Assistência Social em 2018\footnote{gráfico a partir do ano de 2018 em decorrência de mudanças na modalidade de respostas} era de 3.988 profissionais, considerando trabalhadores (as) lotados na sede do órgão gestor. Esse quantitativo aumento 7%, em 2022 passou a ter 4.265 conforme pode ser observado (\Cref{fig:qtd-trab-uf}).
 
+<!--a contagem de 2019 deu erro, pela base é 3.850 mas a quantidade na função estar dando apenas 26-->.
 
+```{r qtd-trab-uf, fig.cap ="Evolução da quantidade de trabalhadores (as) nas Secretarias Estaduais de Assistência Social - Brasil e grandes regiões, 2018 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
-```{r qtd-trab-uf, fig.cap ="Evolução da quantidade de trabalhadores (as) nas Secretarias Estaduais de Assistência Social - Brasil e grandes regiões, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
-
-grafico <- f_soma_regiao_ano(ge_2012, q55e_4, Região, "2012") %>%
-  bind_rows(f_soma_regiao_ano(ge_2017, q11_5_4, Região, "2017")) %>%
+grafico <- f_quantitativo_regiao_ano(gerh_2018, IBGE, "2018") %>%
+  #bind_rows(f_quantitativo_regiao_ano(gerh_2019, IBGE, "2019")) %>%
+  bind_rows(f_quantitativo_regiao_ano(gerh_2020, IBGE, "2020")) %>%
+  bind_rows(f_quantitativo_regiao_ano(gerh_2021, IBGE, "2021")) %>%
   bind_rows(f_quantitativo_regiao_ano(gerh_2022, IBGE, "2022")) %>%
   f_grafico_col_group_numero(Região, n, Ano, 1)
 
@@ -6018,19 +6034,17 @@ grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
-<!--fazer grafico para gestão municipal-->.
 
-<!-- as Gestões Municipais informaram ter 239.815 trabalhadoras e trabalhadores exercendo funções/atividades ligadas à assistência social (inclusive aqueles lotados nas unidades públicas), o menor número desde 2012. Observando a série histórica é possível verificar que o número máximo de trabalhadores foi registrado no ano de 2014, após sucessivos crescimentos desde 2010. Desde de 2015 esse número se reduziu, registrando em 2016 cerca de 17.000 trabalhadores a menos que em 2014 (Gráfico 60). Gráfico 60: Evolução da quantidade de trabalhadores nas Secretarias Municipais de Assistência Social - Brasil, 2010 a 2016 Fonte: MDS, Censo SUAS.-->.
+A quantidade de trabalhadores (as) nas Secretarias Municipais de Assistência Social em 2018\footnote{gráfico a partir do ano de 2018 em decorrência de mudanças na modalidade de respostas} era de 51.135 profissionais, considerando trabalhadores (as) lotados na sede do órgão gestor. Esse quantitativo aumento 4%, em 2022 passou a ter 56.381 conforme pode ser observado (\Cref{fig:qtd_trab_munic}).
 
-\footnote{os dados totais de trabalhadores da gestão municipal para o ano de 2017 não foram possíveis de serem quantificados em decorrência de alterações na modalidade de respostas na base de dados}
 
-<!--Valdson, na pratica dos dados de 2022 estão ok, mas na formula tem regi~çoes que não estão somando -->.
+```{r qtd_trab_munic, fig.cap ="Evolução da quantidade de trabalhadores (as) nas Secretarias Municipais de Assistência Social - Brasil, 2012 a 2022" }
 
-```{r qtd_trab_munic, fig.cap ="Evolução da quantidade de trabalhadores nas Secretarias Municipais de Assistência Social - Brasil, 2012 a 2022" }
-
-grafico <- f_soma_regiao_ano(gm_2012, q38e_4, codigo_ibge, "2012") %>%
-  #bind_rows(f_soma_regiao_ano(gm_2017, d28.5.4, IBGE, "2017")) %>%
-  bind_rows(f_quantitativo_regiao_ano(gm_2022, IBGE, "2022")) %>%
+grafico <- f_quantitativo_regiao_ano(gm_rh_2018, IBGE, "2018")%>%
+  bind_rows(f_quantitativo_regiao_ano(gm_rh_2019, IBGE, "2019")) %>%
+  bind_rows(f_quantitativo_regiao_ano(gm_rh_2020, IBGE, "2020")) %>%
+  bind_rows(f_quantitativo_regiao_ano(gm_rh_2021, IBGE, "2021")) %>%
+  bind_rows(f_quantitativo_regiao_ano(gmrh_2022, IBGE, "2022")) %>%
   f_grafico_col_group_numero(Região, n, Ano, 1)
 
 grafico
@@ -6043,7 +6057,7 @@ Os dados do (\Cref{fig:uf_trab_vin}) traz dados sobre o tipo de vínculo dos tra
 
 <!--colocar outros vínculos para 2022 os seguintes grupos: trabalhadores de empresa, voluntários, terceirizados, outro vinculo, outro vinculo não permanente, sem vinculo-->.
 
-```{r uf_trab_vin, fig.cap ="Percentual de trabalhadores nas Secretarias Estaduais de Assistência Social, segundo tipo de vínculo - Brasil, 2010 a 2022", fig.height = 9.2 }
+```{r uf_trab_vin, fig.cap ="Percentual de trabalhadores (as) nas Secretarias Estaduais de Assistência Social, segundo tipo de vínculo - Brasil, 2010 a 2022", fig.height = 9.2 }
 
 f_vinculo = function(df, vinculo){
   vinculo <- enquo(vinculo)
@@ -6130,9 +6144,9 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 <!--Os trabalhadores estatutários na gestão municipal representavam 38,1% do total em 2016, o maior percentual entre as quatro categorias representadas. O percentual de estatutários em 2016 foi o maior desde 2011: houve um aumento de 1,9 pontos percentuais em relação a 2015 e 4,1 em relação a 2011. Foi observada queda nos percentuais da força de trabalho comissionada e com outros vínculos em relação a 2015: em 2016 eles representavam 15,7% e 34,6% dos trabalhadores, respectivamente (Gráfico 61). Gráfico 61: Percentual de trabalhadores nas Secretarias Municipais de Assistência Social, segundo tipo de vínculo -- Brasil, 2010 a 2016 Fonte: MDS, Censo SUAS.-->.
 
-<!--Valdson, também não consgeui gerar este gráfico, entretanto os codigos das questões estão certinhas, deve aer alguma outra coisa que não estopu conseguindo -->.
+<!--não consgeui gerar este gráfico -->.
 
-```{r munic_trab_vin, fig.cap ="Percentual de trabalhadores nas Secretarias Municipais de Assistência Social, segundo tipo de vínculo - Brasil, 2012 a 2022", eval=FALSE}
+```{r munic_trab_vin, fig.cap ="Percentual de trabalhadores (as) nas Secretarias Municipais de Assistência Social, segundo tipo de vínculo - Brasil, 2013, 2017 e 2022", eval=FALSE}
 
 f_vinculo = function(df, vinculo){
   vinculo <- enquo(vinculo)
@@ -6153,10 +6167,10 @@ f_vinculo = function(df, vinculo){
   mutate(!! vinculo := str_wrap(!! vinculo, width=40))
 }
 
-grafico <- f_nomex_somay_nomegrupo(gm_rh_2012, "2012", q37a_4, "Estatutários") %>%
-  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2012, "2012", q37b_4, "Celetistas")) %>%
-  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2012, "2012", q37c_4, "Somente Comissionados")) %>%
-  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2012, "2012", q37d_4, "Outros Vínculos")) %>%
+grafico <- f_nomex_somay_nomegrupo(gm_rh_2013, "2013", q42a_4, "Estatutários") %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2013, "2013", q42b_4, "Celetistas")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2013, "2013", q42c_4, "Somente Comissionados")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2013, "2013", q42d_4, "Outros Vínculos")) %>%
 
  
   
@@ -6164,14 +6178,13 @@ grafico <- f_nomex_somay_nomegrupo(gm_rh_2012, "2012", q37a_4, "Estatutários") 
   # bind_rows(f_nomex_somay_nomegrupo(gm_2016, "2016", q17_2_4, "Celetistas")) %>%
   # bind_rows(f_nomex_somay_nomegrupo(gm_2016, "2016", q17_3_4, "Somente Comissionados")) %>%
   # bind_rows(f_nomex_somay_nomegrupo(gm_2016, "2016", q17_4_4, "Outros Vínculos")) %>%
-  # 
-  # 
+  #   # 
   #  
-  # bind_rows(f_nomex_somay_nomegrupo(gm_2017, "2017", q28.1.4, "Estatutários")) %>%
-  # bind_rows(f_nomex_somay_nomegrupo(gm_2017, "2017", q28.2.4, "Celetistas")) %>%
-  # bind_rows(f_nomex_somay_nomegrupo(gm_2017, "2017", q28.3.4, "Somente Comissionados")) %>%
-  # bind_rows(f_nomex_somay_nomegrupo(gm_2017, "2017", q28.4.4, "Outros Vínculos")) %>%
-  #  
+  # bind_rows(f_nomex_somay_nomegrupo(gm_rh_2017, "2017", q28.1.4, "Estatutários")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(gm_rh_2017, "2017", q28.2.4, "Celetistas")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(gm_rh_2017, "2017", q28.3.4, "Somente Comissionados")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(gm_rh_2017, "2017", q28.4.4, "Outros Vínculos")) %>%
+  # #  
   # bind_rows(f_nomex_somay_nomegrupo(gm_2018, "2018", q19a_4, "Estatutários")) %>%
   # bind_rows(f_nomex_somay_nomegrupo(gm_2018, "2018", q19b_4, "Celetistas")) %>%
   # bind_rows(f_nomex_somay_nomegrupo(gm_2018, "2018", q19c_4, "Somente Comissionados")) %>%
@@ -6200,7 +6213,7 @@ grafico <- f_nomex_somay_nomegrupo(gm_rh_2012, "2012", q37a_4, "Estatutários") 
 
    #bind_rows(f_nomex_grupos_quantitativo(gm_rh_2021, "2021", nu_trabalhador)) %>%
 
-   #bind_rows(f_nomex_grupos_quantitativo(gmrh_2022, "2022", `nu_trabalhador`)) %>%
+   bind_rows(f_nomex_grupos_quantitativo(gmrh_2022, "2022", d81_11)) %>%
 
   f_vinculo(Grupo) %>%
 
@@ -6251,21 +6264,46 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 
 
-Em 2016, 15,2% dos trabalhadores da gestão municipal tinham nível fundamental de escolaridade (36.494 pessoas), 47,2% nível médio (113.112) e 37,6% nível superior (90.209). Da totalidade de servidores com nível fundamental de escolaridade, 43,1% eram estatutários. Entre os que tinham nível superior, 42,8% eram estatutários, e entre os trabalhadores de nível médio 40,5% eram de outros vínculos (Gráfico 62). Gráfico 62: Percentual de trabalhadores nas Secretarias Municipais de Assistência Social, segundo tipo de vínculo e escolaridade -- Brasil, 2016 Fonte: MDS, Censo SUAS.
+O (\Cref{fig:munic_trab_form}) mostra a evolução do número de trabalhadores (as) de nível superior, ele avança de 36% para 52% no período de 2013 \footnote{gráfico a partir do ano de 2013 em decorrência de problemas na leitura da base de dados do Censo SUAS} a 2022. Em relação a propoção de profissionais de nível médio e fundamental, há uma redução ao longo deste período com 6,3 pontos percentuais para de nível fundamental e 10 pontos percentuais para profissionais de nível médio. Assim, o censo suas de 2022 sinalzia que, do total de trabalhadores (as) na gestão municipal, há 39% de nível fundamental e 8,7% de nível médio. Demais 52%, correspondem a profissionais de nível superior.
 
-<!--fazer para as gestoes municipais-->.
 
-```{r munic_trab_form, fig.cap =" Percentual de trabalhadores nas Secretarias municipais de Assistência Social, segundo escolaridade e profissão - Brasil, 2012 a 2022",eval=FALSE} 
+<!--base de 2020 estar númerica por isso não estar rodando -->.
 
-grafico <- f_nomex_somay_nomegrupo(gm_rh_2012, "2012", q37e_1, "Nível Fundamental") %>%
-  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2012, "2012", q37e_2, "Nível Médio")) %>%
-  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2012, "2012", q37e_3, "Nível Superior")) %>%
 
-  # bind_rows(f_nomex_somay_nomegrupo(gm_2017, "2017", q28.5.1, "Nível Fundamental")) %>%
-  # bind_rows(f_nomex_somay_nomegrupo(gm_2017, "2017", q28.5.2, "Nível Médio")) %>%
-  # bind_rows(f_nomex_somay_nomegrupo(gm_2017, "2017", q28.5.3, "Nível Superior")) %>%
+```{r munic_trab_form, fig.cap =" Percentual de trabalhadores nas Secretarias municipais de Assistência Social, segundo escolaridade e profissão - Brasil, 2013 a 2022"} 
 
-  bind_rows(f_nomex_grupos_quantitativo(gmrh_2022, "2022", d81_9)) %>%
+ grafico <- f_nomex_somay_nomegrupo(gm_rh_2013, "2013", q41e_1, "Nível Fundamental") %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2013, "2013", q41e_2, "Nível Médio")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2013, "2013", q41e_3, "Nível Superior")) %>%
+  
+  #bind_rows(f_nomex_somay_nomegrupo(gm_rh_2014, "2014", q47_1_1, "Nível Fundamental")) %>%
+  #bind_rows(f_nomex_somay_nomegrupo(gm_rh_2014, "2014", q47_1_2, "Nível Médio")) %>%
+  #bind_rows(f_nomex_somay_nomegrupo(gm_rh_2014, "2014", q47_1_3, "Nível Superior")) %>%
+  
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2015, "2015", q36_a, "Nível Fundamental")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2015, "2015", q36_b, "Nível Médio")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2015, "2015", q36_c, "Nível Superior")) %>%
+  
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2016, "2016", q17_5_1, "Nível Fundamental")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2016, "2016", q17_5_2, "Nível Médio")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2016, "2016", q17_5_3, "Nível Superior")) %>%
+  
+
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2017, "2017", q28.5.1, "Nível Fundamental")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2017, "2017", q28.5.2, "Nível Médio")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2017, "2017", q28.5.3, "Nível Superior")) %>%
+
+
+ bind_rows(f_nomex_grupos_quantitativo(gm_rh_2018, "2018", d_62_9)) %>%
+  
+ bind_rows(f_nomex_grupos_quantitativo(gm_rh_2019, "2019", d_65_9)) %>%
+
+ 
+ #bind_rows(f_nomex_grupos_quantitativo(gm_rh_2020, "2020", d81_9)) %>%
+
+ bind_rows(f_nomex_grupos_quantitativo(gm_rh_2021, "2021", d81_9)) %>%
+
+ bind_rows(f_nomex_grupos_quantitativo(gmrh_2022, "2022", d81_9)) %>%
 
   f_nivel_ensino(Grupo) %>%
 
@@ -6281,7 +6319,10 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 
 
-Dos 3.407 trabalhadores das Secretarias Estaduais de Assistência Social que informaram sua formação superior em 2016, 999 (29,3%) eram assistentes sociais, 344 eram psicólogos (10,1%), 310 eram pedagogos (9,1%) e 274 eram advogados (8,0%). Existiam 863 trabalhadores de outras formações de nível superior além das listadas (25,3%) (Gráfico 69). Gráfico 69: Formação profissional dos trabalhadores de nível superior nas Secretarias Estaduais de Assistência Social -- Brasil, 2016 Fonte: MDS, Censo SUAS.
+Dos trabalhadores das Secretarias Estaduais de Assistência Social que informaram sua formação superior em 2022,destava-se a maior presença de profissionais de serviços social com 24%, após identifica-se a proporção de profissionais de psicologia com 8,2%. O maior número de profissionais são identificados em outras profissões ou não informado. 
+
+<!--avaliar se esta base estar consistente devido a questão colcoada na bade de 2022 para menter o grafico-->.
+
 
 ```{r uf_trab_prof, fig.cap ="Percentual de trabalhadores/as de nível superior nas Secretarias Estaduais de Assistência Social, segundo área de formação - Brasil; 2012, 2017 e 2022" }
 
@@ -6390,17 +6431,121 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 Dos 85.011 trabalhadores das Secretarias Municipais de Assistência Social que informaram sua formação superior em 2016, 33.559 (39,5%) eram assistentes sociais, 15.702 eram psicólogos (18,5%) e 10.069 eram pedagogos (11,8% do total). Existiam 14.992 profissionais de outras formações de nível superior além das listadas (17,6% do total) (Gráfico 63). Gráfico 63: Formação profissional dos trabalhadores de nível superior nas Secretarias Municipais de Assistência Social -- Brasil, 2016 Fonte: MDS, Censo SUAS.
 
-```{r munic_trab_prof, fig.cap ="Percentual de trabalhadores nas Secretarias municipais de Assistência Social, segundo escolaridade e profissão - Brasil, 2012 a 2022" }
 
+```{r munic_trab_prof, fig.cap ="Percentual de trabalhadores nas Secretarias municipais de Assistência Social, segundo área de formação - Brasil; 2013, 2017 e 2022" }
+
+f_total_para_outros = function(df, grupo){
+  grupo <- quo_name(grupo)
+
+  informados <- df %>%
+    filter(Grupo == !! grupo & Eixo_x != "Total" & Eixo_x != "Outros") %>%
+    pull(Eixo_y) %>%
+    sum()
+
+  total <- df %>%
+    filter(Grupo == !! grupo & Eixo_x == "Total") %>%
+    pull(Eixo_y)
+
+  df %>%
+    mutate(Eixo_y = ifelse(Grupo == !! grupo & Eixo_x == "Total", total - informados, Eixo_y)) %>%
+    mutate(Eixo_x = ifelse(Grupo == !! grupo & Eixo_x == "Total", "Outros ou não informado", Eixo_x)) %>%
+    filter(Grupo != !! grupo | Eixo_x != "Outros")
+}
+
+f_profissao = function(df, profissao){
+  profissao <- enquo(profissao)
+
+  df %>%
+    mutate(!! profissao := case_when(
+      !! profissao == "Psicólogo(a)" |
+      !! profissao == "Psicólogo"~"Psicóloga/o",
+      !! profissao == "Pedagogo(a)" |
+      !! profissao == "Pedagogo"~"Pedagoga/o",
+      !! profissao == "Advogado(a)" |
+      !! profissao == "Advogado"~"Advogada/o",
+      !! profissao == "Antropólogo(a)" |
+      !! profissao == "Antropólogo"~"Antropóloga/o",
+      !! profissao == "Sociólogo(a)"~"Socióloga/o",
+      !! profissao == "Contador(a)"~"Contador/a",
+      !! profissao == "Administrador(a)"~"Administrador/a",
+      !! profissao == "Outro profissional de nivel superior"~"Outros ou não informado",
+      TRUE ~ as.character(!! profissao)))
+}
+
+tabela <- f_nomex_somay_nomegrupo(gm_rh_2013, "Assistente Social", q43a, "2013") %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2013, "Psicólogo(a)", q43b, "2013")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2013, "Pedagogo(a)", q43c, "2013")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2013, "Advogado(a)", q43d, "2013")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2013, "Antropólogo(a)", q43e, "2013")) %>%
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "Sociólogo(a)", q56f, "2012")) %>%
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "Terapeuta Ocupacional", q56g, "2012")) %>%
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "Contador(a)", q56h, "2012")) %>%
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "Administrador(a)", q56i, "2012")) %>%
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "Economista", q56j, "2012")) %>%
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "Economista Doméstico", q56k, "2012")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2013, "Total", q42e_3, "2013")) %>%
+  f_total_para_outros("2013") %>%
+
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2017, "Assistente Social", q29.1, "2017")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2017, "Psicólogo(a)", q29.2, "2017")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2017, "Pedagogo(a)", q29.3, "2017")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2017, "Advogado(a)", q29.4, "2017")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2017, "Antropólogo(a)", q29.5, "2017")) %>%
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Sociólogo(a)", q12_6, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Terapeuta Ocupacional", q12_7, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Contador(a)", q12_8, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Estatístico", q12_9, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Economista", q12_10, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Economista Doméstico", q12_11, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Musicoterapeuta", q12_12, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Geógrafo", q12_13, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Administrador(a)", q12_14, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Administrador Público/Gestão Pública", q12_15, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Profissional de Educação Física", q12_16, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Outros", q12_17, "2017")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2017, "Total", q28.5.3, "2017")) %>%
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Total", q12_18, "2017")) %>%
+  f_total_para_outros("2017")
+
+# Em 2017: Avaliar se deve ser usado o total de trabalhadores de ensino superior informado na questão 11 ou o informado na questão 12.
+
+tabela_2022 <- gmrh_2022 %>%
+  select(Eixo_x = d81_10) %>%
+  group_by(Eixo_x) %>%
+  summarise(Eixo_y=n()) %>%
+  filter(Eixo_x != "Profissional de nível médio") %>%
+  mutate(Grupo = "2022")
+
+
+tabela <- tabela %>%
+  bind_rows(tabela_2022) %>%
+  f_profissao(Eixo_x) %>%
+  f_calcula_percentual(Grupo, Eixo_x, Eixo_y)
+
+ordenado<-tabela %>%
+  filter(Grupo == "2022") %>%
+  arrange(Eixo_y) %>%
+  pull(Eixo_x)
+
+grafico <- tabela %>%
+  mutate(Eixo_x = factor(Eixo_x, levels = ordenado)) %>%
+  f_grafico_col_percent_flip(Eixo_x, Percentual, Grupo, 1)
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-O Artigo 6º da Lei Orgânica de Assistência Social (LOAS) estabelece que os recursos do cofinanciamento do SUAS poderão ser aplicados no pagamento dos profissionais que integrarem as equipes de referência.
 
-Em 2012 havia 68.275 trabalhadores (as) nos CRAS. Embora nesse ano existissem 37.346 trabalhadores a mais que em 2010 nos CRAS, foi observada redução na quantidade desses em relação aos dois anos anteriores: 2.927 profissionais a menos em relação a 2015 e 6.287 em relação a 2014, ano no qual foi registrado o maior número de trabalhadoras e trabalhadores nos CRAS (Gráfico 70). Gráfico 70: Evolução da quantidade de trabalhadores dos CRAS - Brasil, 2010 a 2016 Fonte: MDS, Censo SUAS.
 
-Em 2016, dos 89.038 trabalhadores do CRAS, 34,3% eram servidores estatutários, 6,6% celetistas e 9,4% comissionados. A categoria "Outros Vínculos", que representa 49,8% do total, incluiu Servidores temporários (30,9% do total), terceirizados (4,8%), trabalhador de empresa/ cooperativa/ entidade prestadora de serviços (1,7%), trabalhadores sem vínculo (1,2%), voluntários (0,1%), além de outros vínculos não permanentes (11,1%). O percentual de trabalhadores estatutários cresceu desde 2014 e o de servidores de outros vínculos se reduziu no mesmo período (Gráfico 71). Gráfico 71: Percentual de trabalhadores nos CRAS, segundo tipo de vínculo -- Brasil, 2012 a 2016 Fonte: MDS, Censo SUAS.
 
-```{r trab-unidades, fig.cap =" Evolução da quantidade de trabalhadores dos CRAS, CREAS e Centro POP - Brasil; 2012, 2017 e 2022" }
+
+O Artigo 6º da Lei Orgânica de Assistência Social (LOAS) estabelece que os recursos do cofinanciamento do SUAS poderão ser aplicados no pagamento dos profissionais que integrarem as equipes de referência. Os dados do censo suas 2022 sinalizam um total de 145.861 trabalhadores (as) sendo 115.149 CRAS, 27.084 CREAS e 36.628 Centro Pop.
+
+O (\Cref{fig:trab-unidades}) mostra um aumento na quantidade de trabalhadores (as) nas unidades socioassistenciais no período de 2012 a 2022. Essa evolução neste período representa 69% nos CRAS, 36% nos CREAS, 122% no Centro Pop.
+
+
+```{r trab-unidades, fig.cap =" Evolução da quantidade de trabalhadores (as) dos CRAS, CREAS e Centro POP - Brasil; 2012, 2017 e 2022" }
 
 grafico <-
   f_quantitativo_em_2_grupos(crasrh_2012, "CRAS", "2012") %>%
@@ -6451,6 +6596,8 @@ Ao longo da série histórica, observou-se um aumento no quantitativo de assiste
 A maior parte dos trabalhadores dos CREAS era de técnicos de nível superior: esses representavam 8.919 trabalhadores (44,9% do total) em 2012 e 10.636 (46,9%) em 2016. Neste ano a função de educador social era exercida por 2.620 trabalhadores (11,6% do total), a função apoio administrativo era exercida por 2.415 trabalhadores (10,6%), enquanto a função Coordenador por 2.366 (10,4%). As funções exercidas pelos menores quantitativos de trabalhadores em 2016 eram a de técnico de nível médio (322 trabalhadores ou 1,4% do total) e de estagiário (500 trabalhadores ou 2,2% do total) (Gráfico 84). Gráfico 84: Quantidade de trabalhadores dos CREAS segundo a função exercida -- Brasil, 2012 a 2016 Fonte: MDS, Censo SUAS.
 
 Entre 2011 e 2016, o quantitativo de trabalhadores atuando nos Centros de Referência Especializados em População em Situação de Rua (Centro POP) aumentou continuamente, com acréscimo de 1.929 trabalhadores no período, apesar de entre os anos de 2015 e 2016 ter sido registrado o menor aumento, com acréscimo de 8 trabalhadores (Gráfico 85). Gráfico 85: Evolução da quantidade de trabalhadores dos Centros POP - Brasil, 2011 a 2016 Fonte: MDS, Censo SUAS.
+
+<!--especificações importantes, mas em decorrencia do tempo avaliar se não seria um caso a gente fazer um artigo para caderno de estudos ou boletim com essa tema-->.
 
 ```{r uf-cras-form, fig.cap ="Quantidade de Trabalhadores segundo a formação profissional - CRAS - Brasil, 2012 a 2022" }
 
