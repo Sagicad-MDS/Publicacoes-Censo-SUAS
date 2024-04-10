@@ -4782,7 +4782,7 @@ grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
-Em relação ao acesso a internet, observa-se uma evolução nos últimos 10 anos. Em 2012 62,2% das unidades possuem acesso a internet, o censo suas de 2022 destaca que 100% dos computadores das undiades possuem acesso a internet conforme o \cref{fig:unac-internet}.
+Em relação ao acesso à internet, observa-se uma evolução nos últimos 10 anos. Em 2012 62,2% das unidades possuem acesso à internet, o censo suas de 2022 destaca que 100% dos computadores das unidades possuem acesso à internet conforme o \cref{fig:unac-internet}.
 
 ```{r unac-internet, fig.cap = "Percentual de Computadores nas unidades de Acolhimento com acesso a internet, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -4820,10 +4820,10 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-Em relação ao local onde estão estas unidades, o grafico abaixo \Cref{fig:posto_cadunico}. A maioria destas unidades, 60,9% encontra-se na secretaria de Assistencia Social. A segunda proporção são postos exclusivos, com detaque para algumas undiades presentes em escolas, conselhos e OSCS.
+Em relação ao local onde estão estas unidades, o gráfico abaixo \Cref{fig:posto_cadunico}. A maioria destas unidades, 60,9% encontra-se na secretaria de Assistencia Social. A segunda proporção são postos exclusivos, com destaque para algumas undiades presentes em escolas, conselhos e OSCS.
 
 
-Em relação ao local onde estão estas unidades, \Cref{fig:posto_cadunico}. A maioria destas unidades, 60,9% encontra-se na secretaria de assistencia social. A segunda proporção são postos exclusivos, com detaque para algumas undiades presentes em escolas, conselhos e OSCS.
+Em relação ao local onde estão estas unidades, \Cref{fig:posto_cadunico}. A maioria destas unidades, 60,9% encontra-se na secretaria de assistencia social. A segunda proporção são postos exclusivos, com detaque para algumas unidiades presentes em escolas, conselhos e OSCS.
 
 ```{r posto_cadunico, fig.cap = "Distribuição dos Postos do Cadastro Único - Brasil, 2020 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -4871,7 +4871,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-A acessibilidade possui um leve avanço nos últimos anos, com execeção da rota ascessivel aos principais espaços os demais itens de acessbilidade avançaram conforme pode ser observado através do \cref{fig:postcad-acessibilidade}.
+A acessibilidade possui um leve avanço nos últimos anos, com execeção da rota acessível aos principais espaços, os demais itens de acessibilidade avançaram conforme pode ser observado através do \cref{fig:postcad-acessibilidade}.
 
 ```{r postcad-acessibilidade, fig.cap = "Evolução percentual de postos do Cadastro Único com condições de acessibilidade - Brasil; 2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -4931,7 +4931,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-Em relação a computadores com acesso a internet, os dados do censo suas 2022 sinaliza que 99% das unidades dispõe de equipamentos com esta estrutura conforme pode ser observado no \cref{fig:postcad-internet-percentual}.
+Em relação a computadores com acesso à internet, os dados do censo suas 2022 sinaliza que 99% das unidades dispõe de equipamentos com esta estrutura, conforme pode ser observado no \cref{fig:postcad-internet-percentual}.
 
 ```{r postcad-internet-percentual, fig.cap = "Evolução percentual de Postos do Cadastro Único com computadores com acesso à internet – Brasil;  2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -4963,9 +4963,9 @@ Para isso, os dados históricos desta publicação nos ajudam a identificar os a
 
 -   **Proteção Social Básica:** PAIF (Serviço de Proteção e Atendimento Integral à Família), SCFV (Serviços de Convivência e Fortalecimento de Vínculos), Proteção Social Básica no Domicílio para pessoas idosas e com deficiência,
 
--   **Proteção Social Especial Média Complexidadade:** PAEFI (Serviço de Atendimento Especializado a Famílias e Indivíduos),Proteção Social Especial no Domicílio para pessoas idosas e com Deficiência, Abordagem Social, MSE (Medidas Socioeducativas em meio aberto), Serviço para situações de emergência e/ou calamidade pública.
+-   **Proteção Social Especial Média Complexidadade:** PAEFI (Serviço de Atendimento Especializado a Famílias e Indivíduos), Proteção Social Especial no Domicílio para pessoas idosas e com Deficiência, Abordagem Social, MSE (Medidas Socioeducativas em meio aberto), Serviço para situações de emergência e/ou calamidade pública.
 
--   **Proteção Social Especial Alta Complexidade:** Tipos de unidades de Serviço de Acolhimento Institucional, oferta de Serviços de Família Acolhedora, bem como do Programa de Família Guardiã ou Extensa, Serviçso ofertado em Centro Dia.
+-   **Proteção Social Especial Alta Complexidade:** Tipos de unidades de Serviço de Acolhimento Institucional, oferta de Serviços de Família Acolhedora, bem como do Programa de Família Guardiã ou Extensa, Serviço ofertado em Centro Dia.
 
 ## Proteção Social Básica
 
@@ -5010,7 +5010,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 Em 2016, 2.334 CRAS informaram que havia povos e comunidades tradicionais em seu território de abrangência (28,3% do total de CRAS). Desses, apenas 127 (5,4%) indicaram não ter realizado atendimento a esse público. Esse percentual é inferior a 2015, quando o percentual foi de 6,7% (147 unidades dos 2.191 CRAS com povos e comunidades tradicionais em seu território de abrangência).
 
-Dos 2.334 CRAS que informaram que havia povos e comunidades tradicionais em seu território de abrangência, 896 informaram ter atendido Comunidades Quilombolas (38,4%), seguidos por 615 CRAS que informaram ter atendido Comunidades Ribeirinhas (26,3%) e 611 que informaram ter atendido Povos Indígenas (26,2%) (Gráfico 27).
+Dos 2.334 CRAS que informaram que haviam povos e comunidades tradicionais em seu território de abrangência, 896 informaram ter atendido Comunidades Quilombolas (38,4%), seguidos por 615 CRAS que informaram ter atendido Comunidades Ribeirinhas (26,3%) e 611 que informaram ter atendido Povos Indígenas (26,2%) (Gráfico 27).
 
 Os CRAS são considerados a porta de entrada da Assistência Social, sendo uma referência para a população no território. Nesse sentido, podem se articular com a rede de proteção social e com demais serviços ofertados no município, de forma a garantir o acesso da população aos direitos sociais.
 
@@ -5036,7 +5036,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ## Serviços de Proteção Social Especial -- Média Compexidade
 
-A Proteção Social Especial de Média Complexidade organiza a oferta de serviços, programas e projetos de caráter especializado que requerem maior estruturação técnica e operativa, com competências e atribuições definidas, destinados ao atendimento a famílias e indivíduos em situação de risco pessoal e social, por violação de direitos. É ofertada pelos Centros de Referência Especializados de Assistência Social (CREAS), pelos Centros de Referência Especializados para População em Situação de Rua (Centro POP), e pelos Centro-Dia. No nível de Média Complexidade, são ofertados o Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos (PAEFI); o Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida e de Prestação de Serviços à Comunidade; o Serviço Especializado em Abordagem Social; o Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosos e suas Famílias e o Serviço Especializado para Pessoas em Situação de Rua. O PAEFI é definido na Tipificação Nacional de Serviços Socioassistenciais18 como sendo o "serviço de apoio, orientação e acompanhamento a famílias com um ou mais de seus membros em situação de ameaça ou violação de direitos. Compreende atenções e orientações direcionadas para a promoção de direitos, a preservação e o fortalecimento de vínculos familiares, comunitários e sociais e para o fortalecimento da função protetiva das famílias diante do conjunto de condições que as vulnerabilizam e/ou as submetem a situações de risco pessoal e social." As situações de violência ou de violação de direitos para as quais teve mais CREAS oferecendo atendimento pelo PAEFI em 2016, contando separadamente o atendimento de cada CREAS a cada ciclo de vida do usuário (atendimento a crianças e adolescentes, atendimento a mulheres adultas, atendimento a homens adultos e atendimento a idosos), foram as situações de violência psicológica, de violência física e de pessoas com deficiência vítimas de violência ou de violação de direitos. Para as crianças e adolescentes, a situação para a qual teve mais CREAS oferecendo atendimento foi a de abuso sexual ou de violência sexual: 2464 de um total de 2521 CREAS ofereceram atendimento pelo PAEFI a essa situação. No atendimento a mulheres adultas, as situações de violência física e violência psicológica foram as que tiveram maior número de CREAS oferecendo atendimento. Já para os homens adultos, a situação que teve o maior número de CREAS oferecendo atendimento foi a de pessoas com deficiência vítimas de violência ou de violação de direitos. Violência psicológica foi a situação, em número de CREAS, com maior oferta de atendimento para idosos. As situações que tiveram o maior número de CREAS que não oferecem atendimento para elas foram as de tráfico de pessoas, de famílias com adolescentes em cumprimento de medida socioeducativa e de famílias com pessoas egressas do sistema prisional (Gráfico 112). Gráfico 112 - Número de CREAS que oferecem atendimento pelo PAEFI, segundo situações e ciclos de vida do usuário em situação de violência/violação de direitos - Brasil, 2016 Fonte: MDS, Censo SUAS.
+A Proteção Social Especial de Média Complexidade organiza a oferta de serviços, programas e projetos de caráter especializado que requerem maior estruturação técnica e operativa, com competências e atribuições definidas, destinados ao atendimento a famílias e indivíduos em situação de risco pessoal, social e por violação de direitos. É ofertada pelos Centros de Referência Especializados de Assistência Social (CREAS), pelos Centros de Referência Especializados para População em Situação de Rua (Centro POP), e pelos Centro-Dia. No nível de Média Complexidade, são ofertados o Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos (PAEFI); o Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida e de Prestação de Serviços à Comunidade; o Serviço Especializado em Abordagem Social; o Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosos e suas Famílias e o Serviço Especializado para Pessoas em Situação de Rua. O PAEFI é definido na Tipificação Nacional de Serviços Socioassistenciais18 como sendo o "serviço de apoio, orientação e acompanhamento a famílias com um ou mais de seus membros em situação de ameaça ou violação de direitos. Compreende atenções e orientações direcionadas para a promoção de direitos, a preservação e o fortalecimento de vínculos familiares, comunitários e sociais e para o fortalecimento da função protetiva das famílias diante do conjunto de condições que as vulnerabilizam e/ou as submetem a situações de risco pessoal e social." As situações de violência ou de violação de direitos para as quais teve mais CREAS oferecendo atendimento pelo PAEFI em 2016, contando separadamente o atendimento de cada CREAS a cada ciclo de vida do usuário (atendimento a crianças e adolescentes, atendimento a mulheres adultas, atendimento a homens adultos e atendimento a idosos), foram as situações de violência psicológica, de violência física e de pessoas com deficiência vítimas de violência ou de violação de direitos. Para as crianças e adolescentes, a situação para a qual teve mais CREAS oferecendo atendimento foi a de abuso sexual ou de violência sexual: 2464 de um total de 2521 CREAS ofereceram atendimento pelo PAEFI a essa situação. No atendimento a mulheres adultas, as situações de violência física e violência psicológica foram as que tiveram maior número de CREAS oferecendo atendimento. Já para os homens adultos, a situação que teve o maior número de CREAS oferecendo atendimento foi a de pessoas com deficiência vítimas de violência ou de violação de direitos. Violência psicológica foi a situação, em número de CREAS, com maior oferta de atendimento para idosos. As situações que tiveram o maior número de CREAS que não oferecem atendimento para elas foram as de tráfico de pessoas, de famílias com adolescentes em cumprimento de medida socioeducativa e de famílias com pessoas egressas do sistema prisional (Gráfico 112). Gráfico 112 - Número de CREAS que oferecem atendimento pelo PAEFI, segundo situações e ciclos de vida do usuário em situação de violência/violação de direitos - Brasil, 2016 Fonte: MDS, Censo SUAS.
 
 Do total de 2521 unidades de CREAS existentes em 2016 no Brasil, de 99,0% a 99,5% delas realizaram as seguintes ações e atividades no âmbito do PAEFI: visitas domiciliares, acompanhamento individual ou familiar, encaminhamento para o CRAS, encaminhamento para serviços da rede de saúde e encaminhamento de famílias ou indivíduos para a rede de serviço socioassistencial. As ações e atividades que tiveram menor número de CREAS realizando-as foram as de orientação jurídico-social e de grupo ou oficina com famílias ou indivíduos, realizadas por 75,2% e 72,5% das unidades, respectivamente (Gráfico 113). Gráfico 113 - Percentual de CREAS segundo ações e atividades realizadas no âmbito do PAEFI - Brasil, 2016 Fonte: MDS, Censo SUAS.
 
