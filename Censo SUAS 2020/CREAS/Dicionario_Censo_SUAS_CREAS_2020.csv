@@ -1,0 +1,74 @@
+﻿Variavel;Rotulo
+IBGE;IBGE
+NU_IDENTIFICADOR;NU_IDENTIFICADOR
+co_seq_dirigente;co_seq_dirigente
+q62_2;q62_2_v10582_62.2. Data de Nascimento
+q62_3;q62_3_v10583_62.3. Sexo
+q62_8;q62_8_v10588_62.8. Escolaridade
+q62_9;q62_9_v10589_62.9. Profissão
+q62_10;q62_10_v10590_62.10. Vínculo
+q62_11;q62_11_v10591_62.11. Função
+q62_12;q62_12_v10592_62.12. Carga horária SEMANAL
+q62_13;q62_13_v10593_62.13. Início do exercício da função
+q62_14;q62_14_v10594_62.14. Principal serviço/atividade
+q62_15;q62_15_v10595_62.15. Segundo principal serviço/atividade
+q62_16;q62_16_v10596_62.16. Terceiro principal serviço/atividade
+DataCenso;"COMPUTE DataCenso=""31.08.2020"""
+DataCenso_2020;DataCenso recodificada
+q62_2_rec;
+Idade;Idade
+Faixas_etarias;Faixas etárias dos Trabalhadores dos CREAS
+d62_8;d62_8_Níveis de escolaridade
+d62_8bin1;d62_8bin1_Nível fundamental - Trabalhadores que possuem até o nível médio (inclui aqueles sem escolaridade)
+d62_8bin2;d62_8bin2_Nível médio - Trabalhadores com ensino superior incompleto e ensino médio completo
+d62_8bin3;d62_8bin3_Nível superior - inclui Trabalhadores graduados, com especialização, mestrado ou doutorado
+d62_9;d62_9 _Profissão
+d62_9bin1;d62_9 bin1_Pedagogo
+d62_9bin2;d62_9 bin2_Assistente Social
+d62_9bin3;d62_9 bin3_Antropólogo
+d62_9bin4;d62_9 bin4_Advogado
+d62_9bin5;d62_9bin5_Psicologo
+d62_10;d62_10 _Tipo de vínculo
+d62_10bin1;d62_10bin1_Servidor Estatutário
+d62_10bin2; d62_10bin2_Empregado Público (CLT)
+d62_10bin3;d62_10bin3_Comissionado
+d62_10bin4;"d62_10bin4_Outros vínculos não permanentes - inclui Trabalhador de Empresas/Cooperativa/Entidade Prestadora de Serviços; Voluntários; Servidor Temporário; Sem vínculo; Terceirizado e Outro vínculo não permanente"
+missing_atividade;
+d62_14_1bin_Gestão;d62_14_1bin_Gestão - Principal serviço/atividade
+d62_14_1bin_PAEFI;d62_14_1bin_PAEFI - Principal serviço/atividade
+d62_14_1bin_MSE;d62_14_1bin_MSE - Principal serviço/atividade
+d62_14_1bin_ABORDAGEM; d62_14_1bin_ABORDAGEM- Principal serviço/atividade
+d62_14_1bin_PSE_PCDI;d62_14_1bin_PSE_PCDI - Principal serviço/atividade
+d62_14_1bin_Beneficios;d62_14_1bin_Beneficios - Principal serviço/atividade
+d62_14_1bin_CADASTRAMENTO;d62_14_1bin_CADASTRAMENTO - Principal serviço/atividade
+d62_14_1bin_Outros;d62_14_1bin_Outros - Principal serviço/atividade
+d62_15_2bin_Gestão;d62_15_2bin_Gestão - Segundo serviço/atividade
+d62_15_2bin_PAEFI;d62_15_2bin_PAEFI - Segundo serviço/atividade
+d62_15_2bin_MSE;d62_15_2bin_MSE - Segundo serviço/atividade
+d62_15_2bin_ABORDAGEM; d62_15_2bin_ABORDAGEM- Segundo serviço/atividade
+d62_15_2bin_PSE_PCDI;d62_15_2bin_PSE_PCDI - Segundo serviço/atividade
+d62_15_2bin_Beneficios;d62_15_2bin_Beneficios - Segundo serviço/atividade
+d62_15_2bin_CADASTRAMENTO;d62_15_2bin_CADASTRAMENTO - Segundo serviço/atividade
+d62_15_2bin_Outros;d62_15_2bin_Outros - Segundo serviço/atividade
+d62_16_3bin_Gestão;d62_16_3bin_Gestão - Terceiro serviço/atividade
+d62_16_3bin_PAEFI;d62_16_3bin_PAEFI - Terceiro serviço/atividade
+d62_16_3bin_MSE;d62_16_3bin_MSE- Terceiro serviço/atividade
+d62_16_3bin_ABORDAGEM; d62_16_3bin_ABORDAGEM- Terceiro serviço/atividade
+d62_16_3bin_PSE_PCDI;d62_16_3bin_PSE_PCDI - Terceiro serviço/atividade
+d62_16_3bin_Beneficios;d62_16_3bin_Beneficios - Terceiro serviço/atividade
+d62_16_3bin_CADASTRAMENTO;d62_16_3bin_CADASTRAMENTO - Terceiro serviço/atividade
+d62_16_3bin_Outros;d62_16_3bin_Outros - Terceiro serviço/atividade
+q62_9_velha;
+d62_8bin1_sum;Número de trabalhadores de Nível fundamental (inclui trabalhadores sem escolaridade, fundamental incompleto e ensino médio incompleto)
+d62_8bin2_sum;Número de trabalhadores de Nível médio (inclui trabalhadores com ensino superior incompleto)
+d62_8bin3_sum;Número de trabalhadores de Nível superior (inclui trabalhadores com especialização, mestrado e doutorado)
+d62_9bin1_sum;Número de Pedagogos
+d62_9bin2_sum;Número de Assistentes Sociais
+d62_9bin3_sum;Número de Antropólogos
+d62_9bin4_sum;Número de Advogados
+d62_9bin5_sum;Número de Psicólogos
+d62_10bin1_sum;Número de Servidores Estatutários
+d62_10bin2_sum;Número de Empregados Públicos(CLT)
+d62_10bin3_sum;Número de Comissionados
+d62_10bin4_sum;Número de profissionais com outros vínculos não permanentes
+nu_trabalhadores;Numero de trabalhadores no CREAS

@@ -1,0 +1,2 @@
+FREQUENCIES VARIABLES=q_37_3 q_37_9 q_37_10 q_37_11 q_37_12 q_37_13 q_37_15 q_37_16 q_37_17 Faixas_etarias d_37_9 d_37_10 d_37_11
+  /ORDER=ANALYSIS.
