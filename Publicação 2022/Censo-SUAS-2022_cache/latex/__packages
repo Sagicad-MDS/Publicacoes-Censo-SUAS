@@ -1,0 +1,14 @@
+tinytex
+tidyr
+purrr
+dplyr
+lubridate
+janitor
+readxl
+stringr
+repmis
+scales
+ggplot2
+ggrepel
+renv
+forcats
