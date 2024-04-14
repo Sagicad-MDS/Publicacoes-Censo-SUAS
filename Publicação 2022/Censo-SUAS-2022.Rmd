@@ -24,7 +24,7 @@ header-includes:
   - \usepackage{titling}
   - \usepackage{cleveref}
 output:
-  pdf_document:
+  pdf_document: 
     number_sections: true
     keep_tex: true
   html_document:
@@ -1404,10 +1404,12 @@ f_grafico_col_stack_percent_flip = function(df, x, y, grupo, legend_nrow){
 
   df %>%
     mutate(precisao = ifelse(!! y < 0.0995, 0.1, 1)) %>%
+    arrange(!! grupo) %>%
     ggplot(aes(x = !! x, y = !! y)) +
     geom_col(aes(fill = !! grupo), position = position_stack(reverse = TRUE)) +
     geom_text(aes(label = ifelse(!! y > 0.0005, label_percent(accuracy = precisao, decimal.mark = ",")(!! y), "")),
-              position = position_stack(reverse = TRUE, vjust = .5),
+#              position = position_stack(reverse = TRUE, vjust = .5),
+              position = position_stack(vjust = .5),
               check_overlap = TRUE) +
     scale_y_continuous(expand = expand_scale(mult = c(0, 0.05))) +
     coord_flip() +
@@ -1421,6 +1423,37 @@ f_grafico_col_stack_percent_flip = function(df, x, y, grupo, legend_nrow){
     guides(fill=guide_legend(nrow=legend_nrow,byrow=TRUE))
 }
 
+f_grafico_col_stack_percent_flip_2_x_groups = function(df, x1, x2, y, grupo, legend_nrow){
+  x1 <- enquo(x1)
+  x2 <- enquo(x2)
+  y <- enquo(y)
+  grupo <- enquo(grupo)
+
+  df %>%
+    mutate(precisao = ifelse(!! y < 0.0995, 0.1, 1)) %>%
+    arrange(!! grupo) %>%
+    ggplot(aes(x = !! x2, y = !! y)) +
+    geom_col(aes(fill = !! grupo), position = position_stack(reverse = TRUE), width = 1) +
+    geom_text(aes(label = label_percent(accuracy = precisao, decimal.mark = ",")(!! y)),
+              position = position_stack(vjust = .5),
+              check_overlap = TRUE) +
+    facet_wrap(vars(!! x1), strip.position = "left", ncol = 1) +
+    scale_y_continuous(expand = expand_scale(mult = c(0, 0.05))) +
+    coord_flip() +
+    theme(legend.position="bottom",
+          legend.title = element_blank(),
+          axis.title = element_blank(),
+          axis.ticks = element_blank(),
+          axis.text.x = element_blank(),
+          axis.line.y = element_line(),
+          panel.background = element_blank(),
+          panel.spacing = unit(0, "lines"),
+          strip.background = element_blank(),
+          strip.placement = "outside",
+          strip.text.y.left = element_text(angle = 0)
+          )+
+    guides(fill=guide_legend(nrow=legend_nrow,byrow=TRUE))
+}
 ```
 
 # Gestão e Financiamento
@@ -1697,7 +1730,6 @@ uf_subd= function(df, q, ano, cod_categoria){
     !! cod_categoria == "9"~"Regulação do SUAS")
 
  # não conseguir colocar a de maneira informal
- # Como já tem dois agrupamentos (tipo de estrutura administrativa e ano) complica colocar um terceiro agrupamento (pra mostrar formal e informal). Teria que ver em que modelo de gráfico daria pra fazer (tridimensional, talvez?). Outra opção é fazer apenas para 2022, substituindo o agrupamento "ano" pelo agrupamento indicando formal e informal.
 
   df %>%
     select(!! q) %>%
@@ -1772,6 +1804,101 @@ ordenado<-tabela %>%
 grafico<-tabela %>%
   mutate(Categoria = factor(Categoria, levels = ordenado)) %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+```{r uf_subd_constituidas, fig.cap = "Percentual de estados segundo constituição de subdivisões administrativas na estrutura do órgão gestor - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+# Avaliar se gráficos de estados não ficariam melhor em quantidade em vez de percentual
+
+w_grupo <- 22
+
+uf_subd= function(df, q, ano, cod_categoria){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+  cod_categoria <- quo_name(cod_categoria)
+
+  categoria <- case_when(
+    !! cod_categoria == "1"~"Gestão do SUAS",
+    !! cod_categoria == "2"~"Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)",
+    !! cod_categoria == "3"~"Gestão do Trabalho",
+    !! cod_categoria == "4"~"Gestão Financeira e Orçamentária",
+    !! cod_categoria == "5"~"Proteção Social Básica",
+    !! cod_categoria == "6"~"Proteção Social Especial",
+    !! cod_categoria == "7"~"Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais",
+    !! cod_categoria == "8"~"Gestão do Cadastro Único e Programa Bolsa Família",
+    !! cod_categoria == "9"~"Regulação do SUAS",
+    !! cod_categoria == "10"~"Programa Criança Feliz")
+
+  df %>%
+    select("Grupo" = !! q) %>%
+#    filter(!is.na(!! q)) %>%
+    group_by(Grupo) %>%
+    summarise(n=n()) %>%
+    mutate(Percentual = n/sum(n)) %>%
+    mutate(Grupo = case_when(
+      Grupo=="Sim, na estrutura formal do órgão gestor"~"Constituída formalmente",
+      Grupo=="Sim, de maneira informal"~"Constituída informalmente",
+      TRUE ~ Grupo)) %>%
+    mutate(Grupo=str_wrap(Grupo, width=w_grupo)) %>%
+    mutate(Grupo = factor(Grupo, levels = str_wrap(c(
+      "Constituída formalmente",
+      "Constituída informalmente",
+      "Não constituída"),
+      width=w_grupo))) %>%
+#    mutate(Grupo = factor(Grupo, levels = c(
+#      "Constituída formalmente",
+#      "Constituída informalmente",
+#      "Não constituída"))) %>%
+    mutate("Categoria" = categoria, "Ano" = !! ano)
+}
+
+tabela <- 
+  uf_subd(ge_2012,q5_1,"2012","5") %>%
+  bind_rows(uf_subd(ge_2012,q5_2,"2012","6")) %>%
+  bind_rows(uf_subd(ge_2012,q5_3,"2012","8")) %>%
+  bind_rows(uf_subd(ge_2012,q5_4,"2012","7")) %>%
+  bind_rows(uf_subd(ge_2012,q5_5,"2012","1")) %>%
+  bind_rows(uf_subd(ge_2012,q5_6,"2012","4")) %>%
+  bind_rows(uf_subd(ge_2012,q5_7,"2012","3")) %>%
+  bind_rows(uf_subd(ge_2012,q5_8,"2012","2")) %>%
+
+  bind_rows(uf_subd(ge_2017,q3_1,"2017","1")) %>%
+  bind_rows(uf_subd(ge_2017,q3_2,"2017","2")) %>%
+  bind_rows(uf_subd(ge_2017,q3_3,"2017","3")) %>%
+  bind_rows(uf_subd(ge_2017,q3_4,"2017","9")) %>%
+  bind_rows(uf_subd(ge_2017,q3_5,"2017","4")) %>%
+  bind_rows(uf_subd(ge_2017,q3_6,"2017","5")) %>%
+  bind_rows(uf_subd(ge_2017,q3_7,"2017","6")) %>%
+  bind_rows(uf_subd(ge_2017,q3_8,"2017","8")) %>%
+  bind_rows(uf_subd(ge_2017,q3_9,"2017","7")) %>%
+
+  bind_rows(uf_subd(ge_2022,q3_1,"2022","1")) %>%
+  bind_rows(uf_subd(ge_2022,q3_2,"2022","2")) %>%
+  bind_rows(uf_subd(ge_2022,q3_3,"2022","3")) %>%
+  bind_rows(uf_subd(ge_2022,q3_4,"2022","9")) %>%
+  bind_rows(uf_subd(ge_2022,q3_5,"2022","4")) %>%
+  bind_rows(uf_subd(ge_2022,q3_6,"2022","5")) %>%
+  bind_rows(uf_subd(ge_2022,q3_7,"2022","6")) %>%
+  bind_rows(uf_subd(ge_2022,q3_8,"2022","8")) %>%
+  bind_rows(uf_subd(ge_2022,q3_9,"2022","7")) %>%
+  bind_rows(uf_subd(ge_2022,q3_10,"2022","10")) %>%
+
+#  ungroup() %>%
+  mutate(Categoria=str_wrap(Categoria,width=51))
+
+ordenado<-tabela %>%
+  filter(Ano == "2022") %>%
+  filter(Grupo == str_wrap("Constituída formalmente", width=w_grupo)) %>%
+  arrange(Percentual) %>%
+  pull(Categoria)
+
+grafico<-tabela %>%
+  mutate(Categoria = factor(Categoria, levels = rev(ordenado))) %>%
+  f_grafico_col_stack_percent_flip_2_x_groups(Categoria, Ano, Percentual, Grupo, 1)
 
 grafico
 
@@ -1856,6 +1983,10 @@ tabela<-ge_2022 %>%
     Nível=="Sim, na estrutura formal do órgão gestor"~"Constituída formalmente",
     Nível=="Sim, de maneira informal"~"Constituída informalmente",
     TRUE ~ Nível)) %>%
+  mutate(Nível = factor(Nível, levels = c(
+    "Constituída formalmente",
+    "Constituída informalmente",
+    "Não constituída"))) %>%
   group_by(Categoria, Nível) %>%
   summarise(n=n()) %>%
   group_by(Categoria) %>%
