@@ -24,7 +24,7 @@ header-includes:
   - \usepackage{titling}
   - \usepackage{cleveref}
 output:
-  pdf_document:
+  pdf_document: 
     number_sections: true
     keep_tex: true
   html_document:
@@ -349,25 +349,15 @@ gm_2011 <- read_excel("../Censo SUAS 2011/GESTÃO MUNICIPAL/Censo SUAS 2011_Gest
 
 gm_2012 <- read_excel("../Censo SUAS 2012/Gestão Municipal+DF/2012_GM.xlsx", sheet = 1)
 
-gm_rh_2012 <- read_excel("../Censo SUAS 2012/Gestão Municipal+DF/2012_GM.xlsx", sheet = 1)
-
 gm_2013 <- read_excel("../Censo SUAS 2013/Gestão Municipal/Censo_SUAS_2013_Gestão_Municipal_Dados_Gerais_Divulgação.xlsx", sheet = 1)
 
 gm_2014 <- read_excel("../Censo SUAS 2014/Gestão Municipal/Bases de Dados/CensoSUAS2014_GestãoMunicipal_Divulgação.xlsx", sheet = "Gestão Municipal 2014")
 
-gm_rh_2014 <- read_excel("../Censo SUAS 2014/Gestão Municipal/Bases de Dados/CensoSUAS2014_GestãoMunicipal_Divulgação.xlsx", sheet = 1)
-
 gm_2015 <- read_excel("../Censo SUAS 2015/Gestão Municipal/CensoSUAS_2015_GestãoMunicipal_DIVULGAÇÃO.xlsx", sheet = "Dados_GM_2015")
-
-gm_rh_2015 <- read_excel("../Censo SUAS 2015/Gestão Municipal/CensoSUAS_2015_GestãoMunicipal_DIVULGAÇÃO.xlsx", sheet = 1)
 
 gm_2016 <- read_excel("../Censo SUAS 2016/Gestão Municipal/Censo_SUAS_2016_Gestao_Municipal_divulgacao.xlsx", sheet = "Censo Gestão Municipal 16")
 
-gm_rh_2016 <- read_excel("../Censo SUAS 2016/Gestão Municipal/Censo_SUAS_2016_Gestao_Municipal_divulgacao.xlsx", sheet = 3)
-
 gm_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Gestão_Municipal/Censo_SUAS_2017_Gestao_Municipal_divulgação.xlsx", sheet = 1)
-
-gm_rh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Gestão_Municipal/Censo_SUAS_2017_Gestao_Municipal_divulgação.xlsx", sheet = 1)
 
 gm_2018 <- read_excel("../Censo SUAS 2018/10 - Gestao Municipal/Censo SUAS 2018_Gestao_Municipal_Dados_Gerais_divulgacao.xlsx")
 
@@ -1421,10 +1411,12 @@ f_grafico_col_stack_percent_flip = function(df, x, y, grupo, legend_nrow){
 
   df %>%
     mutate(precisao = ifelse(!! y < 0.0995, 0.1, 1)) %>%
+    arrange(!! grupo) %>%
     ggplot(aes(x = !! x, y = !! y)) +
     geom_col(aes(fill = !! grupo), position = position_stack(reverse = TRUE)) +
     geom_text(aes(label = ifelse(!! y > 0.0005, label_percent(accuracy = precisao, decimal.mark = ",")(!! y), "")),
-              position = position_stack(reverse = TRUE, vjust = .5),
+#              position = position_stack(reverse = TRUE, vjust = .5),
+              position = position_stack(vjust = .5),
               check_overlap = TRUE) +
     scale_y_continuous(expand = expand_scale(mult = c(0, 0.05))) +
     coord_flip() +
@@ -1438,6 +1430,37 @@ f_grafico_col_stack_percent_flip = function(df, x, y, grupo, legend_nrow){
     guides(fill=guide_legend(nrow=legend_nrow,byrow=TRUE))
 }
 
+f_grafico_col_stack_percent_flip_2_x_groups = function(df, x1, x2, y, grupo, legend_nrow){
+  x1 <- enquo(x1)
+  x2 <- enquo(x2)
+  y <- enquo(y)
+  grupo <- enquo(grupo)
+
+  df %>%
+    mutate(precisao = ifelse(!! y < 0.0995, 0.1, 1)) %>%
+    arrange(!! grupo) %>%
+    ggplot(aes(x = !! x2, y = !! y)) +
+    geom_col(aes(fill = !! grupo), position = position_stack(reverse = TRUE), width = 1) +
+    geom_text(aes(label = label_percent(accuracy = precisao, decimal.mark = ",")(!! y)),
+              position = position_stack(vjust = .5),
+              check_overlap = TRUE) +
+    facet_wrap(vars(!! x1), strip.position = "left", ncol = 1) +
+    scale_y_continuous(expand = expand_scale(mult = c(0, 0.05))) +
+    coord_flip() +
+    theme(legend.position="bottom",
+          legend.title = element_blank(),
+          axis.title = element_blank(),
+          axis.ticks = element_blank(),
+          axis.text.x = element_blank(),
+          axis.line.y = element_line(),
+          panel.background = element_blank(),
+          panel.spacing = unit(0, "lines"),
+          strip.background = element_blank(),
+          strip.placement = "outside",
+          strip.text.y.left = element_text(angle = 0)
+          )+
+    guides(fill=guide_legend(nrow=legend_nrow,byrow=TRUE))
+}
 ```
 
 # Gestão e Financiamento
@@ -1714,7 +1737,6 @@ uf_subd= function(df, q, ano, cod_categoria){
     !! cod_categoria == "9"~"Regulação do SUAS")
 
  # não conseguir colocar a de maneira informal
- # Como já tem dois agrupamentos (tipo de estrutura administrativa e ano) complica colocar um terceiro agrupamento (pra mostrar formal e informal). Teria que ver em que modelo de gráfico daria pra fazer (tridimensional, talvez?). Outra opção é fazer apenas para 2022, substituindo o agrupamento "ano" pelo agrupamento indicando formal e informal.
 
   df %>%
     select(!! q) %>%
@@ -1789,6 +1811,101 @@ ordenado<-tabela %>%
 grafico<-tabela %>%
   mutate(Categoria = factor(Categoria, levels = ordenado)) %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
+
+grafico
+
+if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
+```
+
+```{r uf_subd_constituidas, fig.cap = "Percentual de estados segundo constituição de subdivisões administrativas na estrutura do órgão gestor - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+# Avaliar se gráficos de estados não ficariam melhor em quantidade em vez de percentual
+
+w_grupo <- 22
+
+uf_subd= function(df, q, ano, cod_categoria){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+  cod_categoria <- quo_name(cod_categoria)
+
+  categoria <- case_when(
+    !! cod_categoria == "1"~"Gestão do SUAS",
+    !! cod_categoria == "2"~"Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)",
+    !! cod_categoria == "3"~"Gestão do Trabalho",
+    !! cod_categoria == "4"~"Gestão Financeira e Orçamentária",
+    !! cod_categoria == "5"~"Proteção Social Básica",
+    !! cod_categoria == "6"~"Proteção Social Especial",
+    !! cod_categoria == "7"~"Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais",
+    !! cod_categoria == "8"~"Gestão do Cadastro Único e Programa Bolsa Família",
+    !! cod_categoria == "9"~"Regulação do SUAS",
+    !! cod_categoria == "10"~"Programa Criança Feliz")
+
+  df %>%
+    select("Grupo" = !! q) %>%
+#    filter(!is.na(!! q)) %>%
+    group_by(Grupo) %>%
+    summarise(n=n()) %>%
+    mutate(Percentual = n/sum(n)) %>%
+    mutate(Grupo = case_when(
+      Grupo=="Sim, na estrutura formal do órgão gestor"~"Constituída formalmente",
+      Grupo=="Sim, de maneira informal"~"Constituída informalmente",
+      TRUE ~ Grupo)) %>%
+    mutate(Grupo=str_wrap(Grupo, width=w_grupo)) %>%
+    mutate(Grupo = factor(Grupo, levels = str_wrap(c(
+      "Constituída formalmente",
+      "Constituída informalmente",
+      "Não constituída"),
+      width=w_grupo))) %>%
+#    mutate(Grupo = factor(Grupo, levels = c(
+#      "Constituída formalmente",
+#      "Constituída informalmente",
+#      "Não constituída"))) %>%
+    mutate("Categoria" = categoria, "Ano" = !! ano)
+}
+
+tabela <- 
+  uf_subd(ge_2012,q5_1,"2012","5") %>%
+  bind_rows(uf_subd(ge_2012,q5_2,"2012","6")) %>%
+  bind_rows(uf_subd(ge_2012,q5_3,"2012","8")) %>%
+  bind_rows(uf_subd(ge_2012,q5_4,"2012","7")) %>%
+  bind_rows(uf_subd(ge_2012,q5_5,"2012","1")) %>%
+  bind_rows(uf_subd(ge_2012,q5_6,"2012","4")) %>%
+  bind_rows(uf_subd(ge_2012,q5_7,"2012","3")) %>%
+  bind_rows(uf_subd(ge_2012,q5_8,"2012","2")) %>%
+
+  bind_rows(uf_subd(ge_2017,q3_1,"2017","1")) %>%
+  bind_rows(uf_subd(ge_2017,q3_2,"2017","2")) %>%
+  bind_rows(uf_subd(ge_2017,q3_3,"2017","3")) %>%
+  bind_rows(uf_subd(ge_2017,q3_4,"2017","9")) %>%
+  bind_rows(uf_subd(ge_2017,q3_5,"2017","4")) %>%
+  bind_rows(uf_subd(ge_2017,q3_6,"2017","5")) %>%
+  bind_rows(uf_subd(ge_2017,q3_7,"2017","6")) %>%
+  bind_rows(uf_subd(ge_2017,q3_8,"2017","8")) %>%
+  bind_rows(uf_subd(ge_2017,q3_9,"2017","7")) %>%
+
+  bind_rows(uf_subd(ge_2022,q3_1,"2022","1")) %>%
+  bind_rows(uf_subd(ge_2022,q3_2,"2022","2")) %>%
+  bind_rows(uf_subd(ge_2022,q3_3,"2022","3")) %>%
+  bind_rows(uf_subd(ge_2022,q3_4,"2022","9")) %>%
+  bind_rows(uf_subd(ge_2022,q3_5,"2022","4")) %>%
+  bind_rows(uf_subd(ge_2022,q3_6,"2022","5")) %>%
+  bind_rows(uf_subd(ge_2022,q3_7,"2022","6")) %>%
+  bind_rows(uf_subd(ge_2022,q3_8,"2022","8")) %>%
+  bind_rows(uf_subd(ge_2022,q3_9,"2022","7")) %>%
+  bind_rows(uf_subd(ge_2022,q3_10,"2022","10")) %>%
+
+#  ungroup() %>%
+  mutate(Categoria=str_wrap(Categoria,width=51))
+
+ordenado<-tabela %>%
+  filter(Ano == "2022") %>%
+  filter(Grupo == str_wrap("Constituída formalmente", width=w_grupo)) %>%
+  arrange(Percentual) %>%
+  pull(Categoria)
+
+grafico<-tabela %>%
+  mutate(Categoria = factor(Categoria, levels = rev(ordenado))) %>%
+  f_grafico_col_stack_percent_flip_2_x_groups(Categoria, Ano, Percentual, Grupo, 1)
 
 grafico
 
@@ -1873,6 +1990,10 @@ tabela<-ge_2022 %>%
     Nível=="Sim, na estrutura formal do órgão gestor"~"Constituída formalmente",
     Nível=="Sim, de maneira informal"~"Constituída informalmente",
     TRUE ~ Nível)) %>%
+  mutate(Nível = factor(Nível, levels = c(
+    "Constituída formalmente",
+    "Constituída informalmente",
+    "Não constituída"))) %>%
   group_by(Categoria, Nível) %>%
   summarise(n=n()) %>%
   group_by(Categoria) %>%
@@ -3748,7 +3869,7 @@ Observa-se ainda aumento no percentual de CREAS que funcionam em imóveis cedido
 Observa-se ainda aumento no percentual de CREAS que funcionam em imóveis cedidos: eram 6,8% em 2008, o maior valor da série histórica chega a 9,1% conforme (\Cref{fig:CRAS-imovel}).
 \footnote{Para os anos de 2018 e 2019 esse dado não foi computado no censo suas}
 
-```{r sit_imovel, fig.cap = "Evolução dos CRAS segundo situação do imóvel – Brasil, 2007 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r CRAS-imovel, fig.cap = "Evolução dos CRAS segundo situação do imóvel – Brasil, 2007 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 grafico <- f_equip_imovel(cras_2008, `situacao_imovel`, "2008") %>%
   #bind_rows(f_equip_imovel(cras_2007, v15, "2007")) %>%
@@ -6062,28 +6183,34 @@ O (\Cref{fig:munic_trab_form}) mostra a evolução do número de trabalhadores (
 <!--base de 2020 estar númerica por isso não estar rodando -->.
 
 
-```{r munic_trab_form, fig.cap ="Percentual de trabalhadoras (es) nas Secretarias municipais, escolaridade e profissão - Brasil, 2013 a 2022"}
+```{r munic_trab_form, fig.cap ="Percentual de trabalhadoras (es) nas Secretarias municipais, escolaridade e profissão - Brasil, 2013 a 2022",eval=FALSE} 
 
- grafico <- f_nomex_somay_nomegrupo(gm_rh_2013, "2013", q41e_1, "Nível Fundamental") %>%
-  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2013, "2013", q41e_2, "Nível Médio")) %>%
-  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2013, "2013", q41e_3, "Nível Superior")) %>%
+ grafico <- f_nomex_somay_nomegrupo(gm_2013, "2013", q41e_1, "Nível Fundamental") %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2013, "2013", q41e_2, "Nível Médio")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2013, "2013", q41e_3, "Nível Superior")) %>%
+
 
   bind_rows(f_nomex_somay_nomegrupo(gm_rh_2014, "2014", q47_1_1, "Nível Fundamental")) %>%
   bind_rows(f_nomex_somay_nomegrupo(gm_rh_2014, "2014", q47_1_2, "Nível Médio")) %>%
   bind_rows(f_nomex_somay_nomegrupo(gm_rh_2014, "2014", q47_1_3, "Nível Superior")) %>%
 
-  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2015, "2015", q36_a, "Nível Fundamental")) %>%
-  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2015, "2015", q36_b, "Nível Médio")) %>%
-  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2015, "2015", q36_c, "Nível Superior")) %>%
-
-  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2016, "2016", q17_5_1, "Nível Fundamental")) %>%
-  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2016, "2016", q17_5_2, "Nível Médio")) %>%
-  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2016, "2016", q17_5_3, "Nível Superior")) %>%
+  #bind_rows(f_nomex_somay_nomegrupo(gm_2014, "2014", q47_1_1, "Nível Fundamental")) %>%
+  #bind_rows(f_nomex_somay_nomegrupo(gm_2014, "2014", q47_1_2, "Nível Médio")) %>%
+  #bind_rows(f_nomex_somay_nomegrupo(gm_2014, "2014", q47_1_3, "Nível Superior")) %>%
 
 
-  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2017, "2017", q28.5.1, "Nível Fundamental")) %>%
-  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2017, "2017", q28.5.2, "Nível Médio")) %>%
-  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2017, "2017", q28.5.3, "Nível Superior")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2015, "2015", q36_a, "Nível Fundamental")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2015, "2015", q36_b, "Nível Médio")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2015, "2015", q36_c, "Nível Superior")) %>%
+
+  bind_rows(f_nomex_somay_nomegrupo(gm_2016, "2016", q17_5_1, "Nível Fundamental")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2016, "2016", q17_5_2, "Nível Médio")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2016, "2016", q17_5_3, "Nível Superior")) %>%
+
+
+  bind_rows(f_nomex_somay_nomegrupo(gm_2017, "2017", q28.5.1, "Nível Fundamental")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2017, "2017", q28.5.2, "Nível Médio")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2017, "2017", q28.5.3, "Nível Superior")) %>%
 
 
  bind_rows(f_nomex_grupos_quantitativo(gm_rh_2018, "2018", d_62_9)) %>%
@@ -6113,10 +6240,10 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 Dos trabalhadores das Secretarias Estaduais de Assistência Social que informaram sua formação superior em 2022,destava-se a maior presença de profissionais de serviços social com 24%, após identifica-se a proporção de profissionais de psicologia com 8,2%. O maior número de profissionais são identificados em outras profissões ou não informado.
 
-<!--avaliar se esta base estar consistente devido a questão colcoada na bade de 2022 para menter o grafico-->.
+<!--avaliar se esta base estar consistente devido a questão colcoada na bade de 2022 para manter o grafico-->.
 
 
-```{r uf_trab_prof, fig.cap ="Percentual de trabalhadores/as de nível superior nas Secretarias Estaduais de Assistência Social, segundo área de formação - Brasil; 2012, 2017 e 2022" }
+```{r uf_trab_prof, fig.cap ="Percentual de trabalhadores/as de nível superior nas Secretarias Estaduais de Assistência Social, segundo área de formação - Brasil; 2012, 2017 e 2022"} 
 
 f_total_para_outros = function(df, grupo){
   grupo <- quo_name(grupo)
@@ -6224,7 +6351,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 Dos 85.011 trabalhadores das Secretarias Municipais de Assistência Social que informaram sua formação superior em 2016, 33.559 (39,5%) eram assistentes sociais, 15.702 eram psicólogos (18,5%) e 10.069 eram pedagogos (11,8% do total). Existiam 14.992 profissionais de outras formações de nível superior além das listadas (17,6% do total) (Gráfico 63). Gráfico 63: Formação profissional dos trabalhadores de nível superior nas Secretarias Municipais de Assistência Social -- Brasil, 2016 Fonte: MDS, Censo SUAS.
 
 
-```{r munic_trab_prof, fig.cap ="Percentual de trabalhadores nas Secretarias municipais de Assistência Social, segundo área de formação - Brasil; 2013, 2017 e 2022" }
+```{r munic_trab_prof, fig.cap ="Percentual de trabalhadores nas Secretarias municipais de Assistência Social, segundo área de formação - Brasil; 2013, 2017 e 2022"} 
 
 f_total_para_outros = function(df, grupo){
   grupo <- quo_name(grupo)
@@ -6264,25 +6391,25 @@ f_profissao = function(df, profissao){
       TRUE ~ as.character(!! profissao)))
 }
 
-tabela <- f_nomex_somay_nomegrupo(gm_rh_2013, "Assistente Social", q43a, "2013") %>%
-  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2013, "Psicólogo(a)", q43b, "2013")) %>%
-  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2013, "Pedagogo(a)", q43c, "2013")) %>%
-  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2013, "Advogado(a)", q43d, "2013")) %>%
-  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2013, "Antropólogo(a)", q43e, "2013")) %>%
+tabela <- f_nomex_somay_nomegrupo(gm_2013, "Assistente Social", q43a, "2013") %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2013, "Psicólogo(a)", q43b, "2013")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2013, "Pedagogo(a)", q43c, "2013")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2013, "Advogado(a)", q43d, "2013")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2013, "Antropólogo(a)", q43e, "2013")) %>%
 #  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "Sociólogo(a)", q56f, "2012")) %>%
 #  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "Terapeuta Ocupacional", q56g, "2012")) %>%
 #  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "Contador(a)", q56h, "2012")) %>%
 #  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "Administrador(a)", q56i, "2012")) %>%
 #  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "Economista", q56j, "2012")) %>%
 #  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "Economista Doméstico", q56k, "2012")) %>%
-  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2013, "Total", q42e_3, "2013")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2013, "Total", q42e_3, "2013")) %>%
   f_total_para_outros("2013") %>%
 
-  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2017, "Assistente Social", q29.1, "2017")) %>%
-  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2017, "Psicólogo(a)", q29.2, "2017")) %>%
-  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2017, "Pedagogo(a)", q29.3, "2017")) %>%
-  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2017, "Advogado(a)", q29.4, "2017")) %>%
-  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2017, "Antropólogo(a)", q29.5, "2017")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2017, "Assistente Social", q29.1, "2017")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2017, "Psicólogo(a)", q29.2, "2017")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2017, "Pedagogo(a)", q29.3, "2017")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2017, "Advogado(a)", q29.4, "2017")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2017, "Antropólogo(a)", q29.5, "2017")) %>%
 #  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Sociólogo(a)", q12_6, "2017")) %>%  #
 #  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Terapeuta Ocupacional", q12_7, "2017")) %>%  #
 #  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Contador(a)", q12_8, "2017")) %>%  #
@@ -6295,7 +6422,7 @@ tabela <- f_nomex_somay_nomegrupo(gm_rh_2013, "Assistente Social", q43a, "2013")
 #  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Administrador Público/Gestão Pública", q12_15, "2017")) %>%  #
 #  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Profissional de Educação Física", q12_16, "2017")) %>%  #
 #  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Outros", q12_17, "2017")) %>%
-  bind_rows(f_nomex_somay_nomegrupo(gm_rh_2017, "Total", q28.5.3, "2017")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2017, "Total", q28.5.3, "2017")) %>%
 #  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Total", q12_18, "2017")) %>%
   f_total_para_outros("2017")
 
@@ -6932,7 +7059,7 @@ Para o fortalecimento das atividades e apoio técnico e operacional do controle 
 
 De acordo com (\Cref{fig:ceas_igd}) o censo suas 2022 sinaliza que esse recursos é destinado a 100% dos CEAS. Ao observar ao longo dos anos essa destinação não é contínua, com destaque para os anos de 2012 e 2017 na qual apenas 85% dos conselhos estaduais receberam estes recursos.
 
-```{r ceas_igd, fig.cap = "Conselhos Estaduais que possuem destinação de pelo menos 3% dso recursos do IGD Bolsa Família e IGD SUAS para funcionamento"}
+```{r ceas_igd, fig.cap = "Conselhos Estaduais que possuem destinação de pelo menos 3$\\%$ dos recursos do IGD Bolsa Família e IGD SUAS para funcionamento"}
 
 grafico <- f_sim(cest_2012, q7, "2012") %>%
    bind_rows(f_sim(cest_2013, q7, "2013")) %>%
@@ -6958,7 +7085,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 Em relação ao destinação do IGD Bolsa Família e IGD SUAS aos conselhos municipais, o (\Cref{fig:creas-pse-domicilio}) sinaliza que no censo suas 2022, há 82% dos CMAS que informam receber este recurso. Os dados também variam na escala histórica conforme pode-se obserdo no (\Cref{fig:cmas_igd}). O ano com maior proporção de CMAS que informaram receber recursos dos IGDs foi referente ao censo suas 2017. 
 
 
-```{r cmas_igd, fig.cap = "Conselhos Municipais que possuem destinação de pelo menos 3% dso recursos do IGD Bolsa Família e IGD SUAS para funcionamento"}
+```{r cmas_igd, fig.cap = "Conselhos Municipais que possuem destinação de pelo menos 3$\\%$ dos recursos do IGD Bolsa Família e IGD SUAS para funcionamento"}
 
 grafico <- f_sim(cmun_2012, q7, "2012") %>%
    bind_rows(f_sim(cmun_2013, q7, "2013")) %>%
@@ -6986,7 +7113,7 @@ De acordo com Resolução CNAS 15/2014 \footnote{RESOLUÇÃO Nº 15, DE 5 DE JUN
 
 No Censo SUAS de 2022, 88% dos conselhos estaduais informam ser a instância de controle social do Programa Bolsa Família. Esse percentual reduziu a partir de 2019 que econtrava-se com informações de 100% dos Conselhos Estaduais que eram instância de controle social do Programa Bolsa Família. O (\Cref{fig:ceas_icspbf2}) sinaliza essa informação histórica.
 
-```{r ceas_icspbf2, fig.cap = "Conselhos Estaduais de Assistência Social que são instância de controle Social do PBF"}
+```{r ceas_icspbf2, fig.cap = "Conselhos Estaduais de Assistência Social que são instância de controle Social do PBF", eval=FALSE}
 
 grafico <- f_sim(cest_2012, q39, "2012") %>%
    bind_rows(f_sim(cest_2013, q40, "2013")) %>%
@@ -7010,7 +7137,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 Em relação aos conselhos municipais ser a instância de controle social do Bolsa Família (ICS), observa-se que há resgitros do último censo suas que 91% dos conselhos municipais são ICS. Esse dado dos últimos 10 anos estar disponível através (\Cref{fig:cmas_icspbf}). Observa-se que no ano de 2012, 92% dos CMAS informam ser a instância de controle social do Programa Bolsa Família, esse dado só avança a partir de 2018 e volta a reduzir a partir do Censo SUAS de 2021.
 
-```{r cmas_icspbf, fig.cap = "Conselhos Municipais de Assistência Social que são instancia de controle social do PBF"}
+```{r cmas_icspbf, fig.cap = "Conselhos Municipais de Assistência Social que são Instancia de Controle Social do PBF", eval=FALSE}
 
 grafico <- f_sim(cmun_2012, q35_1, "2012") %>%
   bind_rows(f_sim(cmun_2013, q40, "2013")) %>%
@@ -7036,10 +7163,10 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 A elaboração do Plano de Assistência Social é item referenciado na LOAS (Lei Organica de Assistência Social) e NOB SUAS / 2012. É de responsabilidade do órgão gestor da política e deve ser apresentado ao conselho de assistência social para aprovação. 
 
-De acordo com o (\Cref{fig:ceas-plano})no censo suas 2022, 65% dos Planos de Assistência Social foram debatidos pelo CEAS.\footnote{Até 2018 a pergunta é sobre a deliberação do Plano de Assistência Social pelo Conselho, a partir de 2018 a modalidade da pergunta é alterada e, passar a ser se o conselho debate sobre Plano de Assistencia Social. Apesar da diferença mantemos a linha historica por considerar a temática do Plano um item essencial para o controle social}. Esse número varia de ano a ano. De acordo com a LOAS essa aprovação deve ser quadrienal, entretanto recomenda-se que a cada atualização anual seja submetida ao respectivo conselho.
+De acordo com o (\Cref{fig:ceas_plano})no censo suas 2022, 65% dos Planos de Assistência Social foram debatidos pelo CEAS.\footnote{Até 2018 a pergunta é sobre a deliberação do Plano de Assistência Social pelo Conselho, a partir de 2018 a modalidade da pergunta é alterada e, passar a ser se o conselho debate sobre Plano de Assistencia Social. Apesar da diferença mantemos a linha historica por considerar a temática do Plano um item essencial para o controle social}. Esse número varia de ano a ano. De acordo com a LOAS essa aprovação deve ser quadrienal, entretanto recomenda-se que a cada atualização anual seja submetida ao respectivo conselho.
 
 
-```{r ceas-plano, fig.cap = "Conselhos estaduais que deliberaram e/ou debatem sobre Plano de Assistência Social"}
+```{r ceas_plano, fig.cap = "Conselhos estaduais que deliberaram e/ou debatem sobre Plano de Assistência Social", eval=FALSE}
 
 
 grafico <- f_sim(cest_2012, q29, "2012") %>%
@@ -7062,9 +7189,9 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 ```
 
 
-Em relação aos conselhos municipais, dados do censo suas de 2022 sinaliza que 82% dos CMAS informaram debater sobre plano municipal de assistência social. O (\Cref{fig:cmas-plano})traz a referencia destas informações a partir do censo suas de 2012 conforme pode ser observado abaixo. \footnote{Até 2018 a pergunta é sobre a deliberação do Plano de Assistência Social pelo Conselho, a partir de 2018 a modalidade da pergunta é alterada e, passar a ser se o conselho debate sobre Plano de Assistencia Social. Apesar da diferença mantemos a linha historica por considerar a temática do Plano um item essencial para o controle social}.
+Em relação aos conselhos municipais, dados do censo suas de 2022 sinaliza que 82% dos CMAS informaram debater sobre plano municipal de assistência social. O (\Cref{fig:cmas_plano,})traz a referencia destas informações a partir do censo suas de 2012 conforme pode ser observado abaixo. \footnote{Até 2018 a pergunta é sobre a deliberação do Plano de Assistência Social pelo Conselho, a partir de 2018 a modalidade da pergunta é alterada e, passar a ser se o conselho debate sobre Plano de Assistencia Social. Apesar da diferença mantemos a linha historica por considerar a temática do Plano um item essencial para o controle social}.
 
-```{r cmas-plano, fig.cap = "Conselhos municipais que deliberaram sobre a proposta anual de orçamento do executivo"}
+```{r cmas_plano, fig.cap = "Conselhos municipais que deliberaram sobre a proposta anual de orçamento do executivo", eval=FALSE}
 
 grafico <- f_sim(cmun_2012, q28, "2012") %>%
   bind_rows(f_sim(cmun_2013, q28, "2013")) %>%
@@ -7086,12 +7213,11 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-É papel do controle social o exercício democrático de acompanhar a gestão e avaliar a Política de Assistência Social. Assim, a aprovação do orçamento executivo ou Plano Plurianual de Assistência Social (PPA) deve ser exercida por esta instância. Os dados do (\Cref{fig:ceas-ppa}) evidencia que, no último censo suas 2012, 69% dos conselhos estaduais deliberaram sobre a proposta orçamentária, dado que corresponde ao moes percentual de 2012.  
+É papel do controle social o exercício democrático de acompanhar a gestão e avaliar a Política de Assistência Social. Assim, a aprovação do orçamento executivo ou Plano Plurianual de Assistência Social (PPA) deve ser exercida por esta instância. Os dados do (\Cref{fig:ceas_ppa}) evidencia que, no último censo suas 2012, 69% dos conselhos estaduais deliberaram sobre a proposta orçamentária, dado que corresponde ao moes percentual de 2012.  
 
 
-```{r ceas-ppa, fig.cap = "Conselhos estaduais que deliberaram sobre a proposta anual do orçamento do executivo"}
+```{r ceas_ppa, fig.cap = "Conselhos estaduais que deliberaram sobre a proposta anual do orçamento do executivo",eval=FALSE} 
 
-#falta colocar as variaveis dos questionários CEAS
 
 grafico <- f_sim(cest_2012, q29, "2012") %>%
    #bind_rows(f_sim(cest_2013, q30, "2013")) %>%
@@ -7112,11 +7238,11 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-O percentual de CMAS que aprovaram a proposta anual do orçamento corresponde a 74% no censo suas de 2022. Este dado avançou significativamente em relação ao ano de 2012 como pode ser observado no (\Cref{fig:cmas-ppa}).
+O percentual de CMAS que aprovaram a proposta anual do orçamento corresponde a 74% no censo suas de 2022. Este dado avançou significativamente em relação ao ano de 2012 como pode ser observado no (\Cref{fig:cmas_ppa}).
 
 
 
-```{r cmas-ppa, fig.cap = "Conselhos municipais que deliberaram sobre a proposta anual do orçamento do executivo"}
+```{r cmas_ppa, fig.cap = "Conselhos municipais que deliberaram sobre a proposta anual do orçamento do executivo",eval=FALSE}
 
 grafico <- f_sim(cmun_2012, q38, "2012") %>%
   #bind_rows(f_sim(cmun_2013, q, "2013")) %>%
@@ -7141,10 +7267,10 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 Os Benefícios Eventuais da política de Assistência Social é de caráter suplementar e provisório. Deve ser ofertado aos cidadãos e as famílias em virtude de nascimento, morte, situações de vulnerabilidade  temporária e calamidade pública. \footnote{Os Benefícios Eventuais são assegurados pelo art. 22 da Lei Orgânica de Assistência Social}. 
 
-A concessão e o valor dos Benefícios Eventuais devem ser definidos pelos Municípios, Estados e Distrito Federal, com base em critérios e prazos estabelecidos pelos conselhos de Assistência Social. O (\Cref{fig:ceas-be}) sinaliza que o censo suas de 2018 foi onde teve maior proporção de conselhos estaduais que aprovaram os critérios e prazos para acesso aos benefícios eventuais. O acompanhamento a partir de 2012 sinaliza um aumento de 31 pontos percentuais até este período, após isso há uma redução chegando no censo suas de 2022 com 65% de aprovação pelos conselhos.
+A concessão e o valor dos Benefícios Eventuais devem ser definidos pelos Municípios, Estados e Distrito Federal, com base em critérios e prazos estabelecidos pelos conselhos de Assistência Social. O (\Cref{fig:ceas_be}) sinaliza que o censo suas de 2018 foi onde teve maior proporção de conselhos estaduais que aprovaram os critérios e prazos para acesso aos benefícios eventuais. O acompanhamento a partir de 2012 sinaliza um aumento de 31 pontos percentuais até este período, após isso há uma redução chegando no censo suas de 2022 com 65% de aprovação pelos conselhos.
 
 
-```{r ceas-be, fig.cap = "Percentual de CEAS que aprovou em Resolução os critérios e prazos para acesso aos Benefícios Eventuais"}
+```{r ceas_be, fig.cap = "Percentual de CEAS que aprovou em Resolução os critérios e prazos para acesso aos Benefícios Eventuais",eval=FALSE} 
 
  grafico <- f_sim(cest_2012, q38, "2012") %>%
    bind_rows(f_sim(cest_2013, q39, "2013")) %>%
@@ -7168,10 +7294,10 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 ```
 
 
-Em relação aos conselhos municipais, destaca-se através do (\Cref{fig:cmas-be}) que 71% dos conselhos deliberam sobre critérios e prazos para acesso aos Benefícios Eventuais. Esse dados avanço 28 pontos nos últimos 10 anos.
+Em relação aos conselhos municipais, destaca-se através do (\Cref{fig:cmas_be}) que 71% dos conselhos deliberam sobre critérios e prazos para acesso aos Benefícios Eventuais. Esse dados avanço 28 pontos nos últimos 10 anos.
 
 
-```{r cmas-be, fig.cap = "Percentual de CMAS que aprovou em resolução os critérios e prazos para acesso aos Benefícios Eventuais"}
+```{r cmas_be, fig.cap = "Percentual de CMAS que aprovou em resolução os critérios e prazos para acesso aos Benefícios Eventuais",eval=FALSE} 
 
  grafico <- f_sim(cmun_2012, q38, "2012") %>%
 #   bind_rows(f_sim_nao(cmun_2013, q39, "2013")) %>%
@@ -7200,7 +7326,7 @@ Este tópico vai trata-se sobre a presentação dos usuárias(os) e trabalhadora
 
 Os dados apresentados no (\Cref{fig:usu_ceas}) sinaliza que a maior representação dos conselhos estaduais são representantes de fóruns de usuárias(os), beneficiárias (os) do Programa Bolsa Família e BPC representando respetivamente 73%, 50% e 38%. Os dados abaixo sinalizam essa composição no período de 2018 a 2022 \footnote{gráfico a partir do ano de 2018 em decorrência do início da modalidade das perguntas no formulário do Censo SUAS}. Nesta escala de tempo, o grupo de representação que mais cresceu, com 19 pontos percentuais neste período, foi dos beneficiárias (os) do Programa Bolsa Família. 
 
-```{r usu_ceas, fig.cap = "Representantes de usuárias(os) nos Conselhos Estadual de Assistência Social", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r usu_ceas, fig.cap = "Representantes de usuárias(os) nos Conselhos Estadual de Assistência Social", fig.footer = "Fonte: MDS, Censo SUAS.",eval=FALSE} 
 
 usu_ceas= function(df, q, ano, cod_categoria){
   q <- enquo(q)
@@ -7288,7 +7414,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 Os dados do (\Cref{fig:usu_cmun}) mostra as represetações de usuários presentes nos Conselhos Municipais de Assistência Social (CMAS). Observa-se que o maior percentual desta representação são respectivamente da Proteção Social Básica, Programa Bolsa Família e BPC, sendo respectivamente no censo de 2022, 77%, 70% e 43%. No período de 2018 a 2022\footnote{gráfico a partir do ano de 2018 em decorrência do início da modalidade das perguntas no formulário do Censo SUAS}, observa-se que as representações que cresceram 9 pontos percentuais foram Proteção Social Básica, Proteção Social Especial e Pessoas ou famílias de Benefíciários do Benefício de Prestação Continuada (BPC).
 
-```{r usu_cmun, fig.cap = "Representantes de usuárias(os) nos Conselhos Municipais de Assistência Social", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r usu_cmun, fig.cap = "Representantes de usuárias(os) nos Conselhos Municipais de Assistência Social", fig.footer = "Fonte: MDS, Censo SUAS.",eval=FALSE} 
 
  usu_cmun= function(df, q, ano, cod_categoria){
   q <- enquo(q)
@@ -7475,7 +7601,7 @@ A Representação de trabalhadoras (es) nos conselhos municipais é observada at
 
 
 
-```{r trab_cmun, fig.cap = "Representantes de trabalhadoras (es) nos Conselhos Municipais de Assistência Social", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r trab_cmun, fig.cap = "Representantes de trabalhadoras (es) nos Conselhos Municipais de Assistência Social", fig.footer = "Fonte: MDS, Censo SUAS."} 
 
 trab_cmun= function(df, q, ano, cod_categoria){
   q <- enquo(q)
@@ -7572,7 +7698,7 @@ escrever
 
 
 
-```{r pub_cmas, fig.cap = "Percentual de conselhos municipais que publicam as resoluções em diário oficial", fig.footer = "Fonte: MDS, Censo SUAS", eval=FALSE}
+```{r pub_cmas, fig.cap = "Percentual de conselhos municipais que publicam as resoluções em diário oficial", fig.footer = "Fonte: MDS, Censo SUAS"}
 
 pub_cmas  = function(df, q, ano){
   q <- enquo(q)
@@ -7641,7 +7767,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-```{r cmun_usu, fig.cap = "Principais estratégias dos conselhos estaduais de comunicação com usuário", fig.footer = "Fonte: MDS, Censo SUAS.",eval=FALSE}
+```{r cmun_usu, fig.cap = "Principais estratégias dos conselhos estaduais de comunicação com usuário", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 cmun_usu= function(df, q, ano, cod_categoria){
   q <- enquo(q)
@@ -7711,7 +7837,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 ```
 
-```{r ceas_usu, fig.cap = "Principais estratégias dos conselhos estaduais de comunicação com usuário", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
+```{r ceas_usu, fig.cap = "Principais estratégias dos conselhos estaduais de comunicação com usuário", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 ceas_usu= function(df, q, ano, cod_categoria){
   q <- enquo(q)
@@ -7932,7 +8058,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-```{r idconselho, fig.cap = "Indicador de Desenvolvimento dos Conselhos"}
+```{r idconselho, fig.cap = "Indicador de Desenvolvimento dos Conselhos",eval=FALSE}
 
 grafico <- f_grupo_media(idconselho_2014, IDConselho, "ID Conselho", "2014") %>%
   bind_rows(f_grupo_media(idconselho_2014, `Estrutura Administrativa`, "Estrutura Administrativa", "2014")) %>%
