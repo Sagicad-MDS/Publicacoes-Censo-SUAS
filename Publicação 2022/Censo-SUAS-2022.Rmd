@@ -6577,16 +6577,13 @@ No que se refere a escolaridade dos (as) trabalhadores das gestões, observa-se 
 
 
 
-
-
-
-# Participação Social e Controle Social no SUAS
+# Participação e Controle Social no SUAS
 
 A participação social é uma das diretrizes estabelecidas pela Constituição Federal de 1988 para a organização das ações da Assistência Social. Nesse sentido, a Lei Orgânica da Assistência Social (LOAS)\footnote{Lei nº 8.742, de 7 de dezembro de 1993: Dispõe sobre a organização da Assistência Social e dá outras providências. (\url{http://www.planalto.gov.br/ccivil_03/Leis/L8742compilado.htm})}, que corresponde sobre a sua organização, instituiu em seu artigo 16 os Conselhos de Assistência Social em âmbito nacional, estadual e municipal como instâncias de deliberação colegiada do SUAS, cuja composição deve ser paritária entre governo e sociedade civil.
 
-Os Conselhos integram o Sistema Único de Assistência Social (SUAS), juntamente com o governo e as entidades e organizações de Assistência Social. A Resolução do Conselho Nacional de Assistência Social (CNAS) nº 100/2024\footnote{(\url{A Resolução CNAS nº 100, de 20 de abril de 2023 revoga a Resolução CNAS nº 237, de 14 de dezembro de 2006.})}, estabelece a definição dos Conselhos de Assistência Social, suas competências, criação, estrutura e organização. Esta resolução também trata do desempenho dos conselheiros e conelheiras, bem como sua função de interesse público.
+Os Conselhos integram o Sistema Único de Assistência Social (SUAS), juntamente com o governo e as entidades e organizações de Assistência Social. A Resolução do Conselho Nacional de Assistência Social (CNAS) nº 100/2024\footnote{(\url{A Resolução CNAS nº 100, de 20 de abril de 2023 revoga a Resolução CNAS nº 237, de 14 de dezembro de 2006.})}, estabelece a definição dos Conselhos de Assistência Social, suas competências, criação, estrutura e organização. Esta resolução também trata do desempenho dos conselheiros e conselheiras, bem como sua função de interesse público.
 
-Outra resolução importante para organização do controle social no SUAS é a resolução nº 99/2023\footnote{(\url{Resolução CNAS/MDS nº 99, DE 4 de abrilL de 2023})} na qual caracteriza os usuários, seus direitos e participação na Política de Assistência Social.
+Outra resolução importante para organização do controle social no SUAS é a resolução nº 99/2023\footnote{(\url{Resolução CNAS/MDS nº 99, DE 4 de abril de 2023})} na qual caracteriza os usuários, seus direitos e participação na Política de Assistência Social.
 
 Este bloco apresenta os resultados apurados pelo Censo SUAS para os Conselhos Municipais e Estaduais de Assistência Social, considerando as dimensões de estrutura administrativa, dinâmica de funcionamento e composição.
 
@@ -6638,9 +6635,10 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-Em relação aos Conselhos Estaduais, atualmente 100% informam possuir sede específica para funcionamento do controle social no SUAS conforme pode ser observado no \cref{fig:ceas_sede}. A existência de sede para o funcionamento dos conselhos é essencial, pois além de garantir identidade na perspetiva de espaço na qual a população pode acessar, também assegura o trabalho da/o secretária/o executiva/o e demais profissionais. Dispor de locais de arquivos e documentos, reuniões entre outros.
+### Estrutura administrativa e dinâmica de funcionamento
 
-### ESTRUTURA ADMINISTRATIVA E DINÂMICA DE FUNCIONAMENTO
+Em relação aos Conselhos Estaduais, atualmente 100% informam possuir sede específica para funcionamento do controle social no SUAS conforme pode ser observado no \cref{fig:ceas_sede}. A existência de sede para o funcionamento dos conselhos é essencial, pois além de garantir identidade na perspetiva de espaço na qual a população pode acessar, também assegura o trabalho da (o) secretária (o) executiva(o) e demais profissionais. Dispor de locais de arquivos e documentos, reuniões entre outros.
+
 
 ```{r ceas_sede, fig.cap = "Percentual de Conselhos estaduais que possuem local/sede específico para funcionamento"}
 
@@ -6669,7 +6667,7 @@ No que se refere aos Conselhos Municipais de Assistencia Social o \cref{fig:cmas
 ```{r cmas_sede, fig.cap = "Percentual de Conselhos Municipais que possuem local/sede específico para funcionamento"}
 
 grafico <- f_sim(cmun_2012, q8, "2012") %>%
-   #bind_rows(f_sim(cmun_2013, q8, "2013")) %>%
+   bind_rows(f_sim(cmun_2013, q8, "2013")) %>%
    bind_rows(f_sim(cmun_2014, q9, "2014")) %>%
    bind_rows(f_sim(cmun_2015, q9, "2015")) %>%
    bind_rows(f_sim(cmun_2016, q6, "2016")) %>%
@@ -6681,9 +6679,6 @@ grafico <- f_sim(cmun_2012, q8, "2012") %>%
    bind_rows(f_sim(cmun_2022, q6, "2022")) %>%
 
 
-  #2013 a base não ler, acho que é porque no banco as informações esão "sim" / "não"
-  #2019 ta com problema técnico no carregamento que não consigo ajeitar
-
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
@@ -6691,7 +6686,7 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-Em relação aos conselhos estaduais, o \cref{fig:ceas_se} sinaliza que a partir de 2017 identifica-se uma redução na presença secretarias executivas.  Trata-se de profissional de apoio direto ao funcionamento dos conselhos com o objetivo de fornecer suporte e assessoria técnica no cumprimento das suas competências. De acordo com a resolução CNAS Nº 100/2023 os conselhos deverão dispor deste profissional na qual estará subordinado a presidencia e ao colegiado para assegurar suporte no cumprimento das suas competências.
+Em relação aos conselhos estaduais, o \cref{fig:ceas_se} sinaliza que a partir de 2017 identifica-se uma redução na presença secretarias executivas. Trata-se de profissional de apoio direto ao funcionamento dos conselhos com o objetivo de fornecer suporte e assessoria técnica no cumprimento das suas competências. De acordo com a resolução CNAS Nº 100/2023 os conselhos deverão dispor deste profissional na qual estará subordinado a presidencia e ao colegiado para assegurar suporte no cumprimento das suas competências.
 
 ```{r ceas_se, fig.cap = "Percentual de Conselhos Estaduais que possuem secretárias/os executivas/os exclusivamente no Conselho"}
 
@@ -6722,8 +6717,6 @@ No que se refere a presença de secretários (as) executivos - independente de s
 
 Com a resolução CNAS Nº 100/2023 reforça-se que para os municípios de Pequeno Porte I e II, o (a) secretário (a) executivo não precisa ser exclusivo. Entretanto, percebe-se que em relação aos municípios maiores, o percentual destes profissionais de forma exclusiva são baixos, sendo respectivamente 30% para de médio porte, 47% para os municípios de grande porte. As métropoles possuem 100% destes profissionais de forma exclusiva.
 
-
-<!--2012 não estar lendo a questão q12 que seria a correta, ler apenas q 13 -->.
 
 ```{r cmas_se, fig.cap = "Percentual de Conselhos Municipais que possuem secretários (as) executivas/os trabalhando no Conselho"}
 
@@ -6780,7 +6773,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 
 
-Em relação a realização de reuniões pelos conselhos municipais, o (\Cref{fig:qtdcmas_reuniao})  sinaliza que 42% dos CMAS realizaram menos 8 reuniões no ano, sendo 14% deles inferior a 5 reuniões. A periodicidade mensal de reuniões devem estar prevista em regimento interno do respectivo conselho conforme é sinalizado na resolução CNAS Nº 100/2023.
+No tocante a realização de reuniões pelos conselhos municipais, o (\Cref{fig:qtdcmas_reuniao}) sinaliza que 42% dos CMAS realizaram menos 8 reuniões no ano, sendo 14% deles inferior a 5 reuniões. A periodicidade mensal de reuniões devem estar prevista em regimento interno do respectivo conselho conforme é sinalizado na resolução CNAS Nº 100/2023.
 
 
 
@@ -6986,7 +6979,7 @@ cmun_2010_regiao <- cmun_2010 %>%
 
 ```
 
-### USO DO IGD PARA APOIO AO CONTROLE SOCIAL E INSTÂNCIA DE CONTROLE SOCIAL DO BOLSA FAMÍLIA
+### Uso do IGD para apoio ao controle social e instância de controle social do Programa Bolsa Família
 
 Para o fortalecimento das atividades e apoio técnico e operacional do controle social do SUAS pode ser usado os recursos do IGD Bolsa Família e IGD SUAS. De acordo com as normativas do SUAS \footnote{Decreto nº 7.332/2010, de 19 de outubro de 2010} os entes federados deverão aplicar pelo menos 3% (três por cento) para fortalecer a instância de controle social do Programa Bolsa Família com a finalidade de garantir o fortalecimento do controle social e efetivar o apoio técnico e operacional a esse colegiado.
 
@@ -7070,7 +7063,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 Em relação aos conselhos municipais ser a instância de controle social do Bolsa Família (ICS), observa-se que há resgitros do último censo suas que 91% dos conselhos municipais são ICS. Esse dado dos últimos 10 anos estar disponível através (\Cref{fig:cmas_icspbf}). Observa-se que no ano de 2012, 92% dos CMAS informam ser a instância de controle social do Programa Bolsa Família, esse dado só avança a partir de 2018 e volta a reduzir a partir do Censo SUAS de 2021.
 
-```{r cmas_icspbf, fig.cap = "Conselhos Municipais de Assistência Social que são Instancia de Controle Social do PBF", eval=FALSE}
+```{r cmas_icspbf, fig.cap = "Conselhos Municipais de Assistência Social que são Instancia de Controle Social do PBF"}
 
 grafico <- f_sim(cmun_2012, q35_1, "2012") %>%
   bind_rows(f_sim(cmun_2013, q40, "2013")) %>%
@@ -7092,14 +7085,14 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-### DELIBERAÇÃO SOBRE PLANEJAMENTO, ORÇAMENTO E BENEFÍCIOS EVENTUAIS 
+### Deliberação sobre planejamento, orçamento e benefícios eventuais 
 
 A elaboração do Plano de Assistência Social é item referenciado na LOAS (Lei Organica de Assistência Social) e NOB SUAS / 2012. É de responsabilidade do órgão gestor da política e deve ser apresentado ao conselho de assistência social para aprovação. 
 
 De acordo com o (\Cref{fig:ceas_plano})no censo suas 2022, 65% dos Planos de Assistência Social foram debatidos pelo CEAS.\footnote{Até 2018 a pergunta é sobre a deliberação do Plano de Assistência Social pelo Conselho, a partir de 2018 a modalidade da pergunta é alterada e, passar a ser se o conselho debate sobre Plano de Assistencia Social. Apesar da diferença mantemos a linha historica por considerar a temática do Plano um item essencial para o controle social}. Esse número varia de ano a ano. De acordo com a LOAS essa aprovação deve ser quadrienal, entretanto recomenda-se que a cada atualização anual seja submetida ao respectivo conselho.
 
 
-```{r ceas_plano, fig.cap = "Conselhos estaduais que deliberaram e/ou debatem sobre Plano de Assistência Social", eval=FALSE}
+```{r ceas_plano, fig.cap = "Conselhos estaduais que deliberaram e/ou debatem sobre Plano de Assistência Social"}
 
 
 grafico <- f_sim(cest_2012, q29, "2012") %>%
@@ -7120,11 +7113,9 @@ grafico
 
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
+Em relação aos conselhos municipais, dados do censo suas de 2022 sinaliza que 82% dos CMAS informaram debater sobre plano municipal de assistência social. O (\Cref{fig:cmas_plano,})traz a referência destas informações a partir do censo suas de 2012 conforme pode ser observado abaixo. \footnote{Até 2018 a pergunta é sobre a deliberação do Plano de Assistência Social pelo Conselho, a partir de 2018 a modalidade da pergunta é alterada e, passar a ser se o conselho debate sobre Plano de Assistencia Social. Apesar da diferença mantemos a linha historica por considerar a temática do Plano um item essencial para o controle social}.
 
-
-Em relação aos conselhos municipais, dados do censo suas de 2022 sinaliza que 82% dos CMAS informaram debater sobre plano municipal de assistência social. O (\Cref{fig:cmas_plano,})traz a referencia destas informações a partir do censo suas de 2012 conforme pode ser observado abaixo. \footnote{Até 2018 a pergunta é sobre a deliberação do Plano de Assistência Social pelo Conselho, a partir de 2018 a modalidade da pergunta é alterada e, passar a ser se o conselho debate sobre Plano de Assistencia Social. Apesar da diferença mantemos a linha historica por considerar a temática do Plano um item essencial para o controle social}.
-
-```{r cmas_plano, fig.cap = "Conselhos municipais que deliberaram sobre a proposta anual de orçamento do executivo", eval=FALSE}
+```{r cmas_plano, fig.cap = "Conselhos municipais que deliberaram sobre a proposta anual de orçamento do executivo"}
 
 grafico <- f_sim(cmun_2012, q28, "2012") %>%
   bind_rows(f_sim(cmun_2013, q28, "2013")) %>%
@@ -7146,14 +7137,16 @@ grafico
 if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
-É papel do controle social o exercício democrático de acompanhar a gestão e avaliar a Política de Assistência Social. Assim, a aprovação do orçamento executivo ou Plano Plurianual de Assistência Social (PPA) deve ser exercida por esta instância. Os dados do (\Cref{fig:ceas_ppa}) evidencia que, no último censo suas 2012, 69% dos conselhos estaduais deliberaram sobre a proposta orçamentária, dado que corresponde ao moes percentual de 2012.  
 
 
-```{r ceas_ppa, fig.cap = "Conselhos estaduais que deliberaram sobre a proposta anual do orçamento do executivo",eval=FALSE} 
+É papel do controle social o exercício democrático de acompanhar a gestão e avaliar a Política de Assistência Social. Assim, a aprovação do orçamento executivo ou Plano Plurianual de Assistência Social (PPA) deve ser exercida por esta instância. Os dados do (\Cref{fig:ceas_ppa}) evidencia que, no último censo suas 2012, 69% dos conselhos estaduais deliberaram sobre a proposta orçamentária, dado que corresponde ao mesmo percentual de 2012.  
+
+
+```{r ceas_ppa, fig.cap = "Conselhos estaduais que deliberaram sobre a proposta anual do orçamento do executivo"} 
 
 
 grafico <- f_sim(cest_2012, q29, "2012") %>%
-   #bind_rows(f_sim(cest_2013, q30, "2013")) %>%
+   bind_rows(f_sim(cest_2013, q30, "2013")) %>%
    bind_rows(f_sim(cest_2014, q31, "2014")) %>%
    bind_rows(f_sim(cest_2015, q31, "2015")) %>%
    bind_rows(f_sim(cest_2016, q24, "2016")) %>%
@@ -7174,8 +7167,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 O percentual de CMAS que aprovaram a proposta anual do orçamento corresponde a 74% no censo suas de 2022. Este dado avançou significativamente em relação ao ano de 2012 como pode ser observado no (\Cref{fig:cmas_ppa}).
 
 
-
-```{r cmas_ppa, fig.cap = "Conselhos municipais que deliberaram sobre a proposta anual do orçamento do executivo",eval=FALSE}
+```{r cmas_ppa, fig.cap = "Conselhos municipais que deliberaram sobre a proposta anual do orçamento do executivo"}
 
 grafico <- f_sim(cmun_2012, q38, "2012") %>%
   #bind_rows(f_sim(cmun_2013, q, "2013")) %>%
@@ -7200,16 +7192,16 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 Os Benefícios Eventuais da política de Assistência Social é de caráter suplementar e provisório. Deve ser ofertado aos cidadãos e as famílias em virtude de nascimento, morte, situações de vulnerabilidade  temporária e calamidade pública. \footnote{Os Benefícios Eventuais são assegurados pelo art. 22 da Lei Orgânica de Assistência Social}. 
 
-A concessão e o valor dos Benefícios Eventuais devem ser definidos pelos Municípios, Estados e Distrito Federal, com base em critérios e prazos estabelecidos pelos conselhos de Assistência Social. O (\Cref{fig:ceas_be}) sinaliza que o censo suas de 2018 foi onde teve maior proporção de conselhos estaduais que aprovaram os critérios e prazos para acesso aos benefícios eventuais. O acompanhamento a partir de 2012 sinaliza um aumento de 31 pontos percentuais até este período, após isso há uma redução chegando no censo suas de 2022 com 65% de aprovação pelos conselhos.
+A concessão e o valor dos Benefícios Eventuais devem ser definidos pelos Municípios, Estados e Distrito Federal, com base em critérios e prazos estabelecidos pelos conselhos de Assistência Social. O (\Cref{fig:ceas_be}) sinaliza que o censo suas de 2018 foi onde teve maior proporção de conselhos estaduais que aprovaram os critérios e prazos para acesso aos benefícios eventuais. O acompanhamento a partir de 2012 sinaliza um aumento de 31 pontos percentuais até este período, após isso há uma redução chegando no censo suas de 2022 com 65% de aprovação pelos conselhos. \footnote{Para o ano de 2016 a pargunta foi alterada impossibilitante a analise histórica}. 
 
 
-```{r ceas_be, fig.cap = "Percentual de CEAS que aprovou em Resolução os critérios e prazos para acesso aos Benefícios Eventuais",eval=FALSE} 
+```{r ceas_be, fig.cap = "Percentual de CEAS que aprovou em Resolução os critérios e prazos para acesso aos Benefícios Eventuais"} 
 
  grafico <- f_sim(cest_2012, q38, "2012") %>%
    bind_rows(f_sim(cest_2013, q39, "2013")) %>%
    bind_rows(f_sim(cest_2014, q40, "2014")) %>%
    bind_rows(f_sim(cest_2015, q38, "2015")) %>%
-#   bind_rows(f_sim(cest_2016, q8, "2016")) %>%
+   #bind_rows(f_sim(cest_2016, q8, "2016")) %>%
    bind_rows(f_sim(cest_2017, q44, "2017")) %>%
    bind_rows(f_sim(cest_2018, q_39, "2018")) %>%
    bind_rows(f_sim(cest_2019, q35, "2019")) %>%
@@ -7217,7 +7209,6 @@ A concessão e o valor dos Benefícios Eventuais devem ser definidos pelos Munic
    bind_rows(f_sim(cest_2021, q36, "2021")) %>%
    bind_rows(f_sim(cest_2022, q36, "2022")) %>%
 
-  #2016 muda pergunta, se o estado oferta e não aprovação
 
     f_grafico_col_percent(Categoria, Percentual)
 
@@ -7230,10 +7221,10 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 Em relação aos conselhos municipais, destaca-se através do (\Cref{fig:cmas_be}) que 71% dos conselhos deliberam sobre critérios e prazos para acesso aos Benefícios Eventuais. Esse dados avanço 28 pontos nos últimos 10 anos.
 
 
-```{r cmas_be, fig.cap = "Percentual de CMAS que aprovou em resolução os critérios e prazos para acesso aos Benefícios Eventuais",eval=FALSE} 
+```{r cmas_be, fig.cap = "Percentual de CMAS que aprovou em resolução os critérios e prazos para acesso aos Benefícios Eventuais"} 
 
  grafico <- f_sim(cmun_2012, q38, "2012") %>%
-#   bind_rows(f_sim_nao(cmun_2013, q39, "2013")) %>%
+   bind_rows(f_sim(cmun_2013, q39, "2013")) %>%
    bind_rows(f_sim(cmun_2014, q40, "2014")) %>%
    bind_rows(f_sim(cmun_2015, q38, "2015")) %>%
    bind_rows(f_sim(cmun_2016, q31, "2016")) %>%
@@ -7253,13 +7244,13 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 ```
 
 
-### REPRESENTAÇÃO DOS CONSELHOS DE ASSISTÊNCIA SOCIAL 
+### Representação dos conselhos de Assistência Social 
 
-Este tópico vai trata-se sobre a presentação dos usuárias(os) e trabalhadoras (es) nos conselhos de Assistência Social. De acordo com a resolução CNAS 99/2023, "a representação dos usuários nas instâncias de participação e de deliberação do SUAS ocorrerá por meio de usuários integrantes de suas organizações representativas, democraticamente designados, preferencialmente dentre aquelas vinculadas aos serviços, programas, projetos, benefícios, transferência de renda e defesa dos direitos dos usuários da Política de Assistência Social". 
+Este tópico vai trata sobre a presentação dos usuárias(os) e trabalhadoras (es) nos conselhos de Assistência Social. De acordo com a resolução CNAS 99/2023, "a representação dos usuários nas instâncias de participação e de deliberação do SUAS ocorrerá por meio de usuários integrantes de suas organizações representativas, democraticamente designados, preferencialmente dentre aquelas vinculadas aos serviços, programas, projetos, benefícios, transferência de renda e defesa dos direitos dos usuários da Política de Assistência Social". 
 
 Os dados apresentados no (\Cref{fig:usu_ceas}) sinaliza que a maior representação dos conselhos estaduais são representantes de fóruns de usuárias(os), beneficiárias (os) do Programa Bolsa Família e BPC representando respetivamente 73%, 50% e 38%. Os dados abaixo sinalizam essa composição no período de 2018 a 2022 \footnote{gráfico a partir do ano de 2018 em decorrência do início da modalidade das perguntas no formulário do Censo SUAS}. Nesta escala de tempo, o grupo de representação que mais cresceu, com 19 pontos percentuais neste período, foi dos beneficiárias (os) do Programa Bolsa Família. 
 
-```{r usu_ceas, fig.cap = "Representantes de usuárias(os) nos Conselhos Estadual de Assistência Social", fig.footer = "Fonte: MDS, Censo SUAS.",eval=FALSE} 
+```{r usu_ceas, fig.cap = "Representantes de usuárias(os) nos Conselhos Estadual de Assistência Social", fig.footer = "Fonte: MDS, Censo SUAS."} 
 
 usu_ceas= function(df, q, ano, cod_categoria){
   q <- enquo(q)
@@ -7347,7 +7338,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 Os dados do (\Cref{fig:usu_cmun}) mostra as represetações de usuários presentes nos Conselhos Municipais de Assistência Social (CMAS). Observa-se que o maior percentual desta representação são respectivamente da Proteção Social Básica, Programa Bolsa Família e BPC, sendo respectivamente no censo de 2022, 77%, 70% e 43%. No período de 2018 a 2022\footnote{gráfico a partir do ano de 2018 em decorrência do início da modalidade das perguntas no formulário do Censo SUAS}, observa-se que as representações que cresceram 9 pontos percentuais foram Proteção Social Básica, Proteção Social Especial e Pessoas ou famílias de Benefíciários do Benefício de Prestação Continuada (BPC).
 
-```{r usu_cmun, fig.cap = "Representantes de usuárias(os) nos Conselhos Municipais de Assistência Social", fig.footer = "Fonte: MDS, Censo SUAS.",eval=FALSE} 
+```{r usu_cmun, fig.cap = "Representantes de usuárias(os) nos Conselhos Municipais de Assistência Social", fig.footer = "Fonte: MDS, Censo SUAS."} 
 
  usu_cmun= function(df, q, ano, cod_categoria){
   q <- enquo(q)
@@ -7625,8 +7616,15 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 
 # Considerações Finais
 
+O Controle Social no SUAS tem importante papel na gestão democrática e desenvolvimento de cidadania ativa na agenda da política de Assistência Social. Destaca-se para este capítulo importantes avanços nas prerrogativas legais, a saber das resoluções CNAS/MDS nº 99, DE 4 de Abril de 2023 e nº 100, de 20 de abril de 2023. Estas resoluções versam sobre aspectos de funcionamento dos conselhos, bem como participação, em especial de usuários. Os dados mostram que em relação a estrutura física, 100% dos conselhos estaduais possuem sede e local específico para funcionamento dos conselhos, no âmbito do controle municipal, os registros são de 58% com sede e local específicos para funcionamento.
+As secretárias executivas também se configuram em um papel essencial para funcionamento dos conselhos, no âmbito dos conselhos estaduais destaca-se que 92% possuem este profissional de forma exclusiva. Esse dado teve redução a partir de 2017 na qual dispunha de 100% dos conselhos estaduais com esse profissional. Para os municípios, 82% possuem secretarias executivas. Para os municípios, foram analisados a presença destes profissionais de forma exclusiva ou não, haja vista demarcação da resolução para pequenos municípios (Pequenos Portes I e II).
+Sobre a dinâmica de funcionamento, 96,2% dos conselhos estaduais realizaram no último ano, acima de 9 reuniões e, os conselhos municipais 58% dos conselhos realizaram acima de 9 reuniões no ano da apuração do censo suas 2022. 
+No tocante a recursos do IGD Bolsa Família e SUAS para controle social, historicamente este valor não é repassado em 100% dos conselhos, na escala de 10 anos (2012 a 2022), apenas 4 anos foram sinalizados por 100% dos conselhos estaduais enquanto recebimento deste recurso para funcionamento do controle social. No âmbito dos conselhos municipais, nos últimos 10 anos, não há histórico de 100% dos conselhos municipais receberem este recurso. Destaca-se que em 2022, 82% dos CMAS sinalizaram utilizar destes recursos para controle social. 
+Em referência ao controle social do Programa Bolsa Família pelos conselhos, destaca-se que os CEAS informam que 88% possuem esta instancia e 91% dos conselhos municipais. Debates sobre o planejamento da Política de Assistência Social devem fazer parte das reuniões, 65% dos conselhos estaduais informam possuir esses dados.  Em relação aos conselhos municipais, 82% informam debater. A proposta orçamentária também deve ser deliberada pelo controle social, entretanto, 69% dos CEAS e 74% dos CMAS informam deliberar sobre este assunto. 
+Em relação a deliberação referente a oferta de Benefícios Eventuais, a oferta é baixa, com 65% dos CEAS no último ano, e os conselhos municipais, observa-se um avanço histórico nos CMAS.
+A representação e representatividade se destaca como um tema importante, para esta publicação, elencamos informações sobre as composições de usuários e de trabalhadores (as) dos conselhos estaduais e municipais.
 
-escrever
+
 
 
 
