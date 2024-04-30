@@ -85,8 +85,15 @@ lista.de.pacotes = c("tinytex",
                      "janitor",
                      "repmis",
 #                     "survey","srvyr",
-                     "ggrepel","renv") # escreva a lista de pacotes
-if(gera.graficos.office) lista.de.pacotes <- append(lista.de.pacotes, "export")
+                     "ggrepel",
+                     "renv",
+                     "readODS") # escreva a lista de pacotes
+
+if(gera.graficos.office) {
+  lista.de.pacotes <- append(lista.de.pacotes, "export")
+  arquivo_graficos = "Censo-SUAS-2022-graficos"
+  arquivo_graficos_criado = FALSE
+}
 
 novos.pacotes <- lista.de.pacotes[!(lista.de.pacotes %in%
                                       installed.packages()[,"Package"])]
@@ -110,7 +117,6 @@ gc()
 # }
 # 
 # knitr::knit_hooks$set(plot=hook_plot_tex_footer)
-
 ```
 
 <!-- ```{=tex} -->
@@ -1005,6 +1011,7 @@ municipios_2022 <- c(450, 1794, 1668, 1191, 467, 5570)
 # População dos municípios estimada pelo IBGE
 pop_municipios_2016 <- read_excel("../Estimativa População IBGE/estimativa_dou_2016_20160913.xlsx", sheet = "Municípios (limpo)")
 pop_municipios_2017 <- read_excel("../Estimativa População IBGE/estimativa_dou_2017.xls", sheet = "Municípios (limpo)")
+pop_municipios_2021 <- read_ods("../Estimativa População IBGE/POP2021_20230710.ods")
 
 ```
 
@@ -1397,20 +1404,25 @@ f_grafico_col_numero = function(df, x, y){
   x <- enquo(x)
   y <- enquo(y)
 
-  df %>%
+  df <- df %>%
     ggplot(aes(x = !! x, y = !! y)) +
     geom_col(aes(fill = !! y), position="dodge") +
     geom_text_repel(aes(label = format(!! y, big.mark=".", digits = 3, decimal.mark = ",")),
               vjust = -0.5,
               position = position_dodge(width = 0.9),
               point.size = NA) +
-    scale_y_continuous(expand = expand_scale(mult = c(0, .15))) +
+    scale_y_continuous(expand = expansion(mult = c(0, .15))) +
     theme(legend.position="none",
           axis.title = element_blank(),
           axis.ticks = element_blank(),
           axis.text.y = element_blank(),
           axis.line.x = element_line(),
           panel.background = element_blank())
+  if(gera.graficos.office) {
+    df %>% graph2office(file=arquivo_graficos, append = arquivo_graficos_criado)
+    arquivo_graficos_criado <<- TRUE
+  }
+  df
 }
 
 f_grafico_col_group_numero = function(df, x, y, grupo, legend_nrow){
@@ -1418,7 +1430,7 @@ f_grafico_col_group_numero = function(df, x, y, grupo, legend_nrow){
   y <- enquo(y)
   grupo <- enquo(grupo)
 
-  df %>%
+  df <- df %>%
     ggplot(aes(x = !! x, y = !! y, group = !! grupo)) +
     geom_col(aes(fill = !! grupo), position="dodge") +
     geom_text_repel(aes(label = format(!! y, big.mark=".", digits = 3, decimal.mark = ",")),
@@ -1426,7 +1438,7 @@ f_grafico_col_group_numero = function(df, x, y, grupo, legend_nrow){
               position = position_dodge(width = 0.9),
               angle = 90,
               point.size = NA) +
-    scale_y_continuous(expand = expand_scale(mult = c(0, .2))) +
+    scale_y_continuous(expand = expansion(mult = c(0, .2))) +
     theme(legend.position="bottom",
           legend.title = element_blank(),
           axis.title = element_blank(),
@@ -1435,6 +1447,11 @@ f_grafico_col_group_numero = function(df, x, y, grupo, legend_nrow){
           axis.line.x = element_line(),
           panel.background = element_blank()) +
     guides(fill=guide_legend(nrow=legend_nrow,byrow=TRUE))
+  if(gera.graficos.office) {
+    df %>% graph2office(file=arquivo_graficos, append = arquivo_graficos_criado)
+    arquivo_graficos_criado <<- TRUE
+  }
+  df
 }
 
 f_grafico_col_numero_flip = function(df, x, y, grupo, legend_nrow){
@@ -1442,14 +1459,14 @@ f_grafico_col_numero_flip = function(df, x, y, grupo, legend_nrow){
   y <- enquo(y)
   grupo <- enquo(grupo)
 
-  df %>%
+  df <- df %>%
     ggplot(aes(x = !! x, y = !! y, group = fct_rev(!! grupo))) +
     geom_col(aes(fill = !! grupo), position = "dodge") +
     geom_text(aes(label = format(!! y, big.mark=".", digits = 3, decimal.mark = ",")),
               hjust = -0.1,
               position = position_dodge(width = 0.9),
               check_overlap = TRUE) +
-    scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+    scale_y_continuous(expand = expansion(mult = c(0, .1))) +
     coord_flip() +
     theme(legend.position="bottom",
           legend.title = element_blank(),
@@ -1459,13 +1476,18 @@ f_grafico_col_numero_flip = function(df, x, y, grupo, legend_nrow){
           axis.line.y = element_line(),
           panel.background = element_blank()) +
     guides(fill=guide_legend(nrow=legend_nrow, byrow=TRUE))
+  if(gera.graficos.office) {
+    df %>% graph2office(file=arquivo_graficos, append = arquivo_graficos_criado)
+    arquivo_graficos_criado <<- TRUE
+  }
+  df
 }
 
 f_grafico_col_percent = function(df, x, y){
   x <- enquo(x)
   y <- enquo(y)
 
-  df %>%
+  df <- df %>%
     mutate(precisao = ifelse(!! y < 0.0995, 0.1, 1)) %>%
     ggplot(aes(x = !! x, y = !! y)) +
     geom_col(aes(fill = !! y), position = "dodge") +
@@ -1473,13 +1495,18 @@ f_grafico_col_percent = function(df, x, y){
               vjust = -0.5,
               position = position_dodge(width = 0.9),
               point.size = NA) +
-    scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+    scale_y_continuous(expand = expansion(mult = c(0, .1))) +
     theme(legend.position="none",
           axis.title = element_blank(),
           axis.ticks = element_blank(),
           axis.text.y = element_blank(),
           axis.line.x = element_line(),
           panel.background = element_blank())
+  if(gera.graficos.office) {
+    df %>% graph2office(file=arquivo_graficos, append = arquivo_graficos_criado)
+    arquivo_graficos_criado <<- TRUE
+  }
+  df
 }
 
 f_grafico_col_group_percent = function(df, x, y, grupo, legend_nrow){
@@ -1487,7 +1514,7 @@ f_grafico_col_group_percent = function(df, x, y, grupo, legend_nrow){
   y <- enquo(y)
   grupo <- enquo(grupo)
 
-  df %>%
+  df <- df %>%
     mutate(precisao = ifelse(!! y < 0.0995, 0.1, 1)) %>%
     ggplot(aes(x = !! x, y = !! y, group = !! grupo)) +
     geom_col(aes(fill = !! grupo), position = "dodge") +
@@ -1496,7 +1523,7 @@ f_grafico_col_group_percent = function(df, x, y, grupo, legend_nrow){
               position = position_dodge(width = 0.9),
               angle = 90,
               point.size = NA) +
-    scale_y_continuous(expand = expand_scale(mult = c(0, .16))) +
+    scale_y_continuous(expand = expansion(mult = c(0, .16))) +
     theme(legend.position="bottom",
           legend.title = element_blank(),
           axis.title = element_blank(),
@@ -1505,6 +1532,11 @@ f_grafico_col_group_percent = function(df, x, y, grupo, legend_nrow){
           axis.line.x = element_line(),
           panel.background = element_blank()) +
     guides(fill=guide_legend(nrow=legend_nrow, byrow=TRUE))
+  if(gera.graficos.office) {
+    df %>% graph2office(file=arquivo_graficos, append = arquivo_graficos_criado)
+    arquivo_graficos_criado <<- TRUE
+  }
+  df
 }
 
 f_grafico_col_percent_flip = function(df, x, y, grupo, legend_nrow){
@@ -1512,7 +1544,7 @@ f_grafico_col_percent_flip = function(df, x, y, grupo, legend_nrow){
   y <- enquo(y)
   grupo <- enquo(grupo)
 
-  df %>%
+  df <- df %>%
     mutate(precisao = ifelse(!! y < 0.0995, 0.1, 1)) %>%
     ggplot(aes(x = !! x, y = !! y, group = fct_rev(!! grupo))) +
     geom_col(aes(fill = !! grupo), position = "dodge") +
@@ -1520,7 +1552,7 @@ f_grafico_col_percent_flip = function(df, x, y, grupo, legend_nrow){
               hjust = -0.05,
               position = position_dodge(width = 0.9),
               check_overlap = TRUE) +
-    scale_y_continuous(expand = expand_scale(mult = c(0, .12))) +
+    scale_y_continuous(expand = expansion(mult = c(0, .12))) +
     coord_flip() +
     theme(legend.position="bottom",
           legend.title = element_blank(),
@@ -1530,6 +1562,11 @@ f_grafico_col_percent_flip = function(df, x, y, grupo, legend_nrow){
           axis.line.y = element_line(),
           panel.background = element_blank()) +
     guides(fill=guide_legend(nrow=legend_nrow, byrow=TRUE))
+  if(gera.graficos.office) {
+    df %>% graph2office(file=arquivo_graficos, append = arquivo_graficos_criado)
+    arquivo_graficos_criado <<- TRUE
+  }
+  df
 }
 
 f_grafico_col_stack_percent = function(df, x, y, grupo, legend_nrow){
@@ -1537,14 +1574,14 @@ f_grafico_col_stack_percent = function(df, x, y, grupo, legend_nrow){
   y <- enquo(y)
   grupo <- enquo(grupo)
 
-  df %>%
+  df <- df %>%
     mutate(precisao = ifelse(!! y < 0.0995, 0.1, 1)) %>%
     ggplot(aes(x = !! x, y = !! y, group = !! grupo)) +
     geom_col(aes(fill = !! grupo), position = position_stack(reverse = TRUE)) +
     geom_text_repel(aes(label = ifelse(!! y > 0.0005, label_percent(accuracy = precisao, decimal.mark = ",")(!! y), "")),
                     position = position_stack(reverse = TRUE, vjust = .5),
                     point.size = NA) +
-    scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+    scale_y_continuous(expand = expansion(mult = c(0, .1))) +
     theme(legend.position="bottom",
           legend.title = element_blank(),
           axis.title = element_blank(),
@@ -1553,6 +1590,11 @@ f_grafico_col_stack_percent = function(df, x, y, grupo, legend_nrow){
           axis.line.x = element_line(),
           panel.background = element_blank()) +
     guides(fill=guide_legend(nrow=legend_nrow,byrow=TRUE))
+  if(gera.graficos.office) {
+    df %>% graph2office(file=arquivo_graficos, append = arquivo_graficos_criado)
+    arquivo_graficos_criado <<- TRUE
+  }
+  df
 }
 
 f_grafico_col_stack_percent_flip = function(df, x, y, grupo, legend_nrow){
@@ -1560,7 +1602,7 @@ f_grafico_col_stack_percent_flip = function(df, x, y, grupo, legend_nrow){
   y <- enquo(y)
   grupo <- enquo(grupo)
 
-  df %>%
+  df <- df %>%
     mutate(precisao = ifelse(!! y < 0.0995, 0.1, 1)) %>%
     arrange(!! grupo) %>%
     ggplot(aes(x = !! x, y = !! y)) +
@@ -1569,7 +1611,7 @@ f_grafico_col_stack_percent_flip = function(df, x, y, grupo, legend_nrow){
 #              position = position_stack(reverse = TRUE, vjust = .5),
               position = position_stack(vjust = .5),
               check_overlap = TRUE) +
-    scale_y_continuous(expand = expand_scale(mult = c(0, 0.05))) +
+    scale_y_continuous(expand = expansion(mult = c(0, 0.05))) +
     coord_flip() +
     theme(legend.position="bottom",
           legend.title = element_blank(),
@@ -1579,6 +1621,11 @@ f_grafico_col_stack_percent_flip = function(df, x, y, grupo, legend_nrow){
           axis.line.y = element_line(),
           panel.background = element_blank()) +
     guides(fill=guide_legend(nrow=legend_nrow,byrow=TRUE))
+  if(gera.graficos.office) {
+    df %>% graph2office(file=arquivo_graficos, append = arquivo_graficos_criado)
+    arquivo_graficos_criado <<- TRUE
+  }
+  df
 }
 
 f_grafico_col_stack_percent_flip_2_x_groups = function(df, x1, x2, y, grupo, legend_nrow){
@@ -1587,7 +1634,7 @@ f_grafico_col_stack_percent_flip_2_x_groups = function(df, x1, x2, y, grupo, leg
   y <- enquo(y)
   grupo <- enquo(grupo)
 
-  df %>%
+  df <- df %>%
     mutate(precisao = ifelse(!! y < 0.0995, 0.1, 1)) %>%
     arrange(!! grupo) %>%
     ggplot(aes(x = !! x2, y = !! y)) +
@@ -1596,7 +1643,7 @@ f_grafico_col_stack_percent_flip_2_x_groups = function(df, x1, x2, y, grupo, leg
               position = position_stack(vjust = .5),
               check_overlap = TRUE) +
     facet_wrap(vars(!! x1), strip.position = "left", ncol = 1) +
-    scale_y_continuous(expand = expand_scale(mult = c(0, 0.05))) +
+    scale_y_continuous(expand = expansion(mult = c(0, 0.05))) +
     coord_flip() +
     theme(legend.position="bottom",
           legend.title = element_blank(),
@@ -1611,6 +1658,11 @@ f_grafico_col_stack_percent_flip_2_x_groups = function(df, x1, x2, y, grupo, leg
           strip.text.y.left = element_text(angle = 0)
           )+
     guides(fill=guide_legend(nrow=legend_nrow,byrow=TRUE))
+  if(gera.graficos.office) {
+    df %>% graph2office(file=arquivo_graficos, append = arquivo_graficos_criado)
+    arquivo_graficos_criado <<- TRUE
+  }
+  df
 }
 ```
 
@@ -1675,8 +1727,6 @@ grafico <- estados_sec_exc(ge_2012, q1, "2012") %>%
   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 2)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos")
 ```
 
 ```{r fig-estados-caracteristica-secretaria-2022, fig.cap = "Percentual de Secretarias Estaduais de acordo com composição administrativa relacionada a outras políticas - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
@@ -1727,8 +1777,6 @@ grafico <- ge_2022 %>%
         legend.key.size = unit(2, 'lines'))
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-estados-caracteristica-secretaria-2012, fig.cap = "Percentual de Secretarias Estaduais de acordo com composição administrativa relacionada a outras políticas - Brasil, 2012", fig.footer = "Fonte: MDS, Censo SUAS", eval=FALSE}
@@ -1779,8 +1827,6 @@ grafico <- ge_2012 %>%
         legend.key.size = unit(2, 'lines'))
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 No que se refere aos municípios, esse cenário nacional se configurou inverso ao das gestões Estaduais. Observa-se através do @fig-sec-munic-exc um aumento de 217 municípios (1,5 pontos percentuais) com secretarias exclusivas de Assistência Social do período de 2012 a 2019[^11].
@@ -1833,8 +1879,6 @@ grafico <-
   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 2)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-secretarias-municipais-exclusivas, fig.cap = "Percentual de Secretarias Municipais exclusivas de Assistência Social, segundo grandes regiões – Brasil, 2012 - 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS.",eval=FALSE}
@@ -1855,7 +1899,7 @@ grafico <- f_selecao_regiao_ano(gm_2012, q1, "Secretaria municipal exclusiva da 
   geom_col(aes(fill = Ano), position="dodge") +
 #  geom_text(aes(label = percent(Percentual), y=Percentual+.05), position = position_dodge(width = 0.9), angle = 90) +
   geom_text(aes(label = label_percent(accuracy = 0.1, decimal.mark = ",")(Percentual), y=Percentual+.05), position = position_dodge(width = 0.9), angle = 90) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  scale_y_continuous(expand = expansion(mult = c(0, .1))) +
   theme(legend.position="bottom",
         legend.title = element_blank(),
         axis.title = element_blank(),
@@ -1866,8 +1910,6 @@ grafico <- f_selecao_regiao_ano(gm_2012, q1, "Secretaria municipal exclusiva da 
   guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Alguns órgãos gestores estaduais constituíram as áreas de assistência social como subdivisões administrativas em sua estrutura, como superintendências, departamentos, gerências, coordenações, dentre outras. De acordo com o último Pacto de aprimoramento Estadual do SUAS[^12] umas das prioridades para o aperfeiçoamento institucional é possuir na estrutura administrativa das seguintes áreas:
@@ -1978,8 +2020,6 @@ grafico<-tabela %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-uf_subd_constituidas, fig.cap = "Percentual de estados segundo constituição de subdivisões administrativas na estrutura do órgão gestor - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -2073,8 +2113,6 @@ grafico<-tabela %>%
   f_grafico_col_stack_percent_flip_2_x_groups(Categoria, Ano, Percentual, Grupo, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-estados-constituicao-subdivisoes_2012, fig.cap = "Percentual de estados segundo característica da estrutura administrativa da Secretaria Estadual de Assistência Social - Brasil,  2012", fig.footer = "Fonte: MDS, Censo SUAS", eval=FALSE}
@@ -2114,7 +2152,7 @@ grafico<-tabela %>%
   ggplot(aes(x = Categoria, y = Percentual)) +
   geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
   geom_text(aes(y=Posição, label = percent(Percentual))) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  scale_y_continuous(expand = expansion(mult = c(0, .1))) +
   coord_flip() +
   theme(legend.position="bottom",
         legend.title = element_blank(),
@@ -2125,9 +2163,6 @@ grafico<-tabela %>%
         panel.background = element_blank())
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-
 ```
 
 Quando se observa a regularização destas áreas, há um grupo instituídas informalmente conforme @fig-estados-constituicao-subdivisoes, e setores que ainda não estão consituídos em 100% dos estados, a saber Gestão do SUAS, Gestão do trabalho e regulação do SUAS.
@@ -2176,8 +2211,6 @@ grafico<-tabela %>%
   f_grafico_col_stack_percent_flip(Categoria, Percentual, Nível, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 No que se refere aos municípios, a última pactuação sobre estrutura administrativa a partir dos portes populacionais dos municípios[^13] prevê:
@@ -2271,8 +2304,6 @@ grafico<-tabela %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Ao considerar a instituição informal, o @fig-municipais-constituicao-subdivisoes sinaliza que a Gestão do trabalho e Vigilância Socioassistencial são os mais altos percentuais de informalidade e não constituição. Destaca-se também a proteção social especial, área recomendada existir independe da presença de unidades de CREAS.
@@ -2336,8 +2367,6 @@ grafico<-tabela %>%
   f_grafico_col_stack_percent_flip(Categoria, Percentual, Nível, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-municipais-constituicao-subdivisoes_2012, fig.cap = "Distribuição dos órgãos gestores municipais segundo constituição/formalização de subdivisões administrativas - Brasil, 2012", fig.footer = "Fonte: MDS, Censo SUAS", eval=FALSE}
@@ -2413,7 +2442,7 @@ grafico<-tabela %>%
   ggplot(aes(x = Categoria, y = Percentual)) +
   geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
   geom_text(aes(y=Posição, label = percent(Percentual))) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  scale_y_continuous(expand = expansion(mult = c(0, .1))) +
   coord_flip() +
   theme(legend.position="bottom",
         legend.title = element_blank(),
@@ -2424,8 +2453,6 @@ grafico<-tabela %>%
         panel.background = element_blank())
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 A uniformização da Lei do SUAS dos estados e municípios em consonâcia com a LOAS foi deliberação da X Conferência Nacional. Sobre essa disposição, observa-se que nas gestões estaduais, 58% dos estados possuem Lei Estadual de regulamentação do SUAS (total de 15 estados). As últimas atualizações ocorreram a partir de 2017 (12 estados), com exceção de Minas Gerais em 2011 Goiás em 2015 e Mato Grosso do Sul em 2016.
@@ -2449,8 +2476,6 @@ grafico<-ge_2022 %>%
   f_grafico_col_numero(x, n)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Em 2022, 75% dos municípios possuíam Lei Municipal de regulamentação do SUAS (4.170). Destes, a maioria, 91% (3.798) aprovaram/atualizaram após 2013 e 9% (372) anterior a atualização da Lei Nacional[^16] e a NOB SUAS/2012 conforme detalha o @fig-municipios-atualizacao-lei. A inexistência de Lei é encontrada em 25% (1.400) dos municípios.
@@ -2475,8 +2500,6 @@ grafico <- gm_2022 %>%
   f_grafico_col_percent(x, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 No que se refere ao Planejamento, trata-se de uma obrigatoriedade para existência do Sistema Único e repasse de confinanciamento. O Plano Estadual de Assistência Social (PEAS) deve ser aprovado pelo Conselho Estadual de Assistência Social (CEAS). Os dados do @fig-PEAS sinalizam que a partir de 2020 há um decréscimo desta atualização com devida aprovação do conselho[^17] [^18].
@@ -2502,8 +2525,6 @@ grafico <-
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 O Plano de apoio técnico aos municípios também é um produto a ser realizado pelos Estados e previsto no último pacto de aprimoramento Estadual do SUAS[^19]. De acordo com Censo Suas 2022, 57,69% dos Estados possuem este plano pactuado na CIB. Este percentual reduziu em relação ao ano de 2017, na qual mais de 77% dos estados informaram possuir este documento pactuado nesta instância de comissão intergestores bipartite (CIB).
@@ -2528,8 +2549,6 @@ grafico <- f_sim(ge_2013, q85, "2013") %>%
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 A NOB SUAS 2012 também evidencia o papel dos estados frente as atribuições de apoio técnico e financeiro aos municípios[^20] na qual compreende ações de:
@@ -2656,8 +2675,6 @@ grafico<-tabela %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-municipios-formas-apoio, fig.cap = "Percentual de municípios por formas de apoio técnico recebido do Estado nos 12 meses anteriores à pesquisa, segundo grandes regiões - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
@@ -2735,7 +2752,7 @@ grafico<-tabela %>%
   ggplot(aes(x = Categoria, y = Percentual, group = Região)) +
   geom_col(aes(fill = Região), position = "dodge") +
   geom_text(aes(label = percent(Percentual), y=Percentual+.05), position = position_dodge(width = 0.9), size=3) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  scale_y_continuous(expand = expansion(mult = c(0, .1))) +
   coord_flip() +
   theme(legend.position="bottom",
         legend.title = element_blank(),
@@ -2747,8 +2764,6 @@ grafico<-tabela %>%
   guides(fill=guide_legend(nrow=1, byrow=TRUE, reverse=TRUE))
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-municipios-receberam-visitas, fig.cap = "Percentual de municípios que receberam visitas de técnicos da Secretaria Estadual de Assistência Social (SEAS) - Brasil, 2013 a 2017", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
@@ -2790,7 +2805,7 @@ grafico <- gm_visita_tecnicos(gm_2013, q19, "2013") %>%
 #  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
   geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
   geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  scale_y_continuous(expand = expansion(mult = c(0, .1))) +
   theme(legend.position="bottom",
         legend.title = element_blank(),
         axis.title = element_blank(),
@@ -2801,8 +2816,6 @@ grafico <- gm_visita_tecnicos(gm_2013, q19, "2013") %>%
   guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 No @fig-munic_vit_estadual os dados percentuais mostram um aumento gradual dos municípios que informam receber visitas da gestão estadual para apoio técnico. Entretanto 62,5% informam não ter recebido visita de apoio técnico no último ano.
@@ -2818,8 +2831,6 @@ grafico <- f_sim(gm_2020, q7_5, "2020") %>%
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 No que se refere a Educação Permanente, nota-se um aumento dos estados que possuem Núcleo de Educação Permante (@fig-NUEP).
@@ -2856,8 +2867,6 @@ grafico <- nuep(ge_2020, q47, "2020") %>%
   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Em relação ao Plano de Educação Permanente, de acordo com censo suas de 2021, 13,9% (769) dos municípios possuem este plano. Esse percentual, como pode ser observado no @fig-PNEP_Munic, teve evolução residual últimos anos[^21].
@@ -2881,8 +2890,6 @@ grafico <- f_sim(gm_2015, q40, "2015") %>%
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-municipios-possuem-plano, fig.cap = "Percentual de municípios que possuem Plano de Capacitação e Educação Permanente, segundo grandes regiões - Brasil; 2015, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS",eval=FALSE}
@@ -2901,7 +2908,7 @@ grafico <- f_selecao_regiao_ano(gm_2015, q40, "Sim", Região, "2015") %>%
   ggplot(aes(x = Região, y = Percentual, group = Ano)) +
   geom_col(aes(fill = Ano), position="dodge") +
   geom_text(aes(label = percent(Percentual), y=Percentual+.01), position = position_dodge(width = 0.9), angle = 90) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  scale_y_continuous(expand = expansion(mult = c(0, .1))) +
   theme(legend.position="bottom",
         legend.title = element_blank(),
         axis.title = element_blank(),
@@ -2912,8 +2919,6 @@ grafico <- f_selecao_regiao_ano(gm_2015, q40, "Sim", Região, "2015") %>%
   guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-municipios-participacoes-CIB, fig.cap = "Percentual de municípios por número de participações em reuniões da CIB (Comissão Intergestores Bipartite) no ano de 2016, segundo grandes regiões - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
@@ -2947,7 +2952,7 @@ grafico <- gm_2017 %>%
 #  geom_text(aes(label = percent(Percentual), y=Percentual+.06), position = position_dodge(width = 0.9), angle = 90) +
   geom_col(aes(fill = grupo), position = position_stack(reverse = TRUE)) +
   geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  scale_y_continuous(expand = expansion(mult = c(0, .1))) +
   theme(legend.position="bottom",
         legend.title = element_blank(),
         axis.title = element_blank(),
@@ -2958,8 +2963,6 @@ grafico <- gm_2017 %>%
   guides(fill=guide_legend(nrow=2,byrow=TRUE))
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ## Financiamento e Gestão Financeira
@@ -3023,8 +3026,6 @@ grafico <- ge_cofinanciamento(ge_2012, q64_0, "2012", codigo_ibge) %>%
   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 O @fig-estados-blocos-recursos evidencia a quantidade de estados quando ao cofinanciamento aos municípios por blocos. Os dados dos últimos 10 anos, sinaliza que o número de estados que cofinanciam os municípios vem aumentando. Sobretudo o cofinanciamento da proteção social especial (Média e Alta Complexidade), em seguida Benefícios Eventuais. No que se refere aos últimos 5 anos houve uma redução na destinação de recursos para proteção social básica e incentivos do SUAS.
@@ -3099,8 +3100,6 @@ grafico<-tabela %>%
   f_grafico_col_numero_flip(Categoria, n, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r eval=FALSE, fig.cap = "Distribuição de municípios por recebimento de recursos estaduais para o cofinanciamento da Assistência Social - Brasil, 2013 a 2017", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -3142,7 +3141,7 @@ grafico <- gm_cofinanciamento(gm_2013, q29, "2013") %>%
 #  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
   geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
   geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  scale_y_continuous(expand = expansion(mult = c(0, .1))) +
   theme(legend.position="bottom",
         legend.title = element_blank(),
         axis.title = element_blank(),
@@ -3153,8 +3152,6 @@ grafico <- gm_cofinanciamento(gm_2013, q29, "2013") %>%
   guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-municipios-recebimento-recursos, fig.cap = "Distribuição de municípios por recebimento de recursos estaduais para o cofinanciamento da Assistência Social e destinação dos recursos recebidos - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
@@ -3208,7 +3205,7 @@ grafico<-tabela %>%
 #  geom_text(aes(label = percent(Percentual), y=Percentual+.04), position = position_dodge(width = 0.9)) +
   geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
   geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  scale_y_continuous(expand = expansion(mult = c(0, .1))) +
   coord_flip() +
   theme(legend.position="bottom",
         legend.title = element_blank(),
@@ -3220,8 +3217,6 @@ grafico<-tabela %>%
   guides(fill=guide_legend(nrow=2,byrow=TRUE))
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 O ordenador de despesa responde pela emissão de empenho, autorização de pagamento dos recursos do fundo de assistência social. Assim, recomenda-se que este tenha amplo conhecimento sobre a política. O @fig-estado_ord_despesa sinaliza que 73% dos gestores estaduais são ordenadores de despesa do fundo estadual. Dado que reduziu a partir de 2018.
@@ -3274,8 +3269,6 @@ grafico <- ord_despesa(ge_2012, q44, "2012") %>%
  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 2)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 No que se refere aos municípios, aproximadamente 80% dos secretários (as) municipais são ordenadores de despesa do Fundo Municipal. Esse percentual aumentou a partir de 2016.
@@ -3336,8 +3329,6 @@ grafico <- ord_despesa(gm_2012, q28, "2012") %>%
   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 4)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-municipios-transferencia-recursos, fig.cap = "Distribuição de municípios segundo realização de transferência de recursos por meio de convênios ou termos de parcerias para ONGs, Organizações da Sociedade Civil ou Entidades de Assistência Social, por grandes regiões - Brasil, 2017", fig.footer = "Fonte: MDS, Censo SUAS", eval=FALSE}
@@ -3382,7 +3373,7 @@ grafico <- fmas_2022 %>%
 #  geom_text(aes(label = percent(Percentual), y=Percentual+.06), position = position_dodge(width = 0.9), angle = 90) +
   geom_col(aes(fill = Nível), position = position_stack(reverse = TRUE)) +
   geom_text_repel(aes(y=Posição, label = percent(Percentual)), point.padding = NA) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  scale_y_continuous(expand = expansion(mult = c(0, .1))) +
   theme(legend.position="bottom",
         legend.title = element_blank(),
         legend.key.size = unit(2, 'lines'),
@@ -3394,8 +3385,6 @@ grafico <- fmas_2022 %>%
   guides(fill=guide_legend(nrow=2,byrow=TRUE))
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ## Programas de execução própria executadas pelos estados
@@ -3415,8 +3404,6 @@ grafico <-
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-be_uf_renda, fig.cap = "Percentual de estados que possuem programa próprio de transferência de renda", fig.footer = "Fonte: MDS, Censo SUAS"}
@@ -3436,8 +3423,6 @@ grafico <- f_sim(ge_2012, q33, "2012") %>%
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Destes estados (17) que informam possuir programa próprio de transferência de renda, 82,3% utilizam o Cadastro Único para seleção das pessoas beneficiárias.
@@ -3451,8 +3436,6 @@ grafico <- f_sim(ge_2020, q11_1, "2020") %>%
    f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ## Gestão do Cadastro Único[^24]
@@ -3586,8 +3569,6 @@ grafico<-tabela %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 O @fig-acoes_cad sinaliza que as ações de esclarecimento de dúvidas sobre serviços, programas entre outros são realizadas pela grande maioria das unidades do cadastro único (96,82%). Já as ações de agendamento para atendimento são realizadas por 64,35% das unidades, com redução ao longo dos anos[^27].
@@ -3651,8 +3632,6 @@ grafico<-tabela %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Faz parte de procedimentos de qualificação do Cadastro Único ações de averiguação e revisão cadastral. A averiguação é um processo de verificação das informações registradas no Cadastro Único por meio da comparação dos dados declarados pelas famílias com outros dados e registros administrativos do governo federal. Já a revisão é um procedimento de atualização das famílias com registros desatualizados. O tempo considerado para um cadastro desatualizado é de 24 meses. O @fig-ave_cad refere-se as informações de averiguação e revisão cadastral no âmbito dos postos dos Cadastro Único dos municípios. Nota-se que ao longo dos anos, essas ações aumentaram,sobretudo as ações de busca ativa e identificação do público de averiguação e revisão cadastral como público prioritário.
@@ -3716,8 +3695,6 @@ grafico<-tabela %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Em relação as informações de unidades de Postos do Cadasto Único e o atendimento de Grupos Populacionais Tradicionais e Específicos - GPTEs, destaca-se através do @fig-gptes-cadunico o percentual de unidades de postos do Cadastro Único que informam atender no período de 2020 a 2022.
@@ -3731,8 +3708,6 @@ grafico <- f_sim(posto_cadunico_2020,q20_1,"2020") %>%
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 O cadastramento domiciliar permite uma aproximação com aspectos do cotidiano das famílias, visto que a coleta das informações ocorre por meio do encontro da gestão até as famílias. Essa ação objetiva assegurar o acesso a inclusão ou atualização cadastral na residencia das pessoas. De acordo com informações do @fig-visit_dom as situações mais frequentes para visita domiciliar são para averiguação cadastral e inclusão/atualização de dados do BPC (Benefício de Prestação Continuada - BPC).
@@ -3805,8 +3780,6 @@ grafico<-tabela %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Em relação as ações de complementariedade com a rede socioassistencial, destaca-se que a maioria destas unidades de cadastramento realizam encaminhamentos para rede socioassistencial de CRAS, CREAS, Centro Pop entre outros (@fig-redesuas).
@@ -3872,8 +3845,6 @@ grafico<-tabela %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 O @fig-igdbolsa sinaliza sobre a existência da participação das unidades do Cadastro único no planejamento dos recursos recebidos no âmbito do IGD-PBF (Índice de Gestão Descentralizada da Gestão do Bolsa Família e Cadastro Único).
@@ -3909,8 +3880,6 @@ grafico <- igd_pbf(posto_cadunico_2020, q29, "2020") %>%
   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 4)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-coord_cadunico, fig.cap = "Percentual de Postos do Cadastro Único que possuem coordenador - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS", eval=FALSE}
@@ -3922,8 +3891,6 @@ grafico <- f_sim(posto_cadunico_2020, q39_1, "2020") %>%
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ## Considerações Finais
@@ -3977,8 +3944,6 @@ grafico <- f_quantitativo_regiao_ano(cras_2007, ibge, "2007") %>%
   f_grafico_col_group_numero(Região, n, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 A Expansão em todo território nacional do número de CRAS evidencia a consolidação de uma referência de unidades públicas de Assistência Social em todo território nacional. De acordo com os dados, 99,37% municípios possuem CRAS, ou seja, apenas 34 municípios no Brasil não dispõem desta unidade pública[^28].
@@ -4007,7 +3972,7 @@ grafico <- f_percentual_municipios_regiao_ano(cras_2007, ibge, "2007") %>%
   ggplot(aes(x = Região, y = Percentual, group = Ano)) +
   geom_col(aes(fill = Ano), position="dodge") +
   geom_text(aes(label = percent(Percentual), y=Percentual+0.04), position = position_dodge(width = 0.9), angle = 90, size = 2.5) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  scale_y_continuous(expand = expansion(mult = c(0, .1))) +
   theme(legend.position="bottom",
         legend.title = element_blank(),
         axis.title = element_blank(),
@@ -4018,8 +3983,6 @@ grafico <- f_percentual_municipios_regiao_ano(cras_2007, ibge, "2007") %>%
   guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Ao observar o número de CRAS por municípios, levando-se em conta o porte populacional, verifica-se que os 35 municípios do país que não possuem CRAS[^29] e estão concentrados em municípios de pequeno porte (@fig-CRAS-porte).
@@ -4028,8 +3991,10 @@ Ao observar o número de CRAS por municípios, levando-se em conta o porte popul
 
 Em relação a concentração da quantidade de CRAS, para os municípios de pequeno porte I e pequeno porte II, dispõem, em sua maioria, de uma unidade de CRAS como referência do território, sendo respectivamente 96% e 69%. Os municípios de médio porte, cerca de 66% possuem de 2 a 3 CRAS. Os municípios de grande porte, o grupo majoritário de unidades são entre 4 a 6 CRAS - 52,5%.
 
-<!--esse grafico tana com dado de 2017, daí troquei para 2022 e desconfigurou-->
-
+```{=html}
+<!--esse grafico tana com dado de 2017, daí troquei para 2022 e desconfigurou
+ATUALIZAÇÃO: O problema era que em 2022 Fernando de Noronha estava sem o código IBGE na base de CRAS, daí não era possivel determinar o porte do município e gerava uma categoria de município sem porte, e isto desconfigurava o gráfico gerado. Arrumada a base de CRAS de 2022 com inserção do código IBGE de Fernando de Noronha. Também foi atualizada a estimativa populacional para 2021. Dados do Censo de 2022 não foram encontrados em formato facilmente utilizável.-->
+```
 ```{=html}
 <!-- Sobre o número de famílias referenciadas a PNAS^[PNAS/2004 - Política Nacional de Assistência Social] deternima de acordo com portes populacionais dos municípios, são eles: PPI: 2.500 famílias referenciadas por CRAS, PPII: 3.500 famílias referenciadas, Médio/Grande/Metrópole: 5000 famílias referencia por CRAS.
 CRAS -->
@@ -4041,7 +4006,7 @@ cras_municipios <- cras_2022 %>%
   group_by(IBGE7) %>%
   summarise(n_cras=n())
 
-porte_municipios <- pop_municipios_2017 %>%
+porte_municipios <- pop_municipios_2021 %>%
   f_porte_populacional(`POPULAÇÃO ESTIMADA`) %>%
   mutate(IBGE7 = as.numeric(paste0(`COD. UF`, `COD. MUNIC`))) %>%
   select(IBGE7, Porte)
@@ -4081,8 +4046,6 @@ grafico <- dados %>%
   f_grafico_col_stack_percent(Porte, Percentual, grupo, 2)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Os dados de CRAS que funcionam com imóvel próprio evoluiu significativamente de 2008 a 2022. Destaca-se que o primeiro ano da série histórica possuia 43,7% CRAS com imóvel próprio (@fig-CRAS-imovel), dado que chega em 2022 com 59,62%. Dados com CRAS que funcionam com imóveis alugados passam por redução de 48,2% para 32,2%.
@@ -4117,8 +4080,6 @@ grafico <- f_equip_imovel(cras_2008, `situacao_imovel`, "2008") %>%
   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Ainda sobre o tema da acessibilidade nas unidades de CRAS. observa-se através (@fig-CRAS-acessibilidade) um avanço em todas as condições de acessibilidade nas unidades de CRAS [^31]. Apesar da evolução, os dados ainda refernciam desafios, sobretudo no que se refere a banheiro adaptado que possui o percentual mais baixo de unidades com essa acessibilidade.
@@ -4176,8 +4137,6 @@ grafico<-tabela %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Através do (@fig-CRAS-acessibilidade-situacao) foi relacionado as condições de acessibilidade com a situação do imóvel. Em 2022, verificou-se que as condições de acessibilidade em CRAS localizados em imóveis próprios possuem números significativamente elevados em relação aos imóveis alugados ou cedidos.
@@ -4207,8 +4166,6 @@ grafico<-tabela %>%
   f_grafico_col_group_percent(Situacao, Percentual, Categoria, 4)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Em relação a conectividade, em especial o acesso a internet, o percentual de CRAS com acesso à internet aumentaram significativamente desde 2007 chegando no último ano desta série com mais de 99% das unidades com computadores com acesso a internet conforme o @fig-CRAS-internet-percentual.
@@ -4239,7 +4196,7 @@ grafico <- f_cras_internet(cras_2007, `Acesso a Internet`, "2007") %>%
   geom_point(aes(y = Total)) +
   geom_text(aes(label = percent(Percentual/100), y=(Percentual+1.5)*24)) +
   geom_text(aes(label = Total, y=Total+50)) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1)), sec.axis = sec_axis(~./24, name = "%")) +
+  scale_y_continuous(expand = expansion(mult = c(0, .1)), sec.axis = sec_axis(~./24, name = "%")) +
   labs(y = "Total") +
   theme(legend.position="bottom",
         legend.title = element_blank(),
@@ -4251,8 +4208,6 @@ grafico <- f_cras_internet(cras_2007, `Acesso a Internet`, "2007") %>%
   guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-CRAS-internet-quantitativo, fig.cap = "Evolução do quantitativo de CRAS com computadores com acesso à internet – Brasil, 2007 a 2017", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
@@ -4271,7 +4226,7 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 #  ggplot(aes(x = Região, y = n, group = Ano)) +
 #  geom_col(aes(fill = Ano), position="dodge") +
 #  geom_text(aes(label = format(n, big.mark="."), y=n+300), position = position_dodge(width = 0.9), angle = 90, size = 2.5) #+
-#  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+#  scale_y_continuous(expand = expansion(mult = c(0, .1))) +
 #  theme(legend.position="bottom",
 #        legend.title = element_blank(),
 #        axis.title = element_blank(),
@@ -4282,8 +4237,6 @@ if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE
 #  guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-CRAS-internet-percentual, fig.cap = "Evolução percentual de CRAS com computadores com acesso à internet – Brasil; 2007, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -4296,8 +4249,6 @@ grafico <- f_maior0_regiao_ano(cras_2007, `Acesso a Internet`, ibge, "2007") %>%
   f_grafico_col_group_percent(Região, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Em relação a CRAS com locais para Cadastro Único, o dado abaixo tráz o percentual destas informações e a disposição de equipes para esta finalidade. Nota-se o aumento ao longo dos anos, das undiades de CRAS que possuem Cadastro Único com equipe exclusiva, chegando no censo suas de 2022 com 59% (@fig-equip-cadunico-cras).
@@ -4344,8 +4295,6 @@ grafico <- equip_cadunico(cras_2010, q43, "2010") %>%
   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 2)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ## Centros de Convivência
@@ -4366,8 +4315,6 @@ grafico <- f_quantitativo_regiao_ano(ceconv_2014, Região, "2014") %>%
    f_grafico_col_group_numero(Região, n, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Os Centros de Convivência podem ser unidades públicas ou vinculadas a entidades de assistência social inscritas nos Conselhos de Assistência Social do município ou do Distrito Federal. Em 2022, 44% dos Centros de Convivência eram governamentais e 56% das unidades eram não governamentais. [^32]
@@ -4407,9 +4354,6 @@ grafico <- centro(ceconv_2016, q2, "2016") %>%
   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-
 ```
 
 ## Centro de Referência Especializada de Assistência Social (CREAS)
@@ -4434,8 +4378,6 @@ O Censo SUAS 2022 registrou 2.846 CREAS no país: um incremento de 679 novas uni
   f_grafico_col_group_numero(Região, n, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 De acordo com os dados do @fig-CREAS-porte na qual sinaliza o número de CREAS por município, levando-se em conta o porte populacional, verifica-se que 54% dos municípios não possuem CREAS. Eles estão concentrados nos municípios de Pequeno Porte I e II, com respectivamente 77% e 5,3% dos municípios que não possuem esta unidade especializada.
@@ -4487,8 +4429,6 @@ grafico <- dados %>%
   f_grafico_col_stack_percent(Porte, Percentual, grupo, 2)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Ao observar a série histórica do @fig-creas-situacao, é possível perceber que os imovéis próprios vem aumentando ao longo do tempo. Em 2012 eram 27% das unidades e, em 2022 37% destas undiades passam a possuir imóveis prórpios. Ao passo que os imóveis próprios aumentam em 10% pontos percentuais, os imovéis alugados decrescem, computado no censo suas de 2022 com 57% das unidades alugadas.Há também registros de imóveis cedidos no qual ao longo dos anos sinalizam um leve aumento[^33].
@@ -4519,8 +4459,6 @@ grafico <- f_equip_imovel(creas_2012, q5, "2012") %>%
   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 De acordo com os dados do Censo SUAS do período de 2012 a 2022, houve aumento das condições de acessibilidade em vários itens dos CREAS. O @fig-creas-acessibilidade sinaliza que a presença do acesso principal adaptado com rota ascessível aos espaços (recepção, salas de atendimento e espaços de uso coletivo) é a mais presente nas unidades de CREAS com destaque para 83% no CENSO SUAS de 2022.
@@ -4560,8 +4498,6 @@ grafico<-tabela %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 O @fig-CREAS-acessibilidade-situacao através do Censo SUAS 2022 apurou a situação do imóvel com a presença das condições de acessibilidade. Os dados sinalizam que a acessibilidade é significativamente mais presente em imovéis próprios.
@@ -4583,8 +4519,6 @@ grafico<-tabela %>%
   f_grafico_col_group_percent(Situacao, Percentual, Categoria, 4)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 A existência de computadores com acesso à internet é um importante aspecto a ser observado quando se avalia a infraestrutura dos CREAS. No período de 2012 a 2022, observa-se que este item avançou de 89% para 99% dos CREAS que possuem computadores com acesso à internet conforme @fig-CREAS-internet-percentual.
@@ -4602,8 +4536,6 @@ grafico <- f_maior0_regiao_ano(creas_2012, q14, Região, "2012") %>%
   f_grafico_col_group_percent(Região, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-creas-qtd_munic, fig.cap = "Evolução do quantitativo de CREAS; Brasil e grandes regiões; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
@@ -4628,7 +4560,7 @@ grafico <- f_percentual_municipios_regiao_ano(creas_2012, IBGE, "2012") %>%
   ggplot(aes(x = Região, y = Percentual, group = Ano)) +
   geom_col(aes(fill = Ano), position="dodge") +
   geom_text(aes(label = percent(Percentual), y=Percentual+0.04), position = position_dodge(width = 0.9), angle = 90, size = 2.5) +
-  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  scale_y_continuous(expand = expansion(mult = c(0, .1))) +
   theme(legend.position="bottom",
         legend.title = element_blank(),
         axis.title = element_blank(),
@@ -4639,8 +4571,6 @@ grafico <- f_percentual_municipios_regiao_ano(creas_2012, IBGE, "2012") %>%
   guides(fill=guide_legend(nrow=1,byrow=TRUE))
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-CREAS-quantidade-municipios, fig.cap = "Evolução do quantitativo de municípios com CREAS, Brasil e grandes regiões - 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS", eval=FALSE}
@@ -4651,8 +4581,6 @@ grafico <- f_percentual_municipios_regiao_ano(creas_2012, IBGE, "2012") %>%
   f_grafico_col_group_numero(Região, n, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 A oferta regionalizada de CREAS é uma estratégia que objetiva garantir a universalização do acesso e integralidade do antendimento da proteção socioassistencia especializada. Ela estar prevista através da Resolução CNAS 31/2013. Essa composição é organizada através dos entes estaduais. O @fig-creas-regionais sinaliza a evolução dessa oferta.
@@ -4669,8 +4597,6 @@ grafico <- f_selecao_regiao_ano(creas_2012, q2, "Regional", Região, "2012") %>%
   f_grafico_col_group_numero(Região, n, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ## Centro de Referência Especializado para População em Situação de Rua (Centro POP)
@@ -4696,8 +4622,6 @@ grafico <- f_quantitativo_regiao_ano(cpop_2012, Região, "2012") %>%
   f_grafico_col_group_numero(Região, n, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Os Centros Pop estão presentes em municípios de grande porte e metrópole, o @fig-cpop-porte sinaliza que 59% dos municípios de grande porte possuem pelo menos uma unidade. Nas metrópoles, 100% possuem unidades de centro pop, sendo 59% entre duas a três unidades, 24% uma unidade e 18% de 4 a 6 undiades de Centro Pop. Esta unidade também estar presente em múnicípios de médio porte, com destaque para 5,9% dos municípios.
@@ -4749,8 +4673,6 @@ grafico <- dados %>%
   f_grafico_col_stack_percent(Porte, Percentual, grupo, 2)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Em relação a acessibilidade dos Centro Pop, o @fig-cpop-acessibilidade-situacao relaciona esta adaptação com a situação do imóvel. No geral todas as adaptações de acessibildiade são superiores ao serem relacionadas com os imóveis alugados. Em relação aos imóveis cedidos, a adaptação de banheiro se sobressai em relação as demais situações dos imóveis.
@@ -4772,8 +4694,6 @@ grafico<-tabela %>%
   f_grafico_col_group_percent(Situacao, Percentual, Categoria, 4)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Em 2016,95% dos Centros Pop destacam computador com acesso à internet em 2022. O @fig-cpop-internet-percentual referencia essa evolução por Regiões do Brasil, as regiões Centro Oeste e Sul possuem 100% das undiades com acesso a internet e a região Norte com maior desafio de acesso, com 75% das unidades de Centro Pop com acesso a internet.
@@ -4787,10 +4707,6 @@ grafico <- f_maior0_regiao_ano(cpop_2012, q14_2, Região, "2012") %>%
   f_grafico_col_group_percent(Região, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-
-
 ```
 
 ## Centro-Dia
@@ -4810,8 +4726,6 @@ grafico <- f_quantitativo_regiao_ano(cedia_2015, Região, "2015") %>%
   f_grafico_col_group_numero(Região, n, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Em relação a natureza destas unidades, o @fig-cdia-natureza sinaliza que estas unidades são majoritariamente referenciadas pelas Organizações da Sociedade Civil (OSCs). Das unidades destacadas no Censo SUAS 2022, 92,8% são ofertadas por OSCs.[^35]
@@ -4855,9 +4769,6 @@ grafico <- centrodia(cedia_2015, q6, "2015") %>%
   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-
 ```
 
 Em relação a acessibilidade destas unidades, o banheiro acessivel é a adaptação mais presentes nestas unidades chegando nos registros do Censo SUAS de 2022 com 73%. Como trata-se de unidades especializadas para atenção a pessoas com deficiência, esse item é de funmental importância para assegurar acolhida e segurança a este público e suas famílias. O @fig-cdia-acessibilidade sinaliza os locais e composição de acessibilidade, estes dados sinalizam um desafio para garantir as condições físicas de acesso ao público de pessoas com deficiência nas undiades de Centro Dia.
@@ -4889,8 +4800,6 @@ grafico<-tabela %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Além disto, há outras adaptações importantes nestas unidades, como tecnologias assistidas, suportes com materiais em Braile, profissionais com conhecimento em Libras entre outros destacados no (@fig-cdia_adaptações).
@@ -4965,8 +4874,6 @@ grafico<-tabela %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ## Unidades de Alta Complexidade
@@ -5024,8 +4931,6 @@ grafico <- dados %>%
   f_grafico_col_stack_percent(Porte, Percentual, grupo, 3)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 A maioria das Unidades de Acolhimento são executadas por Organizações da Sociedade Cívil (Osc). Esse percentual teve uma redução entre 2012 e 2022. Em 2012 estes dados sinalizam percentual de 66,4% das unidades de acolhimento com execução de OSC, registrando em 2022 63,4% conforme o @fig-acolh_nat
@@ -5069,9 +4974,6 @@ grafico <- acolh_nat(unac_2012, q4, "2012") %>%
   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-
 ```
 
 No que se refere às condições de acessibilidade, é possível notar melhorias no percentual dos quatro quesitos de acessibilidade. A adaptação mais observada é a rota acessível ao banheiro, presente em 50,9% das Unidades, e a menos observada é o acesso principal adaptado com rampas e rota acessível desde a calçada até o interior da unidade, presentes em 49,2% das Unidades. O banheiro adaptado para pessoas com deficiência e/ou mobilidade reduzida, presente em 47,9% das unidades em 2022 e no que se refere ao acesso principal adaptado com rampas e e rota acessivel para o censo suas 2022 observa-se presente em 45,6% das unidades conforme o @fig-unac_acessibilidade.
@@ -5104,8 +5006,6 @@ grafico<-tabela %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Em relação ao acesso a internet, observa-se uma evolução nos últimos 10 anos. Em 2012 62,2% das unidades possuem acesso a internet, o censo suas de 2022 destaca que 100% dos computadores das undiades possuem acesso a internet conforme o @fig-unac-internet.
@@ -5119,10 +5019,6 @@ grafico <- f_maior0_regiao_ano(unac_2012, q34a_2, Região, "2012") %>%
   f_grafico_col_group_percent(Região, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-
-
 ```
 
 ## Unidades do Cadastro Único
@@ -5139,8 +5035,6 @@ grafico <- f_quantitativo_regiao_ano(posto_cadunico_2020, Regiao, "2020") %>%
   #ano 2021 não quer gerar, acho que pode ser erro no código do ibge
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Em relação ao local onde estão estas unidades, o gráfico abaixo @fig-posto_cadunico. A maioria destas unidades, 60,9% encontra-se na secretaria de Assistencia Social. A segunda proporção são postos exclusivos, com destaque para algumas undiades presentes em escolas, conselhos e OSCS.
@@ -5189,8 +5083,6 @@ grafico<-tabela %>%
   f_grafico_col_percent_flip(Eixo_x, Percentual, Grupo, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 A acessibilidade nas undiades de cadastro único possuem leve avanço nos últimos anos, com execeção da rota acessível aos principais espaços, os demais itens de acessibilidade avançaram conforme pode ser observado através do @fig-postcad-acessibilidade.
@@ -5226,8 +5118,6 @@ grafico<-tabela %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Em relação aos espaços de acessibilidade comparada a situação do imóvel, destaca-se que os postos do Cadastro Único próprios ou cedidos, possuem significativamente mais ascessibilidade que os imóveis alugados (@fig-postcad-acessibilidade-situacao).
@@ -5249,8 +5139,6 @@ grafico<-tabela %>%
   f_grafico_col_group_percent(Situacao, Percentual, Categoria, 4)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Em relação a computadores com acesso à internet, os dados do censo suas 2022 sinaliza que 99% das unidades dispõe de equipamentos com esta estrutura, conforme pode ser observado no @fig-postcad-internet-percentual.
@@ -5264,8 +5152,6 @@ grafico <- f_maior0_regiao_ano(posto_cadunico_2020, q10_2, IBGE, "2020") %>%
   f_grafico_col_group_percent(Região, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ## Considerações Finais
@@ -5327,8 +5213,6 @@ grafico <- f_sim(cras_2012, q19_1a, "2012") %>%
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Dos 2.334 CRAS que informaram que havia povos e comunidades tradicionais em seu território de abrangência, 896 informaram ter atendido Comunidades Quilombolas (38,4%), seguidos por 615 CRAS que informaram ter atendido Comunidades Ribeirinhas (26,3%) e 611 que informaram ter atendido Povos Indígenas (26,2%) (Gráfico 27).
@@ -5352,8 +5236,6 @@ grafico <- f_sim(cras_2018, q_24, "2018") %>%
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ## Proteção Social Especial
@@ -5452,8 +5334,6 @@ grafico<-tabela %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Em relação a violação decorrente de trabalho análogo a escravidão é definida como toda atividade forçada desenvolvida sob condições degradantes ou em jornadas exaustivas e quando a pessoa é impedida de deixar o seu local de trabalho [^41]. O (@fig-paefi2_creas) também tráz as situações de trabalho infantil. Observa-se que a maior demanda atendida pelos CREAS, entre o período de 2020 e 2022,[^42] através do PAEFI é trabalho infantil presente em 68% dos CREAS. Entretanto as situações de situações de trabalho análogo a escravidão é presente em média 13% dos CREAS.
@@ -5524,8 +5404,6 @@ grafico<-tabela %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-paefi3_creas, fig.cap = "Atendimentos realizados pelo PAEFI/CREAS por situações de rua - Brasil  2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
@@ -5581,8 +5459,6 @@ grafico<-tabela %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-paefi4_creas, fig.cap = "Atendimentos realizados pelo PAEFI/CREAS por discriminação em decorrência de raça/etnia - Brasil  2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
@@ -5637,8 +5513,6 @@ grafico<-tabela %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-paefi5-creas, fig.cap = "Atendimentos realizados pelo PAEFI/CREAS por situações violência/violação de direitos por Pessoas com Deficiência - Brasil  2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
@@ -5695,8 +5569,6 @@ grafico<-tabela %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 As situações de imigração / refúgio vem crescendo no ambito das demandas do PAEFI, os dados do período de 2020 e 2022 [^43] (@fig-paefi6_creas) sinaliza que todos os públicos aumentam ao longo destes dois anos.
@@ -5755,8 +5627,6 @@ grafico<-tabela %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 No que se refere ao atendimento de violências e violações a povos e comunidades tradicionais o (@fig-creas-tradicionais) destaca-se que dos seis povos e comunidades destacadas, as maiores demandas estão para os públicos de comunidades quilombolas com 36%, povos indígenas com 35% e ribeirinhos com 29%.
@@ -5775,8 +5645,6 @@ grafico <- f_selecao_regiao_ano (creas_2022, q52_1, "Sim", Região, "Povos Indí
   f_grafico_col_group_percent(Região, Percentual, Ano, 2)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-paefi7_creas, fig.cap = "Atendimentos realizados pelo PAEFI/CREAS em decorrência de discriminação em decorrência da orientação sexual e/ou da identidade de gênero - Brasil  2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
@@ -5831,9 +5699,6 @@ grafico<-tabela %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
-
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ### Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC)
@@ -5854,8 +5719,6 @@ grafico <- f_sim(creas_2017, q20, "2017") %>%
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ### Serviço de Proteção Social Especial para Pessoas com Deficiência e Pessoas Idosas e suas famílias
@@ -5907,9 +5770,6 @@ grafico<-tabela %>%
   f_grafico_col_percent_flip(Eixo_x, Percentual, Grupo, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-
 ```
 
 ```{r fig-CREAS-PSE-Domicilio, fig.cap = "Percentual de CREAS que realizam Serviço de proteção social Especial para Pessoas com Deficiência, Idosas e suas Famílias, 2016 a 2022", eval=FALSE}
@@ -5925,8 +5785,6 @@ grafico <- f_sim(creas_2016, q38, "2016") %>%
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ### Serviço Especializado em Abordagem Social
@@ -5970,8 +5828,6 @@ grafico <- creas_psee(creas_2018, q35, "2018") %>%
   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 4)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ## Proteção Social Especial de Alta Complexidade
@@ -6010,8 +5866,6 @@ grafico <- f_quantitativo_regiao_ano(famacolfam_2017, IBGE, "2017") %>%
 
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 <!--avaliar se da tenpo de inserir estas questões-->
@@ -6093,8 +5947,6 @@ grafico<-tabela %>%
   f_grafico_col_stack_percent_flip(Categoria, Percentual, Nível, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Em relação ao local da oferta destes Benefícios Eventuais, destaca-se através (@fig-be-local) que há três locais descritos pelos gestores municipais, são eles: oferta na sede do orgão gestor, oferta nas unidades da rede socioassistencial e, em ambos. Para as situações de morte, os dados apontam que 40% desta oferta é realizada no orgão gestor municipal. Em caso de nascimento e situação de vulnerabilidade temporária a maior proporção encontra-se nas unidades da rede socioassistencial com 42% e 37% respectivamente.
@@ -6125,8 +5977,6 @@ grafico <- gm_2022 %>%
   f_grafico_col_stack_percent_flip(fct_rev(Categoria), Percentual, Nível, 3)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ## Considerações Finais
@@ -6167,8 +6017,6 @@ grafico <- f_quantitativo_regiao_ano(gerh_2018, IBGE, "2018") %>%
   f_grafico_col_group_numero(Região, n, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 A quantidade de trabalhadores (as) nas Secretarias Municipais de Assistência Social em 2018[^49] era de 51.135 profissionais, considerando trabalhadores (as) lotados na sede do órgão gestor. Esse quantitativo aumento 4%, em 2022 passou a ter 56.381 conforme pode ser observado (@fig-qtd_trab_munic).
@@ -6185,9 +6033,6 @@ grafico <- f_quantitativo_regiao_ano(gm_rh_2018, IBGE, "2018")%>%
   f_grafico_col_group_numero(Região, n, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-
 ```
 
 Os dados do (@fig-uf_trab_vin) traz dados sobre o tipo de vínculo dos trabalhadores e trabalhadoras das Secretarias Estaduais de Assistência Social. Observa-se uma redução dos servidores (as) estatutários e empregados(as) públicos (CLT). O percentual de Servidores (as) caem de 54% no ano de 2012 para 46% em 2022. Enquanto empregados(as) públicos reduzem de 16% em 2012 para 3,3% em 2022. Houve aumento de cargos comissionados 13 pontos percentuais, de 16% em 2012 para 29% em 2022. Em relação a outros vínculos [^50] o número também aumentou, bem como trabalhadoras (es) de Empresa, Cooperativa ou Entidade Prestadora de Serviços.
@@ -6278,8 +6123,6 @@ grafico <- f_nomex_somay_nomegrupo(ge_2012, "2012", q55a_4, "Estatutários") %>%
   f_grafico_col_stack_percent(Eixo_x, Percentual, Grupo, 5)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Os trabalhadores (as) segundo tipo de vínculo pode ser observados através (@fig-munic_trab_vin). A quantidade proporcional de estatutários na gestão municipal representavam 36% em 2013,[^51] observa-se um aumento no ano de 2017 e retoma ao patamar de 36% em 2022.
@@ -6366,8 +6209,6 @@ grafico <- f_nomex_somay_nomegrupo(gm_2013, "2013", q42a_4, "Estatutários") %>%
   f_grafico_col_stack_percent(Eixo_x, Percentual, Grupo, 5)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Quanto a escolaridade dos trabalhadores (as) das Secretarias Estaduais de Assistência Social observa-se um aumento significativo dos profissionais de nível superior com avanço de 32% em 2012 para 63% em 2022. Em relação reduz o número proporção de profissionais de nível fundamental e médio. A soma deste grupo representava 68% em 2012 e chega em 2022 com 37,2% conforme pode ser analisada através do (@fig-uf_trab_form).
@@ -6399,8 +6240,6 @@ grafico <- f_nomex_somay_nomegrupo(ge_2012, "2012", q55e_1, "Nível Fundamental"
   f_grafico_col_stack_percent(Eixo_x, Percentual, Grupo, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 O (@fig-munic_trab_form) mostra a evolução do número de trabalhadores (as) de nível superior, ele avança de 36% para 52% no período de 2013 [^53] a 2022. Em relação a propoção de profissionais de nível médio e fundamental, há uma redução ao longo deste período com 6,3 pontos percentuais para de nível fundamental e 10 pontos percentuais para profissionais de nível médio. Assim, o Censo SUAS de 2022 sinalzia que, do total de trabalhadores (as) na gestão municipal, há 39% de nível fundamental e 8,7% de nível médio. Demais 52%, correspondem a profissionais de nível superior.
@@ -6459,9 +6298,6 @@ O (@fig-munic_trab_form) mostra a evolução do número de trabalhadores (as) de
   f_grafico_col_stack_percent(Eixo_x, Percentual, Grupo, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-
 ```
 
 Dos trabalhadores (as) das Secretarias Estaduais de Assistência Social que informaram sua formação superior em 2022, destaca-se a maior presença de profissionais de serviços social com 24%, após identifica-se a proporção de profissionais de psicologia com 8,2%. O maior número de profissionais são identificados em outras profissões ou não informado.[^55]
@@ -6569,8 +6405,6 @@ grafico <- tabela %>%
   f_grafico_col_percent_flip(Eixo_x, Percentual, Grupo, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Dos 85.011 trabalhadores das Secretarias Municipais de Assistência Social que informaram sua formação superior em 2016, 33.559 (39,5%) eram assistentes sociais, 15.702 eram psicólogos (18,5%) e 10.069 eram pedagogos (11,8% do total). Existiam 14.992 profissionais de outras formações de nível superior além das listadas (17,6% do total) (Gráfico 63). Gráfico 63: Formação profissional dos trabalhadores de nível superior nas Secretarias Municipais de Assistência Social -- Brasil, 2016 Fonte: MDS, Censo SUAS.[^56]
@@ -6677,8 +6511,6 @@ grafico <- tabela %>%
   f_grafico_col_percent_flip(Eixo_x, Percentual, Grupo, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ## Evolução da quantidade de trabalhadores (as) nas Unidades do SUAS
@@ -6706,9 +6538,6 @@ grafico <-
   f_grafico_col_group_numero(Grupo1, n, Grupo2, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-
 ```
 
 <!--especificações importantes, mas em decorrencia do tempo avaliar se não seria um caso a gente fazer um artigo para caderno de estudos ou boletim com essa tema-->
@@ -6765,8 +6594,6 @@ grafico <- f_sim(ge_2013, q68a_1, "2013") %>%
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Em relação a realização de concurso público municipal para trabalhadores (as) de nível superior, percebe-se que os anos de 2013 e 2015 foram os anos com maior número de municípios realizaram, com dados percentuais de 27% e 17% respectivamente. Este dado mostra os desafios da gestão do trabalho. O (@fig-conc_munic) referencia a linha histórica dos últimos 10 anos.
@@ -6792,8 +6619,6 @@ grafico <- f_sim(gm_2012, q43a_1, "2012") %>%
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ## Considerações Finais
@@ -6834,8 +6659,6 @@ grafico <- f_quantitativo_regiao_ano (cest_2012, IBGE, "2012") %>%
   f_grafico_col_group_numero(Região, n, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Em relação aos Conselhos Municipais, o percentual de municípios que responderam ao formulário do foi acima de 95% no ano de 2022. É importante pontuar que as variações no período analisado através do @fig-qtd-cmas não significa necessariamente redução no número de municípios com conselhos, este número pode representar o número de conselhos municipais que respondem ao Censo SUAS que corresponde a 5.376.
@@ -6856,8 +6679,6 @@ grafico <- f_quantitativo_regiao_ano (cmun_2012, Região, "2012") %>%
   f_grafico_col_group_numero(Região, n, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ## Estrutura administrativa e dinâmica de funcionamento
@@ -6882,8 +6703,6 @@ grafico <- f_sim(cest_2012, q8, "2012") %>%
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 No que se refere aos Conselhos Municipais de Assistencia Social o @fig-cmas_sede destaca que 58,1% dos conselhos municipais que responderam Censo SUAS informam possuir sede para o funcionamento. Destaca-se que nos últimos 10 anos, teve aumento de 45,1% para 58,1 de municípios que possuem sede para conselho de Assistencia Social, dado que representa aumento de 13 pontos percentuais.
@@ -6906,8 +6725,6 @@ grafico <- f_sim(cmun_2012, q8, "2012") %>%
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Em relação aos conselhos estaduais, o @fig-ceas_se sinaliza que a partir de 2017 identifica-se uma redução na presença secretarias executivas. Trata-se de profissional de apoio direto ao funcionamento dos conselhos com o objetivo de fornecer suporte e assessoria técnica no cumprimento das suas competências. De acordo com a resolução CNAS Nº 100/2023 os conselhos deverão dispor deste profissional na qual estará subordinado a presidencia e ao colegiado para assegurar suporte no cumprimento das suas competências.
@@ -6933,8 +6750,6 @@ grafico <- f_sim(cest_2012, q13, "2012") %>%
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 No que se refere a presença de secretários (as) executivos - independente de ser exclusivo ou não - nos conselhos municipais o @fig-cmas_se sinaliza um aumento ao longo dos anos. Há avanço de 68% em 2013 para 82% em 2022 da presença destes profissionais nos conselhos municipais.
@@ -6960,8 +6775,6 @@ grafico <- f_sim(cmun_2013, q14, "2013") %>%
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Em relação a dinâmica de funcionamento, o plenário deve, obrigatoriamente funcionar, uma vez ao mês e, extraordinariamente sempre que necessário. Assim, destaca-se que 77% dos conselhos estaduais realizaram no último ano de 9 a 16 reuniões. O percentual de 3,8% (1 CEAS) realizou igual ou abaixo de 8 reuniões. Demais percentual, 19,2% dos Conselhos Estaduais realizaram acima de 17 reuniões no ano de 2022 conforme pode ser identificado (@fig-qtdceas_reuniao).
@@ -6990,8 +6803,6 @@ grafico <- cest_2022 %>%
   f_grafico_col_percent(x, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 No tocante a realização de reuniões pelos conselhos municipais, o (@fig-qtdcmas_reuniao) sinaliza que 42% dos CMAS realizaram menos 8 reuniões no ano, sendo 14% deles inferior a 5 reuniões. A periodicidade mensal de reuniões devem estar prevista em regimento interno do respectivo conselho conforme é sinalizado na resolução CNAS Nº 100/2023.
@@ -7017,8 +6828,6 @@ grafico <- cmun_2022 %>%
   f_grafico_col_percent(x, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-qtd_reuniao, fig.cap = "xxx", eval=FALSE}
@@ -7103,7 +6912,7 @@ cmun_2010_regiao <- cmun_2010 %>%
 #  ggplot(aes(x = Região, y = Percentual, group = Ano)) +
 #  geom_col(aes(fill = Ano), position="dodge") +
 #  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
-#  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+#  scale_y_continuous(expand = expansion(mult = c(0, .1))) +
 #  theme(legend.position="bottom",
 #        legend.title = element_blank(),
 #        axis.title = element_blank(),
@@ -7222,10 +7031,6 @@ grafico <- f_sim(cest_2012, q7, "2012") %>%
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-
-
 ```
 
 Em relação ao destinação do IGD Bolsa Família e IGD SUAS aos conselhos municipais, o (@fig-creas-pse-domicilio) sinaliza que no censo suas 2022, há 82% dos CMAS que informam receber este recurso. Os dados também variam na escala histórica conforme pode-se obserdo no (@fig-cmas_igd). O ano com maior proporção de CMAS que informaram receber recursos dos IGDs foi referente ao censo suas 2017.
@@ -7249,9 +7054,6 @@ grafico <- f_sim(cmun_2012, q7, "2012") %>%
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-
 ```
 
 De acordo com Resolução CNAS 15/2014 [^61] o Conselho de Assistência Social é a Instância do Controle Social do Programa Bolsa Família (PBF) e deve atuar no acompanhamento do Cadastro Único, gestão de benefícios, condicionalidades, fiscalização e as oportunidades de desenvolvimento das capacidades das famílias desenvolvidas ou articuladas pelo município e os programas complementares.
@@ -7278,8 +7080,6 @@ grafico <- f_sim(cest_2012, q39, "2012") %>%
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Em relação aos conselhos municipais ser a instância de controle social do Bolsa Família (ICS), observa-se que há resgitros do último censo suas que 91% dos conselhos municipais são ICS. Esse dado dos últimos 10 anos estar disponível através (@fig-cmas_icspbf). Observa-se que no ano de 2012, 92% dos CMAS informam ser a instância de controle social do Programa Bolsa Família, esse dado só avança a partir de 2018 e volta a reduzir a partir do Censo SUAS de 2021.
@@ -7302,8 +7102,6 @@ grafico <- f_sim(cmun_2012, q35_1, "2012") %>%
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ## Deliberação sobre planejamento, orçamento e benefícios eventuais
@@ -7332,8 +7130,6 @@ grafico <- f_sim(cest_2012, q29, "2012") %>%
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Em relação aos conselhos municipais, dados do censo suas de 2022 sinaliza que 82% dos CMAS informaram debater sobre plano municipal de assistência social. O (@fig-cmas_plano,)traz a referência destas informações a partir do censo suas de 2012 conforme pode ser observado abaixo. [^63].
@@ -7358,8 +7154,6 @@ grafico <- f_sim(cmun_2012, q28, "2012") %>%
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 É papel do controle social o exercício democrático de acompanhar a gestão e avaliar a Política de Assistência Social. Assim, a aprovação do orçamento executivo ou Plano Plurianual de Assistência Social (PPA) deve ser exercida por esta instância. Os dados do (@fig-ceas_ppa) evidencia que, no último censo suas 2012, 69% dos conselhos estaduais deliberaram sobre a proposta orçamentária, dado que corresponde ao mesmo percentual de 2012.
@@ -7382,8 +7176,6 @@ grafico <- f_sim(cest_2012, q29, "2012") %>%
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 O percentual de CMAS que aprovaram a proposta anual do orçamento corresponde a 74% no censo suas de 2022. Este dado avançou significativamente em relação ao ano de 2012 como pode ser observado no (@fig-cmas_ppa).
@@ -7407,8 +7199,6 @@ grafico <- f_sim(cmun_2012, q38, "2012") %>%
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Os Benefícios Eventuais da política de Assistência Social é de caráter suplementar e provisório. Deve ser ofertado aos cidadãos e as famílias em virtude de nascimento, morte, situações de vulnerabilidade temporária e calamidade pública. [^64].
@@ -7437,8 +7227,6 @@ A concessão e o valor dos Benefícios Eventuais devem ser definidos pelos Munic
     f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 Em relação aos conselhos municipais, destaca-se através do (@fig-cmas_be) que 71% dos conselhos deliberam sobre critérios e prazos para acesso aos Benefícios Eventuais. Esse dados avanço 28 pontos nos últimos 10 anos.
@@ -7461,8 +7249,6 @@ Em relação aos conselhos municipais, destaca-se através do (@fig-cmas_be) que
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ## Representação dos conselhos de Assistência Social
@@ -7554,9 +7340,6 @@ grafico<-tabela %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-
 ```
 
 Os dados do (@fig-usu_cmun) mostra as represetações de usuários presentes nos Conselhos Municipais de Assistência Social (CMAS). Observa-se que o maior percentual desta representação são respectivamente da Proteção Social Básica, Programa Bolsa Família e BPC, sendo respectivamente no censo de 2022, 77%, 70% e 43%. No período de 2018 a 2022[^67], observa-se que as representações que cresceram 9 pontos percentuais foram Proteção Social Básica, Proteção Social Especial e Pessoas ou famílias de Benefíciários do Benefício de Prestação Continuada (BPC).
@@ -7648,9 +7431,6 @@ grafico<-tabela %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-
 ```
 
 Em relação a representação de trabalhadores (as) nos Conselhos Estaduais de Assitência Social (CEAS), do total dos CEAS, a categoria mais expressiva são dos conselhos de classe profissional (CRESS, CFP, outros conselhos de classe), representando 96% deste grupo de representantes no último Censo SUAS. Em segundo lugar, com 73% são os sindicatos e, em seguida, representante de associação, fórum ou coletivo de trabalhadoras(es) com 50% dos dos CEAS com representação na categoria de trabalhadores. Observa-se que nos últimos 5 anos [^68] a representação de profissionais que mais evoluiu foi de associação, fórum ou coletivo de trabalhadoras(es), representando avanço de 12 pontos percentuais como pode ser observado (@fig-trab_rep).
@@ -7740,9 +7520,6 @@ grafico<-tabela %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-
 ```
 
 A Representação de trabalhadoras (es) nos conselhos municipais é observada através (@fig-trab_cmun)[^69]. Observa-se que, nos municípios, a categoria de representação mais crescente nos CMAS são de trabalhadoras (es), sem vinculação a nenhum coletivo, esse dado cresce 25 pontos percentuais entre o período de 2018 (40%) a 2022 (65%). Outras categorias que aumentam nesse período são: Conselhos de Classe (CRESS, CFP, outros conselhos de classe) que aumentam de 23% em 2018 para 27% em 2022. Representações de sindicado de trabalahdores e Forum ou coletivo de trabalhadoras (es) também crescem 1 ponto percentual como pode ser observado abaixo.
@@ -7833,9 +7610,6 @@ grafico<-tabela %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-
 ```
 
 ## Considerações Finais
@@ -7884,8 +7658,6 @@ grafico <- pub_cmas(cmun_2017, q36, "2017") %>%
   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 3)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r ,eval=FALSE}
@@ -7907,8 +7679,6 @@ grafico <- f_sim(cest_2012, q29, "2012") %>%
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-cmun_usu, fig.cap = "Principais estratégias dos conselhos estaduais de comunicação com usuário", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -7976,9 +7746,6 @@ grafico<-tabela %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-
 ```
 
 ```{r fig-ceas_usu, fig.cap = "Principais estratégias dos conselhos estaduais de comunicação com usuário", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -8045,9 +7812,6 @@ grafico<-tabela %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
-
 ```
 
 ```{r fig-idcras, fig.cap = "Indicador de Desenvolvimento do CRAS",eval=FALSE}
@@ -8105,8 +7869,6 @@ grafico <- f_grupo_media(idcras_2014, `IDCRAS 2014sintético`, "ID CRAS", "2014"
   f_grafico_col_group_numero(Eixo_X, m, Grupo, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-idcras_fis, fig.cap = "Indicador de Desenvolvimento do CREAS",eval=FALSE}
@@ -8121,8 +7883,6 @@ grafico <- f_quantitativo_niveis(idcras_2022, `Estrutura Física`, "Estrutura F
   f_grafico_col_group_numero(Eixo_X, n, Grupo, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-idcreas, fig.cap = "Indicador de Desenvolvimento do CREAS",eval=FALSE}
@@ -8180,8 +7940,6 @@ grafico <- f_grupo_media(idcreas_2014, `IDCREAS sintético`, "ID CREAS", "2014")
   f_grafico_col_group_numero(Eixo_X, m, Grupo, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-idcreas_est, fig.cap = "Indicador de Desenvolvimento do CREAS",eval=FALSE}
@@ -8198,8 +7956,6 @@ grafico <- f_quantitativo_niveis(idcreas_2022, `Estrutura Física`, "Estrutura 
   f_grafico_col_group_numero(Eixo_X, n, Grupo, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-idconselho, fig.cap = "Indicador de Desenvolvimento dos Conselhos",eval=FALSE}
@@ -8257,8 +8013,6 @@ grafico <- f_grupo_media(idconselho_2014, IDConselho, "ID Conselho", "2014") %>%
   f_grafico_col_group_numero(Eixo_X, m, Grupo, 2)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-idcon, fig.cap = "Indicador de Desenvolvimento do conselhos municpais por compsição",eval=FALSE}
@@ -8273,8 +8027,6 @@ grafico <- f_quantitativo_niveis(idconselho_2022, `Estrutura Administrativa`, "E
   f_grafico_col_group_numero(Eixo_X, n, Grupo, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-Id_per, fig.cap = "Indicador de Desenvolvimento do conselhos municpais por compsição, 2014 a 2022",eval=FALSE}
@@ -8313,8 +8065,6 @@ grafico <- idconselho(idconselho_2014, `Estrutura Administrativa`, "2014") %>%
   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-id_fun, fig.cap = "Indicador de Desenvolvimento do conselhos municpais - Dinamiza da funcionamento",eval=FALSE}
@@ -8353,8 +8103,6 @@ grafico <- idconselho(idconselho_2014, `Dinâmica de Funcionamento`, "2014") %>%
   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 ```{r fig-idcom, fig.cap = "Indicador de Desenvolvimento do conselhos municpais composição",eval=FALSE}
@@ -8393,8 +8141,6 @@ grafico <- idconselho(idconselho_2014, `Composição do Conselho`, "2014") %>%
   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
 
 grafico
-
-if(gera.graficos.office) grafico %>% graph2office(file="graficos", append = TRUE)
 ```
 
 # Referências
