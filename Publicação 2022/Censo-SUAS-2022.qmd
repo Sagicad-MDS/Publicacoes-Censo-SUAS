@@ -13,9 +13,11 @@ execute:
   echo: false
   message: false
   warning: false
-  cache: true
+  cache: false
 fig-format: svg
 #fig-cap-location: top
+fig-align: center
+fig-width: 6.5
 crossref:
   fig-title: Gráfico     # (default is "Figure")
   tbl-title: Tabela     # (default is "Table")
@@ -1637,12 +1639,13 @@ f_grafico_col_stack_percent_flip_2_x_groups = function(df, x1, x2, y, grupo, leg
   df <- df %>%
     mutate(precisao = ifelse(!! y < 0.0995, 0.1, 1)) %>%
     arrange(!! grupo) %>%
-    ggplot(aes(x = !! x2, y = !! y)) +
-    geom_col(aes(fill = !! grupo), position = position_stack(reverse = TRUE), width = 1) +
-    geom_text(aes(label = label_percent(accuracy = precisao, decimal.mark = ",")(!! y)),
+    ggplot(aes(x = fct_rev(!! x2), y = !! y)) +
+    geom_col(aes(fill = !! grupo), position = position_stack(reverse = TRUE)) +
+    geom_text(aes(label = ifelse(!! y > 0.0005, label_percent(accuracy = precisao, decimal.mark = ",")(!! y), "")),
               position = position_stack(vjust = .5),
               check_overlap = TRUE) +
-    facet_wrap(vars(!! x1), strip.position = "left", ncol = 1) +
+    facet_wrap(vars(fct_rev(!! x1)), strip.position = "left", ncol = 1) +
+    scale_x_discrete(expand = expansion(add = 1)) +
     scale_y_continuous(expand = expansion(mult = c(0, 0.05))) +
     coord_flip() +
     theme(legend.position="bottom",
@@ -1655,7 +1658,7 @@ f_grafico_col_stack_percent_flip_2_x_groups = function(df, x1, x2, y, grupo, leg
           panel.spacing = unit(0, "lines"),
           strip.background = element_blank(),
           strip.placement = "outside",
-          strip.text.y.left = element_text(angle = 0)
+          strip.text.y.left = element_text(angle = 0, hjust = 1)
           )+
     guides(fill=guide_legend(nrow=legend_nrow,byrow=TRUE))
   if(gera.graficos.office) {
@@ -1921,9 +1924,9 @@ Alguns órgãos gestores estaduais constituíram as áreas de assistência socia
 3)  Gestão do SUAS, com suas subdivisões de Vigilância Socioassistencial, Regulação do SUAS e Gestão do Trabalho; e
 4)  Gestão do Fundo Estadual de Assistência Social - FEAS.
 
-Observa-se avanço em todas as areas formalmente nos últimos 10 anos. As três áreas mais instituídas são: Proteção Social Básica, Proteção Social Especial com 88,46% e Gestão do SUAS com 84,62% (@fig-uf_subd).
+Observa-se avanço em todas as areas formalmente nos últimos 10 anos. As três áreas mais instituídas formalmente são: Proteção Social Básica e Proteção Social Especial, com 88%, e Gestão do SUAS, com 85% (@fig-uf_subd).
 
-```{r fig-uf_subd, fig.cap = "Percentual de estados segundo subdivisões administrativas constituídas na estrutura formal do órgão gestor - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r fig-uf_subd-formal, fig.cap = "Percentual de estados segundo subdivisões administrativas constituídas na estrutura formal do órgão gestor - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
 
 # Avaliar se gráficos de estados não ficariam melhor em quantidade em vez de percentual
 
@@ -2022,7 +2025,8 @@ grafico<-tabela %>%
 grafico
 ```
 
-```{r fig-uf_subd_constituidas, fig.cap = "Percentual de estados segundo constituição de subdivisões administrativas na estrutura do órgão gestor - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r fig-uf_subd, fig.cap = "Percentual de estados segundo constituição de subdivisões administrativas na estrutura do órgão gestor - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+#| fig-height: 8
 
 # Avaliar se gráficos de estados não ficariam melhor em quantidade em vez de percentual
 
@@ -2040,7 +2044,7 @@ uf_subd= function(df, q, ano, cod_categoria){
     !! cod_categoria == "4"~"Gestão Financeira e Orçamentária",
     !! cod_categoria == "5"~"Proteção Social Básica",
     !! cod_categoria == "6"~"Proteção Social Especial",
-    !! cod_categoria == "7"~"Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais",
+    !! cod_categoria == "7"~"Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais)",
     !! cod_categoria == "8"~"Gestão do Cadastro Único e Programa Bolsa Família",
     !! cod_categoria == "9"~"Regulação do SUAS",
     !! cod_categoria == "10"~"Programa Criança Feliz")
@@ -2100,7 +2104,7 @@ tabela <-
   bind_rows(uf_subd(ge_2022,q3_10,"2022","10")) %>%
 
 #  ungroup() %>%
-  mutate(Categoria=str_wrap(Categoria,width=51))
+  mutate(Categoria=str_wrap(Categoria,width=39))
 
 ordenado<-tabela %>%
   filter(Ano == "2022") %>%
@@ -2109,7 +2113,7 @@ ordenado<-tabela %>%
   pull(Categoria)
 
 grafico<-tabela %>%
-  mutate(Categoria = factor(Categoria, levels = rev(ordenado))) %>%
+  mutate(Categoria = factor(Categoria, levels = ordenado)) %>%
   f_grafico_col_stack_percent_flip_2_x_groups(Categoria, Ano, Percentual, Grupo, 1)
 
 grafico
