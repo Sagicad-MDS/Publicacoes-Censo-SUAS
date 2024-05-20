@@ -7040,9 +7040,9 @@ De acordo com Resolução CNAS 15/2014 [^59] o Conselho de Assistência Social �
 
 [^59]: RESOLUÇÃO Nº 15, DE 5 DE JUNHO DE 2014
 
-No Censo SUAS de 2022, 88% dos conselhos estaduais informam ser a instância de controle social do Programa Bolsa Família. Esse percentual reduziu a partir de 2019 que econtrava-se com informações de 100% dos Conselhos Estaduais que eram instância de controle social do Programa Bolsa Família. O (@fig-ceas_icspbf2) sinaliza essa informação histórica.
+No Censo SUAS de 2022, 88% dos conselhos estaduais informam ser a instância de controle social do Programa Bolsa Família. Esse percentual reduziu a partir de 2019 que encontrava-se com informações de 100% dos Conselhos Estaduais que eram instância de controle social do Programa Bolsa Família. O (@fig-ceas_icspbf2) sinaliza essa informação histórica.
 
-```{r fig-ceas_icspbf2, fig.cap = "Conselhos Estaduais de Assistência Social que são instância de controle Social do PBF", eval=FALSE}
+```{r fig-ceas_icspbf2, fig.cap = "Conselhos Estaduais de Assistência Social que são instância de controle Social do PBF"}
 
 grafico <- f_sim(cest_2012, q39, "2012") %>%
    bind_rows(f_sim(cest_2013, q40, "2013")) %>%
