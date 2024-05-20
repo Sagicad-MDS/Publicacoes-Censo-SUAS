@@ -5834,17 +5834,13 @@ grafico
 
 ## Proteção Social Especial de Alta Complexidade
 
-Os Serviços de Proteção Social Especial de Alta Complexidade destinam-se a famílias e/ou indivíduos afastados temporariamente do núcleo familiar e/ou comunitário de origem. Estes Serviços são organizados em diferentes regulamentações, modalidades e públicos conforme foi destacado no (@fig-unac-publico). Os públicos dos serviços tipificados são:
+Os Serviços de Proteção Social Especial de Alta Complexidade destinam-se a famílias e/ou indivíduos afastados temporariamente do núcleo familiar e/ou comunitário de origem. Estes Serviços são organizados em diferentes regulamentações, modalidades e públicos. Os públicos dos serviços tipificados são:
 
-Crianças e Adolescentes: Unidade residencial e unidades institucional
-
-Pessoas Idosas: Unidade residencial e unidades institucional
-
-Adultos e famílias: Unidade residencial tipo de residência e unidade institucional e passagem
-
-Jovens e Adultos com deficiência: residência Inclusiva
-
-Mulheres: Unidade residencial
+-   **Crianças e Adolescentes:** Unidade residencial e unidades institucional
+-   **Pessoas Idosas:** Unidade residencial e unidades institucional
+-   **Adultos e famílias:** Unidade residencial tipo de residência e unidade institucional e passagem
+-   **Jovens e Adultos com deficiência:** residência Inclusiva
+-   **Mulheres:** Unidade residencial
 
 ### Serviço de Acolhimento em Família Acolhedora
 
