@@ -283,19 +283,19 @@ Sobre o conteúdo dos formulários destacados na ilustração histórica, destac
 
 -   **Questionário Centro de Referência Especializado de Assistência Social (CREAS):** 11 Blocos, são eles: Identificação; Estrutura Física; Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos (PAEFI); Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC); Serviço de Abordagem Social; Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosas e suas Famílias; Benefícios e Cadastro Único; Gestão e território; Funcionamento durante a pandemia de Covid-19; Articulação e Gestão de Pessoas.
 
--   **Questionário Centro de Referência Especializado para População em Situação de Rua (Centro POP):** 8 Blocos, são eles: Identificação; Estrutura Física; Funcionamento durante a pandemia de COVID-19; Serviço Especializado para Pessoas em Situação de Rua; Serviço Especializado em Abordagem Social; Benefícios, Cadastro Único Gestão e Participação de Usuárias(os); Articulação e Gestão de Pessoas.
+-   **Questionário Centro de Referência Especializado para População em Situação de Rua (Centro POP):** 8 Blocos, são eles: Identificação; Estrutura Física; Funcionamento durante a pandemia de COVID-19; Serviço Especializado para Pessoas em Situação de Rua; Serviço Especializado em Abordagem Social; Benefícios, Cadastro Único Gestão e Participação de Usuárias/os; Articulação e Gestão de Pessoas.
 
 -   **Questionário do Centro Dia e similares:** 7 Blocos, são eles: Identificação, Caracterização da Unidade, Serviços e atividades; Estrutura Física; Perfil dos usuários; Funcionamento durante a pandemia de Covid 19; Articulação; Serviços e Atividades e Gestão de Pessoas.
 
--   **Questionário Unidades de Acolhimento:** 7 Blocos, são eles: Identificação; Caracterização da Unidade; Características das usuárias (os); Serviço de Acolhimento; Estrutura Física e Área de Localização da Unidade; Funcionamento deste acolhimento durante a pandemia de Covid 19 e Recursos Humanos.
+-   **Questionário Unidades de Acolhimento:** 7 Blocos, são eles: Identificação; Caracterização da Unidade; Características das/os usuárias/os; Serviço de Acolhimento; Estrutura Física e Área de Localização da Unidade; Funcionamento deste acolhimento durante a pandemia de Covid 19 e Recursos Humanos.
 
--   **Questionário Família Acolhedora:** 4 Blocos, são eles: Identificação, Caracteristica dos Acolhidas (os); Serviços de Acolhimento; Funcionamento durante a pandemia de Covid 19; Famílias Acolhedoras e Gestão de Pessoas.
+-   **Questionário Família Acolhedora:** 4 Blocos, são eles: Identificação, Caracteristica das/os Acolhidas/os; Serviços de Acolhimento; Funcionamento durante a pandemia de Covid 19; Famílias Acolhedoras e Gestão de Pessoas.
 
 -   **Questionário Postos de Cadastro Único:** 4 Blocos, são eles: Identificação, Estrutura Física; Cadastro Único; Programa Bolsa Família; Outras Atividades; Funcionamento dos postos e Gestão de Pessoas.
 
--   **Questionário Conselhos Municipais de Assistência Social (CMAS) e Conselho de Assistência Social do Distrito Federal (CAS/DF):** 10 Blocos, são eles: Identificação; Regulação; Infraestrutura do Conselho; Secretaria Executiva; Orçamento dos Conselhos; Dinâmica de Funcionamento; Rede Socioassistencial; Composição do Conselho; Conselheiros (as) e Responsável pelo Preenchimento.
+-   **Questionário Conselhos Municipais de Assistência Social (CMAS) e Conselho de Assistência Social do Distrito Federal (CAS/DF):** 10 Blocos, são eles: Identificação; Regulação; Infraestrutura do Conselho; Secretaria Executiva; Orçamento dos Conselhos; Dinâmica de Funcionamento; Rede Socioassistencial; Composição do Conselho; Conselheiras/os e Responsável pelo Preenchimento.
 
--   **Questionário Conselhos Estaduais de Assistência Social (CEAS):** 10 Blocos, são eles: Identificação; Regulação; Infraestrutura do Conselho; Secretaria Executiva; Orçamento dos Conselhos; Dinâmica de Funcionamento; Rede Socioassistencial; Composição do Conselho; Conselheiros (as) e Responsável pelo Preenchimento.
+-   **Questionário Conselhos Estaduais de Assistência Social (CEAS):** 10 Blocos, são eles: Identificação; Regulação; Infraestrutura do Conselho; Secretaria Executiva; Orçamento dos Conselhos; Dinâmica de Funcionamento; Rede Socioassistencial; Composição do Conselho; Conselheiras/os e Responsável pelo Preenchimento.
 
 Após essa fase de decisão, os formulários são encaminhados para SAGICAD para processo de tabulação e geração de códigos. É importante destacar que os códigos das variáveis sofrem mudança conforme alteração das perguntas (inclusão e exclusão de perguntas). Este torna-se um desafio para o acompanhamento das respostas ao longo de períodos, haja vista inexistência de uma chave mestra.
 
@@ -1387,6 +1387,8 @@ f_calcula_percentual  = function(df, grupo_percentual, item_percentual, n){
   df %>%
     mutate(!! grupo_percentual := as_factor(!! grupo_percentual)) %>%
     mutate(!! item_percentual := as_factor(!! item_percentual)) %>%
+    group_by(!! grupo_percentual, !! item_percentual) %>%
+    summarise(!! n := sum(!! n)) %>%
     group_by(!! grupo_percentual) %>%
     mutate(Percentual = !! n/sum(!! n))
 }
@@ -3235,22 +3237,23 @@ ord_despesa = function(df, q, ano){
     select(!! ano := !! q) %>%
     gather("Categoria","Nível") %>%
     mutate(Nível = case_when(
-      Nível == "Secretário(a) Estadual de Assistência Social" ~ "O(a) Secretário(a) Estadual de Assistência Social",
-      Nível == "O Secretário(a) Estadual da Assistência Social" ~ "O(a) Secretário(a) Estadual de Assistência Social",
-      Nível == "O Secretário (a) Estadual da Assistência Social" ~ "O(a) Secretário(a) Estadual de Assistência Social",
-      Nível == "Outro Funcionário da Secretaria de Assistência Social" ~ "Outro(a) Funcionário(a) da Secretaria de Assistência Social",
-      Nível == "Secretário(a) ou técnic(a) de outra área" ~ "Secretário(a) ou técnico(a) de outra área",
-      Nível == "Secretário(a) ou técnic(a) de outra área\"" ~ "Secretário(a) ou técnico(a) de outra área",
-      Nível == "Secretário ou técnico de outra área" ~ "Secretário(a) ou técnico(a) de outra área",
-      Nível == "O Governador" ~ "O Governador",
-
-
+      Nível == "Secretário(a) Estadual de Assistência Social" |
+      Nível == "O Secretário(a) Estadual da Assistência Social" |
+      Nível == "O Secretário (a) Estadual da Assistência Social" |
+      Nível == "O(a) Secretário(a) Estadual de Assistência Social" ~ "A/o Secretária/o Estadual de Assistência Social",
+      Nível == "Outro Funcionário da Secretaria de Assistência Social" |
+      Nível == "Outro(a) Funcionário(a) da Secretaria de Assistência Social" ~ "Outra/o Funcionária/o da Secretaria de Assistência Social",
+      Nível == "Secretário(a) ou técnic(a) de outra área" |
+      Nível == "Secretário(a) ou técnic(a) de outra área\"" |
+      Nível == "Secretário ou técnico de outra área" |
+      Nível == "Secretário(a) ou técnico(a) de outra área" ~ "Secretária/o ou técnica/o de outra área",
+      Nível == "O Governador" ~ "O/A Governador/a",
       TRUE ~ Nível)) %>%
     filter(!is.na(Nível)) %>%
-    mutate(Nível = factor(Nível, levels = c("O(a) Secretário(a) Estadual de Assistência Social",
-                                            "Secretário(a) ou técnico(a) de outra área",
-                                            "Outro(a) Funcionário(a) da Secretaria de Assistência Social",
-                                            "O Governador"))) %>%
+    mutate(Nível = factor(Nível, levels = c("A/o Secretária/o Estadual de Assistência Social",
+                                            "Secretária/o ou técnica/o de outra área",
+                                            "Outra/o Funcionária/o da Secretaria de Assistência Social",
+                                            "O/A Governador/a"))) %>%
 
     group_by(Categoria, Nível) %>%
     summarise(n=n()) %>%
@@ -3275,7 +3278,7 @@ grafico <- ord_despesa(ge_2012, q44, "2012") %>%
 grafico
 ```
 
-No que se refere aos municípios, aproximadamente 80% dos secretários (as) municipais são ordenadores de despesa do Fundo Municipal. Esse percentual aumentou a partir de 2016.
+No que se refere aos municípios, aproximadamente 80% das/os secretárias/os municipais são ordenadores de despesa do Fundo Municipal. Esse percentual aumentou a partir de 2016.
 
 O @fig-munic_ord_despesa também mostra que as/os prefeitas/os enquanto ordenadores de despesa da política de Assistência Social vem reduzindo ao longo dos anos. Dado que se revela como positivo, haja vista o gestor municipal encontra-se no cotidiano do planejamento desta política pública, sendo mais apropriado para tomar as decisões sobre o orçamento.
 
@@ -3288,27 +3291,22 @@ ord_despesa = function(df, q, ano){
   df %>%
     select(!! ano := !! q) %>%
     gather("Categoria","Nível") %>%
-    mutate(Nível = case_when(Nível == "Secretário Municipal de Assistência Social."~"O(a) Secretário(a) Municipal de Assistência Social.",
-                            Nível == "O Secretário Municipal de Assistência Social" ~ "O(a) Secretário(a) Municipal de Assistência Social.",
-
-                            Nível == "O Secretário(a) Municipal de Assistência Social" ~ "O(a) Secretário(a) Municipal de Assistência Social.",
-                            Nível == "Outro(a) Funcionário(a) da Secretaria de Assistência Social." ~ "Outro(a) Funcionário(a) da Secretaria de Assistência Social.",
-                            Nível == "Outro funcionário da Secretaria de Assistência Social" ~ "Outro(a) Funcionário(a) da Secretaria de Assistência Social.",
-                            Nível == "O Secretário(a) Municipal de Assistência Social" ~ "O(a) Secretário(a) Municipal de Assistência Social.",
-                            Nível == "Secretário ou técnico de outra área" ~ "Secretário(a) ou técnico(a) de outra área",
-                            Nível == "Secretário ou técnico de outra área" ~ "Secretário(a) ou técnico(a) de outra área",
-                            Nível == "O Prefeito" ~ "O(a) Prefeito(a)",
-                             Nível == "NA" ~ "NA",
-
-
-
-                             TRUE ~ Nível)) %>%
+    mutate(Nível = case_when(Nível == "Secretário Municipal de Assistência Social." |
+                            Nível == "O Secretário Municipal de Assistência Social" |
+                            Nível == "O Secretário(a) Municipal de Assistência Social" |
+                            Nível == "O(a) Secretário(a) Municipal de Assistência Social." ~ "A/O Secretária/o Municipal de Assistência Social",
+                            Nível == "Outro(a) Funcionário(a) da Secretaria de Assistência Social." |
+                            Nível == "Outro funcionário da Secretaria de Assistência Social" ~ "Outra/o Funcionária/o da Secretaria de Assistência Social",
+                            Nível == "Secretário ou técnico de outra área" |
+                            Nível == "Secretário(a) ou técnico(a) de outra área" ~ "Secretária/o ou técnica/o de outra área",
+                            Nível == "O Prefeito" |
+                            Nível == "O(a) Prefeito(a)" ~ "A/O Prefeita/o",
+                           TRUE ~ Nível)) %>%
     filter(!is.na(Nível)) %>%
-    mutate(Nível = factor(Nível, levels = c("O(a) Secretário(a) Municipal de Assistência Social.",
-                                            "O(a) Prefeito(a)",
-                                            "Secretário(a) ou técnico(a) de outra área",
-                                            "Outro(a) Funcionário(a) da Secretaria de Assistência Social.",
-                                            "NA"))) %>%
+    mutate(Nível = factor(Nível, levels = c("A/O Secretária/o Municipal de Assistência Social",
+                                            "A/O Prefeita/o",
+                                            "Secretária/o ou técnica/o de outra área",
+                                            "Outra/o Funcionária/o da Secretaria de Assistência Social"))) %>%
 
     group_by(Categoria, Nível) %>%
     summarise(n=n()) %>%
@@ -5733,7 +5731,7 @@ As ações e atividades no ambito do CREAS,[^44] de acordo com (@fig-creas-pse-d
 
 [^44]: gráficos são a partir do ano de 2018 em decorrência do início da modalidade da pergunta no formulário do Censo SUAS
 
-```{r fig-creas-pse-domicilio, fig.cap = "Percentual de CREAS que realizam Serviço de Proteção Pocial Especial para Pessoas com Deficiência, Idosas e suas Famílias, 2018 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r fig-creas-pse-domicilio, fig.cap = "Percentual de CREAS que realizam Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosas e suas Famílias, 2018 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 creas_pse = function(df, q, ano){
   q <- enquo(q)
@@ -5750,7 +5748,7 @@ creas_pse = function(df, q, ano){
       #Eixo_x == "Conselho Municipal de Assistência Social, Conselho Tutelar ou outro conselho municipal;"~"Conselho Municipal de Assistência Social, Conselho Tutelar ou outro conselho municipal",
       #Eixo_x == "Outro."~"Outro",
       TRUE ~ Eixo_x)) %>%
-
+    filter(!is.na(Eixo_x)) %>%
     group_by(Grupo, Eixo_x) %>%
     summarise(n=n()) %>%
     mutate(Percentual = n/sum(n))
@@ -5765,7 +5763,7 @@ tabela <- creas_pse(creas_2018,q35,"2018") %>%
   mutate(Eixo_x=str_wrap(Eixo_x,width=58))
 
 ordenado<-tabela %>%
-  filter(Grupo == "2018") %>%
+  filter(Grupo == "2022") %>%
   arrange(Percentual) %>%
   pull(Eixo_x)
 
@@ -6005,13 +6003,13 @@ A qualidade da oferta de serviços, programas e benefícios da assistência soci
 
 Esta seção apresenta um panorama geral da situação das trabalhadoras e trabalhadores do SUAS, tanto nos equipamentos da assistência social quanto nas gestões municipais e estaduais, apresentando informações sobre quantitativo, tipo de vínculo trabalhista, escolaridade, entre outros aspectos referentes à gestão do trabalho, e sua evolução ao longo dos anos.
 
-## Evolução na quantidade de trabalhadores (as), tipo de vínculo e escolaridade no orgão gestor
+## Evolução na quantidade de trabalhadoras/es, tipo de vínculo e escolaridade no orgão gestor
 
-A quantidade de trabalhadores (as) nas Secretarias Estaduais de Assistência Social nacionalmente em 2018[^48] era de 3.988 profissionais, considerando trabalhadores (as) lotados na sede do órgão gestor. Esse quantitativo teve aumento 7%, em 2022 passou a ter 4.265 conforme pode ser observado (@fig-qtd-trab-uf).
+A quantidade de trabalhadoras/es nas Secretarias Estaduais de Assistência Social nacionalmente em 2018[^48] era de 3.988 profissionais, considerando trabalhadoras/es lotadas/os na sede do órgão gestor. Esse quantitativo teve aumento 7%, em 2022 passou a ter 4.265 conforme pode ser observado (@fig-qtd-trab-uf).
 
 [^48]: gráfico a partir do ano de 2018 em decorrência de mudanças na modalidade de respostas
 
-```{r fig-qtd-trab-uf, fig.cap ="Evolução da quantidade de trabalhadores (as) nas Secretarias Estaduais de Assistência Social - Brasil e grandes regiões, 2018 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r fig-qtd-trab-uf, fig.cap ="Evolução da quantidade de trabalhadoras/es nas Secretarias Estaduais de Assistência Social - Brasil e grandes regiões, 2018 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 grafico <- f_quantitativo_regiao_ano(gerh_2018, IBGE, "2018") %>%
   bind_rows(f_quantitativo_regiao_ano(gerh_2019, IBGE, "2019")) %>%
@@ -6023,11 +6021,11 @@ grafico <- f_quantitativo_regiao_ano(gerh_2018, IBGE, "2018") %>%
 grafico
 ```
 
-A quantidade de trabalhadores (as) nas Secretarias Municipais de Assistência Social em 2018[^49] era de 51.135 profissionais, considerando trabalhadores (as) lotados na sede do órgão gestor. Esse quantitativo aumento 4%, em 2022 passou a ter 56.381 conforme pode ser observado (@fig-qtd_trab_munic).
+A quantidade de trabalhadoras/es nas Secretarias Municipais de Assistência Social em 2018[^49] era de 51.135 profissionais, considerando trabalhadoras/es lotados na sede do órgão gestor. Esse quantitativo aumento 4%, em 2022 passou a ter 56.381 conforme pode ser observado (@fig-qtd_trab_munic).
 
 [^49]: gráfico a partir do ano de 2018 em decorrência de mudanças na modalidade de respostas
 
-```{r fig-qtd_trab_munic, fig.cap ="Evolução da quantidade de trabalhadores (as) nas Secretarias Municipais de Assistência Social - Brasil, 2012 a 2022"}
+```{r fig-qtd_trab_munic, fig.cap ="Evolução da quantidade de trabalhadoras/es nas Secretarias Municipais de Assistência Social - Brasil, 2018 a 2022"}
 
 grafico <- f_quantitativo_regiao_ano(gm_rh_2018, IBGE, "2018")%>%
   bind_rows(f_quantitativo_regiao_ano(gm_rh_2019, IBGE, "2019")) %>%
@@ -6039,11 +6037,13 @@ grafico <- f_quantitativo_regiao_ano(gm_rh_2018, IBGE, "2018")%>%
 grafico
 ```
 
-Os dados do (@fig-uf_trab_vin) traz dados sobre o tipo de vínculo dos trabalhadores e trabalhadoras das Secretarias Estaduais de Assistência Social. Observa-se uma redução dos servidores (as) estatutários e empregados(as) públicos (CLT). O percentual de Servidores (as) caem de 54% no ano de 2012 para 46% em 2022. Enquanto empregados(as) públicos reduzem de 16% em 2012 para 3,3% em 2022. Houve aumento de cargos comissionados 13 pontos percentuais, de 16% em 2012 para 29% em 2022. Em relação a outros vínculos [^50] o número também aumentou, bem como trabalhadoras (es) de Empresa, Cooperativa ou Entidade Prestadora de Serviços.
+Os dados do (@fig-uf_trab_vin) traz dados sobre o tipo de vínculo dos trabalhadores e trabalhadoras das Secretarias Estaduais de Assistência Social. Observa-se uma redução das/os servidoras/es estatutárias/os e empregadas/os públicos (CLT). O percentual de Servidoras/es caem de 54% no ano de 2012 para 46% em 2022. Enquanto empregadas/os públicas/os reduzem de 16% em 2012 para 3,3% em 2022. Houve aumento de cargos comissionados 10 pontos percentuais, de 19% em 2012 para 29% em 2022.
 
-[^50]: outros vínculos não permanentes são considerados agentes temporários como terceirizados, outros vínculos,voluntários
+<!-- Em relação a outros vínculos [^50] o número também aumentou, bem como trabalhadoras/es de Empresa, Cooperativa ou Entidade Prestadora de Serviços. -->
 
-```{r fig-uf_trab_vin, fig.cap ="Percentual de trabalhadores (as) nas Secretarias Estaduais de Assistência Social, segundo tipo de vínculo - Brasil, 2012, 2017 e 2022"}
+<!-- [^50]: outros vínculos não permanentes são considerados agentes temporários como terceirizados, outros vínculos,voluntários -->
+
+```{r fig-uf_trab_vin, fig.cap ="Percentual de trabalhadoras/es nas Secretarias Estaduais de Assistência Social, segundo tipo de vínculo - Brasil, 2012, 2017 e 2022"}
 
 f_vinculo = function(df, vinculo){
   vinculo <- enquo(vinculo)
@@ -6051,17 +6051,20 @@ f_vinculo = function(df, vinculo){
   df %>%
     mutate(!! vinculo := case_when(
       !! vinculo == "Estatutários" |
-      !! vinculo == "Servidor(a)/Estatutária(o)"~"Servidoras/es Estatutárias/os",
+      !! vinculo == "Servidor(a)/Estatutária(o)" |
+      !! vinculo == "Servidor Estatutário"~"Servidoras/es Estatutárias/os",
       !! vinculo == "Celetistas" |
-      !! vinculo == "Empregada(o) Pública(o) (CLT)"~"Empregadas/os Públicas/os (CLT)",
+      !! vinculo == "Empregada(o) Pública(o) (CLT)" |
+      !! vinculo == "Empregado Público (CLT)"~"Empregadas/os Públicas/os (CLT)",
       !! vinculo == "Somente Comissionados" |
-      !! vinculo == "Comissionada(o)"~"Comissionadas/os",
-      !! vinculo == "Servidor(a) Temporária(o)"~"Outros vínculos não permanentes",
-      !! vinculo == "Terceirizada(o)"~"Outros vínculos não permanentes",
+      !! vinculo == "Comissionada(o)" |
+      !! vinculo == "Comissionado"~"Comissionadas/os",
+      !! vinculo == "Servidor(a) Temporária(o)"~"Servidoras/es Temporárias/os",
+      !! vinculo == "Terceirizada(o)"~"Terceirizadas/os",
       !! vinculo == "Trabalhador(a) de Empresa/ Cooperativa/ Entidade Prestadora de Serviços"~"Trabalhadoras/es de Empresa, Cooperativa ou Entidade Prestadora de Serviços",
-      !! vinculo == "Voluntária(o)"~"Outros vínculos não permanentes",
-      !! vinculo == "Outros Vínculos"~"Outros vínculos não permanentes",
-      !! vinculo == "Outro vínculo não permanente"~"Outros vínculos não permanentes",
+      !! vinculo == "Voluntária(o)" |
+      !! vinculo == "Outros Vínculos" |
+      !! vinculo == "Outro vínculo não permanente" |
       !! vinculo == "Sem vínculo"~"Outros vínculos não permanentes",
       TRUE ~ as.character(!! vinculo))) %>%
   mutate(!! vinculo := str_wrap(!! vinculo, width=40))
@@ -6124,47 +6127,24 @@ grafico <- f_nomex_somay_nomegrupo(ge_2012, "2012", q55a_4, "Estatutários") %>%
 
   f_calcula_percentual(Eixo_x, Grupo, Eixo_y) %>%
 
-  f_grafico_col_stack_percent(Eixo_x, Percentual, Grupo, 5)
+  f_grafico_col_stack_percent(Eixo_x, Percentual, Grupo, 3)
 
 grafico
 ```
 
-Os trabalhadores (as) segundo tipo de vínculo pode ser observados através (@fig-munic_trab_vin). A quantidade proporcional de estatutários na gestão municipal representavam 36% em 2013,[^51] observa-se um aumento no ano de 2017 e retoma ao patamar de 36% em 2022.
+As/os trabalhadoras/es segundo tipo de vínculo pode ser observados através (@fig-munic_trab_vin). A quantidade proporcional de estatutários na gestão municipal representavam 36% em 2013,[^50] observa-se um aumento no ano de 2017 e retoma ao patamar de 36% em 2022.
 
-[^51]: não foi possível gerar este gráficos para os anos de 2012 e 2020 em decorrência de problemas na leitura da base de dados do Censo SUAS
+[^50]: não foi possível gerar este gráficos para os anos de 2012 e 2020 em decorrência de problemas na leitura da base de dados do Censo SUAS
 
-Este gráfico também sinaliza uma significativa dimunuição no público de empregadores (as) públicos que representa 11% dos trabalhadores (as) no ano de 2013 e reduz para 4,7% em 2022. Dados de outros vínculos não permanente também reduz de 37% em 2013 para 29% no ano de 2022. O único dado percentual que eleva nas gestões dos municípios são referentes a cargos comissionados. Este dados avança de 17% em 2013 para 31% em 2022.
+Este gráfico também sinaliza uma significativa diminuição no público de empregadores públicos que representa 11% das/os trabalhadoras/es no ano de 2013 e reduz para 4,7% em 2022. Dados de outros vínculos não permanente também reduz de 37% em 2013 para 29% no ano de 2022. O único dado percentual que eleva nas gestões dos municípios são referentes a cargos comissionados. Este dados avança de 17% em 2013 para 31% em 2022.
 
-O percentual de estatutários em 2016 foi o maior desde 2011: houve um aumento de 1,9 pontos percentuais em relação a 2015 e 4,1 em relação a 2011. Foi observada queda nos percentuais da força de trabalho comissionada e com outros vínculos em relação a 2015: em 2016 eles representavam 15,7% e 34,6% dos trabalhadores, respectivamente (Gráfico 61). Gráfico 61: Percentual de trabalhadores nas Secretarias Municipais de Assistência Social, segundo tipo de vínculo -- Brasil, 2010 a 2016 Fonte: MDS, Censo SUAS.
+<!-- O percentual de estatutários em 2016 foi o maior desde 2011: houve um aumento de 1,9 pontos percentuais em relação a 2015 e 4,1 em relação a 2011. Foi observada queda nos percentuais da força de trabalho comissionada e com outros vínculos em relação a 2015: em 2016 eles representavam 15,7% e 34,6% dos trabalhadores, respectivamente (Gráfico 61). Gráfico 61: Percentual de trabalhadores nas Secretarias Municipais de Assistência Social, segundo tipo de vínculo -- Brasil, 2010 a 2016 Fonte: MDS, Censo SUAS. -->
 
-[^52].
+<!-- [^52]. -->
 
-[^52]: não foi possível gerar este gráficos para os anos de 2012 e 2020 em decorrencia de problemas na geração dos dados
+<!-- [^52]: não foi possível gerar este gráficos para os anos de 2012 e 2020 em decorrencia de problemas na geração dos dados -->
 
-```{r fig-munic_trab_vin, fig.cap ="Percentual de trabalhadores (as) nas Secretarias Municipais de Assistência Social, segundo tipo de vínculo - Brasil, 2013, 2017 e 2022"}
-
-f_vinculo = function(df, vinculo){
-  vinculo <- enquo(vinculo)
-
-  df %>%
-    mutate(!! vinculo := case_when(
-      !! vinculo == "Estatutários" |
-      !! vinculo == "Servidor(a)/Estatutária(o)"~"Servidoras/es Estatutárias/os",
-      !! vinculo == "Servidor Estatutário"~"Servidoras/es Estatutárias/os",
-      !! vinculo == "Celetistas" |
-      !! vinculo == "Empregada(o) Pública(o) (CLT)"~"Empregadas/os Públicas/os (CLT)",
-      !! vinculo == "Empregado Público (CLT)"~"Empregadas/os Públicas/os (CLT)",
-      !! vinculo == "Somente Comissionados" |
-      !! vinculo == "Comissionada(o)"~"Comissionadas/os",
-      !! vinculo == "Comissionado"~"Comissionadas/os",
-      !! vinculo == "Servidor(a) Temporária(o)"~"Servidoras/es Temporárias/os",
-      !! vinculo == "Terceirizada(o)"~"Terceirizadas/os",
-      !! vinculo == "Trabalhador(a) de Empresa/ Cooperativa/ Entidade Prestadora de Serviços"~"Trabalhadoras/es de Empresa, Cooperativa ou Entidade Prestadora de Serviços",
-     !! vinculo == "Outros Vínculos"~"Outros vínculos não permanentes",
-       # !! vinculo == "Voluntária(o)"~"Voluntárias/os",
-      TRUE ~ as.character(!! vinculo))) %>%
-  mutate(!! vinculo := str_wrap(!! vinculo, width=40))
-}
+```{r fig-munic_trab_vin, fig.cap ="Percentual de trabalhadoras/es nas Secretarias Municipais de Assistência Social, segundo tipo de vínculo - Brasil, 2013, 2017 e 2022"}
 
 grafico <- f_nomex_somay_nomegrupo(gm_2013, "2013", q42a_4, "Estatutários") %>%
   bind_rows(f_nomex_somay_nomegrupo(gm_2013, "2013", q42b_4, "Celetistas")) %>%
@@ -6210,14 +6190,14 @@ grafico <- f_nomex_somay_nomegrupo(gm_2013, "2013", q42a_4, "Estatutários") %>%
 
   f_calcula_percentual(Eixo_x, Grupo, Eixo_y) %>%
 
-  f_grafico_col_stack_percent(Eixo_x, Percentual, Grupo, 5)
+  f_grafico_col_stack_percent(Eixo_x, Percentual, Grupo, 2)
 
 grafico
 ```
 
-Quanto a escolaridade dos trabalhadores (as) das Secretarias Estaduais de Assistência Social observa-se um aumento significativo dos profissionais de nível superior com avanço de 32% em 2012 para 63% em 2022. Em relação reduz o número proporção de profissionais de nível fundamental e médio. A soma deste grupo representava 68% em 2012 e chega em 2022 com 37,2% conforme pode ser analisada através do (@fig-uf_trab_form).
+Quanto a escolaridade das/os trabalhadoras/es das Secretarias Estaduais de Assistência Social observa-se um aumento significativo dos profissionais de nível superior com avanço de 32% em 2012 para 63% em 2022. Em relação reduz o número proporção de profissionais de nível fundamental e médio. A soma deste grupo representava 68% em 2012 e chega em 2022 com 37,2% conforme pode ser analisada através do (@fig-uf_trab_form).
 
-```{r fig-uf_trab_form, fig.cap ="Percentual de trabalhadores (as) nas Secretarias Estaduais de Assistência Social, segundo escolaridade - Brasil; 2012, 2017 e 2022"}
+```{r fig-uf_trab_form, fig.cap ="Percentual de trabalhadoras/es nas Secretarias Estaduais de Assistência Social, segundo escolaridade - Brasil; 2012, 2017 e 2022"}
 
 f_nivel_ensino = function(df, nivel_ensino){
   nivel_ensino <- enquo(nivel_ensino)
@@ -6246,15 +6226,15 @@ grafico <- f_nomex_somay_nomegrupo(ge_2012, "2012", q55e_1, "Nível Fundamental"
 grafico
 ```
 
-O (@fig-munic_trab_form) mostra a evolução do número de trabalhadores (as) de nível superior, ele avança de 36% para 52% no período de 2013 [^53] a 2022. Em relação a propoção de profissionais de nível médio e fundamental, há uma redução ao longo deste período com 6,3 pontos percentuais para de nível fundamental e 10 pontos percentuais para profissionais de nível médio. Assim, o Censo SUAS de 2022 sinalzia que, do total de trabalhadores (as) na gestão municipal, há 39% de nível fundamental e 8,7% de nível médio. Demais 52%, correspondem a profissionais de nível superior.
+O (@fig-munic_trab_form) mostra a evolução do número de trabalhadoras/es de nível superior, ele avança de 36% para 52% no período de 2013 [^51] a 2022. Em relação a propoção de profissionais de nível médio e fundamental, há uma redução ao longo deste período com 6,3 pontos percentuais para de nível fundamental e 10 pontos percentuais para profissionais de nível médio. Assim, o Censo SUAS de 2022 sinaliza que, do total de trabalhadoras/es na gestão municipal, há 39% de nível fundamental e 8,7% de nível médio. Demais 52%, correspondem a profissionais de nível superior.
 
-[^53]: não foi possível gerar este gráficos para os anos de 2012 e 2020 em decorrência de problemas na leitura da base de dados do Censo SUAS
+[^51]: não foi possível gerar este gráficos para os anos de 2012 e 2020 em decorrência de problemas na leitura da base de dados do Censo SUAS
 
-[^54].
+[^52].
 
-[^54]: não foi possível gerar este gráficos para os anos de 2012 e 2020 em decorrencia de problemas na geração dos dados
+[^52]: não foi possível gerar este gráficos para os anos de 2012 e 2020 em decorrencia de problemas na geração dos dados
 
-```{r fig-munic_trab_form, fig.cap ="Percentual de trabalhadoras (es) nas Secretarias municipais, escolaridade e profissão - Brasil, 2013 a 2022"}
+```{r fig-munic_trab_form, fig.cap ="Percentual de trabalhadoras/es nas Secretarias municipais, segundo escolaridade - Brasil, 2013 a 2022"}
 
  grafico <- f_nomex_somay_nomegrupo(gm_2013, "2013", q41e_1, "Nível Fundamental") %>%
   bind_rows(f_nomex_somay_nomegrupo(gm_2013, "2013", q41e_2, "Nível Médio")) %>%
@@ -6304,11 +6284,11 @@ O (@fig-munic_trab_form) mostra a evolução do número de trabalhadores (as) de
 grafico
 ```
 
-Dos trabalhadores (as) das Secretarias Estaduais de Assistência Social que informaram sua formação superior em 2022, destaca-se a maior presença de profissionais de serviços social com 24%, após identifica-se a proporção de profissionais de psicologia com 8,2%. O maior número de profissionais são identificados em outras profissões ou não informado.[^55]
+Das/os trabalhadoras/es das Secretarias Estaduais de Assistência Social que informaram sua formação superior em 2022, destaca-se a maior presença de profissionais de serviços social com 24%, após identifica-se a proporção de profissionais de psicologia com 8,2%. O maior número de profissionais são identificados em outras profissões ou não informado.[^53]
 
-[^55]: O número elevado da categoria de “outro profissional não informado” se deve a soma na base de dados nas informações de outros profissionais de nível superior a profissionais “sem formação profissional”. Entretanto, pela relevância desta informação mantemos o gráfico.
+[^53]: O número elevado da categoria de “outro profissional não informado” se deve a soma na base de dados nas informações de outros profissionais de nível superior a profissionais “sem formação profissional”. Entretanto, pela relevância desta informação mantemos o gráfico.
 
-```{r fig-uf_trab_prof, fig.cap ="Percentual de trabalhadores/as de nível superior nas Secretarias Estaduais de Assistência Social, segundo área de formação - Brasil; 2012, 2017 e 2022"}
+```{r fig-uf_trab_prof, fig.cap ="Percentual de trabalhadoras/es de nível superior nas Secretarias Estaduais de Assistência Social, segundo área de formação - Brasil; 2012, 2017 e 2022"}
 
 f_total_para_outros = function(df, grupo){
   grupo <- quo_name(grupo)
@@ -6411,11 +6391,11 @@ grafico <- tabela %>%
 grafico
 ```
 
-Dos 85.011 trabalhadores das Secretarias Municipais de Assistência Social que informaram sua formação superior em 2016, 33.559 (39,5%) eram assistentes sociais, 15.702 eram psicólogos (18,5%) e 10.069 eram pedagogos (11,8% do total). Existiam 14.992 profissionais de outras formações de nível superior além das listadas (17,6% do total) (Gráfico 63). Gráfico 63: Formação profissional dos trabalhadores de nível superior nas Secretarias Municipais de Assistência Social -- Brasil, 2016 Fonte: MDS, Censo SUAS.[^56]
+Dos 85.011 trabalhadores das Secretarias Municipais de Assistência Social que informaram sua formação superior em 2016, 33.559 (39,5%) eram assistentes sociais, 15.702 eram psicólogos (18,5%) e 10.069 eram pedagogos (11,8% do total). Existiam 14.992 profissionais de outras formações de nível superior além das listadas (17,6% do total) (Gráfico 63). Gráfico 63: Formação profissional dos trabalhadores de nível superior nas Secretarias Municipais de Assistência Social -- Brasil, 2016 Fonte: MDS, Censo SUAS.[^54]
 
-[^56]: O número elevado da categoria de “outro profissional não informado” se deve a soma na base de dados nas informações de outros profissionais de nível superior a profissionais “sem formação profissional”. Entretanto, pela relevância desta informação mantemos o gráfico.
+[^54]: O número elevado da categoria de “outro profissional não informado” se deve a soma na base de dados nas informações de outros profissionais de nível superior a profissionais “sem formação profissional”. Entretanto, pela relevância desta informação mantemos o gráfico.
 
-```{r fig-munic_trab_prof, fig.cap ="Percentual de trabalhadores (as) nas Secretarias municipais de Assistência Social, segundo área de formação - Brasil; 2013, 2017 e 2022"}
+```{r fig-munic_trab_prof, fig.cap ="Percentual de trabalhadoras/es nas Secretarias municipais de Assistência Social, segundo área de formação - Brasil; 2013, 2017 e 2022"}
 
 f_total_para_outros = function(df, grupo){
   grupo <- quo_name(grupo)
@@ -6517,13 +6497,13 @@ grafico <- tabela %>%
 grafico
 ```
 
-## Evolução da quantidade de trabalhadores (as) nas Unidades do SUAS
+## Evolução da quantidade de trabalhadoras/es nas Unidades do SUAS
 
-O Artigo 6º da Lei Orgânica de Assistência Social (LOAS) estabelece que os recursos do cofinanciamento do SUAS poderão ser aplicados no pagamento dos profissionais que integrarem as equipes de referência. Os dados do Censo SUAS 2022 sinalizam um total de 145.861 trabalhadores (as) sendo 115.149 CRAS, 27.084 CREAS e 36.628 Centro Pop.
+O Artigo 6º da Lei Orgânica de Assistência Social (LOAS) estabelece que os recursos do cofinanciamento do SUAS poderão ser aplicados no pagamento dos profissionais que integrarem as equipes de referência. Os dados do Censo SUAS 2022 sinalizam um total de 145.861 trabalhadoras/es sendo 115.149 CRAS, 27.084 CREAS e 36.628 Centro Pop.
 
-O (@fig-trab-unidades) mostra um aumento na quantidade de trabalhadores (as) nas unidades socioassistenciais no período de 2012 a 2022. Essa evolução neste período representa 69% nos CRAS, 36% nos CREAS, 122% no Centro Pop.
+O (@fig-trab-unidades) mostra um aumento na quantidade de trabalhadoras/es nas unidades socioassistenciais no período de 2012 a 2022. Essa evolução neste período representa 69% nos CRAS, 36% nos CREAS, 122% no Centro Pop.
 
-```{r fig-trab-unidades, fig.cap ="Evolução da quantidade de trabalhadores (as) dos CRAS, CREAS e Centro POP - Brasil; 2012, 2017 e 2022" }
+```{r fig-trab-unidades, fig.cap ="Evolução da quantidade de trabalhadoras/es dos CRAS, CREAS e Centro POP - Brasil; 2012, 2017 e 2022" }
 
 grafico <-
   f_quantitativo_em_2_grupos(crasrh_2012, "CRAS", "2012") %>%
@@ -6564,15 +6544,15 @@ grafico
 
 ```
 
-```{r fig-unid-acol, fig.cap ="Evolução da quantidade de trabalhadores (as) das Unidades de Acolhimento - Brasil, 2012 a 2022" }
+```{r fig-unid-acol, fig.cap ="Evolução da quantidade de trabalhadoras/es das Unidades de Acolhimento - Brasil, 2012 a 2022" }
 
 ```
 
-```{r fig-trab-sexo-estadual, fig.cap ="Percentual de trabalhadores (as) quanto ao sexo - estadual " }
+```{r fig-trab-sexo-estadual, fig.cap ="Percentual de trabalhadoras/es quanto ao sexo - estadual " }
 
 ```
 
-```{r fig-trab-sexo-municipal, fig.cap ="Percentual de trabalhadores (as) quanto ao sexo - municipal " }
+```{r fig-trab-sexo-municipal, fig.cap ="Percentual de trabalhadoras/es quanto ao sexo - municipal " }
 
 ```
 
@@ -6580,7 +6560,7 @@ grafico
 
 A gestão do trabalho no SUAS compreende desenhos organizativos, avaliação de desempenho, adequação de perfis profissionais ás necessidades das areas administrativas, mesas de negociação, plano de carreira e previsão de consursos públicos.
 
-Em relação a realização de concursos públicos pelos entes estaduais o @fig-conc_estado mostra a linha histórica quanto a realização de concurso para trabalhadoras (es) de nível superior do SUAS. Por pelos menos 5 anos neste periodo, nenhum estado realizadou concurso para nível superior no SUAS.
+Em relação a realização de concursos públicos pelos entes estaduais o @fig-conc_estado mostra a linha histórica quanto a realização de concurso para trabalhadoras/es de nível superior do SUAS. Por pelos menos 5 anos neste periodo, nenhum estado realizadou concurso para nível superior no SUAS.
 
 ```{r fig-conc_estado, fig.cap = "Percentual de estados que realizaram concursos para trabalhadores nível superior do SUAS - Brasil, 2013 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -6600,7 +6580,7 @@ grafico <- f_sim(ge_2013, q68a_1, "2013") %>%
 grafico
 ```
 
-Em relação a realização de concurso público municipal para trabalhadores (as) de nível superior, percebe-se que os anos de 2013 e 2015 foram os anos com maior número de municípios realizaram, com dados percentuais de 27% e 17% respectivamente. Este dado mostra os desafios da gestão do trabalho. O (@fig-conc_munic) referencia a linha histórica dos últimos 10 anos.
+Em relação a realização de concurso público municipal para trabalhadoras/es de nível superior, percebe-se que os anos de 2013 e 2015 foram os anos com maior número de municípios realizaram, com dados percentuais de 27% e 17% respectivamente. Este dado mostra os desafios da gestão do trabalho. O (@fig-conc_munic) referencia a linha histórica dos últimos 10 anos.
 
 ```{r fig-conc_munic, fig.cap = "Percentual de municípios que realizaram concursos para trabalhadores nível superior do SUAS - Brasil, - Brasil, 2012 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -6627,21 +6607,21 @@ grafico
 
 ## Considerações Finais
 
-Em relação a quantidade de trabalhadores (as) do SUAS no âmbito da gestão estadual e municipal, observa-se que do período de 2018 a 2022, houve aumento nesta quantidade em nível nacional. Para as gestões estaduais o aumento foi de 7% e gestões municipais foi de 4%. Entretanto, destaca-se que, neste mesmo período, as regiões Sudeste e Sul teve redução do número de trabalhadores (as) nas gestões estaduais e, no âmbito das gestões municipais, a região nordeste teve redução na quantidade de trabalhadores (as). No âmbito das unidades socioassistenciais, sobretudo CRAS, CREAS e Centro Pop, observa-se um aumento nos dados nacionais da rede socioassistencial. Em relação ao vínculo destes trabalhadores (as), nas gestões estaduais houve uma redução dos servidores (as) estatutários e empregados(as) públicos (CLT) e aumento no número de cargos comissionados e outros vínculos não permanentes. Nas gestões municipais, os dados sinalizam para redução da quantidade de servidores (as) estatutários, empregados(as) públicos (CLT) e outros vínculos não permanentes. No que se refere a escolaridade dos (as) trabalhadores das gestões, observa-se no geral um aumento da proporção de trabalhadores (as) de nível superior. Em relação a profissão, Assistentes Sociais e psicólogos são proporcionalmente a maioria para ambos os entes. Por fim, os dados também sinalizam desafios para gestão do trabalho, sobretudo no que se refere a realização de concursos públicos
+Em relação a quantidade de trabalhadoras/es do SUAS no âmbito da gestão estadual e municipal, observa-se que do período de 2018 a 2022, houve aumento nesta quantidade em nível nacional. Para as gestões estaduais o aumento foi de 7% e gestões municipais foi de 4%. Entretanto, destaca-se que, neste mesmo período, as regiões Sudeste e Sul teve redução do número de trabalhadoras/es nas gestões estaduais e, no âmbito das gestões municipais, a região nordeste teve redução na quantidade de trabalhadoras/es. No âmbito das unidades socioassistenciais, sobretudo CRAS, CREAS e Centro Pop, observa-se um aumento nos dados nacionais da rede socioassistencial. Em relação ao vínculo destes trabalhadoras/es, nas gestões estaduais houve uma redução das/os servidoras/es estatutários e empregadas/os públicas/os (CLT) e aumento no número de cargos comissionados e outros vínculos não permanentes. Nas gestões municipais, os dados sinalizam para redução da quantidade de servidoras/es estatutários, empregadas/os públicas/os (CLT) e outros vínculos não permanentes. No que se refere a escolaridade das/os trabalhadoras/es das gestões, observa-se no geral um aumento da proporção de trabalhadoras/es de nível superior. Em relação a profissão, Assistentes Sociais e psicólogos são proporcionalmente a maioria para ambos os entes. Por fim, os dados também sinalizam desafios para gestão do trabalho, sobretudo no que se refere a realização de concursos públicos
 
 # Participação e Controle Social no SUAS
 
-A participação social é uma das diretrizes estabelecidas pela Constituição Federal de 1988 para a organização das ações da Assistência Social. Nesse sentido, a Lei Orgânica da Assistência Social (LOAS)[^57], que corresponde sobre a sua organização, instituiu em seu artigo 16 os Conselhos de Assistência Social em âmbito nacional, estadual e municipal como instâncias de deliberação colegiada do SUAS, cuja composição deve ser paritária entre governo e sociedade civil.
+A participação social é uma das diretrizes estabelecidas pela Constituição Federal de 1988 para a organização das ações da Assistência Social. Nesse sentido, a Lei Orgânica da Assistência Social (LOAS)[^55], que corresponde sobre a sua organização, instituiu em seu artigo 16 os Conselhos de Assistência Social em âmbito nacional, estadual e municipal como instâncias de deliberação colegiada do SUAS, cuja composição deve ser paritária entre governo e sociedade civil.
 
-[^57]: Lei nº 8.742, de 7 de dezembro de 1993: Dispõe sobre a organização da Assistência Social e dá outras providências. (<http://www.planalto.gov.br/ccivil_03/Leis/L8742compilado.htm>)
+[^55]: Lei nº 8.742, de 7 de dezembro de 1993: Dispõe sobre a organização da Assistência Social e dá outras providências. (<http://www.planalto.gov.br/ccivil_03/Leis/L8742compilado.htm>)
 
-Os Conselhos integram o Sistema Único de Assistência Social (SUAS), juntamente com o governo e as entidades e organizações de Assistência Social. A Resolução do Conselho Nacional de Assistência Social (CNAS) nº 100/2024[^58], estabelece a definição dos Conselhos de Assistência Social, suas competências, criação, estrutura e organização. Esta resolução também trata do desempenho dos conselheiros e conselheiras, bem como sua função de interesse público.
+Os Conselhos integram o Sistema Único de Assistência Social (SUAS), juntamente com o governo e as entidades e organizações de Assistência Social. A Resolução do Conselho Nacional de Assistência Social (CNAS) nº 100/2024[^56], estabelece a definição dos Conselhos de Assistência Social, suas competências, criação, estrutura e organização. Esta resolução também trata do desempenho dos conselheiros e conselheiras, bem como sua função de interesse público.
 
-[^58]: A Resolução CNAS nº 100, de 20 de abril de 2023 revoga a Resolução CNAS nº 237, de 14 de dezembro de 2006.
+[^56]: A Resolução CNAS nº 100, de 20 de abril de 2023 revoga a Resolução CNAS nº 237, de 14 de dezembro de 2006.
 
-Outra resolução importante para organização do controle social no SUAS é a resolução nº 99/2023[^59] na qual caracteriza os usuários, seus direitos e participação na Política de Assistência Social.
+Outra resolução importante para organização do controle social no SUAS é a resolução nº 99/2023[^57] na qual caracteriza os usuários, seus direitos e participação na Política de Assistência Social.
 
-[^59]: Resolução CNAS/MDS nº 99, DE 4 de abril de 2023
+[^57]: Resolução CNAS/MDS nº 99, DE 4 de abril de 2023
 
 Este bloco apresenta os resultados apurados pelo Censo SUAS para os Conselhos Municipais e Estaduais de Assistência Social, considerando as dimensões de estrutura administrativa, dinâmica de funcionamento e composição.
 
@@ -6687,7 +6667,7 @@ grafico
 
 ## Estrutura administrativa e dinâmica de funcionamento
 
-Em relação aos Conselhos Estaduais, atualmente 100% informam possuir sede específica para funcionamento do controle social no SUAS conforme pode ser observado no @fig-ceas_sede. A existência de sede para o funcionamento dos conselhos é essencial, pois além de garantir identidade na perspetiva de espaço na qual a população pode acessar, também assegura o trabalho da (o) secretária (o) executiva(o) e demais profissionais. Dispor de locais de arquivos e documentos, reuniões entre outros.
+Em relação aos Conselhos Estaduais, atualmente 100% informam possuir sede específica para funcionamento do controle social no SUAS conforme pode ser observado no @fig-ceas_sede. A existência de sede para o funcionamento dos conselhos é essencial, pois além de garantir identidade na perspetiva de espaço na qual a população pode acessar, também assegura o trabalho da/o secretária/o executiva/o e demais profissionais. Dispor de locais de arquivos e documentos, reuniões entre outros.
 
 ```{r fig-ceas_sede, fig.cap = "Percentual de Conselhos estaduais que possuem local/sede específico para funcionamento"}
 
@@ -6756,11 +6736,11 @@ grafico <- f_sim(cest_2012, q13, "2012") %>%
 grafico
 ```
 
-No que se refere a presença de secretários (as) executivos - independente de ser exclusivo ou não - nos conselhos municipais o @fig-cmas_se sinaliza um aumento ao longo dos anos. Há avanço de 68% em 2013 para 82% em 2022 da presença destes profissionais nos conselhos municipais.
+No que se refere a presença de secretárias/os executivas/os - independente de ser exclusivo ou não - nos conselhos municipais o @fig-cmas_se sinaliza um aumento ao longo dos anos. Há avanço de 68% em 2013 para 82% em 2022 da presença destes profissionais nos conselhos municipais.
 
-Com a resolução CNAS Nº 100/2023 reforça-se que para os municípios de Pequeno Porte I e II, o (a) secretário (a) executivo não precisa ser exclusivo. Entretanto, percebe-se que em relação aos municípios maiores, o percentual destes profissionais de forma exclusiva são baixos, sendo respectivamente 30% para de médio porte, 47% para os municípios de grande porte. As métropoles possuem 100% destes profissionais de forma exclusiva.
+Com a resolução CNAS Nº 100/2023 reforça-se que para os municípios de Pequeno Porte I e II, a/o secretária/o executiva/o não precisa ser exclusiva/o. Entretanto, percebe-se que em relação aos municípios maiores, o percentual destes profissionais de forma exclusiva são baixos, sendo respectivamente 30% para de médio porte, 47% para os municípios de grande porte. As métropoles possuem 100% destes profissionais de forma exclusiva.
 
-```{r fig-cmas_se, fig.cap = "Percentual de Conselhos Municipais que possuem secretários (as) executivas/os trabalhando no Conselho"}
+```{r fig-cmas_se, fig.cap = "Percentual de Conselhos Municipais que possuem secretárias/os executivas/os trabalhando no Conselho"}
 
 grafico <- f_sim(cmun_2013, q14, "2013") %>%
     #bind_rows(f_sim(cmun_2012, q12, "2012")) %>%
@@ -7012,9 +6992,9 @@ cmun_2010_regiao <- cmun_2010 %>%
 
 ## Uso do IGD para apoio ao controle social e instância de controle social do Programa Bolsa Família
 
-Para o fortalecimento das atividades e apoio técnico e operacional do controle social do SUAS pode ser usado os recursos do IGD Bolsa Família e IGD SUAS. De acordo com as normativas do SUAS [^60] os entes federados deverão aplicar pelo menos 3% (três por cento) para fortalecer a instância de controle social do Programa Bolsa Família com a finalidade de garantir o fortalecimento do controle social e efetivar o apoio técnico e operacional a esse colegiado.
+Para o fortalecimento das atividades e apoio técnico e operacional do controle social do SUAS pode ser usado os recursos do IGD Bolsa Família e IGD SUAS. De acordo com as normativas do SUAS [^58] os entes federados deverão aplicar pelo menos 3% (três por cento) para fortalecer a instância de controle social do Programa Bolsa Família com a finalidade de garantir o fortalecimento do controle social e efetivar o apoio técnico e operacional a esse colegiado.
 
-[^60]: Decreto nº 7.332/2010, de 19 de outubro de 2010
+[^58]: Decreto nº 7.332/2010, de 19 de outubro de 2010
 
 De acordo com (@fig-ceas_igd) o censo suas 2022 sinaliza que esse recursos é destinado a 100% dos CEAS. Ao observar ao longo dos anos essa destinação não é contínua, com destaque para os anos de 2012 e 2017 na qual apenas 85% dos conselhos estaduais receberam estes recursos.
 
@@ -7039,7 +7019,7 @@ grafico
 
 Em relação ao destinação do IGD Bolsa Família e IGD SUAS aos conselhos municipais, o (@fig-creas-pse-domicilio) sinaliza que no censo suas 2022, há 82% dos CMAS que informam receber este recurso. Os dados também variam na escala histórica conforme pode-se obserdo no (@fig-cmas_igd). O ano com maior proporção de CMAS que informaram receber recursos dos IGDs foi referente ao censo suas 2017.
 
-```{r fig-cmas_igd, fig.cap = "Conselhos Municipais que possuem destinação de pelo menos 3$\\%$ dos recursos do IGD Bolsa Família e IGD SUAS para funcionamento"}
+```{r fig-cmas_igd, fig.cap = "Conselhos Municipais que possuem destinação de pelo menos 3% dos recursos do IGD Bolsa Família e IGD SUAS para funcionamento"}
 
 grafico <- f_sim(cmun_2012, q7, "2012") %>%
    bind_rows(f_sim(cmun_2013, q7, "2013")) %>%
@@ -7060,9 +7040,9 @@ grafico <- f_sim(cmun_2012, q7, "2012") %>%
 grafico
 ```
 
-De acordo com Resolução CNAS 15/2014 [^61] o Conselho de Assistência Social é a Instância do Controle Social do Programa Bolsa Família (PBF) e deve atuar no acompanhamento do Cadastro Único, gestão de benefícios, condicionalidades, fiscalização e as oportunidades de desenvolvimento das capacidades das famílias desenvolvidas ou articuladas pelo município e os programas complementares.
+De acordo com Resolução CNAS 15/2014 [^59] o Conselho de Assistência Social é a Instância do Controle Social do Programa Bolsa Família (PBF) e deve atuar no acompanhamento do Cadastro Único, gestão de benefícios, condicionalidades, fiscalização e as oportunidades de desenvolvimento das capacidades das famílias desenvolvidas ou articuladas pelo município e os programas complementares.
 
-[^61]: RESOLUÇÃO Nº 15, DE 5 DE JUNHO DE 2014
+[^59]: RESOLUÇÃO Nº 15, DE 5 DE JUNHO DE 2014
 
 No Censo SUAS de 2022, 88% dos conselhos estaduais informam ser a instância de controle social do Programa Bolsa Família. Esse percentual reduziu a partir de 2019 que econtrava-se com informações de 100% dos Conselhos Estaduais que eram instância de controle social do Programa Bolsa Família. O (@fig-ceas_icspbf2) sinaliza essa informação histórica.
 
@@ -7112,9 +7092,9 @@ grafico
 
 A elaboração do Plano de Assistência Social é item referenciado na LOAS (Lei Organica de Assistência Social) e NOB SUAS / 2012. É de responsabilidade do órgão gestor da política e deve ser apresentado ao conselho de assistência social para aprovação.
 
-De acordo com o (@fig-ceas_plano)no censo suas 2022, 65% dos Planos de Assistência Social foram debatidos pelo CEAS.[^62]. Esse número varia de ano a ano. De acordo com a LOAS essa aprovação deve ser quadrienal, entretanto recomenda-se que a cada atualização anual seja submetida ao respectivo conselho.
+De acordo com o (@fig-ceas_plano)no censo suas 2022, 65% dos Planos de Assistência Social foram debatidos pelo CEAS.[^60]. Esse número varia de ano a ano. De acordo com a LOAS essa aprovação deve ser quadrienal, entretanto recomenda-se que a cada atualização anual seja submetida ao respectivo conselho.
 
-[^62]: Até 2018 a pergunta é sobre a deliberação do Plano de Assistência Social pelo Conselho, a partir de 2018 a modalidade da pergunta é alterada e, passar a ser se o conselho debate sobre Plano de Assistencia Social. Apesar da diferença mantemos a linha historica por considerar a temática do Plano um item essencial para o controle social
+[^60]: Até 2018 a pergunta é sobre a deliberação do Plano de Assistência Social pelo Conselho, a partir de 2018 a modalidade da pergunta é alterada e, passar a ser se o conselho debate sobre Plano de Assistencia Social. Apesar da diferença mantemos a linha historica por considerar a temática do Plano um item essencial para o controle social
 
 ```{r fig-ceas_plano, fig.cap = "Conselhos estaduais que deliberaram e/ou debatem sobre Plano de Assistência Social"}
 
@@ -7136,9 +7116,9 @@ grafico <- f_sim(cest_2012, q29, "2012") %>%
 grafico
 ```
 
-Em relação aos conselhos municipais, dados do censo suas de 2022 sinaliza que 82% dos CMAS informaram debater sobre plano municipal de assistência social. O (@fig-cmas_plano,)traz a referência destas informações a partir do censo suas de 2012 conforme pode ser observado abaixo. [^63].
+Em relação aos conselhos municipais, dados do censo suas de 2022 sinaliza que 82% dos CMAS informaram debater sobre plano municipal de assistência social. O (@fig-cmas_plano,)traz a referência destas informações a partir do censo suas de 2012 conforme pode ser observado abaixo. [^61].
 
-[^63]: Até 2018 a pergunta é sobre a deliberação do Plano de Assistência Social pelo Conselho, a partir de 2018 a modalidade da pergunta é alterada e, passar a ser se o conselho debate sobre Plano de Assistencia Social. Apesar da diferença mantemos a linha historica por considerar a temática do Plano um item essencial para o controle social
+[^61]: Até 2018 a pergunta é sobre a deliberação do Plano de Assistência Social pelo Conselho, a partir de 2018 a modalidade da pergunta é alterada e, passar a ser se o conselho debate sobre Plano de Assistencia Social. Apesar da diferença mantemos a linha historica por considerar a temática do Plano um item essencial para o controle social
 
 ```{r fig-cmas_plano, fig.cap = "Conselhos municipais que deliberaram sobre a proposta anual de orçamento do executivo"}
 
@@ -7205,13 +7185,13 @@ grafico <- f_sim(cmun_2012, q38, "2012") %>%
 grafico
 ```
 
-Os Benefícios Eventuais da política de Assistência Social é de caráter suplementar e provisório. Deve ser ofertado aos cidadãos e as famílias em virtude de nascimento, morte, situações de vulnerabilidade temporária e calamidade pública. [^64].
+Os Benefícios Eventuais da política de Assistência Social é de caráter suplementar e provisório. Deve ser ofertado aos cidadãos e as famílias em virtude de nascimento, morte, situações de vulnerabilidade temporária e calamidade pública. [^62].
 
-[^64]: Os Benefícios Eventuais são assegurados pelo art. 22 da Lei Orgânica de Assistência Social
+[^62]: Os Benefícios Eventuais são assegurados pelo art. 22 da Lei Orgânica de Assistência Social
 
-A concessão e o valor dos Benefícios Eventuais devem ser definidos pelos Municípios, Estados e Distrito Federal, com base em critérios e prazos estabelecidos pelos conselhos de Assistência Social. O (@fig-ceas_be) sinaliza que o censo suas de 2018 foi onde teve maior proporção de conselhos estaduais que aprovaram os critérios e prazos para acesso aos benefícios eventuais. O acompanhamento a partir de 2012 sinaliza um aumento de 31 pontos percentuais até este período, após isso há uma redução chegando no censo suas de 2022 com 65% de aprovação pelos conselhos. [^65].
+A concessão e o valor dos Benefícios Eventuais devem ser definidos pelos Municípios, Estados e Distrito Federal, com base em critérios e prazos estabelecidos pelos conselhos de Assistência Social. O (@fig-ceas_be) sinaliza que o censo suas de 2018 foi onde teve maior proporção de conselhos estaduais que aprovaram os critérios e prazos para acesso aos benefícios eventuais. O acompanhamento a partir de 2012 sinaliza um aumento de 31 pontos percentuais até este período, após isso há uma redução chegando no censo suas de 2022 com 65% de aprovação pelos conselhos. [^63].
 
-[^65]: Para o ano de 2016 a pargunta foi alterada impossibilitante a analise histórica
+[^63]: Para o ano de 2016 a pargunta foi alterada impossibilitante a analise histórica
 
 ```{r fig-ceas_be, fig.cap = "Percentual de CEAS que aprovou em Resolução os critérios e prazos para acesso aos Benefícios Eventuais"}
 
@@ -7257,13 +7237,13 @@ grafico
 
 ## Representação dos conselhos de Assistência Social
 
-Este tópico vai trata sobre a presentação dos usuárias(os) e trabalhadoras (es) nos conselhos de Assistência Social. De acordo com a resolução CNAS 99/2023, "a representação dos usuários nas instâncias de participação e de deliberação do SUAS ocorrerá por meio de usuários integrantes de suas organizações representativas, democraticamente designados, preferencialmente dentre aquelas vinculadas aos serviços, programas, projetos, benefícios, transferência de renda e defesa dos direitos dos usuários da Política de Assistência Social".
+Este tópico vai trata sobre a presentação das/os usuárias/os e trabalhadoras/es nos conselhos de Assistência Social. De acordo com a resolução CNAS 99/2023, "a representação dos usuários nas instâncias de participação e de deliberação do SUAS ocorrerá por meio de usuários integrantes de suas organizações representativas, democraticamente designados, preferencialmente dentre aquelas vinculadas aos serviços, programas, projetos, benefícios, transferência de renda e defesa dos direitos dos usuários da Política de Assistência Social".
 
-Os dados apresentados no (@fig-usu_ceas) sinaliza que a maior representação dos conselhos estaduais são representantes de fóruns de usuárias(os), beneficiárias (os) do Programa Bolsa Família e BPC representando respetivamente 73%, 50% e 38%. Os dados abaixo sinalizam essa composição no período de 2018 a 2022 [^66]. Nesta escala de tempo, o grupo de representação que mais cresceu, com 19 pontos percentuais neste período, foi dos beneficiárias (os) do Programa Bolsa Família.
+Os dados apresentados no (@fig-usu_ceas) sinaliza que a maior representação dos conselhos estaduais são representantes de fóruns de usuárias/os, beneficiárias/os do Programa Bolsa Família e BPC representando respetivamente 73%, 50% e 38%. Os dados abaixo sinalizam essa composição no período de 2018 a 2022 [^64]. Nesta escala de tempo, o grupo de representação que mais cresceu, com 19 pontos percentuais neste período, foi das/os beneficiárias/os do Programa Bolsa Família.
 
-[^66]: gráfico a partir do ano de 2018 em decorrência do início da modalidade das perguntas no formulário do Censo SUAS
+[^64]: gráfico a partir do ano de 2018 em decorrência do início da modalidade das perguntas no formulário do Censo SUAS
 
-```{r fig-usu_ceas, fig.cap = "Representantes de usuárias(os) nos Conselhos Estadual de Assistência Social", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r fig-usu_ceas, fig.cap = "Representantes de usuárias/os nos Conselhos Estadual de Assistência Social", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 usu_ceas= function(df, q, ano, cod_categoria){
   q <- enquo(q)
@@ -7271,12 +7251,12 @@ usu_ceas= function(df, q, ano, cod_categoria){
   cod_categoria <- quo_name(cod_categoria)
 
 #2018
-  categoria <- case_when(!! cod_categoria == "1"~"Beneficiárias(os) do Programa Bolsa Família",
-                         !! cod_categoria == "2"~"Beneficiária(o) ou família de beneficiárias(os) do BPC",
-                         !! cod_categoria == "3"~"Usuária(o) de serviços socioassistenciais de Proteção Social Básica",
-                         !! cod_categoria == "4"~"Usuária(o) de serviços socioassistenciais de Proteção Social Especial",
+  categoria <- case_when(!! cod_categoria == "1"~"Beneficiárias/os do Programa Bolsa Família",
+                         !! cod_categoria == "2"~"Beneficiária/o ou família de beneficiárias/os do BPC",
+                         !! cod_categoria == "3"~"Usuária/o de serviços socioassistenciais de Proteção Social Básica",
+                         !! cod_categoria == "4"~"Usuária/o de serviços socioassistenciais de Proteção Social Especial",
                          !! cod_categoria == "5"~"Representante de associação comunitária ou de moradores",
-                         !! cod_categoria == "6"~"Representante de fórum ou coletivo de usuárias(os)",
+                         !! cod_categoria == "6"~"Representante de fórum ou coletivo de usuárias/os",
                          !! cod_categoria == "7"~"Outros")
 
   df %>%
@@ -7346,11 +7326,11 @@ grafico<-tabela %>%
 grafico
 ```
 
-Os dados do (@fig-usu_cmun) mostra as represetações de usuários presentes nos Conselhos Municipais de Assistência Social (CMAS). Observa-se que o maior percentual desta representação são respectivamente da Proteção Social Básica, Programa Bolsa Família e BPC, sendo respectivamente no censo de 2022, 77%, 70% e 43%. No período de 2018 a 2022[^67], observa-se que as representações que cresceram 9 pontos percentuais foram Proteção Social Básica, Proteção Social Especial e Pessoas ou famílias de Benefíciários do Benefício de Prestação Continuada (BPC).
+Os dados do (@fig-usu_cmun) mostra as represetações de usuários presentes nos Conselhos Municipais de Assistência Social (CMAS). Observa-se que o maior percentual desta representação são respectivamente da Proteção Social Básica, Programa Bolsa Família e BPC, sendo respectivamente no censo de 2022, 77%, 70% e 43%. No período de 2018 a 2022[^65], observa-se que as representações que cresceram 9 pontos percentuais foram Proteção Social Básica, Proteção Social Especial e Pessoas ou famílias de Benefíciários do Benefício de Prestação Continuada (BPC).
 
-[^67]: gráfico a partir do ano de 2018 em decorrência do início da modalidade das perguntas no formulário do Censo SUAS
+[^65]: gráfico a partir do ano de 2018 em decorrência do início da modalidade das perguntas no formulário do Censo SUAS
 
-```{r fig-usu_cmun, fig.cap = "Representantes de usuárias(os) nos Conselhos Municipais de Assistência Social", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r fig-usu_cmun, fig.cap = "Representantes de usuárias/os nos Conselhos Municipais de Assistência Social", fig.footer = "Fonte: MDS, Censo SUAS."}
 
  usu_cmun= function(df, q, ano, cod_categoria){
   q <- enquo(q)
@@ -7358,12 +7338,12 @@ Os dados do (@fig-usu_cmun) mostra as represetações de usuários presentes nos
   cod_categoria <- quo_name(cod_categoria)
 
 #2018
-  categoria <- case_when(!! cod_categoria == "1"~"Beneficiárias(os) do Programa Bolsa Família",
-                         !! cod_categoria == "2"~"Beneficiária(o) ou família de beneficiárias(os) do BPC",
-                         !! cod_categoria == "3"~"Usuária(o) de serviços socioassistenciais de Proteção Social Básica",
-                         !! cod_categoria == "4"~"Usuária(o) de serviços socioassistenciais de Proteção Social Especial",
+  categoria <- case_when(!! cod_categoria == "1"~"Beneficiárias/os do Programa Bolsa Família",
+                         !! cod_categoria == "2"~"Beneficiária/o ou família de beneficiárias/os do BPC",
+                         !! cod_categoria == "3"~"Usuária/o de serviços socioassistenciais de Proteção Social Básica",
+                         !! cod_categoria == "4"~"Usuária/o de serviços socioassistenciais de Proteção Social Especial",
                          !! cod_categoria == "5"~"Representante de associação comunitária ou de moradores",
-                         !! cod_categoria == "6"~"Representante de fórum ou coletivo de usuárias(os)",
+                         !! cod_categoria == "6"~"Representante de fórum ou coletivo de usuárias/os",
                          !! cod_categoria == "7"~"Outros")
 
 
@@ -7437,11 +7417,11 @@ grafico<-tabela %>%
 grafico
 ```
 
-Em relação a representação de trabalhadores (as) nos Conselhos Estaduais de Assitência Social (CEAS), do total dos CEAS, a categoria mais expressiva são dos conselhos de classe profissional (CRESS, CFP, outros conselhos de classe), representando 96% deste grupo de representantes no último Censo SUAS. Em segundo lugar, com 73% são os sindicatos e, em seguida, representante de associação, fórum ou coletivo de trabalhadoras(es) com 50% dos dos CEAS com representação na categoria de trabalhadores. Observa-se que nos últimos 5 anos [^68] a representação de profissionais que mais evoluiu foi de associação, fórum ou coletivo de trabalhadoras(es), representando avanço de 12 pontos percentuais como pode ser observado (@fig-trab_rep).
+Em relação a representação de trabalhadoras/es nos Conselhos Estaduais de Assitência Social (CEAS), do total dos CEAS, a categoria mais expressiva são dos conselhos de classe profissional (CRESS, CFP, outros conselhos de classe), representando 96% deste grupo de representantes no último Censo SUAS. Em segundo lugar, com 73% são os sindicatos e, em seguida, representante de associação, fórum ou coletivo de trabalhadoras/es com 50% dos dos CEAS com representação na categoria de trabalhadores. Observa-se que nos últimos 5 anos [^66] a representação de profissionais que mais evoluiu foi de associação, fórum ou coletivo de trabalhadoras/es, representando avanço de 12 pontos percentuais como pode ser observado (@fig-trab_rep).
 
-[^68]: gráfico a partir do ano de 2018 em decorrência do início da modalidade das perguntas no formulário do Censo SUAS
+[^66]: gráfico a partir do ano de 2018 em decorrência do início da modalidade das perguntas no formulário do Censo SUAS
 
-```{r fig-trab_rep, fig.cap = "Representantes de trabalhadoras (es) nos Conselhos Estadual de Assistência Social", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r fig-trab_rep, fig.cap = "Representantes de trabalhadoras/es nos Conselhos Estadual de Assistência Social", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 trab_rep= function(df, q, ano, cod_categoria){
   q <- enquo(q)
@@ -7449,12 +7429,12 @@ trab_rep= function(df, q, ano, cod_categoria){
   cod_categoria <- quo_name(cod_categoria)
 
 #2020
-  categoria <- case_when(!! cod_categoria == "1"~"Representante de sindicato de trabalhadoras(es)",
+  categoria <- case_when(!! cod_categoria == "1"~"Representante de sindicato de trabalhadoras/es",
                          !! cod_categoria == "2"~"Representante de conselho de classe profissional (CRESS, CFP, outros conselhos de classe)",
-                         !! cod_categoria == "3"~"Representante de associação, fórum ou coletivo de trabalhadoras(es)",
-                         !! cod_categoria == "4"~"A(O) própria(o) trabalhador(a) do SUAS, sem vinculação a nenhum coletivo",
+                         !! cod_categoria == "3"~"Representante de associação, fórum ou coletivo de trabalhadoras/es",
+                         !! cod_categoria == "4"~"O/A próprio/a trabalhador/a do SUAS, sem vinculação a nenhum coletivo",
                          !! cod_categoria == "5"~"Outros",
-                         !! cod_categoria == "6"~"Este Conselho não possui representantes de trabalhadoras(es)")
+                         !! cod_categoria == "6"~"Este Conselho não possui representantes de trabalhadoras/es")
                          
 
   df %>%
@@ -7526,11 +7506,11 @@ grafico<-tabela %>%
 grafico
 ```
 
-A Representação de trabalhadoras (es) nos conselhos municipais é observada através (@fig-trab_cmun)[^69]. Observa-se que, nos municípios, a categoria de representação mais crescente nos CMAS são de trabalhadoras (es), sem vinculação a nenhum coletivo, esse dado cresce 25 pontos percentuais entre o período de 2018 (40%) a 2022 (65%). Outras categorias que aumentam nesse período são: Conselhos de Classe (CRESS, CFP, outros conselhos de classe) que aumentam de 23% em 2018 para 27% em 2022. Representações de sindicado de trabalahdores e Forum ou coletivo de trabalhadoras (es) também crescem 1 ponto percentual como pode ser observado abaixo.
+A Representação de trabalhadoras/es nos conselhos municipais é observada através (@fig-trab_cmun)[^67]. Observa-se que, nos municípios, a categoria de representação mais crescente nos CMAS são de trabalhadoras/es, sem vinculação a nenhum coletivo, esse dado cresce 25 pontos percentuais entre o período de 2018 (40%) a 2022 (65%). Outras categorias que aumentam nesse período são: Conselhos de Classe (CRESS, CFP, outros conselhos de classe) que aumentam de 23% em 2018 para 27% em 2022. Representações de sindicado de trabalahdores e Forum ou coletivo de trabalhadoras/es também crescem 1 ponto percentual como pode ser observado abaixo.
 
-[^69]: gráfico a partir do ano de 2018 em decorrência do início da modalidade das perguntas no formulário do Censo SUAS
+[^67]: gráfico a partir do ano de 2018 em decorrência do início da modalidade das perguntas no formulário do Censo SUAS
 
-```{r fig-trab_cmun, fig.cap = "Representantes de trabalhadoras (es) nos Conselhos Municipais de Assistência Social", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r fig-trab_cmun, fig.cap = "Representantes de trabalhadoras/es nos Conselhos Municipais de Assistência Social", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 trab_cmun= function(df, q, ano, cod_categoria){
   q <- enquo(q)
@@ -7538,12 +7518,12 @@ trab_cmun= function(df, q, ano, cod_categoria){
   cod_categoria <- quo_name(cod_categoria)
 
 #2018
-  categoria <- case_when(!! cod_categoria == "1"~"Representante de sindicato de trabalhadoras(es)",
+  categoria <- case_when(!! cod_categoria == "1"~"Representante de sindicato de trabalhadoras/es",
                          !! cod_categoria == "2"~"Representante de conselho de classe profissional (CRESS, CFP, outros conselhos de classe)",
-                         !! cod_categoria == "3"~"Representante de associação, fórum ou coletivo de trabalhadoras(es)",
-                         !! cod_categoria == "4"~"A(O) própria(o) trabalhador(a) do SUAS, sem vinculação a nenhum coletivo",
+                         !! cod_categoria == "3"~"Representante de associação, fórum ou coletivo de trabalhadoras/es",
+                         !! cod_categoria == "4"~"O/A próprio/a trabalhador/a do SUAS, sem vinculação a nenhum coletivo",
                          !! cod_categoria == "5"~"Outros",
-                         !! cod_categoria == "6"~"Este Conselho não possui representantes de trabalhadoras(es)")
+                         !! cod_categoria == "6"~"Este Conselho não possui representantes de trabalhadoras/es")
                          
 
 
@@ -7618,7 +7598,7 @@ grafico
 
 ## Considerações Finais
 
-O Controle Social no SUAS tem importante papel na gestão democrática e desenvolvimento de cidadania ativa na agenda da política de Assistência Social. Destaca-se para este capítulo importantes avanços nas prerrogativas legais, a saber das resoluções CNAS/MDS nº 99, DE 4 de Abril de 2023 e nº 100, de 20 de abril de 2023. Estas resoluções versam sobre aspectos de funcionamento dos conselhos, bem como participação, em especial de usuários. Os dados mostram que em relação a estrutura física, 100% dos conselhos estaduais possuem sede e local específico para funcionamento dos conselhos, no âmbito do controle municipal, os registros são de 58% com sede e local específicos para funcionamento. As secretárias executivas também se configuram em um papel essencial para funcionamento dos conselhos, no âmbito dos conselhos estaduais destaca-se que 92% possuem este profissional de forma exclusiva. Esse dado teve redução a partir de 2017 na qual dispunha de 100% dos conselhos estaduais com esse profissional. Para os municípios, 82% possuem secretarias executivas. Para os municípios, foram analisados a presença destes profissionais de forma exclusiva ou não, haja vista demarcação da resolução para pequenos municípios (Pequenos Portes I e II). Sobre a dinâmica de funcionamento, 96,2% dos conselhos estaduais realizaram no último ano, acima de 9 reuniões e, os conselhos municipais 58% dos conselhos realizaram acima de 9 reuniões no ano da apuração do censo suas 2022. No tocante a recursos do IGD Bolsa Família e SUAS para controle social, historicamente este valor não é repassado em 100% dos conselhos, na escala de 10 anos (2012 a 2022), apenas 4 anos foram sinalizados por 100% dos conselhos estaduais enquanto recebimento deste recurso para funcionamento do controle social. No âmbito dos conselhos municipais, nos últimos 10 anos, não há histórico de 100% dos conselhos municipais receberem este recurso. Destaca-se que em 2022, 82% dos CMAS sinalizaram utilizar destes recursos para controle social. Em referência ao controle social do Programa Bolsa Família pelos conselhos, destaca-se que os CEAS informam que 88% possuem esta instancia e 91% dos conselhos municipais. Debates sobre o planejamento da Política de Assistência Social devem fazer parte das reuniões, 65% dos conselhos estaduais informam possuir esses dados. Em relação aos conselhos municipais, 82% informam debater. A proposta orçamentária também deve ser deliberada pelo controle social, entretanto, 69% dos CEAS e 74% dos CMAS informam deliberar sobre este assunto. Em relação a deliberação referente a oferta de Benefícios Eventuais, a oferta é baixa, com 65% dos CEAS no último ano, e os conselhos municipais, observa-se um avanço histórico nos CMAS. A representação e representatividade se destaca como um tema importante, para esta publicação, elencamos informações sobre as composições de usuários e de trabalhadores (as) dos conselhos estaduais e municipais.
+O Controle Social no SUAS tem importante papel na gestão democrática e desenvolvimento de cidadania ativa na agenda da política de Assistência Social. Destaca-se para este capítulo importantes avanços nas prerrogativas legais, a saber das resoluções CNAS/MDS nº 99, DE 4 de Abril de 2023 e nº 100, de 20 de abril de 2023. Estas resoluções versam sobre aspectos de funcionamento dos conselhos, bem como participação, em especial de usuários. Os dados mostram que em relação a estrutura física, 100% dos conselhos estaduais possuem sede e local específico para funcionamento dos conselhos, no âmbito do controle municipal, os registros são de 58% com sede e local específicos para funcionamento. As secretárias executivas também se configuram em um papel essencial para funcionamento dos conselhos, no âmbito dos conselhos estaduais destaca-se que 92% possuem este profissional de forma exclusiva. Esse dado teve redução a partir de 2017 na qual dispunha de 100% dos conselhos estaduais com esse profissional. Para os municípios, 82% possuem secretarias executivas. Para os municípios, foram analisados a presença destes profissionais de forma exclusiva ou não, haja vista demarcação da resolução para pequenos municípios (Pequenos Portes I e II). Sobre a dinâmica de funcionamento, 96,2% dos conselhos estaduais realizaram no último ano, acima de 9 reuniões e, os conselhos municipais 58% dos conselhos realizaram acima de 9 reuniões no ano da apuração do censo suas 2022. No tocante a recursos do IGD Bolsa Família e SUAS para controle social, historicamente este valor não é repassado em 100% dos conselhos, na escala de 10 anos (2012 a 2022), apenas 4 anos foram sinalizados por 100% dos conselhos estaduais enquanto recebimento deste recurso para funcionamento do controle social. No âmbito dos conselhos municipais, nos últimos 10 anos, não há histórico de 100% dos conselhos municipais receberem este recurso. Destaca-se que em 2022, 82% dos CMAS sinalizaram utilizar destes recursos para controle social. Em referência ao controle social do Programa Bolsa Família pelos conselhos, destaca-se que os CEAS informam que 88% possuem esta instancia e 91% dos conselhos municipais. Debates sobre o planejamento da Política de Assistência Social devem fazer parte das reuniões, 65% dos conselhos estaduais informam possuir esses dados. Em relação aos conselhos municipais, 82% informam debater. A proposta orçamentária também deve ser deliberada pelo controle social, entretanto, 69% dos CEAS e 74% dos CMAS informam deliberar sobre este assunto. Em relação a deliberação referente a oferta de Benefícios Eventuais, a oferta é baixa, com 65% dos CEAS no último ano, e os conselhos municipais, observa-se um avanço histórico nos CMAS. A representação e representatividade se destaca como um tema importante, para esta publicação, elencamos informações sobre as composições de usuários e de trabalhadoras/es dos conselhos estaduais e municipais.
 
 ```{r fig-pub_cmas, fig.cap = "Percentual de conselhos municipais que publicam as resoluções em diário oficial", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -7697,7 +7677,7 @@ cmun_usu= function(df, q, ano, cod_categoria){
                          !! cod_categoria == "2"~"O Conselho disponibiliza contatos (e-mail/ telefone/whatsapp) para o público",
                          !! cod_categoria == "3"~"O Conselho tem página nas redes sociais (Facebook, blog etc)",
                          !! cod_categoria == "4"~"O Conselho tem canal de recebimento de denúncias",
-                         !! cod_categoria == "5"~"O Conselho convida usuárias(os), além das(os) conselheiras(os), para a participação nas reuniões plenárias",
+                         !! cod_categoria == "5"~"O Conselho convida usuárias/os, além das/os conselheiras/os, para a participação nas reuniões plenárias",
                          !! cod_categoria == "6"~"O Conselho divulga ações e temas discutidos pelo Conselho nos equipamentos da Assistência Social",
                          !! cod_categoria == "7"~"Outros")
 
@@ -7764,7 +7744,7 @@ ceas_usu= function(df, q, ano, cod_categoria){
                          !! cod_categoria == "2"~"O Conselho disponibiliza contatos (e-mail/ telefone/whatsapp) para o público",
                          !! cod_categoria == "3"~"O Conselho tem página nas redes sociais (Facebook, blog etc)",
                          !! cod_categoria == "4"~"O Conselho tem canal de recebimento de denúncias",
-                         !! cod_categoria == "5"~"O Conselho convida usuárias(os), além das(os) conselheiras(os), para a participação nas reuniões plenárias",
+                         !! cod_categoria == "5"~"O Conselho convida usuárias/os, além das/os conselheiras/os, para a participação nas reuniões plenárias",
                          !! cod_categoria == "6"~"O Conselho divulga ações e temas discutidos pelo Conselho nos equipamentos da Assistência Social",
                          !! cod_categoria == "7"~"Outros")
 
