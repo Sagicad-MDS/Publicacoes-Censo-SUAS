@@ -1,0 +1,768 @@
+---
+title: "Indicadores de Desenvolvimento"
+number-sections: true
+execute:
+  echo: false
+  message: false
+  warning: false
+  cache: false
+fig-cap-location: top
+crossref:
+  fig-title: Gráfico     # (default is "Figure")
+  tbl-title: Tabela     # (default is "Table")
+  title-delim: "."      # (default is ":")
+  fig-prefix: Gráfico   # (default is "Figure")
+  tbl-prefix: Tabela    # (default is "Table")
+#  ref-hyperlink: false # (default is true)
+format:
+  html:
+    embed-resources: true
+editor: visual
+---
+
+```{r setup, include=FALSE}
+
+gera.graficos.office = FALSE;
+
+lista.de.pacotes = c("tinytex",
+                     "tidyverse",
+                     "janitor",
+                     "repmis",
+#                     "survey","srvyr",
+                     "ggrepel",
+                     "renv",
+                     "readODS",
+                     "prismatic") # escreva a lista de pacotes
+
+if(gera.graficos.office) {
+  lista.de.pacotes <- append(lista.de.pacotes, "export")
+  arquivo_graficos = "Censo-SUAS-2022-graficos"
+  arquivo_graficos_criado = FALSE
+}
+
+novos.pacotes <- lista.de.pacotes[!(lista.de.pacotes %in%
+                                      installed.packages()[,"Package"])]
+
+if(length(novos.pacotes) > 0) {install.packages(novos.pacotes, repos = "http://cran.us.r-project.org")}
+
+ # adiciona pacotes do tidyverse para serem carregados
+lista.de.pacotes <- append(lista.de.pacotes, c("readxl", "scales"))
+
+lapply(lista.de.pacotes, require, character.only=T)
+rm(lista.de.pacotes,novos.pacotes)
+gc()
+```
+
+```{r carregamento, cache=TRUE}
+
+idconselho_2014 <- read_excel("../ID CONSELHO/IDConselho2014_alterado_08-12-2016.xlsx")
+idconselho_2015 <- read_excel("../ID CONSELHO/ID CONSELHO - 2015.xlsx")
+idconselho_2016 <- read_excel("../ID CONSELHO/ID CONSELHO - 2016.xlsx")
+idconselho_2017 <- read_excel("../ID CONSELHO/ID CONSELHO - 2017.xlsx")
+idconselho_2018 <- read_excel("../ID CONSELHO/ID CONSELHO - 2018.xlsx")
+idconselho_2019 <- read_excel("../ID CONSELHO/ID CONSELHO - 2019.xlsx", guess_max=7)
+idconselho_2020 <- read_excel("../ID CONSELHO/ID CONSELHO - 2020.xlsx", guess_max=12)
+idconselho_2021 <- read_excel("../ID CONSELHO/IDCONSELHO_2021_divulgacao.xlsx", guess_max=140)
+idconselho_2022 <- read_excel("../ID CONSELHO/IDConselho_Municipal_2022_divulgacao.xlsx")
+
+idcras_2014 <- read_excel("../ID CRAS/NOVO_IDCRAS_2014_divulgação_retificado_07_10_2016.xlsx")
+idcras_2015 <- read_excel("../ID CRAS/NOVO_IDCRAS_2015_divulgação_retificado_07_10_2016.xlsx")
+idcras_2016 <- read_excel("../ID CRAS/IDCRAS_2016_FINAL_(01062017).xlsx")
+idcras_2017 <- read_excel("../ID CRAS/IDCRAS_2017_DIVULGAÇÃO_atualizado__030523.xlsx", sheet = 2, skip=6)
+idcras_2018 <- read_excel("../ID CRAS/IDCRAS_2018_DIVULGAÇÃO_atualizado_280423.xlsx")
+idcras_2019 <- read_excel("../ID CRAS/IDCRAS_2019_DIVULGAÇÃO_atualizado_280423.xlsx")
+idcras_2020 <- read_excel("../ID CRAS/IDCRAS_2020_DIVULGAÇÃO_atualizado_280423(1).xlsx")
+idcras_2021 <- read_excel("../ID CRAS/IDCRAS_2021_DIVULGAÇÃO_atulaizado_280423(1).xlsx")
+idcras_2022 <- read_excel("../ID CRAS/IDCRAS_2022_DIVULGAÇÃO_atualizado_280423(1).xlsx")
+
+idcreas_2014 <- read_excel("../ID CREAS/IDCREAS_2014_DIVULGACAO_site.xlsx")
+idcreas_2015 <- read_excel("../ID CREAS/ID_CREAS_2015_divulgacao_site.xlsx")
+idcreas_2016 <- read_excel("../ID CREAS/IDCREAS_2016_DIVULGAÇÃO.xlsx")
+idcreas_2017 <- read_excel("../ID CREAS/IDCREAS_2017_DIVULGAÇÃO (2).xlsx")
+idcreas_2018 <- read_excel("../ID CREAS/IDCREAS2018_divulgacao(2).xlsx")
+idcreas_2019 <- read_excel("../ID CREAS/IDCREAS2019_divulgacao.xlsx")
+idcreas_2020 <- read_excel("../ID CREAS/IDCREAS2020_divulgacao.xlsx")
+idcreas_2021 <- read_excel("../ID CREAS/IDCREAS2021_divulgacao_retificado191022(1) (1).xlsx")
+idcreas_2022 <- read_excel("../ID CREAS/IDCREAS2022_divulgacao_retificado270923.xlsx")
+```
+
+```{r funcoes}
+
+f_media_regiao_2_grupos = function(df, q, regiao, grupo1, grupo2){
+  q <- enquo(q)
+  regiao <- enquo(regiao)
+  grupo1 <- quo_name(grupo1)
+  grupo2 <- quo_name(grupo2)
+
+  brasil <- df %>%
+    select(!! q) %>%
+    filter(!is.na(!! q)) %>%
+    summarise(m=mean(!! q)) %>%
+    mutate("Região" = "Brasil")
+
+  df %>%
+    select(!! q, !! regiao) %>%
+    filter(!is.na(!! q)) %>%
+    mutate(!! regiao := case_when(
+      substr(!! regiao,1,1) == "1"~"Norte",
+      substr(!! regiao,1,1) == "2"~"Nordeste",
+      substr(!! regiao,1,1) == "3"~"Sudeste",
+      substr(!! regiao,1,1) == "4"~"Sul",
+      substr(!! regiao,1,1) == "5"~"Centro-Oeste",
+      TRUE ~ str_replace(!! regiao, "Região ", ""))) %>%
+    group_by(!! regiao) %>%
+    summarise(m=mean(!! q)) %>%
+    mutate("Região" = !! regiao) %>%
+    bind_rows(brasil) %>%
+    mutate("Grupo1" = !! grupo1) %>%
+    mutate("Grupo2" = !! grupo2)
+}
+
+f_quantitativo_regiao_niveis = function(df, q_grupo, regiao, grupo2){
+  q_grupo <- enquo(q_grupo)
+  regiao <- enquo(regiao)
+  grupo2 <- quo_name(grupo2)
+
+  df %>%
+    select(!! q_grupo, !! regiao) %>%
+    mutate(!! regiao := case_when(
+      substr(!! regiao,1,1) == "1"~"Norte",
+      substr(!! regiao,1,1) == "2"~"Nordeste",
+      substr(!! regiao,1,1) == "3"~"Sudeste",
+      substr(!! regiao,1,1) == "4"~"Sul",
+      substr(!! regiao,1,1) == "5"~"Centro-Oeste",
+      TRUE ~ str_replace(!! regiao, "Região ", ""))) %>%
+    mutate(!! q_grupo := case_when(
+      !! q_grupo == 1~"Nível 1",
+      !! q_grupo == 2~"Nível 2",
+      !! q_grupo == 3~"Nível 3",
+      !! q_grupo == 4~"Nível 4",
+      !! q_grupo == 5~"Nível 5")) %>%
+    count(!! q_grupo, !! regiao, name = "n", .drop = F) %>%
+#    spread(!! regiao, n, fill = 0) %>%
+#    mutate("Brasil" = rowSums(.[2:6])) %>%
+#    gather("Região","n", -!! q_grupo) %>%
+    mutate("Região" = !! regiao) %>%
+    mutate("Grupo1" = !! q_grupo) %>%
+    mutate("Grupo2" = !! grupo2)
+}
+
+f_percentual_regiao_niveis = function(df, q_grupo, regiao, grupo2){
+  q_grupo <- enquo(q_grupo)
+  regiao <- enquo(regiao)
+  grupo2 <- quo_name(grupo2)
+
+  df %>%
+    select(!! q_grupo, !! regiao) %>%
+    mutate(!! regiao := case_when(
+      substr(!! regiao,1,1) == "1"~"Norte",
+      substr(!! regiao,1,1) == "2"~"Nordeste",
+      substr(!! regiao,1,1) == "3"~"Sudeste",
+      substr(!! regiao,1,1) == "4"~"Sul",
+      substr(!! regiao,1,1) == "5"~"Centro-Oeste",
+      TRUE ~ str_replace(!! regiao, "Região ", ""))) %>%
+    mutate(!! q_grupo := case_when(
+      !! q_grupo == 1~"Nível 1",
+      !! q_grupo == 2~"Nível 2",
+      !! q_grupo == 3~"Nível 3",
+      !! q_grupo == 4~"Nível 4",
+      !! q_grupo == 5~"Nível 5")) %>%
+    count(!! q_grupo, !! regiao, name = "n", .drop = F) %>%
+    spread(!! regiao, n, fill = 0) %>%
+    mutate("Brasil" = rowSums(.[2:6])) %>%
+    gather("Região","n", -!! q_grupo) %>%
+    group_by(Região) %>%
+    mutate(Percentual = n/sum(n)) %>%
+    mutate("Grupo1" = !! q_grupo) %>%
+    mutate("Grupo2" = !! grupo2)
+}
+
+f_grafico_col_numero_flip_3_groups = function(df, x1, x2, y, grupo){
+  x1 <- enquo(x1)
+  x2 <- enquo(x2)
+  y <- enquo(y)
+  grupo <- enquo(grupo)
+
+  df <- df %>%
+    ggplot(aes(x = fct_rev(!! x2), y = !! y, group = fct_rev(!! grupo))) +
+    geom_col(aes(fill = !! grupo), position = "dodge") +
+    geom_text(aes(label = format(!! y, big.mark=".", digits = 3, decimal.mark = ",")),
+              hjust = -0.1,
+              position = position_dodge(width = 0.9),
+              check_overlap = TRUE) +
+    facet_wrap(vars(!! x1), strip.position = "left", ncol = 1) +
+    scale_x_discrete(expand = expansion(add = 1)) +
+    scale_y_continuous(expand = expansion(mult = c(0, .11))) +
+    scale_fill_viridis_d() +
+    coord_flip() +
+    theme(legend.position="right",
+          legend.title = element_blank(),
+          axis.title = element_blank(),
+          axis.ticks = element_blank(),
+          axis.text.x = element_blank(),
+          axis.line.y = element_line(),
+          panel.background = element_blank(),
+          panel.spacing = unit(0, "lines"),
+          strip.background = element_blank(),
+          strip.placement = "outside",
+          strip.text.y.left = element_text(angle = 0, hjust = 1)
+         )
+  if(gera.graficos.office) {
+    df %>% graph2office(file=arquivo_graficos, append = arquivo_graficos_criado, paper = "A4", orient = "portrait")
+    arquivo_graficos_criado <<- TRUE
+  }
+  df
+}
+
+f_grafico_col_stack_percent_flip_2_x_groups = function(df, x1, x2, y, grupo){
+  x1 <- enquo(x1)
+  x2 <- enquo(x2)
+  y <- enquo(y)
+  grupo <- enquo(grupo)
+
+  df <- df %>%
+    mutate(precisao = ifelse(!! y < 0.0995, 0.1, 1)) %>%
+    arrange(!! grupo) %>%
+    ggplot(aes(x = fct_rev(!! x2), y = !! y)) +
+    geom_col(aes(fill = !! grupo), position = position_stack(reverse = TRUE)) +
+    geom_text(aes(label = ifelse(!! y > 0.0005, label_percent(accuracy = precisao, decimal.mark = ",")(!! y), ""), fill = !! grupo, color = after_scale(prismatic::best_contrast(fill, c("white", "black")))),
+              position = position_stack(reverse = TRUE, vjust = .5),
+              check_overlap = TRUE) +
+    facet_wrap(vars(!! x1), strip.position = "left", ncol = 1) +
+    scale_x_discrete(expand = expansion(add = 1)) +
+    scale_y_continuous(expand = expansion(mult = c(0, 0.05))) +
+    scale_fill_viridis_d() +
+    coord_flip() +
+    theme(legend.position="bottom",
+          legend.title = element_blank(),
+          axis.title = element_blank(),
+          axis.ticks = element_blank(),
+          axis.text.x = element_blank(),
+          axis.line.y = element_line(),
+          panel.background = element_blank(),
+          panel.spacing = unit(0, "lines"),
+          strip.background = element_blank(),
+          strip.placement = "outside",
+          strip.text.y.left = element_text(angle = 0, hjust = 1)
+          )+
+  if(gera.graficos.office) {
+    df %>% graph2office(file=arquivo_graficos, append = arquivo_graficos_criado, paper = "A4", orient = "portrait")
+    arquivo_graficos_criado <<- TRUE
+  }
+  df
+}
+
+```
+
+# Indicador de Desenvolvimento do CRAS
+
+## Indicador de Desenvolvimento do CRAS, médias
+
+```{r fig-idcras, fig.cap = "Indicador de Desenvolvimento do CRAS, médias:"}
+#| fig-height: 40
+
+tabela <- f_media_regiao_2_grupos(idcras_2014, `IDCRAS 2014sintético`, IBGE, "ID CRAS", "2014") %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2014, `Dimensão Estrutura Física`, IBGE, "Estrutura Física", "2014")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2014, `Dimensão Recursos Humanos`, IBGE, "Recursos Humanos", "2014")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2014, `Dimensão Serviços & Benefícios`, IBGE, "Serviços & Benefícios", "2014")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idcras_2015, `IDCRAS 2015 sintético`, IBGE, "ID CRAS", "2015")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2015, `Dimensão Estrutura Física`, IBGE, "Estrutura Física", "2015")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2015, `Dimensão Recursos Humanos`, IBGE, "Recursos Humanos", "2015")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2015, `Dimensão Serviços & Benefícios`, IBGE, "Serviços & Benefícios", "2015")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idcras_2016, `IDCRAS 2016sintético`, IBGE, "ID CRAS", "2016")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2016, `Dimensão Estrutura Física`, IBGE, "Estrutura Física", "2016")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2016, `Dimensão Recursos Humanos`, IBGE, "Recursos Humanos", "2016")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2016, `Dimensão Serviços & Benefícios`, IBGE, "Serviços & Benefícios", "2016")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idcras_2017, IDCRAS, Região, "ID CRAS", "2017")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2017, `Estrutura Física`, Região, "Estrutura Física", "2017")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2017, `Recursos Humanos`, Região, "Recursos Humanos", "2017")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2017, `Serviços `, Região, "Serviços & Benefícios", "2017")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idcras_2018, IDCRAS, Região, "ID CRAS", "2018")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2018, `Estrutura Física`, Região, "Estrutura Física", "2018")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2018, `Recursos Humanos`, Região, "Recursos Humanos", "2018")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2018, `Serviços `, Região, "Serviços & Benefícios", "2018")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idcras_2019, IDCRAS, Região, "ID CRAS", "2019")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2019, `Estrutura Física`, Região, "Estrutura Física", "2019")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2019, `Recursos Humanos`, Região, "Recursos Humanos", "2019")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2019, `Serviços `, Região, "Serviços & Benefícios", "2019")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idcras_2020, IDCRAS, Região, "ID CRAS", "2020")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2020, `Estrutura Física`, Região, "Estrutura Física", "2020")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2020, `Recursos Humanos`, Região, "Recursos Humanos", "2020")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2020, `Serviços `, Região, "Serviços & Benefícios", "2020")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idcras_2021, IDCRAS, Região, "ID CRAS", "2021")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2021, `Estrutura Física`, Região, "Estrutura Física", "2021")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2021, `Recursos Humanos`, Região, "Recursos Humanos", "2021")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2021, `Serviços `, Região, "Serviços & Benefícios", "2021")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idcras_2022, IDCRAS, Região, "ID CRAS", "2022")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2022, `Estrutura Física`, Região, "Estrutura Física", "2022")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2022, `Recursos Humanos`, Região, "Recursos Humanos", "2022")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2022, `Serviços `, Região, "Serviços & Benefícios", "2022")) %>%
+
+  mutate(Grupo1 = factor(Grupo1, levels = c("Estrutura Física",
+                                          "Recursos Humanos",
+                                          "Serviços & Benefícios",
+                                          "ID CRAS")))
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Região, Grupo2, m, Grupo1)
+
+```
+
+```{r fig-idcras-2, fig.cap = "Indicador de Desenvolvimento do CRAS, médias:"}
+#| fig-height: 40
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Região, Grupo1, m, Grupo2)
+
+```
+
+```{r fig-idcras-3, fig.cap = "Indicador de Desenvolvimento do CRAS, médias:"}
+#| fig-height: 40
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Grupo1, Região, m, Grupo2)
+
+```
+
+```{r fig-idcras-4, fig.cap = "Indicador de Desenvolvimento do CRAS, médias:"}
+#| fig-height: 40
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Grupo1, Grupo2, m, Região)
+
+```
+
+```{r fig-idcras-5, fig.cap = "Indicador de Desenvolvimento do CRAS, médias:"}
+#| fig-height: 40
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Grupo2, Grupo1, m, Região)
+
+```
+
+```{r fig-idcras-6, fig.cap = "Indicador de Desenvolvimento do CRAS, médias:"}
+#| fig-height: 40
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Grupo2, Região, m, Grupo1)
+
+```
+
+## Indicador de Desenvolvimento do CRAS, quantitativo de CRAS em cada nível, 2022
+
+```{r fig-idcras-niveis, fig.cap = "Indicador de Desenvolvimento do CRAS, quantitativo de CRAS em cada nível, 2022:"}
+#| fig-height: 20
+
+tabela <- f_quantitativo_regiao_niveis(idcras_2022, `Estrutura Física`, IBGE7, "Estrutura Física") %>%
+  bind_rows(f_quantitativo_regiao_niveis(idcras_2022, `Recursos Humanos`, IBGE7, "Recursos Humanos")) %>%
+  bind_rows(f_quantitativo_regiao_niveis(idcras_2022, `Serviços `, IBGE7, "Serviços & Benefícios")) %>%
+
+  mutate(Grupo2 = factor(Grupo2, levels = c("Estrutura Física",
+                                            "Recursos Humanos",
+                                            "Serviços & Benefícios")))
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Região, Grupo2, n, Grupo1)
+
+```
+
+```{r fig-idcras-niveis-2, fig.cap = "Indicador de Desenvolvimento do CRAS, quantitativo de CRAS em cada nível, 2022:"}
+#| fig-height: 20
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Região, Grupo1, n, Grupo2)
+
+```
+
+```{r fig-idcras-niveis-3, fig.cap = "Indicador de Desenvolvimento do CRAS, quantitativo de CRAS em cada nível, 2022:"}
+#| fig-height: 20
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Grupo1, Região, n, Grupo2)
+
+```
+
+```{r fig-idcras-niveis-4, fig.cap = "Indicador de Desenvolvimento do CRAS, quantitativo de CRAS em cada nível, 2022:"}
+#| fig-height: 20
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Grupo1, Grupo2, n, Região)
+
+```
+
+```{r fig-idcras-niveis-5, fig.cap = "Indicador de Desenvolvimento do CRAS, quantitativo de CRAS em cada nível, 2022:"}
+#| fig-height: 20
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Grupo2, Grupo1, n, Região)
+
+```
+
+```{r fig-idcras-niveis-6, fig.cap = "Indicador de Desenvolvimento do CRAS, quantitativo de CRAS em cada nível, 2022:"}
+#| fig-height: 20
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Grupo2, Região, n, Grupo1)
+
+```
+
+## Indicador de Desenvolvimento do CRAS, percentuais de CRAS em cada nível, 2022
+
+```{r fig-idcras-percentual, fig.cap = "Indicador de Desenvolvimento do CRAS, percentuais de CRAS em cada nível, 2022"}
+
+tabela <-
+            f_percentual_regiao_niveis(idcras_2022, `Estrutura Física`, IBGE7, "Estrutura Física") %>%
+  bind_rows(f_percentual_regiao_niveis(idcras_2022, `Recursos Humanos`, IBGE7, "Recursos Humanos")) %>%
+  bind_rows(f_percentual_regiao_niveis(idcras_2022, `Serviços `, IBGE7, "Serviços & Benefícios")) %>%
+
+  mutate(Grupo2 = factor(Grupo2, levels = c("Estrutura Física",
+                                            "Recursos Humanos",
+                                            "Serviços & Benefícios")))
+
+  tabela %>% f_grafico_col_stack_percent_flip_2_x_groups(Região, Grupo2, Percentual, Grupo1)
+
+```
+
+```{r fig-idcras-percentual-1, fig.cap = "Indicador de Desenvolvimento do CRAS, percentuais de CRAS em cada nível, 2022"}
+
+  tabela %>% f_grafico_col_stack_percent_flip_2_x_groups(Grupo2, Região, Percentual, Grupo1)
+
+```
+
+# Indicador de Desenvolvimento do CREAS
+
+## Indicador de Desenvolvimento do CREAS, médias
+
+```{r fig-idcreas, fig.cap = "Indicador de Desenvolvimento do CREAS, médias:"}
+#| fig-height: 40
+
+tabela <- f_media_regiao_2_grupos(idcreas_2014, `IDCREAS sintético`, `Código IBGE`, "ID CREAS", "2014") %>%
+  bind_rows(f_media_regiao_2_grupos(idcreas_2014, `Dimensão Estrutura Física`, `Código IBGE`, "Estrutura Física", "2014")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcreas_2014, `Dimensão Recursos Humanos`, `Código IBGE`, "Recursos Humanos", "2014")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcreas_2014, `Dimensão Serviços`, `Código IBGE`, "Serviços & Benefícios", "2014")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idcreas_2015, `IDCREAS sintético`, Região, "ID CREAS", "2015")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcreas_2015, `Dimensão Estrutura Física`, Região, "Estrutura Física", "2015")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcreas_2015, `Dimensão Recursos Humanos`, Região, "Recursos Humanos", "2015")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcreas_2015, `Dimensão Serviços`, Região, "Serviços & Benefícios", "2015")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idcreas_2016, `IDCREAS 2016`, IBGE, "ID CREAS", "2016")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcreas_2016, `Dimensão Estrutura Física`, IBGE, "Estrutura Física", "2016")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcreas_2016, `Dimensão Recursos Humanos`, IBGE, "Recursos Humanos", "2016")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcreas_2016, `Dimensão Serviços`, IBGE, "Serviços & Benefícios", "2016")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idcreas_2017, IDCREAS, Região, "ID CREAS", "2017")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcreas_2017, `Estrutura Física`, Região, "Estrutura Física", "2017")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcreas_2017, `Recursos Humanos`, Região, "Recursos Humanos", "2017")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcreas_2017, `Serviços `, Região, "Serviços & Benefícios", "2017")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idcreas_2018, ID_CREAS, Região, "ID CREAS", "2018")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcreas_2018, EF, Região, "Estrutura Física", "2018")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcreas_2018, `RH`, Região, "Recursos Humanos", "2018")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcreas_2018, `SERV`, Região, "Serviços & Benefícios", "2018")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idcreas_2019, ID_CREAS, IBGE, "ID CREAS", "2019")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcreas_2019, `EF`, IBGE, "Estrutura Física", "2019")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcreas_2019, `RH`, IBGE, "Recursos Humanos", "2019")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcreas_2019, `SERV`, IBGE, "Serviços & Benefícios", "2019")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idcreas_2020, ID_CREAS, Região, "ID CREAS", "2020")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcreas_2020, `EF`, Região, "Estrutura Física", "2020")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcreas_2020, `RH`, Região, "Recursos Humanos", "2020")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcreas_2020, `SERV`, Região, "Serviços & Benefícios", "2020")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idcreas_2021, ID_CREAS, Região, "ID CREAS", "2021")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcreas_2021, `EF`, Região, "Estrutura Física", "2021")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcreas_2021, `RH`, Região, "Recursos Humanos", "2021")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcreas_2021, `SERV`, Região, "Serviços & Benefícios", "2021")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idcreas_2022, idcreas, Região, "ID CREAS", "2022")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcreas_2022, `Estrutura Física`, Região, "Estrutura Física", "2022")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcreas_2022, `Recursos Humanos`, Região, "Recursos Humanos", "2022")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcreas_2022, `Serviços `, Região, "Serviços & Benefícios", "2022")) %>%
+
+  mutate(Grupo1 = factor(Grupo1, levels = c("Estrutura Física",
+                                          "Recursos Humanos",
+                                          "Serviços & Benefícios",
+                                          "ID CREAS")))
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Região, Grupo2, m, Grupo1)  
+
+```
+
+```{r fig-idcreas-2, fig.cap = "Indicador de Desenvolvimento do CREAS, médias:"}
+#| fig-height: 40
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Região, Grupo1, m, Grupo2)
+
+```
+
+```{r fig-idcreas-3, fig.cap = "Indicador de Desenvolvimento do CREAS, médias:"}
+#| fig-height: 40
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Grupo1, Região, m, Grupo2)
+
+```
+
+```{r fig-idcreas-4, fig.cap = "Indicador de Desenvolvimento do CREAS, médias:"}
+#| fig-height: 40
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Grupo1, Grupo2, m, Região)
+
+```
+
+```{r fig-idcreas-5, fig.cap = "Indicador de Desenvolvimento do CREAS, médias:"}
+#| fig-height: 40
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Grupo2, Grupo1, m, Região)
+
+```
+
+```{r fig-idcreas-6, fig.cap = "Indicador de Desenvolvimento do CREAS, médias:"}
+#| fig-height: 40
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Grupo2, Região, m, Grupo1)
+
+```
+
+## Indicador de Desenvolvimento do CREAS, quantitativo de CREAS em cada nível, 2022
+
+```{r fig-idcreas-niveis, fig.cap = "Indicador de Desenvolvimento do CREAS, quantitativo de CREAS em cada nível, 2022:"}
+#| fig-height: 20
+
+tabela <- f_quantitativo_regiao_niveis(idcreas_2022, `Estrutura Física`, `Código IBGE`, "Estrutura Física") %>%
+  bind_rows(f_quantitativo_regiao_niveis(idcreas_2022, `Recursos Humanos`, `Código IBGE`, "Recursos Humanos")) %>%
+  bind_rows(f_quantitativo_regiao_niveis(idcreas_2022, `Serviços `, `Código IBGE`, "Serviços & Benefícios")) %>%
+
+  mutate(Grupo2 = factor(Grupo2, levels = c("Estrutura Física",
+                                            "Recursos Humanos",
+                                            "Serviços & Benefícios")))
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Região, Grupo2, n, Grupo1)
+
+```
+
+```{r fig-idcreas-niveis-2, fig.cap = "Indicador de Desenvolvimento do CREAS, quantitativo de CREAS em cada nível, 2022:"}
+#| fig-height: 20
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Região, Grupo1, n, Grupo2)
+
+```
+
+```{r fig-idcreas-niveis-3, fig.cap = "Indicador de Desenvolvimento do CREAS, quantitativo de CREAS em cada nível, 2022:"}
+#| fig-height: 20
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Grupo1, Região, n, Grupo2)
+
+```
+
+```{r fig-idcreas-niveis-4, fig.cap = "Indicador de Desenvolvimento do CREAS, quantitativo de CREAS em cada nível, 2022:"}
+#| fig-height: 20
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Grupo1, Grupo2, n, Região)
+
+```
+
+```{r fig-idcreas-niveis-5, fig.cap = "Indicador de Desenvolvimento do CREAS, quantitativo de CREAS em cada nível, 2022:"}
+#| fig-height: 20
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Grupo2, Grupo1, n, Região)
+
+```
+
+```{r fig-idcreas-niveis-6, fig.cap = "Indicador de Desenvolvimento do CREAS, quantitativo de CREAS em cada nível, 2022:"}
+#| fig-height: 20
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Grupo2, Região, n, Grupo1)
+
+```
+
+## Indicador de Desenvolvimento do CREAS, percentuais de CREAS em cada nível, 2022
+
+```{r fig-idcreas-percentual, fig.cap = "Indicador de Desenvolvimento do CREAS, percentuais de CREAS em cada nível, 2022"}
+
+tabela <-
+            f_percentual_regiao_niveis(idcreas_2022, `Estrutura Física`, `Código IBGE`, "Estrutura Física") %>%
+  bind_rows(f_percentual_regiao_niveis(idcreas_2022, `Recursos Humanos`, `Código IBGE`, "Recursos Humanos")) %>%
+  bind_rows(f_percentual_regiao_niveis(idcreas_2022, `Serviços `, `Código IBGE`, "Serviços & Benefícios")) %>%
+
+  mutate(Grupo2 = factor(Grupo2, levels = c("Estrutura Física",
+                                            "Recursos Humanos",
+                                            "Serviços & Benefícios")))
+
+  tabela %>% f_grafico_col_stack_percent_flip_2_x_groups(Região, Grupo2, Percentual, Grupo1)
+
+```
+
+```{r fig-idcreas-percentual-1, fig.cap = "Indicador de Desenvolvimento do CREAS, percentuais de CREAS em cada nível, 2022"}
+
+  tabela %>% f_grafico_col_stack_percent_flip_2_x_groups(Grupo2, Região, Percentual, Grupo1)
+
+```
+
+# Indicador de Desenvolvimento dos Conselhos
+
+## Indicador de Desenvolvimento dos Conselhos, médias
+
+```{r fig-idconselho, fig.cap = "Indicador de Desenvolvimento dos Conselhos, médias:"}
+#| fig-height: 40
+
+tabela <- f_media_regiao_2_grupos(idconselho_2014, IDConselho, IBGE, "ID Conselho", "2014") %>%
+  bind_rows(f_media_regiao_2_grupos(idconselho_2014, `Estrutura Administrativa`, IBGE, "Estrutura Administrativa", "2014")) %>%
+  bind_rows(f_media_regiao_2_grupos(idconselho_2014, `Dinâmica de Funcionamento`, IBGE, "Dinâmica de Funcionamento", "2014")) %>%
+  bind_rows(f_media_regiao_2_grupos(idconselho_2014, `Composição do Conselho`, IBGE, "Composição do Conselho", "2014")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idconselho_2015, `IDConselho - 2015`, IBGE, "ID Conselho", "2015")) %>%
+  bind_rows(f_media_regiao_2_grupos(idconselho_2015, `Estrutura Administrativa`, IBGE, "Estrutura Administrativa", "2015")) %>%
+  bind_rows(f_media_regiao_2_grupos(idconselho_2015, `Dinâmica de Funcionamento`, IBGE, "Dinâmica de Funcionamento", "2015")) %>%
+  bind_rows(f_media_regiao_2_grupos(idconselho_2015, `Composição do Conselho`, IBGE, "Composição do Conselho", "2015")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idconselho_2016, IDConselho, IBGE, "ID Conselho", "2016")) %>%
+  bind_rows(f_media_regiao_2_grupos(idconselho_2016, `Estrutura Administrativa`, IBGE, "Estrutura Administrativa", "2016")) %>%
+  bind_rows(f_media_regiao_2_grupos(idconselho_2016, `Dinâmica de Funcionamento`, IBGE, "Dinâmica de Funcionamento", "2016")) %>%
+  bind_rows(f_media_regiao_2_grupos(idconselho_2016, `Composição do Conselho`, IBGE, "Composição do Conselho", "2016")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idconselho_2017, IDConselho, IBGE, "ID Conselho", "2017")) %>%
+  bind_rows(f_media_regiao_2_grupos(idconselho_2017, `Estrutura Administrativa`, IBGE, "Estrutura Administrativa", "2017")) %>%
+  bind_rows(f_media_regiao_2_grupos(idconselho_2017, `Dinâmica de Funcionamento`, IBGE, "Dinâmica de Funcionamento", "2017")) %>%
+  bind_rows(f_media_regiao_2_grupos(idconselho_2017, `Composição do Conselho`, IBGE, "Composição do Conselho", "2017")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idconselho_2018, IDConselho, IBGE, "ID Conselho", "2018")) %>%
+  bind_rows(f_media_regiao_2_grupos(idconselho_2018, `Estrutura Administrativa`, IBGE, "Estrutura Administrativa", "2018")) %>%
+  bind_rows(f_media_regiao_2_grupos(idconselho_2018, `Dinâmica de Funcionamento`, IBGE, "Dinâmica de Funcionamento", "2018")) %>%
+  bind_rows(f_media_regiao_2_grupos(idconselho_2018, `Composição do Conselho`, IBGE, "Composição do Conselho", "2018")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idconselho_2019, IDConselho, IBGE, "ID Conselho", "2019")) %>%
+  bind_rows(f_media_regiao_2_grupos(idconselho_2019, `Estrutura Administrativa`, IBGE, "Estrutura Administrativa", "2019")) %>%
+  bind_rows(f_media_regiao_2_grupos(idconselho_2019, `Dinâmica de Funcionamento`, IBGE, "Dinâmica de Funcionamento", "2019")) %>%
+  bind_rows(f_media_regiao_2_grupos(idconselho_2019, `Composição do Conselho`, IBGE, "Composição do Conselho", "2019")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idconselho_2020, IDConselho, IBGE, "ID Conselho", "2020")) %>%
+  bind_rows(f_media_regiao_2_grupos(idconselho_2020, `Estrutura Administrativa`, IBGE, "Estrutura Administrativa", "2020")) %>%
+  bind_rows(f_media_regiao_2_grupos(idconselho_2020, `Dinâmica de Funcionamento`, IBGE, "Dinâmica de Funcionamento", "2020")) %>%
+  bind_rows(f_media_regiao_2_grupos(idconselho_2020, `Composição do Conselho`, IBGE, "Composição do Conselho", "2020")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idconselho_2021, IDConselho, IBGE, "ID Conselho", "2021")) %>%
+  bind_rows(f_media_regiao_2_grupos(idconselho_2021, `Estrutura Administrativa`, IBGE, "Estrutura Administrativa", "2021")) %>%
+  bind_rows(f_media_regiao_2_grupos(idconselho_2021, `Dinâmica de Funcionamento`, IBGE, "Dinâmica de Funcionamento", "2021")) %>%
+  bind_rows(f_media_regiao_2_grupos(idconselho_2021, `Composição do Conselho`, IBGE, "Composição do Conselho", "2021")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idconselho_2022, IDConselho, IBGE, "ID Conselho", "2022")) %>%
+  bind_rows(f_media_regiao_2_grupos(idconselho_2022, `Estrutura Administrativa`, IBGE, "Estrutura Administrativa", "2022")) %>%
+  bind_rows(f_media_regiao_2_grupos(idconselho_2022, `Dinâmica de Funcionamento`, IBGE, "Dinâmica de Funcionamento", "2022")) %>%
+  bind_rows(f_media_regiao_2_grupos(idconselho_2022, `Composição do Conselho`, IBGE, "Composição do Conselho", "2022")) %>%
+
+  mutate(Grupo1 = factor(Grupo1, levels = c("Estrutura Administrativa",
+                                          "Dinâmica de Funcionamento",
+                                          "Composição do Conselho",
+                                          "ID Conselho")))
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Região, Grupo2, m, Grupo1)  
+
+```
+
+```{r fig-idconselho-2, fig.cap = "Indicador de Desenvolvimento dos Conselhos, médias:"}
+#| fig-height: 40
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Região, Grupo1, m, Grupo2)
+
+```
+
+```{r fig-idconselho-3, fig.cap = "Indicador de Desenvolvimento dos Conselhos, médias:"}
+#| fig-height: 40
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Grupo1, Região, m, Grupo2)
+
+```
+
+```{r fig-idconselho-4, fig.cap = "Indicador de Desenvolvimento dos Conselhos, médias:"}
+#| fig-height: 40
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Grupo1, Grupo2, m, Região)
+
+```
+
+```{r fig-idconselho-5, fig.cap = "Indicador de Desenvolvimento dos Conselhos, médias:"}
+#| fig-height: 40
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Grupo2, Grupo1, m, Região)
+
+```
+
+```{r fig-idconselho-6, fig.cap = "Indicador de Desenvolvimento dos Conselhos, médias:"}
+#| fig-height: 40
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Grupo2, Região, m, Grupo1)
+
+```
+
+## Indicador de Desenvolvimento dos Conselhos, quantitativo de Conselhos em cada nível, 2022
+
+```{r fig-idconselho-niveis, fig.cap = "Indicador de Desenvolvimento dos Conselhos, quantitativo de Conselhos em cada nível, 2022:"}
+#| fig-height: 20
+
+tabela <- f_quantitativo_regiao_niveis(idconselho_2022, `Estrutura Administrativa`, IBGE, "Estrutura Administrativa") %>%
+  bind_rows(f_quantitativo_regiao_niveis(idconselho_2022, `Dinâmica de Funcionamento`, IBGE, "Dinâmica de Funcionamento")) %>%
+  bind_rows(f_quantitativo_regiao_niveis(idconselho_2022, `Composição do Conselho`, IBGE, "Composição do Conselho")) %>%
+
+  mutate(Grupo2 = factor(Grupo2, levels = c("Estrutura Administrativa",
+                                            "Dinâmica de Funcionamento",
+                                            "Composição do Conselho")))
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Região, Grupo2, n, Grupo1)
+
+```
+
+```{r fig-idconselho-niveis-2, fig.cap = "Indicador de Desenvolvimento dos Conselhos, quantitativo de Conselhos em cada nível, 2022:"}
+#| fig-height: 20
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Região, Grupo1, n, Grupo2)
+
+```
+
+```{r fig-idconselho-niveis-3, fig.cap = "Indicador de Desenvolvimento dos Conselhos, quantitativo de Conselhos em cada nível, 2022:"}
+#| fig-height: 20
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Grupo1, Região, n, Grupo2)
+
+```
+
+```{r fig-idconselho-niveis-4, fig.cap = "Indicador de Desenvolvimento dos Conselhos, quantitativo de Conselhos em cada nível, 2022:"}
+#| fig-height: 20
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Grupo1, Grupo2, n, Região)
+
+```
+
+```{r fig-idconselho-niveis-5, fig.cap = "Indicador de Desenvolvimento dos Conselhos, quantitativo de Conselhos em cada nível, 2022:"}
+#| fig-height: 20
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Grupo2, Grupo1, n, Região)
+
+```
+
+```{r fig-idconselho-niveis-6, fig.cap = "Indicador de Desenvolvimento dos Conselhos, quantitativo de Conselhos em cada nível, 2022:"}
+#| fig-height: 20
+
+  tabela %>% f_grafico_col_numero_flip_3_groups(Grupo2, Região, n, Grupo1)
+
+```
+
+## Indicador de Desenvolvimento dos Conselhos, percentuais de Conselhos em cada nível, 2022
+
+```{r fig-idconselho-percentual, fig.cap = "Indicador de Desenvolvimento dos Conselhos, percentuais de Conselhos em cada nível, 2022"}
+
+tabela <-
+            f_percentual_regiao_niveis(idconselho_2022, `Estrutura Administrativa`, IBGE, "Estrutura Administrativa") %>%
+  bind_rows(f_percentual_regiao_niveis(idconselho_2022, `Dinâmica de Funcionamento`, IBGE, "Dinâmica de Funcionamento")) %>%
+  bind_rows(f_percentual_regiao_niveis(idconselho_2022, `Composição do Conselho`, IBGE, "Composição do Conselho")) %>%
+
+  mutate(Grupo2 = factor(Grupo2, levels = c("Estrutura Administrativa",
+                                            "Dinâmica de Funcionamento",
+                                            "Composição do Conselho")))
+
+  tabela %>% f_grafico_col_stack_percent_flip_2_x_groups(Região, Grupo2, Percentual, Grupo1)
+
+```
+
+```{r fig-idconselho-percentual-1, fig.cap = "Indicador de Desenvolvimento dos Conselhos, percentuais de Conselhos em cada nível, 2022"}
+
+  tabela %>% f_grafico_col_stack_percent_flip_2_x_groups(Grupo2, Região, Percentual, Grupo1)
+
+```
