@@ -1,0 +1,1529 @@
+```{r}
+source("_setup.R")
+source("_carregamento.R")
+source("_funcoes.R")
+```
+
+# Participação e Controle Social no SUAS
+
+A participação social é uma das diretrizes estabelecidas pela Constituição Federal de 1988 para a organização das ações da Assistência Social. Nesse sentido, a Lei Orgânica da Assistência Social (LOAS)[^54], que corresponde sobre a sua organização, instituiu em seu artigo 16 os Conselhos de Assistência Social em âmbito nacional, estadual e municipal como instâncias de deliberação colegiada do SUAS, cuja composição deve ser paritária entre governo e sociedade civil.
+
+[^54]: Lei nº 8.742, de 7 de dezembro de 1993: Dispõe sobre a organização da Assistência Social e dá outras providências. (<http://www.planalto.gov.br/ccivil_03/Leis/L8742compilado.htm>)
+
+Os Conselhos integram o Sistema Único de Assistência Social (SUAS), juntamente com o governo e as entidades e organizações de Assistência Social. A Resolução do Conselho Nacional de Assistência Social (CNAS) nº 100/2024[^55], estabelece a definição dos Conselhos de Assistência Social, suas competências, criação, estrutura e organização. Esta resolução também trata do desempenho dos conselheiros e conselheiras, bem como sua função de interesse público.
+
+[^55]: A Resolução CNAS nº 100, de 20 de abril de 2023 revoga a Resolução CNAS nº 237, de 14 de dezembro de 2006.
+
+Outra resolução importante para organização do controle social no SUAS é a Resolução nº 99/2023[^56] na qual caracteriza os usuários, seus direitos e participação na Política de Assistência Social.
+
+[^56]: Resolução CNAS/MDS nº 99, DE 4 de abril de 2023
+
+Este bloco apresenta os resultados apurados pelo Censo SUAS para os Conselhos Municipais e Estaduais de Assistência Social, considerando as dimensões de estrutura administrativa, dinâmica de funcionamento e composição.
+
+No que se refere aos dados do Censo SUAS, o @fig-qtd-ceas destaca os Conselhos Estaduais de Assistência Social. Observa-se que 100% dos conselhos responderam ao formulário do Censo SUAS.
+
+```{r fig-qtd-ceas, fig.cap = "Quantidade de Conselhos Estaduais de Assistência Social"}
+
+grafico <- f_quantitativo_regiao_ano (cest_2012, IBGE, "2012") %>%
+#  bind_rows(f_quantitativo_regiao_ano(cest_2022, IBGE, "2013")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(cest_2022, IBGE, "2014")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(cest_2022, IBGE, "2015")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(cest_2022, IBGE, "2016")) %>%
+  bind_rows(f_quantitativo_regiao_ano(cest_2022, IBGE, "2017")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(cest_2022, IBGE, "2018")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(cest_2022, IBGE, "2019")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(cest_2022, IBGE, "2020")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(cest_2022, IBGE, "2021")) %>%
+  bind_rows(f_quantitativo_regiao_ano(cest_2022, IBGE, "2022")) %>%
+  f_grafico_col_group_numero(Região, n, Ano, 1)
+
+grafico
+```
+
+Em relação aos Conselhos Municipais, o percentual de municípios que responderam ao formulário do foi acima de 95% no ano de 2022. É importante pontuar que as variações no período analisado através do @fig-qtd-cmas não significa necessariamente redução no número de municípios com conselhos, este número pode representar o número de conselhos municipais que respondem ao Censo SUAS que corresponde a 5.376.
+
+```{r fig-qtd-cmas, fig.cap = "Quantidade de Conselhos Municipais de Assistência Social que preencheram Censo SUAS"}
+
+grafico <- f_quantitativo_regiao_ano (cmun_2012, Região, "2012") %>%
+#  bind_rows(f_quantitativo_regiao_ano(cmun_2013, IBGE, "2013")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(cmun_2014, IBGE, "2014")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(cmun_2015, IBGE, "2015")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(cmun_2016, IBGE, "2016")) %>%
+  bind_rows(f_quantitativo_regiao_ano(cmun_2017, IBGE, "2017")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(cmun_2018, IBGE, "2018")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(cmun_2019, IBGE, "2019")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(cmun_2020, IBGE, "2020")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(cmun_2021, IBGE, "2021")) %>%
+  bind_rows(f_quantitativo_regiao_ano(cmun_2022, IBGE, "2022")) %>%
+  f_grafico_col_group_numero(Região, n, Ano, 1)
+
+grafico
+```
+
+## Estrutura administrativa e dinâmica de funcionamento
+
+Em relação aos Conselhos Estaduais, atualmente 100% informam possuir sede específica para funcionamento do controle social no SUAS conforme pode ser observado no @fig-ceas_sede. A existência de sede para o funcionamento dos conselhos é essencial, pois além de garantir identidade na perspetiva de espaço na qual a população pode acessar, também assegura o trabalho da/o secretária/o executiva/o e demais profissionais. Dispor de locais de arquivos e documentos, reuniões entre outros.
+
+```{r fig-ceas_sede, fig.cap = "Percentual de Conselhos estaduais que possuem local/sede específico para funcionamento"}
+
+grafico <- f_sim(cest_2012, q8, "2012") %>%
+    bind_rows(f_sim(cest_2013, q8, "2013")) %>%
+    bind_rows(f_sim(cest_2014, q9, "2014")) %>%
+    bind_rows(f_sim(cest_2015, q8, "2015")) %>%
+    bind_rows(f_sim(cest_2016, q6, "2016")) %>%
+    bind_rows(f_sim(cest_2017, q7, "2017")) %>%
+    bind_rows(f_sim(cest_2018, q_6, "2018")) %>%
+    bind_rows(f_sim(cest_2019, q6, "2019")) %>%
+    bind_rows(f_sim(cest_2020, q6, "2020")) %>%
+    bind_rows(f_sim(cest_2021, q6, "2021")) %>%
+   bind_rows(f_sim(cest_2022, q6, "2022")) %>%
+
+
+  f_grafico_col_percent(Categoria, Percentual)
+
+grafico
+```
+
+No que se refere aos Conselhos Municipais de Assistência Social o @fig-cmas_sede destaca que 58,1% dos conselhos municipais que responderam Censo SUAS informam possuir sede para o funcionamento. Destaca-se que nos últimos 10 anos, teve aumento de 45,1% para 58,1 de municípios que possuem sede para conselho de Assistência Social, dado que representa aumento de 13 pontos percentuais.
+
+```{r fig-cmas_sede, fig.cap = "Percentual de Conselhos Municipais que possuem local/sede específico para funcionamento"}
+
+grafico <- f_sim(cmun_2012, q8, "2012") %>%
+   bind_rows(f_sim(cmun_2013, q8, "2013")) %>%
+   bind_rows(f_sim(cmun_2014, q9, "2014")) %>%
+   bind_rows(f_sim(cmun_2015, q9, "2015")) %>%
+   bind_rows(f_sim(cmun_2016, q6, "2016")) %>%
+   bind_rows(f_sim(cmun_2017, q7, "2017")) %>%
+   bind_rows(f_sim(cmun_2018, q_6, "2018")) %>%
+   bind_rows(f_sim(cmun_2019, q6, "2019")) %>%
+   bind_rows(f_sim(cmun_2020, q6, "2020")) %>%
+   bind_rows(f_sim(cmun_2021, q6, "2021")) %>%
+   bind_rows(f_sim(cmun_2022, q6, "2022")) %>%
+
+
+  f_grafico_col_percent(Categoria, Percentual)
+
+grafico
+```
+
+Em relação aos conselhos estaduais, o @fig-ceas_se sinaliza que a partir de 2017 identifica-se uma redução na presença secretarias executivas. Trata-se de profissional de apoio direto ao funcionamento dos conselhos com o objetivo de fornecer suporte e assessoria técnica no cumprimento das suas competências. De acordo com a Resolução CNAS Nº 100/2023 os conselhos deverão dispor deste profissional na qual estará subordinado à presidência e ao colegiado para assegurar suporte no cumprimento das suas competências.
+
+```{r fig-ceas_se, fig.cap = "Percentual de Conselhos Estaduais que possuem secretárias/os executivas/os exclusivamente no Conselho"}
+
+grafico <- f_sim(cest_2012, q13, "2012") %>%
+   #bind_rows(f_sim(cest_2013, q14, "2013")) %>%
+   bind_rows(f_sim(cest_2014, q19, "2014")) %>%
+   bind_rows(f_sim(cest_2015, q19, "2015")) %>%
+   bind_rows(f_sim(cest_2016, q13, "2016")) %>%
+   bind_rows(f_sim(cest_2017, q13, "2017")) %>%
+   #bind_rows(f_sim(cest_2018, q13, "2018")) %>%
+   bind_rows(f_sim(cest_2019, q13, "2019")) %>%
+   bind_rows(f_sim(cest_2020, q13, "2020")) %>%
+   bind_rows(f_sim(cest_2021, q13, "2021")) %>%
+   bind_rows(f_sim(cest_2022, q13, "2022")) %>%
+
+  #2013 as variaveis estão "" ver como ajeitar para leitura
+  #2012, 2017 é perguntado apenas se existe SE, não pergunta de forma exclusiva então retirei
+  #2015 pergunta é igual das demais, SE exclusiva
+
+  f_grafico_col_percent(Categoria, Percentual)
+
+grafico
+```
+
+No que se refere a presença de secretárias/os executivas/os - independente de ser exclusivo ou não - nos conselhos municipais o @fig-cmas_se sinaliza um aumento ao longo dos anos. Há avanço de 68% em 2013 para 82% em 2022 da presença destes profissionais nos conselhos municipais.
+
+Com a Resolução CNAS Nº 100/2023 reforça-se que para os municípios de Pequeno Porte I e II, a/o secretária/o executiva/o não precisa ser exclusiva/o. Entretanto, percebe-se que em relação aos municípios maiores, o percentual destes profissionais de forma exclusiva são baixos, sendo respectivamente 30% para de médio porte, 47% para os municípios de grande porte. As métropoles possuem 100% destes profissionais de forma exclusiva.
+
+```{r fig-cmas_se, fig.cap = "Percentual de Conselhos Municipais que possuem secretárias/os executivas/os trabalhando no Conselho"}
+
+grafico <- f_sim(cmun_2013, q14, "2013") %>%
+    #bind_rows(f_sim(cmun_2012, q12, "2012")) %>%
+    #bind_rows(f_sim(cmun_2013, q14, "2013")) %>%
+    bind_rows(f_sim(cmun_2014, q16, "2014")) %>%
+    bind_rows(f_sim(cmun_2015, q16, "2015")) %>%
+    bind_rows(f_sim(cmun_2016, q13, "2016")) %>%
+    bind_rows(f_sim(cmun_2017, q13, "2017")) %>%
+    bind_rows(f_sim(cmun_2018, q_12, "2018")) %>%
+    bind_rows(f_sim(cmun_2019, q12, "2019")) %>%
+    bind_rows(f_sim(cmun_2020, q12, "2020")) %>%
+    bind_rows(f_sim(cmun_2021, q12, "2021")) %>%
+    bind_rows(f_sim(cmun_2022, q12, "2022")) %>%
+
+  
+  f_grafico_col_percent(Categoria, Percentual)
+
+grafico
+```
+
+Em relação a dinâmica de funcionamento, o plenário deve, obrigatoriamente, funcionar uma vez ao mês e, extraordinariamente, sempre que necessário. Assim, destaca-se que 77% dos conselhos estaduais realizaram no último ano de 9 a 16 reuniões. O percentual de 3,8% (1 CEAS) realizou igual ou abaixo de 8 reuniões. Já 19,2% dos Conselhos Estaduais realizaram acima de 17 reuniões no ano de 2022, conforme mostra o @fig-qtdceas_reuniao.
+
+```{r fig-qtdceas_reuniao, fig.cap = "Proporção conselhos estaduais quanto a realização de reuniões plenárias no ano anterior"}
+
+
+grafico <- cest_2022 %>%
+#-------------------
+# Questionários 2022:
+  select(x=d25) %>%
+#-------------------
+# Censo 2022:
+  mutate(x = case_when(x <= 8~"De 0 a 8 reuniões",
+                       x <= 16~"De 9 a 16 reuniões",
+                       x <= 20~"De 17 a 20 reuniões",
+                       x <= 30~"De 21 a 30 reuniões",
+                       x <= 40~"De 31 a 40 reuniões",
+                       TRUE ~ as.character(x))) %>%
+  mutate(x = factor(x, levels = c("De 0 a 8 reuniões","De 9 a 16 reuniões", "De 17 a 20 reuniões", "De 21 a 30 reuniões", "De 31 a 40 reuniões"))) %>%
+#-------------------
+  group_by(x) %>%
+  summarise(n=n()) %>%
+  mutate(Percentual = n/sum(n)) %>%
+
+  f_grafico_col_percent(x, Percentual)
+
+grafico
+```
+
+No tocante a realização de reuniões pelos conselhos municipais, o @fig-qtdcmas_reuniao sinaliza que 42% dos CMAS realizaram menos de 8 reuniões no ano, sendo 14% deles inferior a 5 reuniões. A periodicidade mensal de reuniões deve estar prevista em regimento interno do respectivo conselho, conforme é sinalizado na Resolução CNAS Nº 100/2023.
+
+```{r fig-qtdcmas_reuniao, fig.cap = "Proporção de Conselhos Municipais quanto a quantidade de realização de reuniões plenárias do Conselho (ordinárias e extraordinárias)"}
+
+grafico <- cmun_2022 %>%
+#-------------------
+# Questionários 2022:
+  select(x=q25) %>%
+#-------------------
+# Censo 2022:
+  mutate(x = case_when(x <= 5~"Até 5",
+                       x <= 8~"Entre 6 e 8",
+                       x <= 12~"Entre 9 e 12",
+                       x > 12~"Acima de 12",
+                       TRUE ~ as.character(x))) %>%
+  mutate(x = factor(x, levels = c("Até 5","Entre 6 e 8", "Entre 9 e 12", "Acima de 12"))) %>%
+#-------------------
+  group_by(x) %>%
+  summarise(n=n()) %>%
+  mutate(Percentual = n/sum(n)) %>%
+  f_grafico_col_percent(x, Percentual)
+
+grafico
+```
+
+```{r fig-qtd_reuniao, fig.cap = "xxx", eval=FALSE}
+
+cmun_2010_regiao <- cmun_2010 %>%
+  select(Região) %>%
+  mutate(Região = str_replace(Região, "Região ", "")) %>%
+  group_by(Região) %>%
+  summarise(n=n()) %>%
+  ungroup() %>%
+#  mutate(total_regiao=)
+  bind_rows(c(Região="Brasil",summarise_all(select(.,-Região), 'sum')))
+
+ cmun_2011_regiao <- cmun_2011 %>%
+   select(Região) %>%
+   mutate(Região = str_replace(Região, "Região ", "")) %>%
+   group_by(Região) %>%
+   summarise(n=n()) %>%
+   ungroup() %>%
+   bind_rows(c(Região="Brasil",summarise_all(select(.,-Região), 'sum')))
+
+ cmun_2012_regiao <- cmun_2012 %>%
+   select(Região) %>%
+   mutate(Região = str_replace(Região, "Região ", "")) %>%
+   group_by(Região) %>%
+   summarise(n=n()) %>%
+   ungroup() %>%
+   bind_rows(c(Região="Brasil",summarise_all(select(.,-Região), 'sum')))
+
+ cmun_2013_regiao <- cmun_2013 %>%
+  select(Região) %>%
+   mutate(Região = str_replace(Região, "Região ", "")) %>%
+   group_by(Região) %>%
+   summarise(n=n()) %>%
+   ungroup() %>%
+   bind_rows(c(Região="Brasil",summarise_all(select(.,-Região), 'sum')))
+
+ cmun_2014_regiao <- cmun_2014 %>%
+   select(Região) %>%
+   mutate(Região = str_replace(Região, "Região ", "")) %>%
+   group_by(Região) %>%
+   summarise(n=n()) %>%
+   ungroup() %>%
+  bind_rows(c(Região="Brasil",summarise_all(select(.,-Região), 'sum')))
+
+ cmun_2015_regiao <- cmun_2015 %>%
+  select(Região) %>%
+   mutate(Região = str_replace(Região, "Região ", "")) %>%
+   group_by(Região) %>%
+   summarise(n=n()) %>%
+   ungroup() %>%
+   bind_rows(c(Região="Brasil",summarise_all(select(.,-Região), 'sum')))
+
+ cmun_2016_regiao <- cmun_2016 %>%
+   select(Região) %>%
+   mutate(Região = str_replace(Região, "Região ", "")) %>%
+   group_by(Região) %>%
+   summarise(n=n()) %>%
+   ungroup() %>%
+   bind_rows(c(Região="Brasil",summarise_all(select(.,-Região), 'sum')))
+
+ cmun_2017_regiao <- cmun_2017 %>%
+ select(Região) %>%
+   mutate(Região = str_replace(Região, "Região ", "")) %>%
+   group_by(Região) %>%
+  summarise(n=n()) %>%
+   ungroup() %>%
+   bind_rows(c(Região="Brasil",summarise_all(select(.,-Região), 'sum')))
+
+ cmun_regiao <- cmun_2010_regiao %>%
+   left_join(cmun_2011_regiao, by = "Região") %>%
+   left_join(cmun_2012_regiao, by = "Região") %>%
+   left_join(cmun_2013_regiao, by = "Região") %>%
+   left_join(cmun_2014_regiao, by = "Região") %>%
+   left_join(cmun_2015_regiao, by = "Região") %>%
+   left_join(cmun_2016_regiao, by = "Região") %>%
+   left_join(cmun_2017_regiao, by = "Região")
+
+  names(cmun_regiao) <- c("Região","2010","2011","2012","2013","2014","2015","2016","2017")
+
+
+#  ggplot(aes(x = Região, y = Percentual, group = Ano)) +
+#  geom_col(aes(fill = Ano), position="dodge") +
+#  geom_text(aes(label = percent(Percentual), y=Percentual+.07), position = position_dodge(width = 0.9), angle = 90) +
+#  scale_y_continuous(expand = expansion(mult = c(0, .1))) +
+#  theme(legend.position="bottom",
+#        legend.title = element_blank(),
+#        axis.title = element_blank(),
+#        axis.ticks = element_blank(),
+#        axis.text.y = element_blank(),
+#        axis.line.x = element_line(),
+#        panel.background = element_blank(),
+#        plot.background = element_rect(colour = "black")) +
+#  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+
+```
+
+```{r , fig.cap = "xxxx", eval=FALSE}
+
+#cest_2010_regiao <- cest_2010 %>%
+#  select(Região) %>%
+#  mutate(Região = str_replace(Região, "Região ", "")) %>%
+#  group_by(Região) %>%
+#  summarise(n=n()) %>%
+#  ungroup() %>%
+#  bind_rows(c(Região="Brasil",summarise_all(select(.,-Região), 'sum')))
+
+ cest_2011_regiao <- cest_2011 %>%
+   select(Região) %>%
+   mutate(Região = str_replace(Região, "Região ", "")) %>%
+   group_by(Região) %>%
+   summarise(n=n()) %>%
+   ungroup() %>%
+   bind_rows(c(Região="Brasil",summarise_all(select(.,-Região), 'sum')))
+
+ cest_2012_regiao <- cest_2012 %>%
+   select(Região) %>%
+   mutate(Região = str_replace(Região, "Região ", "")) %>%
+   group_by(Região) %>%
+   summarise(n=n()) %>%
+   ungroup() %>%
+   bind_rows(c(Região="Brasil",summarise_all(select(.,-Região), 'sum')))
+
+# cest_2013_regiao <- cest_2013 %>%
+#  select(Região) %>%
+#   mutate(Região = str_replace(Região, "Região ", "")) %>%
+#   group_by(Região) %>%
+#   summarise(n=n()) %>%
+#   ungroup() %>%
+#   bind_rows(c(Região="Brasil",summarise_all(select(.,-Região), 'sum')))
+
+# cest_2014_regiao <- cest_2014 %>%
+#   select(Região) %>%
+#   mutate(Região = str_replace(Região, "Região ", "")) %>%
+#   group_by(Região) %>%
+#   summarise(n=n()) %>%
+#   ungroup() %>%
+#  bind_rows(c(Região="Brasil",summarise_all(select(.,-Região), 'sum')))
+
+ cest_2015_regiao <- cest_2015 %>%
+  select(Região) %>%
+   mutate(Região = str_replace(Região, "Região ", "")) %>%
+   group_by(Região) %>%
+   summarise(n=n()) %>%
+   ungroup() %>%
+   bind_rows(c(Região="Brasil",summarise_all(select(.,-Região), 'sum')))
+
+# cest_2016_regiao <- cest_2016 %>%
+#   select(Região) %>%
+#   mutate(Região = str_replace(Região, "Região ", "")) %>%
+#   group_by(Região) %>%
+#   summarise(n=n()) %>%
+#   ungroup() %>%
+#   bind_rows(c(Região="Brasil",summarise_all(select(.,-Região), 'sum')))
+
+ cest_2017_regiao <- cest_2017 %>%
+ select(Região) %>%
+   mutate(Região = str_replace(Região, "Região ", "")) %>%
+   group_by(Região) %>%
+  summarise(n=n()) %>%
+   ungroup() %>%
+   bind_rows(c(Região="Brasil",summarise_all(select(.,-Região), 'sum')))
+
+# cest_regiao <- cest_2010_regiao %>%
+ cest_regiao <- cest_2011_regiao %>%
+#   left_join(cest_2011_regiao, by = "Região") %>%
+   left_join(cest_2012_regiao, by = "Região") %>%
+#   left_join(cest_2013_regiao, by = "Região") %>%
+#   left_join(cest_2014_regiao, by = "Região") %>%
+   left_join(cest_2015_regiao, by = "Região") %>%
+#   left_join(cest_2016_regiao, by = "Região") %>%
+   left_join(cest_2017_regiao, by = "Região")
+
+#  names(cest_regiao) <- c("Região","2010","2011","2012","2013","2014","2015","2016","2017")
+
+```
+
+## Uso do IGD para apoio ao controle social e instância de controle social do Programa Bolsa Família
+
+Para o fortalecimento das atividades e apoio técnico e operacional do controle social do SUAS pode ser usado os recursos do IGD Bolsa Família e IGD SUAS. De acordo com as normativas do SUAS [^57] os entes federados deverão aplicar pelo menos 3% (três por cento) para fortalecer a instância de controle social do Programa Bolsa Família com a finalidade de garantir o fortalecimento do controle social e efetivar o apoio técnico e operacional a esse colegiado.
+
+[^57]: Decreto nº 7.332/2010, de 19 de outubro de 2010
+
+De acordo com o @fig-ceas_igd, o Censo SUAS 2022 sinaliza que esse recursos é destinado a 100% dos CEAS. Ao observar ao longo dos anos essa destinação não é contínua, com destaque para os anos de 2012 e 2017 na qual apenas 85% dos conselhos estaduais receberam estes recursos.
+
+```{r fig-ceas_igd, fig.cap = "Conselhos Estaduais que possuem destinação de pelo menos 3% dos recursos do IGD Bolsa Família e IGD SUAS para funcionamento"}
+
+grafico <- f_sim(cest_2012, q7, "2012") %>%
+   bind_rows(f_sim(cest_2013, q7, "2013")) %>%
+   bind_rows(f_sim(cest_2014, q8, "2014")) %>%
+   bind_rows(f_sim(cest_2015, q8, "2015")) %>%
+   bind_rows(f_sim(cest_2016, q5, "2016")) %>%
+   bind_rows(f_sim(cest_2017, q18, "2017")) %>%
+   bind_rows(f_sim(cest_2018, q_17, "2018")) %>%
+   bind_rows(f_sim(cest_2019, q17, "2019")) %>%
+   bind_rows(f_sim(cest_2020, q20, "2020")) %>%
+   bind_rows(f_sim(cest_2021, q20, "2021")) %>%
+   bind_rows(f_sim(cest_2022, q20, "2022")) %>%
+
+  f_grafico_col_percent(Categoria, Percentual)
+
+grafico
+```
+
+Em relação ao destinação do IGD Bolsa Família e IGD SUAS aos conselhos municipais, o @fig-creas-pse-domicilio sinaliza que no Censo SUAS 2022 há 82% dos CMAS que informam receber este recurso. Os dados também variam na escala histórica conforme pode-se obserdo no @fig-cmas_igd. O ano com maior proporção de CMAS que informaram receber recursos dos IGDs foi referente ao Censo SUAS 2017.
+
+```{r fig-cmas_igd, fig.cap = "Conselhos Municipais que possuem destinação de pelo menos 3% dos recursos do IGD Bolsa Família e IGD SUAS para funcionamento"}
+
+grafico <- f_sim(cmun_2012, q7, "2012") %>%
+   bind_rows(f_sim(cmun_2013, q7, "2013")) %>%
+   bind_rows(f_sim(cmun_2014, q8, "2014")) %>%
+   bind_rows(f_sim(cmun_2015, q8, "2015")) %>%
+   bind_rows(f_sim(cmun_2016, q5, "2016")) %>%
+   bind_rows(f_sim(cmun_2017, q18, "2017")) %>%
+   bind_rows(f_sim(cmun_2018, q_17, "2018")) %>%
+   bind_rows(f_sim(cmun_2019, q17, "2019")) %>%
+   bind_rows(f_sim(cmun_2020, q20, "2020")) %>%
+   bind_rows(f_sim(cmun_2021, q20, "2021")) %>%
+   bind_rows(f_sim(cmun_2022, q20, "2022")) %>%
+
+  #fazer a seleção das variaveis
+
+  f_grafico_col_percent(Categoria, Percentual)
+
+grafico
+```
+
+De acordo com Resolução CNAS 15/2014 [^58] o Conselho de Assistência Social é a Instância do Controle Social do Programa Bolsa Família (PBF) e deve atuar no acompanhamento do Cadastro Único, gestão de benefícios, condicionalidades, fiscalização e as oportunidades de desenvolvimento das capacidades das famílias desenvolvidas ou articuladas pelo município e os programas complementares.
+
+[^58]: RESOLUÇÃO Nº 15, DE 5 DE JUNHO DE 2014
+
+No Censo SUAS de 2022, 88% dos conselhos estaduais informam ser a instância de controle social do Programa Bolsa Família. Esse percentual reduziu a partir de 2019 que encontrava-se com informações de 100% dos Conselhos Estaduais que eram instância de controle social do Programa Bolsa Família. O @fig-ceas_icspbf2 sinaliza essa informação histórica.
+
+```{r fig-ceas_icspbf2, fig.cap = "Conselhos Estaduais de Assistência Social que são instância de controle Social do PBF"}
+
+grafico <- f_sim(cest_2012, q39, "2012") %>%
+   bind_rows(f_sim(cest_2013, q40, "2013")) %>%
+   bind_rows(f_sim(cest_2014, q41, "2014")) %>%
+   bind_rows(f_sim(cest_2015, q39, "2015")) %>%
+   bind_rows(f_sim(cest_2016, q32, "2016")) %>%
+   bind_rows(f_sim(cest_2017, q47, "2017")) %>%
+   bind_rows(f_sim(cest_2018, q_43, "2018")) %>%
+   bind_rows(f_sim(cest_2019, q39, "2019")) %>%
+   bind_rows(f_sim(cest_2020, q40, "2020")) %>%
+   bind_rows(f_sim(cest_2021, q40, "2021")) %>%
+   bind_rows(f_sim(cest_2022, q40, "2022")) %>%
+
+ 
+  f_grafico_col_percent(Categoria, Percentual)
+
+grafico
+```
+
+Em relação aos conselhos municipais ser a instância de controle social do Bolsa Família (ICS), observa-se que há resgitros do último Censo SUAS que 91% dos conselhos municipais são ICS. Esse dado dos últimos 10 anos está disponível no @fig-cmas_icspbf. Observa-se que no ano de 2012, 92% dos CMAS informam ser a instância de controle social do Programa Bolsa Família, esse dado só avança a partir de 2018 e volta a reduzir a partir do Censo SUAS de 2021.
+
+```{r fig-cmas_icspbf, fig.cap = "Conselhos Municipais de Assistência Social que são Instancia de Controle Social do PBF"}
+
+grafico <- f_sim(cmun_2012, q35_1, "2012") %>%
+  bind_rows(f_sim(cmun_2013, q40, "2013")) %>%
+  bind_rows(f_sim(cmun_2014, q41, "2014")) %>%
+  bind_rows(f_sim(cmun_2015, q39, "2015")) %>%
+  bind_rows(f_sim(cmun_2016, q32, "2016")) %>%
+  bind_rows(f_sim(cmun_2017, q47, "2017")) %>%
+  bind_rows(f_sim(cmun_2018, q_43, "2018")) %>%
+  bind_rows(f_sim(cmun_2019, q39, "2019")) %>%
+  bind_rows(f_sim(cmun_2020, q40, "2020")) %>%
+  bind_rows(f_sim(cmun_2021, q40, "2021")) %>%
+  bind_rows(f_sim(cmun_2022, q40, "2022")) %>%
+
+ 
+  f_grafico_col_percent(Categoria, Percentual)
+
+grafico
+```
+
+## Deliberação sobre planejamento, orçamento e benefícios eventuais
+
+A elaboração do Plano de Assistência Social é item referenciado na LOAS (Lei Organica de Assistência Social) e NOB SUAS / 2012. É de responsabilidade do órgão gestor da política e deve ser apresentado ao conselho de assistência social para aprovação.
+
+De acordo com o @fig-ceas_plano, no Censo SUAS 2022, 65% dos Planos de Assistência Social foram debatidos pelo CEAS.[^59]. Esse número varia de ano a ano. De acordo com a LOAS essa aprovação deve ser quadrienal, entretanto recomenda-se que a cada atualização anual seja submetida ao respectivo conselho.
+
+[^59]: Até 2018 a pergunta é sobre a deliberação do Plano de Assistência Social pelo Conselho, a partir de 2018 a modalidade da pergunta é alterada e, passar a ser se o conselho debate sobre Plano de Assistência Social. Apesar da diferença mantemos a linha historica por considerar a temática do Plano um item essencial para o controle social
+
+```{r fig-ceas_plano, fig.cap = "Conselhos estaduais que deliberaram e/ou debatem sobre Plano de Assistência Social"}
+
+
+grafico <- f_sim(cest_2012, q29, "2012") %>%
+     bind_rows(f_sim(cest_2013, q28, "2013")) %>%
+     bind_rows(f_sim(cest_2014, q28, "2014")) %>%
+     bind_rows(f_sim(cest_2015, q28, "2015")) %>%
+     bind_rows(f_sim(cest_2016, q21, "2016")) %>%
+     bind_rows(f_sim(cest_2017, q38, "2017")) %>%
+     bind_rows(f_sim(cest_2018, q_32, "2018")) %>%
+     bind_rows(f_sim(cest_2019, q32_4, "2019")) %>%
+     bind_rows(f_sim(cest_2020, q49_4, "2020")) %>%
+     bind_rows(f_sim(cest_2021, q49_4, "2021")) %>%
+     bind_rows(f_sim(cest_2022, q33_4, "2022")) %>%
+
+  f_grafico_col_percent(Categoria, Percentual)
+
+grafico
+```
+
+Em relação aos conselhos municipais, dados do Censo SUAS de 2022 sinaliza que 82% dos CMAS informaram debater sobre plano municipal de assistência social. O @fig-cmas_plano traz a referência destas informações a partir do Censo SUAS de 2012.[^60].
+
+[^60]: Até 2018 a pergunta é sobre a deliberação do Plano de Assistência Social pelo Conselho, a partir de 2018 a modalidade da pergunta é alterada e, passar a ser se o conselho debate sobre Plano de Assistência Social. Apesar da diferença mantemos a linha historica por considerar a temática do Plano um item essencial para o controle social
+
+```{r fig-cmas_plano, fig.cap = "Conselhos municipais que deliberaram sobre a proposta anual de orçamento do executivo"}
+
+grafico <- f_sim(cmun_2012, q28, "2012") %>%
+  bind_rows(f_sim(cmun_2013, q28, "2013")) %>%
+  bind_rows(f_sim(cmun_2014, q28, "2014")) %>%
+  bind_rows(f_sim(cmun_2015, q28, "2015")) %>%
+  bind_rows(f_sim(cmun_2016, q21, "2016")) %>%
+  bind_rows(f_sim(cmun_2017, q38, "2017")) %>%
+  bind_rows(f_sim(cmun_2018, q_32, "2018")) %>%
+  bind_rows(f_sim(cmun_2019, q32_4, "2019")) %>%
+  bind_rows(f_sim(cmun_2020, q33_4, "2020")) %>%
+  bind_rows(f_sim(cmun_2021, q33_4, "2021")) %>%
+  bind_rows(f_sim(cmun_2022, q33_4, "2022")) %>%
+
+ 
+  f_grafico_col_percent(Categoria, Percentual)
+
+grafico
+```
+
+É papel do controle social o exercício democrático de acompanhar a gestão e avaliar a Política de Assistência Social. Assim, a aprovação do orçamento executivo ou Plano Plurianual de Assistência Social (PPA) deve ser exercida por esta instância. O @fig-ceas_ppa mostra que, no Censo SUAS 2022, 69% dos conselhos estaduais deliberaram sobre a proposta orçamentária, dado que corresponde ao mesmo percentual de 2012.
+
+```{r fig-ceas_ppa, fig.cap = "Conselhos estaduais que deliberaram sobre a proposta anual do orçamento do executivo"}
+
+
+grafico <- f_sim(cest_2012, q29, "2012") %>%
+   bind_rows(f_sim(cest_2013, q30, "2013")) %>%
+   bind_rows(f_sim(cest_2014, q31, "2014")) %>%
+   bind_rows(f_sim(cest_2015, q31, "2015")) %>%
+   bind_rows(f_sim(cest_2016, q24, "2016")) %>%
+   bind_rows(f_sim(cest_2017, q42, "2017")) %>%
+   bind_rows(f_sim(cest_2018, q_37, "2018")) %>%
+   bind_rows(f_sim(cest_2019, q33, "2019")) %>%
+   bind_rows(f_sim(cest_2020, q34, "2020")) %>%
+   bind_rows(f_sim(cest_2021, q34, "2021")) %>%
+   bind_rows(f_sim(cest_2022, q34, "2022")) %>%
+
+  f_grafico_col_percent(Categoria, Percentual)
+
+grafico
+```
+
+O percentual de CMAS que aprovaram a proposta anual do orçamento corresponde a 74% no Censo SUAS de 2022. Este dado avançou significativamente em relação ao ano de 2012 como pode ser observado no @fig-cmas_ppa.
+
+```{r fig-cmas_ppa, fig.cap = "Conselhos municipais que deliberaram sobre a proposta anual do orçamento do executivo"}
+
+grafico <- f_sim(cmun_2012, q38, "2012") %>%
+  #bind_rows(f_sim(cmun_2013, q, "2013")) %>%
+  bind_rows(f_sim(cmun_2014, q31, "2014")) %>%
+  bind_rows(f_sim(cmun_2015, q31, "2015")) %>%
+  bind_rows(f_sim(cmun_2016, q24, "2016")) %>%
+  bind_rows(f_sim(cmun_2017, q42, "2017")) %>%
+  bind_rows(f_sim(cmun_2018, q_37, "2018")) %>%
+  #bind_rows(f_sim(cmun_2019, q37, "2019")) %>%
+  bind_rows(f_sim(cmun_2020, q34, "2020")) %>%
+  bind_rows(f_sim(cmun_2021, q34, "2021")) %>%
+  bind_rows(f_sim(cmun_2022, q34, "2022")) %>%
+
+  #2013 as variaveis estão "" ver como ajeitar para leitura
+
+  f_grafico_col_percent(Categoria, Percentual)
+
+grafico
+```
+
+Os Benefícios Eventuais da política de Assistência Social é de caráter suplementar e provisório. Deve ser ofertado aos cidadãos e as famílias em virtude de nascimento, morte, situações de vulnerabilidade temporária e calamidade pública. [^61].
+
+[^61]: Os Benefícios Eventuais são assegurados pelo art. 22 da Lei Orgânica de Assistência Social
+
+A concessão e o valor dos Benefícios Eventuais devem ser definidos pelos Municípios, Estados e Distrito Federal, com base em critérios e prazos estabelecidos pelos conselhos de Assistência Social. O @fig-ceas_be sinaliza que o Censo SUAS de 2018 foi o que teve maior proporção de conselhos estaduais que aprovaram os critérios e prazos para acesso aos benefícios eventuais. O acompanhamento a partir de 2012 sinaliza um aumento de 31 pontos percentuais até este período, após isso há uma redução chegando no Censo SUAS de 2022 com 65% de aprovação pelos conselhos. [^62].
+
+[^62]: Para o ano de 2016 a pargunta foi alterada impossibilitante a analise histórica
+
+```{r fig-ceas_be, fig.cap = "Percentual de CEAS que aprovou em resolução os critérios e prazos para acesso aos Benefícios Eventuais"}
+
+ grafico <- f_sim(cest_2012, q38, "2012") %>%
+   bind_rows(f_sim(cest_2013, q39, "2013")) %>%
+   bind_rows(f_sim(cest_2014, q40, "2014")) %>%
+   bind_rows(f_sim(cest_2015, q38, "2015")) %>%
+   #bind_rows(f_sim(cest_2016, q8, "2016")) %>%
+   bind_rows(f_sim(cest_2017, q44, "2017")) %>%
+   bind_rows(f_sim(cest_2018, q_39, "2018")) %>%
+   bind_rows(f_sim(cest_2019, q35, "2019")) %>%
+   bind_rows(f_sim(cest_2020, q36, "2020")) %>%
+   bind_rows(f_sim(cest_2021, q36, "2021")) %>%
+   bind_rows(f_sim(cest_2022, q36, "2022")) %>%
+
+
+    f_grafico_col_percent(Categoria, Percentual)
+
+grafico
+```
+
+Em relação aos conselhos municipais, destaca-se através do @fig-cmas_be que 71% dos conselhos deliberam sobre critérios e prazos para acesso aos Benefícios Eventuais. Esse dados avanço 28 pontos nos últimos 10 anos.
+
+```{r fig-cmas_be, fig.cap = "Percentual de CMAS que aprovou em resolução os critérios e prazos para acesso aos Benefícios Eventuais"}
+
+ grafico <- f_sim(cmun_2012, q38, "2012") %>%
+   bind_rows(f_sim(cmun_2013, q39, "2013")) %>%
+   bind_rows(f_sim(cmun_2014, q40, "2014")) %>%
+   bind_rows(f_sim(cmun_2015, q38, "2015")) %>%
+   bind_rows(f_sim(cmun_2016, q31, "2016")) %>%
+   bind_rows(f_sim(cmun_2017, q44, "2017")) %>%
+   bind_rows(f_sim(cmun_2018, q_39, "2018")) %>%
+   bind_rows(f_sim(cmun_2019, q35, "2019")) %>%
+   bind_rows(f_sim(cmun_2020, q36, "2020")) %>%
+   bind_rows(f_sim(cmun_2021, q37, "2021")) %>%
+   bind_rows(f_sim(cmun_2022, q36, "2022")) %>%
+
+ 
+  f_grafico_col_percent(Categoria, Percentual)
+
+grafico
+```
+
+## Representação dos conselhos de Assistência Social
+
+Este tópico vai trata sobre a presentação das/os usuárias/os e trabalhadoras/es nos conselhos de Assistência Social. De acordo com a Resolução CNAS 99/2023, "a representação dos usuários nas instâncias de participação e de deliberação do SUAS ocorrerá por meio de usuários integrantes de suas organizações representativas, democraticamente designados, preferencialmente dentre aquelas vinculadas aos serviços, programas, projetos, benefícios, transferência de renda e defesa dos direitos dos usuários da Política de Assistência Social".
+
+Os dados apresentados no @fig-usu_ceas sinalizam que a maior representação dos conselhos estaduais são representantes de fóruns de usuárias/os, beneficiárias/os do Programa Bolsa Família e BPC representando respetivamente 73%, 50% e 38%. Os dados abaixo sinalizam essa composição no período de 2018 a 2022 [^63]. Nesta escala de tempo, o grupo de representação que mais cresceu, com 19 pontos percentuais neste período, foi das/os beneficiárias/os do Programa Bolsa Família.
+
+[^63]: gráfico a partir do ano de 2018 em decorrência do início da modalidade das perguntas no formulário do Censo SUAS
+
+```{r fig-usu_ceas, fig.cap = "Representantes de usuárias/os nos Conselhos Estaduais de Assistência Social; Brasil, 2018 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+#| fig-height: 7
+
+usu_ceas= function(df, q, ano, cod_categoria){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+  cod_categoria <- quo_name(cod_categoria)
+
+#2018
+  categoria <- case_when(!! cod_categoria == "1"~"Beneficiárias/os do Programa Bolsa Família",
+                         !! cod_categoria == "2"~"Beneficiária/o ou família de beneficiárias/os do BPC",
+                         !! cod_categoria == "3"~"Usuária/o de serviços socioassistenciais de Proteção Social Básica",
+                         !! cod_categoria == "4"~"Usuária/o de serviços socioassistenciais de Proteção Social Especial",
+                         !! cod_categoria == "5"~"Representante de associação comunitária ou de moradores",
+                         !! cod_categoria == "6"~"Representante de fórum ou coletivo de usuárias/os",
+                         !! cod_categoria == "7"~"Outros")
+
+  df %>%
+    select(!! q) %>%
+    filter(!is.na(!! q)) %>%
+    group_by(!! q) %>%
+    summarise(n=n()) %>%
+    mutate(Percentual = n/sum(n)) %>%
+    filter(!! q == "Sim") %>%
+    mutate("Categoria" = categoria, "Ano" = !! ano)
+}
+
+ tabela <- usu_ceas(cest_2018,q_68_1,"2018","1") %>%
+  bind_rows(usu_ceas(cest_2018,q_68_2,"2018","2")) %>%
+  bind_rows(usu_ceas(cest_2018,q_68_3,"2018","3")) %>%
+  bind_rows(usu_ceas(cest_2018,q_68_4,"2018","4")) %>%
+  bind_rows(usu_ceas(cest_2018,q_68_5,"2018","5")) %>%
+  bind_rows(usu_ceas(cest_2018,q_68_6,"2018","6")) %>%
+  bind_rows(usu_ceas(cest_2018,q_68_99,"2018","7")) %>%
+
+  
+  bind_rows(usu_ceas(cest_2019,q64_1,"2019","1")) %>%
+  bind_rows(usu_ceas(cest_2019,q64_2,"2019","2")) %>%
+  bind_rows(usu_ceas(cest_2019,q64_3,"2019","3")) %>%
+  bind_rows(usu_ceas(cest_2019,q64_4,"2019","4")) %>%
+  bind_rows(usu_ceas(cest_2019,q64_5,"2019","5")) %>%
+  bind_rows(usu_ceas(cest_2019,q64_6,"2019","6")) %>%
+  bind_rows(usu_ceas(cest_2019,q64_99,"2019","7")) %>%
+   
+  bind_rows(usu_ceas(cest_2020,q78_1,"2020","1")) %>%
+  bind_rows(usu_ceas(cest_2020,q78_2,"2020","2")) %>%
+  bind_rows(usu_ceas(cest_2020,q78_3,"2020","3")) %>%
+  bind_rows(usu_ceas(cest_2020,q78_4,"2020","4")) %>%
+  bind_rows(usu_ceas(cest_2020,q78_5,"2020","5")) %>%
+  bind_rows(usu_ceas(cest_2020,q78_6,"2020","6")) %>%
+  bind_rows(usu_ceas(cest_2020,q78_99,"2020","7")) %>%
+  
+   
+  bind_rows(usu_ceas(cest_2021,q78_1,"2021","1")) %>%
+  bind_rows(usu_ceas(cest_2021,q78_2,"2021","2")) %>%
+  bind_rows(usu_ceas(cest_2021,q78_3,"2021","3")) %>%
+  bind_rows(usu_ceas(cest_2021,q78_4,"2021","4")) %>%
+  bind_rows(usu_ceas(cest_2021,q78_5,"2021","5")) %>%
+  bind_rows(usu_ceas(cest_2021,q78_6,"2021","6")) %>%
+  bind_rows(usu_ceas(cest_2021,q78_99,"2021","7")) %>%
+
+  bind_rows(usu_ceas(cest_2022,q78_1,"2022","1")) %>%
+  bind_rows(usu_ceas(cest_2022,q78_2,"2022","2")) %>%
+  bind_rows(usu_ceas(cest_2022,q78_3,"2022","3")) %>%
+  bind_rows(usu_ceas(cest_2022,q78_4,"2022","4")) %>%
+  bind_rows(usu_ceas(cest_2022,q78_5,"2022","5")) %>%
+  bind_rows(usu_ceas(cest_2022,q78_6,"2022","6")) %>%
+  bind_rows(usu_ceas(cest_2022,q78_99,"2022","7")) %>%
+
+  ungroup() %>%
+  mutate(Categoria=str_wrap(Categoria,width=51))
+
+ordenado<-tabela %>%
+  filter(Ano == "2022") %>%
+  arrange(Percentual) %>%
+  pull(Categoria)
+
+grafico<-tabela %>%
+  mutate(Categoria = factor(Categoria, levels = ordenado)) %>%
+  f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
+
+grafico
+```
+
+Os dados do @fig-usu_cmun mostram as represetações de usuários presentes nos Conselhos Municipais de Assistência Social (CMAS). Observa-se que o maior percentual desta representação são respectivamente da Proteção Social Básica, Programa Bolsa Família e BPC, sendo respectivamente no censo de 2022, 77%, 70% e 43%. No período de 2018 a 2022[^64], observa-se que as representações que cresceram 9 pontos percentuais foram Proteção Social Básica, Proteção Social Especial e Pessoas ou famílias de Benefíciários do Benefício de Prestação Continuada (BPC).
+
+[^64]: gráfico a partir do ano de 2018 em decorrência do início da modalidade das perguntas no formulário do Censo SUAS
+
+```{r fig-usu_cmun, fig.cap = "Representantes de usuárias/os nos Conselhos Municipais de Assistência Social; Brasil, 2018 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+#| fig-height: 6.5
+
+ usu_cmun= function(df, q, ano, cod_categoria){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+  cod_categoria <- quo_name(cod_categoria)
+
+#2018
+  categoria <- case_when(!! cod_categoria == "1"~"Beneficiárias/os do Programa Bolsa Família",
+                         !! cod_categoria == "2"~"Beneficiária/o ou família de beneficiárias/os do BPC",
+                         !! cod_categoria == "3"~"Usuária/o de serviços socioassistenciais de Proteção Social Básica",
+                         !! cod_categoria == "4"~"Usuária/o de serviços socioassistenciais de Proteção Social Especial",
+                         !! cod_categoria == "5"~"Representante de associação comunitária ou de moradores",
+                         !! cod_categoria == "6"~"Representante de fórum ou coletivo de usuárias/os",
+                         !! cod_categoria == "7"~"Outros")
+
+
+  df %>%
+    select(!! q) %>%
+    filter(!is.na(!! q)) %>%
+    group_by(!! q) %>%
+    summarise(n=n()) %>%
+    mutate(Percentual = n/sum(n)) %>%
+    filter(!! q == "Sim") %>%
+    mutate("Categoria" = categoria, "Ano" = !! ano)
+}
+
+ tabela <-usu_cmun(cmun_2018,q_68_1,"2018","1") %>%
+  bind_rows(usu_cmun(cmun_2018,q_68_2,"2018","2")) %>%
+  bind_rows(usu_cmun(cmun_2018,q_68_3,"2018","3")) %>%
+  bind_rows(usu_cmun(cmun_2018,q_68_4,"2018","4")) %>%
+  bind_rows(usu_cmun(cmun_2018,q_68_5,"2018","5")) %>%
+  bind_rows(usu_cmun(cmun_2018,q_68_6,"2018","6")) %>%
+  bind_rows(usu_cmun(cmun_2018,q_68_99,"2018","7")) %>%
+
+  bind_rows(usu_cmun(cmun_2019,q64_1,"2019","1")) %>%
+  bind_rows(usu_cmun(cmun_2019,q64_2,"2019","2")) %>%
+  bind_rows(usu_cmun(cmun_2019,q64_3,"2019","3")) %>%
+  bind_rows(usu_cmun(cmun_2019,q64_4,"2019","4")) %>%
+  bind_rows(usu_cmun(cmun_2019,q64_5,"2019","5")) %>%
+  bind_rows(usu_cmun(cmun_2019,q64_6,"2019","6")) %>%
+  bind_rows(usu_cmun(cmun_2019,q64_99,"2019","7")) %>%
+   
+   
+  bind_rows(usu_cmun(cmun_2020,q78_1,"2020","1")) %>%
+  bind_rows(usu_cmun(cmun_2020,q78_2,"2020","2")) %>%
+  bind_rows(usu_cmun(cmun_2020,q78_3,"2020","3")) %>%
+  bind_rows(usu_cmun(cmun_2020,q78_4,"2020","4")) %>%
+  bind_rows(usu_cmun(cmun_2020,q78_5,"2020","5")) %>%
+  bind_rows(usu_cmun(cmun_2020,q78_6,"2020","6")) %>%
+  bind_rows(usu_cmun(cmun_2020,q78_99,"2020","7")) %>%
+   
+   
+   
+  bind_rows(usu_cmun(cmun_2021,q78_1,"2021","1")) %>%
+  bind_rows(usu_cmun(cmun_2021,q78_2,"2021","2")) %>%
+  bind_rows(usu_cmun(cmun_2021,q78_3,"2021","3")) %>%
+  bind_rows(usu_cmun(cmun_2021,q78_4,"2021","4")) %>%
+  bind_rows(usu_cmun(cmun_2021,q78_5,"2021","5")) %>%
+  bind_rows(usu_cmun(cmun_2021,q78_6,"2021","6")) %>%
+  bind_rows(usu_cmun(cmun_2021,q78_99,"2021","7")) %>%
+
+  bind_rows(usu_cmun(cmun_2022,q78_1,"2022","1")) %>%
+  bind_rows(usu_cmun(cmun_2022,q78_2,"2022","2")) %>%
+  bind_rows(usu_cmun(cmun_2022,q78_3,"2022","3")) %>%
+  bind_rows(usu_cmun(cmun_2022,q78_4,"2022","4")) %>%
+  bind_rows(usu_cmun(cmun_2022,q78_5,"2022","5")) %>%
+  bind_rows(usu_cmun(cmun_2022,q78_6,"2022","6")) %>%
+  bind_rows(usu_cmun(cmun_2022,q78_99,"2022","7")) %>%
+
+  
+
+  ungroup() %>%
+  mutate(Categoria=str_wrap(Categoria,width=51))
+
+ordenado<-tabela %>%
+  filter(Ano == "2021") %>%
+  arrange(Percentual) %>%
+  pull(Categoria)
+
+grafico<-tabela %>%
+  mutate(Categoria = factor(Categoria, levels = ordenado)) %>%
+  f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
+
+grafico
+```
+
+Em relação a representação de trabalhadoras/es nos Conselhos Estaduais de Assitência Social (CEAS), do total dos CEAS, a categoria mais expressiva são dos conselhos de classe profissional (CRESS, CFP, outros conselhos de classe), representando 96% deste grupo de representantes no último Censo SUAS. Em segundo lugar, com 73% são os sindicatos e, em seguida, representante de associação, fórum ou coletivo de trabalhadoras/es com 50% dos dos CEAS com representação na categoria de trabalhadores. Observa-se que nos últimos 5 anos[^65] a representação de profissionais que mais evoluiu foi de associação, fórum ou coletivo de trabalhadoras/es, representando avanço de 12 pontos percentuais, como pode ser observado no @fig-trab_rep.
+
+[^65]: gráfico a partir do ano de 2018 em decorrência do início da modalidade das perguntas no formulário do Censo SUAS
+
+```{r fig-trab_rep, fig.cap = "Representantes de trabalhadoras/es nos Conselhos Estaduais de Assistência Social; Brasil, 2018 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+#| fig-height: 5.5
+
+trab_rep= function(df, q, ano, cod_categoria){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+  cod_categoria <- quo_name(cod_categoria)
+
+#2020
+  categoria <- case_when(!! cod_categoria == "1"~"Representante de sindicato de trabalhadoras/es",
+                         !! cod_categoria == "2"~"Representante de conselho de classe profissional (CRESS, CFP, outros conselhos de classe)",
+                         !! cod_categoria == "3"~"Representante de associação, fórum ou coletivo de trabalhadoras/es",
+                         !! cod_categoria == "4"~"O/A próprio/a trabalhador/a do SUAS, sem vinculação a nenhum coletivo",
+                         !! cod_categoria == "5"~"Outros",
+                         !! cod_categoria == "6"~"Este Conselho não possui representantes de trabalhadoras/es")
+                         
+
+  df %>%
+    select(!! q) %>%
+    filter(!is.na(!! q)) %>%
+    group_by(!! q) %>%
+    summarise(n=n()) %>%
+    mutate(Percentual = n/sum(n)) %>%
+    filter(!! q == "Sim") %>%
+    mutate("Categoria" = categoria, "Ano" = !! ano)
+}
+
+ tabela <- trab_rep(cest_2018,q_69_1,"2018","1") %>%
+  bind_rows(trab_rep(cest_2018,q_69_2,"2018","2")) %>%
+  bind_rows(trab_rep(cest_2018,q_69_3,"2018","3")) %>%
+  bind_rows(trab_rep(cest_2018,q_69_4,"2018","4")) %>%
+  bind_rows(trab_rep(cest_2018,q_69_99,"2018","5")) %>%
+  bind_rows(trab_rep(cest_2018,q_69_0,"2018","6")) %>%
+  
+  
+  bind_rows(trab_rep(cest_2019,q65_1,"2019","1")) %>%
+  bind_rows(trab_rep(cest_2019,q65_2,"2019","2")) %>%
+  bind_rows(trab_rep(cest_2019,q65_3,"2019","3")) %>%
+  bind_rows(trab_rep(cest_2019,q65_4,"2019","4")) %>%
+  bind_rows(trab_rep(cest_2019,q65_99,"2019","5")) %>%
+  bind_rows(trab_rep(cest_2019,q65_0,"2019","6")) %>%
+ 
+   
+  bind_rows(trab_rep(cest_2020,q79_1,"2020","1")) %>%
+  bind_rows(trab_rep(cest_2020,q79_2,"2020","2")) %>%
+  bind_rows(trab_rep(cest_2020,q79_3,"2020","3")) %>%
+  bind_rows(trab_rep(cest_2020,q79_4,"2020","4")) %>%
+  bind_rows(trab_rep(cest_2020,q79_99,"2020","5")) %>%
+  bind_rows(trab_rep(cest_2020,q79_0,"2020","6")) %>%
+  
+ 
+  bind_rows(trab_rep(cest_2021,q79_1,"2021","1")) %>%
+  bind_rows(trab_rep(cest_2021,q79_2,"2021","2")) %>%
+  bind_rows(trab_rep(cest_2021,q79_3,"2021","3")) %>%
+  bind_rows(trab_rep(cest_2021,q79_4,"2021","4")) %>%
+  bind_rows(trab_rep(cest_2021,q79_99,"2021","5")) %>%
+  bind_rows(trab_rep(cest_2021,q79_0,"2021","6")) %>%
+ 
+
+  bind_rows(trab_rep(cest_2022,q79_1,"2022","1")) %>%
+  bind_rows(trab_rep(cest_2022,q79_2,"2022","2")) %>%
+  bind_rows(trab_rep(cest_2022,q79_3,"2022","3")) %>%
+  bind_rows(trab_rep(cest_2022,q79_4,"2022","4")) %>%
+  bind_rows(trab_rep(cest_2022,q79_99,"2022","5")) %>%
+  bind_rows(trab_rep(cest_2022,q79_0,"2022","6")) %>%
+  
+
+
+
+
+
+  ungroup() %>%
+  mutate(Categoria=str_wrap(Categoria,width=51))
+
+ordenado<-tabela %>%
+  filter(Ano == "2022") %>%
+  arrange(Percentual) %>%
+  pull(Categoria)
+
+grafico<-tabela %>%
+  mutate(Categoria = factor(Categoria, levels = ordenado)) %>%
+  f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
+
+grafico
+```
+
+A Representação de trabalhadoras/es nos conselhos municipais é observada no @fig-trab_cmun[^66]. Observa-se que, nos municípios, a categoria de representação mais crescente nos CMAS são de trabalhadoras/es, sem vinculação a nenhum coletivo, esse dado cresce 25 pontos percentuais entre o período de 2018 (40%) a 2022 (65%). Outras categorias que aumentam nesse período são: Conselhos de Classe (CRESS, CFP, outros conselhos de classe) que aumentam de 23% em 2018 para 27% em 2022. Representações de sindicado de trabalahdores e Forum ou coletivo de trabalhadoras/es também crescem 1 ponto percentual como pode ser observado abaixo.
+
+[^66]: gráfico a partir do ano de 2018 em decorrência do início da modalidade das perguntas no formulário do Censo SUAS
+
+```{r fig-trab_cmun, fig.cap = "Representantes de trabalhadoras/es nos Conselhos Municipais de Assistência Social; Brasil, 2018 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+#| fig-height: 6
+
+trab_cmun= function(df, q, ano, cod_categoria){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+  cod_categoria <- quo_name(cod_categoria)
+
+#2018
+  categoria <- case_when(!! cod_categoria == "1"~"Representante de sindicato de trabalhadoras/es",
+                         !! cod_categoria == "2"~"Representante de conselho de classe profissional (CRESS, CFP, outros conselhos de classe)",
+                         !! cod_categoria == "3"~"Representante de associação, fórum ou coletivo de trabalhadoras/es",
+                         !! cod_categoria == "4"~"O/A próprio/a trabalhador/a do SUAS, sem vinculação a nenhum coletivo",
+                         !! cod_categoria == "5"~"Outros",
+                         !! cod_categoria == "6"~"Este Conselho não possui representantes de trabalhadoras/es")
+                         
+
+
+  df %>%
+    select(!! q) %>%
+    filter(!is.na(!! q)) %>%
+    group_by(!! q) %>%
+    summarise(n=n()) %>%
+    mutate(Percentual = n/sum(n)) %>%
+    filter(!! q == "Sim") %>%
+    mutate("Categoria" = categoria, "Ano" = !! ano)
+}
+
+ tabela <- trab_cmun(cmun_2018,q_69_1,"2018","1") %>%
+  bind_rows(trab_cmun(cmun_2018,q_69_2,"2018","2")) %>%
+  bind_rows(trab_cmun(cmun_2018,q_69_3,"2018","3")) %>%
+  bind_rows(trab_cmun(cmun_2018,q_69_4,"2018","4")) %>%
+  bind_rows(trab_cmun(cmun_2018,q_69_99,"2018","5")) %>%
+  bind_rows(trab_cmun(cmun_2018,q_69_0,"2018","6")) %>%
+  
+ 
+   
+  bind_rows(trab_cmun(cmun_2019,q65_1,"2019","1")) %>%
+  bind_rows(trab_cmun(cmun_2019,q65_2,"2019","2")) %>%
+  bind_rows(trab_cmun(cmun_2019,q65_3,"2019","3")) %>%
+  bind_rows(trab_cmun(cmun_2019,q65_4,"2019","4")) %>%
+  bind_rows(trab_cmun(cmun_2019,q65_99,"2019","5")) %>%
+  bind_rows(trab_cmun(cmun_2019,q65_0,"2019","6")) %>%
+
+
+
+  bind_rows(trab_cmun(cmun_2020,q79_1,"2020","1")) %>%
+  bind_rows(trab_cmun(cmun_2020,q79_2,"2020","2")) %>%
+  bind_rows(trab_cmun(cmun_2020,q79_3,"2020","3")) %>%
+  bind_rows(trab_cmun(cmun_2020,q79_4,"2020","4")) %>%
+  bind_rows(trab_cmun(cmun_2020,q79_99,"2020","5")) %>%
+  bind_rows(trab_cmun(cmun_2020,q79_0,"2020","6")) %>%
+   
+   
+   
+  bind_rows(trab_cmun(cmun_2021,q79_1,"2021","1")) %>%
+  bind_rows(trab_cmun(cmun_2021,q79_2,"2021","2")) %>%
+  bind_rows(trab_cmun(cmun_2021,q79_3,"2021","3")) %>%
+  bind_rows(trab_cmun(cmun_2021,q79_4,"2021","4")) %>%
+  bind_rows(trab_cmun(cmun_2021,q79_99,"2021","5")) %>%
+  bind_rows(trab_cmun(cmun_2021,q79_0,"2021","6")) %>%
+  
+  bind_rows(trab_cmun(cmun_2022,q79_1,"2022","1")) %>%
+  bind_rows(trab_cmun(cmun_2022,q79_2,"2022","2")) %>%
+  bind_rows(trab_cmun(cmun_2022,q79_3,"2022","3")) %>%
+  bind_rows(trab_cmun(cmun_2022,q79_4,"2022","4")) %>%
+  bind_rows(trab_cmun(cmun_2022,q79_99,"2022","5")) %>%
+  bind_rows(trab_cmun(cmun_2022,q79_0,"2022","6")) %>%
+ 
+
+
+
+  ungroup() %>%
+  mutate(Categoria=str_wrap(Categoria,width=51))
+
+ordenado<-tabela %>%
+  filter(Ano == "2022") %>%
+  arrange(Percentual) %>%
+  pull(Categoria)
+
+grafico<-tabela %>%
+  mutate(Categoria = factor(Categoria, levels = ordenado)) %>%
+  f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
+
+grafico
+```
+
+## Considerações Finais
+
+O Controle Social no SUAS tem importante papel na gestão democrática e desenvolvimento de cidadania ativa na agenda da política de Assistência Social. Destaca-se para este capítulo importantes avanços nas prerrogativas legais, a saber das resoluções CNAS/MDS nº 99, DE 4 de Abril de 2023 e nº 100, de 20 de abril de 2023. Estas resoluções versam sobre aspectos de funcionamento dos conselhos, bem como participação, em especial de usuários. Os dados mostram que em relação a estrutura física, 100% dos conselhos estaduais possuem sede e local específico para funcionamento dos conselhos, no âmbito do controle municipal, os registros são de 58% com sede e local específicos para funcionamento. As secretárias executivas também se configuram em um papel essencial para funcionamento dos conselhos, no âmbito dos conselhos estaduais destaca-se que 92% possuem este profissional de forma exclusiva. Esse dado teve redução a partir de 2017 na qual dispunha de 100% dos conselhos estaduais com esse profissional. Para os municípios, 82% possuem secretarias executivas. Para os municípios, foram analisados a presença destes profissionais de forma exclusiva ou não, haja vista demarcação da resolução para pequenos municípios (Pequenos Portes I e II). Sobre a dinâmica de funcionamento, 96,2% dos conselhos estaduais realizaram no último ano, acima de 9 reuniões e, os conselhos municipais 58% dos conselhos realizaram acima de 9 reuniões no ano da apuração do Censo SUAS 2022. No tocante a recursos do IGD Bolsa Família e SUAS para controle social, historicamente este valor não é repassado em 100% dos conselhos, na escala de 10 anos (2012 a 2022), apenas 4 anos foram sinalizados por 100% dos conselhos estaduais enquanto recebimento deste recurso para funcionamento do controle social. No âmbito dos conselhos municipais, nos últimos 10 anos, não há histórico de 100% dos conselhos municipais receberem este recurso. Destaca-se que em 2022, 82% dos CMAS sinalizaram utilizar destes recursos para controle social. Em referência ao controle social do Programa Bolsa Família pelos conselhos, destaca-se que os CEAS informam que 88% possuem esta instancia e 91% dos conselhos municipais. Debates sobre o planejamento da Política de Assistência Social devem fazer parte das reuniões, 65% dos conselhos estaduais informam possuir esses dados. Em relação aos conselhos municipais, 82% informam debater. A proposta orçamentária também deve ser deliberada pelo controle social, entretanto, 69% dos CEAS e 74% dos CMAS informam deliberar sobre este assunto. Em relação a deliberação referente a oferta de Benefícios Eventuais, a oferta é baixa, com 65% dos CEAS no último ano, e os conselhos municipais, observa-se um avanço histórico nos CMAS. A representação e representatividade se destaca como um tema importante, para esta publicação, elencamos informações sobre as composições de usuários e de trabalhadoras/es dos conselhos estaduais e municipais.
+
+```{r fig-pub_cmas, fig.cap = "Percentual de conselhos municipais que publicam as resoluções em diário oficial", fig.footer = "Fonte: MDS, Censo SUAS", eval=FALSE}
+
+pub_cmas  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>%
+    gather("Categoria","Nível") %>%
+    mutate(Nível = case_when(Nível == " A minoria das deliberações/resoluções é publicada"~" A minoria das deliberações/resoluções é publicada",
+                                        TRUE ~ Nível)) %>%
+    filter(!is.na(Nível)) %>%
+    mutate(Nível = factor(Nível, levels = c("A minoria das deliberações/resoluções é publicada",
+                                            "A maioria das deliberações/resoluções é publicada",
+                                            "Nenhuma das deliberações/resoluções é publicada",
+                                            "A metade das deliberações/resoluções é publicada",
+                                            "Todas as deliberações/resoluções são publicadas"))) %>%
+
+    group_by(Categoria, Nível) %>%
+    summarise(n=n()) %>%
+    group_by(Categoria) %>%
+    mutate(Percentual = n/sum(n))
+}
+
+grafico <- pub_cmas(cmun_2017, q36, "2017") %>%
+#  bind_rows(pub_cmas(ge_2013, q1, "2013")) %>%
+#  bind_rows(pub_cmas(ge_2014, q1, "2014")) %>%
+#  bind_rows(pub_cmas(ge_2015, q1, "2015")) %>%
+#  bind_rows(pub_cmas(ge_2016, q1, "2016")) %>%
+#  bind_rows(pub_cmas(ge_2017, q36, "2017")) %>%
+  bind_rows(pub_cmas(cmun_2018, q_29,"2018")) %>%
+  bind_rows(pub_cmas(cmun_2019, q29, "2019")) %>%
+  bind_rows(pub_cmas(cmun_2020, q27, "2020")) %>%
+  bind_rows(pub_cmas(cmun_2021, q27, "2021")) %>%
+  bind_rows(pub_cmas(cmun_2022, q27, "2022")) %>%
+
+
+  # fazer para anos anteriores
+
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 3)
+
+grafico
+```
+
+```{r ,eval=FALSE}
+
+#falta colocar as variaveis dos questionários CEAS
+
+grafico <- f_sim(cest_2012, q29, "2012") %>%
+  #bind_rows(f_sim(cest_2013, q, "2013")) %>%
+  #bind_rows(f_sim(cest_2014, q40, "2014")) %>%
+  #bind_rows(f_sim(cest_2015, q38, "2015")) %>%
+  #bind_rows(f_sim(cest_2016, q31, "2016")) %>%
+  #bind_rows(f_sim(cest_2017, q44, "2017")) %>%
+  #bind_rows(f_sim(cest_2018, q_39, "2018")) %>%
+  #bind_rows(f_sim(cest_2019, q37, "2019")) %>%
+  #bind_rows(f_sim(cest_2020, q37, "2020")) %>%
+  #bind_rows(f_sim(cest_2021, q37, "2021")) %>%
+   bind_rows(f_sim(cest_2022, q34, "2022")) %>%
+
+  f_grafico_col_percent(Categoria, Percentual)
+
+grafico
+```
+
+```{r fig-cmun_usu, fig.cap = "Principais estratégias dos conselhos estaduais de comunicação com usuário", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
+
+cmun_usu= function(df, q, ano, cod_categoria){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+  cod_categoria <- quo_name(cod_categoria)
+
+#2020
+  categoria <- case_when(!! cod_categoria == "1"~"Não há mecanismos de comunicação",
+                         !! cod_categoria == "2"~"O Conselho disponibiliza contatos (e-mail/ telefone/whatsapp) para o público",
+                         !! cod_categoria == "3"~"O Conselho tem página nas redes sociais (Facebook, blog etc)",
+                         !! cod_categoria == "4"~"O Conselho tem canal de recebimento de denúncias",
+                         !! cod_categoria == "5"~"O Conselho convida usuárias/os, além das/os conselheiras/os, para a participação nas reuniões plenárias",
+                         !! cod_categoria == "6"~"O Conselho divulga ações e temas discutidos pelo Conselho nos equipamentos da Assistência Social",
+                         !! cod_categoria == "7"~"Outros")
+
+
+  df %>%
+    select(!! q) %>%
+    filter(!is.na(!! q)) %>%
+    group_by(!! q) %>%
+    summarise(n=n()) %>%
+    mutate(Percentual = n/sum(n)) %>%
+    filter(!! q == "Sim") %>%
+    mutate("Categoria" = categoria, "Ano" = !! ano)
+}
+
+ tabela <- cmun_usu(cmun_2022,q28_0,"2022","1") %>%
+  # bind_rows(trab_rep(cest_2020,q79_2,"2020","2")) %>%
+  # bind_rows(trab_rep(cest_2020,q79_3,"2020","3")) %>%
+  # bind_rows(trab_rep(cest_2020,q79_4,"2020","4")) %>%
+  # bind_rows(trab_rep(cest_2020,q79_99,"2020","5")) %>%
+  # bind_rows(trab_rep(cest_2020,q79_0,"2020","6")) %>%
+  # bind_rows(trab_rep(cest_2020,q79_99_1,"2020","7")) %>%
+
+  # bind_rows(trab_rep(cest_2021,q79_1,"2021","1")) %>%
+  # bind_rows(trab_rep(cest_2021,q79_2,"2021","2")) %>%
+  # bind_rows(trab_rep(cest_2021,q79_3,"2021","3")) %>%
+  # bind_rows(trab_rep(cest_2021,q79_4,"2021","4")) %>%
+  # bind_rows(trab_rep(cest_2021,q79_99,"2021","5")) %>%
+  # bind_rows(trab_rep(cest_2021,q79_0,"2021","6")) %>%
+  # bind_rows(trab_rep(cest_2021,q79_99_1,"2021","7")) %>%
+
+  #bind_rows(trab_rep(cest_2022,q28_0,"2022","1")) %>%
+  bind_rows(cmun_usu(cmun_2022,q28_1,"2022","2")) %>%
+  bind_rows(cmun_usu(cmun_2022,q28_2,"2022","3")) %>%
+  bind_rows(cmun_usu(cmun_2022,q28_3,"2022","4")) %>%
+  bind_rows(cmun_usu(cmun_2022,q28_4,"2022","5")) %>%
+  bind_rows(cmun_usu(cmun_2022,q28_5,"2022","6")) %>%
+  bind_rows(cmun_usu(cmun_2022,q28_99,"2022","7")) %>%
+
+
+  ungroup() %>%
+  mutate(Categoria=str_wrap(Categoria,width=51))
+
+ordenado<-tabela %>%
+  filter(Ano == "2022") %>%
+  arrange(Percentual) %>%
+  pull(Categoria)
+
+grafico<-tabela %>%
+  mutate(Categoria = factor(Categoria, levels = ordenado)) %>%
+  f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
+
+grafico
+```
+
+```{r fig-ceas_usu, fig.cap = "Principais estratégias dos conselhos estaduais de comunicação com usuário", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
+
+ceas_usu= function(df, q, ano, cod_categoria){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+  cod_categoria <- quo_name(cod_categoria)
+
+#2020
+  categoria <- case_when(!! cod_categoria == "1"~"Não há mecanismos de comunicação",
+                         !! cod_categoria == "2"~"O Conselho disponibiliza contatos (e-mail/ telefone/whatsapp) para o público",
+                         !! cod_categoria == "3"~"O Conselho tem página nas redes sociais (Facebook, blog etc)",
+                         !! cod_categoria == "4"~"O Conselho tem canal de recebimento de denúncias",
+                         !! cod_categoria == "5"~"O Conselho convida usuárias/os, além das/os conselheiras/os, para a participação nas reuniões plenárias",
+                         !! cod_categoria == "6"~"O Conselho divulga ações e temas discutidos pelo Conselho nos equipamentos da Assistência Social",
+                         !! cod_categoria == "7"~"Outros")
+
+
+  df %>%
+    select(!! q) %>%
+    filter(!is.na(!! q)) %>%
+    group_by(!! q) %>%
+    summarise(n=n()) %>%
+    mutate(Percentual = n/sum(n)) %>%
+    filter(!! q == "Sim") %>%
+    mutate("Categoria" = categoria, "Ano" = !! ano)
+}
+
+ tabela <- ceas_usu(cest_2022,q28_0,"2022","1") %>%
+  # bind_rows(trab_rep(cest_2020,q79_2,"2020","2")) %>%
+  # bind_rows(trab_rep(cest_2020,q79_3,"2020","3")) %>%
+  # bind_rows(trab_rep(cest_2020,q79_4,"2020","4")) %>%
+  # bind_rows(trab_rep(cest_2020,q79_99,"2020","5")) %>%
+  # bind_rows(trab_rep(cest_2020,q79_0,"2020","6")) %>%
+  # bind_rows(trab_rep(cest_2020,q79_99_1,"2020","7")) %>%
+
+  # bind_rows(trab_rep(cest_2021,q79_1,"2021","1")) %>%
+  # bind_rows(trab_rep(cest_2021,q79_2,"2021","2")) %>%
+  # bind_rows(trab_rep(cest_2021,q79_3,"2021","3")) %>%
+  # bind_rows(trab_rep(cest_2021,q79_4,"2021","4")) %>%
+  # bind_rows(trab_rep(cest_2021,q79_99,"2021","5")) %>%
+  # bind_rows(trab_rep(cest_2021,q79_0,"2021","6")) %>%
+  # bind_rows(trab_rep(cest_2021,q79_99_1,"2021","7")) %>%
+
+  #bind_rows(trab_rep(cest_2022,q28_0,"2022","1")) %>%
+  bind_rows(ceas_usu(cest_2022,q28_1,"2022","2")) %>%
+  bind_rows(ceas_usu(cest_2022,q28_2,"2022","3")) %>%
+  bind_rows(ceas_usu(cest_2022,q28_3,"2022","4")) %>%
+  bind_rows(ceas_usu(cest_2022,q28_4,"2022","5")) %>%
+  bind_rows(ceas_usu(cest_2022,q28_5,"2022","6")) %>%
+  bind_rows(ceas_usu(cest_2022,q28_99,"2022","7")) %>%
+
+  ungroup() %>%
+  mutate(Categoria=str_wrap(Categoria,width=51))
+
+ordenado<-tabela %>%
+  filter(Ano == "2022") %>%
+  arrange(Percentual) %>%
+  pull(Categoria)
+
+grafico<-tabela %>%
+  mutate(Categoria = factor(Categoria, levels = ordenado)) %>%
+  f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
+
+grafico
+```
+
+```{r fig-idcras, fig.cap = "Indicador de Desenvolvimento do CRAS",eval=FALSE}
+#| fig-height: 33
+#| fig-width: 16
+
+grafico <- f_media_regiao_2_grupos(idcras_2014, `IDCRAS 2014sintético`, IBGE, "ID CRAS", "2014") %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2014, `Dimensão Estrutura Física`, IBGE, "Estrutura Física", "2014")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2014, `Dimensão Recursos Humanos`, IBGE, "Recursos Humanos", "2014")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2014, `Dimensão Serviços & Benefícios`, IBGE, "Serviços & Benefícios", "2014")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idcras_2015, `IDCRAS 2015 sintético`, IBGE, "ID CRAS", "2015")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2015, `Dimensão Estrutura Física`, IBGE, "Estrutura Física", "2015")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2015, `Dimensão Recursos Humanos`, IBGE, "Recursos Humanos", "2015")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2015, `Dimensão Serviços & Benefícios`, IBGE, "Serviços & Benefícios", "2015")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idcras_2016, `IDCRAS 2016sintético`, IBGE, "ID CRAS", "2016")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2016, `Dimensão Estrutura Física`, IBGE, "Estrutura Física", "2016")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2016, `Dimensão Recursos Humanos`, IBGE, "Recursos Humanos", "2016")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2016, `Dimensão Serviços & Benefícios`, IBGE, "Serviços & Benefícios", "2016")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idcras_2017, IDCRAS, Região, "ID CRAS", "2017")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2017, `Estrutura Física`, Região, "Estrutura Física", "2017")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2017, `Recursos Humanos`, Região, "Recursos Humanos", "2017")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2017, `Serviços `, Região, "Serviços & Benefícios", "2017")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idcras_2018, IDCRAS, Região, "ID CRAS", "2018")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2018, `Estrutura Física`, Região, "Estrutura Física", "2018")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2018, `Recursos Humanos`, Região, "Recursos Humanos", "2018")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2018, `Serviços `, Região, "Serviços & Benefícios", "2018")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idcras_2019, IDCRAS, Região, "ID CRAS", "2019")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2019, `Estrutura Física`, Região, "Estrutura Física", "2019")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2019, `Recursos Humanos`, Região, "Recursos Humanos", "2019")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2019, `Serviços `, Região, "Serviços & Benefícios", "2019")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idcras_2020, IDCRAS, Região, "ID CRAS", "2020")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2020, `Estrutura Física`, Região, "Estrutura Física", "2020")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2020, `Recursos Humanos`, Região, "Recursos Humanos", "2020")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2020, `Serviços `, Região, "Serviços & Benefícios", "2020")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idcras_2021, IDCRAS, Região, "ID CRAS", "2021")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2021, `Estrutura Física`, Região, "Estrutura Física", "2021")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2021, `Recursos Humanos`, Região, "Recursos Humanos", "2021")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2021, `Serviços `, Região, "Serviços & Benefícios", "2021")) %>%
+
+  bind_rows(f_media_regiao_2_grupos(idcras_2022, IDCRAS, Região, "ID CRAS", "2022")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2022, `Estrutura Física`, Região, "Estrutura Física", "2022")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2022, `Recursos Humanos`, Região, "Recursos Humanos", "2022")) %>%
+  bind_rows(f_media_regiao_2_grupos(idcras_2022, `Serviços `, Região, "Serviços & Benefícios", "2022")) %>%
+
+  mutate(Grupo1 = factor(Grupo1, levels = c("Estrutura Física",
+                                          "Recursos Humanos",
+                                          "Serviços & Benefícios",
+                                          "ID CRAS"))) %>%
+
+  f_grafico_col_numero_flip_3_groups(Região, Grupo2, m, Grupo1)
+
+grafico
+```
+
+```{r fig-idcras_fis, fig.cap = "Indicador de Desenvolvimento do CRAS",eval=FALSE}
+
+grafico <- f_quantitativo_niveis(idcras_2022, `Estrutura Física`, "Estrutura Física", niveis_ID) %>%
+  bind_rows(f_quantitativo_niveis(idcras_2022, `Recursos Humanos`, "Recursos Humanos", niveis_ID)) %>%
+  bind_rows(f_quantitativo_niveis(idcras_2022, `Serviços `, "Serviços & Benefícios", niveis_ID)) %>%
+
+  mutate(Eixo_X = factor(Eixo_X, levels = c("Estrutura Física",
+                                            "Recursos Humanos",
+                                            "Serviços & Benefícios"))) %>%
+  f_grafico_col_group_numero(Eixo_X, n, Grupo, 1)
+
+grafico
+```
+
+```{r fig-idcreas, fig.cap = "Indicador de Desenvolvimento do CREAS",eval=FALSE}
+
+grafico <- f_grupo_media(idcreas_2014, `IDCREAS sintético`, "ID CREAS", "2014") %>%
+  bind_rows(f_grupo_media(idcreas_2014, `Dimensão Estrutura Física`, "Estrutura Física", "2014")) %>%
+  bind_rows(f_grupo_media(idcreas_2014, `Dimensão Recursos Humanos`, "Recursos Humanos", "2014")) %>%
+  bind_rows(f_grupo_media(idcreas_2014, `Dimensão Serviços`, "Serviços & Benefícios", "2014")) %>%
+
+  bind_rows(f_grupo_media(idcreas_2015, `IDCREAS sintético`, "ID CREAS", "2015")) %>%
+  bind_rows(f_grupo_media(idcreas_2015, `Dimensão Estrutura Física`, "Estrutura Física", "2015")) %>%
+  bind_rows(f_grupo_media(idcreas_2015, `Dimensão Recursos Humanos`, "Recursos Humanos", "2015")) %>%
+  bind_rows(f_grupo_media(idcreas_2015, `Dimensão Serviços`, "Serviços & Benefícios", "2015")) %>%
+
+  bind_rows(f_grupo_media(idcreas_2016, `IDCREAS 2016`, "ID CREAS", "2016")) %>%
+  bind_rows(f_grupo_media(idcreas_2016, `Dimensão Estrutura Física`, "Estrutura Física", "2016")) %>%
+  bind_rows(f_grupo_media(idcreas_2016, `Dimensão Recursos Humanos`, "Recursos Humanos", "2016")) %>%
+  bind_rows(f_grupo_media(idcreas_2016, `Dimensão Serviços`, "Serviços & Benefícios", "2016")) %>%
+
+  bind_rows(f_grupo_media(idcreas_2017, IDCREAS, "ID CREAS", "2017")) %>%
+  bind_rows(f_grupo_media(idcreas_2017, `Estrutura Física`, "Estrutura Física", "2017")) %>%
+  bind_rows(f_grupo_media(idcreas_2017, `Recursos Humanos`, "Recursos Humanos", "2017")) %>%
+  bind_rows(f_grupo_media(idcreas_2017, `Serviços `, "Serviços & Benefícios", "2017")) %>%
+
+  bind_rows(f_grupo_media(idcreas_2018, ID_CREAS, "ID CREAS", "2018")) %>%
+  bind_rows(f_grupo_media(idcreas_2018, EF, "Estrutura Física", "2018")) %>%
+  bind_rows(f_grupo_media(idcreas_2018, `RH`, "Recursos Humanos", "2018")) %>%
+  bind_rows(f_grupo_media(idcreas_2018, `SERV`, "Serviços & Benefícios", "2018")) %>%
+
+  bind_rows(f_grupo_media(idcreas_2019, ID_CREAS, "ID CREAS", "2019")) %>%
+  bind_rows(f_grupo_media(idcreas_2019, `EF`, "Estrutura Física", "2019")) %>%
+  bind_rows(f_grupo_media(idcreas_2019, `RH`, "Recursos Humanos", "2019")) %>%
+  bind_rows(f_grupo_media(idcreas_2019, `SERV`, "Serviços & Benefícios", "2019")) %>%
+
+  bind_rows(f_grupo_media(idcreas_2020, ID_CREAS, "ID CREAS", "2020")) %>%
+  bind_rows(f_grupo_media(idcreas_2020, `EF`, "Estrutura Física", "2020")) %>%
+  bind_rows(f_grupo_media(idcreas_2020, `RH`, "Recursos Humanos", "2020")) %>%
+  bind_rows(f_grupo_media(idcreas_2020, `SERV`, "Serviços & Benefícios", "2020")) %>%
+
+  bind_rows(f_grupo_media(idcreas_2021, ID_CREAS, "ID CREAS", "2021")) %>%
+  bind_rows(f_grupo_media(idcreas_2021, `EF`, "Estrutura Física", "2021")) %>%
+  bind_rows(f_grupo_media(idcreas_2021, `RH`, "Recursos Humanos", "2021")) %>%
+  bind_rows(f_grupo_media(idcreas_2021, `SERV`, "Serviços & Benefícios", "2021")) %>%
+
+  bind_rows(f_grupo_media(idcreas_2022, idcreas, "ID CREAS", "2022")) %>%
+  bind_rows(f_grupo_media(idcreas_2022, `Estrutura Física`, "Estrutura Física", "2022")) %>%
+  bind_rows(f_grupo_media(idcreas_2022, `Recursos Humanos`, "Recursos Humanos", "2022")) %>%
+  bind_rows(f_grupo_media(idcreas_2022, `Serviços `, "Serviços & Benefícios", "2022")) %>%
+
+  mutate(Grupo = factor(Grupo, levels = c("Estrutura Física",
+                                          "Recursos Humanos",
+                                          "Serviços & Benefícios",
+                                          "ID CREAS"))) %>%
+
+  f_grafico_col_group_numero(Eixo_X, m, Grupo, 1)
+
+grafico
+```
+
+```{r fig-idcreas_est, fig.cap = "Indicador de Desenvolvimento do CREAS",eval=FALSE}
+
+
+grafico <- f_quantitativo_niveis(idcreas_2022, `Estrutura Física`, "Estrutura Física", niveis_ID) %>%
+  bind_rows(f_quantitativo_niveis(idcreas_2022, `Recursos Humanos`, "Recursos Humanos", niveis_ID)) %>%
+  bind_rows(f_quantitativo_niveis(idcreas_2022, `Serviços `, "Serviços & Benefícios", niveis_ID)) %>%
+
+  mutate(Eixo_X = factor(Eixo_X, levels = c("Estrutura Física",
+                                            "Recursos Humanos",
+                                            "Serviços & Benefícios"))) %>%
+
+  f_grafico_col_group_numero(Eixo_X, n, Grupo, 1)
+
+grafico
+```
+
+```{r fig-idconselho, fig.cap = "Indicador de Desenvolvimento dos Conselhos",eval=FALSE}
+
+grafico <- f_grupo_media(idconselho_2014, IDConselho, "ID Conselho", "2014") %>%
+  bind_rows(f_grupo_media(idconselho_2014, `Estrutura Administrativa`, "Estrutura Administrativa", "2014")) %>%
+  bind_rows(f_grupo_media(idconselho_2014, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2014")) %>%
+  bind_rows(f_grupo_media(idconselho_2014, `Composição do Conselho`, "Composição do Conselho", "2014")) %>%
+
+  bind_rows(f_grupo_media(idconselho_2015, `IDConselho - 2015`, "ID Conselho", "2015")) %>%
+  bind_rows(f_grupo_media(idconselho_2015, `Estrutura Administrativa`, "Estrutura Administrativa", "2015")) %>%
+  bind_rows(f_grupo_media(idconselho_2015, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2015")) %>%
+  bind_rows(f_grupo_media(idconselho_2015, `Composição do Conselho`, "Composição do Conselho", "2015")) %>%
+
+  bind_rows(f_grupo_media(idconselho_2016, IDConselho, "ID Conselho", "2016")) %>%
+  bind_rows(f_grupo_media(idconselho_2016, `Estrutura Administrativa`, "Estrutura Administrativa", "2016")) %>%
+  bind_rows(f_grupo_media(idconselho_2016, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2016")) %>%
+  bind_rows(f_grupo_media(idconselho_2016, `Composição do Conselho`, "Composição do Conselho", "2016")) %>%
+
+  bind_rows(f_grupo_media(idconselho_2017, IDConselho, "ID Conselho", "2017")) %>%
+  bind_rows(f_grupo_media(idconselho_2017, `Estrutura Administrativa`, "Estrutura Administrativa", "2017")) %>%
+  bind_rows(f_grupo_media(idconselho_2017, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2017")) %>%
+  bind_rows(f_grupo_media(idconselho_2017, `Composição do Conselho`, "Composição do Conselho", "2017")) %>%
+
+  bind_rows(f_grupo_media(idconselho_2018, IDConselho, "ID Conselho", "2018")) %>%
+  bind_rows(f_grupo_media(idconselho_2018, `Estrutura Administrativa`, "Estrutura Administrativa", "2018")) %>%
+  bind_rows(f_grupo_media(idconselho_2018, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2018")) %>%
+  bind_rows(f_grupo_media(idconselho_2018, `Composição do Conselho`, "Composição do Conselho", "2018")) %>%
+
+  bind_rows(f_grupo_media(idconselho_2019, IDConselho, "ID Conselho", "2019")) %>%
+  bind_rows(f_grupo_media(idconselho_2019, `Estrutura Administrativa`, "Estrutura Administrativa", "2019")) %>%
+  bind_rows(f_grupo_media(idconselho_2019, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2019")) %>%
+  bind_rows(f_grupo_media(idconselho_2019, `Composição do Conselho`, "Composição do Conselho", "2019")) %>%
+
+  bind_rows(f_grupo_media(idconselho_2020, IDConselho, "ID Conselho", "2020")) %>%
+  bind_rows(f_grupo_media(idconselho_2020, `Estrutura Administrativa`, "Estrutura Administrativa", "2020")) %>%
+  bind_rows(f_grupo_media(idconselho_2020, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2020")) %>%
+  bind_rows(f_grupo_media(idconselho_2020, `Composição do Conselho`, "Composição do Conselho", "2020")) %>%
+
+  bind_rows(f_grupo_media(idconselho_2021, IDConselho, "ID Conselho", "2021")) %>%
+  bind_rows(f_grupo_media(idconselho_2021, `Estrutura Administrativa`, "Estrutura Administrativa", "2021")) %>%
+  bind_rows(f_grupo_media(idconselho_2021, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2021")) %>%
+  bind_rows(f_grupo_media(idconselho_2021, `Composição do Conselho`, "Composição do Conselho", "2021")) %>%
+
+  bind_rows(f_grupo_media(idconselho_2022, IDConselho, "ID Conselho", "2022")) %>%
+  bind_rows(f_grupo_media(idconselho_2022, `Estrutura Administrativa`, "Estrutura Administrativa", "2022")) %>%
+  bind_rows(f_grupo_media(idconselho_2022, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2022")) %>%
+  bind_rows(f_grupo_media(idconselho_2022, `Composição do Conselho`, "Composição do Conselho", "2022")) %>%
+
+  mutate(Grupo = factor(Grupo, levels = c("Estrutura Administrativa",
+                                          "Dinâmica de Funcionamento",
+                                          "Composição do Conselho",
+                                          "ID Conselho"))) %>%
+
+  f_grafico_col_group_numero(Eixo_X, m, Grupo, 2)
+
+grafico
+```
+
+```{r fig-idcon, fig.cap = "Indicador de Desenvolvimento do conselhos municpais por compsição",eval=FALSE}
+
+grafico <- f_quantitativo_niveis(idconselho_2022, `Estrutura Administrativa`, "Estrutura Administrativa", niveis_ID) %>%
+  bind_rows(f_quantitativo_niveis(idconselho_2022, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", niveis_ID)) %>%
+  bind_rows(f_quantitativo_niveis(idconselho_2022, `Composição do Conselho`, "Composição do Conselho", niveis_ID)) %>%
+
+  mutate(Eixo_X = factor(Eixo_X, levels = c("Estrutura Administrativa",
+                                            "Dinâmica de Funcionamento",
+                                            "Composição do Conselho"))) %>%
+  f_grafico_col_group_numero(Eixo_X, n, Grupo, 1)
+
+grafico
+```
+
+```{r fig-Id_per, fig.cap = "Indicador de Desenvolvimento do conselhos municpais por compsição, 2014 a 2022",eval=FALSE}
+
+idconselho  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>%
+    gather("Categoria","Nível") %>%
+    mutate(Nível = case_when(Nível == 1~1,
+                             TRUE ~ Nível)) %>%
+    filter(!is.na(Nível)) %>%
+    mutate(Nível = factor(Nível, levels = c(1,
+                                            2,
+                                            3,
+                                            4,
+                                            5)))%>%
+    group_by(Categoria, Nível) %>%
+    summarise(n=n()) %>%
+    group_by(Categoria) %>%
+    mutate(Percentual = n/sum(n))
+}
+
+grafico <- idconselho(idconselho_2014, `Estrutura Administrativa`, "2014") %>%
+   bind_rows(idconselho(idconselho_2015, `Estrutura Administrativa`, "2015")) %>%
+   bind_rows(idconselho(idconselho_2016, `Estrutura Administrativa`, "2016")) %>%
+   bind_rows(idconselho(idconselho_2017, `Estrutura Administrativa`, "2017")) %>%
+   bind_rows(idconselho(idconselho_2018, `Estrutura Administrativa`, "2018")) %>%
+   #bind_rows(idconselho(idconselho_2019, `Estrutura Administrativa`, "2019")) %>%
+   #bind_rows(idconselho(idconselho_2020, `Estrutura Administrativa`, "2020")) %>%
+   #bind_rows(idconselho(idconselho_2021, `Estrutura Administrativa`, "2021")) %>%
+    bind_rows(idconselho(idconselho_2022, `Estrutura Administrativa`, "2022")) %>%
+
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+
+grafico
+```
+
+```{r fig-id_fun, fig.cap = "Indicador de Desenvolvimento do conselhos municpais - Dinamiza da funcionamento",eval=FALSE}
+
+idconselho  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>%
+    gather("Categoria","Nível") %>%
+    mutate(Nível = case_when(Nível == 1~1,
+                             TRUE ~ Nível)) %>%
+    filter(!is.na(Nível)) %>%
+    mutate(Nível = factor(Nível, levels = c(1,
+                                            2,
+                                            3,
+                                            4,
+                                            5)))%>%
+    group_by(Categoria, Nível) %>%
+    summarise(n=n()) %>%
+    group_by(Categoria) %>%
+    mutate(Percentual = n/sum(n))
+}
+
+grafico <- idconselho(idconselho_2014, `Dinâmica de Funcionamento`, "2014") %>%
+    bind_rows(idconselho(idconselho_2015, `Dinâmica de Funcionamento`, "2015")) %>%
+    bind_rows(idconselho(idconselho_2016, `Dinâmica de Funcionamento`, "2016")) %>%
+    bind_rows(idconselho(idconselho_2017, `Dinâmica de Funcionamento`, "2017")) %>%
+    bind_rows(idconselho(idconselho_2018, `Dinâmica de Funcionamento`, "2018")) %>%
+   #bind_rows(idconselho(idconselho_2019, `Dinâmica de Funcionamento`, "2019")) %>%
+   #bind_rows(idconselho(idconselho_2020, `Dinâmica de Funcionamento`, "2020")) %>%
+   #bind_rows(idconselho(idconselho_2021, `Dinâmica de Funcionamento`, "2021")) %>%
+    bind_rows(idconselho(idconselho_2022, `Dinâmica de Funcionamento`, "2022")) %>%
+
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+
+grafico
+```
+
+```{r fig-idcom, fig.cap = "Indicador de Desenvolvimento do conselhos municpais composição",eval=FALSE}
+
+idconselho  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>%
+    gather("Categoria","Nível") %>%
+    mutate(Nível = case_when(Nível == 1~1,
+                             TRUE ~ Nível)) %>%
+    filter(!is.na(Nível)) %>%
+    mutate(Nível = factor(Nível, levels = c(1,
+                                            2,
+                                            3,
+                                            4,
+                                            5)))%>%
+    group_by(Categoria, Nível) %>%
+    summarise(n=n()) %>%
+    group_by(Categoria) %>%
+    mutate(Percentual = n/sum(n))
+}
+
+grafico <- idconselho(idconselho_2014, `Composição do Conselho`, "2014") %>%
+    bind_rows(idconselho(idconselho_2015, `Composição do Conselho`, "2015")) %>%
+    bind_rows(idconselho(idconselho_2016, `Composição do Conselho`, "2016")) %>%
+    bind_rows(idconselho(idconselho_2017, `Composição do Conselho`, "2017")) %>%
+    bind_rows(idconselho(idconselho_2018, `Composição do Conselho`, "2018")) %>%
+   #bind_rows(idconselho(idconselho_2019, `Composição do Conselho`, "2019")) %>%
+   #bind_rows(idconselho(idconselho_2020, `Composição do Conselho`, "2020")) %>%
+   #bind_rows(idconselho(idconselho_2021, `Composição do Conselho`, "2021")) %>%
+    bind_rows(idconselho(idconselho_2022, `Composição do Conselho`, "2022")) %>%
+
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+
+grafico
+```

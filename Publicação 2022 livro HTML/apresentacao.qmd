@@ -1,0 +1,53 @@
+# Apresentação {.unnumbered}
+
+## A Assistência Social no Brasil {.unnumbered}
+
+É muito real a presença do SUAS na vida do povo brasileiro. Conquistamos um Sistema Único que tem vinculação com XX % da população inserida no Cadastro Único. A política de Assistência Social nas últimas décadas carrega uma conquistas da sociedade brasileira através de um projeto de seguranças sociais afiançadas por meio da proteção, vigilância e defesa de direitos. Parte deste projeto já foi colocado em prática, com decisões construídas junto com controle social. Hoje temos 30.824 ofertas de equipamentos sociais que visam potencializar a proteção social a população através dos serviços, programas, projetos e benefícios dessa política. As conquistas convivem com problemas e contradições, assim, identificar e construir alternativas para esses desafios também faz parte da construção contínua desta política pública.
+
+O início da estruturação da Assistência Social nos moldes atuais se deu a partir da promulgação da Constituição Federal de 1988, quando a assistência social passou a ser compreendida como direito do cidadão brasileiro e, portanto, como uma política pública de responsabilidade do Estado. É uma política de Seguridade Social não contributiva, que visa, em conjunto com outras políticas setoriais, a universalização dos direitos sociais.
+
+Atualmente as ações da Assistência Social são organizadas sob a forma do Sistema Único de Assistência Social (SUAS), que está fundado na gestão descentralizada e participativa, com gestão compartilhada, cofinanciamento e cooperação técnica entre os três entes federados. Além da União, estados e municípios, o SUAS é integrado pelos Conselhos de Assistência Social e pelas entidades e organizações de assistência social. A organização da Assistência Social está disposta na Lei Orgânica da Assistência Social (LOAS), de 7 de dezembro de 1993, em conformidade com a Política Nacional de Assistência Social (PNAS).
+
+No SUAS estão previstos dois tipos de proteção social: a básica e a especial, para prevenção de situações de vulnerabilidade e enfrentamento de situações de violações de direitos, respectivamente. Também no âmbito do SUAS são ofertados os benefícios assistenciais. As ações são empreendidas tanto pelas unidades públicas quanto pela rede socioassistencial privada do SUAS.
+
+Até atingir a forma atual de organização, a Assistência Social passou por mudanças significativas, consequência de inúmeros esforços que possibilitaram a ampliação de recursos, programas, benefícios e serviços voltados à população em situação de vulnerabilidade e risco social e/ou violação de direitos.
+
+Ao longo do século XXI, ainda que tenham sido instituídos alguns programas e elaboradas leis voltadas à proteção social, o acesso a direitos sociais era baseado na capacidade contributiva do trabalhador, excluindo uma grande parcela da população, incluindo a parcela que trabalhava no mercado informal.
+
+A partir de 1988, a Constituição Brasileira trouxe uma nova perspectiva para a proteção social, apresentando, pela primeira vez no Brasil, um modelo amplo de Seguridade Social, composto por Saúde, Previdência e Assistência Social, que prevê atendimento e cobertura universais. O modelo estipula ainda que os benefícios e serviços devem ser uniformes e equivalentes para a população rural e urbana. Prevê a integração entre governos, com participação dos três entes, e sociedade para a consecução dos objetivos estipulados.
+
+A assistência social foi reconhecida, portanto, como um direito da pessoa que dela precisar, sem necessidade de contribuição prévia à Seguridade Social. Tem por objetivos, de acordo com a Constituição Federal, "a proteção à família, à maternidade, à infância, à adolescência e à velhice; o amparo às crianças e adolescentes carentes; a promoção da integração ao mercado de trabalho; a habilitação e reabilitação das pessoas portadoras de deficiência e a promoção de sua integração à vida comunitária; e a garantia de um salário mínimo de benefício mensal à pessoa portadora de deficiência e ao idoso que comprovem não possuir meios de prover à própria manutenção ou de tê-la provida por sua família".[^1]
+
+[^1]: BRASIL. Constituição da República Federativa do Brasil de 1988. Disponível em: <http://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm>. Acesso em 09/08/2018.
+
+Considerando a nova configuração da Assistência Social definida pela Constituição, foi sancionada em 7 de dezembro de 1993 a Lei nº 8.742, a Lei Orgânica da Assistência Social (LOAS). A LOAS estabelece para a Assistência Social os princípios de universalização dos direitos sociais, com igualdade de direitos de acesso no atendimento e respeito à dignidade do cidadão. A lei, que dispõe sobre a nova organização da Assistência Social, trouxe inovações importantes, como a participação social por meio de instâncias de controle social e a descentralização político-administrativa com primazia da responsabilidade do Estado, nas três esferas de governo, na condução da política. As competências da União, dos estados, do Distrito Federal e dos municípios estão definidas na LOAS, bem como o cofinanciamento dos benefícios, serviços, programas e projetos da Assistência Social. Nesse sentido, mostra-se fundamental a articulação e a coordenação entre os três entes da federação, que se dá por meio das Comissões Intergestores Tripartite (CIT) e Bipartite (CIB), que são instâncias de pactuação interfederativa para a operacionalização da gestão do SUAS.
+
+A partir da LOAS, uma série de ferramentas de institucionalização foram organizadas a fim de nortear a nova configuração da Assistência Social, como visto na @tbl-marcos.
+
+|   1993   |   1998   |   2004   |   2005    |   2006    |           2009           |           2010           |      2011       |   2012    |
+|:--------:|:--------:|:--------:|:---------:|:---------:|:------------------------:|:------------------------:|:---------------:|:---------:|
+| LOAS     | PNAS     | PNAS     | NOB/ SUAS | NOB/ RH   | Tipificação dos Serviços | Decreto 7.334 Censo SUAS | Lei 12.435 SUAS | NOB/ SUAS |
+
+: Marcos legais da Assistência Social no Brasil. {#tbl-marcos}
+
+A primeira Política Nacional de Assistência Social (PNAS), prevista na LOAS, foi criada em 1998 e instituiu diretrizes para as ações da Assistência Social, representando uma base orientadora para procedimentos a serem adotados pelos gestores da política de assistência social em todo o país[^2].
+
+[^2]: Boscheti (2001)
+
+Em 2003[^3], a IV Conferência Nacional de Assistência Social teve como deliberação a construção e implementação do Sistema Único de Assistência Social (SUAS).
+
+[^3]: As Conferências de Assistência Social deliberam as diretrizes para o aperfeiçoamento da Política de Assistência Social em cada uma das esferas governamentais (BRASIL, 2012).
+
+Em 15 de outubro de 2004 foi aprovada pela Resolução nº 145 do Conselho Nacional de Assistência Social (CNAS) a PNAS, que trouxe alterações e definiu alguns elementos importantes para as políticas sociais. Dentre as novidades propostas, destacam-se o aperfeiçoamento da descentralização, a estruturação da participação da população, a fundamentação na centralidade na família para concepção e a implementação dos benefícios, programas e projetos (BRASIL, 2004).
+
+Em conjunto com a PNAS 2004, a Norma Operacional Básica NOB/SUAS 2005 representou importante avanço no sentido de consolidar e implementar as diretrizes previstas na LOAS. A NOB/SUAS 2005 disciplina a gestão da política de assistência social a partir das definições constantes na Constituição Federal, na LOAS e na PNAS, e normatiza a operacionalização do Sistema Único de Assistência Social (SUAS). A NOB/SUAS 2005 avança na integração, pactuação e coordenação entre as diversas esferas de governo, na organização das instâncias de gestão, articulação e controle da política, na proteção social, na instituição de arranjos para a prestação de serviços, e no financiamento, com definições sobre repasses regulares e mecanismos de transferências de recursos fundo a fundo baseada em pisos, critérios e indicadores de partilha[^4].
+
+[^4]: Norma Operacional Básica NOB/SUAS. Construindo as bases para a implantação do Sistema Único de Assistência Social. Disponível em: <http://www.assistenciasocial.al.gov.br/sala-de-imprensa/arquivos/NOB-SUAS.pdf>. Acesso em 26/10/2017
+
+A NOB/SUAS 2012 avançou na pactuação de metas e de resultados, e trouxe maior flexibilização para uso dos recursos, ampliando a autonomia dos municípios. Também trouxe avanços em relação à organização da Vigilância Socioassistencial e da gestão do trabalho, principalmente em relação à educação dos trabalhadores.
+
+Outro marco legal de destaque para a Assistência Social foi a Tipificação Nacional dos Serviços Socioassistenciais. Ela foi importante para padronizar a oferta dos serviços de proteção social básica e proteção social especial nacionalmente, especificando os conteúdos da oferta de serviços socioasisstenciais. A Tipificação traz detalhamentos importantes sobre ambiente físico, recursos materiais, recursos humanos, dentre outros. Tem-se, a partir da Tipificação, que os Serviços da Proteção Social Básica são compostos pelo Serviço de Proteção e Atendimento Integral à Família (PAIF), Serviço de Convivência e Fortalecimento de Vínculos e pelo Serviço de Proteção Social Básica no domicílio para pessoas com deficiência e idosas. Os Serviços da Proteção Social Básica buscam a prevenção de vulnerabilidades e riscos sociais.
+
+Os Serviços da Proteção Social Especial, destinada a indivíduos em situação de violação de direitos, por sua vez, dividem-se entre média e alta complexidade. No primeiro caso, enquadram-se o Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos (PAEFI), o Serviço Especializado em Abordagem Social e o Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC). Na alta complexidade, estão os serviços de Acolhimento Institucional, Acolhimento em República, Acolhimento em Família Acolhedora e o Serviço de Proteção em Situações de Calamidades Públicas e de Emergências.
+
+As diversas atualizações de normativos realizadas desde a promulgação da Constituição de 1988 definem aspectos de gestão, financiamento, organização da prestação dos serviços, oferta de benefícios, estrutura, recursos humanos e de participação social para a Assistência Social. Nesse sentido, destaca-se a importância do Censo SUAS como ferramenta de acompanhamento e monitoramento dos diversos elementos que compõem o SUAS.

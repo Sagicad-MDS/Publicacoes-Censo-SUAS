@@ -1,0 +1,1260 @@
+```{r}
+source("_setup.R")
+source("_carregamento.R")
+source("_funcoes.R")
+```
+
+# Unidades do SUAS
+
+Essa seção apresenta informações sobre as unidades físicas do SUAS e sua evolução ao longo do tempo. Esse item contempla as seguintes informações: a) quantidade de unidades administrativas da rede socioassistencial, b) informações sobre acessibilidade, c) situação do imovél e d) disponibilidade de equipamentos, como computador com acesso à internet.
+
+## Centros de Referência de Assistência Social (CRAS)
+
+Os Centros de Referência de Assistência Social (CRAS) são definidos pelo artigo 6º-C da Lei Orgânica de Assistência Social (LOAS) como unidades públicas municipais destinadas à prestação de serviços, programas de projetos da proteção social básica às famílias, devendo se localizar em áreas com maiores índices de vulnerabilidade e risco social.
+
+No Censo SUAS de 2022 foram identificados 8.557 CRAS, em 5.535 municípios brasileiros, o que indica que há pelo menos um CRAS em 99,4% dos municípios brasileiros.
+
+O quantitativo de CRAS dobrou entre 2007 e 2022, passando de 4.195 unidades para 8.557. O @fig-quantitativo-CRAS apresenta a evolução da quantidade de CRAS por grandes regiões de desenvolvimento.
+
+```{r fig-quantitativo-CRAS, fig.cap = "Evolução do quantitativo de CRAS, segundo grandes regiões; 2007, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_quantitativo_regiao_ano(cras_2007, ibge, "2007") %>%
+  # bind_rows(f_quantitativo_regiao_ano(cras_2008, Região, "2008")) %>%
+  # bind_rows(f_quantitativo_regiao_ano(cras_2009, Região, "2009")) %>%
+  # bind_rows(f_quantitativo_regiao_ano(cras_2010, Região, "2010")) %>%
+  # bind_rows(f_quantitativo_regiao_ano(cras_2011, IBGE, "2011")) %>%
+  bind_rows(f_quantitativo_regiao_ano(cras_2012, Região, "2012")) %>%
+  # bind_rows(f_quantitativo_regiao_ano(cras_2013, Região, "2013")) %>%
+  # bind_rows(f_quantitativo_regiao_ano(cras_2014, Região, "2014")) %>%
+  # bind_rows(f_quantitativo_regiao_ano(cras_2015, Região, "2015")) %>%
+  #bind_rows(f_quantitativo_regiao_ano(cras_2016, Região, "2016")) %>%
+  bind_rows(f_quantitativo_regiao_ano(cras_2017, Região, "2017")) %>%
+  # bind_rows(f_quantitativo_regiao_ano(cras_2018, IBGE, "2018")) %>%
+  # bind_rows(f_quantitativo_regiao_ano(cras_2019, IBGE, "2019")) %>%
+  # bind_rows(f_quantitativo_regiao_ano(cras_2020, IBGE, "2020")) %>%
+  # bind_rows(f_quantitativo_regiao_ano(cras_2021, IBGE, "2021")) %>%
+  bind_rows(f_quantitativo_regiao_ano(cras_2022, IBGE, "2022")) %>%
+  f_grafico_col_group_numero(Região, n, Ano, 1)
+
+grafico
+```
+
+A Expansão em todo território nacional do número de CRAS evidencia a consolidação de uma referência de unidades públicas de Assistência Social em todo território nacional. De acordo com os dados, 99,37% municípios possuem CRAS, ou seja, apenas 34 municípios no Brasil não dispõem desta unidade pública[^28].
+
+[^28]: estas informações são referentes ao preenchimento do Censo SUAS, é possível que no determinado período esta unidade pública não tenha preenchido o forumulário
+
+```{r fig-municipios-CRAS, fig.cap = "Evolução do percentual de municípios com pelo menos um CRAS, segundo grandes regiões - Brasil, 2007 a 2017", fig.footer = "Fonte: MDS, Censo SUAS", eval=FALSE}
+
+grafico <- f_percentual_municipios_regiao_ano(cras_2007, ibge, "2007") %>%
+ # bind_rows(f_percentual_municipios_regiao_ano(cras_2008, IBGE, "2008")) %>%
+ # bind_rows(f_percentual_municipios_regiao_ano(cras_2009, IBGE, "2009")) %>%
+ # bind_rows(f_percentual_municipios_regiao_ano(cras_2010, ibge, "2010")) %>%
+ # bind_rows(f_percentual_municipios_regiao_ano(cras_2011, IBGE, "2011")) %>%
+ bind_rows(f_percentual_municipios_regiao_ano(cras_2012, IBGE, "2012")) %>%
+ # bind_rows(f_percentual_municipios_regiao_ano(cras_2013, IBGE, "2013")) %>%
+ # bind_rows(f_percentual_municipios_regiao_ano(cras_2014, IBGE, "2014")) %>%
+ # bind_rows(f_percentual_municipios_regiao_ano(cras_2015, CD_IBGE, "2015")) %>%
+ # bind_rows(f_percentual_municipios_regiao_ano(cras_2016, IBGE, "2016")) %>%
+ bind_rows(f_percentual_municipios_regiao_ano(cras_2017, IBGE, "2017")) %>%
+ # bind_rows(f_percentual_municipios_regiao_ano(cras_2018, IBGE, "2018")) %>%
+ # bind_rows(f_percentual_municipios_regiao_ano(cras_2019, IBGE, "2019")) %>%
+ # bind_rows(f_percentual_municipios_regiao_ano(cras_2020, IBGE, "2020")) %>%
+ # bind_rows(f_percentual_municipios_regiao_ano(cras_2021, IBGE, "2021")) %>%
+ bind_rows(f_percentual_municipios_regiao_ano(cras_2022, IBGE, "2022")) %>%
+
+  ggplot(aes(x = Região, y = Percentual, group = Ano)) +
+  geom_col(aes(fill = Ano), position="dodge") +
+  geom_text(aes(label = percent(Percentual), y=Percentual+0.04), position = position_dodge(width = 0.9), angle = 90, size = 2.5) +
+  scale_y_continuous(expand = expansion(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+```
+
+Ao observar o número de CRAS por municípios, levando-se em conta o porte populacional, verifica-se que os 35 municípios do país que não possuem CRAS[^29] e estão concentrados em municípios de pequeno porte (@fig-CRAS-porte).
+
+[^29]: é possível também que alguns deles não tenham respondido ao Censo SUAS
+
+Em relação a concentração da quantidade de CRAS, para os municípios de pequeno porte I e pequeno porte II, dispõem, em sua maioria, de uma unidade de CRAS como referência do território, sendo respectivamente 96% e 69%. Os municípios de médio porte, cerca de 66% possuem de 2 a 3 CRAS. Os municípios de grande porte, o grupo majoritário de unidades são entre 4 a 6 CRAS - 52,5%.
+
+```{=html}
+<!--esse grafico tana com dado de 2017, daí troquei para 2022 e desconfigurou
+ATUALIZAÇÃO: O problema era que em 2022 Fernando de Noronha estava sem o código IBGE na base de CRAS, daí não era possivel determinar o porte do município e gerava uma categoria de município sem porte, e isto desconfigurava o gráfico gerado. Arrumada a base de CRAS de 2022 com inserção do código IBGE de Fernando de Noronha. Também foi atualizada a estimativa populacional para 2021. Dados do Censo de 2022 não foram encontrados em formato facilmente utilizável.-->
+```
+```{=html}
+<!-- Sobre o número de famílias referenciadas a PNAS^[PNAS/2004 - Política Nacional de Assistência Social] deternima de acordo com portes populacionais dos municípios, são eles: PPI: 2.500 famílias referenciadas por CRAS, PPII: 3.500 famílias referenciadas, Médio/Grande/Metrópole: 5000 famílias referencia por CRAS.
+CRAS -->
+```
+```{r fig-CRAS-porte, fig.cap = "Percentual de municípios por número de CRAS no município, segundo porte populacional estimado do município - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios"}
+
+cras_municipios <- cras_2022 %>%
+  select(IBGE7) %>%
+  group_by(IBGE7) %>%
+  summarise(n_cras=n())
+
+porte_municipios <- pop_municipios_2021 %>%
+  f_porte_populacional(`POPULAÇÃO ESTIMADA`) %>%
+  mutate(IBGE7 = as.numeric(paste0(`COD. UF`, `COD. MUNIC`))) %>%
+  select(IBGE7, Porte)
+
+dados <- cras_municipios %>%
+  full_join(porte_municipios, by = c("IBGE7" = "IBGE7")) %>%
+  mutate(grupo = case_when(is.na(n_cras)~"Nenhum CRAS",
+                            n_cras == 0~"Nenhum CRAS",
+                            n_cras == 1~"1 CRAS",
+                            n_cras <= 3~"De 2 a 3 CRAS",
+                            n_cras <= 6~"De 4 a 6 CRAS",
+                            n_cras <= 10~"De 7 a 10 CRAS",
+                            n_cras > 10~"Mais de 10 CRAS",
+                            TRUE~as.character(n_cras))) %>%
+  mutate(grupo = factor(grupo, levels = c("Nenhum CRAS",
+                                            "1 CRAS",
+                                            "De 2 a 3 CRAS",
+                                            "De 4 a 6 CRAS",
+                                            "De 7 a 10 CRAS",
+                                            "Mais de 10 CRAS"))) %>%
+  group_by(Porte, grupo) %>%
+  summarise(n=n()) #%>%
+#  complete(grupo, fill = list(n=0))
+
+niveis_porte <- dados$Porte %>%
+  levels() %>%
+  append("Brasil")
+
+grafico <- dados %>%
+  spread(Porte, n, fill = 0) %>%
+  mutate("Brasil" = rowSums(.[2:6])) %>%
+  gather("Porte","n",-grupo) %>%
+  mutate(Porte = factor(Porte, levels = niveis_porte)) %>%
+  group_by(Porte) %>%
+  mutate("Percentual" = n/sum(n)) %>%
+
+  f_grafico_col_stack_percent(Porte, Percentual, grupo, 2)
+
+grafico
+```
+
+Os dados de CRAS que funcionam com imóvel próprio evoluiu significativamente de 2008 a 2022. Destaca-se que o primeiro ano da série histórica possuia 43,7% CRAS com imóvel próprio (@fig-CRAS-imovel), dado que chega em 2022 com 59,62%. Dados com CRAS que funcionam com imóveis alugados passam por redução de 48,2% para 32,2%.
+
+Observa-se ainda aumento no percentual de CRAS que funcionam em imóveis cedidos: eram 6,8% em 2008, o maior valor da série histórica chega a 9,1%, conforme mostra o @fig-CRAS-imovel.[^30]
+
+[^30]: Para os anos de 2018 e 2019 esse dado não foi coletado no Censo SUAS
+
+```{r fig-CRAS-imovel, fig.cap = "Evolução dos CRAS segundo situação do imóvel – Brasil, 2007 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_equip_imovel(cras_2008, `situacao_imovel`, "2008") %>%
+  #bind_rows(f_equip_imovel(cras_2007, v15, "2007")) %>%
+  bind_rows(f_equip_imovel(cras_2009, `q5_situac_imovel`, "2009")) %>%
+  bind_rows(f_equip_imovel(cras_2010, q5, "2010")) %>%
+  bind_rows(f_equip_imovel(cras_2011, q5, "2011")) %>%
+  bind_rows(f_equip_imovel(cras_2012, q5, "2012")) %>%
+  bind_rows(f_equip_imovel(cras_2013, q5, "2013")) %>%
+  bind_rows(f_equip_imovel(cras_2014, q4, "2014")) %>%
+  bind_rows(f_equip_imovel(cras_2015, q4, "2015")) %>%
+  bind_rows(f_equip_imovel(cras_2016, q4, "2016")) %>%
+  bind_rows(f_equip_imovel(cras_2017, q4, "2017")) %>%
+  #bind_rows(f_equip_imovel(cras_2018, q4, "2017")) %>%
+  #bind_rows(f_equip_imovel(cras_2019, q4, "2017")) %>%
+  bind_rows(f_equip_imovel(cras_2020, q3, "2020")) %>%
+  bind_rows(f_equip_imovel(cras_2021, q3, "2021")) %>%
+  bind_rows(f_equip_imovel(cras_2022, q3, "2022")) %>%
+
+  #2018 não fazem essa pergunta
+  #2019 não fazem essa pergunta
+  #2020
+
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+
+grafico
+```
+
+Ainda sobre o tema da acessibilidade nas unidades de CRAS, observa-se no @fig-CRAS-acessibilidade um avanço em todas as condições de acessibilidade nas unidades de CRAS.[^31] Apesar da evolução, os dados ainda apontam para desafios, sobretudo no que se refere a banheiro adaptado que possui o percentual mais baixo de unidades com essa acessibilidade.
+
+[^31]: foram considerados acesso adaptado, os imóveis que informam possuir acessibilidade, de acordo com a norma ABNT ou não
+
+```{r fig-CRAS-acessibilidade, fig.cap = "Evolução percentual de CRAS com condições de acessibilidade - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+#tabela <- equip_acessibilidade(cras_2010, q10_1, "2010", "1") %>%
+#  bind_rows(equip_acessibilidade(cras_2010, q10_2, "2010", "2")) %>%
+#  bind_rows(equip_acessibilidade(cras_2010, q10_3, "2010", "3")) %>%
+#  bind_rows(equip_acessibilidade(cras_2010, q10_4, "2010", "4")) %>%
+#  bind_rows(equip_acessibilidade(cras_2011, q10a, "2011", "1")) %>%
+#  bind_rows(equip_acessibilidade(cras_2011, q10b, "2011", "2")) %>%
+#  bind_rows(equip_acessibilidade(cras_2011, q10c, "2011", "3")) %>%
+#  bind_rows(equip_acessibilidade(cras_2011, q10d, "2011", "4")) %>%
+tabela <- equip_acessibilidade(cras_2012, q10a, "2012", "1") %>%
+  bind_rows(equip_acessibilidade(cras_2012, q10b, "2012", "2")) %>%
+  bind_rows(equip_acessibilidade(cras_2012, q10c, "2012", "3")) %>%
+  bind_rows(equip_acessibilidade(cras_2012, q10d, "2012", "4")) %>%
+#  bind_rows(equip_acessibilidade(cras_2013, q10a, "2013", "1")) %>%
+#  bind_rows(equip_acessibilidade(cras_2013, q10b, "2013", "2")) %>%
+#  bind_rows(equip_acessibilidade(cras_2013, q10c, "2013", "3")) %>%
+#  bind_rows(equip_acessibilidade(cras_2013, q10d, "2013", "4")) %>%
+#  bind_rows(equip_acessibilidade(cras_2014, q9a, "2014", "1")) %>%
+#  bind_rows(equip_acessibilidade(cras_2014, q9b, "2014", "2")) %>%
+#  bind_rows(equip_acessibilidade(cras_2014, q9c, "2014", "3")) %>%
+#  bind_rows(equip_acessibilidade(cras_2014, q9d, "2014", "4")) %>%
+#  bind_rows(equip_acessibilidade(cras_2015, q9_1, "2015", "1")) %>%
+#  bind_rows(equip_acessibilidade(cras_2015, q9_2, "2015", "2")) %>%
+#  bind_rows(equip_acessibilidade(cras_2015, q9_3, "2015", "3")) %>%
+#  bind_rows(equip_acessibilidade(cras_2015, q9_4, "2015", "4")) %>%
+#  bind_rows(equip_acessibilidade(cras_2016, q9_1, "2016", "1")) %>%
+#  bind_rows(equip_acessibilidade(cras_2016, q9_2, "2016", "2")) %>%
+#  bind_rows(equip_acessibilidade(cras_2016, q9_3, "2016", "3")) %>%
+#  bind_rows(equip_acessibilidade(cras_2016, q9_4, "2016", "4")) %>%
+  bind_rows(equip_acessibilidade(cras_2017, q9.1, "2017", "1")) %>%
+  bind_rows(equip_acessibilidade(cras_2017, q9.2, "2017", "2")) %>%
+  bind_rows(equip_acessibilidade(cras_2017, q9.3, "2017", "3")) %>%
+  bind_rows(equip_acessibilidade(cras_2017, q9.4, "2017", "4")) %>%
+  bind_rows(equip_acessibilidade(cras_2022, q8_1, "2022", "1")) %>%
+  bind_rows(equip_acessibilidade(cras_2022, q8_2, "2022", "2")) %>%
+  bind_rows(equip_acessibilidade(cras_2022, q8_3, "2022", "3")) %>%
+  bind_rows(equip_acessibilidade(cras_2022, q8_4, "2022", "4")) %>%
+  ungroup() %>%
+  mutate(Categoria=str_wrap(Categoria,width=34))
+
+ordenado<-tabela %>%
+  filter(Ano == "2022") %>%
+  arrange(Percentual) %>%
+  pull(Categoria)
+
+grafico<-tabela %>%
+  mutate(Categoria = factor(Categoria, levels = ordenado)) %>%
+  f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
+
+grafico
+```
+
+No @fig-CRAS-acessibilidade-situacao foram relacionadas as condições de acessibilidade com a situação do imóvel. Em 2022, verificou-se que as condições de acessibilidade em CRAS localizados em imóveis próprios possuem números significativamente elevados em relação aos imóveis alugados ou cedidos.
+
+```{r fig-CRAS-acessibilidade-situacao, fig.cap = "Percentual de CRAS com condições de acessibilidade por situação do imóvel – Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+#tabela <- equip_acessibilidade_situacao(cras_2016, q4, q9_1, "1") %>%
+#  bind_rows(equip_acessibilidade_situacao(cras_2016, q4, q9_2, "2")) %>%
+#  bind_rows(equip_acessibilidade_situacao(cras_2016, q4, q9_3, "3")) %>%
+#  bind_rows(equip_acessibilidade_situacao(cras_2016, q4, q9_4, "4")) %>%
+#tabela <- equip_acessibilidade_situacao(cras_2017, q4, q9.1, "1") %>%
+#  bind_rows(equip_acessibilidade_situacao(cras_2017, q4, q9.2, "2")) %>%
+#  bind_rows(equip_acessibilidade_situacao(cras_2017, q4, q9.3, "3")) %>%
+#  bind_rows(equip_acessibilidade_situacao(cras_2017, q4, q9.4, "4")) %>%
+tabela <- equip_acessibilidade_situacao(cras_2022, q3, q8_1, "1") %>%
+  bind_rows(equip_acessibilidade_situacao(cras_2022, q3, q8_2, "2")) %>%
+  bind_rows(equip_acessibilidade_situacao(cras_2022, q3, q8_3, "3")) %>%
+  bind_rows(equip_acessibilidade_situacao(cras_2022, q3, q8_4, "4"))
+
+ordenado<-tabela %>%
+  filter(Situacao == "Próprio") %>%
+  arrange(Percentual) %>%
+  pull(Categoria)
+
+grafico<-tabela %>%
+  mutate(Categoria = factor(Categoria, levels = rev(ordenado))) %>%
+  f_grafico_col_group_percent(Situacao, Percentual, Categoria, 4)
+
+grafico
+```
+
+Em relação a conectividade, em especial o acesso à internet, o percentual de CRAS com acesso à internet aumentou significativamente desde 2007, chegando no último ano desta série com mais de 99% das unidades com computadores com acesso à internet, conforme o @fig-CRAS-internet-percentual.
+
+```{r fig-CRAS-internet, fig.cap = "Distribuição dos CRAS com computadores com acesso à internet; 2007, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval = FALSE}
+
+f_cras_internet = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! q) %>%
+    group_by(!! q) %>%
+    summarise(Total=n()) %>%
+    mutate("Ano" = !! ano, Percentual = Total/sum(Total)*100) %>%
+    filter(!! q == 1)
+}
+
+grafico <- f_cras_internet(cras_2007, `Acesso a Internet`, "2007") %>%
+  bind_rows(f_cras_internet(cras_2012, q13b, "2012")) %>%
+  bind_rows(f_cras_internet(cras_2017, q12.2, "2017")) %>%
+  bind_rows(f_cras_internet(cras_2022, q11_2, "2022")) %>%
+
+  ggplot(aes(x = Ano)) +
+#  geom_col(aes(fill = Percentual)) +
+  geom_col(aes(y = Percentual*24)) +
+  geom_line(aes(y = Total)) +
+  geom_point(aes(y = Total)) +
+  geom_text(aes(label = percent(Percentual/100), y=(Percentual+1.5)*24)) +
+  geom_text(aes(label = Total, y=Total+50)) +
+  scale_y_continuous(expand = expansion(mult = c(0, .1)), sec.axis = sec_axis(~./24, name = "%")) +
+  labs(y = "Total") +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.line.x = element_line(),
+        axis.line.y = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+```
+
+```{r fig-CRAS-internet-quantitativo, fig.cap = "Evolução do quantitativo de CRAS com computadores com acesso à internet – Brasil, 2007 a 2017", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
+
+#grafico <- f_selecao_regiao_ano(cras_2007, v17, "1", Gran_reg, "2007")
+#  bind_rows(f_quantitativo_regiao_ano(cras_2008, Região, "2008")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(cras_2009, Região, "2009")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(cras_2010, Região, "2010")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(cras_2011, IBGE, "2011")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(cras_2012, Região, "2012")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(cras_2013, Região, "2013")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(cras_2014, Região, "2014")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(cras_2015, Região, "2015")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(cras_2016, Região, "2016")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(cras_2017, Região, "2017")) %>%
+#  ggplot(aes(x = Região, y = n, group = Ano)) +
+#  geom_col(aes(fill = Ano), position="dodge") +
+#  geom_text(aes(label = format(n, big.mark="."), y=n+300), position = position_dodge(width = 0.9), angle = 90, size = 2.5) #+
+#  scale_y_continuous(expand = expansion(mult = c(0, .1))) +
+#  theme(legend.position="bottom",
+#        legend.title = element_blank(),
+#        axis.title = element_blank(),
+#        axis.ticks = element_blank(),
+#        axis.text.y = element_blank(),
+#        axis.line.x = element_line(),
+#        panel.background = element_blank()) +
+#  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+```
+
+```{r fig-CRAS-internet-percentual, fig.cap = "Evolução percentual de CRAS com computadores com acesso à internet – Brasil; 2007, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_maior0_regiao_ano(cras_2007, `Acesso a Internet`, ibge, "2007") %>%
+  bind_rows(f_maior0_regiao_ano(cras_2012, q13b, Região, "2012")) %>%
+  bind_rows(f_maior0_regiao_ano(cras_2017, q12.2, Região, "2017")) %>%
+  bind_rows(f_maior0_regiao_ano(cras_2022, q11_2, IBGE, "2022")) %>%
+
+  f_grafico_col_group_percent(Região, Percentual, Ano, 1)
+
+grafico
+```
+
+Em relação a CRAS com locais para Cadastro Único, o dado abaixo tráz o percentual destas informações e a disposição de equipes para esta finalidade. Nota-se o aumento ao longo dos anos, das unidades de CRAS que possuem Cadastro Único com equipe exclusiva, chegando no Censo SUAS de 2022 com 59% (@fig-equip-cadunico-cras).
+
+```{r fig-equip-cadunico-cras, fig.cap = "Percentual de CRAS com locais para CadÚnico - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+
+equip_cadunico  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>%
+    gather("Categoria","Nível") %>%
+    mutate(Nível = case_when(Nível == "Sim, com equipe exclusiva para esta finalidade"~"Sim, com equipe exclusiva para esta finalidade",
+                             Nível == "Não realiza"~"Não",
+                              TRUE ~ Nível))%>%
+    filter(!is.na(Nível)) %>%
+    mutate(Nível = factor(Nível, levels = c("Sim, com equipe exclusiva para esta finalidade",
+                                            "Sim, com outra equipe",
+                                            "Sim, com a equipe responsável pelo PAIF",
+                                            "Não"))) %>%
+    group_by(Categoria, Nível) %>%
+    summarise(n=n()) %>%
+    group_by(Categoria) %>%
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+grafico <- equip_cadunico(cras_2010, q43, "2010") %>%
+   bind_rows(equip_cadunico(cras_2011, q47, "2011"))%>%
+   bind_rows(equip_cadunico(cras_2012, q45, "2012"))%>%
+   bind_rows(equip_cadunico(cras_2013, q40, "2013"))%>%
+   bind_rows(equip_cadunico(cras_2014, q41, "2014"))%>%
+   bind_rows(equip_cadunico(cras_2015, q37, "2015"))%>%
+   bind_rows(equip_cadunico(cras_2016, q31, "2016")) %>%
+   bind_rows(equip_cadunico(cras_2017, q35, "2017")) %>%
+   bind_rows(equip_cadunico(cras_2018, q_40, "2018")) %>%
+   bind_rows(equip_cadunico(cras_2019, q39, "2019")) %>%
+   bind_rows(equip_cadunico(cras_2020, q39, "2020")) %>%
+   bind_rows(equip_cadunico(cras_2021, q39, "2021")) %>%
+   bind_rows(equip_cadunico(cras_2022, q39, "2022")) %>%
+
+ #CRAS2020_base com códigos numericos
+
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 2)
+
+grafico
+```
+
+## Centros de Convivência
+
+Os Centros de Convivência, são unidades que executam o Serviço de Convivência e Fortalecimento de Vínculos (SCFV) e compõem a Rede de Proteção Social Básica. Desde 2014 o número de Centros de Convivência no Brasil vem aumentando, passando de 7.882 unidades em 2014 para 8.454 em 2016, acréscimo de 572 unidades. A região Norte tem a menor quantidade de unidades (238 ou 2,8% do total), seguida do Centro-Oeste com 568 Unidades (ou 6,7% do total). A região Sudeste tem o maior número de Centros de Convivência, com 4.035 Unidades (47,7% do total).
+
+```{r fig-quantitativo-CentroConv, fig.cap = "Evolução do quantitativo de Centro de Convivência, segundo grandes regiões; 2014, 2016, 2018, 2020 e 2022", fig.footer = "Fonte: MDS, Censo SUAS",eval=FALSE}
+
+grafico <- f_quantitativo_regiao_ano(ceconv_2014, Região, "2014") %>%
+   # bind_rows(f_quantitativo_regiao_ano(ceconv_2015, IBGE, "2015")) %>%
+   bind_rows(f_quantitativo_regiao_ano(ceconv_2016, IBGE, "2016")) %>%
+   # bind_rows(f_quantitativo_regiao_ano(ceconv_2017, IBGE, "2017")) %>%
+   bind_rows(f_quantitativo_regiao_ano(ceconv_2018, IBGE, "2018")) %>%
+   # bind_rows(f_quantitativo_regiao_ano(ceconv_2018, IBGE, "2019")) %>%
+    bind_rows(f_quantitativo_regiao_ano(ceconv_2020, IBGE, "2020")) %>%
+   # bind_rows(f_quantitativo_regiao_ano(ceconv_2021, IBGE, "2021")) %>%
+   bind_rows(f_quantitativo_regiao_ano(ceconv_2022, IBGE, "2022")) %>%
+   f_grafico_col_group_numero(Região, n, Ano, 1)
+
+grafico
+```
+
+Os Centros de Convivência podem ser unidades públicas ou vinculadas a entidades de assistência social inscritas nos Conselhos de Assistência Social do município ou do Distrito Federal. Em 2022, 44% dos Centros de Convivência eram governamentais e 56% das unidades eram não governamentais. [^32]
+
+[^32]: os dados de 2016 não foi possível de ser coletato devido a dificuldades de leitura da base de dados
+
+```{r fig-centro-conv-natureza, fig.cap = "Quantitativo de Centros de Convivência por Natureza da Unidade - BRASIL; 2016 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+centro  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>%
+    gather("Categoria","Nível") %>%
+    mutate(Nível = case_when(Nível == "Não Governamental"~"Não Governamental/Organização da Sociedade Civil",
+                             TRUE ~ Nível)) %>%
+    filter(!is.na(Nível)) %>%
+    mutate(Nível = factor(Nível, levels = c("Governamental",
+                                            "Não Governamental/Organização da Sociedade Civil"))) %>%
+    group_by(Categoria, Nível) %>%
+    summarise(n=n()) %>%
+    group_by(Categoria) %>%
+    mutate(Percentual = n/sum(n))
+}
+
+grafico <- centro(ceconv_2016, q2, "2016") %>%
+    bind_rows(centro(ceconv_2017, q2, "2017")) %>%
+    bind_rows(centro(ceconv_2018, q_2, "2018")) %>%
+    #bind_rows(centro(ceconv_2019, q2, "2019")) %>%
+    bind_rows(centro(ceconv_2020, q27, "2020")) %>%
+    bind_rows(centro(ceconv_2021, q27, "2021")) %>%
+    bind_rows(centro(ceconv_2022, q27, "2022")) %>%
+
+  #2019 - dado numerico
+
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+
+grafico
+```
+
+## Centro de Referência Especializada de Assistência Social (CREAS)
+
+Os Centros de Referência Especializados de Assistência Social (CREAS) são unidades públicas estatais que ofertam serviços da proteção social especial a pessoas e famílias em situação de risco pessoal ou social e/ou em situação de violação de direitos.
+
+O Censo SUAS 2022 registrou 2.846 CREAS no país: um incremento de 679 novas unidades em relação aos últimos 10 anos. O @fig-creas-quantitativo sinaliza esta evolução por Regiões do país.
+
+```{r fig-creas-quantitativo, fig.cap = "Evolução do quantitativo de CREAS, segundo grandes regiões; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+  grafico <- f_quantitativo_regiao_ano(creas_2012, IBGE, "2012") %>%
+  #bind_rows(f_quantitativo_regiao_ano(creas_2013, IBGE, "2013")) %>%
+  #bind_rows(f_quantitativo_regiao_ano(creas_2014, IBGE, "2014")) %>%
+  #bind_rows(f_quantitativo_regiao_ano(creas_2015, IBGE, "2015")) %>%
+  #bind_rows(f_quantitativo_regiao_ano(creas_2016, IBGE7, "2016")) %>%
+  bind_rows(f_quantitativo_regiao_ano(creas_2017, IBGE, "2017")) %>%
+  #bind_rows(f_quantitativo_regiao_ano(creas_2018, IBGE, "2018")) %>%
+  #bind_rows(f_quantitativo_regiao_ano(creas_2019, IBGE, "2019")) %>%
+  #bind_rows(f_quantitativo_regiao_ano(creas_2020, IBGE, "2020")) %>%
+  #bind_rows(f_quantitativo_regiao_ano(creas_2021, IBGE, "2021")) %>%
+  bind_rows(f_quantitativo_regiao_ano(creas_2022, IBGE, "2022")) %>%
+  f_grafico_col_group_numero(Região, n, Ano, 1)
+
+grafico
+```
+
+De acordo com os dados do @fig-CREAS-porte, que mostra o número de CREAS por município levando-se em conta o porte populacional, verifica-se que 54% dos municípios não possuem CREAS. Eles estão concentrados nos municípios de Pequeno Porte I e II, com respectivamente 77% e 5,3% dos municípios que não possuem esta unidade especializada.
+
+```{r fig-CREAS-porte, fig.cap = "Percentual de municípios por número de CREAS, segundo porte populacional - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios"}
+
+creas_municipios <- creas_2022 %>%
+  select(IBGE7) %>%
+  group_by(IBGE7) %>%
+  summarise(n_creas=n())
+
+porte_municipios <- pop_municipios_2017 %>%
+  f_porte_populacional(`POPULAÇÃO ESTIMADA`) %>%
+  mutate(IBGE7 = as.numeric(paste0(`COD. UF`, `COD. MUNIC`))) %>%
+  select(IBGE7, Porte)
+
+dados <- creas_municipios %>%
+  full_join(porte_municipios, by = c("IBGE7" = "IBGE7")) %>%
+  mutate(grupo = case_when(is.na(n_creas)~"Nenhum CREAS",
+                            n_creas == 0~"Nenhum CREAS",
+                            n_creas == 1~"1 CREAS",
+                            n_creas <= 3~"De 2 a 3 CREAS",
+                            n_creas <= 6~"De 4 a 6 CREAS",
+                            n_creas <= 10~"De 7 a 10 CREAS",
+                            n_creas > 10~"Mais de 10 CREAS",
+                            TRUE~as.character(n_creas))) %>%
+  mutate(grupo = factor(grupo, levels = c("Nenhum CREAS",
+                                            "1 CREAS",
+                                            "De 2 a 3 CREAS",
+                                            "De 4 a 6 CREAS",
+                                            "De 7 a 10 CREAS",
+                                            "Mais de 10 CREAS"))) %>%
+  group_by(Porte, grupo) %>%
+  summarise(n=n()) #%>%
+#  complete(grupo, fill = list(n=0))
+
+niveis_porte <- dados$Porte %>%
+  levels() %>%
+  append("Brasil")
+
+grafico <- dados %>%
+  spread(Porte, n, fill = 0) %>%
+  mutate("Brasil" = rowSums(.[2:6])) %>%
+  gather("Porte","n",-grupo) %>%
+  mutate(Porte = factor(Porte, levels = niveis_porte)) %>%
+  group_by(Porte) %>%
+  mutate("Percentual" = n/sum(n)) %>%
+
+  f_grafico_col_stack_percent(Porte, Percentual, grupo, 2)
+
+grafico
+```
+
+Ao observar a série histórica do @fig-creas-situacao é possível perceber que os imóveis próprios vem aumentando ao longo do tempo. Em 2012 eram 27% das unidades e, em 2022 37% destas unidades passam a possuir imóveis prórpios. Ao passo que os imóveis próprios aumentam em 10% pontos percentuais, os imovéis alugados decrescem, computado no Censo SUAS de 2022 com 57% das unidades alugadas.Há também registros de imóveis cedidos no qual ao longo dos anos sinalizam um leve aumento[^33].
+
+[^33]: Para os anos de 2018 e 2019 esse dado não foi computado no Censo SUAS
+
+```{r fig-creas-situacao, fig.cap = "Evolução dos CREAS segundo situação do imóvel – Brasil; 2012 a 2022",fig.footer = "Fonte: MDS, Censo SUAS."}
+
+#grafico <- f_equip_imovel(creas_2012, q5, "2012") %>%
+  #bind_rows(f_equip_imovel(creas_2008, situacao_imovel, "2008")) %>%
+  #bind_rows(f_equip_imovel(creas_2009, q5_situac_imovel, "2009")) %>%
+  #bind_rows(f_equip_imovel(creas_2010, q5, "2010")) %>%
+  #bind_rows(f_equip_imovel(creas_2011, q5, "2011")) %>%
+grafico <- f_equip_imovel(creas_2012, q5, "2012") %>%
+  #bind_rows(f_equip_imovel(creas_2013, q5, "2013")) %>%
+  bind_rows(f_equip_imovel(creas_2014, q4, "2014")) %>%
+  bind_rows(f_equip_imovel(creas_2015, q4, "2015")) %>%
+  bind_rows(f_equip_imovel(creas_2016, q4, "2016")) %>%
+  bind_rows(f_equip_imovel(creas_2017, q4, "2017")) %>%
+  #bind_rows(f_equip_imovel(creas_2018, q3, "2018")) %>%
+  #bind_rows(f_equip_imovel(creas_2019, q4, "2019")) %>%
+  bind_rows(f_equip_imovel(creas_2020, q3, "2020")) %>%
+  bind_rows(f_equip_imovel(creas_2021, q3, "2021")) %>%
+  bind_rows(f_equip_imovel(creas_2022, q3, "2022")) %>%
+
+  # não há essa pergunta: 2018,2019
+
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+
+grafico
+```
+
+De acordo com os dados do Censo SUAS do período de 2012 a 2022, houve aumento das condições de acessibilidade em vários itens dos CREAS. O @fig-creas-acessibilidade sinaliza que a presença do acesso principal adaptado com rota ascessível aos espaços (recepção, salas de atendimento e espaços de uso coletivo) é a mais presente nas unidades de CREAS, com destaque para 83% no CENSO SUAS de 2022.
+
+O dado proporcional menos presente nas unidades de CREAS é o Banheiro adaptado. Em de 2012, 33% dos CREAS foram identificados com banheiro adaptado. Esse mesmo dado em 2022 chegou a 55% dos CREAS. Destaca-se um crescimento de 22 pontos percentuais em relação ao ano de 2012. [^34].
+
+[^34]: foram considerados acesso adptado os imóveis que informam possuir acessibilidade, de acordo com a norma ABNT ou não
+
+```{r fig-creas-acessibilidade, fig.cap = "Evolução percentual de CREAS com condições de acessibilidade - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+#tabela <- equip_acessibilidade(creas_2010, q9_1, "2010", "1") %>%
+#  bind_rows(equip_acessibilidade(creas_2010, q9_2, "2010", "2")) %>%
+#  bind_rows(equip_acessibilidade(creas_2010, q9_3, "2010", "3")) %>%
+#  bind_rows(equip_acessibilidade(creas_2010, q9_4, "2010", "4")) %>%
+tabela <- equip_acessibilidade(creas_2012, q10a, "2012", "1") %>%
+  bind_rows(equip_acessibilidade(creas_2012, q10b, "2012", "2")) %>%
+  bind_rows(equip_acessibilidade(creas_2012, q10c, "2012", "3")) %>%
+  bind_rows(equip_acessibilidade(creas_2012, q10d, "2012", "4")) %>%
+  bind_rows(equip_acessibilidade(creas_2017, q9.1, "2017", "1")) %>%
+  bind_rows(equip_acessibilidade(creas_2017, q9.2, "2017", "2")) %>%
+  bind_rows(equip_acessibilidade(creas_2017, q9.3, "2017", "3")) %>%
+  bind_rows(equip_acessibilidade(creas_2017, q9.4, "2017", "4")) %>%
+  bind_rows(equip_acessibilidade(creas_2022, q9_1, "2022", "1")) %>%
+  bind_rows(equip_acessibilidade(creas_2022, q9_2, "2022", "2")) %>%
+  bind_rows(equip_acessibilidade(creas_2022, q9_3, "2022", "3")) %>%
+  bind_rows(equip_acessibilidade(creas_2022, q9_4, "2022", "4")) %>%
+  ungroup() %>%
+  mutate(Categoria=str_wrap(Categoria,width=34))
+
+ordenado<-tabela %>%
+  filter(Ano == 2022) %>%
+  arrange(Percentual) %>%
+  pull(Categoria)
+
+grafico<-tabela %>%
+  mutate(Categoria = factor(Categoria, levels = ordenado)) %>%
+  f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
+
+grafico
+```
+
+O @fig-CREAS-acessibilidade-situacao mostra a presença de condições de acessibilidade segundo a situação do imóvel. Os dados sinalizam que a acessibilidade é significativamente mais presente em imovéis próprios.
+
+```{r fig-CREAS-acessibilidade-situacao, fig.cap = "Evolução percentual de CREAS com condições de acessibilidade por situação do imóvel – Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+tabela <- equip_acessibilidade_situacao(creas_2022, q3, q9_1, "1") %>%
+  bind_rows(equip_acessibilidade_situacao(creas_2022, q3, q9_2, "2")) %>%
+  bind_rows(equip_acessibilidade_situacao(creas_2022, q3, q9_3, "3")) %>%
+  bind_rows(equip_acessibilidade_situacao(creas_2022, q3, q9_4, "4"))
+
+ordenado<-tabela %>%
+  filter(Situacao == "Próprio") %>%
+  arrange(Percentual) %>%
+  pull(Categoria)
+
+grafico<-tabela %>%
+  mutate(Categoria = factor(Categoria, levels = rev(ordenado))) %>%
+  f_grafico_col_group_percent(Situacao, Percentual, Categoria, 4)
+
+grafico
+```
+
+A existência de computadores com acesso à internet é um importante aspecto a ser observado quando se avalia a infraestrutura dos CREAS. No período de 2012 a 2022, observa-se que este item avançou de 89% para 99% dos CREAS que possuem computadores com acesso à internet conforme o @fig-CREAS-internet-percentual.
+
+Esses números avançaram em todas as regiões, em especial, na Região Norte conforme pode ser observado no @fig-CREAS-internet-percentual.
+
+```{r fig-CREAS-internet-percentual, fig.cap = "Evolução percentual de CREAS com computadores com acesso à internet – Brasil, 2012 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+
+
+grafico <- f_maior0_regiao_ano(creas_2012, q14, Região, "2012") %>%
+  bind_rows(f_maior0_regiao_ano(creas_2017, q13, IBGE, "2017")) %>%
+  bind_rows(f_maior0_regiao_ano(creas_2022, q12_2, IBGE, "2022")) %>%
+
+  f_grafico_col_group_percent(Região, Percentual, Ano, 1)
+
+grafico
+```
+
+```{r fig-creas-qtd_munic, fig.cap = "Evolução do quantitativo de CREAS; Brasil e grandes regiões; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
+
+#grafico <- f_percentual_municipios_regiao_ano(creas_2007, ibge, "2007") %>%
+ #bind_rows(f_percentual_municipios_regiao_ano(creas_2008, IBGE, "2008")) %>%
+ # bind_rows(f_percentual_municipios_regiao_ano(creas_2009, IBGE, "2009")) %>%
+ # bind_rows(f_percentual_municipios_regiao_ano(creas_2010, ibge, "2010")) %>%
+ #bind_rows(f_percentual_municipios_regiao_ano(creas_2011, IBGE, "2011")) %>%
+grafico <- f_percentual_municipios_regiao_ano(creas_2012, IBGE, "2012") %>%
+  #bind_rows(f_percentual_municipios_regiao_ano(creas_2013, IBGE, "2013")) %>%
+  #bind_rows(f_percentual_municipios_regiao_ano(creas_2014, IBGE, "2014")) %>%
+  #bind_rows(f_percentual_municipios_regiao_ano(creas_2015, IBGE, "2015")) %>%
+  bind_rows(f_percentual_municipios_regiao_ano(creas_2016, IBGE7, "2016")) %>%
+  bind_rows(f_percentual_municipios_regiao_ano(creas_2017, IBGE, "2017")) %>%
+  bind_rows(f_percentual_municipios_regiao_ano(creas_2018, IBGE, "2018")) %>%
+  bind_rows(f_percentual_municipios_regiao_ano(creas_2019, IBGE, "2019")) %>%
+  bind_rows(f_percentual_municipios_regiao_ano(creas_2020, IBGE, "2020")) %>%
+  bind_rows(f_percentual_municipios_regiao_ano(creas_2021, IBGE, "2021")) %>%
+  bind_rows(f_percentual_municipios_regiao_ano(creas_2022, IBGE, "2022")) %>%
+
+  ggplot(aes(x = Região, y = Percentual, group = Ano)) +
+  geom_col(aes(fill = Ano), position="dodge") +
+  geom_text(aes(label = percent(Percentual), y=Percentual+0.04), position = position_dodge(width = 0.9), angle = 90, size = 2.5) +
+  scale_y_continuous(expand = expansion(mult = c(0, .1))) +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+```
+
+```{r fig-CREAS-quantidade-municipios, fig.cap = "Evolução do quantitativo de municípios com CREAS, Brasil e grandes regiões - 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS", eval=FALSE}
+
+grafico <- f_percentual_municipios_regiao_ano(creas_2012, IBGE, "2012") %>%
+  bind_rows(f_percentual_municipios_regiao_ano(creas_2017, IBGE, "2017")) %>%
+  bind_rows(f_percentual_municipios_regiao_ano(creas_2022, IBGE, "2022")) %>%
+  f_grafico_col_group_numero(Região, n, Ano, 1)
+
+grafico
+```
+
+A oferta regionalizada de CREAS é uma estratégia que objetiva garantir a universalização do acesso e integralidade do antendimento da proteção socioassistencia especializada. Ela está prevista através da Resolução CNAS 31/2013. Essa composição é organizada através dos entes estaduais. O @fig-creas-regionais sinaliza a evolução dessa oferta.
+
+```{r fig-creas-regionais, fig.cap = "Evolução do quantitativo de CREAS Regionais, Brasil e grandes regiões - 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_selecao_regiao_ano(creas_2012, q2, "Regional", Região, "2012") %>%
+  bind_rows(f_selecao_regiao_ano(creas_2017, q2, "Regional", Região, "2017")) %>%
+#  bind_rows(f_selecao_regiao_ano(creas_2018, q1, "Regional", Região, "2018")) %>%
+#  bind_rows(f_selecao_regiao_ano(creas_2019, q1, "Regional", Região, "2019")) %>%
+#  bind_rows(f_selecao_regiao_ano(creas_2020, q1, "Regional", Região, "2020")) %>%
+  #bind_rows(f_selecao_regiao_ano(creas_2021, q1, "Regional", Regiao, "2021")) %>%
+  bind_rows(f_selecao_regiao_ano(creas_2022, q1, "Regional", Região, "2022")) %>%
+  f_grafico_col_group_numero(Região, n, Ano, 1)
+
+grafico
+```
+
+## Centro de Referência Especializado para População em Situação de Rua (Centro POP)
+
+Os Centros de Referência Especializados para População em Situação de Rua (Centros POP) são unidades públicas que oferecem atendimento especializado para a população em situação de rua, no âmbito da proteção social especial de média complexidade.
+
+Entre 2012 e 2022 o número de Centros POP cresceu, passando de 105 unidades para 237 no período. O @fig-quantitativo-CentroPop sinaliza essa evolução na escala de a cada 5 anos por Regiões do Brasil.
+
+```{r fig-quantitativo-CentroPop, fig.cap = "Evolução do quantitativo de Centro POP, 2012 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+
+grafico <- f_quantitativo_regiao_ano(cpop_2012, Região, "2012") %>%
+   #bind_rows(f_quantitativo_regiao_ano(cpop_2011, IBGE, "2011")) %>%)
+   #bind_rows(f_quantitativo_regiao_ano(cpop_2013, Região, "2013")) %>%
+   #bind_rows(f_quantitativo_regiao_ano(cpop_2014, IBGE, "2014")) %>%
+   #bind_rows(f_quantitativo_regiao_ano(cpop_2015, IBGE, "2015")) %>%
+   #bind_rows(f_quantitativo_regiao_ano(cpop_2016, IBGE, "2016")) %>%
+   bind_rows(f_quantitativo_regiao_ano(cpop_2017, Região, "2017")) %>%
+   #bind_rows(f_quantitativo_regiao_ano(cpop_2018, Região, "2018")) %>%
+   #bind_rows(f_quantitativo_regiao_ano(cpop_2019, Região, "2019")) %>%
+   #bind_rows(f_quantitativo_regiao_ano(cpop_2020, IBGE, "2020")) %>%
+   #bind_rows(f_quantitativo_regiao_ano(cpop_2021, IBGE, "2021")) %>%
+    bind_rows(f_quantitativo_regiao_ano(cpop_2022, IBGE, "2022")) %>%
+  f_grafico_col_group_numero(Região, n, Ano, 1)
+
+grafico
+```
+
+Os Centros Pop estão presentes em municípios de grande porte e metrópole, o @fig-cpop-porte sinaliza que 59% dos municípios de grande porte possuem pelo menos uma unidade. Nas metrópoles, 100% possuem unidades de Centro POP, sendo 59% entre duas a três unidades, 24% uma unidade e 18% de 4 a 6 unidades. Esta unidade também está presente em municípios de médio porte, com destaque para 5,9% dos municípios.
+
+```{r fig-cpop-porte, fig.cap = "Percentual de municípios por número de Centro POP, segundo porte populacional - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios"}
+
+cpop_municipios <- cpop_2022 %>%
+  select(IBGE7) %>%
+  group_by(IBGE7) %>%
+  summarise(n_centropop=n())
+
+porte_municipios <- pop_municipios_2017 %>%
+  f_porte_populacional(`POPULAÇÃO ESTIMADA`) %>%
+  mutate(IBGE7 = as.numeric(paste0(`COD. UF`, `COD. MUNIC`))) %>%
+  select(IBGE7, Porte)
+
+dados <- cpop_municipios %>%
+  full_join(porte_municipios, by = c("IBGE7" = "IBGE7")) %>%
+  mutate(grupo = case_when(is.na(n_centropop)~"Nenhum Centro POP",
+                            n_centropop == 0~"Nenhum Centro POP",
+                            n_centropop == 1~"1 Centro POP",
+                            n_centropop <= 3~"De 2 a 3 Centro POP",
+                            n_centropop <= 6~"De 4 a 6 Centro POP",
+                            n_centropop <= 10~"De 7 a 10 Centro POP",
+                            n_centropop > 10~"Mais de 10 Centro POP",
+                            TRUE~as.character(n_centropop))) %>%
+  mutate(grupo = factor(grupo, levels = c("Nenhum Centro POP",
+                                            "1 Centro POP",
+                                            "De 2 a 3 Centro POP",
+                                            "De 4 a 6 Centro POP",
+                                            "De 7 a 10 Centro POP",
+                                            "Mais de 10 Centro POP"))) %>%
+  group_by(Porte, grupo) %>%
+  summarise(n=n()) #%>%
+#  complete(grupo, fill = list(n=0))
+
+niveis_porte <- dados$Porte %>%
+  levels() %>%
+  append("Brasil")
+
+grafico <- dados %>%
+  spread(Porte, n, fill = 0) %>%
+  mutate("Brasil" = rowSums(.[2:6])) %>%
+  gather("Porte","n",-grupo) %>%
+  mutate(Porte = factor(Porte, levels = niveis_porte)) %>%
+  group_by(Porte) %>%
+  mutate("Percentual" = n/sum(n)) %>%
+
+  f_grafico_col_stack_percent(Porte, Percentual, grupo, 2)
+
+grafico
+```
+
+Em relação a acessibilidade dos Centro POP, o @fig-cpop-acessibilidade-situacao relaciona esta adaptação com a situação do imóvel. No geral todas as adaptações de acessibilidade são superiores ao serem relacionadas com os imóveis alugados. Em relação aos imóveis cedidos, a adaptação de banheiro se sobressai em relação as demais situações dos imóveis.
+
+```{r fig-cpop-acessibilidade-situacao, fig.cap = "Percentual de Centros POP com condições de acessibilidade segundo situação do imóvel – Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+tabela <- equip_acessibilidade_situacao(cpop_2022, q1, q7_1, "1") %>%
+  bind_rows(equip_acessibilidade_situacao(cpop_2022, q1, q7_2, "2")) %>%
+  bind_rows(equip_acessibilidade_situacao(cpop_2022, q1, q7_3, "3")) %>%
+  bind_rows(equip_acessibilidade_situacao(cpop_2022, q1, q7_4, "4"))
+
+ordenado<-tabela %>%
+  filter(Situacao == "Próprio") %>%
+  arrange(Percentual) %>%
+  pull(Categoria)
+
+grafico<-tabela %>%
+  mutate(Categoria = factor(Categoria, levels = rev(ordenado))) %>%
+  f_grafico_col_group_percent(Situacao, Percentual, Categoria, 4)
+
+grafico
+```
+
+Em 2016,95% dos Centros Pop destacam computador com acesso à internet em 2022. O @fig-cpop-internet-percentual referencia essa evolução por Regiões do Brasil, as regiões Centro Oeste e Sul possuem 100% das unidades com acesso à internet e a região Norte com maior desafio de acesso, com 75% das unidades de Centro POP com acesso à internet.
+
+```{r fig-cpop-internet-percentual, fig.cap = "Percentual de Computadores nos Centro POP com acesso à internet, 2012 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_maior0_regiao_ano(cpop_2012, q14_2, Região, "2012") %>%
+  bind_rows(f_maior0_regiao_ano(cpop_2017, q11.2, IBGE, "2017")) %>%
+  bind_rows(f_maior0_regiao_ano(cpop_2022, q10_2, IBGE, "2022")) %>%
+
+  f_grafico_col_group_percent(Região, Percentual, Ano, 1)
+
+grafico
+```
+
+## Centro-Dia
+
+Os Centros Dia são unidades públicas especializadas para atender pessoas com deficiência e suas famílias. Ela está inserida no âmbito da proteção social especial de média complexidade. No ano de 2015 identifica-se no Brasil 1.340 unidades. Em 2022 há um crescimento de 40,7% destas unidades, conforme pode ser observada no @fig-quantitativo-Centrodia.
+
+```{r fig-quantitativo-Centrodia, fig.cap = "Evolução do quantitativo de Centro-Dia, segundo grandes regiões; 2016 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- 
+#   f_quantitativo_regiao_ano(cedia_2015, Região, "2015") %>%
+   f_quantitativo_regiao_ano(cedia_2016, Região, "2016") %>%
+#   bind_rows(f_quantitativo_regiao_ano(cedia_2017, IBGE, "2017")) %>%
+   bind_rows(f_quantitativo_regiao_ano(cedia_2018, IBGE, "2018")) %>%
+#   bind_rows(f_quantitativo_regiao_ano(cedia_2019, IBGE, "2019")) %>%
+   bind_rows(f_quantitativo_regiao_ano(cedia_2020, IBGE, "2020")) %>%
+#   bind_rows(f_quantitativo_regiao_ano(cedia_2021, IBGE, "2021")) %>%
+   bind_rows(f_quantitativo_regiao_ano(cedia_2022, IBGE, "2022")) %>%
+  f_grafico_col_group_numero(Região, n, Ano, 1)
+
+grafico
+```
+
+Em relação a natureza destas unidades, o @fig-cdia-natureza sinaliza que estas unidades são majoritariamente referenciadas pelas Organizações da Sociedade Civil (OSCs). Das unidades destacadas no Censo SUAS 2022, 92,8% são ofertadas por OSCs.[^35]
+
+[^35]: não foi identificado essa pergunta para o ano de 2017 e para o ano de 2022 não foi possível gerar a informação a partir do banco de dados disponível
+
+```{r fig-cdia-natureza, fig.cap = "Quantitativo de Centros Dia por Natureza da Unidade - BRASIL, 2015 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+centrodia  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>%
+    gather("Categoria","Nível") %>%
+    mutate(Nível = case_when(Nível == "Não Governamental"~"Não Governamental/Organização da Sociedade Civil",
+                             Nível == "Não-Governamental"~"Não Governamental/Organização da Sociedade Civil",
+                             Nível == "Não-Governamental/Organização da Sociedade Civil"~"Não Governamental/Organização da Sociedade Civil",
+                             TRUE ~ Nível)) %>%
+    filter(!is.na(Nível)) %>%
+    mutate(Nível = factor(Nível, levels = c("Governamental",
+                                            "Não Governamental/Organização da Sociedade Civil"))) %>%
+    group_by(Categoria, Nível) %>%
+    summarise(n=n()) %>%
+    group_by(Categoria) %>%
+    mutate(Percentual = n/sum(n))
+}
+
+grafico <- centrodia(cedia_2015, q6, "2015") %>%
+  bind_rows(centrodia(cedia_2016, q4, "2016")) %>%
+#  bind_rows(centrodia(cedia_2017, q4, "2017")) %>%
+  bind_rows(centrodia(cedia_2018, q_4, "2018")) %>%
+  bind_rows(centrodia(cedia_2019, q4, "2019")) %>%
+  bind_rows(centrodia(cedia_2020, q4, "2020")) %>%
+  bind_rows(centrodia(cedia_2021, q4, "2021")) %>%
+# bind_rows(centrodia(cedia_2022, q4, "2022")) %>%
+
+  #2017 não identifiquei essa pergunta
+  #2022 dados númericos
+
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+
+grafico
+```
+
+Em relação a acessibilidade destas unidades, o banheiro acessivel é a adaptação mais presentes nestas unidades chegando nos registros do Censo SUAS de 2022 com 73%. Como trata-se de unidades especializadas para atenção a pessoas com deficiência, esse item é de fundamental importância para assegurar acolhida e segurança a este público e suas famílias. O @fig-cdia-acessibilidade sinaliza os locais e composição de acessibilidade, estes dados sinalizam um desafio para garantir as condições físicas de acesso ao público de pessoas com deficiência nas unidades de Centro-Dia.
+
+```{r fig-cdia-acessibilidade, fig.cap = "Evolução percentual de Centro-Dia com condições de acessibilidade - Brasil; 2015, 2018 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+tabela <- equip_acessibilidade(cedia_2015, q20_1, "2015", "1") %>%
+  bind_rows(equip_acessibilidade(cedia_2015, q20_2, "2015", "2")) %>%
+  bind_rows(equip_acessibilidade(cedia_2015, q20_3, "2015", "3")) %>%
+  bind_rows(equip_acessibilidade(cedia_2015, q20_4, "2015", "4")) %>%
+  bind_rows(equip_acessibilidade(cedia_2018, q_19_1, "2018", "1")) %>%
+  bind_rows(equip_acessibilidade(cedia_2018, q_19_2, "2018", "2")) %>%
+  bind_rows(equip_acessibilidade(cedia_2018, q_19_3, "2018", "3")) %>%
+  bind_rows(equip_acessibilidade(cedia_2018, q_19_4, "2018", "4")) %>%
+  bind_rows(equip_acessibilidade(cedia_2022, q15_1, "2022", "1")) %>%
+  bind_rows(equip_acessibilidade(cedia_2022, q15_2, "2022", "2")) %>%
+  bind_rows(equip_acessibilidade(cedia_2022, q15_3, "2022", "3")) %>%
+  bind_rows(equip_acessibilidade(cedia_2022, q15_4, "2022", "4")) %>%
+  ungroup() %>%
+  mutate(Categoria=str_wrap(Categoria,width=34))
+
+ordenado<-tabela %>%
+  filter(Ano == 2022) %>%
+  arrange(Percentual) %>%
+  pull(Categoria)
+
+grafico<-tabela %>%
+  mutate(Categoria = factor(Categoria, levels = ordenado)) %>%
+  f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
+
+grafico
+```
+
+Além disto, há outras adaptações importantes nestas unidades, como tecnologias assistidas, suportes com materiais em braile, profissionais com conhecimento em Libras entre outros destacados no @fig-cdia_adaptacoes.
+
+```{r fig-cdia_adaptacoes, fig.cap = "Quantidade de Centro-Dia, segundo outras adaptações - Brasil, 2015, 2018 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+#| fig-height: 5
+
+cdia_adp= function(df, q, ano, cod_categoria){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+  cod_categoria <- quo_name(cod_categoria)
+
+#2022
+  categoria <- case_when(!! cod_categoria == "1"~"Sim, suporte de profissional com conhecimento em LIBRAS",
+                         !! cod_categoria == "2"~"Sim, suporte de material em braile",
+                         !! cod_categoria == "3"~"Sim, suporte para leitores de telas de computador para pessoas com deficiência visual",
+                         !! cod_categoria == "4"~"Sim, há outras adaptações ou estratégias para assegurar a acessibilidade as pessoas com deficiência auditiva/surdas e pessoas com deficiência visual",
+                         !! cod_categoria == "5"~"Sim, outras adaptações e tecnologias assistivas para deficiência física",
+                         !! cod_categoria == "6"~"Sim, outras adaptações e tecnologias assistivas para deficiência intelectual e autismo",
+                         !! cod_categoria == "7"~"Sim, pisos especiais com relevos para sinalização voltados para pessoa com  deficiência visual",
+                         !! cod_categoria == "0"~"Não há outras adaptações")
+
+
+  df %>%
+    select(!! q) %>%
+    group_by(!! q) %>%
+    summarise(n=n()) %>%
+    mutate(Percentual = n/sum(n)) %>%
+    filter(!! q == "Sim" | !! q == 1) %>%
+    mutate("Categoria" = categoria, "Ano" = !! ano)
+}
+
+ tabela <- cdia_adp (cedia_2015,q21_1,"2015","1") %>%
+  bind_rows(cdia_adp(cedia_2015,q21_2,"2015","2")) %>%
+  bind_rows(cdia_adp(cedia_2015,q21_3,"2015","3")) %>%
+  bind_rows(cdia_adp(cedia_2015,q21_4,"2015","5")) %>%
+  bind_rows(cdia_adp(cedia_2015,q21_5,"2015","6")) %>%
+  bind_rows(cdia_adp(cedia_2015,q21_6,"2015","7")) %>%
+  bind_rows(cdia_adp(cedia_2015,q21_7,"2015","0")) %>%
+
+
+  bind_rows(cdia_adp(cedia_2018,q_20_1,"2018","1")) %>%
+  bind_rows(cdia_adp(cedia_2018,q_20_2,"2018","2")) %>%
+  bind_rows(cdia_adp(cedia_2018,q_20_3,"2018","3")) %>%
+  bind_rows(cdia_adp(cedia_2018,q_20_4,"2018","5")) %>%
+  bind_rows(cdia_adp(cedia_2018,q_20_5,"2018","6")) %>%
+  bind_rows(cdia_adp(cedia_2018,q_20_6,"2018","7")) %>%
+  bind_rows(cdia_adp(cedia_2018,q_20_0,"2018","0")) %>%
+
+
+  bind_rows(cdia_adp(cedia_2022,q16_1,"2022","1")) %>%
+  bind_rows(cdia_adp(cedia_2022,q16_2,"2022","2")) %>%
+  bind_rows(cdia_adp(cedia_2022,q16_3,"2022","3")) %>%
+  bind_rows(cdia_adp(cedia_2022,q16_4,"2022","4")) %>%
+  bind_rows(cdia_adp(cedia_2022,q16_5,"2022","5")) %>%
+  bind_rows(cdia_adp(cedia_2022,q16_6,"2022","6")) %>%
+  bind_rows(cdia_adp(cedia_2022,q16_7,"2022","7")) %>%
+  bind_rows(cdia_adp(cedia_2022,q16_0,"2022","0")) %>%
+
+
+
+
+  ungroup() %>%
+  mutate(Categoria=str_wrap(Categoria,width=51))
+
+ordenado<-tabela %>%
+  filter(Ano == "2022") %>%
+  arrange(Percentual) %>%
+  pull(Categoria)
+
+grafico<-tabela %>%
+  mutate(Categoria = factor(Categoria, levels = ordenado)) %>%
+  f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
+
+grafico
+```
+
+## Unidades de Alta Complexidade
+
+As Unidades de Acolhimento tem o objetivo de ofertar serviços de Proteção Social Especial de Alta Complexidade, com atenção a pessoas e/ou famílias com vínculos rompidos ou fragilizados, ou que estejam em situação de abandono, ameaça ou violação de direitos, de forma a garantir sua proteção integral.
+
+No que se refere a quantidade total destas unidades de acolhimento por porte populacional, destaca-se que há concentração nos municípios com porte populacional maiores. Todas as metrópoles possuem registro de mais de 10 unidades. O @fig-unac-porte também sinaliza que 74% dos municípios de pequeno porte I não dispõem de serviços de alta complexidade.
+
+Para os municípios menores a Resolução 31/2013 do CNAS sinaliza sobre a oferta regionalizada e a expansão qualificada dos serviços de Alta Complexidade para Criança e Adolescentes. O orgão gestor estadual é responsável por esta organização.
+
+```{r fig-unac-porte, fig.cap = "Unidades de Acolhimento e estimativas da população para os municípios, segundo porte populacional - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+
+unac_municipios <- unac_2022 %>%
+  select(IBGE7) %>%
+  group_by(IBGE7) %>%
+  summarise(n_unac=n())
+
+porte_municipios <- pop_municipios_2017 %>%
+  f_porte_populacional(`POPULAÇÃO ESTIMADA`) %>%
+  mutate(IBGE7 = as.numeric(paste0(`COD. UF`, `COD. MUNIC`))) %>%
+  select(IBGE7, Porte)
+
+dados <- unac_municipios %>%
+  full_join(porte_municipios, by = c("IBGE7" = "IBGE7")) %>%
+  mutate(grupo = case_when(is.na(n_unac)~"Nenhuma Unidade de Acolhimento",
+                            n_unac == 0~"Nenhuma Unidade de Acolhimento",
+                            n_unac == 1~"1 Unidade de Acolhimento",
+                            n_unac <= 3~"De 2 a 3 Unidades de Acolhimento",
+                            n_unac <= 6~"De 4 a 6 Unidades de Acolhimento",
+                            n_unac <= 10~"De 7 a 10 Unidades de Acolhimento",
+                            n_unac > 10~"Mais de 10 Unidades de Acolhimento",
+                            TRUE~as.character(n_unac))) %>%
+  mutate(grupo = factor(grupo, levels = c("Nenhuma Unidade de Acolhimento",
+                                            "1 Unidade de Acolhimento",
+                                            "De 2 a 3 Unidades de Acolhimento",
+                                            "De 4 a 6 Unidades de Acolhimento",
+                                            "De 7 a 10 Unidades de Acolhimento",
+                                            "Mais de 10 Unidades de Acolhimento"))) %>%
+  group_by(Porte, grupo) %>%
+  summarise(n=n()) #%>%
+#  complete(grupo, fill = list(n=0))
+
+niveis_porte <- dados$Porte %>%
+  levels() %>%
+  append("Brasil")
+
+grafico <- dados %>%
+  spread(Porte, n, fill = 0) %>%
+  mutate("Brasil" = rowSums(.[2:6])) %>%
+  gather("Porte","n",-grupo) %>%
+  mutate(Porte = factor(Porte, levels = niveis_porte)) %>%
+  group_by(Porte) %>%
+  mutate("Percentual" = n/sum(n)) %>%
+
+  f_grafico_col_stack_percent(Porte, Percentual, grupo, 3)
+
+grafico
+```
+
+A maioria das Unidades de Acolhimento são executadas por Organizações da Sociedade Cívil (Osc). Esse percentual teve uma redução entre 2012 e 2022. Em 2012 estes dados sinalizam percentual de 66,4% das unidades de acolhimento com execução de OSC, registrando em 2022 63,4% conforme o @fig-acolh_nat.
+
+```{r fig-acolh_nat, fig.cap = "Quantitativo de Acolhimento Institucional por Natureza da Unidade - BRASIL, 2012 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+acolh_nat  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>%
+    gather("Categoria","Nível") %>%
+    mutate(Nível = case_when(Nível == "Não Governamental"~"Não Governamental/Organização da Sociedade Civil",
+                             Nível == "Não-Governamental"~"Não Governamental/Organização da Sociedade Civil",
+                             Nível == "Governamental Municipal ou do Distrito Federal"~"Governamental",
+                             Nível == "Governamental Estadual"~"Governamental",
+                             Nível == "Não-Governamental/Organização da Sociedade Civil"~"Não Governamental/Organização da Sociedade Civil",
+                             TRUE ~ Nível)) %>%
+    filter(!is.na(Nível)) %>%
+    mutate(Nível = factor(Nível, levels = c("Governamental",
+                                            "Não Governamental/Organização da Sociedade Civil"))) %>%
+    group_by(Categoria, Nível) %>%
+    summarise(n=n()) %>%
+    group_by(Categoria) %>%
+    mutate(Percentual = n/sum(n))
+}
+
+grafico <- acolh_nat(unac_2012, q4, "2012") %>%
+      bind_rows(acolh_nat(unac_2013, q4, "2013")) %>%
+      bind_rows(acolh_nat(unac_2014, q5, "2014")) %>%
+      bind_rows(acolh_nat(unac_2015, q5, "2015")) %>%
+      bind_rows(acolh_nat(unac_2016, q4, "2016")) %>%
+      bind_rows(acolh_nat(unac_2017, q3, "2017")) %>%
+      bind_rows(acolh_nat(unac_2018, q_3, "2018")) %>%
+      bind_rows(acolh_nat(unac_2019, q3, "2019")) %>%
+      bind_rows(acolh_nat(unac_2020, q3, "2020")) %>%
+      bind_rows(acolh_nat(unac_2021, q3, "2021")) %>%
+      bind_rows(acolh_nat(unac_2022, q3, "2022")) %>%
+
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+
+grafico
+```
+
+No que se refere às condições de acessibilidade, é possível notar melhorias no percentual dos quatro quesitos de acessibilidade. A adaptação mais observada é a rota acessível ao banheiro, presente em 50,9% das Unidades, e a menos observada é o acesso principal adaptado com rampas e rota acessível desde a calçada até o interior da unidade, presentes em 49,2% das Unidades. O banheiro adaptado para pessoas com deficiência e/ou mobilidade reduzida, presente em 47,9% das unidades em 2022 e no que se refere ao acesso principal adaptado com rampas e e rota acessivel para o Censo SUAS 2022 observa-se presente em 45,6% das unidades conforme o @fig-unac_acessibilidade.
+
+```{r fig-unac_acessibilidade, fig.cap = "Evolução percentual de Unidades de Acolhimento Municipais com condições de acessibilidade - Brasil; 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+
+# Em 2012 não tem a informação sobre se a acessibilidade é de acordo com a Norma ABNT, esse detalhamento só tem a partir de 2015.
+tabela <- equip_acessibilidade(unac_2015, q42_1, "2015", "1") %>%
+  bind_rows(equip_acessibilidade(unac_2015, q42_2, "2015", "2")) %>%
+  bind_rows(equip_acessibilidade(unac_2015, q42_3, "2015", "3")) %>%
+  bind_rows(equip_acessibilidade(unac_2015, q42_4, "2015", "4")) %>%
+  bind_rows(equip_acessibilidade(unac_2017, q37.1, "2017", "1")) %>%
+  bind_rows(equip_acessibilidade(unac_2017, q37.2, "2017", "2")) %>%
+  bind_rows(equip_acessibilidade(unac_2017, q37.3, "2017", "3")) %>%
+  bind_rows(equip_acessibilidade(unac_2017, q37.4, "2017", "4")) %>%
+  bind_rows(equip_acessibilidade(unac_2022, q41_1, "2022", "1")) %>%
+  bind_rows(equip_acessibilidade(unac_2022, q41_2, "2022", "2")) %>%
+  bind_rows(equip_acessibilidade(unac_2022, q41_3, "2022", "3")) %>%
+  bind_rows(equip_acessibilidade(unac_2022, q41_4, "2022", "4")) %>%
+  ungroup() %>%
+  mutate(Categoria=str_wrap(Categoria,width=34))
+
+ordenado<-tabela %>%
+  filter(Ano == "2022") %>%
+  arrange(Percentual) %>%
+  pull(Categoria)
+
+grafico<-tabela %>%
+  mutate(Categoria = factor(Categoria, levels = ordenado)) %>%
+  f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
+
+grafico
+```
+
+Em relação ao acesso à internet, observa-se uma evolução nos últimos 10 anos. Em 2012 62,2% das unidades possuem acesso à internet, o Censo SUAS de 2022 destaca que 100% dos computadores das unidades possuem acesso à internet conforme o @fig-unac-internet.
+
+```{r fig-unac-internet, fig.cap = "Percentual de Computadores nas unidades de Acolhimento com acesso à internet, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_maior0_regiao_ano(unac_2012, q34a_2, Região, "2012") %>%
+  bind_rows(f_maior0_regiao_ano(unac_2017, q36.20, IBGE, "2017")) %>%
+  bind_rows(f_maior0_regiao_ano(unac_2022, q40_25, IBGE, "2022")) %>%
+
+  f_grafico_col_group_percent(Região, Percentual, Ano, 1)
+
+grafico
+```
+
+## Unidades do Cadastro Único
+
+Quanto a presença das unidades do Cadastro Único, os dados do Censo SUAS 2022 sinaliza 2.892 unidades de postos do Cadastro Único conforme pode ser observado através do @fig-postos-cadunico.
+
+```{r fig-postos-cadunico, fig.cap = "Evolução de Postos do Cadastro Único - 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_quantitativo_regiao_ano(posto_cadunico_2020, Regiao, "2020") %>%
+  #bind_rows(f_quantitativo_regiao_ano(posto_cadunico_2021, IBGE, "2021")) %>%)
+  bind_rows(f_quantitativo_regiao_ano(posto_cadunico_2022, IBGE, "2022")) %>%
+  f_grafico_col_group_numero(Região, n, Ano, 1)
+
+  #ano 2021 não quer gerar, acho que pode ser erro no código do ibge
+
+grafico
+```
+
+O @fig-posto_cadunico mostra o local onde estão estas unidades. A maioria delas, 61%, encontra-se na secretaria de Assistência Social. A segunda proporção são postos exclusivos, com destaque para algumas unidades presentes em escolas, conselhos e OSCS.
+
+```{r fig-posto_cadunico, fig.cap = "Distribuição dos Postos do Cadastro Único - Brasil, 2020 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+#| fig-height: 5
+
+posto_cadunico = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>%
+    gather("Grupo","Eixo_x") %>%
+    mutate(Eixo_x = case_when(
+      Eixo_x == "Sede da Secretaria da Assistência Social ou congênere;"~"Sede da Secretaria da Assistência Social ou congênere",
+      Eixo_x == "Outra unidade administrativa (Sede da Prefeitura, Sede de Outra Secretaria, Administração Regional, Sub-Prefeituras," |
+      Eixo_x == "Outra unidade administrativa (Sede da Prefeitura, Sede de Outra Secretaria, Administração Regional, Sub-Prefeituras, Un"~"Outra unidade administrativa (Sede da Prefeitura, Sede de Outra Secretaria, Administração Regional, Sub-Prefeituras, Unidades de outras políticas públicas, etc.)",
+      Eixo_x == "Posto exclusivo para atendimento do Cadastro Único;"~"Posto exclusivo para atendimento do Cadastro Único",
+      Eixo_x == "Serviço Integrado para o Cidadão (Na Hora, Vapt Vupt, Poupa Tempo, etc);"~"Serviço Integrado para o Cidadão (Na Hora, Vapt Vupt, Poupa Tempo, etc)",
+      Eixo_x == "Escola"~"Escola",
+      Eixo_x == "Entidade privada, Associação Comunitária ou ONG;"~"Entidade privada, Associação Comunitária ou ONG",
+      Eixo_x == "Conselho Municipal de Assistência Social, Conselho Tutelar ou outro conselho municipal;"~"Conselho Municipal de Assistência Social, Conselho Tutelar ou outro conselho municipal",
+      Eixo_x == "Outro."~"Outro",
+      TRUE ~ Eixo_x)) %>%
+
+    group_by(Grupo, Eixo_x) %>%
+    summarise(n=n()) %>%
+    mutate(Percentual = n/sum(n))
+}
+
+tabela <- posto_cadunico (posto_cadunico_2020, q1_0, "2020") %>%
+  bind_rows(posto_cadunico(posto_cadunico_2021, q1, "2021")) %>%
+  bind_rows(posto_cadunico(posto_cadunico_2022, q1, "2022")) %>%
+
+  mutate(Eixo_x=str_wrap(Eixo_x,width=58))
+
+ordenado<-tabela %>%
+  filter(Grupo == "2022") %>%
+  arrange(Percentual) %>%
+  pull(Eixo_x)
+
+grafico<-tabela %>%
+  mutate(Eixo_x = factor(Eixo_x, levels = ordenado)) %>%
+  f_grafico_col_percent_flip(Eixo_x, Percentual, Grupo, 1)
+
+grafico
+```
+
+A acessibilidade nas unidades de Cadastro Único possuem leve avanço nos últimos anos, com execeção da rota acessível aos principais espaços, os demais itens de acessibilidade avançaram conforme pode ser observado através do @fig-postcad-acessibilidade.
+
+```{r fig-postcad-acessibilidade, fig.cap = "Evolução percentual de postos do Cadastro Único com condições de acessibilidade - Brasil; 2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+tabela <- equip_acessibilidade(posto_cadunico_2020, q7_1, "2020", "1") %>%
+  bind_rows(equip_acessibilidade(posto_cadunico_2020, q7_2, "2020", "2")) %>%
+  bind_rows(equip_acessibilidade(posto_cadunico_2020, q7_3, "2020", "3")) %>%
+  bind_rows(equip_acessibilidade(posto_cadunico_2020, q7_4, "2020", "4")) %>%
+
+  bind_rows(equip_acessibilidade(posto_cadunico_2021, q7_1, "2021", "1")) %>%
+  bind_rows(equip_acessibilidade(posto_cadunico_2021, q7_2, "2021", "2")) %>%
+  bind_rows(equip_acessibilidade(posto_cadunico_2021, q7_3, "2021", "3")) %>%
+  bind_rows(equip_acessibilidade(posto_cadunico_2021, q7_4, "2021", "4")) %>%
+
+  bind_rows(equip_acessibilidade(posto_cadunico_2022, q7_1, "2022", "1")) %>%
+  bind_rows(equip_acessibilidade(posto_cadunico_2022, q7_2, "2022", "2")) %>%
+  bind_rows(equip_acessibilidade(posto_cadunico_2022, q7_3, "2022", "3")) %>%
+  bind_rows(equip_acessibilidade(posto_cadunico_2022, q7_4, "2022", "4")) %>%
+
+  ungroup() %>%
+  mutate(Categoria=str_wrap(Categoria,width=34))
+
+
+ordenado<-tabela %>%
+  filter(Ano == "2022") %>%
+  arrange(Percentual) %>%
+  pull(Categoria)
+
+grafico<-tabela %>%
+  mutate(Categoria = factor(Categoria, levels = ordenado)) %>%
+  f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
+
+grafico
+```
+
+Em relação aos espaços de acessibilidade comparada a situação do imóvel, destaca-se que os postos do Cadastro Único próprios ou cedidos, possuem significativamente mais acessibilidade que os imóveis alugados (@fig-postcad-acessibilidade-situacao).
+
+```{r fig-postcad-acessibilidade-situacao, fig.cap = "Percentual de Postos do Cadastro Único com condições de acessibilidade segundo situação do imóvel – Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+tabela <- equip_acessibilidade_situacao(posto_cadunico_2022, q5, q7_1, "1") %>%
+  bind_rows(equip_acessibilidade_situacao(posto_cadunico_2022, q5, q7_2, "2")) %>%
+  bind_rows(equip_acessibilidade_situacao(posto_cadunico_2022, q5, q7_3, "3")) %>%
+  bind_rows(equip_acessibilidade_situacao(posto_cadunico_2022, q5, q7_4, "4"))
+
+ordenado<-tabela %>%
+  filter(Situacao == "Próprio") %>%
+  arrange(Percentual) %>%
+  pull(Categoria)
+
+grafico<-tabela %>%
+  mutate(Categoria = factor(Categoria, levels = rev(ordenado))) %>%
+  f_grafico_col_group_percent(Situacao, Percentual, Categoria, 4)
+
+grafico
+```
+
+Em relação a computadores com acesso à internet, os dados do Censo SUAS 2022 sinaliza que 99% das unidades dispõe de equipamentos com esta estrutura, conforme pode ser observado no @fig-postcad-internet-percentual.
+
+```{r fig-postcad-internet-percentual, fig.cap = "Evolução percentual de Postos do Cadastro Único com computadores com acesso à internet – Brasil;  2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_maior0_regiao_ano(posto_cadunico_2020, q10_2, IBGE, "2020") %>%
+  bind_rows(f_maior0_regiao_ano(posto_cadunico_2021, q10_2, IBGE, "2021")) %>%
+  bind_rows(f_maior0_regiao_ano(posto_cadunico_2022, q10_2, IBGE, "2022")) %>%
+
+  f_grafico_col_group_percent(Região, Percentual, Ano, 1)
+
+grafico
+```
+
+## Considerações Finais
+
+O Censo SUAS 2022 identificou a oferta de 30.824 unidades da Assistência Social. São 8.557 CRAS, 7.837 Centro de Convivência, 2.846 CREAS, 33 CREAS Regionais, 237 Centro POP, 1.886 Centro-Dia, 2.892 unidades exclusivas de Cadastro Único e 6.536 unidades de acolhimento institucional (Crianças e adolescentes,Pessoas Idosas, Adultos e Famílias, Pessoas com deficiência, Mulheres em situação de Violência Doméstica, Jovens egressos serviços de acolhimento).Os dados mostram forte presença no território nacional com destaque para crescimentonos últimos 10 anos.
+
+No âmbito da Proteção Básica houve um crescimento de 11% nos últimos 10 anos. Em relação a acessibilidade há avanços, sobretudo os que possuem imóvel próprio que chegam a ter 28 pontos percentuais de diferença em relação aos imóveis alugados.
+
+No que se refere a Proteção Social Especial, nos CREAS, observa-se um crescimento de 31% destas unidades nos últimos 10 anos. As condições de acessibilidade dos CREAS também avança, sobretudo os que possuem imóvel próprio com 28,4% de diferença em relação aos imovéis alugados. Os Centros Pop crescem 126% ao longo dos últimos 10 anos, assim como acessibilidade também, sobretudo para os imovéis próprios.Em relação as Unidades de Acolhimento Institucional 45% delas são da modalidade de Criança e Adolescente, em seguida para públicos de Pessoas Idosas e Adultos e Famílias. Os centros dia destacam evolução de 41%, bem como nas condições de acessibilidade. Para essa modalidade de oferta, 93% são através de OCS (Organizações da sociedade Civil).
+
+A oferta do Cadastro Único nas unidades, em especial de CRAS avançou 3,8 pontos percentuais nos últis 10 anos, esse dado se torna significativamente maior quando relacionado com equipe exclusiva para esta finalidade que avança 25 pontos percentuais neste mesmo período. Por fim, destaca-se a inclusão digital sob a ótica do acesso à internet como algo praticamente universalizado nas unidades do SUAS.
+
