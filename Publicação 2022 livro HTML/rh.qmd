@@ -6,17 +6,17 @@ source("_funcoes.R")
 
 # Gestão do Trabalho e Recursos Humanos no SUAS
 
-A qualidade da oferta de serviços, programas e benefícios da assistência social está diretamente ligada a uma adequada gestão do trabalho no âmbito do SUAS. O dimensionamento das equipes, a capacitação dos profissionais e a estruturação das condições de trabalho são fundamentais nesse sentido. Um importante normativo para a gestão do trabalho é Norma Operacional Básica de Recursos Humanos do SUAS (NOB-RH/SUAS), que traz orientações e diretrizes, além de detalhamentos importantes sobre as equipes de referência, planos de carreira, cargos e salários, cofinanciamento, educação permanente, entre outros aspectos relevantes. A NOB SUAS 2012 em seu capítulo VIII também descreve sobre a Gestão do Trabalho no SUAS no âmbito da União, dos Estados, do Distrito Federal e dos Municípios. [^47]
+A qualidade da oferta de serviços, programas e benefícios da assistência social está diretamente ligada a uma adequada gestão do trabalho no âmbito do SUAS. O dimensionamento das equipes, a capacitação dos profissionais e a estruturação das condições de trabalho são fundamentais nesse sentido. Um importante normativo para a gestão do trabalho é Norma Operacional Básica de Recursos Humanos do SUAS (NOB-RH/SUAS), que traz orientações e diretrizes, além de detalhamentos importantes sobre as equipes de referência, planos de carreira, cargos e salários, cofinanciamento, educação permanente, entre outros aspectos relevantes. A NOB SUAS 2012 em seu capítulo VIII também descreve sobre a Gestão do Trabalho no SUAS no âmbito da União, dos Estados, do Distrito Federal e dos Municípios. [^rh-1]
 
-[^47]: acesso através:<https://www.mds.gov.br/webarquivos/public/NOBSUAS_2012.pdf>
+[^rh-1]: acesso através:<https://www.mds.gov.br/webarquivos/public/NOBSUAS_2012.pdf>
 
 Esta seção apresenta um panorama geral da situação das trabalhadoras e trabalhadores do SUAS, tanto nos equipamentos da assistência social quanto nas gestões municipais e estaduais, apresentando informações sobre quantitativo, tipo de vínculo trabalhista, escolaridade, entre outros aspectos referentes à gestão do trabalho, e sua evolução ao longo dos anos.
 
 ## Evolução na quantidade de trabalhadoras/es, tipo de vínculo e escolaridade no orgão gestor
 
-A quantidade de trabalhadoras/es nas Secretarias Estaduais de Assistência Social nacionalmente em 2018[^48] era de 3.988 profissionais, considerando trabalhadoras/es lotadas/os na sede do órgão gestor. Esse quantitativo teve aumento 7%, em 2022 passou a ter 4.265 conforme pode ser observado no @fig-qtd-trab-uf.
+A quantidade de trabalhadoras/es nas Secretarias Estaduais de Assistência Social nacionalmente em 2018[^rh-2] era de 3.988 profissionais, considerando trabalhadoras/es lotadas/os na sede do órgão gestor. Esse quantitativo teve aumento 7%, em 2022 passou a ter 4.265 conforme pode ser observado no @fig-qtd-trab-uf.
 
-[^48]: gráfico a partir do ano de 2018 em decorrência de mudanças na modalidade de respostas
+[^rh-2]: gráfico a partir do ano de 2018 em decorrência de mudanças na modalidade de respostas
 
 ```{r fig-qtd-trab-uf, fig.cap ="Evolução da quantidade de trabalhadoras/es nas Secretarias Estaduais de Assistência Social - Brasil e grandes regiões, 2018 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 #| fig-height: 6
@@ -31,9 +31,9 @@ grafico <- f_quantitativo_regiao_ano(gerh_2018, IBGE, "2018") %>%
 grafico
 ```
 
-A quantidade de trabalhadoras/es nas Secretarias Municipais de Assistência Social em 2018[^49] era de 51.135 profissionais, considerando trabalhadoras/es lotados na sede do órgão gestor. Esse quantitativo aumento 4%, em 2022 passou a ter 56.381 conforme pode ser observado no @fig-qtd_trab_munic.
+A quantidade de trabalhadoras/es nas Secretarias Municipais de Assistência Social em 2018[^rh-3] era de 51.135 profissionais, considerando trabalhadoras/es lotados na sede do órgão gestor. Esse quantitativo aumento 4%, em 2022 passou a ter 56.381 conforme pode ser observado no @fig-qtd_trab_munic.
 
-[^49]: gráfico a partir do ano de 2018 em decorrência de mudanças na modalidade de respostas
+[^rh-3]: gráfico a partir do ano de 2018 em decorrência de mudanças na modalidade de respostas
 
 ```{r fig-qtd_trab_munic, fig.cap ="Evolução da quantidade de trabalhadoras/es nas Secretarias Municipais de Assistência Social - Brasil, 2018 a 2022"}
 #| fig-height: 6
@@ -143,9 +143,9 @@ grafico <- f_nomex_somay_nomegrupo(ge_2012, "2012", q55a_4, "Estatutários") %>%
 grafico
 ```
 
-Os percentuais de trabalhadoras/es segundo tipo de vínculo pode ser observados no @fig-munic_trab_vin. A quantidade proporcional de estatutários na gestão municipal representavam 36% em 2013,[^50] observa-se um aumento no ano de 2017 e retoma ao patamar de 36% em 2022.
+Os percentuais de trabalhadoras/es segundo tipo de vínculo pode ser observados no @fig-munic_trab_vin. A quantidade proporcional de estatutários na gestão municipal representavam 36% em 2013,[^rh-4] observa-se um aumento no ano de 2017 e retoma ao patamar de 36% em 2022.
 
-[^50]: não foi possível gerar este gráficos para os anos de 2012 e 2020 em decorrência de problemas na leitura da base de dados do Censo SUAS
+[^rh-4]: não foi possível gerar este gráficos para os anos de 2012 e 2020 em decorrência de problemas na leitura da base de dados do Censo SUAS
 
 Este gráfico também sinaliza uma significativa diminuição no público de empregadores públicos que representa 11% das/os trabalhadoras/es no ano de 2013 e reduz para 4,7% em 2022. Dados de outros vínculos não permanente também reduz de 37% em 2013 para 29% no ano de 2022. O único dado percentual que eleva nas gestões dos municípios são referentes a cargos comissionados. Este dados avança de 17% em 2013 para 31% em 2022.
 
@@ -233,13 +233,13 @@ grafico <- f_nomex_somay_nomegrupo(ge_2012, "2012", q55e_1, "Nível Fundamental"
 grafico
 ```
 
-O @fig-munic_trab_form mostra a evolução do número de trabalhadoras/es de nível superior, ele avança de 36% para 52% no período de 2013 [^51] a 2022. Em relação a propoção de profissionais de nível médio e fundamental, há uma redução ao longo deste período com 6,3 pontos percentuais para de nível fundamental e 10 pontos percentuais para profissionais de nível médio. Assim, o Censo SUAS de 2022 sinaliza que, do total de trabalhadoras/es na gestão municipal, há 39% de nível fundamental e 8,7% de nível médio. Demais 52%, correspondem a profissionais de nível superior.
+O @fig-munic_trab_form mostra a evolução do número de trabalhadoras/es de nível superior, ele avança de 36% para 52% no período de 2013 [^rh-5] a 2022. Em relação a propoção de profissionais de nível médio e fundamental, há uma redução ao longo deste período com 6,3 pontos percentuais para de nível fundamental e 10 pontos percentuais para profissionais de nível médio. Assim, o Censo SUAS de 2022 sinaliza que, do total de trabalhadoras/es na gestão municipal, há 39% de nível fundamental e 8,7% de nível médio. Demais 52%, correspondem a profissionais de nível superior.
 
-[^51]: não foi possível gerar este gráficos para os anos de 2012 e 2020 em decorrência de problemas na leitura da base de dados do Censo SUAS
+[^rh-5]: não foi possível gerar este gráficos para os anos de 2012 e 2020 em decorrência de problemas na leitura da base de dados do Censo SUAS
 
-[^52].
+[^rh-6].
 
-[^52]: não foi possível gerar este gráficos para os anos de 2012 e 2020 em decorrência de problemas na geração dos dados
+[^rh-6]: não foi possível gerar este gráficos para os anos de 2012 e 2020 em decorrência de problemas na geração dos dados
 
 ```{r fig-munic_trab_form, fig.cap ="Percentual de trabalhadoras/es nas Secretarias municipais, segundo escolaridade - Brasil, 2013 a 2022"}
 
@@ -291,9 +291,9 @@ O @fig-munic_trab_form mostra a evolução do número de trabalhadoras/es de ní
 grafico
 ```
 
-Das/os trabalhadoras/es das Secretarias Estaduais de Assistência Social que informaram sua formação superior em 2022, destaca-se a maior presença de profissionais de serviços social com 24%, após identifica-se a proporção de profissionais de psicologia com 8,2%. O maior número de profissionais são identificados em outras profissões ou não informado.[^53]
+Das/os trabalhadoras/es das Secretarias Estaduais de Assistência Social que informaram sua formação superior em 2022, destaca-se a maior presença de profissionais de serviços social com 24%, após identifica-se a proporção de profissionais de psicologia com 8,2%. O maior número de profissionais são identificados em outras profissões ou não informado.[^rh-7]
 
-[^53]: O número elevado da categoria de “outro profissional não informado” se deve a soma na base de dados nas informações de outros profissionais de nível superior a profissionais “sem formação profissional”. Entretanto, pela relevância desta informação mantemos o gráfico.
+[^rh-7]: O número elevado da categoria de “outro profissional não informado” se deve a soma na base de dados nas informações de outros profissionais de nível superior a profissionais “sem formação profissional”. Entretanto, pela relevância desta informação mantemos o gráfico.
 
 ```{r fig-uf_trab_prof, fig.cap ="Percentual de trabalhadoras/es de nível superior nas Secretarias Estaduais de Assistência Social, segundo área de formação - Brasil; 2012, 2017 e 2022"}
 #| fig-height: 4.5

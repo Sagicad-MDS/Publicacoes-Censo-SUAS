@@ -6,17 +6,17 @@ source("_funcoes.R")
 
 # Participação e Controle Social no SUAS
 
-A participação social é uma das diretrizes estabelecidas pela Constituição Federal de 1988 para a organização das ações da Assistência Social. Nesse sentido, a Lei Orgânica da Assistência Social (LOAS)[^54], que corresponde sobre a sua organização, instituiu em seu artigo 16 os Conselhos de Assistência Social em âmbito nacional, estadual e municipal como instâncias de deliberação colegiada do SUAS, cuja composição deve ser paritária entre governo e sociedade civil.
+A participação social é uma das diretrizes estabelecidas pela Constituição Federal de 1988 para a organização das ações da Assistência Social. Nesse sentido, a Lei Orgânica da Assistência Social (LOAS)[^participacao-1], que corresponde sobre a sua organização, instituiu em seu artigo 16 os Conselhos de Assistência Social em âmbito nacional, estadual e municipal como instâncias de deliberação colegiada do SUAS, cuja composição deve ser paritária entre governo e sociedade civil.
 
-[^54]: Lei nº 8.742, de 7 de dezembro de 1993: Dispõe sobre a organização da Assistência Social e dá outras providências. (<http://www.planalto.gov.br/ccivil_03/Leis/L8742compilado.htm>)
+[^participacao-1]: Lei nº 8.742, de 7 de dezembro de 1993: Dispõe sobre a organização da Assistência Social e dá outras providências. (<http://www.planalto.gov.br/ccivil_03/Leis/L8742compilado.htm>)
 
-Os Conselhos integram o Sistema Único de Assistência Social (SUAS), juntamente com o governo e as entidades e organizações de Assistência Social. A Resolução do Conselho Nacional de Assistência Social (CNAS) nº 100/2024[^55], estabelece a definição dos Conselhos de Assistência Social, suas competências, criação, estrutura e organização. Esta resolução também trata do desempenho dos conselheiros e conselheiras, bem como sua função de interesse público.
+Os Conselhos integram o Sistema Único de Assistência Social (SUAS), juntamente com o governo e as entidades e organizações de Assistência Social. A Resolução do Conselho Nacional de Assistência Social (CNAS) nº 100/2024[^participacao-2], estabelece a definição dos Conselhos de Assistência Social, suas competências, criação, estrutura e organização. Esta resolução também trata do desempenho dos conselheiros e conselheiras, bem como sua função de interesse público.
 
-[^55]: A Resolução CNAS nº 100, de 20 de abril de 2023 revoga a Resolução CNAS nº 237, de 14 de dezembro de 2006.
+[^participacao-2]: A Resolução CNAS nº 100, de 20 de abril de 2023 revoga a Resolução CNAS nº 237, de 14 de dezembro de 2006.
 
-Outra resolução importante para organização do controle social no SUAS é a Resolução nº 99/2023[^56] na qual caracteriza os usuários, seus direitos e participação na Política de Assistência Social.
+Outra resolução importante para organização do controle social no SUAS é a Resolução nº 99/2023[^participacao-3] na qual caracteriza os usuários, seus direitos e participação na Política de Assistência Social.
 
-[^56]: Resolução CNAS/MDS nº 99, DE 4 de abril de 2023
+[^participacao-3]: Resolução CNAS/MDS nº 99, DE 4 de abril de 2023
 
 Este bloco apresenta os resultados apurados pelo Censo SUAS para os Conselhos Municipais e Estaduais de Assistência Social, considerando as dimensões de estrutura administrativa, dinâmica de funcionamento e composição.
 
@@ -387,9 +387,9 @@ cmun_2010_regiao <- cmun_2010 %>%
 
 ## Uso do IGD para apoio ao controle social e instância de controle social do Programa Bolsa Família
 
-Para o fortalecimento das atividades e apoio técnico e operacional do controle social do SUAS pode ser usado os recursos do IGD Bolsa Família e IGD SUAS. De acordo com as normativas do SUAS [^57] os entes federados deverão aplicar pelo menos 3% (três por cento) para fortalecer a instância de controle social do Programa Bolsa Família com a finalidade de garantir o fortalecimento do controle social e efetivar o apoio técnico e operacional a esse colegiado.
+Para o fortalecimento das atividades e apoio técnico e operacional do controle social do SUAS pode ser usado os recursos do IGD Bolsa Família e IGD SUAS. De acordo com as normativas do SUAS [^participacao-4] os entes federados deverão aplicar pelo menos 3% (três por cento) para fortalecer a instância de controle social do Programa Bolsa Família com a finalidade de garantir o fortalecimento do controle social e efetivar o apoio técnico e operacional a esse colegiado.
 
-[^57]: Decreto nº 7.332/2010, de 19 de outubro de 2010
+[^participacao-4]: Decreto nº 7.332/2010, de 19 de outubro de 2010
 
 De acordo com o @fig-ceas_igd, o Censo SUAS 2022 sinaliza que esse recursos é destinado a 100% dos CEAS. Ao observar ao longo dos anos essa destinação não é contínua, com destaque para os anos de 2012 e 2017 na qual apenas 85% dos conselhos estaduais receberam estes recursos.
 
@@ -435,9 +435,9 @@ grafico <- f_sim(cmun_2012, q7, "2012") %>%
 grafico
 ```
 
-De acordo com Resolução CNAS 15/2014 [^58] o Conselho de Assistência Social é a Instância do Controle Social do Programa Bolsa Família (PBF) e deve atuar no acompanhamento do Cadastro Único, gestão de benefícios, condicionalidades, fiscalização e as oportunidades de desenvolvimento das capacidades das famílias desenvolvidas ou articuladas pelo município e os programas complementares.
+De acordo com Resolução CNAS 15/2014 [^participacao-5] o Conselho de Assistência Social é a Instância do Controle Social do Programa Bolsa Família (PBF) e deve atuar no acompanhamento do Cadastro Único, gestão de benefícios, condicionalidades, fiscalização e as oportunidades de desenvolvimento das capacidades das famílias desenvolvidas ou articuladas pelo município e os programas complementares.
 
-[^58]: RESOLUÇÃO Nº 15, DE 5 DE JUNHO DE 2014
+[^participacao-5]: RESOLUÇÃO Nº 15, DE 5 DE JUNHO DE 2014
 
 No Censo SUAS de 2022, 88% dos conselhos estaduais informam ser a instância de controle social do Programa Bolsa Família. Esse percentual reduziu a partir de 2019 que encontrava-se com informações de 100% dos Conselhos Estaduais que eram instância de controle social do Programa Bolsa Família. O @fig-ceas_icspbf2 sinaliza essa informação histórica.
 
@@ -487,9 +487,9 @@ grafico
 
 A elaboração do Plano de Assistência Social é item referenciado na LOAS (Lei Organica de Assistência Social) e NOB SUAS / 2012. É de responsabilidade do órgão gestor da política e deve ser apresentado ao conselho de assistência social para aprovação.
 
-De acordo com o @fig-ceas_plano, no Censo SUAS 2022, 65% dos Planos de Assistência Social foram debatidos pelo CEAS.[^59]. Esse número varia de ano a ano. De acordo com a LOAS essa aprovação deve ser quadrienal, entretanto recomenda-se que a cada atualização anual seja submetida ao respectivo conselho.
+De acordo com o @fig-ceas_plano, no Censo SUAS 2022, 65% dos Planos de Assistência Social foram debatidos pelo CEAS.[^participacao-6]. Esse número varia de ano a ano. De acordo com a LOAS essa aprovação deve ser quadrienal, entretanto recomenda-se que a cada atualização anual seja submetida ao respectivo conselho.
 
-[^59]: Até 2018 a pergunta é sobre a deliberação do Plano de Assistência Social pelo Conselho, a partir de 2018 a modalidade da pergunta é alterada e, passar a ser se o conselho debate sobre Plano de Assistência Social. Apesar da diferença mantemos a linha historica por considerar a temática do Plano um item essencial para o controle social
+[^participacao-6]: Até 2018 a pergunta é sobre a deliberação do Plano de Assistência Social pelo Conselho, a partir de 2018 a modalidade da pergunta é alterada e, passar a ser se o conselho debate sobre Plano de Assistência Social. Apesar da diferença mantemos a linha historica por considerar a temática do Plano um item essencial para o controle social
 
 ```{r fig-ceas_plano, fig.cap = "Conselhos estaduais que deliberaram e/ou debatem sobre Plano de Assistência Social"}
 
@@ -511,9 +511,9 @@ grafico <- f_sim(cest_2012, q29, "2012") %>%
 grafico
 ```
 
-Em relação aos conselhos municipais, dados do Censo SUAS de 2022 sinaliza que 82% dos CMAS informaram debater sobre plano municipal de assistência social. O @fig-cmas_plano traz a referência destas informações a partir do Censo SUAS de 2012.[^60].
+Em relação aos conselhos municipais, dados do Censo SUAS de 2022 sinaliza que 82% dos CMAS informaram debater sobre plano municipal de assistência social. O @fig-cmas_plano traz a referência destas informações a partir do Censo SUAS de 2012.[^participacao-7].
 
-[^60]: Até 2018 a pergunta é sobre a deliberação do Plano de Assistência Social pelo Conselho, a partir de 2018 a modalidade da pergunta é alterada e, passar a ser se o conselho debate sobre Plano de Assistência Social. Apesar da diferença mantemos a linha historica por considerar a temática do Plano um item essencial para o controle social
+[^participacao-7]: Até 2018 a pergunta é sobre a deliberação do Plano de Assistência Social pelo Conselho, a partir de 2018 a modalidade da pergunta é alterada e, passar a ser se o conselho debate sobre Plano de Assistência Social. Apesar da diferença mantemos a linha historica por considerar a temática do Plano um item essencial para o controle social
 
 ```{r fig-cmas_plano, fig.cap = "Conselhos municipais que deliberaram sobre a proposta anual de orçamento do executivo"}
 
@@ -580,13 +580,13 @@ grafico <- f_sim(cmun_2012, q38, "2012") %>%
 grafico
 ```
 
-Os Benefícios Eventuais da política de Assistência Social é de caráter suplementar e provisório. Deve ser ofertado aos cidadãos e as famílias em virtude de nascimento, morte, situações de vulnerabilidade temporária e calamidade pública. [^61].
+Os Benefícios Eventuais da política de Assistência Social é de caráter suplementar e provisório. Deve ser ofertado aos cidadãos e as famílias em virtude de nascimento, morte, situações de vulnerabilidade temporária e calamidade pública. [^participacao-8].
 
-[^61]: Os Benefícios Eventuais são assegurados pelo art. 22 da Lei Orgânica de Assistência Social
+[^participacao-8]: Os Benefícios Eventuais são assegurados pelo art. 22 da Lei Orgânica de Assistência Social
 
-A concessão e o valor dos Benefícios Eventuais devem ser definidos pelos Municípios, Estados e Distrito Federal, com base em critérios e prazos estabelecidos pelos conselhos de Assistência Social. O @fig-ceas_be sinaliza que o Censo SUAS de 2018 foi o que teve maior proporção de conselhos estaduais que aprovaram os critérios e prazos para acesso aos benefícios eventuais. O acompanhamento a partir de 2012 sinaliza um aumento de 31 pontos percentuais até este período, após isso há uma redução chegando no Censo SUAS de 2022 com 65% de aprovação pelos conselhos. [^62].
+A concessão e o valor dos Benefícios Eventuais devem ser definidos pelos Municípios, Estados e Distrito Federal, com base em critérios e prazos estabelecidos pelos conselhos de Assistência Social. O @fig-ceas_be sinaliza que o Censo SUAS de 2018 foi o que teve maior proporção de conselhos estaduais que aprovaram os critérios e prazos para acesso aos benefícios eventuais. O acompanhamento a partir de 2012 sinaliza um aumento de 31 pontos percentuais até este período, após isso há uma redução chegando no Censo SUAS de 2022 com 65% de aprovação pelos conselhos. [^participacao-9].
 
-[^62]: Para o ano de 2016 a pargunta foi alterada impossibilitante a analise histórica
+[^participacao-9]: Para o ano de 2016 a pargunta foi alterada impossibilitante a analise histórica
 
 ```{r fig-ceas_be, fig.cap = "Percentual de CEAS que aprovou em resolução os critérios e prazos para acesso aos Benefícios Eventuais"}
 
@@ -634,9 +634,9 @@ grafico
 
 Este tópico vai trata sobre a presentação das/os usuárias/os e trabalhadoras/es nos conselhos de Assistência Social. De acordo com a Resolução CNAS 99/2023, "a representação dos usuários nas instâncias de participação e de deliberação do SUAS ocorrerá por meio de usuários integrantes de suas organizações representativas, democraticamente designados, preferencialmente dentre aquelas vinculadas aos serviços, programas, projetos, benefícios, transferência de renda e defesa dos direitos dos usuários da Política de Assistência Social".
 
-Os dados apresentados no @fig-usu_ceas sinalizam que a maior representação dos conselhos estaduais são representantes de fóruns de usuárias/os, beneficiárias/os do Programa Bolsa Família e BPC representando respetivamente 73%, 50% e 38%. Os dados abaixo sinalizam essa composição no período de 2018 a 2022 [^63]. Nesta escala de tempo, o grupo de representação que mais cresceu, com 19 pontos percentuais neste período, foi das/os beneficiárias/os do Programa Bolsa Família.
+Os dados apresentados no @fig-usu_ceas sinalizam que a maior representação dos conselhos estaduais são representantes de fóruns de usuárias/os, beneficiárias/os do Programa Bolsa Família e BPC representando respetivamente 73%, 50% e 38%. Os dados abaixo sinalizam essa composição no período de 2018 a 2022 [^participacao-10]. Nesta escala de tempo, o grupo de representação que mais cresceu, com 19 pontos percentuais neste período, foi das/os beneficiárias/os do Programa Bolsa Família.
 
-[^63]: gráfico a partir do ano de 2018 em decorrência do início da modalidade das perguntas no formulário do Censo SUAS
+[^participacao-10]: gráfico a partir do ano de 2018 em decorrência do início da modalidade das perguntas no formulário do Censo SUAS
 
 ```{r fig-usu_ceas, fig.cap = "Representantes de usuárias/os nos Conselhos Estaduais de Assistência Social; Brasil, 2018 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 #| fig-height: 7
@@ -722,9 +722,9 @@ grafico<-tabela %>%
 grafico
 ```
 
-Os dados do @fig-usu_cmun mostram as represetações de usuários presentes nos Conselhos Municipais de Assistência Social (CMAS). Observa-se que o maior percentual desta representação são respectivamente da Proteção Social Básica, Programa Bolsa Família e BPC, sendo respectivamente no censo de 2022, 77%, 70% e 43%. No período de 2018 a 2022[^64], observa-se que as representações que cresceram 9 pontos percentuais foram Proteção Social Básica, Proteção Social Especial e Pessoas ou famílias de Benefíciários do Benefício de Prestação Continuada (BPC).
+Os dados do @fig-usu_cmun mostram as represetações de usuários presentes nos Conselhos Municipais de Assistência Social (CMAS). Observa-se que o maior percentual desta representação são respectivamente da Proteção Social Básica, Programa Bolsa Família e BPC, sendo respectivamente no censo de 2022, 77%, 70% e 43%. No período de 2018 a 2022[^participacao-11], observa-se que as representações que cresceram 9 pontos percentuais foram Proteção Social Básica, Proteção Social Especial e Pessoas ou famílias de Benefíciários do Benefício de Prestação Continuada (BPC).
 
-[^64]: gráfico a partir do ano de 2018 em decorrência do início da modalidade das perguntas no formulário do Censo SUAS
+[^participacao-11]: gráfico a partir do ano de 2018 em decorrência do início da modalidade das perguntas no formulário do Censo SUAS
 
 ```{r fig-usu_cmun, fig.cap = "Representantes de usuárias/os nos Conselhos Municipais de Assistência Social; Brasil, 2018 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 #| fig-height: 6.5
@@ -814,9 +814,9 @@ grafico<-tabela %>%
 grafico
 ```
 
-Em relação a representação de trabalhadoras/es nos Conselhos Estaduais de Assitência Social (CEAS), do total dos CEAS, a categoria mais expressiva são dos conselhos de classe profissional (CRESS, CFP, outros conselhos de classe), representando 96% deste grupo de representantes no último Censo SUAS. Em segundo lugar, com 73% são os sindicatos e, em seguida, representante de associação, fórum ou coletivo de trabalhadoras/es com 50% dos dos CEAS com representação na categoria de trabalhadores. Observa-se que nos últimos 5 anos[^65] a representação de profissionais que mais evoluiu foi de associação, fórum ou coletivo de trabalhadoras/es, representando avanço de 12 pontos percentuais, como pode ser observado no @fig-trab_rep.
+Em relação a representação de trabalhadoras/es nos Conselhos Estaduais de Assitência Social (CEAS), do total dos CEAS, a categoria mais expressiva são dos conselhos de classe profissional (CRESS, CFP, outros conselhos de classe), representando 96% deste grupo de representantes no último Censo SUAS. Em segundo lugar, com 73% são os sindicatos e, em seguida, representante de associação, fórum ou coletivo de trabalhadoras/es com 50% dos dos CEAS com representação na categoria de trabalhadores. Observa-se que nos últimos 5 anos[^participacao-12] a representação de profissionais que mais evoluiu foi de associação, fórum ou coletivo de trabalhadoras/es, representando avanço de 12 pontos percentuais, como pode ser observado no @fig-trab_rep.
 
-[^65]: gráfico a partir do ano de 2018 em decorrência do início da modalidade das perguntas no formulário do Censo SUAS
+[^participacao-12]: gráfico a partir do ano de 2018 em decorrência do início da modalidade das perguntas no formulário do Censo SUAS
 
 ```{r fig-trab_rep, fig.cap = "Representantes de trabalhadoras/es nos Conselhos Estaduais de Assistência Social; Brasil, 2018 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 #| fig-height: 5.5
@@ -904,9 +904,9 @@ grafico<-tabela %>%
 grafico
 ```
 
-A Representação de trabalhadoras/es nos conselhos municipais é observada no @fig-trab_cmun[^66]. Observa-se que, nos municípios, a categoria de representação mais crescente nos CMAS são de trabalhadoras/es, sem vinculação a nenhum coletivo, esse dado cresce 25 pontos percentuais entre o período de 2018 (40%) a 2022 (65%). Outras categorias que aumentam nesse período são: Conselhos de Classe (CRESS, CFP, outros conselhos de classe) que aumentam de 23% em 2018 para 27% em 2022. Representações de sindicado de trabalahdores e Forum ou coletivo de trabalhadoras/es também crescem 1 ponto percentual como pode ser observado abaixo.
+A Representação de trabalhadoras/es nos conselhos municipais é observada no @fig-trab_cmun[^participacao-13]. Observa-se que, nos municípios, a categoria de representação mais crescente nos CMAS são de trabalhadoras/es, sem vinculação a nenhum coletivo, esse dado cresce 25 pontos percentuais entre o período de 2018 (40%) a 2022 (65%). Outras categorias que aumentam nesse período são: Conselhos de Classe (CRESS, CFP, outros conselhos de classe) que aumentam de 23% em 2018 para 27% em 2022. Representações de sindicado de trabalahdores e Forum ou coletivo de trabalhadoras/es também crescem 1 ponto percentual como pode ser observado abaixo.
 
-[^66]: gráfico a partir do ano de 2018 em decorrência do início da modalidade das perguntas no formulário do Censo SUAS
+[^participacao-13]: gráfico a partir do ano de 2018 em decorrência do início da modalidade das perguntas no formulário do Censo SUAS
 
 ```{r fig-trab_cmun, fig.cap = "Representantes de trabalhadoras/es nos Conselhos Municipais de Assistência Social; Brasil, 2018 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 #| fig-height: 6

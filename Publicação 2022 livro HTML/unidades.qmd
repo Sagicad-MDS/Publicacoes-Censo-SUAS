@@ -39,9 +39,9 @@ grafico <- f_quantitativo_regiao_ano(cras_2007, ibge, "2007") %>%
 grafico
 ```
 
-A Expansão em todo território nacional do número de CRAS evidencia a consolidação de uma referência de unidades públicas de Assistência Social em todo território nacional. De acordo com os dados, 99,37% municípios possuem CRAS, ou seja, apenas 34 municípios no Brasil não dispõem desta unidade pública[^28].
+A Expansão em todo território nacional do número de CRAS evidencia a consolidação de uma referência de unidades públicas de Assistência Social em todo território nacional. De acordo com os dados, 99,37% municípios possuem CRAS, ou seja, apenas 34 municípios no Brasil não dispõem desta unidade pública[^unidades-1].
 
-[^28]: estas informações são referentes ao preenchimento do Censo SUAS, é possível que no determinado período esta unidade pública não tenha preenchido o forumulário
+[^unidades-1]: estas informações são referentes ao preenchimento do Censo SUAS, é possível que no determinado período esta unidade pública não tenha preenchido o forumulário
 
 ```{r fig-municipios-CRAS, fig.cap = "Evolução do percentual de municípios com pelo menos um CRAS, segundo grandes regiões - Brasil, 2007 a 2017", fig.footer = "Fonte: MDS, Censo SUAS", eval=FALSE}
 
@@ -78,9 +78,9 @@ grafico <- f_percentual_municipios_regiao_ano(cras_2007, ibge, "2007") %>%
 grafico
 ```
 
-Ao observar o número de CRAS por municípios, levando-se em conta o porte populacional, verifica-se que os 35 municípios do país que não possuem CRAS[^29] e estão concentrados em municípios de pequeno porte (@fig-CRAS-porte).
+Ao observar o número de CRAS por municípios, levando-se em conta o porte populacional, verifica-se que os 35 municípios do país que não possuem CRAS[^unidades-2] e estão concentrados em municípios de pequeno porte (@fig-CRAS-porte).
 
-[^29]: é possível também que alguns deles não tenham respondido ao Censo SUAS
+[^unidades-2]: é possível também que alguns deles não tenham respondido ao Censo SUAS
 
 Em relação a concentração da quantidade de CRAS, para os municípios de pequeno porte I e pequeno porte II, dispõem, em sua maioria, de uma unidade de CRAS como referência do território, sendo respectivamente 96% e 69%. Os municípios de médio porte, cerca de 66% possuem de 2 a 3 CRAS. Os municípios de grande porte, o grupo majoritário de unidades são entre 4 a 6 CRAS - 52,5%.
 
@@ -143,9 +143,9 @@ grafico
 
 Os dados de CRAS que funcionam com imóvel próprio evoluiu significativamente de 2008 a 2022. Destaca-se que o primeiro ano da série histórica possuia 43,7% CRAS com imóvel próprio (@fig-CRAS-imovel), dado que chega em 2022 com 59,62%. Dados com CRAS que funcionam com imóveis alugados passam por redução de 48,2% para 32,2%.
 
-Observa-se ainda aumento no percentual de CRAS que funcionam em imóveis cedidos: eram 6,8% em 2008, o maior valor da série histórica chega a 9,1%, conforme mostra o @fig-CRAS-imovel.[^30]
+Observa-se ainda aumento no percentual de CRAS que funcionam em imóveis cedidos: eram 6,8% em 2008, o maior valor da série histórica chega a 9,1%, conforme mostra o @fig-CRAS-imovel.[^unidades-3]
 
-[^30]: Para os anos de 2018 e 2019 esse dado não foi coletado no Censo SUAS
+[^unidades-3]: Para os anos de 2018 e 2019 esse dado não foi coletado no Censo SUAS
 
 ```{r fig-CRAS-imovel, fig.cap = "Evolução dos CRAS segundo situação do imóvel – Brasil, 2007 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -175,9 +175,9 @@ grafico <- f_equip_imovel(cras_2008, `situacao_imovel`, "2008") %>%
 grafico
 ```
 
-Ainda sobre o tema da acessibilidade nas unidades de CRAS, observa-se no @fig-CRAS-acessibilidade um avanço em todas as condições de acessibilidade nas unidades de CRAS.[^31] Apesar da evolução, os dados ainda apontam para desafios, sobretudo no que se refere a banheiro adaptado que possui o percentual mais baixo de unidades com essa acessibilidade.
+Ainda sobre o tema da acessibilidade nas unidades de CRAS, observa-se no @fig-CRAS-acessibilidade um avanço em todas as condições de acessibilidade nas unidades de CRAS.[^unidades-4] Apesar da evolução, os dados ainda apontam para desafios, sobretudo no que se refere a banheiro adaptado que possui o percentual mais baixo de unidades com essa acessibilidade.
 
-[^31]: foram considerados acesso adaptado, os imóveis que informam possuir acessibilidade, de acordo com a norma ABNT ou não
+[^unidades-4]: foram considerados acesso adaptado, os imóveis que informam possuir acessibilidade, de acordo com a norma ABNT ou não
 
 ```{r fig-CRAS-acessibilidade, fig.cap = "Evolução percentual de CRAS com condições de acessibilidade - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -410,9 +410,9 @@ grafico <- f_quantitativo_regiao_ano(ceconv_2014, Região, "2014") %>%
 grafico
 ```
 
-Os Centros de Convivência podem ser unidades públicas ou vinculadas a entidades de assistência social inscritas nos Conselhos de Assistência Social do município ou do Distrito Federal. Em 2022, 44% dos Centros de Convivência eram governamentais e 56% das unidades eram não governamentais. [^32]
+Os Centros de Convivência podem ser unidades públicas ou vinculadas a entidades de assistência social inscritas nos Conselhos de Assistência Social do município ou do Distrito Federal. Em 2022, 44% dos Centros de Convivência eram governamentais e 56% das unidades eram não governamentais. [^unidades-5]
 
-[^32]: os dados de 2016 não foi possível de ser coletato devido a dificuldades de leitura da base de dados
+[^unidades-5]: os dados de 2016 não foi possível de ser coletato devido a dificuldades de leitura da base de dados
 
 ```{r fig-centro-conv-natureza, fig.cap = "Quantitativo de Centros de Convivência por Natureza da Unidade - BRASIL; 2016 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -524,9 +524,9 @@ grafico <- dados %>%
 grafico
 ```
 
-Ao observar a série histórica do @fig-creas-situacao é possível perceber que os imóveis próprios vem aumentando ao longo do tempo. Em 2012 eram 27% das unidades e, em 2022 37% destas unidades passam a possuir imóveis prórpios. Ao passo que os imóveis próprios aumentam em 10% pontos percentuais, os imovéis alugados decrescem, computado no Censo SUAS de 2022 com 57% das unidades alugadas.Há também registros de imóveis cedidos no qual ao longo dos anos sinalizam um leve aumento[^33].
+Ao observar a série histórica do @fig-creas-situacao é possível perceber que os imóveis próprios vem aumentando ao longo do tempo. Em 2012 eram 27% das unidades e, em 2022 37% destas unidades passam a possuir imóveis prórpios. Ao passo que os imóveis próprios aumentam em 10% pontos percentuais, os imovéis alugados decrescem, computado no Censo SUAS de 2022 com 57% das unidades alugadas.Há também registros de imóveis cedidos no qual ao longo dos anos sinalizam um leve aumento[^unidades-6].
 
-[^33]: Para os anos de 2018 e 2019 esse dado não foi computado no Censo SUAS
+[^unidades-6]: Para os anos de 2018 e 2019 esse dado não foi computado no Censo SUAS
 
 ```{r fig-creas-situacao, fig.cap = "Evolução dos CREAS segundo situação do imóvel – Brasil; 2012 a 2022",fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -556,9 +556,9 @@ grafico
 
 De acordo com os dados do Censo SUAS do período de 2012 a 2022, houve aumento das condições de acessibilidade em vários itens dos CREAS. O @fig-creas-acessibilidade sinaliza que a presença do acesso principal adaptado com rota ascessível aos espaços (recepção, salas de atendimento e espaços de uso coletivo) é a mais presente nas unidades de CREAS, com destaque para 83% no CENSO SUAS de 2022.
 
-O dado proporcional menos presente nas unidades de CREAS é o Banheiro adaptado. Em de 2012, 33% dos CREAS foram identificados com banheiro adaptado. Esse mesmo dado em 2022 chegou a 55% dos CREAS. Destaca-se um crescimento de 22 pontos percentuais em relação ao ano de 2012. [^34].
+O dado proporcional menos presente nas unidades de CREAS é o Banheiro adaptado. Em de 2012, 33% dos CREAS foram identificados com banheiro adaptado. Esse mesmo dado em 2022 chegou a 55% dos CREAS. Destaca-se um crescimento de 22 pontos percentuais em relação ao ano de 2012. [^unidades-7].
 
-[^34]: foram considerados acesso adptado os imóveis que informam possuir acessibilidade, de acordo com a norma ABNT ou não
+[^unidades-7]: foram considerados acesso adptado os imóveis que informam possuir acessibilidade, de acordo com a norma ABNT ou não
 
 ```{r fig-creas-acessibilidade, fig.cap = "Evolução percentual de CREAS com condições de acessibilidade - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -822,9 +822,9 @@ grafico <-
 grafico
 ```
 
-Em relação a natureza destas unidades, o @fig-cdia-natureza sinaliza que estas unidades são majoritariamente referenciadas pelas Organizações da Sociedade Civil (OSCs). Das unidades destacadas no Censo SUAS 2022, 92,8% são ofertadas por OSCs.[^35]
+Em relação a natureza destas unidades, o @fig-cdia-natureza sinaliza que estas unidades são majoritariamente referenciadas pelas Organizações da Sociedade Civil (OSCs). Das unidades destacadas no Censo SUAS 2022, 92,8% são ofertadas por OSCs.[^unidades-8]
 
-[^35]: não foi identificado essa pergunta para o ano de 2017 e para o ano de 2022 não foi possível gerar a informação a partir do banco de dados disponível
+[^unidades-8]: não foi identificado essa pergunta para o ano de 2017 e para o ano de 2022 não foi possível gerar a informação a partir do banco de dados disponível
 
 ```{r fig-cdia-natureza, fig.cap = "Quantitativo de Centros Dia por Natureza da Unidade - BRASIL, 2015 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -1257,4 +1257,3 @@ No âmbito da Proteção Básica houve um crescimento de 11% nos últimos 10 ano
 No que se refere a Proteção Social Especial, nos CREAS, observa-se um crescimento de 31% destas unidades nos últimos 10 anos. As condições de acessibilidade dos CREAS também avança, sobretudo os que possuem imóvel próprio com 28,4% de diferença em relação aos imovéis alugados. Os Centros Pop crescem 126% ao longo dos últimos 10 anos, assim como acessibilidade também, sobretudo para os imovéis próprios.Em relação as Unidades de Acolhimento Institucional 45% delas são da modalidade de Criança e Adolescente, em seguida para públicos de Pessoas Idosas e Adultos e Famílias. Os centros dia destacam evolução de 41%, bem como nas condições de acessibilidade. Para essa modalidade de oferta, 93% são através de OCS (Organizações da sociedade Civil).
 
 A oferta do Cadastro Único nas unidades, em especial de CRAS avançou 3,8 pontos percentuais nos últis 10 anos, esse dado se torna significativamente maior quando relacionado com equipe exclusiva para esta finalidade que avança 25 pontos percentuais neste mesmo período. Por fim, destaca-se a inclusão digital sob a ótica do acesso à internet como algo praticamente universalizado nas unidades do SUAS.
-

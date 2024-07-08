@@ -8,9 +8,9 @@ source("_funcoes.R")
 
 ## Proteção Social
 
-A Assistência Social organiza-se por dois tipos de proteção: a proteção social básica, definida no artigo 6º-A da Lei Orgânica da Assistência Social (LOAS) como um "conjunto de serviços, programas, projetos e benefícios da assistência social que visa a prevenção de situações de vulnerabilidade e risco social por meio do desenvolvimento de potencialidades e aquisições e do fortalecimento de vínculos familiares e comunitários" e a proteção social especial, definida como "conjunto de serviços, programas e projetos que tem por objetivo contribuir para a reconstrução de vínculos familiares e comunitários, a defesa de direito, o fortalecimento das potencialidades e aquisições e a proteção de famílias e indivíduos para o enfrentamento das situações de violação de direitos"[^36].
+A Assistência Social organiza-se por dois tipos de proteção: a proteção social básica, definida no artigo 6º-A da Lei Orgânica da Assistência Social (LOAS) como um "conjunto de serviços, programas, projetos e benefícios da assistência social que visa a prevenção de situações de vulnerabilidade e risco social por meio do desenvolvimento de potencialidades e aquisições e do fortalecimento de vínculos familiares e comunitários" e a proteção social especial, definida como "conjunto de serviços, programas e projetos que tem por objetivo contribuir para a reconstrução de vínculos familiares e comunitários, a defesa de direito, o fortalecimento das potencialidades e aquisições e a proteção de famílias e indivíduos para o enfrentamento das situações de violação de direitos"[^servicos-1].
 
-[^36]: Lei nº 8.742, de 7 de dezembro de 1993 (Lei Orgânica da Assistência Social): Dispõe sobre a organização da Assistência Social e dá outras providências (<http://www.planalto.gov.br/ccivil_03/Leis/L8742compilado.htm>).
+[^servicos-1]: Lei nº 8.742, de 7 de dezembro de 1993 (Lei Orgânica da Assistência Social): Dispõe sobre a organização da Assistência Social e dá outras providências (<http://www.planalto.gov.br/ccivil_03/Leis/L8742compilado.htm>).
 
 Nesse contexto, este eixo de unidades, serviços e benefícíos da Assistência Social tem o objetivo de apresentar informações sobre a oferta das unidades da Proteção Social Básica e Especial do SUAS integrada aos serviços e benefícios desta política.
 
@@ -26,9 +26,9 @@ Para isso, os dados históricos desta publicação nos ajudam a identificar os a
 
 ### Serviço de Proteção e Atendimento Integral à Família (PAIF)
 
-O PAIF compõe um conjunto de ações conjugada a seguranças sociais referenciadas a unidades de CRAS. De acordo com Tipificação Nacional dos Serviços Socioassistenciais, o PAIF "consiste no trabalho social com família, de caráter continuado, com a finalidade de fortalecer a função protetiva das famílias, prevenir a ruptura dos seus vínculos, promover seu acesso e usufruto do direito" [^37].
+O PAIF compõe um conjunto de ações conjugada a seguranças sociais referenciadas a unidades de CRAS. De acordo com Tipificação Nacional dos Serviços Socioassistenciais, o PAIF "consiste no trabalho social com família, de caráter continuado, com a finalidade de fortalecer a função protetiva das famílias, prevenir a ruptura dos seus vínculos, promover seu acesso e usufruto do direito" [^servicos-2].
 
-[^37]: Resolução nº 109/2009 / CNAS
+[^servicos-2]: Resolução nº 109/2009 / CNAS
 
 A respeito das principais ações desenvolvidas no âmbito do PAIF, destaca-se que as três atividades mais realizadas pelas unidades são visitas domiciliares, encaminhamento para o Cadastro Único e acolhida particularizada. <!--não achei o grafico, tava nas versões anteriores--> <!--O grafico xxx também destaca que 91% das unidades informam que usam Prontuário para o acompanhamento das famílias. Destaca-se que o registro do acompanhamento familiar é obrigatório através do Prontuário--><!--não identificar estas informações no pdf anterior-->.
 
@@ -59,11 +59,11 @@ Dos 2.334 CRAS que informaram que havia povos e comunidades tradicionais em seu 
 
 ### Serviços de Proteção Social Básica no domicílio para Pessoas Idosas e com Deficiência
 
-Os Serviços de Proteção Social Básica no domicílio para Pessoas Idosas e com Deficiência estão previstos na Tipificação dos Serviços Socioassistenciais. Recentemente a Resolução CNAS Nº 117/2023 atualizou a tipificação, incluindo crianças e gestantes como público alvo da modalidade destes serviços.[^38]. Os dados do @fig-CRAS-PSB mostram um aumento de 3 pontos percentuais no período de 2018 a 2022.[^39]. Atualmente 73% das unidades informam possuir a oferta destes serviços.
+Os Serviços de Proteção Social Básica no domicílio para Pessoas Idosas e com Deficiência estão previstos na Tipificação dos Serviços Socioassistenciais. Recentemente a Resolução CNAS Nº 117/2023 atualizou a tipificação, incluindo crianças e gestantes como público alvo da modalidade destes serviços.[^servicos-3]. Os dados do @fig-CRAS-PSB mostram um aumento de 3 pontos percentuais no período de 2018 a 2022.[^servicos-4]. Atualmente 73% das unidades informam possuir a oferta destes serviços.
 
-[^38]: RESOLUÇÃO CNAS/MDS Nº 117, DE 28 DE AGOSTO DE 2023
+[^servicos-3]: RESOLUÇÃO CNAS/MDS Nº 117, DE 28 DE AGOSTO DE 2023
 
-[^39]: essa pergunta surge a partir de 2018
+[^servicos-4]: essa pergunta surge a partir de 2018
 
 ```{r fig-CRAS-PSB, fig.cap = "Percentual de CRAS que executavam diretamente os Serviços de Proteção Social Básica nos domicílios - Brasil, 2014 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -90,9 +90,9 @@ A Proteção Social Especial de Média Complexidade organiza a oferta de serviç
 
 O PAEFI é definido na Tipificação Nacional de Serviços Socioassistenciais como sendo o “serviço de apoio, orientação e acompanhamento a famílias com um ou mais de seus membros em situação de ameaça ou violação de direitos. Compreende atenções e orientações direcionadas para a promoção de direitos, a preservação e o fortalecimento de vínculos familiares, comunitários e sociais e para o fortalecimento da função protetiva das famílias diante do conjunto de condições que as vulnerabilizam e/ou as submetem a situações de risco pessoal e social.”
 
-Essa seção se dedica a identificar as situações atendidas pelo PAEFI em relação aos as situações de violências e violações de direitos relacionadas aos ciclos de vida, trabalho, gênero e discriminações por raça e etnia e situações de pessoas com deficiência. [^40]
+Essa seção se dedica a identificar as situações atendidas pelo PAEFI em relação aos as situações de violências e violações de direitos relacionadas aos ciclos de vida, trabalho, gênero e discriminações por raça e etnia e situações de pessoas com deficiência. [^servicos-5]
 
-[^40]: todos os gráficos são a partir do ano de 2019 em decorrência do início da modalidade da pergunta no formulário do Censo SUAS
+[^servicos-5]: todos os gráficos são a partir do ano de 2019 em decorrência do início da modalidade da pergunta no formulário do Censo SUAS
 
 O @fig-paefi_creas mostra que os principais atendimentos, entre o período de 2019 a 2022, são os seguintes: abuso e violência sexual, violência contra mulher, crianças e adolescentes, situações de negligência e abandono.
 
@@ -177,11 +177,11 @@ grafico<-tabela %>%
 grafico
 ```
 
-Em relação a violação decorrente de trabalho análogo a escravidão é definida como toda atividade forçada desenvolvida sob condições degradantes ou em jornadas exaustivas e quando a pessoa é impedida de deixar o seu local de trabalho [^41]. O @fig-paefi2_creas também traz as situações de trabalho infantil. Observa-se que a maior demanda atendida pelos CREAS, entre o período de 2020 e 2022,[^42] através do PAEFI é trabalho infantil presente em 68% dos CREAS. Entretanto as situações de situações de trabalho análogo a escravidão é presente em média 13% dos CREAS.
+Em relação a violação decorrente de trabalho análogo a escravidão é definida como toda atividade forçada desenvolvida sob condições degradantes ou em jornadas exaustivas e quando a pessoa é impedida de deixar o seu local de trabalho [^servicos-6]. O @fig-paefi2_creas também traz as situações de trabalho infantil. Observa-se que a maior demanda atendida pelos CREAS, entre o período de 2020 e 2022,[^servicos-7] através do PAEFI é trabalho infantil presente em 68% dos CREAS. Entretanto as situações de situações de trabalho análogo a escravidão é presente em média 13% dos CREAS.
 
-[^41]: Artigo 149 do Código Penal
+[^servicos-6]: Artigo 149 do Código Penal
 
-[^42]: esse gráfico é a partir do ano de 2020 em decorrência do início da pergunta no formulário do Censo SUAS
+[^servicos-7]: esse gráfico é a partir do ano de 2020 em decorrência do início da pergunta no formulário do Censo SUAS
 
 ```{r fig-paefi2_creas, fig.cap = "Atendimentos realizados pelo PAEFI/CREAS por situações de riscos em decorrência trabalho análogo a escravidão e trabalho infantil - Brasil  2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -412,9 +412,9 @@ grafico<-tabela %>%
 grafico
 ```
 
-As situações de imigração / refúgio vem crescendo no âmbito das demandas do PAEFI, os dados do período de 2020 e 2022[^43] (@fig-paefi6_creas) sinaliza que todos os públicos aumentam ao longo destes dois anos.
+As situações de imigração / refúgio vem crescendo no âmbito das demandas do PAEFI, os dados do período de 2020 e 2022[^servicos-8] (@fig-paefi6_creas) sinaliza que todos os públicos aumentam ao longo destes dois anos.
 
-[^43]: esse gráfico é a partir do ano de 2020 em decorrência do início da pergunta no formulário do Censo SUAS
+[^servicos-8]: esse gráfico é a partir do ano de 2020 em decorrência do início da pergunta no formulário do Censo SUAS
 
 ```{r fig-paefi6_creas, fig.cap = "Atendimentos realizados pelo PAEFI/CREAS - Pessoas em situação de imigração / refúgio - Brasil  2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -567,9 +567,9 @@ grafico
 
 O Serviço de Proteção Social Especial para Pessoas com Deficiência e Pessoas Idosas e suas famílias é definido na Tipificação Nacional de Serviços Socioassistenciais como sendo o "serviço para a oferta de atendimento especializado a famílias com pessoas com deficiência e idosos com algum grau de dependência, que tiveram suas limitações agravadas por violações de direitos, tais como: exploração da imagem, isolamento, confinamento, atitudes discriminatórias e preconceituosas no seio da família, falta de cuidados adequados por parte do cuidador, alto grau de estresse do cuidador, desvalorização da potencialidade/capacidade da pessoa, dentre outras que agravam a dependência e comprometem o desenvolvimento da autonomia."
 
-No que se refere às ações e atividades no âmbito do CREAS[^44], o @fig-creas-pse-domicilio mostra redução na quantidade de Serviço de Proteção Social Especial para Pessoas com Deficiência e Pessoas Idosas com equipe específica para sua execução. Em concomitante, aumenta a oferta sem equipe exclusiva. Os dados também destacam que há redução em relação aos municípios que deixam de ofertar este serviços que vai de 20% em 2018 para 31% em 2022. Outro movimento é o aumento dos municípios que realizam a oferta do serviço em outra unidade além do CREAS.
+No que se refere às ações e atividades no âmbito do CREAS[^servicos-9], o @fig-creas-pse-domicilio mostra redução na quantidade de Serviço de Proteção Social Especial para Pessoas com Deficiência e Pessoas Idosas com equipe específica para sua execução. Em concomitante, aumenta a oferta sem equipe exclusiva. Os dados também destacam que há redução em relação aos municípios que deixam de ofertar este serviços que vai de 20% em 2018 para 31% em 2022. Outro movimento é o aumento dos municípios que realizam a oferta do serviço em outra unidade além do CREAS.
 
-[^44]: gráficos são a partir do ano de 2018 em decorrência do início da modalidade da pergunta no formulário do Censo SUAS
+[^servicos-9]: gráficos são a partir do ano de 2018 em decorrência do início da modalidade da pergunta no formulário do Censo SUAS
 
 ```{r fig-creas-pse-domicilio, fig.cap = "Percentual de CREAS que realizam Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosas e suas Famílias, 2018 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 #| fig-height: 4.5
@@ -634,9 +634,9 @@ grafico
 
 O Serviço Especializado em Abordagem Social consiste na identificação, por equipes de educadores sociais, de pessoas e famílias em situação de risco pessoal nos ambientes públicos. Dentre as situações de risco enquadram-se o trabalho infantil, situação de rua, uso abusivo de drogas, exploração sexual de crianças e adolescentes, dentre outras. A abordagem é realizada em praças, feiras, locais de intensa circulação de pessoas e com existência de comércio, ruas, prédios abandonados, dentre outros espaços, e tem por objetivo garantir direitos por meio de inclusão em rede de serviços socioassistenciais e em outras políticas públicas.
 
-No @fig-CREAS-abordagem-social[^45] observa-se uma redução da oferta deste serviço entre o período de 2018 a 2022. Os dados sinalizam que aumenta o número de CREAS que deixam de ofertar este serviço nesta unidade, esse evolui de 14% para 17% das unidades. O número de municípios que deixam de ofertar este serviços também aumenta de 20% para 31%. Concomitante a estas informações, reduz-se o número de municípios que ofertam, seja com equipe ou sem equipe exclusiva para execução dos serviços.
+No @fig-CREAS-abordagem-social[^servicos-10] observa-se uma redução da oferta deste serviço entre o período de 2018 a 2022. Os dados sinalizam que aumenta o número de CREAS que deixam de ofertar este serviço nesta unidade, esse evolui de 14% para 17% das unidades. O número de municípios que deixam de ofertar este serviços também aumenta de 20% para 31%. Concomitante a estas informações, reduz-se o número de municípios que ofertam, seja com equipe ou sem equipe exclusiva para execução dos serviços.
 
-[^45]: gráfico a partir do ano de 2018 em decorrência do início da modalidade da pergunta no formulário do Censo SUAS
+[^servicos-10]: gráfico a partir do ano de 2018 em decorrência do início da modalidade da pergunta no formulário do Censo SUAS
 
 ```{r fig-CREAS-abordagem-social, fig.cap = "Quantidade de CREAS que realizam o Serviço Especializado em Abordagem Social, 2018 - 2020 e 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -745,9 +745,9 @@ grafico
 
 ## Benefícios Eventuais
 
-Os Benefícios Benefícios Eventuais, são previsões do SUAS e suas ofertas devem ser garantidas "em sua integralidade – benefícios, serviços e programas – de forma que a capacidade protetiva do Estado seja efetivada de forma a fortalecer a autonomia das famílias, garantindo os encaminhamentos necessários". [^46]
+Os Benefícios Benefícios Eventuais, são previsões do SUAS e suas ofertas devem ser garantidas "em sua integralidade – benefícios, serviços e programas – de forma que a capacidade protetiva do Estado seja efetivada de forma a fortalecer a autonomia das famílias, garantindo os encaminhamentos necessários". [^servicos-11]
 
-[^46]: Orientações técnicas sobre Benefícios Eventuais no SUAS, acesso através: https://www.sigas.pe.gov.br/files/01282019120030-orientacoes.tecnias.sobre.beneficios.eventuais.no.suas.pdf
+[^servicos-11]: Orientações técnicas sobre Benefícios Eventuais no SUAS, acesso através: https://www.sigas.pe.gov.br/files/01282019120030-orientacoes.tecnias.sobre.beneficios.eventuais.no.suas.pdf
 
 São concedidos em casos de nascimento, morte, situações de vulnerabilidade provisória e de calamidade pública.
 
