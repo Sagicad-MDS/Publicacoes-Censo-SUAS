@@ -44,6 +44,7 @@ crossref:
 format:
   html:
     theme: cosmo
+    keep-md: true
 #  pdf:
 #    documentclass: scrreprt
 
