@@ -1,0 +1,101 @@
+﻿* Encoding: UTF-8.
+
+
+*CENSO SUAS 2023*
+****************************************************************************
+***** TABELAS PARA SEREM RODADAS NA BASE DO RH ****
+*****************************************************************************
+*****Filtar q7l (1-Estadual; 2-Municipal)
+
+FREQUENCIES VARIABLES=Regiao  Porte_pop2022  UF
+  /ORDER=ANALYSIS.
+
+FREQUENCIES VARIABLES= q55_3   d55_2_Faixas_etarias   q55_9  q55_10 q55_11 q55_12 q55_13
+  /ORDER=ANALYSIS.
+
+
+
+
+**** VARIÁVEIS DERIVADAS****
+
+* Tabelas personalizadas.
+CTABLES
+  /VLABELS VARIABLES=Regiao  d55_9bin1  d55_9bin2 d55_9bin3  nu_trabalhadores DISPLAY=LABEL
+  /TABLE Regiao BY d55_9bin1 [C][COUNT F40.0] + d55_9bin2 [C][COUNT F40.0] + d55_9bin3 [C][COUNT F40.0] + nu_trabalhadores [S][COUNT F40.0]
+  /CATEGORIES VARIABLES=Regiao ORDER=A KEY=VALUE EMPTY=EXCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=d55_9bin1  d55_9bin2 d55_9bin3  ORDER=A KEY=VALUE EMPTY=INCLUDE.
+
+* Tabelas personalizadas.
+CTABLES
+  /VLABELS VARIABLES= Porte_pop2022  d55_9bin1  d55_9bin2 d55_9bin3 nu_trabalhadores DISPLAY=LABEL
+  /TABLE  Porte_pop2022  BY d55_9bin1 [C][COUNT F40.0] + d55_9bin2 [C][COUNT F40.0] + d55_9bin3 [C][COUNT F40.0] + nu_trabalhadores [S][COUNT F40.0]
+  /CATEGORIES VARIABLES= Porte_pop2022 ORDER=A KEY=VALUE EMPTY=EXCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=d55_9bin1  d55_9bin2 d55_9bin3   ORDER=A KEY=VALUE EMPTY=INCLUDE.
+
+
+* Tabelas personalizadas.
+CTABLES
+  /VLABELS VARIABLES=UF d55_9bin1  d55_9bin2 d55_9bin3 nu_trabalhadores DISPLAY=LABEL
+  /TABLE UF BY d55_9bin1 [C][COUNT F40.0] + d55_9bin2 [C][COUNT F40.0] + d55_9bin3 [C][COUNT F40.0] + nu_trabalhadores [S][COUNT F40.0]
+  /CATEGORIES VARIABLES=UF ORDER=A KEY=VALUE EMPTY=EXCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=d55_9bin1  d55_9bin2 d55_9bin3   ORDER=A KEY=VALUE EMPTY=INCLUDE.
+
+* Tabelas personalizadas.
+CTABLES
+  /VLABELS VARIABLES=Regiao  d55_10bin1  d55_10bin2 d55_10bin3    d55_10bin4  d55_10bin5   nu_trabalhadores DISPLAY=LABEL
+  /TABLE Regiao BY d55_10bin1 [C][COUNT F40.0] + d55_10bin2 [C][COUNT F40.0] + d55_10bin3 [C][COUNT F40.0] +  d55_10bin4 [C][COUNT F40.0] + d55_10bin5 [C][COUNT F40.0]  +  nu_trabalhadores [S][COUNT F40.0]
+  /CATEGORIES VARIABLES=Regiao ORDER=A KEY=VALUE EMPTY=EXCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=d55_10bin1  d55_10bin2 d55_10bin3    d55_10bin4  d55_10bin5    ORDER=A KEY=VALUE EMPTY=INCLUDE.
+
+
+* Tabelas personalizadas.
+CTABLES
+  /VLABELS VARIABLES= Porte_pop2022   d55_10bin1  d55_10bin2 d55_10bin3    d55_10bin4  d55_10bin5   nu_trabalhadores  DISPLAY=LABEL
+  /TABLE Porte_pop2022 BY  d55_10bin1 [C][COUNT F40.0] +  d55_10bin2 [C][COUNT F40.0] +  d55_10bin3 [C][COUNT F40.0] +  d55_10bin4 [C][COUNT F40.0] +  d55_10bin5 [C][COUNT F40.0] +  nu_trabalhadores [S][COUNT F40.0]
+  /CATEGORIES VARIABLES= Porte_pop2022 ORDER=A KEY=VALUE EMPTY=EXCLUDE TOTAL=YES POSITION=AFTER  
+/CATEGORIES VARIABLES= d55_10bin1  d55_10bin2 d55_10bin3    d55_10bin4  d55_10bin5   ORDER=A KEY=VALUE EMPTY=INCLUDE.
+
+
+
+* Tabelas personalizadas.
+CTABLES
+  /VLABELS VARIABLES=UF   d55_10bin1  d55_10bin2 d55_10bin3    d55_10bin4  d55_10bin5   nu_trabalhadores  DISPLAY=LABEL
+  /TABLE UF BY  d55_10bin1 [C][COUNT F40.0] +  d55_10bin2 [C][COUNT F40.0] +  d55_10bin3 [C][COUNT F40.0] +  d55_10bin4 [C][COUNT F40.0] +  d55_10bin5 [C][COUNT F40.0] +  nu_trabalhadores [S][COUNT F40.0]
+  /CATEGORIES VARIABLES=UF ORDER=A KEY=VALUE EMPTY=EXCLUDE TOTAL=YES POSITION=AFTER  
+/CATEGORIES VARIABLES= d55_10bin1  d55_10bin2 d55_10bin3    d55_10bin4  d55_10bin5   ORDER=A KEY=VALUE EMPTY=INCLUDE.
+
+
+
+* Tabelas personalizadas.
+CTABLES
+  /VLABELS VARIABLES=Regiao  d55_11bin1  d55_11bin2 d55_11bin3  d55_11bin4  nu_trabalhadores DISPLAY=LABEL
+  /TABLE Regiao BY d55_11bin1 [C][COUNT F40.0] + d55_11bin2 [C][COUNT F40.0] + d55_11bin3 [C][COUNT F40.0] +  d55_11bin4 [C][COUNT F40.0] +  nu_trabalhadores [S][COUNT F40.0]
+  /CATEGORIES VARIABLES=Regiao ORDER=A KEY=VALUE EMPTY=EXCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=d55_11bin1  d55_11bin2 d55_11bin3  d55_11bin4    ORDER=A KEY=VALUE EMPTY=INCLUDE.
+
+
+* Tabelas personalizadas.
+CTABLES
+  /VLABELS VARIABLES= Porte_pop2022  d55_11bin1  d55_11bin2 d55_11bin3  d55_11bin4    nu_trabalhadores     DISPLAY=LABEL
+  /TABLE Porte_pop2022 BY d55_11bin1 [C][COUNT F40.0] + d55_11bin2 [C][COUNT F40.0] + d55_11bin3 [C][COUNT F40.0] +  d55_11bin4 [C][COUNT F40.0] + nu_trabalhadores [S][COUNT F40.0]
+  /CATEGORIES VARIABLES=Porte_pop2022 ORDER=A KEY=VALUE EMPTY=EXCLUDE TOTAL=YES POSITION=AFTER  
+/CATEGORIES VARIABLES=d55_11bin1  d55_11bin2 d55_11bin3  d55_11bin4   ORDER=A KEY=VALUE EMPTY=INCLUDE.
+
+
+
+* Tabelas personalizadas.
+CTABLES
+  /VLABELS VARIABLES=UF  d55_11bin1  d55_11bin2 d55_11bin3  d55_11bin4  nu_trabalhadores DISPLAY=LABEL
+  /TABLE UF BY d55_11bin1 [C][COUNT F40.0] + d55_11bin2 [C][COUNT F40.0] + d55_11bin3 [C][COUNT F40.0] +  d55_11bin4 [C][COUNT F40.0] +  nu_trabalhadores [S][COUNT F40.0]
+  /CATEGORIES VARIABLES=UF ORDER=A KEY=VALUE EMPTY=EXCLUDE TOTAL=YES POSITION=AFTER
+  /CATEGORIES VARIABLES=d55_11bin1  d55_11bin2 d55_11bin3  d55_11bin4    ORDER=A KEY=VALUE EMPTY=INCLUDE.
+
+
+
+
+
+
+
+
+
+

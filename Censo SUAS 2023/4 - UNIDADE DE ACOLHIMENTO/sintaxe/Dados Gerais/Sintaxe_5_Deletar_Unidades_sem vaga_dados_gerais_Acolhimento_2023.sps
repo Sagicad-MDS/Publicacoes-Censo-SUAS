@@ -1,0 +1,7 @@
+****UNIDADES com capacidade de atendimento igual a zero
+
+
+
+
+SELECT IF NU_IDENTIFICADOR ne 4120603301612.
+SELECT IF NU_IDENTIFICADOR ne 2600103311434.
