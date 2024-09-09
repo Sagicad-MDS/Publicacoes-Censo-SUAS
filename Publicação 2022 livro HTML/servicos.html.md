@@ -1,0 +1,340 @@
+::: {.cell}
+
+:::
+
+
+
+
+# Serviços e Benefícios ofertados pelo SUAS
+
+## Proteção Social
+
+A Assistência Social organiza-se por dois tipos de proteção: a proteção social básica, definida no artigo 6º-A da Lei Orgânica da Assistência Social (LOAS) como um "conjunto de serviços, programas, projetos e benefícios da assistência social que visa a prevenção de situações de vulnerabilidade e risco social por meio do desenvolvimento de potencialidades e aquisições e do fortalecimento de vínculos familiares e comunitários" e a proteção social especial, definida como "conjunto de serviços, programas e projetos que tem por objetivo contribuir para a reconstrução de vínculos familiares e comunitários, a defesa de direito, o fortalecimento das potencialidades e aquisições e a proteção de famílias e indivíduos para o enfrentamento das situações de violação de direitos"[^servicos-1].
+
+[^servicos-1]: Lei nº 8.742, de 7 de dezembro de 1993 (Lei Orgânica da Assistência Social): Dispõe sobre a organização da Assistência Social e dá outras providências (<http://www.planalto.gov.br/ccivil_03/Leis/L8742compilado.htm>).
+
+Nesse contexto, este eixo de unidades, serviços e benefícíos da Assistência Social tem o objetivo de apresentar informações sobre a oferta das unidades da Proteção Social Básica e Especial do SUAS integrada aos serviços e benefícios desta política.
+
+Para isso, os dados históricos desta publicação nos ajudam a identificar os avanços e tendências ao longo dos anos em relação a estrutura física destes equipamentos, oferta dos serviços e benefícios, demanda e perfis de públicos atendidos, oferta regionalizada a partir da Resolução CIT 33/2013, integração com Cadastro Único para programas sociais, natureza da oferta das unidades. Este conteúdo está dividido por proteções a saber:
+
+-   **Proteção Social Básica:** PAIF (Serviço de Proteção e Atendimento Integral à Família), SCFV (Serviços de Convivência e Fortalecimento de Vínculos), Proteção Social Básica no Domicílio para pessoas idosas e com deficiência,
+
+-   **Proteção Social Especial Média Complexidadade:** PAEFI (Serviço de Atendimento Especializado a Famílias e Indivíduos), Proteção Social Especial no Domicílio para pessoas idosas e com Deficiência, Abordagem Social, MSE (Medidas Socioeducativas em meio aberto), Serviço para situações de emergência e/ou calamidade pública.
+
+-   **Proteção Social Especial Alta Complexidade:** Tipos de unidades de Serviço de Acolhimento Institucional, oferta de Serviços de Família Acolhedora, bem como do Programa de Família Guardiã ou Extensa, Serviço ofertado em Centro-Dia.
+
+## Proteção Social Básica
+
+### Serviço de Proteção e Atendimento Integral à Família (PAIF)
+
+O PAIF compõe um conjunto de ações conjugada a seguranças sociais referenciadas a unidades de CRAS. De acordo com Tipificação Nacional dos Serviços Socioassistenciais, o PAIF "consiste no trabalho social com família, de caráter continuado, com a finalidade de fortalecer a função protetiva das famílias, prevenir a ruptura dos seus vínculos, promover seu acesso e usufruto do direito" [^servicos-2].
+
+[^servicos-2]: Resolução nº 109/2009 / CNAS
+
+A respeito das principais ações desenvolvidas no âmbito do PAIF, destaca-se que as três atividades mais realizadas pelas unidades são visitas domiciliares, encaminhamento para o Cadastro Único e acolhida particularizada. <!--não achei o grafico, tava nas versões anteriores--> <!--O grafico xxx também destaca que 91% das unidades informam que usam Prontuário para o acompanhamento das famílias. Destaca-se que o registro do acompanhamento familiar é obrigatório através do Prontuário--><!--não identificar estas informações no pdf anterior-->.
+
+### Serviços de Convivência e Fortalecimento de Vínculos (SCFV)
+
+A tônica do vínculo é um fator de Segurança Social. O SCFV no âmbito do SUAS é um serviço tipificado e realizado através de grupos na qual objetiva garantir aquisições progressivas aos cidadãos usuários do SUAS. Trata-se de serviço que afirma da natureza relacional no processo de proteção e complementar ao trabalho social com família e atua de forma preventiva a ocorrências de situações de risco social. De acordo com o @fig-CRAS-SCFV, 82% dos CRAS possuem a oferta deste serviço na sua unidade. Há também esta oferta por meio de Unidades de Centro de Convivência conforme já mencionado<!-- (@fig-quantitativo-CentroConv)--><!--^[o @fig-CRAS-SCFV não possui informação do ano de 2023 devido a ausencia desta pergunta no formulário no ano supracitado]. -->.
+
+
+
+
+::: {.cell fig.footer='Fonte: MDS, Censo SUAS'}
+::: {.cell-output-display}
+![Percentual de CRAS que executavam diretamente os Serviços de Convivência e Fortalecimento de Vínculos - Brasil, 2014 a 2022](servicos_files/figure-html/fig-CRAS-SCFV-1.png){#fig-CRAS-SCFV width=672}
+:::
+:::
+
+
+
+
+Dos 2.334 CRAS que informaram que havia povos e comunidades tradicionais em seu território de abrangência, 896 informaram ter atendido Comunidades Quilombolas (38,4%), seguidos por 615 CRAS que informaram ter atendido Comunidades Ribeirinhas (26,3%) e 611 que informaram ter atendido Povos Indígenas (26,2%) (Gráfico 27).
+
+### Serviços de Proteção Social Básica no domicílio para Pessoas Idosas e com Deficiência
+
+Os Serviços de Proteção Social Básica no domicílio para Pessoas Idosas e com Deficiência estão previstos na Tipificação dos Serviços Socioassistenciais. Recentemente a Resolução CNAS Nº 117/2023 atualizou a tipificação, incluindo crianças e gestantes como público alvo da modalidade destes serviços.[^servicos-3]. Os dados do @fig-CRAS-PSB mostram um aumento de 3 pontos percentuais no período de 2018 a 2022.[^servicos-4]. Atualmente 73% das unidades informam possuir a oferta destes serviços.
+
+[^servicos-3]: RESOLUÇÃO CNAS/MDS Nº 117, DE 28 DE AGOSTO DE 2023
+
+[^servicos-4]: essa pergunta surge a partir de 2018
+
+
+
+
+::: {.cell fig.footer='Fonte: MDS, Censo SUAS'}
+::: {.cell-output-display}
+![Percentual de CRAS que executavam diretamente os Serviços de Proteção Social Básica nos domicílios - Brasil, 2014 a 2022](servicos_files/figure-html/fig-CRAS-PSB-1.png){#fig-CRAS-PSB width=672}
+:::
+:::
+
+
+
+
+## Proteção Social Especial
+
+### Serviços de Proteção Social Especial – Média Compexidade
+
+A Proteção Social Especial de Média Complexidade organiza a oferta de serviços, programas e projetos de caráter especializado que requerem maior estruturação técnica e operativa, com competências e atribuições definidas, destinados ao atendimento a famílias e indivíduos em situação de risco pessoal e social, por violação de direitos.
+
+É ofertada pelos Centros de Referência Especializados de Assistência Social (CREAS), pelos Centros de Referência Especializados para População em Situação de Rua (Centro POP), e pelos Centro-Dia. No nível de Média Complexidade, são ofertados o Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos (PAEFI); o Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida e de Prestação de Serviços à Comunidade; o Serviço Especializado em Abordagem Social; o Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosos e suas Famílias e o Serviço Especializado para Pessoas em Situação de Rua.
+
+### Serviço de Proteção e Atendimento e Atendimento Especializado a Famílias e Indivíduos (PAEFI)
+
+O PAEFI é definido na Tipificação Nacional de Serviços Socioassistenciais como sendo o “serviço de apoio, orientação e acompanhamento a famílias com um ou mais de seus membros em situação de ameaça ou violação de direitos. Compreende atenções e orientações direcionadas para a promoção de direitos, a preservação e o fortalecimento de vínculos familiares, comunitários e sociais e para o fortalecimento da função protetiva das famílias diante do conjunto de condições que as vulnerabilizam e/ou as submetem a situações de risco pessoal e social.”
+
+Essa seção se dedica a identificar as situações atendidas pelo PAEFI em relação aos as situações de violências e violações de direitos relacionadas aos ciclos de vida, trabalho, gênero e discriminações por raça e etnia e situações de pessoas com deficiência. [^servicos-5]
+
+[^servicos-5]: todos os gráficos são a partir do ano de 2019 em decorrência do início da modalidade da pergunta no formulário do Censo SUAS
+
+O @fig-paefi_creas mostra que os principais atendimentos, entre o período de 2019 a 2022, são os seguintes: abuso e violência sexual, violência contra mulher, crianças e adolescentes, situações de negligência e abandono.
+
+
+
+
+::: {.cell}
+::: {.cell-output-display}
+![Atendimentos realizados pelo PAEFI/CREAS por situações de riscos em decorrência de situações e ciclos de vida - Brasil  2022](servicos_files/figure-html/fig-paefi_creas-1.png){#fig-paefi_creas width=672}
+:::
+:::
+
+
+
+
+Em relação a violação decorrente de trabalho análogo a escravidão é definida como toda atividade forçada desenvolvida sob condições degradantes ou em jornadas exaustivas e quando a pessoa é impedida de deixar o seu local de trabalho [^servicos-6]. O @fig-paefi2_creas também traz as situações de trabalho infantil. Observa-se que a maior demanda atendida pelos CREAS, entre o período de 2020 e 2022,[^servicos-7] através do PAEFI é trabalho infantil presente em 68% dos CREAS. Entretanto as situações de situações de trabalho análogo a escravidão é presente em média 13% dos CREAS.
+
+[^servicos-6]: Artigo 149 do Código Penal
+
+[^servicos-7]: esse gráfico é a partir do ano de 2020 em decorrência do início da pergunta no formulário do Censo SUAS
+
+
+
+
+::: {.cell fig.footer='Fonte: MDS, Censo SUAS.'}
+::: {.cell-output-display}
+![Atendimentos realizados pelo PAEFI/CREAS por situações de riscos em decorrência trabalho análogo a escravidão e trabalho infantil - Brasil  2022](servicos_files/figure-html/fig-paefi2_creas-1.png){#fig-paefi2_creas width=672}
+:::
+:::
+
+::: {.cell fig.footer='Fonte: MDS, Censo SUAS.'}
+
+:::
+
+::: {.cell fig.footer='Fonte: MDS, Censo SUAS.'}
+
+:::
+
+::: {.cell fig.footer='Fonte: MDS, Censo SUAS.'}
+
+:::
+
+
+
+
+As situações de imigração / refúgio vem crescendo no âmbito das demandas do PAEFI, os dados do período de 2020 e 2022[^servicos-8] (@fig-paefi6_creas) sinaliza que todos os públicos aumentam ao longo destes dois anos.
+
+[^servicos-8]: esse gráfico é a partir do ano de 2020 em decorrência do início da pergunta no formulário do Censo SUAS
+
+
+
+
+::: {.cell fig.footer='Fonte: MDS, Censo SUAS.'}
+::: {.cell-output-display}
+![Atendimentos realizados pelo PAEFI/CREAS - Pessoas em situação de imigração / refúgio - Brasil  2022](servicos_files/figure-html/fig-paefi6_creas-1.png){#fig-paefi6_creas width=672}
+:::
+:::
+
+
+
+
+No que se refere ao atendimento de violências e violações a povos e comunidades tradicionais o @fig-creas-tradicionais destaca-se que dos seis povos e comunidades destacadas, as maiores demandas estão para os públicos de comunidades quilombolas com 36%, povos indígenas com 35% e ribeirinhos com 29%.
+
+As regiões Sul e Centro Oeste possuem maior demanda de atendimento do público povos indígenas sendo respectivamente 72% e 59% respectivamente. A região Nordeste se destaca com atendimento de comunidades quilombolas com 55% e a Região Norte com 74% de demandas de comunidades ribeirinhas.
+
+
+
+
+::: {.cell fig.footer='Fonte: MDS, Censo SUAS.'}
+::: {.cell-output-display}
+![Percentual de CREAS que atendem povos e comunidades tradicionais -  por grupos , Região - 2022](servicos_files/figure-html/fig-creas-tradicionais-1.png){#fig-creas-tradicionais width=672}
+:::
+:::
+
+::: {.cell fig.footer='Fonte: MDS, Censo SUAS.'}
+
+:::
+
+
+
+
+### Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC)
+
+O Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC), segundo definido na Tipificação Nacional de Serviços Socioassistenciais, "tem por finalidade prover atenção socioassistencial e acompanhamento a adolescentes e jovens em cumprimento de medidas socioeducativas em meio aberto, determinadas judicialmente. Deve contribuir para o acesso a direitos e para a resignificação de valores na vida pessoal e social dos adolescentes e jovens. Para a oferta do serviço faz-se necessário a observância da responsabilização face ao ato infracional praticado, cujos direitos e obrigações devem ser assegurados de acordo com as legislações e normativas específicas para o cumprimento da medida.
+
+Em 2017, 81% dos municípios ofertavam o Serviço de Medidas Socioeducativas em Meio Aberto (MSE) de Liberdade Assistida (LA) e Prestação de Serviço à Comunidade (PSC) através dos CREAS. Esse percentual aumentou nos últimos anos, conforme pode ser observado no @fig-CREAS-MSE. O aumento foi de 8 pontos percentuais. O Censo SUAS de 2022 mostra que 89% dos CREAS ofertam este serviço. O principal objetivo desta oferta é assegurar a função protetiva destes jovens em situação de cumprimento de MSE e suas respectivas famílias em conjunto com Sistema de Garantias de Direitos (SGC).
+
+
+
+
+::: {.cell fig.footer='Fonte: MDS, Censo SUAS'}
+::: {.cell-output-display}
+![Percentual de CREAS que realizam o Serviço de Proteção Social a Adolescentes em cumprimento de Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC) - Brasil, 2017 a 2022](servicos_files/figure-html/fig-CREAS-MSE-1.png){#fig-CREAS-MSE width=672}
+:::
+:::
+
+
+
+
+### Serviço de Proteção Social Especial para Pessoas com Deficiência e Pessoas Idosas e suas famílias
+
+O Serviço de Proteção Social Especial para Pessoas com Deficiência e Pessoas Idosas e suas famílias é definido na Tipificação Nacional de Serviços Socioassistenciais como sendo o "serviço para a oferta de atendimento especializado a famílias com pessoas com deficiência e idosos com algum grau de dependência, que tiveram suas limitações agravadas por violações de direitos, tais como: exploração da imagem, isolamento, confinamento, atitudes discriminatórias e preconceituosas no seio da família, falta de cuidados adequados por parte do cuidador, alto grau de estresse do cuidador, desvalorização da potencialidade/capacidade da pessoa, dentre outras que agravam a dependência e comprometem o desenvolvimento da autonomia."
+
+No que se refere às ações e atividades no âmbito do CREAS[^servicos-9], o @fig-creas-pse-domicilio mostra redução na quantidade de Serviço de Proteção Social Especial para Pessoas com Deficiência e Pessoas Idosas com equipe específica para sua execução. Em concomitante, aumenta a oferta sem equipe exclusiva. Os dados também destacam que há redução em relação aos municípios que deixam de ofertar este serviços que vai de 20% em 2018 para 31% em 2022. Outro movimento é o aumento dos municípios que realizam a oferta do serviço em outra unidade além do CREAS.
+
+[^servicos-9]: gráficos são a partir do ano de 2018 em decorrência do início da modalidade da pergunta no formulário do Censo SUAS
+
+
+
+
+::: {.cell fig.footer='Fonte: MDS, Censo SUAS.'}
+::: {.cell-output-display}
+![Percentual de CREAS que realizam Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosas e suas Famílias, 2018 a 2022](servicos_files/figure-html/fig-creas-pse-domicilio-1.png){#fig-creas-pse-domicilio width=672}
+:::
+:::
+
+::: {.cell}
+
+:::
+
+
+
+
+### Serviço Especializado em Abordagem Social
+
+O Serviço Especializado em Abordagem Social consiste na identificação, por equipes de educadores sociais, de pessoas e famílias em situação de risco pessoal nos ambientes públicos. Dentre as situações de risco enquadram-se o trabalho infantil, situação de rua, uso abusivo de drogas, exploração sexual de crianças e adolescentes, dentre outras. A abordagem é realizada em praças, feiras, locais de intensa circulação de pessoas e com existência de comércio, ruas, prédios abandonados, dentre outros espaços, e tem por objetivo garantir direitos por meio de inclusão em rede de serviços socioassistenciais e em outras políticas públicas.
+
+No @fig-CREAS-abordagem-social[^servicos-10] observa-se uma redução da oferta deste serviço entre o período de 2018 a 2022. Os dados sinalizam que aumenta o número de CREAS que deixam de ofertar este serviço nesta unidade, esse evolui de 14% para 17% das unidades. O número de municípios que deixam de ofertar este serviços também aumenta de 20% para 31%. Concomitante a estas informações, reduz-se o número de municípios que ofertam, seja com equipe ou sem equipe exclusiva para execução dos serviços.
+
+[^servicos-10]: gráfico a partir do ano de 2018 em decorrência do início da modalidade da pergunta no formulário do Censo SUAS
+
+
+
+
+::: {.cell fig.footer='Fonte: MDS, Censo SUAS'}
+::: {.cell-output-display}
+![Quantidade de CREAS que realizam o Serviço Especializado em Abordagem Social, 2018 - 2020 e 2022](servicos_files/figure-html/fig-CREAS-abordagem-social-1.png){#fig-CREAS-abordagem-social width=672}
+:::
+:::
+
+
+
+
+## Proteção Social Especial de Alta Complexidade
+
+Os Serviços de Proteção Social Especial de Alta Complexidade destinam-se a famílias e/ou indivíduos afastados temporariamente do núcleo familiar e/ou comunitário de origem. Estes Serviços são organizados em diferentes regulamentações, modalidades e públicos. Os públicos dos serviços tipificados são:
+
+-   **Crianças e Adolescentes:** Unidade residencial e unidades institucional
+-   **Pessoas Idosas:** Unidade residencial e unidades institucional
+-   **Adultos e famílias:** Unidade residencial tipo de residência e unidade institucional e passagem
+-   **Jovens e Adultos com deficiência:** residência Inclusiva
+-   **Mulheres:** Unidade residencial
+
+### Serviço de Acolhimento em Família Acolhedora
+
+O Serviço de Acolhimento em Família Acolhedora "organiza o acolhimento de crianças e adolescentes, afastados da família por medida de proteção, em residência de famílias acolhedoras cadastradas. É previsto até que seja possível o retorno à família de origem ou, na sua impossibilidade, o encaminhamento para adoção. O serviço é o responsável por selecionar, capacitar, cadastrar e acompanhar as famílias acolhedoras, bem como realizar o acompanhamento da criança e/ou adolescente acolhido e sua família de origem."
+
+No território Nacional há 54% dos municípios informam que possuem este serviço conforme dados de 2022. Essa proporção cresceu em relação ao ano de 2017, conforme pode ser observado no @fig-fam_acolhedora. O gráfico também referencia a oferta destes serviços por grandes regiões, as regiões Sul e Sudeste se destacam como o maior número quantitativo e a Região Nordeste em termos de crescimento proporcional neste período. AS regiões Centro Oeste e Norte foram as que menos tiveram crescimento da oferta do Serviço de Acolhimento em Família Acolhedora no âmbito dos municípios.
+
+<!--tem algum erro no grafico, acho que é algo em relação a função, mas não consegui identificar, se colocar o nome percentual no lugar do "N" ele não roda-->
+
+.
+
+
+
+
+::: {.cell fig.footer='Fonte: MDS, Censo SUAS.'}
+::: {.cell-output-display}
+![Percentual de municípios com Serviços de Família Acolhedora - Região, 2017 a 2022](servicos_files/figure-html/fig-fam_acolhedora-1.png){#fig-fam_acolhedora width=672}
+:::
+:::
+
+
+
+
+<!--avaliar se da tenpo de inserir estas questões-->
+
+.
+
+
+
+
+::: {.cell fig.footer='Fonte: MDS, Censo SUAS.'}
+
+:::
+
+::: {.cell fig.footer='Fonte: MDS, Censo SUAS.'}
+
+:::
+
+::: {.cell fig.footer='Fonte: MDS, Censo SUAS.'}
+
+:::
+
+::: {.cell fig.footer='Fonte: MDS, Censo SUAS.'}
+
+:::
+
+
+
+
+## Benefícios Eventuais
+
+Os Benefícios Benefícios Eventuais, são previsões do SUAS e suas ofertas devem ser garantidas "em sua integralidade – benefícios, serviços e programas – de forma que a capacidade protetiva do Estado seja efetivada de forma a fortalecer a autonomia das famílias, garantindo os encaminhamentos necessários". [^servicos-11]
+
+[^servicos-11]: Orientações técnicas sobre Benefícios Eventuais no SUAS, acesso através: https://www.sigas.pe.gov.br/files/01282019120030-orientacoes.tecnias.sobre.beneficios.eventuais.no.suas.pdf
+
+São concedidos em casos de nascimento, morte, situações de vulnerabilidade provisória e de calamidade pública.
+
+Destaca-se que a oferta deste Benefício Eventual caracteriza-se como um direito, portanto diferencia-se de doação. A forma e critérios desta oferta devem ser deliberadas pelo Conselho de Assistência Social local.
+
+Dados de 2022 informa que 98% dos municípios concedem este Benefício Eventual para situações de Vulerabildiade temporária e de Morte. Em seguida, 90% dos entes municipais informam para situações de calamidade pública e 87% dos municípios em situação de natalidade conforme o @fig-be-munic.
+
+
+
+
+::: {.cell fig.footer='Fonte: MDS, Censo SUAS.'}
+::: {.cell-output-display}
+![Percentual de municípios que concedem Benefícios Eventuais - 2022](servicos_files/figure-html/fig-be-munic-1.png){#fig-be-munic width=672}
+:::
+:::
+
+
+
+
+Em relação ao local da oferta destes Benefícios Eventuais, destaca-se no @fig-be-local que há três locais descritos pelos gestores municipais, são eles: oferta na sede do orgão gestor, oferta nas unidades da rede socioassistencial e, em ambos. Para as situações de morte, os dados apontam que 40% desta oferta é realizada no orgão gestor municipal. Em caso de nascimento e situação de vulnerabilidade temporária a maior proporção encontra-se nas unidades da rede socioassistencial com 42% e 37% respectivamente.
+
+
+
+
+::: {.cell fig.footer='Fonte: MDS, Censo SUAS.'}
+::: {.cell-output-display}
+![Percentual de local onde os benefícios eventuais são concedidos nos municípios - 2022](servicos_files/figure-html/fig-be-local-1.png){#fig-be-local width=672}
+:::
+:::
+
+
+
+
+## Considerações Finais
+
+Os dados do Censo SUAS 2022 sinaliza que ações como visitas domiciliares, encaminhamento para inserção/atualização e acolhida particularizada são as principais ações realizadas pelos PAIF sendo a primeira em 100% das unidades de serviços. Atendimento em comunidades tradicionais se destaca com especificidades regionais no Censo SUAS 2022. Dois públicos são hegemonicamente, para regiões Nordeste, Sudeste e Sul são as comunidades quilombolas e para as regiões Norte e Centro Oeste os públicos de comunidades ribeirinhas são proporcionalmente mais presentes nos atendimentos dos PAIF nos CRAS.
+
+Em relação a oferta de SCFV, os dados sinalizam que 82% dos CRAS ofertam diretamente este serviço. Dado que cresceu em relação aos dois últimos anos do censo, entretanto comparado a partir de 2014, teve redução de 7 pontos percentuais. Já o Serviço de Proteção Social Básica no Domicílio, é um dado que decresceu ao longo dos últimos 4 anos. O último Censo SUAS sinaliza que 27% dos CRAS ofertam este serviço em domicílio.
+
+Na Proteção Social Especial através do PAEFI, destaca-se que violência contra criança e adolescentes e contra mulher são as demandas mais presentes no âmbito do PAEFI. Em relação a violações, o trabalho infantil é presente em 68% dos atendimentos dos CREAS. No aspecto migratório, essa demanda aumento nos últimos anos, sobre tudo no perfil de pessoas adultas (homens e mulheres).
+
+Em relação ao atendimento de povos e comunidades tradicionais netas unidades, destaca-se que os dados variam conforme região, sendo hegemonicamente mais presente os públicos de comunidades quilombolas, povos indígenas e ribeirinhos. A oferta de Serviços de MSE em meio aberto pelos CREAS cresceu nos últimos anos 8 pontos percentuais. Já o Serviço PSE para Pessoas com deficiência e idosas diminuiu nos últimos 4 anos, chegando em 2022 com 31% dos municípios que não é realizado nem pelo CREAS, nem em nenhuma outra unidade no município. O Serviços de abordagem social também reduz nos últimos 4 anos, chegando a 31% dos municípios que não realiza no CREAS e não possui em nenhumas outras unidades do município.
+
+No que se refere a proteção social especial de alta complexidade, destaca-se aumento nos municípios que informam ofertar serviço de família acolhedora, atualmente 54,3% dos municípios informam realizar esta oferta, dado que cresceu 27 pontos percentuais de 2017 até 2022.
+
+No que se refere a oferta de Benefícios Eventuais, dados de 2022 informam que a maior concessão nos municípios é para situações de vulnerabilidade temporária e de morte (98% dos municípios). Sobre o local da oferta eles variam, sendo que na oferta por situação de morte a maior proporção é no órgão gestor da política de Assistência Social, com 40% dos municípios que ofertam. Benefícios eventuais em situação de vulnerabilidade temporária e natalidade está mais presente na rede socioassistencial, com 37% e 42% respectivamente. 34% dos municípios informam ofertar benefícios em situação de calamidade pública pelo órgão gestor, e este mesmo percentual (34%) de municípios informa ofertar em unidades da rede socioassistencial.

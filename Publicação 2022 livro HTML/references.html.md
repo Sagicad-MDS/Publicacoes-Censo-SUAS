@@ -1,0 +1,34 @@
+::: {.cell}
+
+:::
+
+
+
+
+# Referências {.unnumbered}
+
+\_\_\_\_\_\_. Lei Orgânica de Assistência Social - LOAS. Brasília, DF: MDS, 2011.
+
+\_\_\_\_\_\_. Norma Operacional Básica – NOB. Anotada e Comentada. Brasília, DF: MDS, Secretaria Nacional de Assistência Social, 2011. 144 p.
+
+\_\_\_\_\_\_. Norma Operacional Básica - NOB-SUAS. Brasília, DF: MDS, 2012. \_\_\_\_\_\_. Orientação acerca dos Conselhos e do controle social da política pública de assistência social. Brasília, DF: MDS, Secretaria de Avaliação e Gestão da Informação; Secretaria Nacional de Assistência Social, 2013.
+
+\_\_\_\_\_\_. Orientação técnicas da vigilância socioassistencial: versão preliminar. Brasília, DF: MDS, Secretaria Nacional de Assistência Social, 2013.
+
+\_\_\_\_\_\_. Política Nacional de Educação Permanente do SUAS. Brasília, DF: MDS, 2013.
+
+\_\_\_\_\_\_. Orientações conjuntas sobre os Índices de Gestão Descentralizada do Programa Bolsa Família (IGD-PBF) e do SUAS (IGDSUAS) e Orientações aos Conselhos Estaduais de Assistência Social para criação e implantação da comissão de acompanhamento aos Conselhos Municipais. Brasília, DF: CNAS; 2013.
+
+\_\_\_\_\_\_. Resolução CIT n. 18, de 15 de julho de 2013. Pacto de Aprimoramento da Gestão Municipal do SUAS. CNAS, 2013.
+
+\_\_\_\_\_\_. Resolução CIT n. 19, de 5 de dezembro de 2013. Pacto de Aprimoramento da Gestão Estadual do SUAS. CNAS, 2013.
+
+\_\_\_\_\_\_. Resolução CNAS n. 31, de 31 de outubro de 2013. Aprova princípios e diretrizes da regionalização no âmbito do Sistema Único de Assistência Social - SUAS, parâmetros para a oferta regionalizada do Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos – PAEFI, e do Serviço de Acolhimento para Crianças, Adolescentes e Jovens de até vinte e um anos, e critérios de elegibilidade e partilha dos recursos do cofinanciamento federal para expansão qualificada desses Serviços. CNAS, 2013.
+
+\_\_\_\_\_\_. Resolução CIT n. 32, de 31 de outubro de 2013. Pacto de Aprimoramento SUAS (revisão das prioridades e metas específicas para a gestão estadual e do Distrito Federal e os compromissos do governo federal). CNAS, 2013.
+
+\_\_\_\_\_\_. Resolução n. 237, de 14 de dezembro de 2006. Diretrizes para a estruturação, reformulação e funcionamento dos Conselhos de Assistência Social. CNAS, 2006.
+
+\_\_\_\_\_\_\_. Resolução n. 99, de 4 DE ABRIL DE 2023. Caracteriza os usuários, seus direitos, suas organizações e sua participação na Política Pública de Assistência Social e no Sistema Único de Assistência Social. CNAS, 2023.
+
+\_\_\_\_\_\_\_. Resolução n. 100, de 20 DE ABRIL DE 2023. Estabelece as diretrizes para a estruturação, reformulação, funcionamento e acompanhamento dos conselhos de assistência social dos estados, Distrito Federal e municípios, com o objetivo de fortalecer e consolidar o controle social na Política Nacional de Assistência Social. CNAS, 2023.

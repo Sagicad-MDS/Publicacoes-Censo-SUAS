@@ -1,0 +1,166 @@
+# Metodologia
+
+Os caminhos metodológicos para a publicação do Censo SUAS traz tem seu percurso uma construção coletiva dos três entes federados. Pode-se dizer que o Censo SUAS se consolida em três grandes processos referentes às seguintes fases:
+
+a)  Ciclo da preparação,
+b)  Preenchimento dos formulários, e
+c)  Tabulação dos dados e análise.
+
+## Ciclo da preparação
+
+A preparação se caracteriza como um momento em que as questões são revisadas com inclusão e exclusão de perguntas. Parte de um processo coordenado pela Vigilância Socioassistencial Nacional em que são debatidos e definidos de forma conjunta pela Secretaria Nacional de Assistência Social (SNAS) e pela Secretaria de Avaliação, Gestão da Informação e Cadastro Único (SAGICAD). Cada alteração tem como objetivo aprimorar e adequar as questões a partir das demandas da conjuntura.
+
+O primeiro formulário do Censo SUAS foi criado em 2007 como uma ficha de registro de caracterização básica dos CRAS, o levantamento passou a ser denominado de Censo CRAS. O SUAS foi expandindo as suas entregas, tipificando novos serviços e consequentemente a necessidade de conhecer melhor a execução desta política em vários aspectos trouxe novos formulários ao longo dos anos. Atualmente são 14 formulários com aproximadamente 6 mil variáveis. A @tbl-formularios mostra esse percurso histórico da inclusão dos formulários temáticos.
+
+![Histórico de inclusão dos formulários temáticos](Imagem_his_censosuas.jpeg){#tbl-formularios width="6.5in"}
+
+Ao longo desses dezesseis anos, o Censo tem como principal objetivo retratar as estruturas de gestão e de oferta de serviços do SUAS, produzindo informações que subsidiem o planejamento da política, o aperfeiçoamento do sistema, a formação dos trabalhadores e a prestação de contas à sociedade. Assim, é possível, a partir de seus resultados, monitorar e gerar ações e medidas que objetivam a resolução de dificuldades e o aprimoramento da gestão. Cabe destacar que o Censo SUAS foi uma das iniciativas premiadas[^5] na publicação de registro das dez ações premiadas do 16º Concurso Inovação na Gestão Pública Federal, há um breve relato histórico do Censo SUAS.
+
+[^5]: Em ENAP (2011)
+
+Sobre o conteúdo dos formulários destacados na ilustração histórica, destaca-se os seguintes a partir da última publicação:
+
+-   **Questionário Gestão Municipal:** 8 Blocos, são eles: Identificação do Órgão Gestor; Gestão do SUAS; Serviços; Programas e outras Ações Socioassistenciais; Benefícios Socioassistenciais, CadÚnico e Transferência de Renda; Atuação durante a pandemia de Covid-19 e Gestão do Trabalho.
+
+-   **Questionário Gestão Estadual :** 8 Blocos, são eles: Identificação do Órgão Gestor; Estrutura Administrativa e Gestão do SUAS; Serviços e Benefícios; Regionalização dos Serviços de Média e Alta Complexidade; Plano de Providência e Apoio Técnico; Comissão Intergestores Bipartite (CIB); Funcionamento durante a pandemia de Covid 19 e Gestão do Trabalho.
+
+-   **Questionário Fundo Municipal:** 5 Blocos, são eles: Identificação; Gestão de Recursos; Recursos Humanos e Responsável pelo preenchimento.
+
+-   **Questionário Fundo Estadual:** 6 Blocos, são eles: Identificação; Cofinanciamento Estadual; Índice de Gestão Descentralizada do Programa Auxílio Brasil; Gestão de Recursos; Recursos Humanos e Responsável pelo preenchimento.
+
+-   **Questionário Centro de Referência de Assistência Social (CRAS):** 12 Blocos, são eles: Identificação; Estrutura Física; Serviço de Proteção e Atendimento Integral a Família (PAIF); Serviço de Convivência e Fortalecimento de Vínculos (SCFV); Serviços de PSB no Domicílio para pessoas com Deficiência e idosas; Equipe Volante; Benefícios socioassistenciais; Cadastro Único; Programa Auxílio Brasil; Funcionamento do CRAS durante a pandemia de Covid 19; Programa Criança Feliz; Gestão e Território; Gestão de Pessoas.
+
+-   **Questionário Centro de Convivência:** 5 Blocos, são eles: Identificação; Caracterização da Unidade; Serviços e Atividades; Gestão; Gestão do trabalho.
+
+-   **Questionário Centro de Referência Especializado de Assistência Social (CREAS):** 11 Blocos, são eles: Identificação; Estrutura Física; Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos (PAEFI); Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC); Serviço de Abordagem Social; Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosas e suas Famílias; Benefícios e Cadastro Único; Gestão e território; Funcionamento durante a pandemia de Covid-19; Articulação e Gestão de Pessoas.
+
+-   **Questionário Centro de Referência Especializado para População em Situação de Rua (Centro POP):** 8 Blocos, são eles: Identificação; Estrutura Física; Funcionamento durante a pandemia de COVID-19; Serviço Especializado para Pessoas em Situação de Rua; Serviço Especializado em Abordagem Social; Benefícios, Cadastro Único Gestão e Participação de Usuárias/os; Articulação e Gestão de Pessoas.
+
+-   **Questionário do Centro-Dia e similares:** 7 Blocos, são eles: Identificação, Caracterização da Unidade, Serviços e atividades; Estrutura Física; Perfil dos usuários; Funcionamento durante a pandemia de Covid 19; Articulação; Serviços e Atividades e Gestão de Pessoas.
+
+-   **Questionário Unidades de Acolhimento:** 7 Blocos, são eles: Identificação; Caracterização da Unidade; Características das/os usuárias/os; Serviço de Acolhimento; Estrutura Física e Área de Localização da Unidade; Funcionamento deste acolhimento durante a pandemia de Covid 19 e Recursos Humanos.
+
+-   **Questionário Família Acolhedora:** 4 Blocos, são eles: Identificação, Caracteristica das/os Acolhidas/os; Serviços de Acolhimento; Funcionamento durante a pandemia de Covid 19; Famílias Acolhedoras e Gestão de Pessoas.
+
+-   **Questionário Postos de Cadastro Único:** 4 Blocos, são eles: Identificação, Estrutura Física; Cadastro Único; Programa Bolsa Família; Outras Atividades; Funcionamento dos postos e Gestão de Pessoas.
+
+-   **Questionário Conselhos Municipais de Assistência Social (CMAS) e Conselho de Assistência Social do Distrito Federal (CAS/DF):** 10 Blocos, são eles: Identificação; Regulação; Infraestrutura do Conselho; Secretaria Executiva; Orçamento dos Conselhos; Dinâmica de Funcionamento; Rede Socioassistencial; Composição do Conselho; Conselheiras/os e Responsável pelo Preenchimento.
+
+-   **Questionário Conselhos Estaduais de Assistência Social (CEAS):** 10 Blocos, são eles: Identificação; Regulação; Infraestrutura do Conselho; Secretaria Executiva; Orçamento dos Conselhos; Dinâmica de Funcionamento; Rede Socioassistencial; Composição do Conselho; Conselheiras/os e Responsável pelo Preenchimento.
+
+Após essa fase de decisão, os formulários são encaminhados para SAGICAD para processo de tabulação e geração de códigos. É importante destacar que os códigos das variáveis sofrem mudança conforme alteração das perguntas (inclusão e exclusão de perguntas). Este torna-se um desafio para o acompanhamento das respostas ao longo de períodos, haja vista inexistência de uma chave mestra.
+
+## Preenchimento dos formulários
+
+A coleta de dados envolve vários agentes públicos municipais e estaduais das gestões e controle social do SUAS. De acordo com a Norma Operacional Básica do SUAS / 2012 (NOBSUAS/2012) o processo de realização do Censo SUAS deve ser coordenado pela vigilância socioassistencial que deve apoiar no preenchimento zelando pela qualidade das informações coletadas.
+
+O Censo SUAS 2022 foi realizado, seguindo a tradição anual, por meio de questionários eletrônicos disponíveis no portal da SAGICAD. O preenchimento em meio eletrônico é realizado apenas pelos órgãos gestores (estaduais e municipais) e conselhos de assistência social (estaduais e municipais). Destaca-se que, para preenchimento dos questionários, o usuário deve estar devidamente cadastrado na Rede SUAS e possuir uma senha de acesso. Os questionários, depois de preenchidos, devem ser salvos pelo respondente. O período de coleta foi entre outubro e dezembro de 2022, conforme cronograma da @tbl-cronograma.
+
+::: {#tbl-cronograma}
+
+
+
+
+```{=html}
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th {
+  text-align: center;
+}
+</style>
+</head>
+
+<body>
+<table style="width:100%">
+  <thead>
+    <tr>
+      <th style="width:60%">Questionário</th>
+      <th>Abertura</th>
+      <th>Encerramento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CRAS</td>
+      <td rowspan="11">06/Out/2022</td>
+      <td rowspan="11">02/dez/2022</td>
+    </tr>
+    <tr>
+      <td>Centros de Convivência</td>
+    </tr>
+    <tr>
+      <td>CREAS (municipal e estadual)</td>
+    </tr>
+    <tr>
+      <td>Centro POP</td>
+    </tr>
+    <tr>
+      <td>Centro-Dia e Similares</td>
+    </tr>
+    <tr>
+      <td>Unidades de Acolhimento (municipal e estadual)</td>
+    </tr>
+    <tr>
+      <td>Família Acolhedora</td>
+    </tr>
+    <tr>
+      <td>Posto de Cadastramento</td>
+    </tr>
+    <tr>
+      <td>Fundos de Assistência social (municipal e estadual)</td>
+    </tr>
+    <tr>
+      <td>Gestão (municipal e estadual)</td>
+    </tr>
+    <tr>
+      <td>Conselhos (municipal e estadual)</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>Período de Retificação</td>
+      <td>05/Dez/2022</td>
+      <td>16/Dez/2022</td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>
+```
+
+
+
+
+Cronograma de preenchimento do Censo SUAS 2022 por questionário.
+:::
+
+## Tabulação dos dados e análise
+
+Aproximadamente 45 mil questionários foram coletadas. Os bancos de dados resultantes da coleta foram então submetidos a procedimentos de análise da integridade e consistência, bem como de limpeza de dados e de organização da estrutura final e da documentação das bases. Para cada base resultante de um tipo de questionário, foram realizados procedimentos de limpeza e organização específicos. Inicialmente, pretendeu-se manter o maior número possível de respondentes válidos. Para isso, foram considerados como válidos:
+
+-   Questionários totalmente preenchidos e devidamente salvos pelos respondentes;
+
+-   Questionários preenchidos em sua totalidade, mas não devidamente salvos por razões de sistema; e
+
+-   Questionários preenchidos até 90% de sua totalidade com pelo menos um trabalhador registrado no bloco de Recursos Humanos do questionário.
+
+<!-- Nas bases de dados de Recursos Humanos foram descartados, ainda, casos de questionários duplicados ou duplicação do registro dos trabalhadores. Além disso, foi realizada uma verificação de consistência que identificou divergência de informações ligadas à escolaridade e à profissão do trabalhador, prevalecendo escolaridade^[Por exemplo: Profissionais que assinalaram possuir ensino superior completo, mas foram identificados como profissional de nível médio ou sem formação profissional, prevaleceu a escolaridade e o campo profissão permaneceu em branco. Da mesma maneira, um trabalhador que assinalou possuir escolaridade mais baixa à formação, prevaleceu a escolaridade, de tal forma que a profissão permaneceu em branco.]. -->
+
+A análise dos resultados do Censo SUAS 2022 compreende o SUAS como política social por meio dos componentes sistêmicos da PNAS, conforme seu estágio de institucionalização. Para essa versão consideramos destaques do II Plano Descenal. A tentativa é aprofundar da compreensão universal do SUAS. A exposição da análise do Censo SUAS será realizada de acordo com seis eixos de análise, a saber[^6]:
+
+[^6]: A forma de organização processual destas informações foram através do “R Markdown”. Tal metodologia foi inovadora para o ano de 2022 que antes era realizado a partir de planilhas e gráficos gerados pelo excel. Tal percurso representa maior confiabilidade nas informações, amplia as possibilidades de produção de gráficos, ganho no tempo para próximas publicações entre outras.
+
+-   **Gestão e Financiamento do Sistema Único de Assistência Social:** panorama geral da gestão e do financiamento em estados e municípios, com a observação de aspectos como a estrutura administrativa da gestão da assistência social, a atualização de normativos, o apoio de estados aos municípios, as atividades de cofinanciamento e transferência de recursos, funcionamento das instâncias de pactuação, entre outras.
+
+-   **Unidades, Serviços e Benefícios da Assistência Social:** apresenta informações a respeito dos equipamentos da Assistência Social e sua evolução ao longo do tempo, sua estutura e condições na perspectiva de acessibilidade e equipamentos disponíveis. A integração dos Serviços do SUAS no âmbito das proteções sociais, relação com o Cadastro Único, Benefícios do SUAS, bem como Programas. Também aborda-se sobre a Regionalização da proteção social Especial.
+
+-   **Recursos Humanos do SUAS:** apresenta um panorama geral da situação das trabalhadoras e trabalhadores do SUAS tanto nos equipamentos da assistência social quanto nas gestões municipais e estaduais, apresentando informações sobre quantitativo, tipo de vínculo trabalhista, escolaridade, entre outros aspectos referentes à gestão do trabalho, e sua evolução ao longo dos anos.
+
+-   **Participação e controle social no SUAS:** apresenta os resultados apurados pelo Censo SUAS para os Conselhos Municipais e Estaduais de Assistência Social, considerando a estrutura administrativa, a dinâmica de funcionamento e a composição.
+
+Espera-se que, a partir de uma avaliação com abordagem direcionada à análise integrada do SUAS e partindo dos dados dos órgãos de gestão das unidades de atendimento públicas e privadas e das instâncias administrativas e deliberativas, seja possível retratar o seu funcionamento e evolução como política social. Assim, amplia-se a compreensão acerca da rede de assistência social por parte dos gestores, trabalhadores e sociedade civil, permitindo uma apreensão crítica de seu funcionamento.
