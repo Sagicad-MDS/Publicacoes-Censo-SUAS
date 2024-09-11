@@ -1,4 +1,4 @@
-gera.graficos.office = TRUE;
+gera.graficos.office = FALSE;
 
 lista.de.pacotes = c("rmarkdown",
                      "tinytex",
