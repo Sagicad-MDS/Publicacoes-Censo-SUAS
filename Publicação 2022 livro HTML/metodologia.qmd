@@ -1,6 +1,6 @@
 # Metodologia
 
-Os caminhos metodológicos para a publicação do Censo SUAS traz tem seu percurso uma construção coletiva dos três entes federados. Pode-se dizer que o Censo SUAS se consolida em três grandes processos referentes às seguintes fases:
+Os caminhos metodológicos para a publicação do Censo SUAS traz em seu percurso uma construção coletiva dos três entes federados. Pode-se dizer que o Censo SUAS se consolida em três grandes processos referentes às seguintes fases:
 
 a)  Ciclo da preparação,
 b)  Preenchimento dos formulários, e
@@ -14,9 +14,9 @@ O primeiro formulário do Censo SUAS foi criado em 2007 como uma ficha de regist
 
 ![Histórico de inclusão dos formulários temáticos](Imagem_his_censosuas.jpeg){#tbl-formularios width="6.5in"}
 
-Ao longo desses dezesseis anos, o Censo tem como principal objetivo retratar as estruturas de gestão e de oferta de serviços do SUAS, produzindo informações que subsidiem o planejamento da política, o aperfeiçoamento do sistema, a formação dos trabalhadores e a prestação de contas à sociedade. Assim, é possível, a partir de seus resultados, monitorar e gerar ações e medidas que objetivam a resolução de dificuldades e o aprimoramento da gestão. Cabe destacar que o Censo SUAS foi uma das iniciativas premiadas[^5] na publicação de registro das dez ações premiadas do 16º Concurso Inovação na Gestão Pública Federal, há um breve relato histórico do Censo SUAS.
+Ao longo desses dezesseis anos, o Censo tem como principal objetivo retratar as estruturas de gestão e de oferta de serviços do SUAS, produzindo informações que subsidiem o planejamento da política, o aperfeiçoamento do sistema, a formação dos trabalhadores e a prestação de contas à sociedade. Assim, é possível, a partir de seus resultados, monitorar e gerar ações e medidas que objetivam a resolução de dificuldades e o aprimoramento da gestão. Cabe destacar que o Censo SUAS foi uma das iniciativas premiadas[^metodologia-1] na publicação de registro das dez ações premiadas do 16º Concurso Inovação na Gestão Pública Federal, há um breve relato histórico do Censo SUAS.
 
-[^5]: Em ENAP (2011)
+[^metodologia-1]: Em ENAP (2011)
 
 Sobre o conteúdo dos formulários destacados na ilustração histórica, destaca-se os seguintes a partir da última publicação:
 
@@ -143,9 +143,9 @@ Aproximadamente 45 mil questionários foram coletadas. Os bancos de dados result
 
 <!-- Nas bases de dados de Recursos Humanos foram descartados, ainda, casos de questionários duplicados ou duplicação do registro dos trabalhadores. Além disso, foi realizada uma verificação de consistência que identificou divergência de informações ligadas à escolaridade e à profissão do trabalhador, prevalecendo escolaridade^[Por exemplo: Profissionais que assinalaram possuir ensino superior completo, mas foram identificados como profissional de nível médio ou sem formação profissional, prevaleceu a escolaridade e o campo profissão permaneceu em branco. Da mesma maneira, um trabalhador que assinalou possuir escolaridade mais baixa à formação, prevaleceu a escolaridade, de tal forma que a profissão permaneceu em branco.]. -->
 
-A análise dos resultados do Censo SUAS 2022 compreende o SUAS como política social por meio dos componentes sistêmicos da PNAS, conforme seu estágio de institucionalização. Para essa versão consideramos destaques do II Plano Descenal. A tentativa é aprofundar da compreensão universal do SUAS. A exposição da análise do Censo SUAS será realizada de acordo com seis eixos de análise, a saber[^6]:
+A análise dos resultados do Censo SUAS 2022 compreende o SUAS como política social por meio dos componentes sistêmicos da PNAS, conforme seu estágio de institucionalização. Para essa versão consideramos destaques do II Plano Descenal. A tentativa é aprofundar da compreensão universal do SUAS. A exposição da análise do Censo SUAS será realizada de acordo com seis eixos de análise, a saber[^metodologia-2]:
 
-[^6]: A forma de organização processual destas informações foram através do “R Markdown”. Tal metodologia foi inovadora para o ano de 2022 que antes era realizado a partir de planilhas e gráficos gerados pelo excel. Tal percurso representa maior confiabilidade nas informações, amplia as possibilidades de produção de gráficos, ganho no tempo para próximas publicações entre outras.
+[^metodologia-2]: A forma de organização processual destas informações foram através do “R Markdown”. Tal metodologia foi inovadora para o ano de 2022 que antes era realizado a partir de planilhas e gráficos gerados pelo excel. Tal percurso representa maior confiabilidade nas informações, amplia as possibilidades de produção de gráficos, ganho no tempo para próximas publicações entre outras.
 
 -   **Gestão e Financiamento do Sistema Único de Assistência Social:** panorama geral da gestão e do financiamento em estados e municípios, com a observação de aspectos como a estrutura administrativa da gestão da assistência social, a atualização de normativos, o apoio de estados aos municípios, as atividades de cofinanciamento e transferência de recursos, funcionamento das instâncias de pactuação, entre outras.
 
