@@ -259,7 +259,7 @@ Alguns órgãos gestores estaduais constituíram as áreas de assistência socia
 3)  Gestão do SUAS, com suas subdivisões de Vigilância Socioassistencial, Regulação do SUAS e Gestão do Trabalho; e
 4)  Gestão do Fundo Estadual de Assistência Social - FEAS.
 
-Observa-se avanço em todas as areas formalmente nos últimos 10 anos. As três áreas mais instituídas formalmente são: Proteção Social Básica e Proteção Social Especial, com 88%, e Gestão do SUAS, com 85% (@fig-uf_subd).
+Observa-se avanço em todas as áreas formalmente nos últimos 10 anos. As três áreas mais instituídas formalmente são: Proteção Social Básica e Proteção Social Especial, com 88%, e Gestão do SUAS, com 85% (@fig-uf_subd).
 
 ```{r fig-uf_subd-formal, fig.cap = "Percentual de estados segundo subdivisões administrativas constituídas na estrutura formal do órgão gestor - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
 
