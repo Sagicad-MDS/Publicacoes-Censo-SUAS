@@ -504,7 +504,7 @@ grafico<-tabela %>%
 grafico
 ```
 
-Quando se observa a regularização destas áreas, há um grupo instituídas informalmente conforme o @fig-estados-constituicao-subdivisoes, e setores que ainda não estão consituídos em 100% dos estados, a saber Gestão do SUAS, Gestão do trabalho e regulação do SUAS.
+Quando se observa a regularização destas áreas, há um grupo instituídas informalmente conforme o @fig-estados-constituicao-subdivisoes, e setores que ainda não estão constituídos em 100% dos estados, a saber Gestão do SUAS, Gestão do trabalho e regulação do SUAS.
 
 ```{r fig-estados-constituicao-subdivisoes, fig.cap = "Percentual de estados segundo característica da estrutura administrativa da Secretaria Estadual de Assistência Social - Brasil,  2022", fig.footer = "Fonte: MDS, Censo SUAS.", fig.height = 7}
 
