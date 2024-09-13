@@ -1,6 +1,5 @@
 /.quarto/
-_book/
 *_cache/
-*_files/
+/*_files/
 renv/
 /_site/
