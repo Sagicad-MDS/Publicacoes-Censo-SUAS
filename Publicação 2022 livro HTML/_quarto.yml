@@ -31,8 +31,7 @@ execute:
   message: false
   warning: false
   cache: true
-  freeze: auto
-  
+
 crossref:
   fig-title: Gráfico     # (default is "Figure")
   tbl-title: Tabela     # (default is "Table")
