@@ -9,6 +9,8 @@ book:
     - Secretaria Nacional de Assistência Social
     - Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome
 #  date: "21/06/2024"
+  cover-image: cover.png
+  favicon: cover.png
   chapters:
     - index.qmd
     - prefacio.qmd
