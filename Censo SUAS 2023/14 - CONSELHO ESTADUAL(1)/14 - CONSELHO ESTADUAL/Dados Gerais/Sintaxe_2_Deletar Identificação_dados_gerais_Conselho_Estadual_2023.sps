@@ -1,0 +1,8 @@
+
+DELETE VARIABLES  
+q70_1
+q70_2
+q70_3
+q70_4
+q70_5
+q70_6.
