@@ -2,7 +2,16 @@ gera.graficos.office = FALSE;
 
 lista.de.pacotes = c("rmarkdown",
                      "tinytex",
-                     "tidyverse",
+
+# Substituído o conjunto de pacotes tidyverse pelos pacotes separadamente porque não funciona o carregamento do tidyverse no R do Ministério
+#                     "tidyverse",
+                     "dplyr",
+                     "purrr",
+                     "tidyr",
+                     "readr",
+                     "stringr",
+                     "forcats",
+
                      "janitor",
                      "repmis",
                      "ggrepel",
