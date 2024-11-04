@@ -1,6 +1,6 @@
-for (i in 1:ncol(cmun_2013)){
-  cmun_2013[[i]] = str_trim(str_replace_all(cmun_2013[[i]], pattern = '\"(.*?)\\"', replacement = '\\1'))
-}
+#for (i in 1:ncol(cmun_2013)){
+#  cmun_2013[[i]] = str_trim(str_replace_all(cmun_2013[[i]], pattern = '\"(.*?)\\"', replacement = '\\1'))
+#}
 
 # Classificação do porte populacional dos municípios.
 # Fonte: PNAS 2004
