@@ -1,0 +1,52 @@
+project:
+  type: book
+
+book:
+  title: "CENSO SUAS 2022"
+  subtitle: ANÁLISE DOS COMPONENTES DA POLÍTICA NACIONAL DE ASSISTÊNCIA SOCIAL
+  author:
+    - Secretaria de Avaliação, Gestão da Informação e Cadastro Único
+    - Secretaria Nacional de Assistência Social
+    - Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome
+#  date: "21/06/2024"
+  cover-image: cover.png
+  favicon: cover.png
+  chapters:
+    - index.qmd
+    - prefacio.qmd
+    - apresentacao.qmd
+    - metodologia.qmd
+    - gestao.qmd
+    - unidades.qmd
+    - servicos.qmd
+    - rh.qmd
+    - participacao.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+toc: true
+toc-title: Sumário
+
+execute:
+  echo: false
+  message: false
+  warning: false
+  cache: true
+
+crossref:
+  fig-title: Gráfico     # (default is "Figure")
+  tbl-title: Tabela     # (default is "Table")
+#  title-delim: "."   # (default is ":")
+  fig-prefix: Gráfico   # (default is "Figure")
+  tbl-prefix: Tabela    # (default is "Table")
+#  ref-hyperlink: false # (default is true)
+#  chapters: false
+
+format:
+  html:
+    theme: cosmo
+#  pdf:
+#    documentclass: scrreprt
+
+editor: visual

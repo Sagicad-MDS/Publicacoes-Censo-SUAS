@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: ea5d66b3-f9fd-43a4-b0f1-06b5c5455ec6
+      url: 'https://censosuas2022.quarto.pub/livro-censo-suas-2022'

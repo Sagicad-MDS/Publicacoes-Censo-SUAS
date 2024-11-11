@@ -1,0 +1,615 @@
+```{r}
+source("_setup.R")
+source("_carregamento.R")
+source("_funcoes.R")
+```
+
+# Gestão do Trabalho e Recursos Humanos no SUAS
+
+A qualidade da oferta de serviços, programas e benefícios da assistência social está diretamente ligada a uma adequada gestão do trabalho no âmbito do SUAS. O dimensionamento das equipes, a capacitação dos profissionais e a estruturação das condições de trabalho são fundamentais nesse sentido. Um importante normativo para a gestão do trabalho é Norma Operacional Básica de Recursos Humanos do SUAS (NOB-RH/SUAS), que traz orientações e diretrizes, além de detalhamentos importantes sobre as equipes de referência, planos de carreira, cargos e salários, cofinanciamento, educação permanente, entre outros aspectos relevantes. A NOB SUAS 2012 em seu capítulo VIII também descreve sobre a Gestão do Trabalho no SUAS no âmbito da União, dos Estados, do Distrito Federal e dos Municípios. [^rh-1]
+
+[^rh-1]: acesso através:<https://www.mds.gov.br/webarquivos/public/NOBSUAS_2012.pdf>
+
+Esta seção apresenta um panorama geral da situação das trabalhadoras e trabalhadores do SUAS, tanto nos equipamentos da assistência social quanto nas gestões municipais e estaduais, apresentando informações sobre quantitativo, tipo de vínculo trabalhista, escolaridade, entre outros aspectos referentes à gestão do trabalho, e sua evolução ao longo dos anos.
+
+## Evolução na quantidade de trabalhadoras/es, tipo de vínculo e escolaridade no orgão gestor
+
+A quantidade de trabalhadoras/es nas Secretarias Estaduais de Assistência Social nacionalmente em 2018[^rh-2] era de 3.988 profissionais, considerando trabalhadoras/es lotadas/os na sede do órgão gestor. Esse quantitativo teve aumento 7%, em 2022 passou a ter 4.265 conforme pode ser observado no @fig-qtd-trab-uf.
+
+[^rh-2]: gráfico a partir do ano de 2018 em decorrência de mudanças na modalidade de respostas
+
+```{r fig-qtd-trab-uf, fig.cap ="Evolução da quantidade de trabalhadoras/es nas Secretarias Estaduais de Assistência Social - Brasil e grandes regiões, 2018 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+#| fig-height: 6
+
+grafico <- f_quantitativo_regiao_ano(gerh_2018, IBGE, "2018") %>%
+  bind_rows(f_quantitativo_regiao_ano(gerh_2019, IBGE, "2019")) %>%
+  bind_rows(f_quantitativo_regiao_ano(gerh_2020, IBGE, "2020")) %>%
+  bind_rows(f_quantitativo_regiao_ano(gerh_2021, IBGE, "2021")) %>%
+  bind_rows(f_quantitativo_regiao_ano(gerh_2022, IBGE, "2022")) %>%
+  f_grafico_col_numero_flip_2_x(Região, n, Ano)
+
+grafico
+```
+
+A quantidade de trabalhadoras/es nas Secretarias Municipais de Assistência Social em 2018[^rh-3] era de 51.135 profissionais, considerando trabalhadoras/es lotados na sede do órgão gestor. Esse quantitativo aumento 4%, em 2022 passou a ter 56.381 conforme pode ser observado no @fig-qtd_trab_munic.
+
+[^rh-3]: gráfico a partir do ano de 2018 em decorrência de mudanças na modalidade de respostas
+
+```{r fig-qtd_trab_munic, fig.cap ="Evolução da quantidade de trabalhadoras/es nas Secretarias Municipais de Assistência Social - Brasil, 2018 a 2022"}
+#| fig-height: 6
+
+grafico <- f_quantitativo_regiao_ano(gm_rh_2018, IBGE, "2018")%>%
+  bind_rows(f_quantitativo_regiao_ano(gm_rh_2019, IBGE, "2019")) %>%
+  bind_rows(f_quantitativo_regiao_ano(gm_rh_2020, IBGE, "2020")) %>%
+  bind_rows(f_quantitativo_regiao_ano(gm_rh_2021, IBGE, "2021")) %>%
+  bind_rows(f_quantitativo_regiao_ano(gmrh_2022, IBGE, "2022")) %>%
+  f_grafico_col_numero_flip_2_x(Região, n, Ano)
+
+grafico
+```
+
+O @fig-uf_trab_vin traz dados sobre o tipo de vínculo dos trabalhadores e trabalhadoras das Secretarias Estaduais de Assistência Social. Observa-se uma redução das/os servidoras/es estatutárias/os e empregadas/os públicos (CLT). O percentual de Servidoras/es caem de 54% no ano de 2012 para 46% em 2022. Enquanto empregadas/os públicas/os reduzem de 16% em 2012 para 3,3% em 2022. Houve aumento de cargos comissionados 10 pontos percentuais, de 19% em 2012 para 29% em 2022.
+
+<!-- Em relação a outros vínculos [^50] o número também aumentou, bem como trabalhadoras/es de Empresa, Cooperativa ou Entidade Prestadora de Serviços. -->
+
+<!-- [^50]: outros vínculos não permanentes são considerados agentes temporários como terceirizados, outros vínculos,voluntários -->
+
+```{r fig-uf_trab_vin, fig.cap ="Percentual de trabalhadoras/es nas Secretarias Estaduais de Assistência Social, segundo tipo de vínculo - Brasil, 2012, 2017 e 2022"}
+
+f_vinculo = function(df, vinculo){
+  vinculo <- enquo(vinculo)
+
+  df %>%
+    mutate(!! vinculo := case_when(
+      !! vinculo == "Estatutários" |
+      !! vinculo == "Servidor(a)/Estatutária(o)" |
+      !! vinculo == "Servidor Estatutário"~"Servidoras/es Estatutárias/os",
+      !! vinculo == "Celetistas" |
+      !! vinculo == "Empregada(o) Pública(o) (CLT)" |
+      !! vinculo == "Empregado Público (CLT)"~"Empregadas/os Públicas/os (CLT)",
+      !! vinculo == "Somente Comissionados" |
+      !! vinculo == "Comissionada(o)" |
+      !! vinculo == "Comissionado"~"Comissionadas/os",
+      !! vinculo == "Servidor(a) Temporária(o)"~"Servidoras/es Temporárias/os",
+      !! vinculo == "Terceirizada(o)"~"Terceirizadas/os",
+      !! vinculo == "Trabalhador(a) de Empresa/ Cooperativa/ Entidade Prestadora de Serviços"~"Trabalhadoras/es de Empresa, Cooperativa ou Entidade Prestadora de Serviços",
+      !! vinculo == "Voluntária(o)" |
+      !! vinculo == "Outros Vínculos" |
+      !! vinculo == "Outro vínculo não permanente" |
+      !! vinculo == "Sem vínculo"~"Outros vínculos não permanentes",
+      TRUE ~ as.character(!! vinculo))) %>%
+  mutate(!! vinculo := str_wrap(!! vinculo, width=40))
+}
+
+grafico <- f_nomex_somay_nomegrupo(ge_2012, "2012", q55a_4, "Estatutários") %>%
+  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "2012", q55b_4, "Celetistas")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "2012", q55c_4, "Somente Comissionados")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "2012", q55d_4, "Outros Vínculos")) %>%
+
+
+  # bind_rows(f_nomex_somay_nomegrupo(ge_2010, "2010", q34_1_4, "Estatutários")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(ge_2010, "2010", q34_2_4, "Celetistas")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(ge_2010, "2010", q34_3_4, "Somente Comissionados")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(ge_2010, "2010", q34_4_4, "Outros Vínculos")) %>%
+
+  # bind_rows(f_nomex_somay_nomegrupo(ge_2011, "2011", q55a4, "Estatutários")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(ge_2011, "2011", q55b4, "Celetistas")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(ge_2011, "2011", q55c4, "Somente Comissionados")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(ge_2011, "2011", q55d4, "Outros Vínculos")) %>%
+
+
+  #
+  # bind_rows(f_nomex_somay_nomegrupo(ge_2013, "2013", q66a_4, "Estatutários")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(ge_2013, "2013", q66b_4, "Celetistas")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(ge_2013, "2013", q66c_4, "Somente Comissionados")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(ge_2013, "2013", q66d_4, "Outros Vínculos")) %>%
+  #
+  # bind_rows(f_nomex_somay_nomegrupo(ge_2014, "2014", q19a_4, "Estatutários")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(ge_2014, "2014", q19b_4, "Celetistas")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(ge_2014, "2014", q19c_4, "Somente Comissionados")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(ge_2014, "2014", q19d_4, "Outros Vínculos")) %>%
+  #
+  # bind_rows(f_nomex_somay_nomegrupo(ge_2015, "2015", q13a_4, "Estatutários")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(ge_2015, "2015", q13b_4, "Celetistas")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(ge_2015, "2015", q13c_4, "Somente Comissionados")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(ge_2015, "2015", q13d_4, "Outros Vínculos")) %>%
+
+  # bind_rows(f_nomex_somay_nomegrupo(ge_2016, "2016", q9_1_4, "Estatutários")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(ge_2016, "2016", q9_2_4, "Celetistas")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(ge_2016, "2016", q9_3_4, "Somente Comissionados")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(ge_2016, "2016", q9_4_4, "Outros Vínculos")) %>%
+
+  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "2017", q11_1_4, "Estatutários")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "2017", q11_2_4, "Celetistas")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "2017", q11_3_4, "Somente Comissionados")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "2017", q11_4_4, "Outros Vínculos")) %>%
+
+  # bind_rows(f_nomex_grupos_quantitativo(gerh_2018, "2018", q_37_11)) %>%
+  #
+  # bind_rows(f_nomex_grupos_quantitativo(gerh_2019, "2019", q37_11)) %>%
+  #
+  # bind_rows(f_nomex_grupos_quantitativo(gerh_2020, "2020", q51_11)) %>%
+
+#  bind_rows(f_nomex_grupos_quantitativo(gerh_2021, "2021", q51_11)) %>%
+
+  bind_rows(f_nomex_grupos_quantitativo(gerh_2022, "2022", q51_11)) %>%
+
+  f_vinculo(Grupo) %>%
+
+  f_calcula_percentual(Eixo_x, Grupo, Eixo_y) %>%
+
+  f_grafico_col_stack_percent(Eixo_x, Percentual, Grupo, 4)
+
+grafico
+```
+
+Os percentuais de trabalhadoras/es segundo tipo de vínculo pode ser observados no @fig-munic_trab_vin. A quantidade proporcional de estatutários na gestão municipal representavam 36% em 2013,[^rh-4] observa-se um aumento no ano de 2017 e retoma ao patamar de 36% em 2022.
+
+[^rh-4]: não foi possível gerar este gráficos para os anos de 2012 e 2020 em decorrência de problemas na leitura da base de dados do Censo SUAS
+
+Este gráfico também sinaliza uma significativa diminuição no público de empregadores públicos que representa 11% das/os trabalhadoras/es no ano de 2013 e reduz para 4,7% em 2022. Dados de outros vínculos não permanente também reduz de 37% em 2013 para 29% no ano de 2022. O único dado percentual que eleva nas gestões dos municípios são referentes a cargos comissionados. Este dados avança de 17% em 2013 para 31% em 2022.
+
+Destaca-se que em outros vínculos não permanentes estão incluídos voluntários.
+
+```{r fig-munic_trab_vin, fig.cap ="Percentual de trabalhadoras/es nas Secretarias Municipais de Assistência Social, segundo tipo de vínculo - Brasil, 2013, 2017 e 2022"}
+
+grafico <- f_nomex_somay_nomegrupo(gm_2013, "2013", q42a_4, "Estatutários") %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2013, "2013", q42b_4, "Celetistas")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2013, "2013", q42c_4, "Somente Comissionados")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2013, "2013", q42d_4, "Outros Vínculos")) %>%
+
+  
+  # bind_rows(f_nomex_somay_nomegrupo(gm_2014, "2014", q47_1_4, "Estatutários")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(gm_2014, "2014", q47_2_4, "Celetistas")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(gm_2014, "2014", q47_3_4, "Somente Comissionados")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(gm_2014, "2014", q47_4_4, "Outros Vínculos")) %>%
+  # 
+  # 
+  # bind_rows(f_nomex_somay_nomegrupo(gm_2015, "2015", q36_1, "Estatutários")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(gm_2015, "2015", q36_2, "Celetistas")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(gm_2015, "2015", q36_3, "Somente Comissionados")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(gm_2015, "2015", q36_4, "Outros Vínculos")) %>%
+  # 
+  # bind_rows(f_nomex_somay_nomegrupo(gm_2016, "2016", q17_1_4, "Estatutários")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(gm_2016, "2016", q17_2_4, "Celetistas")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(gm_2016, "2016", q17_3_4, "Somente Comissionados")) %>%
+  # bind_rows(f_nomex_somay_nomegrupo(gm_2016, "2016", q17_4_4, "Outros Vínculos")) %>%
+  # 
+  
+  bind_rows(f_nomex_somay_nomegrupo(gm_2017, "2017", q28.1.4, "Estatutários")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2017, "2017", q28.2.4, "Celetistas")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2017, "2017", q28.3.4, "Somente Comissionados")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2017, "2017", q28.4.4, "Outros Vínculos")) %>%
+  
+ 
+     # bind_rows(f_nomex_grupos_quantitativo(gerh_2018, "2018", q_37_11)) %>%
+     # 
+     # bind_rows(f_nomex_grupos_quantitativo(gm_rh_2019, "2019", d_65_11)) %>%
+   
+    #bind_rows(f_nomex_grupos_quantitativo(gm_rh_2020, "2020", d81_11)) %>%
+    #base númerica e não possível gerar
+
+    #bind_rows(f_nomex_grupos_quantitativo(gm_rh_2021, "2021", d81_11)) %>%
+
+    bind_rows(f_nomex_grupos_quantitativo(gmrh_2022, "2022", d81_11)) %>%
+
+  f_vinculo(Grupo) %>%
+
+  f_calcula_percentual(Eixo_x, Grupo, Eixo_y) %>%
+
+  f_grafico_col_stack_percent(Eixo_x, Percentual, Grupo, 2)
+
+grafico
+```
+
+Quanto a escolaridade das/os trabalhadoras/es das Secretarias Estaduais de Assistência Social observa-se um aumento significativo dos profissionais de nível superior com avanço de 32% em 2012 para 63% em 2022. Em relação reduz o número proporção de profissionais de nível fundamental e médio. A soma deste grupo representava 68% em 2012 e chega em 2022 com 37,2% conforme pode ser analisada através do @fig-uf_trab_form.
+
+```{r fig-uf_trab_form, fig.cap ="Percentual de trabalhadoras/es nas Secretarias Estaduais de Assistência Social, segundo escolaridade - Brasil; 2012, 2017 e 2022"}
+
+f_nivel_ensino = function(df, nivel_ensino){
+  nivel_ensino <- enquo(nivel_ensino)
+
+  df %>%
+    mutate(!! nivel_ensino := case_when(!! nivel_ensino == "Nível fundamental"~"Nível Fundamental",
+                                        TRUE ~ !! nivel_ensino))
+}
+
+grafico <- f_nomex_somay_nomegrupo(ge_2012, "2012", q55e_1, "Nível Fundamental") %>%
+  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "2012", q55e_2, "Nível Médio")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "2012", q55e_3, "Nível Superior")) %>%
+
+  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "2017", q11_5_1, "Nível Fundamental")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "2017", q11_5_2, "Nível Médio")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "2017", q11_5_3, "Nível Superior")) %>%
+
+  bind_rows(f_nomex_grupos_quantitativo(gerh_2022, "2022", d_51_9)) %>%
+
+  f_nivel_ensino(Grupo) %>%
+
+  f_calcula_percentual(Eixo_x, Grupo, Eixo_y) %>%
+
+  f_grafico_col_stack_percent(Eixo_x, Percentual, Grupo, 1)
+
+grafico
+```
+
+O @fig-munic_trab_form mostra a evolução do número de trabalhadoras/es de nível superior, ele avança de 36% para 52% no período de 2013 [^rh-5] a 2022. Em relação a propoção de profissionais de nível médio e fundamental, há uma redução ao longo deste período com 6,3 pontos percentuais para de nível fundamental e 10 pontos percentuais para profissionais de nível médio. Assim, o Censo SUAS de 2022 sinaliza que, do total de trabalhadoras/es na gestão municipal, há 39% de nível fundamental e 8,7% de nível médio. Demais 52%, correspondem a profissionais de nível superior.
+
+[^rh-5]: não foi possível gerar este gráficos para os anos de 2012 e 2020 em decorrência de problemas na leitura da base de dados do Censo SUAS
+
+[^rh-6].
+
+[^rh-6]: não foi possível gerar este gráficos para os anos de 2012 e 2020 em decorrência de problemas na geração dos dados
+
+```{r fig-munic_trab_form, fig.cap ="Percentual de trabalhadoras/es nas Secretarias municipais, segundo escolaridade - Brasil, 2013 a 2022"}
+
+ grafico <- f_nomex_somay_nomegrupo(gm_2013, "2013", q41e_1, "Nível Fundamental") %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2013, "2013", q41e_2, "Nível Médio")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2013, "2013", q41e_3, "Nível Superior")) %>%
+
+
+  bind_rows(f_nomex_somay_nomegrupo(gm_2014, "2014", q47_1_1, "Nível Fundamental")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2014, "2014", q47_1_2, "Nível Médio")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2014, "2014", q47_1_3, "Nível Superior")) %>%
+
+  #bind_rows(f_nomex_somay_nomegrupo(gm_2014, "2014", q47_1_1, "Nível Fundamental")) %>%
+  #bind_rows(f_nomex_somay_nomegrupo(gm_2014, "2014", q47_1_2, "Nível Médio")) %>%
+  #bind_rows(f_nomex_somay_nomegrupo(gm_2014, "2014", q47_1_3, "Nível Superior")) %>%
+
+
+  bind_rows(f_nomex_somay_nomegrupo(gm_2015, "2015", q36_a, "Nível Fundamental")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2015, "2015", q36_b, "Nível Médio")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2015, "2015", q36_c, "Nível Superior")) %>%
+
+  bind_rows(f_nomex_somay_nomegrupo(gm_2016, "2016", q17_5_1, "Nível Fundamental")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2016, "2016", q17_5_2, "Nível Médio")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2016, "2016", q17_5_3, "Nível Superior")) %>%
+
+
+  bind_rows(f_nomex_somay_nomegrupo(gm_2017, "2017", q28.5.1, "Nível Fundamental")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2017, "2017", q28.5.2, "Nível Médio")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2017, "2017", q28.5.3, "Nível Superior")) %>%
+
+
+ bind_rows(f_nomex_grupos_quantitativo(gm_rh_2018, "2018", d_62_9)) %>%
+
+ bind_rows(f_nomex_grupos_quantitativo(gm_rh_2019, "2019", d_65_9)) %>%
+
+
+ #bind_rows(f_nomex_grupos_quantitativo(gm_rh_2020, "2020", d81_9)) %>%
+
+ bind_rows(f_nomex_grupos_quantitativo(gm_rh_2021, "2021", d81_9)) %>%
+
+ bind_rows(f_nomex_grupos_quantitativo(gmrh_2022, "2022", d81_9)) %>%
+
+  f_nivel_ensino(Grupo) %>%
+
+  f_calcula_percentual(Eixo_x, Grupo, Eixo_y) %>%
+
+  f_grafico_col_stack_percent(Eixo_x, Percentual, Grupo, 1)
+
+grafico
+```
+
+Das/os trabalhadoras/es das Secretarias Estaduais de Assistência Social que informaram sua formação superior em 2022, destaca-se a maior presença de profissionais de serviços social com 24%, após identifica-se a proporção de profissionais de psicologia com 8,2%. O maior número de profissionais são identificados em outras profissões ou não informado.[^rh-7]
+
+[^rh-7]: O número elevado da categoria de “outro profissional não informado” se deve a soma na base de dados nas informações de outros profissionais de nível superior a profissionais “sem formação profissional”. Entretanto, pela relevância desta informação mantemos o gráfico.
+
+```{r fig-uf_trab_prof, fig.cap ="Percentual de trabalhadoras/es de nível superior nas Secretarias Estaduais de Assistência Social, segundo área de formação - Brasil; 2012, 2017 e 2022"}
+#| fig-height: 4.5
+
+f_total_para_outros = function(df, grupo){
+  grupo <- quo_name(grupo)
+
+  informados <- df %>%
+    filter(Grupo == !! grupo & Eixo_x != "Total" & Eixo_x != "Outros") %>%
+    pull(Eixo_y) %>%
+    sum()
+
+  total <- df %>%
+    filter(Grupo == !! grupo & Eixo_x == "Total") %>%
+    pull(Eixo_y)
+
+  df %>%
+    mutate(Eixo_y = ifelse(Grupo == !! grupo & Eixo_x == "Total", total - informados, Eixo_y)) %>%
+    mutate(Eixo_x = ifelse(Grupo == !! grupo & Eixo_x == "Total", "Outros ou não informado", Eixo_x)) %>%
+    filter(Grupo != !! grupo | Eixo_x != "Outros")
+}
+
+f_profissao = function(df, profissao){
+  profissao <- enquo(profissao)
+
+  df %>%
+    mutate(!! profissao := case_when(
+      !! profissao == "Psicólogo(a)" |
+      !! profissao == "Psicólogo"~"Psicóloga/o",
+      !! profissao == "Pedagogo(a)" |
+      !! profissao == "Pedagogo"~"Pedagoga/o",
+      !! profissao == "Advogado(a)" |
+      !! profissao == "Advogado"~"Advogada/o",
+      !! profissao == "Antropólogo(a)" |
+      !! profissao == "Antropólogo"~"Antropóloga/o",
+      !! profissao == "Sociólogo(a)"~"Socióloga/o",
+      !! profissao == "Contador(a)"~"Contador/a",
+      !! profissao == "Administrador(a)"~"Administrador/a",
+      !! profissao == "Outro profissional de nivel superior"~"Outros ou não informado",
+      TRUE ~ as.character(!! profissao)))
+}
+
+tabela <- f_nomex_somay_nomegrupo(ge_2012, "Assistente Social", q56a, "2012") %>%
+  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "Psicólogo(a)", q56b, "2012")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "Pedagogo(a)", q56c, "2012")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "Advogado(a)", q56d, "2012")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "Antropólogo(a)", q56e, "2012")) %>%
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "Sociólogo(a)", q56f, "2012")) %>%
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "Terapeuta Ocupacional", q56g, "2012")) %>%
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "Contador(a)", q56h, "2012")) %>%
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "Administrador(a)", q56i, "2012")) %>%
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "Economista", q56j, "2012")) %>%
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "Economista Doméstico", q56k, "2012")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "Total", q55e_3, "2012")) %>%
+  f_total_para_outros("2012") %>%
+
+  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Assistente Social", q12_1, "2017")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Psicólogo(a)", q12_2, "2017")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Pedagogo(a)", q12_3, "2017")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Advogado(a)", q12_4, "2017")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Antropólogo(a)", q12_5, "2017")) %>%
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Sociólogo(a)", q12_6, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Terapeuta Ocupacional", q12_7, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Contador(a)", q12_8, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Estatístico", q12_9, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Economista", q12_10, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Economista Doméstico", q12_11, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Musicoterapeuta", q12_12, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Geógrafo", q12_13, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Administrador(a)", q12_14, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Administrador Público/Gestão Pública", q12_15, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Profissional de Educação Física", q12_16, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Outros", q12_17, "2017")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Total", q11_5_3, "2017")) %>%
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Total", q12_18, "2017")) %>%
+  f_total_para_outros("2017")
+
+# Em 2017: Avaliar se deve ser usado o total de trabalhadores de ensino superior informado na questão 11 ou o informado na questão 12.
+
+tabela_2022 <- gerh_2022 %>%
+  select(Eixo_x = d_51_10) %>%
+  group_by(Eixo_x) %>%
+  summarise(Eixo_y=n()) %>%
+  filter(Eixo_x != "Profissional de nível médio") %>%
+  mutate(Grupo = "2022")
+
+# Em 2022: Utilizando d_51_10, que é a variável que aparece no arquivo de Tabelas como "Profissão agregada". No entanto, essa variável está calculada errada, pois estão contabilizados como "Outro profissional de nível superior" todos os profissionais cuja resposta em q51_10 foi "Sem formação profissional", sendo que entre os profissionais marcados como "Sem formação profissional" existem profissionais com Nível Fundamental e com Nível Médio, conforme informado em q51_9 e d_51_9. Outra questão com a variável d_51_10 é que ela seleciona algumas profissões para mostrar, colocando as demais dentro da categoria "Outro profissional de nível superior", mas, diferente do que se esperaria a princípio, as profissões selecionadas não são todas as mais frequentes, são selecionadas profissões com frequencia bem menor do que outras que ficaram agregadas em "Outro profissional de nível superior". Uma opção alternativa seria usar a variável original, q51_10, em vez de usar a d_51_10, filtrando apenas as pessoas informadaas como tendo nível superior e decidindo o que fazer com os trabalhadores de nível superior marcados em q51_10 como "Profissional de nível médio" e como "Sem formação profissional": se devem ser excluídos da conta ou se devem ser adicionados à categoria "Outros ou não informado".
+
+tabela <- tabela %>%
+  bind_rows(tabela_2022) %>%
+  f_profissao(Eixo_x) %>%
+  f_calcula_percentual(Grupo, Eixo_x, Eixo_y)
+
+ordenado<-tabela %>%
+  filter(Grupo == "2022") %>%
+  arrange(Eixo_y) %>%
+  pull(Eixo_x)
+
+grafico <- tabela %>%
+  mutate(Eixo_x = factor(Eixo_x, levels = ordenado)) %>%
+  f_grafico_col_percent_flip(Eixo_x, Percentual, Grupo, 1)
+
+grafico
+```
+
+```{r fig-munic_trab_prof, fig.cap ="Percentual de trabalhadoras/es nas Secretarias municipais de Assistência Social, segundo área de formação - Brasil; 2013, 2017 e 2022"}
+#| fig-height: 4.5
+
+f_total_para_outros = function(df, grupo){
+  grupo <- quo_name(grupo)
+
+  informados <- df %>%
+    filter(Grupo == !! grupo & Eixo_x != "Total" & Eixo_x != "Outros") %>%
+    pull(Eixo_y) %>%
+    sum()
+
+  total <- df %>%
+    filter(Grupo == !! grupo & Eixo_x == "Total") %>%
+    pull(Eixo_y)
+
+  df %>%
+    mutate(Eixo_y = ifelse(Grupo == !! grupo & Eixo_x == "Total", total - informados, Eixo_y)) %>%
+    mutate(Eixo_x = ifelse(Grupo == !! grupo & Eixo_x == "Total", "Outros ou não informado", Eixo_x)) %>%
+    filter(Grupo != !! grupo | Eixo_x != "Outros")
+}
+
+f_profissao = function(df, profissao){
+  profissao <- enquo(profissao)
+
+  df %>%
+    mutate(!! profissao := case_when(
+      !! profissao == "Psicólogo(a)" |
+      !! profissao == "Psicólogo"~"Psicóloga/o",
+      !! profissao == "Pedagogo(a)" |
+      !! profissao == "Pedagogo"~"Pedagoga/o",
+      !! profissao == "Advogado(a)" |
+      !! profissao == "Advogado"~"Advogada/o",
+      !! profissao == "Antropólogo(a)" |
+      !! profissao == "Antropólogo"~"Antropóloga/o",
+      !! profissao == "Sociólogo(a)"~"Socióloga/o",
+      !! profissao == "Contador(a)"~"Contador/a",
+      !! profissao == "Administrador(a)"~"Administrador/a",
+      !! profissao == "Outro profissional de nivel superior"~"Outros ou não informado",
+      TRUE ~ as.character(!! profissao)))
+}
+
+tabela <- f_nomex_somay_nomegrupo(gm_2013, "Assistente Social", q43a, "2013") %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2013, "Psicólogo(a)", q43b, "2013")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2013, "Pedagogo(a)", q43c, "2013")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2013, "Advogado(a)", q43d, "2013")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2013, "Antropólogo(a)", q43e, "2013")) %>%
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "Sociólogo(a)", q56f, "2012")) %>%
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "Terapeuta Ocupacional", q56g, "2012")) %>%
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "Contador(a)", q56h, "2012")) %>%
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "Administrador(a)", q56i, "2012")) %>%
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "Economista", q56j, "2012")) %>%
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2012, "Economista Doméstico", q56k, "2012")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2013, "Total", q42e_3, "2013")) %>%
+  f_total_para_outros("2013") %>%
+
+  bind_rows(f_nomex_somay_nomegrupo(gm_2017, "Assistente Social", q29.1, "2017")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2017, "Psicólogo(a)", q29.2, "2017")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2017, "Pedagogo(a)", q29.3, "2017")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2017, "Advogado(a)", q29.4, "2017")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2017, "Antropólogo(a)", q29.5, "2017")) %>%
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Sociólogo(a)", q12_6, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Terapeuta Ocupacional", q12_7, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Contador(a)", q12_8, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Estatístico", q12_9, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Economista", q12_10, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Economista Doméstico", q12_11, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Musicoterapeuta", q12_12, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Geógrafo", q12_13, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Administrador(a)", q12_14, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Administrador Público/Gestão Pública", q12_15, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Profissional de Educação Física", q12_16, "2017")) %>%  #
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Outros", q12_17, "2017")) %>%
+  bind_rows(f_nomex_somay_nomegrupo(gm_2017, "Total", q28.5.3, "2017")) %>%
+#  bind_rows(f_nomex_somay_nomegrupo(ge_2017, "Total", q12_18, "2017")) %>%
+  f_total_para_outros("2017")
+
+# Em 2017: Avaliar se deve ser usado o total de trabalhadores de ensino superior informado na questão 11 ou o informado na questão 12.
+
+tabela_2022 <- gmrh_2022 %>%
+  select(Eixo_x = d81_10) %>%
+  group_by(Eixo_x) %>%
+  summarise(Eixo_y=n()) %>%
+  filter(Eixo_x != "Profissional de nível médio") %>%
+  mutate(Grupo = "2022")
+
+
+tabela <- tabela %>%
+  bind_rows(tabela_2022) %>%
+  f_profissao(Eixo_x) %>%
+  f_calcula_percentual(Grupo, Eixo_x, Eixo_y)
+
+ordenado<-tabela %>%
+  filter(Grupo == "2022") %>%
+  arrange(Eixo_y) %>%
+  pull(Eixo_x)
+
+grafico <- tabela %>%
+  mutate(Eixo_x = factor(Eixo_x, levels = ordenado)) %>%
+  f_grafico_col_percent_flip(Eixo_x, Percentual, Grupo, 1)
+
+grafico
+```
+
+## Evolução da quantidade de trabalhadoras/es nas Unidades do SUAS
+
+O Artigo 6º da Lei Orgânica de Assistência Social (LOAS) estabelece que os recursos do cofinanciamento do SUAS poderão ser aplicados no pagamento dos profissionais que integrarem as equipes de referência. Os dados do Censo SUAS 2022 sinalizam um total de 145.861 trabalhadoras/es sendo 115.149 CRAS, 27.084 CREAS e 36.628 Centro POP.
+
+O @fig-trab-unidades mostra um aumento na quantidade de trabalhadoras/es nas unidades socioassistenciais no período de 2012 a 2022. Essa evolução neste período representa 69% nos CRAS, 36% nos CREAS, 122% no Centro POP.
+
+```{r fig-trab-unidades, fig.cap ="Evolução da quantidade de trabalhadoras/es dos CRAS, CREAS e Centro POP - Brasil; 2012, 2017 e 2022" }
+
+grafico <-
+  f_quantitativo_em_2_grupos(crasrh_2012, "CRAS", "2012") %>%
+  bind_rows(f_quantitativo_em_2_grupos(creasrh_2012, "CREAS", "2012")) %>%
+  bind_rows(f_quantitativo_em_2_grupos(cpoprh_2012, "Centro POP", "2012")) %>%
+
+  bind_rows(f_quantitativo_em_2_grupos(crasrh_2017, "CRAS", "2017")) %>%
+  bind_rows(f_quantitativo_em_2_grupos(creasrh_2017, "CREAS", "2017")) %>%
+  bind_rows(f_quantitativo_em_2_grupos(cpoprh_2017, "Centro POP", "2017")) %>%
+
+  bind_rows(f_quantitativo_em_2_grupos(crasrh_2022, "CRAS", "2022")) %>%
+  bind_rows(f_quantitativo_em_2_grupos(creasrh_2022, "CREAS", "2022")) %>%
+  bind_rows(f_quantitativo_em_2_grupos(cpoprh_2022, "Centro POP", "2022")) %>%
+
+  mutate(Grupo1 = factor(Grupo1, levels = c("CRAS", "CREAS", "Centro POP"))) %>%
+  f_grafico_col_group_numero(Grupo1, n, Grupo2, 1)
+
+grafico
+```
+
+<!--especificações importantes, mas em decorrência do tempo avaliar se não seria um caso a gente fazer um artigo para caderno de estudos ou boletim com essa tema-->
+
+.
+
+```{r fig-uf-cras-form, fig.cap ="Quantidade de Trabalhadores segundo a formação profissional - CRAS - Brasil, 2012 a 2022" }
+
+```
+
+```{r fig-uf-creas-form, fig.cap ="Quantidade de Trabalhadores segundo a formação profissional - CREAS - Brasil, 2012 a 2022" }
+
+```
+
+```{r fig-uf-cpop-form, fig.cap ="Quantidade de Trabalhadores segundo a formação profissional - Centro POP - Brasil, 2012 a 2022" }
+
+```
+
+```{r fig-uf-equip-vol, fig.cap ="Percentual de unidades de CRAS que possuem equipe volante  - Brasil, 2012 a 2022" }
+
+```
+
+```{r fig-unid-acol, fig.cap ="Evolução da quantidade de trabalhadoras/es das Unidades de Acolhimento - Brasil, 2012 a 2022" }
+
+```
+
+```{r fig-trab-sexo-estadual, fig.cap ="Percentual de trabalhadoras/es quanto ao sexo - estadual " }
+
+```
+
+```{r fig-trab-sexo-municipal, fig.cap ="Percentual de trabalhadoras/es quanto ao sexo - municipal " }
+
+```
+
+## Gestão do trabalho: Concurso público
+
+A gestão do trabalho no SUAS compreende desenhos organizativos, avaliação de desempenho, adequação de perfis profissionais ás necessidades das areas administrativas, mesas de negociação, plano de carreira e previsão de consursos públicos.
+
+Em relação a realização de concursos públicos pelos entes estaduais, o @fig-conc_estado mostra a linha histórica quanto a realização de concurso para trabalhadoras/es de nível superior do SUAS. Por pelos menos 5 anos neste período, nenhum estado realizadou concurso para nível superior no SUAS.
+
+```{r fig-conc_estado, fig.cap = "Percentual de estados que realizaram concursos para trabalhadores nível superior do SUAS - Brasil, 2013 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+
+grafico <- f_sim(ge_2013, q68a_1, "2013") %>%
+    bind_rows(f_sim(ge_2014, q22a_1, "2014")) %>%
+    bind_rows(f_sim(ge_2015, q15a_1, "2015")) %>%
+    bind_rows(f_sim(ge_2016, q11_1_1, "2016")) %>%
+    bind_rows(f_sim(ge_2017, q16_1_1, "2017")) %>%
+    bind_rows(f_sim(ge_2018, q_36_1_1, "2018")) %>%
+    bind_rows(f_sim(ge_2019, q36_1_1, "2019")) %>%
+    bind_rows(f_sim(ge_2020, q46_1_1, "2020")) %>%
+    bind_rows(f_sim(ge_2021, q46_1_1, "2021")) %>%
+    bind_rows(f_sim(ge_2022, q46_1_1, "2022")) %>%
+
+  f_grafico_col_percent(Categoria, Percentual)
+
+grafico
+```
+
+Em relação a realização de concurso público municipal para trabalhadoras/es de nível superior, percebe-se que os anos de 2013 e 2015 foram os anos com maior número de municípios realizaram, com dados percentuais de 27% e 17% respectivamente. Este dado mostra os desafios da gestão do trabalho. O @fig-conc_munic referencia a linha histórica dos últimos 10 anos.
+
+```{r fig-conc_munic, fig.cap = "Percentual de municípios que realizaram concursos para trabalhadores nível superior do SUAS - Brasil, - Brasil, 2012 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+
+grafico <- f_sim(gm_2012, q43a_1, "2012") %>%
+  bind_rows(f_sim(gm_2013, q36_8, "2013")) %>%
+  bind_rows(f_sim(gm_2014, q51_1_1, "2014")) %>%
+  bind_rows(f_sim(gm_2015, q38_1a, "2015")) %>%
+  bind_rows(f_sim(gm_2016, q19_1, "2016")) %>%
+  bind_rows(f_sim(gm_2017, q30.1.1, "2017")) %>%
+  bind_rows(f_sim(gm_2018, q_50_1, "2018")) %>%
+  bind_rows(f_sim(gm_2019, q51_1_1, "2019")) %>%
+  #bind_rows(f_sim(gm_2020, q72_1_1, "2020")) %>%
+  bind_rows(f_sim(gm_2021, q72_1_1, "2021")) %>%
+  bind_rows(f_sim(gm_2022, q72_1_1, "2022")) %>%
+
+
+
+  #ano de 2020 não é possivel calcular por problemas na base de dados.
+
+  f_grafico_col_percent(Categoria, Percentual)
+
+grafico
+```
+
+## Considerações Finais
+
+Em relação a quantidade de trabalhadoras/es do SUAS no âmbito da gestão estadual e municipal, observa-se que do período de 2018 a 2022, houve aumento nesta quantidade em nível nacional. Para as gestões estaduais o aumento foi de 7% e gestões municipais foi de 4%. Entretanto, destaca-se que, neste mesmo período, as regiões Sudeste e Sul teve redução do número de trabalhadoras/es nas gestões estaduais e, no âmbito das gestões municipais, a região nordeste teve redução na quantidade de trabalhadoras/es. No âmbito das unidades socioassistenciais, sobretudo CRAS, CREAS e Centro POP, observa-se um aumento nos dados nacionais da rede socioassistencial. Em relação ao vínculo destes trabalhadoras/es, nas gestões estaduais houve uma redução das/os servidoras/es estatutários e empregadas/os públicas/os (CLT) e aumento no número de cargos comissionados e outros vínculos não permanentes. Nas gestões municipais, os dados sinalizam para redução da quantidade de servidoras/es estatutários, empregadas/os públicas/os (CLT) e outros vínculos não permanentes. No que se refere a escolaridade das/os trabalhadoras/es das gestões, observa-se no geral um aumento da proporção de trabalhadoras/es de nível superior. Em relação a profissão, Assistentes Sociais e psicólogos são proporcionalmente a maioria para ambos os entes. Por fim, os dados também sinalizam desafios para gestão do trabalho, sobretudo no que se refere a realização de concursos públicos
