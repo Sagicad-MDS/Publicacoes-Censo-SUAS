@@ -647,7 +647,7 @@ grafico<-tabela %>%
 grafico
 ```
 
-Quanto às subdivisões administrativas, nota-se que em relação à constituição informal ou ausência dela, as que possuem o maior percentual são a Gestão do trabalho e a Vigilância Socioassistencial. Destaca-se, também, a Proteção Social Especial, cuja existência é recomenda independente da presença de CREAS (@fig-municipais-constituicao-subdivisoe).
+Quanto às subdivisões administrativas, nota-se que em relação à constituição informal ou ausência dela, as que possuem o maior percentual são a Gestão do trabalho e a Vigilância Socioassistencial. Destaca-se, também, a Proteção Social Especial, cuja existência é recomenda independente da presença de CREAS (@fig-municipais-constituicao-subdivisoes).
 
 ```{r fig-municipais-constituicao-subdivisoes, fig.cap = "Distribuição dos órgãos gestores municipais segundo constituição/formalização de subdivisões administrativas - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 #| fig-height: 5
@@ -1830,13 +1830,13 @@ Sobre a distribuição destes locais de Cadastro Único, destaca-se que em 2022,
 
 <!-- ``` -->
 
-| Unidades              |   2017    |   2018    |   2019    |   2020    |   2021    |   2022    |
+| Unidades | 2017 | 2018 | 2019 | 2020 | 2021 | 2022 |
 |:----------|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
-| CRAS                  |   5.669   |   5.508   |   5.923   |   5.729   |   5.937   |   6.090   |
-| CREAS                 |    281    |    174    |    199    |    199    |    208    |    230    |
-| Centro POP            |    112    |    83     |    84     |    108    |    106    |    115    |
-| Postos Cadastro Único |    \-     |    \-     |    \-     |   2.530   |   2.695   |   2.892   |
-| **Total**             | **6.062** | **5.765** | **6.206** | **8.566** | **8.946** | **9.327** |
+| CRAS | 5.669 | 5.508 | 5.923 | 5.729 | 5.937 | 6.090 |
+| CREAS | 281 | 174 | 199 | 199 | 208 | 230 |
+| Centro POP | 112 | 83 | 84 | 108 | 106 | 115 |
+| Postos Cadastro Único | \- | \- | \- | 2.530 | 2.695 | 2.892 |
+| **Total** | **6.062** | **5.765** | **6.206** | **8.566** | **8.946** | **9.327** |
 
 : Quantidade de Unidades de Cadastro Único {#tbl-qtd_unidades}
 
