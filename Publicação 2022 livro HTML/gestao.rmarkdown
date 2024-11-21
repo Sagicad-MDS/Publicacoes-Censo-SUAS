@@ -4,19 +4,20 @@ source("_carregamento.R")
 source("_funcoes.R")
 ```
 
+
 # Gestão e Financiamento
 
 O Sistema Único de Assistência Social (SUAS) é definido pela Lei Orgânica da Assistência Social (LOAS)[^gestao-1] como um sistema descentralizado e participativo que organiza a gestão das ações na área de assistência social, a partir das diretrizes: descentralização político administrativa, participação social e primazia da responsabilidade do Estado na condução da política de assistência social. Assim, tem como um de seus objetivos a consolidação da gestão compartilhada dos três entes federados.
 
 [^gestao-1]: Lei nº 8.742, de 7 de dezembro de 1993: Dispõe sobre a organização da Assistência Social e dá outras providências. (<http://www.planalto.gov.br/ccivil_03/Leis/L8742compilado.htm>)
 
-A LOAS, a NOB SUAS[^gestao-2] e outros normativos que regulam a assistência social definem as responsabilidades da União, Estados, Distrito Federal e Municípios no âmbito da gestão compartilhada, que incluem o cofinanciamento de serviços, programas e ações da assistência social. Estão previstas ainda instâncias de pactuação e interlocução entre os três entes federados: a Comissão Intergestores Bipartite (CIB), da qual participam representantes de estados e municípios, e a Comissão Intergestores Tripartite (CIT), da qual participam, além de estados e municípios, representantes do governo federal.
+A LOAS, a NOB SUAS[^gestao-2] e outros normativos que regulam a assistência social definem as responsabilidades da união, estados, Distrito Federal e municípios no âmbito da gestão compartilhada, que incluem o cofinanciamento de serviços, programas e ações da assistência social. Estão previstas, ainda, instâncias de pactuação e interlocução entre os três entes federados: a Comissão Intergestores Bipartite (CIB), da qual participam representantes de estados e municípios, e a Comissão Intergestores Tripartite (CIT), da qual participam, além de estados e municípios, representantes do governo federal.
 
 [^gestao-2]: Norma Operacional Básica NOB - SUAS 2012 (<http://www.mds.gov.br/webarquivos/arquivo/assistencia_social/nob_suas.pdf>)
 
 ## Estrutura Administrativa normas e planejamento
 
-A partir das informações contidas no Censo SUAS é possível ter um panorama geral da gestão e do financiamento em estados e municípios, com a observação de aspectos como a estrutura administrativa da gestão da assistência social, a atualização de normativos, o apoio de estados aos municípios, as atividades de cofinanciamento e transferência de recursos, funcionamento das instâncias de pactuação, entre outras. Nesse sentido, esta seção apresenta os principais resultados obtidos a partir das informações dos questionários de gestão estadual e gestão municipal.
+A partir das informações contidas no Censo SUAS, é possível ter um panorama geral da gestão e do financiamento em estados e municípios, observando-se aspectos da estrutura administrativa da gestão da assistência social, a atualização de normativos, o apoio de estados aos municípios, as atividades de cofinanciamento e transferência de recursos, funcionamento das instâncias de pactuação, entre outras.
 
 A estrutura administrativa na Política de Assistência Social e Constituição de setores essenciais são elementos importantes para gestão do SUAS. No âmbito da gestão estadual, no que se refere a exclusividade da área de Assistência Social, percebe-se que nos últimos 10 anos houve uma redução de áreas específicas de Assistência Social. Em 2012 existiam 29,6%[^gestao-3] das secretarias estaduais exclusivas de Assistência Social, em 2022 esse número passa para 3,8%[^gestao-4], redução significativa de 87,2%, conforme o @fig-estados_sec_exc.
 
@@ -24,7 +25,8 @@ A estrutura administrativa na Política de Assistência Social e Constituição 
 
 [^gestao-4]: Estado do Amazonas
 
-```{r fig-estados_sec_exc, fig.cap = "Percentual de Estados quanto a caracteristica de estrutura administrativa - Brasil, 2012 a 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
+
+```{r fig-estados_sec_exc, fig.cap = "Percentual de Estados quanto à característica de estrutura administrativa - Brasil, 2012 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
 # Avaliar fazer o gráfico apenas com o percentual das secretarias exclusivas.
 # Avaliar fazer gráficos de estado com quantidade em vez de percentual
@@ -61,7 +63,7 @@ grafico <- estados_sec_exc(ge_2012, q1, "2012") %>%
   bind_rows(estados_sec_exc(ge_2020, q1, "2020")) %>%
   bind_rows(estados_sec_exc(ge_2021, q1, "2021")) %>%
   bind_rows(estados_sec_exc(ge_2022, q1, "2022")) %>%
-  bind_rows(estados_sec_exc(ge_2023, q1, "2023")) %>%
+  
 
   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 2)
 
@@ -78,56 +80,6 @@ nao0_sim1 = function(df, q){
 }
 
 grafico <- ge_2022 %>%
-  select(q1,q2_1,q2_2,q2_3,q2_4,q2_5,q2_6,q2_7,q2_99) %>%
-  filter(!is.na(q1)) %>%
-  nao0_sim1(q2_1) %>%
-  nao0_sim1(q2_2) %>%
-  nao0_sim1(q2_3) %>%
-  nao0_sim1(q2_4) %>%
-  nao0_sim1(q2_5) %>%
-  nao0_sim1(q2_6) %>%
-  nao0_sim1(q2_7) %>%
-  nao0_sim1(q2_99) %>%
-  mutate(q2=q2_1+q2_2+q2_3+q2_4+q2_5+q2_6+q2_7+q2_99) %>%
-  group_by(q1,q2) %>%
-  summarise(n=n()) %>%
-  ungroup() %>%
-  mutate(q1=case_when(q2==1~"Secretaria estadual em conjunto com uma política setorial",
-                      q2==2~"Secretaria estadual em conjunto com duas políticas setoriais",
-                      q2==3~"Secretaria estadual em conjunto com três políticas setoriais",
-                      q2==4~"Secretaria estadual em conjunto com quatro políticas setoriais",
-                      q2>=5~"Secretaria estadual em conjunto com cinco ou mais políticas setoriais",
-                      TRUE ~ q1)) %>%
-  mutate(q2=case_when(is.na(q2)~0, TRUE~q2)) %>%
-  group_by(q1,q2) %>%
-  summarise(n=sum(n)) %>%
-  ungroup() %>%
-  mutate(per=`n`/sum(`n`)) %>%
-  arrange(q2) %>%
-  mutate(q1=str_wrap(q1,width=35)) %>%
-  mutate(q1=factor(q1, levels=q1)) %>%
-  ggplot(aes(x="", y=per, fill=q1)) +
-  geom_bar(stat="identity") +
-#  geom_text(aes(label = percent(per)), position = position_stack(vjust = 0.5))  +
-  geom_text(aes(label = label_percent(accuracy = 0.1, decimal.mark = ",")(per)), position = position_stack(vjust = 0.5)) +
-  coord_polar(theta = "y", direction = -1) +
-  theme_void() +
-  theme(legend.title = element_blank(),
-        legend.key.size = unit(2, 'lines'))
-
-grafico
-```
-
-```{r fig-estados-caracteristica-secretaria-2023, fig.cap = "Percentual de Secretarias Estaduais de acordo com composição administrativa relacionada a outras políticas - Brasil, 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
-
-nao0_sim1 = function(df, q){
-  q <- enquo(q)
-
-  df %>%
-    mutate(!! q := case_when(!! q == "Não"~0, !! q == "Sim"~1))
-}
-
-grafico <- ge_2023 %>%
   select(q1,q2_1,q2_2,q2_3,q2_4,q2_5,q2_6,q2_7,q2_99) %>%
   filter(!is.na(q1)) %>%
   nao0_sim1(q2_1) %>%
@@ -218,63 +170,13 @@ grafico <- ge_2012 %>%
 grafico
 ```
 
-```{r fig-estados-caracteristica-secretaria-2013, fig.cap = "Percentual de Secretarias Estaduais de acordo com composição administrativa relacionada a outras políticas - Brasil, 2013", fig.footer = "Fonte: MDS, Censo SUAS", eval=FALSE}
-
-nao0_sim1 = function(df, q){
-  q <- enquo(q)
-
-  df %>%
-    mutate(!! q := case_when(!! q == "Não"~0, !! q == "Sim"~1))
-}
-
-grafico <- ge_2013 %>%
-  select(q1,q2_1,q2_2,q2_3,q2_4,q2_5,q2_6,q2_7,q2_8) %>%
-  filter(!is.na(q1)) %>%
-  nao0_sim1(q2_1) %>%
-  nao0_sim1(q2_2) %>%
-  nao0_sim1(q2_3) %>%
-  nao0_sim1(q2_4) %>%
-  nao0_sim1(q2_5) %>%
-  nao0_sim1(q2_6) %>%
-  nao0_sim1(q2_7) %>%
-  nao0_sim1(q2_8) %>%
-  mutate(q2=q2_1+q2_2+q2_3+q2_4+q2_5+q2_6+q2_7+q2_8) %>%
-  group_by(q1,q2) %>%
-  summarise(n=n()) %>%
-  ungroup() %>%
-  mutate(q1=case_when(q2==1~"Secretaria estadual em conjunto com uma política setorial",
-                      q2==2~"Secretaria estadual em conjunto com duas políticas setoriais",
-                      q2==3~"Secretaria estadual em conjunto com três políticas setoriais",
-                      q2==4~"Secretaria estadual em conjunto com quatro políticas setoriais",
-                      q2>=5~"Secretaria estadual em conjunto com cinco ou mais políticas setoriais",
-                      TRUE ~ q1)) %>%
-  mutate(q2=case_when(is.na(q2)~0, TRUE~q2)) %>%
-  group_by(q1,q2) %>%
-  summarise(n=sum(n)) %>%
-  ungroup() %>%
-  mutate(per=`n`/sum(`n`)) %>%
-  arrange(q2) %>%
-  mutate(q1=str_wrap(q1,width=35)) %>%
-  mutate(q1=factor(q1, levels=q1)) %>%
-  ggplot(aes(x="", y=per, fill=q1)) +
-  geom_bar(stat="identity") +
-#  geom_text(aes(label = percent(per)), position = position_stack(vjust = 0.5))  +
-  geom_text(aes(label = label_percent(accuracy = 0.1, decimal.mark = ",")(per)), position = position_stack(vjust = 0.5)) +
-  coord_polar(theta = "y", direction = -1) +
-  theme_void() +
-  theme(legend.title = element_blank(),
-        legend.key.size = unit(2, 'lines'))
-
-grafico
-```
 
 No que se refere aos municípios, esse cenário nacional se configurou inverso ao das gestões Estaduais. Observa-se através do @fig-sec-munic-exc um aumento de 217 municípios (1,5 pontos percentuais) com secretarias exclusivas de Assistência Social do período de 2012 a 2019[^gestao-5].
 
 [^gestao-5]: a partir de 2019 essa pergunta foi retirada do formulário de gestão municipal
 
-```{r fig-sec-munic-exc, fig.cap = "Percentual de Secretarias Municipais quanto a caracteristica de estrutura administrativa - Brasil, 2012 a 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-#erro na função do gráfico
+```{r fig-sec-munic-exc, fig.cap = "Percentual de Secretarias Municipais quanto a caracteristica de estrutura administrativa - Brasil, 2012 a 2019", fig.footer = "Fonte: MDS, Censo SUAS"}
 
 sec_munic_exc  = function(df, q, ano){
   q <- enquo(q)
@@ -306,8 +208,6 @@ sec_munic_exc  = function(df, q, ano){
 }
 
 grafico <-
-  
-  
   sec_munic_exc(gm_2012, q1, "2012") %>%
   bind_rows(sec_munic_exc(gm_2013, q1, "2013")) %>%
   bind_rows(sec_munic_exc(gm_2014, q1, "2014")) %>%
@@ -316,8 +216,8 @@ grafico <-
   bind_rows(sec_munic_exc(gm_2017, q1, "2017")) %>%
   bind_rows(sec_munic_exc(gm_2018, q_1,"2018")) %>%
   bind_rows(sec_munic_exc(gm_2019, q1, "2019")) %>%
-  bind_rows(sec_munic_exc(gm_2023, q1, "2023")) %>%
- 
+
+# essa pergunta foi feita até 2019, após não se colocou mais
 
   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 2)
 
@@ -336,7 +236,6 @@ grafico <- f_selecao_regiao_ano(gm_2012, q1, "Secretaria municipal exclusiva da 
   bind_rows(f_selecao_regiao_ano(gm_2017, q1, "Secretaria municipal exclusiva da área de Assistência Social", Região, "2017")) %>%
   bind_rows(f_selecao_regiao_ano(gm_2019, q1, "Secretaria municipal exclusiva da área de Assistência Social", Região, "2019")) %>%
 
-  
 # essa pergunta foi feita até 2019, após não se colocou mais
 
   ggplot(aes(x = Região, y = Percentual, group = Ano)) +
@@ -356,6 +255,7 @@ grafico <- f_selecao_regiao_ano(gm_2012, q1, "Secretaria municipal exclusiva da 
 grafico
 ```
 
+
 Alguns órgãos gestores estaduais constituíram as áreas de assistência social como subdivisões administrativas em sua estrutura, como superintendências, departamentos, gerências, coordenações, dentre outras. De acordo com o último Pacto de aprimoramento Estadual do SUAS[^gestao-6] umas das prioridades para o aperfeiçoamento institucional é possuir na estrutura administrativa das seguintes áreas:
 
 [^gestao-6]: Resolução CNAS Nº2, de 16 de março de 2017
@@ -367,7 +267,8 @@ Alguns órgãos gestores estaduais constituíram as áreas de assistência socia
 
 Observa-se avanço em todas as áreas formalmente nos últimos 10 anos. As três áreas mais instituídas formalmente são: Proteção Social Básica e Proteção Social Especial, com 88%, e Gestão do SUAS, com 85% (@fig-uf_subd).
 
-```{r fig-uf_subd-formal, fig.cap = "Percentual de estados segundo subdivisões administrativas constituídas na estrutura formal do órgão gestor - Brasil; 2012, 2018 e 2023", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
+
+```{r fig-uf_subd-formal, fig.cap = "Percentual de estados segundo subdivisões administrativas constituídas na estrutura formal do órgão gestor - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
 
 # Avaliar se gráficos de estados não ficariam melhor em quantidade em vez de percentual
 
@@ -420,7 +321,6 @@ uf_subd_vazio= function(ano, cod_categoria){
 
 tabela <-
   uf_subd(ge_2012,q5_5,"2012","1") %>%
-  
   bind_rows(uf_subd(ge_2012,q5_8,"2012","2")) %>%
   bind_rows(uf_subd(ge_2012,q5_7,"2012","3")) %>%
   bind_rows(uf_subd(ge_2012,q5_6,"2012","4")) %>%
@@ -429,117 +329,34 @@ tabela <-
   bind_rows(uf_subd(ge_2012,q5_4,"2012","7")) %>%
   bind_rows(uf_subd_vazio("2012","8")) %>%
   bind_rows(uf_subd_vazio("2012","9")) %>%
-        
-      
- #2013 está com categoria diferente no censo suas
-  
-
-  #bind_rows(uf_subd(ge_2014,q3_1,"2014","1")) %>%
-  #bind_rows(uf_subd(ge_2014,q3_2,"2014","2")) %>%
-  #bind_rows(uf_subd(ge_2014,q3_3,"2014","3")) %>%
-  #bind_rows(uf_subd(ge_2014,q3_5,"2014","4")) %>%
-  #bind_rows(uf_subd(ge_2014,q3_6,"2014","5")) %>%
-  #bind_rows(uf_subd(ge_2014,q3_7,"2014","6")) %>%
-  #bind_rows(uf_subd(ge_2014,q3_9,"2014","7")) %>%
-  #bind_rows(uf_subd(ge_2014,q3_8,"2014","8")) %>%
-  #bind_rows(uf_subd(ge_2014,q3_4,"2014","9")) %>%
- 
-  #bind_rows(uf_subd(ge_2015,q3_1,"2015","1")) %>%
-  #bind_rows(uf_subd(ge_2015,q3_2,"2015","2")) %>%
-  #bind_rows(uf_subd(ge_2015,q3_3,"2015","3")) %>%
-  #bind_rows(uf_subd(ge_2015,q3_3,"2015","4")) %>%
-  #bind_rows(uf_subd(ge_2015,q3_5,"2015","5")) %>%
-  #bind_rows(uf_subd(ge_2015,q3_6,"2015","6")) %>%
-  #bind_rows(uf_subd(ge_2015,q3_7,"2015","7")) %>%
-  #bind_rows(uf_subd(ge_2015,q3_8,"2015","8")) %>%
-  #bind_rows(uf_subd(ge_2015,q3_4,"2015","9")) %>%
-
-  #2016 não foi realizado está pergunta
 
 
-  #bind_rows(uf_subd(ge_2017,q3_1,"2017","1")) %>%
-  #bind_rows(uf_subd(ge_2017,q3_2,"2017","2")) %>%
-  #bind_rows(uf_subd(ge_2017,q3_3,"2017","3")) %>%
-  #bind_rows(uf_subd(ge_2017,q3_5,"2017","4")) %>%
-  #bind_rows(uf_subd(ge_2017,q3_6,"2017","5")) %>%
-  #bind_rows(uf_subd(ge_2017,q3_7,"2017","6")) %>%
-  #bind_rows(uf_subd(ge_2017,q3_9,"2017","7")) %>%
-  #bind_rows(uf_subd(ge_2017,q3_8,"2017","8")) %>%
-  #bind_rows(uf_subd(ge_2017,q3_4,"2017","9")) %>%
-  
-  bind_rows(uf_subd(ge_2018,q_3_1,"2018","1")) %>%
-  bind_rows(uf_subd(ge_2018,q_3_2,"2018","2")) %>%
-  bind_rows(uf_subd(ge_2018,q_3_3,"2018","3")) %>%
-  bind_rows(uf_subd(ge_2018,q_3_5,"2018","4")) %>%
-  bind_rows(uf_subd(ge_2018,q_3_6,"2018","5")) %>%
-  bind_rows(uf_subd(ge_2018,q_3_7,"2018","6")) %>%
-  bind_rows(uf_subd(ge_2018,q_3_9,"2018","7")) %>%
-  bind_rows(uf_subd(ge_2018,q_3_8,"2018","8")) %>%
-  bind_rows(uf_subd(ge_2018,q_3_4,"2018","9")) %>%
-  
+  bind_rows(uf_subd(ge_2017,q3_1,"2017","1")) %>%
+  bind_rows(uf_subd(ge_2017,q3_2,"2017","2")) %>%
+  bind_rows(uf_subd(ge_2017,q3_3,"2017","3")) %>%
+  bind_rows(uf_subd(ge_2017,q3_5,"2017","4")) %>%
+  bind_rows(uf_subd(ge_2017,q3_6,"2017","5")) %>%
+  bind_rows(uf_subd(ge_2017,q3_7,"2017","6")) %>%
+  bind_rows(uf_subd(ge_2017,q3_9,"2017","7")) %>%
+  bind_rows(uf_subd(ge_2017,q3_8,"2017","8")) %>%
+  bind_rows(uf_subd(ge_2017,q3_4,"2017","9")) %>%
 
-  #bind_rows(uf_subd(ge_2019,q3_1,"2019","1")) %>%
-  #bind_rows(uf_subd(ge_2019,q3_2,"2019","2")) %>%
-  #bind_rows(uf_subd(ge_2019,q3_3,"2019","3")) %>%
-  #bind_rows(uf_subd(ge_2019,q3_5,"2019","4")) %>%
-  #bind_rows(uf_subd(ge_2019,q3_6,"2019","5")) %>%
-  #bind_rows(uf_subd(ge_2019,q3_7,"2019","6")) %>%
-  #bind_rows(uf_subd(ge_2019,q3_9,"2019","7")) %>%
-  #bind_rows(uf_subd(ge_2019,q3_8,"2019","8")) %>%
-  #bind_rows(uf_subd(ge_2019,q3_4,"2019","9")) %>%
-  
- 
-  #bind_rows(uf_subd(ge_2020,q3_1,"2020","1")) %>%
-  #bind_rows(uf_subd(ge_2020,q3_2,"2020","2")) %>%
-  #bind_rows(uf_subd(ge_2020,q3_3,"2020","3")) %>%
-  #bind_rows(uf_subd(ge_2020,q3_5,"2020","4")) %>%
-  #bind_rows(uf_subd(ge_2020,q3_6,"2020","5")) %>%
-  #bind_rows(uf_subd(ge_2020,q3_7,"2020","6")) %>%
-  #bind_rows(uf_subd(ge_2020,q3_9,"2020","7")) %>%
-  #bind_rows(uf_subd(ge_2020,q3_8,"2020","8")) %>%
-  #bind_rows(uf_subd(ge_2020,q3_4,"2020","9")) %>%
-  
-  #bind_rows(uf_subd(ge_2021,q3_1,"2021","1")) %>%
-  #bind_rows(uf_subd(ge_2021,q3_2,"2021","2")) %>%
-  #bind_rows(uf_subd(ge_2021,q3_3,"2021","3")) %>%
-  #bind_rows(uf_subd(ge_2021,q3_5,"2021","4")) %>%
-  #bind_rows(uf_subd(ge_2021,q3_6,"2021","5")) %>%
-  #bind_rows(uf_subd(ge_2021,q3_7,"2021","6")) %>%
-  #bind_rows(uf_subd(ge_2021,q3_9,"2021","7")) %>%
-  #bind_rows(uf_subd(ge_2021,q3_8,"2021","8")) %>%
-  #bind_rows(uf_subd(ge_2021,q3_4,"2021","9")) %>%
-  
-  
-  
-  #bind_rows(uf_subd(ge_2022,q3_1,"2022","1")) %>%
-  #bind_rows(uf_subd(ge_2022,q3_2,"2022","2")) %>%
-  #bind_rows(uf_subd(ge_2022,q3_3,"2022","3")) %>%
-  #bind_rows(uf_subd(ge_2022,q3_5,"2022","4")) %>%
-  #bind_rows(uf_subd(ge_2022,q3_6,"2022","5")) %>%
-  #bind_rows(uf_subd(ge_2022,q3_7,"2022","6")) %>%
-  #bind_rows(uf_subd(ge_2022,q3_9,"2022","7")) %>%
-  #bind_rows(uf_subd(ge_2022,q3_8,"2022","8")) %>%
-  #bind_rows(uf_subd(ge_2022,q3_4,"2022","9")) %>%
-  
 
-  bind_rows(uf_subd(ge_2023,q3_1,"2023","1")) %>%
-  bind_rows(uf_subd(ge_2023,q3_2,"2023","2")) %>%
-  bind_rows(uf_subd(ge_2023,q3_3,"2023","3")) %>%
-  bind_rows(uf_subd(ge_2023,q3_5,"2023","4")) %>%
-  bind_rows(uf_subd(ge_2023,q3_6,"2023","5")) %>%
-  bind_rows(uf_subd(ge_2023,q3_7,"2023","6")) %>%
-  bind_rows(uf_subd(ge_2023,q3_9,"2023","7")) %>%
-  bind_rows(uf_subd(ge_2023,q3_8,"2023","8")) %>%
-  bind_rows(uf_subd(ge_2023,q3_4,"2023","9")) %>%
-  
-  
-
+  bind_rows(uf_subd(ge_2022,q3_1,"2022","1")) %>%
+  bind_rows(uf_subd(ge_2022,q3_2,"2022","2")) %>%
+  bind_rows(uf_subd(ge_2022,q3_3,"2022","3")) %>%
+  bind_rows(uf_subd(ge_2022,q3_5,"2022","4")) %>%
+  bind_rows(uf_subd(ge_2022,q3_6,"2022","5")) %>%
+  bind_rows(uf_subd(ge_2022,q3_7,"2022","6")) %>%
+  bind_rows(uf_subd(ge_2022,q3_9,"2022","7")) %>%
+  bind_rows(uf_subd(ge_2022,q3_8,"2022","8")) %>%
+  bind_rows(uf_subd(ge_2022,q3_4,"2022","9")) %>%
 
   ungroup() %>%
   mutate(Categoria=str_wrap(Categoria,width=51))
 
 ordenado<-tabela %>%
-  filter(Ano == "2023") %>%
+  filter(Ano == "2022") %>%
   arrange(Percentual) %>%
   pull(Categoria)
 
@@ -550,7 +367,7 @@ grafico<-tabela %>%
 grafico
 ```
 
-```{r fig-uf_subd, fig.cap = "Percentual de estados segundo constituição de subdivisões administrativas na estrutura do órgão gestor - Brasil; 2012, 2018 e 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r fig-uf_subd, fig.cap = "Percentual de estados segundo constituição de subdivisões administrativas na estrutura do órgão gestor - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 #| fig-height: 8
 
 # Avaliar se gráficos de estados não ficariam melhor em quantidade em vez de percentual
@@ -607,107 +424,26 @@ tabela <-
   bind_rows(uf_subd(ge_2012,q5_7,"2012","3")) %>%
   bind_rows(uf_subd(ge_2012,q5_8,"2012","2")) %>%
 
-   #2013 está com categoria diferente no censo suas
-  
+  bind_rows(uf_subd(ge_2017,q3_1,"2017","1")) %>%
+  bind_rows(uf_subd(ge_2017,q3_2,"2017","2")) %>%
+  bind_rows(uf_subd(ge_2017,q3_3,"2017","3")) %>%
+  bind_rows(uf_subd(ge_2017,q3_4,"2017","9")) %>%
+  bind_rows(uf_subd(ge_2017,q3_5,"2017","4")) %>%
+  bind_rows(uf_subd(ge_2017,q3_6,"2017","5")) %>%
+  bind_rows(uf_subd(ge_2017,q3_7,"2017","6")) %>%
+  bind_rows(uf_subd(ge_2017,q3_8,"2017","8")) %>%
+  bind_rows(uf_subd(ge_2017,q3_9,"2017","7")) %>%
 
-  #bind_rows(uf_subd(ge_2014,q3_1,"2014","1")) %>%
-  #bind_rows(uf_subd(ge_2014,q3_2,"2014","2")) %>%
-  #bind_rows(uf_subd(ge_2014,q3_3,"2014","3")) %>%
-  #bind_rows(uf_subd(ge_2014,q3_5,"2014","4")) %>%
-  #bind_rows(uf_subd(ge_2014,q3_6,"2014","5")) %>%
-  #bind_rows(uf_subd(ge_2014,q3_7,"2014","6")) %>%
-  #bind_rows(uf_subd(ge_2014,q3_9,"2014","7")) %>%
-  #bind_rows(uf_subd(ge_2014,q3_8,"2014","8")) %>%
-  #bind_rows(uf_subd(ge_2014,q3_4,"2014","9")) %>%
- 
-  #bind_rows(uf_subd(ge_2015,q3_1,"2015","1")) %>%
-  #bind_rows(uf_subd(ge_2015,q3_2,"2015","2")) %>%
-  #bind_rows(uf_subd(ge_2015,q3_3,"2015","3")) %>%
-  #bind_rows(uf_subd(ge_2015,q3_3,"2015","4")) %>%
-  #bind_rows(uf_subd(ge_2015,q3_5,"2015","5")) %>%
-  #bind_rows(uf_subd(ge_2015,q3_6,"2015","6")) %>%
-  #bind_rows(uf_subd(ge_2015,q3_7,"2015","7")) %>%
-  #bind_rows(uf_subd(ge_2015,q3_8,"2015","8")) %>%
-  #bind_rows(uf_subd(ge_2015,q3_4,"2015","9")) %>%
-
-  #2016 não foi realizado está pergunta
-
-
-  #bind_rows(uf_subd(ge_2017,q3_1,"2017","1")) %>%
-  #bind_rows(uf_subd(ge_2017,q3_2,"2017","2")) %>%
-  #bind_rows(uf_subd(ge_2017,q3_3,"2017","3")) %>%
-  #bind_rows(uf_subd(ge_2017,q3_5,"2017","4")) %>%
-  #bind_rows(uf_subd(ge_2017,q3_6,"2017","5")) %>%
-  #bind_rows(uf_subd(ge_2017,q3_7,"2017","6")) %>%
-  #bind_rows(uf_subd(ge_2017,q3_9,"2017","7")) %>%
-  #bind_rows(uf_subd(ge_2017,q3_8,"2017","8")) %>%
-  #bind_rows(uf_subd(ge_2017,q3_4,"2017","9")) %>%
-  
-  bind_rows(uf_subd(ge_2018,q_3_1,"2018","1")) %>%
-  bind_rows(uf_subd(ge_2018,q_3_2,"2018","2")) %>%
-  bind_rows(uf_subd(ge_2018,q_3_3,"2018","3")) %>%
-  bind_rows(uf_subd(ge_2018,q_3_5,"2018","4")) %>%
-  bind_rows(uf_subd(ge_2018,q_3_6,"2018","5")) %>%
-  bind_rows(uf_subd(ge_2018,q_3_7,"2018","6")) %>%
-  bind_rows(uf_subd(ge_2018,q_3_9,"2018","7")) %>%
-  bind_rows(uf_subd(ge_2018,q_3_8,"2018","8")) %>%
-  bind_rows(uf_subd(ge_2018,q_3_4,"2018","9")) %>%
-  
-
-  #bind_rows(uf_subd(ge_2019,q3_1,"2019","1")) %>%
-  #bind_rows(uf_subd(ge_2019,q3_2,"2019","2")) %>%
-  #bind_rows(uf_subd(ge_2019,q3_3,"2019","3")) %>%
-  #bind_rows(uf_subd(ge_2019,q3_5,"2019","4")) %>%
-  #bind_rows(uf_subd(ge_2019,q3_6,"2019","5")) %>%
-  #bind_rows(uf_subd(ge_2019,q3_7,"2019","6")) %>%
-  #bind_rows(uf_subd(ge_2019,q3_9,"2019","7")) %>%
-  #bind_rows(uf_subd(ge_2019,q3_8,"2019","8")) %>%
-  #bind_rows(uf_subd(ge_2019,q3_4,"2019","9")) %>%
-  
- 
-  #bind_rows(uf_subd(ge_2020,q3_1,"2020","1")) %>%
-  #bind_rows(uf_subd(ge_2020,q3_2,"2020","2")) %>%
-  #bind_rows(uf_subd(ge_2020,q3_3,"2020","3")) %>%
-  #bind_rows(uf_subd(ge_2020,q3_5,"2020","4")) %>%
-  #bind_rows(uf_subd(ge_2020,q3_6,"2020","5")) %>%
-  #bind_rows(uf_subd(ge_2020,q3_7,"2020","6")) %>%
-  #bind_rows(uf_subd(ge_2020,q3_9,"2020","7")) %>%
-  #bind_rows(uf_subd(ge_2020,q3_8,"2020","8")) %>%
-  #bind_rows(uf_subd(ge_2020,q3_4,"2020","9")) %>%
-  
-  #bind_rows(uf_subd(ge_2021,q3_1,"2021","1")) %>%
-  #bind_rows(uf_subd(ge_2021,q3_2,"2021","2")) %>%
-  #bind_rows(uf_subd(ge_2021,q3_3,"2021","3")) %>%
-  #bind_rows(uf_subd(ge_2021,q3_5,"2021","4")) %>%
-  #bind_rows(uf_subd(ge_2021,q3_6,"2021","5")) %>%
-  #bind_rows(uf_subd(ge_2021,q3_7,"2021","6")) %>%
-  #bind_rows(uf_subd(ge_2021,q3_9,"2021","7")) %>%
-  #bind_rows(uf_subd(ge_2021,q3_8,"2021","8")) %>%
-  #bind_rows(uf_subd(ge_2021,q3_4,"2021","9")) %>%
-  
-  
-  
-  #bind_rows(uf_subd(ge_2022,q3_1,"2022","1")) %>%
-  #bind_rows(uf_subd(ge_2022,q3_2,"2022","2")) %>%
-  #bind_rows(uf_subd(ge_2022,q3_3,"2022","3")) %>%
-  #bind_rows(uf_subd(ge_2022,q3_5,"2022","4")) %>%
-  #bind_rows(uf_subd(ge_2022,q3_6,"2022","5")) %>%
-  #bind_rows(uf_subd(ge_2022,q3_7,"2022","6")) %>%
-  #bind_rows(uf_subd(ge_2022,q3_9,"2022","7")) %>%
-  #bind_rows(uf_subd(ge_2022,q3_8,"2022","8")) %>%
-  #bind_rows(uf_subd(ge_2022,q3_4,"2022","9")) %>%
-  
-
-  bind_rows(uf_subd(ge_2023,q3_1,"2023","1")) %>%
-  bind_rows(uf_subd(ge_2023,q3_2,"2023","2")) %>%
-  bind_rows(uf_subd(ge_2023,q3_3,"2023","3")) %>%
-  bind_rows(uf_subd(ge_2023,q3_5,"2023","4")) %>%
-  bind_rows(uf_subd(ge_2023,q3_6,"2023","5")) %>%
-  bind_rows(uf_subd(ge_2023,q3_7,"2023","6")) %>%
-  bind_rows(uf_subd(ge_2023,q3_9,"2023","7")) %>%
-  bind_rows(uf_subd(ge_2023,q3_8,"2023","8")) %>%
-  bind_rows(uf_subd(ge_2023,q3_4,"2023","9")) %>%
-  
+  bind_rows(uf_subd(ge_2022,q3_1,"2022","1")) %>%
+  bind_rows(uf_subd(ge_2022,q3_2,"2022","2")) %>%
+  bind_rows(uf_subd(ge_2022,q3_3,"2022","3")) %>%
+  bind_rows(uf_subd(ge_2022,q3_4,"2022","9")) %>%
+  bind_rows(uf_subd(ge_2022,q3_5,"2022","4")) %>%
+  bind_rows(uf_subd(ge_2022,q3_6,"2022","5")) %>%
+  bind_rows(uf_subd(ge_2022,q3_7,"2022","6")) %>%
+  bind_rows(uf_subd(ge_2022,q3_8,"2022","8")) %>%
+  bind_rows(uf_subd(ge_2022,q3_9,"2022","7")) %>%
+  bind_rows(uf_subd(ge_2022,q3_10,"2022","10")) %>%
 
 #  ungroup() %>%
   mutate(Categoria=str_wrap(Categoria,width=28))
@@ -726,9 +462,6 @@ grafico
 ```
 
 ```{r fig-estados-constituicao-subdivisoes_2012, fig.cap = "Percentual de estados segundo característica da estrutura administrativa da Secretaria Estadual de Assistência Social - Brasil,  2012", fig.footer = "Fonte: MDS, Censo SUAS", eval=FALSE}
-
-#ver com a Shirley se continua o dado de 2012 ou atualiza para outro ano tendo em vista a diferença no censo suas 2013
-
 
 tabela<-ge_2012 %>%
 # Questionário 2022:
@@ -778,9 +511,11 @@ grafico<-tabela %>%
 grafico
 ```
 
-Quando se observa a regularização destas áreas, há um grupo instituídas informalmente conforme o @fig-estados-constituicao-subdivisoes, e setores que ainda não estão constituídos em 100% dos estados, a saber Gestão do SUAS, Gestão do trabalho e regulação do SUAS.
 
-```{r fig-estados-constituicao-subdivisoes, fig.cap = "Percentual de estados segundo característica da estrutura administrativa da Secretaria Estadual de Assistência Social - Brasil,  2022", fig.footer = "Fonte: MDS, Censo SUAS.",eval=FALSE}
+Quando se observa a regularização dessas áreas, percebe-se que há um grupo instituído informalmente conforme o @fig-estados-constituicao-subdivisoes, e setores que ainda não estão constituídos em 100% dos estados, a saber Gestão do SUAS, Gestão do trabalho e regulação do SUAS.
+
+
+```{r fig-estados-constituicao-subdivisoes, fig.cap = "Percentual de estados segundo característica da estrutura administrativa da Secretaria Estadual de Assistência Social - Brasil,  2022", fig.footer = "Fonte: MDS, Censo SUAS.", fig.height = 7}
 
 tabela<-ge_2022 %>%
 # Questionário 2022:
@@ -826,67 +561,19 @@ grafico<-tabela %>%
 grafico
 ```
 
-```{r fig-estados-constituicao-subdivisoes, fig.cap = "Percentual de estados segundo característica da estrutura administrativa da Secretaria Estadual de Assistência Social - Brasil,  2023", fig.footer = "Fonte: MDS, Censo SUAS.", fig.height = 7}
-
-#corrigir função
-
-tabela<-ge_2023 %>%
-# Questionário 2023:
-  select(
-    "Gestão do SUAS"=q3_1,
-    "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q3_2,
-    "Gestão do Trabalho"=q3_3,
-    "Regulação do SUAS"=q3_4,
-    "Gestão Financeira e Orçamentária"=q3_5,
-    "Proteção Social Básica"=q3_6,
-    "Proteção Social Especial"=q3_7,
-    "Gestão do Cadastro Único e Programa Bolsa Família"=q3_8,
-    "Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais)"=q3_9,
-   # "Programa Criança Feliz"=q3_10) %>% 2023 não existe
-
-#-------------------
-  gather("Categoria","Nível") %>%
-  mutate(Categoria=str_wrap(Categoria,width=26)) %>%
-  mutate(Nível = case_when(
-    Nível=="Sim, na estrutura formal do órgão gestor"~"Constituída formalmente",
-    Nível=="Sim, de maneira informal"~"Constituída informalmente",
-    TRUE ~ Nível)) %>%
-  mutate(Nível = factor(Nível, levels = c(
-    "Constituída formalmente",
-    "Constituída informalmente",
-    "Não constituída"))) %>%
-  group_by(Categoria, Nível) %>%
-  summarise(n=n()) %>%
-  group_by(Categoria) %>%
-  mutate(Percentual = n/sum(n))
-
-ordenado<-tabela %>%
-  filter(Nível == "Constituída formalmente") %>%
-  arrange(Percentual) %>%
-  pull(Categoria)
-
-grafico<-tabela %>%
-  ungroup() %>%
-  mutate(Categoria = factor(Categoria, levels = ordenado)) %>%
-  mutate(Nível=str_wrap(Nível,width=22)) %>%
-  f_grafico_col_stack_percent_flip(Categoria, Percentual, Nível, 1)
-
-grafico
-```
-
-
 
 No que se refere aos municípios, a última pactuação sobre estrutura administrativa a partir dos portes populacionais dos municípios[^gestao-7] prevê:
 
 [^gestao-7]: 124ª reunião ordinária da CIT - Pacto de Aprimoramento do SUAS
 
--   **municípios de pequeno I e II e médio porte:** 100% dos municípios com instituição formal, na estrutura do órgão gestor de assistência social, as áreas constituídas de Proteção Social Básica, Proteção Social Especial e a área de Gestão do SUAS com competência de Vigilância Socioassistencial.
+-   **Municípios de pequeno I e II e médio porte:** 100% dos municípios com instituição formal, na estrutura do órgão gestor de assistência social, as áreas constituídas de Proteção Social Básica, Proteção Social Especial e a área de Gestão do SUAS com competência de Vigilância Socioassistencial.
 
--   **municípios de grande porte e metrópole:** 100% dos municípios com instituição formal, na estrutura do órgão gestor de assistência social, áreas constituídas de Proteção Social Básica, Proteção Social Especial, com subdivisão de Média e Alta Complexidade, Gestão Financeira e Orçamentária, Gestão de Benefícios Assistenciais e Transferência de Renda, área de Gestão do SUAS com competência de: Gestão do Trabalho, Regulação do SUAS e Vigilância Socioassistencial.
+-   **Municípios de grande porte e metrópole:** 100% dos municípios com instituição formal, na estrutura do órgão gestor de assistência social, áreas constituídas de Proteção Social Básica, Proteção Social Especial, com subdivisão de Média e Alta Complexidade, Gestão Financeira e Orçamentária, Gestão de Benefícios Assistenciais e Transferência de Renda, área de Gestão do SUAS com competência de: Gestão do Trabalho, Regulação do SUAS e Vigilância Socioassistencial.
 
 O @fig-munic_sub mostra crescimento formal de todas as áreas administrativas. As áreas do SUAS com maior percentual de constituição formal[^gestao-8] que dispõe sobre esta organização são respectivamente: Gestão do Cadastro Único e Bolsa Família, Gestão da Proteção Social Básica e Gestão do SUAS.
 
 [^gestao-8]: A regulamentação destas areas essenciais devem estar previstas no organograma. A Lei do SUAS Lei nº 12.435, de 06/07/2011 altera a Lei Organiza da Assistência Social (LOAS) - nº 8.742, de 07/.12.1993
+
 
 ```{r fig-munic_sub, fig.cap = "Percentual segundo estrutura administrativa formal da Secretaria Municipal de Assistência Social - Brasil, 2012 - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 #| fig-height: 5
@@ -970,9 +657,11 @@ grafico<-tabela %>%
 grafico
 ```
 
-Ao considerar a instituição informal, o @fig-municipais-constituicao-subdivisoes sinaliza que a Gestão do trabalho e Vigilância Socioassistencial são os mais altos percentuais de informalidade e não constituição. Destaca-se também a proteção social especial, área recomendada existir independe da presença de unidades de CREAS.
 
-```{r fig-municipais-constituicao-subdivisoes, fig.cap = "Distribuição dos órgãos gestores municipais segundo constituição/formalização de subdivisões administrativas - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS";eval=FALSE}
+Quanto às subdivisões administrativas, nota-se que em relação à constituição informal ou ausência dela, as que possuem o maior percentual são a Gestão do trabalho e a Vigilância Socioassistencial. Destaca-se, também, a Proteção Social Especial, cuja existência é recomenda independente da presença de CREAS (@fig-municipais-constituicao-subdivisoe).
+
+
+```{r fig-municipais-constituicao-subdivisoes, fig.cap = "Distribuição dos órgãos gestores municipais segundo constituição/formalização de subdivisões administrativas - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 #| fig-height: 5
 
 # Questionários 2016:
@@ -1033,83 +722,6 @@ grafico<-tabela %>%
 
 grafico
 ```
-
-```{r fig-municipais-constituicao-subdivisoes, fig.cap = "Distribuição dos órgãos gestores municipais segundo constituição/formalização de subdivisões administrativas - Brasil, 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
-#| fig-height: 5
-
-#corrigir função
-
-# Questionários 2016:
-#tabela<-gm_2016 %>%
-#  select("Proteção Social Básica"=q3_1,
-#         "Proteção Social Especial"=q3_2,
-#         "Gestão de Benefícios Assistenciais (Bolsa Família, BPC, Benefícios Eventuais)"=q3_3,
-#         "Gestão do SUAS"=q3_4,
-#         "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q3_5,
-#         "Gestão do Trabalho"=q3_6,
-#         "Regulação do SUAS"=q3_7,
-#         "Gestão Financeira e Orçamentária"=q3_8) %>%
-#-------------------
-# Questionário 2017:
-#tabela<-gm_2017 %>%
-#  select("Gestão do SUAS"=q3.1,
-#         "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q3.2,
-#         "Gestão do Trabalho"=q3.3,
-#         "Regulação do SUAS"=q3.4,
-#         "Gestão Financeira e Orçamentária"=q3.5,
-#         "Proteção Social Básica"=q3.6,
-#         "Proteção Social Especial"=q3.7,
-#         "Gestão do Cadastro Único e Programa Bolsa Família"=q3.8,
-#         "Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais)"=q3.9) %>%
-#-------------------
-# Questionário 2022:
-#tabela<-gm_2022 %>%
- # select("Gestão do SUAS"=q1_1,
-#         "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q1_2,
-#         "Gestão do Trabalho"=q1_3,
-#         "Regulação do SUAS"=q1_4,
-#         "Gestão Financeira e Orçamentária"=q1_5,
-#         "Proteção Social Básica"=q1_6,
-#         "Proteção Social Especial"=q1_7,
-#         "Gestão do Cadastro Único e Programa Bolsa Família"=q1_8,
-#         "Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais)"=q1_9) %>%
-#-------------------
-# Questionário 2023:
-tabela<-gm_2023 %>%
-  select("Gestão do SUAS"=q3_1,
-         "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q3_2,
-         "Gestão do Trabalho"=q3_3,
-         "Regulação do SUAS"=q3_4,
-         "Gestão Financeira e Orçamentária"=q3_5,
-         "Proteção Social Básica"=q3_6,
-         "Proteção Social Especial"=q3_7,
-         "Gestão do Cadastro Único e Programa Bolsa Família"=q3_8,
-         "Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais)"=q3_9) %>%
-#-------------------
-  gather("Categoria","Nível") %>%
-  mutate(Categoria=str_wrap(Categoria,width=28)) %>%
-  mutate(Nível = case_when(Nível=="Sim, na estrutura formal do órgão gestor"~"Constituída formalmente",
-                           Nível=="Sim, de maneira informal"~"Constituída informalmente",
-                           TRUE ~ Nível)) %>%
-  group_by(Categoria, Nível) %>%
-  summarise(n=n()) %>%
-  group_by(Categoria) %>%
-  mutate(Percentual = n/sum(n))
-
-ordenado<-tabela %>%
-  filter(Nível == "Constituída formalmente") %>%
-  arrange(Percentual) %>%
-  pull(Categoria)
-
-grafico<-tabela %>%
-  ungroup() %>%
-  mutate(Categoria = factor(Categoria, levels = ordenado)) %>%
-  mutate(Nível=str_wrap(Nível,width=22)) %>%
-  f_grafico_col_stack_percent_flip(Categoria, Percentual, Nível, 1)
-
-grafico
-```
-
 
 ```{r fig-municipais-constituicao-subdivisoes_2012, fig.cap = "Distribuição dos órgãos gestores municipais segundo constituição/formalização de subdivisões administrativas - Brasil, 2012", fig.footer = "Fonte: MDS, Censo SUAS", eval=FALSE}
 
@@ -1197,19 +809,27 @@ grafico<-tabela %>%
 grafico
 ```
 
-A uniformização da Lei do SUAS dos estados e municípios em consonâcia com a LOAS foi deliberação da X Conferência Nacional. Sobre essa disposição, observa-se que nas gestões estaduais, 58% dos estados possuem Lei Estadual de regulamentação do SUAS (total de 15 estados). As últimas atualizações ocorreram a partir de 2017 (12 estados), com exceção de Minas Gerais em 2011 Goiás em 2015 e Mato Grosso do Sul em 2016.
 
-Entretando, 11 estados que não possuem Lei do SUAS. Este número está presente nas seguintes regiões do Brasil: 4 - Nordeste, 3 - Norte, 2 - Região Sul e 1 - Região Sudeste. Sudeste[^gestao-9].
+A uniformização da Lei do SUAS dos estados e municípios em consonâcia com a LOAS foi deliberação da X Conferência Nacional. Sobre essa disposição, observa-se que nas gestões estaduais, 15 estados (58%) possuem Lei Estadual de regulamentação do SUAS (total de 15 estados). As últimas atualizações ocorreram a partir de 2017 (12 estados), com exceção de Minas Gerais em 2011 Goiás em 2015 e Mato Grosso do Sul em 2016.
 
-[^gestao-9]: siglas dos Estado que não possuem Lei do SUAS - Censo SUAS 2022: RR, PA, TO, PI, RN, SE, BA, SP, PR, SC e RS
+Entretando, 11 estados que não possuem Lei do SUAS. Este número está presente nas seguintes regiões do Brasil:
 
-```{r fig-estados-atualizacao-lei, fig.cap = "Quantidade de estados segundo último ano de atualização da Lei Estadual de regulamentação do Sistema Único de Assistência Social (SUAS) - Brasil, 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
+Nordeste (4): PI, RN, SE e BA,
 
-grafico<-ge_2023 %>%
+Norte (3): RR, PA e TO
+
+Região Sul (2): PR, SC e RS
+
+Região Sudeste (1): SP.
+
+
+```{r fig-estados-atualizacao-lei, fig.cap = "Quantidade de estados segundo último ano de atualização da Lei Estadual de regulamentação do Sistema Único de Assistência Social (SUAS) - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico<-ge_2022 %>%
   select(x = q4) %>%
   mutate(x = case_when(x <= 2017~"Até 2017",
                             TRUE ~ as.character(x))) %>%
-  mutate(x = factor(x, levels = c("Até 2017","2018","2019","2020","2021","2022","2023"))) %>%
+  mutate(x = factor(x, levels = c("Até 2017","2018","2019","2020","2021","2022"))) %>%
 
   group_by(x) %>%
   summarise(n=n()) %>%
@@ -1220,21 +840,22 @@ grafico<-ge_2023 %>%
 grafico
 ```
 
-Em 2022, 75% dos municípios possuíam Lei Municipal de regulamentação do SUAS (4.170). Destes, a maioria, 91% (3.798) aprovaram/atualizaram após 2013 e 9% (372) anterior a atualização da Lei Nacional[^gestao-10] e a NOB SUAS/2012 conforme detalha o @fig-municipios-atualizacao-lei. A inexistência de Lei é encontrada em 25% (1.400) dos municípios.
 
-[^gestao-10]: Lei nº 12.435, de 06/07/2011 altera a Lei Organiza da Assistência Social (LOAS) - nº 8.742, de 07/.12.1993
+Em 2022, 75% dos municípios possuíam Lei Municipal de regulamentação do SUAS (4.170). Destes, a maioria, 91% (3.798) aprovaram e/ou atualizaram após 2013 e 9% (372) anterior a atualização da Lei Nacional[^gestao-9] e a NOB SUAS/2012 conforme detalha o @fig-municipios-atualizacao-lei. A inexistência de Lei é encontrada em 25% (1.400) dos municípios.
 
-```{r fig-municipios-atualizacao-lei, fig.cap = "Percentual de municípios segundo último ano de atualização da Lei Municipal de regulamentação do Sistema Único de Assistência Social (SUAS) - Brasil, 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
+[^gestao-9]: Lei nº 12.435, de 06/07/2011 altera a Lei Organiza da Assistência Social (LOAS) - nº 8.742, de 07/.12.1993
 
-grafico <- gm_2023 %>%
-  select(x=q4) %>%
+
+```{r fig-municipios-atualizacao-lei, fig.cap = "Percentual de municípios segundo último ano de aprovação e/ou atualização da Lei Municipal de regulamentação do Sistema Único de Assistência Social (SUAS) - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- gm_2022 %>%
+  select(x=q3) %>%
   mutate(x = case_when(x <= 2012~"Até 2012",
                        x <= 2016~"Entre 2013 e 2016",
                        x <= 2019~"Entre 2017 e 2019",
                        x <= 2022~"Entre 2020 e 2022",
-                       x <= 2023~"2023",
                        TRUE ~ as.character(x))) %>%
-  mutate(x = factor(x, levels = c("Até 2012","Entre 2013 e 2016", "Entre 2017 e 2019", "Entre 2020 e 2022", "2023"))) %>%
+  mutate(x = factor(x, levels = c("Até 2012","Entre 2013 e 2016", "Entre 2017 e 2019", "Entre 2020 e 2022"))) %>%
   group_by(x) %>%
   summarise(n=n()) %>%
   mutate(Percentual = n/sum(n)) %>%
@@ -1245,11 +866,13 @@ grafico <- gm_2023 %>%
 grafico
 ```
 
-No que se refere ao Planejamento, trata-se de uma obrigatoriedade para existência do Sistema Único e repasse de confinanciamento. O Plano Estadual de Assistência Social (PEAS) deve ser aprovado pelo Conselho Estadual de Assistência Social (CEAS). Os dados do @fig-PEAS sinalizam que a partir de 2020 há um decréscimo desta atualização com devida aprovação do conselho[^gestao-11] [^gestao-12].
 
-[^gestao-11]: Para os anos de 2016, 2017, 2018 e 2019 as perguntas alteraram, impossibilitando a linha histórica
+O Plano de Assistência Social é uma obrigatoriedade para existência de confinanciamento federal. O Plano Estadual de Assistência Social (PEAS) deve ser aprovado pelo Conselho Estadual de Assistência Social (CEAS). Os dados do @fig-PEAS sinalizam que a partir de 2020 há um decréscimo desta atualização com devida aprovação do conselho[^gestao-10] [^gestao-11].
 
-[^gestao-12]: Para os municípios não foi possível fazer essa linha histórica em decorrência de mudanças nas perguntas
+[^gestao-10]: Para os anos de 2016, 2017, 2018 e 2019 as perguntas alteraram, impossibilitando a linha histórica
+
+[^gestao-11]: Para os municípios não foi possível fazer essa linha histórica em decorrência de mudanças nas perguntas
+
 
 ```{r fig-PEAS, fig.cap = "Percentual de Estados quanto a atualização do Plano Estadual de Assistência Social no ano do Censo - Brasil, 2020 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -1263,16 +886,18 @@ grafico <-
   f_sim(ge_2020,q5,"2020") %>%
   bind_rows(f_sim(ge_2021,q5,"2021")) %>%
   bind_rows(f_sim(ge_2022,q5,"2022")) %>%
-  #2023 não tem essa pergunta
+
   #anos que as questões mudam: 2016, 2017,2018,2019
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 ```
 
-O Plano de apoio técnico aos municípios também é um produto a ser realizado pelos Estados e previsto no último pacto de aprimoramento Estadual do SUAS[^gestao-13]. De acordo com Censo Suas 2022, 57,69% dos Estados possuem este plano pactuado na CIB. Este percentual reduziu em relação ao ano de 2017, na qual mais de 77% dos estados informaram possuir este documento pactuado nesta instância de comissão intergestores bipartite (CIB).
 
-[^gestao-13]: Resolução CNAS Nº2, de 16 de março de 2017
+O Plano de apoio técnico aos municípios também é um produto a ser realizado pelos Estados e previsto no último pacto de aprimoramento Estadual do SUAS[^gestao-12]. De acordo com Censo Suas 2022, 57,69% dos Estados possuem este plano pactuado na CIB. Este percentual reduziu em relação ao ano de 2017, na qual mais de 77% dos estados informaram possuir este documento pactuado nesta instância de comissão intergestores bipartite (CIB).
+
+[^gestao-12]: Resolução CNAS Nº2, de 16 de março de 2017
+
 
 ```{r fig-plan_apoio_tec, fig.cap = "Percentual de Estados que possuem Plano de Apoio Técnico pactuado na CIB - Brasil, 2013 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -1286,7 +911,7 @@ grafico <- f_sim(ge_2013, q85, "2013") %>%
    bind_rows(f_sim(ge_2020, q20, "2020")) %>%
    bind_rows(f_sim(ge_2021, q18, "2021")) %>%
    bind_rows(f_sim(ge_2022, q20, "2022")) %>%
-   bind_rows(f_sim(ge_2023, q19, "2023")) %>%
+
   #2012 não tem essa pergunta
 
   f_grafico_col_percent(Categoria, Percentual)
@@ -1294,9 +919,10 @@ grafico <- f_sim(ge_2013, q85, "2013") %>%
 grafico
 ```
 
-A NOB SUAS 2012 também evidencia o papel dos estados frente as atribuições de apoio técnico e financeiro aos municípios[^gestao-14] na qual compreende ações de:
 
-[^gestao-14]: Capítulo III - NOBSUAS/2012
+A NOB SUAS 2012 também evidencia o papel dos estados frente as atribuições de apoio técnico e financeiro aos municípios[^gestao-13] na qual compreende ações de:
+
+[^gestao-13]: Capítulo III - NOBSUAS/2012
 
 I)  Capacitação;
 II) Elaboração de normas e instrumentos;
@@ -1307,6 +933,7 @@ V)  Incentivos financeiros.
 Em 2022, todos os estados informaram realizar alguma modalidade de apoio técnico aos municípios. Os maiores percentuais observados referiam-se ao Apoio Técnico individualizado a municípios específicos ofertado por 96,2% dos estados (25). Os menores percentuais eram referentes a Seminários 46,2%, (12). Outras formas eram ofertadas por 15,4% dos estados (@fig-estados-formas-apoio).
 
 Entre 2013 e 2022 o percentual de estados que prestavam assessoramento técnico a distância aumentou significativamente, passando de 42,3% (11) em 2013 para 92,3% (24) em 2022.
+
 
 ```{r fig-estados-formas-apoio, fig.cap = "Percentual de estados segundo formas de apoio técnico aos municípios - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -1509,7 +1136,7 @@ grafico<-tabela %>%
 grafico
 ```
 
-```{r fig-municipios-receberam-visitas, fig.cap = "Percentual de municípios que receberam visitas de técnicos da Secretaria Estadual de Assistência Social (SEAS) - Brasil, 2013 a 2019", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
+```{r fig-municipios-receberam-visitas, fig.cap = "Percentual de municípios que receberam visitas de técnicos da Secretaria Estadual de Assistência Social (SEAS) - Brasil, 2013 a 2017", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
 
 gm_visita_tecnicos = function(df, q, ano){
   q <- enquo(q)
@@ -1539,9 +1166,8 @@ grafico <- gm_visita_tecnicos(gm_2013, q19, "2013") %>%
   bind_rows(gm_visita_tecnicos(gm_2017, q19, "2017")) %>%
   bind_rows(gm_visita_tecnicos(gm_2019, q10, "2019")) %>%
   #bind_rows(gm_visita_tecnicos(gm_2022, q7_5, "2022")) %>%
-  #bind_rows(gm_visita_tecnicos(gm_2023, q5_5, "2023")) %>%
- 
-  #2022 e 2023 muda a lógica da pergunta
+
+ #2022 muda a lógica da pergunta
 
 
   ggplot(aes(x = Categoria, y = Percentual, group = Nível)) +
@@ -1562,14 +1188,16 @@ grafico <- gm_visita_tecnicos(gm_2013, q19, "2013") %>%
 grafico
 ```
 
+
 No @fig-munic_vit_estadual os dados percentuais mostram um aumento gradual dos municípios que informam receber visitas da gestão estadual para apoio técnico. Entretanto 62,5% informam não ter recebido visita de apoio técnico no último ano.
 
-```{r fig-munic_vit_estadual, fig.cap = "Percentual de Municípios que informam receber visitas de Apoio Técnico do Estado - Brasil, 2020 a 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
+
+```{r fig-munic_vit_estadual, fig.cap = "Percentual de Municípios que informam receber visitas de Apoio Técnico do Estado - Brasil, 2020 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
 grafico <- f_sim(gm_2020, q7_5, "2020") %>%
   bind_rows(f_sim(gm_2021, q7_5, "2021")) %>%
   bind_rows(f_sim(gm_2022, q7_5, "2022")) %>%
-  bind_rows(f_sim(gm_2023, q5_5, "2023")) %>%
+
   #a partir de 2020 a pergunta foi alterada, impossibilitando a linha histórica
 
   f_grafico_col_percent(Categoria, Percentual)
@@ -1577,11 +1205,13 @@ grafico <- f_sim(gm_2020, q7_5, "2020") %>%
 grafico
 ```
 
+
 No que se refere a Educação Permanente, nota-se um aumento dos estados que possuem Núcleo de Educação Permante (@fig-NUEP).
 
 O censo de 2022 sinaliza 88,5% (23) dos Estados possuem esta instância colegiada de maneira formal. Trata-se de um foro constituído pela participação e cooperação institucionalizada de gestores, trabalhadores, usuários, conselheiros de assistência social, e instituições de ensino, pesquisa e extensão. O objetivo é deliberar sobre a implementação continuada da Política de educação permanente do SUAS.
 
-```{r fig-NUEP, fig.cap = "Percentual de Estados que possuem Núcleo de Educação Permanente, 2020 a 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
+
+```{r fig-NUEP, fig.cap = "Percentual de Estados que possuem Núcleo de Educação Permanente, 2020 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
 nuep  = function(df, q, ano){
   q <- enquo(q)
@@ -1605,9 +1235,7 @@ nuep  = function(df, q, ano){
 grafico <- nuep(ge_2020, q47, "2020") %>%
     bind_rows(nuep(ge_2021, q47, "2021")) %>%
     bind_rows(nuep(ge_2022, q47, "2022")) %>%
-    bind_rows(nuep(ge_2023, q29, "2023")) %>%
-  
-  #2023 não tem a categoria Sim, de maneira informal
+
   #pergunta sugiu a partir de 2020
 
   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
@@ -1615,9 +1243,11 @@ grafico <- nuep(ge_2020, q47, "2020") %>%
 grafico
 ```
 
-Em relação ao Plano de Educação Permanente, de acordo com Censo SUAS de 2021, 13,9% (769) dos municípios possuem este plano. Esse percentual, como pode ser observado no @fig-PNEP_Munic, teve evolução residual últimos anos[^gestao-15].
 
-[^gestao-15]: Para o ano de 2022 essa pergunta foi extinta
+Em relação ao Plano de Educação Permanente, de acordo com Censo SUAS de 2021, 13,9% (769) dos municípios possuem este plano. Esse percentual, como pode ser observado no @fig-PNEP_Munic, teve evolução residual últimos anos[^gestao-14].
+
+[^gestao-14]: Para o ano de 2022 essa pergunta foi extinta
+
 
 ```{r fig-PNEP_Munic, fig.cap = "Percentual de municípios que possuem Plano de Capacitação e Educação Permanente, - Brasil; 2015 a 2019 e 2021", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -1628,10 +1258,8 @@ grafico <- f_sim(gm_2015, q40, "2015") %>%
     bind_rows(f_sim(gm_2019, q52, "2019")) %>%
     #bind_rows(f_sim(gm_2020, q73, "2020")) %>%
     bind_rows(f_sim(gm_2021, q73, "2021")) %>%
-    bind_rows(f_sim(gm_2023, q62, "2023")) %>%
-  
-  
-   #pergunta não foi feita em 2022
+
+  #pergunta foi extinta em 2022
   #2020 a base de dados não computou essa resposta - problemas de mineração (Dionada relatou).
   #para os estados não há essa pergunta
 
@@ -1647,12 +1275,11 @@ grafico <- f_selecao_regiao_ano(gm_2015, q40, "Sim", Região, "2015") %>%
    bind_rows(f_selecao_regiao_ano(gm_2017, q31, "Sim", Região, "2017")) %>%
    bind_rows(f_selecao_regiao_ano(gm_2018, q_51, "Sim", Região, "2018")) %>%
    bind_rows(f_selecao_regiao_ano(gm_2019, q52, "Sim", Região, "2019")) %>%
-  # bind_rows(f_selecao_regiao_ano(gm_2020, q73, "Sim", Região, "2020")) %>%
-   bind_rows(f_selecao_regiao_ano(gm_2021, q73, "Sim", Regiao, "2021")) %>%
-   bind_rows(f_selecao_regiao_ano(gm_2023, q62, "Sim", IBGE, "2023")) %>%
-   
- 
-   #não há esta pergunta para os estados2022_foi retirada
+   bind_rows(f_selecao_regiao_ano(gm_2020, q73, "Sim", Região, "2020")) %>%
+   bind_rows(f_selecao_regiao_ano(gm_2021, q73, "Sim", Região, "2021")) %>%
+  # bind_rows(f_selecao_regiao_ano(gm_2022, q73, "Sim", IBGE, "2022")) %>%
+
+  #não há esta pergunta para os estados2022_foi retirada
 
   ggplot(aes(x = Região, y = Percentual, group = Ano)) +
   geom_col(aes(fill = Ano), position="dodge") +
@@ -1714,21 +1341,21 @@ grafico <- gm_2017 %>%
 grafico
 ```
 
+
 ## Financiamento e Gestão Financeira
 
-O modelo de gestão do SUAS preve cofinanciamento compartilhado entre os três entes federados[^gestao-16].
+O modelo de gestão do SUAS preve cofinanciamento compartilhado entre os três entes federados[^gestao-15]. Nesta perspetiva, nos últimos 10 anos, percebe-se um avanço sobre a participação dos estados no cofinanciamento estadual com participação de 96,15% (25) dos estados que informam cofinanciar os municípios (@fig-estados-cofinanciamento-municipios).
 
-[^gestao-16]: Art. 30-A. O cofinanciamento dos serviços, programas, projetos e benefícios eventuais, no que couber, e o aprimoramento da gestão da política de assistência social no Suas se efetuam por meio de transferências automáticas entre os fundos de assistência social e mediante alocação de recursos próprios nesses fundos nas 3 (três) esferas de governo.
+[^gestao-15]: Art. 30-A. O cofinanciamento dos serviços, programas, projetos e benefícios eventuais, no que couber, e o aprimoramento da gestão da política de assistência social no Suas se efetuam por meio de transferências automáticas entre os fundos de assistência social e mediante alocação de recursos próprios nesses fundos nas 3 (três) esferas de governo.
 
-Nesta perspetiva, percebe-se um avanço nos últimos 10 anos sobre a participação dos estados no cofinanciamento estadual com participação de 96,15% (25) dos estados que informam cofinanciar os municípios (@fig-estados-cofinanciamento-municipios).
+A forma de cofinanciamento deve ser viabilizada por meio de transferência automática regular entre os fundos de assistência social (Fundo a Fundo). Sobre esse item, observa-se que em 2012, 26,63% (8) dos estados realizavam cofinanciamento na modalidade de apenas Fundo a Fundo e 25,9% (7) apenas por convenio. Em 2022, 88,46% (23) dos estados realizavam cofinanciamneto regular e automático, existindo a prática exclusiva por convênio.
 
-A forma de cofinanciamento deve ser viabilizada por meio de transferência automática regular entre os fundos de assistência social (Fundo a Fundo). Sobre esse item, observa-se que em 2012, 26,63% (8) dos estados realizavam cofinanciamento na modalidade de apenas Fundo a Fundo e 25,9% (7) apenas por convenio. Dado que avançou ao longo dos anos, em 2022, 88,46% (23) dos estados que realizam cofinanciamneto regular e automático e nenhum estado apenas por convênio.
+Apesar destes avanços, há registros de não cofinanciamento estadual, no qual caiu de 25,93% (7) no ano de 2012 para 3,85% (1) em 2022 (1)[^gestao-16].
 
-Apesar destes avanços, há registros de não cofinanciamento estadual, no qual caiu de 25,93% (7) no ano de 2012 para 3,85% (1) em 2022 (1)[^gestao-17].
+[^gestao-16]: o Estado do Acre não cofinancia os municípios
 
-[^gestao-17]: o Estado do Acre não cofinancia os municípios
 
-```{r fig-estados-cofinanciamento-municipios, fig.cap = "Percentual de estados segundo realização de cofinanciamento aos municípios - Brasil; 2012 a 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r fig-estados-cofinanciamento-municipios, fig.cap = "Percentual de estados segundo realização de cofinanciamento aos municípios - Brasil; 2012 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 ge_cofinanciamento = function(df, q, ano, ibge){
   q <- enquo(q)
@@ -1771,14 +1398,15 @@ grafico <- ge_cofinanciamento(ge_2012, q64_0, "2012", codigo_ibge) %>%
   bind_rows(ge_cofinanciamento(feas_2020, q9, "2020", IBGE)) %>%
   bind_rows(ge_cofinanciamento(feas_2021, q9, "2021", IBGE)) %>%
   bind_rows(ge_cofinanciamento(feas_2022, q9, "2022", IBGE)) %>%
-  bind_rows(ge_cofinanciamento(feas_2023, q9, "2023", IBGE)) %>%
-  
+
   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
 
 grafico
 ```
 
+
 O @fig-estados-blocos-recursos evidencia a quantidade de estados quando ao cofinanciamento aos municípios por blocos. Os dados dos últimos 10 anos, sinaliza que o número de estados que cofinanciam os municípios vem aumentando. Sobretudo o cofinanciamento da proteção social especial (Média e Alta Complexidade), em seguida Benefícios Eventuais. No que se refere aos últimos 5 anos houve uma redução na destinação de recursos para proteção social básica e incentivos do SUAS.
+
 
 ```{r fig-estados-blocos-recursos, fig.cap = "Número de estados segundo a destinação dos recursos transferidos aos municípios por blocos de financiamento - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -1839,16 +1467,9 @@ tabela <- ge_destinacao_recursos(ge_2012, q65_1, "2012", "1") %>%
   bind_rows(ge_destinacao_recursos(feas_2022, q13_3, "2022", "3")) %>%
   bind_rows(ge_destinacao_recursos(feas_2022, q13_4, "2022", "4")) %>%
   bind_rows(ge_destinacao_recursos(feas_2022, q13_5, "2022", "5"))
- # bind_rows(ge_destinacao_recursos(feas_2023, q13_1, "2023", "1")) %>%
- # bind_rows(ge_destinacao_recursos(feas_2023, q13_2, "2023", "2")) %>%
- # bind_rows(ge_destinacao_recursos(feas_2023, q13_3, "2023", "3")) %>%
- # bind_rows(ge_destinacao_recursos(feas_2023, q13_4, "2023", "4")) %>%
- # bind_rows(ge_destinacao_recursos(feas_2023, q13_5, "2023", "5"))
-    
-#feas não está rodando
 
 ordenado<-tabela %>%
-  filter(Ano == "2023") %>%
+  filter(Ano == "2022") %>%
   arrange(n) %>%
   pull(Categoria)
 
@@ -1976,7 +1597,9 @@ grafico<-tabela %>%
 grafico
 ```
 
+
 O ordenador de despesa responde pela emissão de empenho, autorização de pagamento dos recursos do fundo de assistência social. Assim, recomenda-se que este tenha amplo conhecimento sobre a política. O @fig-estado_ord_despesa sinaliza que 73% dos gestores estaduais são ordenadores de despesa do fundo estadual. Dado que reduziu a partir de 2018.
+
 
 ```{r fig-estado_ord_despesa, fig.cap = "Percentual de estados quanto a ordenação de despesa do Fundo Estadual - Brasil, 2018-2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -2023,18 +1646,17 @@ grafico <- ord_despesa(ge_2012, q44, "2012") %>%
   bind_rows(ord_despesa(feas_2020, q2, "2020")) %>%
   bind_rows(ord_despesa(feas_2021, q2, "2021")) %>%
   bind_rows(ord_despesa(feas_2022, q2, "2022")) %>%
-  bind_rows(ord_despesa(feas_2023, q2, "2023")) %>% 
- 
-  #feas não está rodando
-  
-  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 2)
+
+ f_grafico_col_stack_percent(Categoria, Percentual, Nível, 2)
 
 grafico
 ```
 
+
 No que se refere aos municípios, aproximadamente 80% das/os secretárias/os municipais são ordenadores de despesa do Fundo Municipal. Esse percentual aumentou a partir de 2016.
 
 O @fig-munic_ord_despesa também mostra que as/os prefeitas/os enquanto ordenadores de despesa da política de Assistência Social vem reduzindo ao longo dos anos. Dado que se revela como positivo, haja vista o gestor municipal encontra-se no cotidiano do planejamento desta política pública, sendo mais apropriado para tomar as decisões sobre o orçamento.
+
 
 ```{r fig-munic_ord_despesa, fig.cap = "Percentual de municípios quanto a ordenação de despesa do Fundo Municipal - Brasil, 2013 - 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -2079,8 +1701,7 @@ grafico <- ord_despesa(gm_2012, q28, "2012") %>%
   bind_rows(ord_despesa(fmas_2020, q2, "2020")) %>%
   bind_rows(ord_despesa(fmas_2021, q2, "2021")) %>%
   bind_rows(ord_despesa(fmas_2022, q2, "2022")) %>%
-  bind_rows(ord_despesa(fmas_2023, q2, "2023")) %>%
-  
+
   #2019 - FMAS base númerica - Solicitei substituição a Dionara
 
   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 4)
@@ -2144,9 +1765,11 @@ grafico <- fmas_2022 %>%
 grafico
 ```
 
+
 ## Programas de execução própria executadas pelos estados
 
 Em relação aos programas próprios de transferência de renda executados pelos estados, percebe-se um aumento ao longo dos anos na qual em 2022, 65% dos estados informaram que possuem conforme o @fig-be_uf_renda.
+
 
 ```{r fig-be_uf_propria, fig.cap = "Percentual de estados que possuem programas de execução própria", fig.footer = "Fonte: MDS, Censo SUAS", eval=FALSE}
 
@@ -2163,7 +1786,7 @@ grafico <-
 grafico
 ```
 
-```{r fig-be_uf_renda, fig.cap = "Percentual de estados que possuem programa próprio de transferência de renda", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r fig-be_uf_renda, fig.cap = "Percentual de estados que possuem programa próprio de transferência de renda, Brasil, 2012 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
 grafico <- f_sim(ge_2012, q33, "2012") %>%
    bind_rows(f_sim(ge_2013, q43, "2013")) %>%
@@ -2182,7 +1805,9 @@ grafico <- f_sim(ge_2012, q33, "2012") %>%
 grafico
 ```
 
+
 Destes estados (17) que informam possuir programa próprio de transferência de renda, 82,3% utilizam o Cadastro Único para seleção das pessoas beneficiárias.
+
 
 ```{r fig-uf_usa_cad, fig.cap = "Percentual de estados que possuem programas de execução própria utilizando o Cadastro Único para seleção dos beneficiários", fig.footer = "Fonte: MDS, Censo SUAS", eval=FALSE}
 
@@ -2195,21 +1820,22 @@ grafico <- f_sim(ge_2020, q11_1, "2020") %>%
 grafico
 ```
 
-## Gestão do Cadastro Único[^gestao-18]
 
-[^gestao-18]: O formulário do posto do Cadastro Único foi criado em 2020, assim a maioria das informações disponíveis terão referência a partir desta data.
+## Gestão do Cadastro Único[^gestao-17]
 
-O Cadastro Único para Programas Sociais do Governo Federal (Cadastro Único) instituído por meio do art. 6º-F da Lei nº 8.742, de 7 de dezembro de 1993 (Lei Orgânica da Assistência Social), e regulamentado por meio do Decreto nº 11.016, de 29 de março de 2022 tem a finalidade de coletar, sistematizar e disseminar informações que permitem a identificação e caracterização das condições socioeconômicas das famílias em situação de vulnerabilidade social, sobretudo para as famílias de baixa de renda.
+[^gestao-17]: O formulário do posto do Cadastro Único foi criado em 2020, assim a maioria das informações disponíveis terão referência a partir desta data.
+
+O Cadastro Único para Programas Sociais do Governo Federal (Cadastro Único) instituído pelo art. 6º-F da Lei nº 8.742, de 7 de dezembro de 1993 (Lei Orgânica da Assistência Social), e regulamentado pelo Decreto nº 11.016, de 29 de março de 2022 tem a finalidade de coletar, sistematizar e disseminar informações que permitem a identificação e caracterização das condições socioeconômicas das famílias em situação de vulnerabilidade social, sobretudo para as famílias de baixa de renda.
 
 O objetivo é conhecer, incluir e aprimorar as políticas sociais através do acesso a serviços, programas, benefícios, identificação das famílias e territórios vulnerabilizados, bem como ações intersetoriais.
 
-A gestão do Cadastro Único é compartilhada entre União, Estados, Municípios e Distrito Federal na qual cabe aos estados o apoio técnico, capacitação, monitoramento e avaliação. É nos municípios que estão os locais de cadastramento e toda gestão territorial da identificação das famílias neste cadastro público.
+A gestão do Cadastro Único é compartilhada entre União, estados, municípios e Distrito Federal. Cabe aos estados o apoio técnico, capacitação, monitoramento e avaliação. É nos municípios que estão os locais de cadastramento e toda gestão territorial da identificação das famílias neste cadastro público.
 
 As unidades do Cadastro Único podem ser encontradas em locais exclusivos ou na rede de atendimento socioassistencial de CRAS, CREAS, Centro POP. Dados do Censo SUAS mostram uma evolução de locais de cadastramento, sobretudo a partir de 2017.
 
-Sobre a distribuição destes locais de Cadastro Único, destaca-se que em 2022, 31% (2.892) são unidades exclusivas de Cadastro Único e 68% (6.435) estão em unidades da rede socioassistencial[^gestao-19] conforme pode ser observado na tabela @tbl-qtd_unidades.
+Sobre a distribuição destes locais de Cadastro Único, destaca-se que em 2022, 31% (2.892) são unidades exclusivas de Cadastro Único e 68% (6.435) estão em unidades da rede socioassistencial[^gestao-18] conforme pode ser observado na tabela @tbl-qtd_unidades.
 
-[^gestao-19]: CRAS, CREAS e CENTRO POP
+[^gestao-18]: CRAS, CREAS e CENTRO POP
 
 <!-- ```{=tex} -->
 
@@ -2246,7 +1872,7 @@ Sobre a distribuição destes locais de Cadastro Único, destaca-se que em 2022,
 <!-- ``` -->
 
 | Unidades              |   2017    |   2018    |   2019    |   2020    |   2021    |   2022    |
-|:----------|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
+|:----------------------|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
 | CRAS                  |   5.669   |   5.508   |   5.923   |   5.729   |   5.937   |   6.090   |
 | CREAS                 |    281    |    174    |    199    |    199    |    208    |    230    |
 | Centro POP            |    112    |    83     |    84     |    108    |    106    |    115    |
@@ -2259,9 +1885,10 @@ A respeito da estrutura física das unidades exclusivas do Cadastro Único desta
 
 No que se refere a gestão territorial, cabe as coordenações do Cadastro Único dos municípios o atendimento, a supervisão, o monitoramento e a avaliação dos processos de cadastramento, seja em postos específicos ou integradas as unidades da rede socioassistencial.
 
-O @fig-gestao_cad sinaliza que, no âmbito da gestão municipal, as ações de levantamento de famílias para atualização e inclusão cadastral são a mais realizada. A menor proporção se refere a ações de elaboração de análises utilizando dados do Cadastro Único (@fig-gestao_cad)[^gestao-20].
+O @fig-gestao_cad sinaliza que, no âmbito da gestão municipal, as ações de levantamento de famílias para atualização e inclusão cadastral são a mais realizada. A menor proporção se refere a ações de elaboração de análises utilizando dados do Cadastro Único (@fig-gestao_cad)[^gestao-19].
 
-[^gestao-20]: estas informações são do formulário de Gestão Municipal, assim se referem a informações gerais que a gestão informa realizar, destaca-se também que estas informações estão disponíveis a partir do ano de 2020 entretanto, só foi possível gerar a partir de 2021 em decorrência de problemas na leitura da base
+[^gestao-19]: estas informações são do formulário de Gestão Municipal, assim se referem a informações gerais que a gestão informa realizar, destaca-se também que estas informações estão disponíveis a partir do ano de 2020 entretanto, só foi possível gerar a partir de 2021 em decorrência de problemas na leitura da base
+
 
 ```{r fig-gestao_cad, fig.cap = "Ações desenvolvidas no âmbito da Gestão do Cadastro Único - Brasil, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -2328,9 +1955,11 @@ grafico<-tabela %>%
 grafico
 ```
 
-O @fig-acoes_cad sinaliza que as ações de esclarecimento de dúvidas sobre serviços, programas entre outros são realizadas pela grande maioria das unidades do Cadastro Único (96,82%). Já as ações de agendamento para atendimento são realizadas por 64,35% das unidades, com redução ao longo dos anos[^gestao-21].
 
-[^gestao-21]: estas informações são dos postos que executam exclusivamente atividades do Cadastro Único
+O @fig-acoes_cad sinaliza que as ações de esclarecimento de dúvidas sobre serviços, programas entre outros são realizadas pela grande maioria das unidades do Cadastro Único (96,82%). Já as ações de agendamento para atendimento são realizadas por 64,35% das unidades, com redução ao longo dos anos[^gestao-20].
+
+[^gestao-20]: estas informações são dos postos que executam exclusivamente atividades do Cadastro Único
+
 
 ```{r fig-acoes_cad, fig.cap = "Ações desenvolvidas pelos postos do Cadastro Único - Brasil, 2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -2391,7 +2020,9 @@ grafico<-tabela %>%
 grafico
 ```
 
+
 Faz parte de procedimentos de qualificação do Cadastro Único ações de averiguação e revisão cadastral. A averiguação é um processo de verificação das informações registradas no Cadastro Único por meio da comparação dos dados declarados pelas famílias com outros dados e registros administrativos do governo federal. Já a revisão é um procedimento de atualização das famílias com registros desatualizados. O tempo considerado para um cadastro desatualizado é de 24 meses. O @fig-ave_cad refere-se as informações de averiguação e revisão cadastral no âmbito dos postos dos Cadastro Único dos municípios. Nota-se que ao longo dos anos, essas ações aumentaram,sobretudo as ações de busca ativa e identificação do público de averiguação e revisão cadastral como público prioritário.
+
 
 ```{r fig-ave_cad, fig.cap = "Ações de averiguação e revisão desenvolvidas pelas Unidades do Cadastro Único - Brasil, 2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -2454,7 +2085,9 @@ grafico<-tabela %>%
 grafico
 ```
 
+
 Em relação as informações de unidades de Postos do Cadasto Único e o atendimento de Grupos Populacionais Tradicionais e Específicos - GPTEs, destaca-se através do @fig-gptes-cadunico o percentual de unidades de postos do Cadastro Único que informam atender no período de 2020 a 2022.
+
 
 ```{r fig-gptes-cadunico, fig.cap = "Unidades que realizam cadastramento de famílias pertencentes a Grupos Tradicionais e Específicos (GPTEs) - Brasil, 2020 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -2467,7 +2100,9 @@ grafico <- f_sim(posto_cadunico_2020,q20_1,"2020") %>%
 grafico
 ```
 
+
 O cadastramento domiciliar permite uma aproximação com aspectos do cotidiano das famílias, visto que a coleta das informações ocorre por meio do encontro da gestão até as famílias. Essa ação objetiva assegurar o acesso a inclusão ou atualização cadastral na residência das pessoas. De acordo com informações do @fig-visit_dom as situações mais frequentes para visita domiciliar são para averiguação cadastral e inclusão/atualização de dados do BPC (Benefício de Prestação Continuada - BPC).
+
 
 ```{r fig-visit_dom, fig.cap = "Situações mais frequentes de entrevistas domiciliares no Cadastro Único - Brasil, 2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 #| fig-height: 5
@@ -2540,7 +2175,9 @@ grafico<-tabela %>%
 grafico
 ```
 
+
 Em relação as ações de complementariedade com a rede socioassistencial, destaca-se que a maioria destas unidades de cadastramento realizam encaminhamentos para rede socioassistencial de CRAS, CREAS, Centro POP entre outros (@fig-redesuas).
+
 
 ```{r fig-redesuas, fig.cap = "Percentual de postos de Cadastro Único segundo relação com os outros equipamentos da rede socioassistencial - Brasil, 2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -2605,9 +2242,11 @@ grafico<-tabela %>%
 grafico
 ```
 
+
 O @fig-igdbolsa sinaliza sobre a existência da participação das unidades do Cadastro único no planejamento dos recursos recebidos no âmbito do IGD-PBF (Índice de Gestão Descentralizada da Gestão do Bolsa Família e Cadastro Único).
 
 Trata-se de um recurso repassado aos estados e municípios para apoio a gestão do Cadastro Único e Bolsa Família. Esta informação é referente a respostas do formulário dos postos de cadastramento em âmbito dos municípios.
+
 
 ```{r fig-igdbolsa, fig.cap = "Unidades de Postos do Cadastro Único quanto a participação no planejamento do IGD Bolsa Família - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -2651,11 +2290,12 @@ grafico <- f_sim(posto_cadunico_2020, q39_1, "2020") %>%
 grafico
 ```
 
+
 ## Considerações Finais
 
 A Assistência Social é uma política de previsibilidade constitucional reafirmadas por lei, normas, decretos, pactos. Assim, faz-se essencial padrões de gestão e comandos únicos em todos os entes federados. Os dados históricos sinalizam avanços e desafios para gestão do SUAS.
 
-Os órgãos gestores da assistência social, tanto estaduais quanto municipais, são estruturas fundamentais para a execução desta política. O significado do direito caminham junto com o planejamento, ofertas continuadas, padrões de respostas, comandos únicos etc.
+Os órgãos gestores da assistência social, tanto estaduais quanto municipais, são estruturas fundamentais para a execução desta política. O direito devem caminham junto com o planejamento, ofertas continuadas, padrões de respostas, comandos únicos etc.
 
 Assim, para consolidação desta política que faz-se universal nos territórios, é fundamental em todos entes federados estruturas administrativas indicadas nos pactos, Lei compatível com LOAS, conforme deliberação das conferências nacionais, comando único do gestor da pasta entre outros.
 
@@ -2668,3 +2308,4 @@ Aspectos relacionados a Gestão do Cadastro Único foi incorporada nesta versão
 Destaca-se que do total de unidades de postos do Cadastro Único, 68% estão na rede socioassistencial e 31% em postos exclusivos. Sobre estas unidades, identifica-se que mais realizadas são Levantamento do número de famílias que precisam ter seus cadastros incluídos ou atualizados e, a menos desenvolvida é Elaboração de análises, sínteses e documentos utilizando os dados do Cadastro Único.
 
 Em relação aos posto exclusivos do Cadastro Único, as informações sinalizam que 93% destas unidades encaminham famílias para rede socioassistecial, bem como 88% recebem os encaminhamentos desta rede. Enquanto desafios, destaca-se a importância da participação dos profissionais das unidades de postos do Cadastro Único no planejamento do IGD Bolsa Família. Os dados Censo SUAS 2022 sinaliza que 23% deste planejamento é realizado apenas pelo órgão gestor.
+
