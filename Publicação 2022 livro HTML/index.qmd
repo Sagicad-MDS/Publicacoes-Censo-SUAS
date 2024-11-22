@@ -1,22 +1,12 @@
 # Ficha Técnica {.unnumbered}
 
-## Coordenação-geral da Publicação do Censo SUAS 2022 {.unnumbered}
+## Coordenação-geral do Censo SUAS 2022 {.unnumbered}
 
--   Diretoria de Monitoramento e Avaliação - DMA/SAGICAD:
-
-Joana Simões de Melo Costa: Diretora de Monitoramento e Avalição
-
-Shirley de Lima Samico: Assessora Técnica do SUAS
-
--   Diretoria de Gestão do SUAS -- DGSUAS/SNAS
-
-Clara Carolina de Sá: Diretoria de Gestão do SUAS
-
-Elizangela Cardoso de Araujo Silva: Coordenadora Geral de Vigilância Socioassistencial
+Shirley Samico
 
 ## Concepção, Planejamento e participação em reuniões {.unnumbered}
 
-Ana Angelica Campelo de Albuquerque e Melo, Ana Carolina Cambeses, Ana Gabriela Sambiase, Ana Paula Campos, Clara Carolina de Sá, Dionara Borges, Edgilson Tavares de Araujo, Elizangela Cardoso de Araujo Silva, Fabio Santos de Gusmão Lobo, Ieda Castro, Joana Simões de Melo Costa, Lais Maranhão Santos Mendonça, Lucas Loureiro Lino, Luciano Márcio Freitas de Oliveira, Marcelo Gomes Gadelha, Marcelo Sebatião de Oliveira, Marcílio Marquesini Ferrari, Mariana Peixoto, Paulo Clemente, Raimundo Nonato, Raquel Maria Soares Freitas, Ricardo Lovatel, Rogério Schmidt Campos, Sabrina Medeiros Borges, Shirley Samico, Simone Alburquerque, Simone de Castro Holanda, Thiago Silvino Rocha Oliveira, Ullysses da Silva Ferreira, Valdson Silva Cleto, Vinicius Pawlowski e Zilane Cristina Oliveira de Andrade.
+Ana Angelica, Ana Carolina Cambeses, Ana Gabriela Sambiase, Ana Paula Campos, Clara de Sá, Dionara Borges, Edgilson Tavares, Elizangela Cardoso, Fabio Lobo, Ieda Castro, Joana Costa, Lais Maranhão, Lucas Lino, Luciano Oliveira, Marcelo Gadelha, Marcelo Oliveira, Marcílio Ferrari, Mariana Peixoto, Paulo Clemente, Raimundo Nonato, Raquel Soares, Ricardo Lovatel, Rogério Campos, Sabrina Medeiros, Shirley Samico, Simone Alburquerque, Simone de Castro, Thiago Silvino, Ullysses Ferreira, Valdson Silva Cleto, Vinicius Pawlowski e Zilane Andrade.
 
 ## Desenvolvimento de aplicativos informatizados, coleta e tratamento de dados {.unnumbered}
 
@@ -25,10 +15,6 @@ Caio Nakashima, Carlos Henrique Santana, Carlos Brasileiro, Cristiane Silva de M
 ## Desenvolvimento de projeto de programação para análise de dados e produção da publicação {.unnumbered}
 
 Valdson Silva Cleto
-
-## Concepção e organização de textos: {.unnumbered}
-
-Clara Carolina de Sá, Elizangela Cardoso de Araújo Silva e Shirley Samico.
 
 ## Elaboração e revisão dos textos {.unnumbered}
 
