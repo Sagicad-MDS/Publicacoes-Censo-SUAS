@@ -39,22 +39,23 @@ grafico
 
 ```{r fig-quantitativo-CRAS, fig.cap = "Evolução do quantitativo de CRAS, segundo grandes regiões; 2007, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
-#grafico <- f_quantitativo_regiao_ano(cras_2007, ibge, "2007") %>%
-   bind_rows(f_quantitativo_regiao_ano(cras_2008, Região, "2008")) %>%
-  # bind_rows(f_quantitativo_regiao_ano(cras_2009, Região, "2009")) %>%
-  # bind_rows(f_quantitativo_regiao_ano(cras_2010, Região, "2010")) %>%
-  # bind_rows(f_quantitativo_regiao_ano(cras_2011, IBGE, "2011")) %>%
-  #bind_rows(f_quantitativo_regiao_ano(cras_2012, Região, "2012")) %>%
+grafico <- 
+#    f_quantitativo_regiao_ano(cras_2007, ibge, "2007") %>%
+    f_quantitativo_regiao_ano(cras_2008, Região, "2008")%>%
+#   bind_rows(f_quantitativo_regiao_ano(cras_2009, Região, "2009")) %>%
+#   bind_rows(f_quantitativo_regiao_ano(cras_2010, Região, "2010")) %>%
+#   bind_rows(f_quantitativo_regiao_ano(cras_2011, IBGE, "2011")) %>%
+#   bind_rows(f_quantitativo_regiao_ano(cras_2012, Região, "2012")) %>%
    bind_rows(f_quantitativo_regiao_ano(cras_2013, Região, "2013")) %>%
-  # bind_rows(f_quantitativo_regiao_ano(cras_2014, Região, "2014")) %>%
-  # bind_rows(f_quantitativo_regiao_ano(cras_2015, Região, "2015")) %>%
-  #bind_rows(f_quantitativo_regiao_ano(cras_2016, Região, "2016")) %>%
-  #bind_rows(f_quantitativo_regiao_ano(cras_2017, Região, "2017")) %>%
+#   bind_rows(f_quantitativo_regiao_ano(cras_2014, Região, "2014")) %>%
+#   bind_rows(f_quantitativo_regiao_ano(cras_2015, Região, "2015")) %>%
+#   bind_rows(f_quantitativo_regiao_ano(cras_2016, Região, "2016")) %>%
+#   bind_rows(f_quantitativo_regiao_ano(cras_2017, Região, "2017")) %>%
    bind_rows(f_quantitativo_regiao_ano(cras_2018, IBGE, "2018")) %>%
-  # bind_rows(f_quantitativo_regiao_ano(cras_2019, IBGE, "2019")) %>%
-  # bind_rows(f_quantitativo_regiao_ano(cras_2020, IBGE, "2020")) %>%
-  # bind_rows(f_quantitativo_regiao_ano(cras_2021, IBGE, "2021")) %>%
-  #bind_rows(f_quantitativo_regiao_ano(cras_2022, IBGE, "2022")) %>%
+#   bind_rows(f_quantitativo_regiao_ano(cras_2019, IBGE, "2019")) %>%
+#   bind_rows(f_quantitativo_regiao_ano(cras_2020, IBGE, "2020")) %>%
+#   bind_rows(f_quantitativo_regiao_ano(cras_2021, IBGE, "2021")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(cras_2022, IBGE, "2022")) %>%
   bind_rows(f_quantitativo_regiao_ano(cras_2023, IBGE, "2023")) %>%
   f_grafico_col_group_numero(Região, n, Ano, 1)
 
@@ -290,7 +291,7 @@ No tocante a acessibilidade nas unidades de CRAS, observa-se no @fig-CRAS-acessi
 
 [^unidades-4]: foram considerados acesso adaptado, os imóveis que informam possuir acessibilidade, de acordo com a norma ABNT ou não
 
-```{r fig-CRAS-acessibilidade, fig.cap = "Evolução percentual de CRAS com condições de acessibilidade - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r fig-CRAS-acessibilidade, fig.cap = "Evolução percentual de CRAS com condições de acessibilidade - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
 
 #tabela <- equip_acessibilidade(cras_2010, q10_1, "2010", "1") %>%
 #  bind_rows(equip_acessibilidade(cras_2010, q10_2, "2010", "2")) %>%
@@ -343,7 +344,7 @@ grafico<-tabela %>%
 grafico
 ```
 
-```{r fig-CRAS-acessibilidade, fig.cap = "Evolução percentual de CRAS com condições de acessibilidade - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r fig-CRAS-acessibilidade, fig.cap = "Evolução percentual de CRAS com condições de acessibilidade - Brasil; 2013, 2018 e 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 #tabela <- equip_acessibilidade(cras_2010, q10_1, "2010", "1") %>%
 #  bind_rows(equip_acessibilidade(cras_2010, q10_2, "2010", "2")) %>%
@@ -353,14 +354,14 @@ grafico
 #  bind_rows(equip_acessibilidade(cras_2011, q10b, "2011", "2")) %>%
 #  bind_rows(equip_acessibilidade(cras_2011, q10c, "2011", "3")) %>%
 #  bind_rows(equip_acessibilidade(cras_2011, q10d, "2011", "4")) %>%
-tabela <- equip_acessibilidade(cras_2012, q10a, "2012", "1") %>%
-  bind_rows(equip_acessibilidade(cras_2012, q10b, "2012", "2")) %>%
-  bind_rows(equip_acessibilidade(cras_2012, q10c, "2012", "3")) %>%
-  bind_rows(equip_acessibilidade(cras_2012, q10d, "2012", "4")) %>%
-#  bind_rows(equip_acessibilidade(cras_2013, q10a, "2013", "1")) %>%
-#  bind_rows(equip_acessibilidade(cras_2013, q10b, "2013", "2")) %>%
-#  bind_rows(equip_acessibilidade(cras_2013, q10c, "2013", "3")) %>%
-#  bind_rows(equip_acessibilidade(cras_2013, q10d, "2013", "4")) %>%
+#tabela <- equip_acessibilidade(cras_2012, q10a, "2012", "1") %>%
+#  bind_rows(equip_acessibilidade(cras_2012, q10b, "2012", "2")) %>%
+#  bind_rows(equip_acessibilidade(cras_2012, q10c, "2012", "3")) %>%
+#  bind_rows(equip_acessibilidade(cras_2012, q10d, "2012", "4")) %>%
+tabela <- (equip_acessibilidade(cras_2013, q10a, "2013", "1")) %>%
+  bind_rows(equip_acessibilidade(cras_2013, q10b, "2013", "2")) %>%
+  bind_rows(equip_acessibilidade(cras_2013, q10c, "2013", "3")) %>%
+  bind_rows(equip_acessibilidade(cras_2013, q10d, "2013", "4")) %>%
 #  bind_rows(equip_acessibilidade(cras_2014, q9a, "2014", "1")) %>%
 #  bind_rows(equip_acessibilidade(cras_2014, q9b, "2014", "2")) %>%
 #  bind_rows(equip_acessibilidade(cras_2014, q9c, "2014", "3")) %>%
@@ -373,19 +374,27 @@ tabela <- equip_acessibilidade(cras_2012, q10a, "2012", "1") %>%
 #  bind_rows(equip_acessibilidade(cras_2016, q9_2, "2016", "2")) %>%
 #  bind_rows(equip_acessibilidade(cras_2016, q9_3, "2016", "3")) %>%
 #  bind_rows(equip_acessibilidade(cras_2016, q9_4, "2016", "4")) %>%
-  bind_rows(equip_acessibilidade(cras_2017, q9.1, "2017", "1")) %>%
-  bind_rows(equip_acessibilidade(cras_2017, q9.2, "2017", "2")) %>%
-  bind_rows(equip_acessibilidade(cras_2017, q9.3, "2017", "3")) %>%
-  bind_rows(equip_acessibilidade(cras_2017, q9.4, "2017", "4")) %>%
-  bind_rows(equip_acessibilidade(cras_2022, q8_1, "2022", "1")) %>%
-  bind_rows(equip_acessibilidade(cras_2022, q8_2, "2022", "2")) %>%
-  bind_rows(equip_acessibilidade(cras_2022, q8_3, "2022", "3")) %>%
-  bind_rows(equip_acessibilidade(cras_2022, q8_4, "2022", "4")) %>%
+#  bind_rows(equip_acessibilidade(cras_2017, q9.1, "2017", "1")) %>%
+#  bind_rows(equip_acessibilidade(cras_2017, q9.2, "2017", "2")) %>%
+#  bind_rows(equip_acessibilidade(cras_2017, q9.3, "2017", "3")) %>%
+#  bind_rows(equip_acessibilidade(cras_2017, q9.4, "2017", "4")) %>%
+  bind_rows(equip_acessibilidade(cras_2018, q_8_1, "2018", "1")) %>%
+  bind_rows(equip_acessibilidade(cras_2018, q_8_2, "2018", "2")) %>%
+  bind_rows(equip_acessibilidade(cras_2018, q_8_3, "2018", "3")) %>%
+  bind_rows(equip_acessibilidade(cras_2018, q_8_4, "2018", "4")) %>%
+#  bind_rows(equip_acessibilidade(cras_2022, q8_1, "2022", "1")) %>%
+#  bind_rows(equip_acessibilidade(cras_2022, q8_2, "2022", "2")) %>%
+#  bind_rows(equip_acessibilidade(cras_2022, q8_3, "2022", "3")) %>%
+#  bind_rows(equip_acessibilidade(cras_2022, q8_4, "2022", "4")) %>%
+  bind_rows(equip_acessibilidade(cras_2023, q9_1, "2023", "1")) %>%
+  bind_rows(equip_acessibilidade(cras_2023, q9_2, "2023", "2")) %>%
+  bind_rows(equip_acessibilidade(cras_2023, q9_3, "2023", "3")) %>%
+  bind_rows(equip_acessibilidade(cras_2023, q9_4, "2023", "4")) %>%
   ungroup() %>%
   mutate(Categoria=str_wrap(Categoria,width=34))
 
 ordenado<-tabela %>%
-  filter(Ano == "2022") %>%
+  filter(Ano == "2023") %>%
   arrange(Percentual) %>%
   pull(Categoria)
 
@@ -399,7 +408,7 @@ grafico
 
 Relacionando as condições de acessibilidade com a situação do imóvel através do @fig-CRAS-acessibilidade-situacao, verificou-se, em 2022, que as condições de acessibilidade em CRAS localizados em imóveis próprios possuem números significativamente elevados em relação aos imóveis alugados ou cedidos.
 
-```{r fig-CRAS-acessibilidade-situacao, fig.cap = "Percentual de CRAS com condições de acessibilidade por situação do imóvel – Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r fig-CRAS-acessibilidade-situacao, fig.cap = "Percentual de CRAS com condições de acessibilidade por situação do imóvel – Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
 
 #tabela <- equip_acessibilidade_situacao(cras_2016, q4, q9_1, "1") %>%
 #  bind_rows(equip_acessibilidade_situacao(cras_2016, q4, q9_2, "2")) %>%
@@ -425,6 +434,38 @@ grafico<-tabela %>%
 
 grafico
 ```
+
+```{r fig-CRAS-acessibilidade-situacao, fig.cap = "Percentual de CRAS com condições de acessibilidade por situação do imóvel – Brasil, 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+#tabela <- equip_acessibilidade_situacao(cras_2016, q4, q9_1, "1") %>%
+#  bind_rows(equip_acessibilidade_situacao(cras_2016, q4, q9_2, "2")) %>%
+#  bind_rows(equip_acessibilidade_situacao(cras_2016, q4, q9_3, "3")) %>%
+#  bind_rows(equip_acessibilidade_situacao(cras_2016, q4, q9_4, "4")) %>%
+#tabela <- equip_acessibilidade_situacao(cras_2017, q4, q9.1, "1") %>%
+#  bind_rows(equip_acessibilidade_situacao(cras_2017, q4, q9.2, "2")) %>%
+#  bind_rows(equip_acessibilidade_situacao(cras_2017, q4, q9.3, "3")) %>%
+#  bind_rows(equip_acessibilidade_situacao(cras_2017, q4, q9.4, "4")) %>%
+#tabela <- equip_acessibilidade_situacao(cras_2022, q3, q8_1, "1") %>%
+#  bind_rows(equip_acessibilidade_situacao(cras_2022, q3, q8_2, "2")) %>%
+#  bind_rows(equip_acessibilidade_situacao(cras_2022, q3, q8_3, "3")) %>%
+#  bind_rows(equip_acessibilidade_situacao(cras_2022, q3, q8_4, "4"))
+tabela <- equip_acessibilidade_situacao(cras_2022, q3, q8_1, "1") %>%
+  bind_rows(equip_acessibilidade_situacao(cras_2022, q3, q8_2, "2")) %>%
+  bind_rows(equip_acessibilidade_situacao(cras_2022, q3, q8_3, "3")) %>%
+  bind_rows(equip_acessibilidade_situacao(cras_2022, q3, q8_4, "4"))
+
+ordenado<-tabela %>%
+  filter(Situacao == "Próprio") %>%
+  arrange(Percentual) %>%
+  pull(Categoria)
+
+grafico<-tabela %>%
+  mutate(Categoria = factor(Categoria, levels = rev(ordenado))) %>%
+  f_grafico_col_group_percent(Situacao, Percentual, Categoria, 4)
+
+grafico
+```
+
 
 Em relação a conectividade, em especial o acesso à internet, o percentual de CRAS com acesso à internet aumentou significativamente desde 2007, chegando no último ano desta série com mais de 99% das unidades com computadores com acesso à internet, conforme o @fig-CRAS-internet-percentual.
 
@@ -497,7 +538,8 @@ grafico
 grafico
 ```
 
-```{r fig-CRAS-internet-percentual, fig.cap = "Evolução percentual de CRAS com computadores com acesso à internet – Brasil; 2007, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+```{r fig-CRAS-internet-percentual, fig.cap = "Evolução percentual de CRAS com computadores com acesso à internet – Brasil; 2007, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
 
 grafico <- f_maior0_regiao_ano(cras_2007, `Acesso a Internet`, ibge, "2007") %>%
   bind_rows(f_maior0_regiao_ano(cras_2012, q13b, Região, "2012")) %>%
@@ -509,9 +551,24 @@ grafico <- f_maior0_regiao_ano(cras_2007, `Acesso a Internet`, ibge, "2007") %>%
 grafico
 ```
 
+
+```{r fig-CRAS-internet-percentual, fig.cap = "Evolução percentual de CRAS com computadores com acesso à internet – Brasil; 2007, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+#REVISAR
+grafico <-
+  #f_maior0_regiao_ano(cras_2007, `Acesso a Internet`, ibge, "2007") %>%
+ # f_maior0_regiao_ano(cras_2008, `Acesso a Internet`, ibge, "2008") %>%
+  bind_rows(f_maior0_regiao_ano(cras_2013, q12_2, Região, "2013")) %>%
+  bind_rows(f_maior0_regiao_ano(cras_2018, q_11_2, Região, "2018")) %>%
+  bind_rows(f_maior0_regiao_ano(cras_2023, q_11_2, IBGE, "2023")) %>%
+
+  f_grafico_col_group_percent(Região, Percentual, Ano, 1)
+
+grafico
+```
+
 Em relação aos CRAS com locais para Cadastro Único, o dado abaixo tráz o percentual destas informações e a disposição de equipes para esta finalidade. Nota-se o aumento ao longo dos anos, das unidades de CRAS que possuem Cadastro Único com equipe exclusiva, chegando no Censo SUAS de 2022 com 59% (@fig-equip-cadunico-cras).
 
-```{r fig-equip-cadunico-cras, fig.cap = "Percentual de CRAS com locais para CadÚnico - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r fig-equip-cadunico-cras, fig.cap = "Percentual de CRAS com locais para CadÚnico - 2017 - 2022", fig.footer = "Fonte: MDS, Censo SUAS", eval=FALSE}
 
 equip_cadunico  = function(df, q, ano){
   q <- enquo(q)
@@ -555,6 +612,52 @@ grafico <- equip_cadunico(cras_2010, q43, "2010") %>%
 grafico
 ```
 
+```{r fig-equip-cadunico-cras, fig.cap = "Percentual de CRAS com locais para CadÚnico - 2017 - 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
+
+equip_cadunico  = function(df, q, ano){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+
+  df %>%
+    select(!! ano := !! q) %>%
+    gather("Categoria","Nível") %>%
+    mutate(Nível = case_when(Nível == "Sim, com equipe exclusiva para esta finalidade"~"Sim, com equipe exclusiva para esta finalidade",
+                             Nível == "Não realiza"~"Não",
+                              TRUE ~ Nível))%>%
+    filter(!is.na(Nível)) %>%
+    mutate(Nível = factor(Nível, levels = c("Sim, com equipe exclusiva para esta finalidade",
+                                            "Sim, com outra equipe",
+                                            "Sim, com a equipe responsável pelo PAIF",
+                                            "Não"))) %>%
+    group_by(Categoria, Nível) %>%
+    summarise(n=n()) %>%
+    group_by(Categoria) %>%
+    mutate(Percentual = n/sum(n), Posição = (cumsum(n/sum(n)) - 0.5 * n/sum(n)))
+}
+
+grafico <- equip_cadunico(cras_2010, q43, "2010") %>%
+   bind_rows(equip_cadunico(cras_2011, q47, "2011"))%>%
+   bind_rows(equip_cadunico(cras_2012, q45, "2012"))%>%
+   bind_rows(equip_cadunico(cras_2013, q40, "2013"))%>%
+   bind_rows(equip_cadunico(cras_2014, q41, "2014"))%>%
+   bind_rows(equip_cadunico(cras_2015, q37, "2015"))%>%
+   bind_rows(equip_cadunico(cras_2016, q31, "2016")) %>%
+   bind_rows(equip_cadunico(cras_2017, q35, "2017")) %>%
+   bind_rows(equip_cadunico(cras_2018, q_40, "2018")) %>%
+   bind_rows(equip_cadunico(cras_2019, q39, "2019")) %>%
+   bind_rows(equip_cadunico(cras_2020, q39, "2020")) %>%
+   bind_rows(equip_cadunico(cras_2021, q39, "2021")) %>%
+   bind_rows(equip_cadunico(cras_2022, q39, "2022")) %>%
+   bind_rows(equip_cadunico(cras_2023, q35, "2023")) %>%
+
+ #CRAS2020_base com códigos numericos
+
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 2)
+
+grafico
+```
+
+
 ## Centros de Convivência
 
 Os Centros de Convivência, são unidades que executam o Serviço de Convivência e Fortalecimento de Vínculos (SCFV) e compõem a Rede de Proteção Social Básica. Desde 2014 o número de Centros de Convivência no Brasil vem aumentando, passando de 7.882 unidades em 2014 para 8.454 em 2016, acréscimo de 572 unidades. A Região Norte tem a menor quantidade de unidades (238 ou 2,8% do total), seguida do Centro-Oeste com 568 Unidades (ou 6,7% do total). A região Sudeste tem o maior número de Centros de Convivência, com 4.035 Unidades (47,7% do total).
@@ -575,11 +678,30 @@ grafico <- f_quantitativo_regiao_ano(ceconv_2014, Região, "2014") %>%
 grafico
 ```
 
+```{r fig-quantitativo-CentroConv, fig.cap = "Evolução do quantitativo de Centro de Convivência, segundo grandes regiões; 2014, 2016, 2018, 2020, 2022 e 2023", fig.footer = "Fonte: MDS, Censo SUAS",eval=FALSE}
+
+grafico <-
+  f_quantitativo_regiao_ano(ceconv_2014, Região, "2014") %>%
+   # bind_rows(f_quantitativo_regiao_ano(ceconv_2015, IBGE, "2015")) %>%
+   bind_rows(f_quantitativo_regiao_ano(ceconv_2016, IBGE, "2016")) %>%
+   # bind_rows(f_quantitativo_regiao_ano(ceconv_2017, IBGE, "2017")) %>%
+   bind_rows(f_quantitativo_regiao_ano(ceconv_2018, IBGE, "2018")) %>%
+   # bind_rows(f_quantitativo_regiao_ano(ceconv_2018, IBGE, "2019")) %>%
+    bind_rows(f_quantitativo_regiao_ano(ceconv_2020, IBGE, "2020")) %>%
+   # bind_rows(f_quantitativo_regiao_ano(ceconv_2021, IBGE, "2021")) %>%
+   bind_rows(f_quantitativo_regiao_ano(ceconv_2022, IBGE, "2022")) %>%
+   bind_rows(f_quantitativo_regiao_ano(ceconv_2023, IBGE, "2023")) %>%
+   f_grafico_col_group_numero(Região, n, Ano, 1)
+
+grafico
+```
+
+
 Os Centros de Convivência podem ser unidades públicas ou vinculadas a entidades de assistência social inscritas nos Conselhos de Assistência Social do município ou do Distrito Federal. Em 2022, 44% dos Centros de Convivência eram governamentais e 56% das unidades eram não governamentais. [^unidades-5]
 
 [^unidades-5]: os dados de 2016 não foi possível de ser coletato devido a dificuldades de leitura da base de dados
 
-```{r fig-centro-conv-natureza, fig.cap = "Quantitativo de Centros de Convivência por Natureza da Unidade - BRASIL; 2016 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r fig-centro-conv-natureza, fig.cap = "Quantitativo de Centros de Convivência por Natureza da Unidade - BRASIL; 2016 a 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 centro  = function(df, q, ano){
   q <- enquo(q)
@@ -606,6 +728,7 @@ grafico <- centro(ceconv_2016, q2, "2016") %>%
     bind_rows(centro(ceconv_2020, q27, "2020")) %>%
     bind_rows(centro(ceconv_2021, q27, "2021")) %>%
     bind_rows(centro(ceconv_2022, q27, "2022")) %>%
+    bind_rows(centro(ceconv_2023, q23, "2023")) %>%
 
   #2019 - dado numerico
 
