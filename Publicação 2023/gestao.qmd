@@ -274,7 +274,6 @@ No que se refere aos municípios, esse cenário nacional se configurou inverso a
 
 ```{r fig-sec-munic-exc, fig.cap = "Percentual de Secretarias Municipais quanto a caracteristica de estrutura administrativa - Brasil, 2012 a 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-#erro na função do gráfico 
 
 sec_munic_exc  = function(df, q, ano){
   q <- enquo(q)
@@ -287,6 +286,7 @@ sec_munic_exc  = function(df, q, ano){
     mutate(Nível = case_when(
       Nível == "Setor/Coordenadoria/Assessoria subordinado diretamente ao Gabinete do(a) Prefeito(a)" |
       Nível == "Setor/Coordenadoria/Assessoria subordinado diretamente ao Gabinete do(a) Prefeito(a)|" |
+      Nível == "Setor/Coordenadoria/Assessoria subordinado diretamente ao Gabinete da(o) Prefeita(o)" |  
       Nível == "Setor subordinado diretamente à chefia do Executivo"~"Setor/Coordenadoria/Assessoria subordinado/a diretamente ao Gabinete da/o Prefeita/o",
       Nível == "Setor subordinado a outra secretaria"~"Secretaria municipal em conjunto com outras políticas setoriais",
       TRUE ~ Nível)) %>%
@@ -316,7 +316,7 @@ grafico <-
   bind_rows(sec_munic_exc(gm_2017, q1, "2017")) %>%
   bind_rows(sec_munic_exc(gm_2018, q_1,"2018")) %>%
   bind_rows(sec_munic_exc(gm_2019, q1, "2019")) %>%
-  bind_rows(sec_munic_exc(gm_2023, q1, "2023")) %>%
+  bind_rows(sec_munic_exc(gm_2023, q1, "2023")) %>% 
  
 
   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 2)
@@ -713,7 +713,7 @@ tabela <-
   mutate(Categoria=str_wrap(Categoria,width=28))
 
 ordenado<-tabela %>%
-  filter(Ano == "2022") %>%
+  filter(Ano == "2023") %>%
   filter(Grupo == str_wrap("Constituída formalmente", width=w_grupo)) %>%
   arrange(Percentual) %>%
   pull(Categoria)
@@ -841,7 +841,7 @@ tabela<-ge_2023 %>%
     "Proteção Social Básica"=q3_6,
     "Proteção Social Especial"=q3_7,
     "Gestão do Cadastro Único e Programa Bolsa Família"=q3_8,
-    "Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais)"=q3_9,
+    "Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais)"=q3_9) %>%
    # "Programa Criança Feliz"=q3_10) %>% 2023 não existe
 
 #-------------------
