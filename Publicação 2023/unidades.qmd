@@ -37,6 +37,31 @@ grafico <- f_quantitativo_regiao_ano(cras_2007, ibge, "2007") %>%
 grafico
 ```
 
+```{r fig-quantitativo-CRAS, fig.cap = "Evolução do quantitativo de CRAS, segundo grandes regiões; 2007, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+#grafico <- f_quantitativo_regiao_ano(cras_2007, ibge, "2007") %>%
+   bind_rows(f_quantitativo_regiao_ano(cras_2008, Região, "2008")) %>%
+  # bind_rows(f_quantitativo_regiao_ano(cras_2009, Região, "2009")) %>%
+  # bind_rows(f_quantitativo_regiao_ano(cras_2010, Região, "2010")) %>%
+  # bind_rows(f_quantitativo_regiao_ano(cras_2011, IBGE, "2011")) %>%
+  #bind_rows(f_quantitativo_regiao_ano(cras_2012, Região, "2012")) %>%
+   bind_rows(f_quantitativo_regiao_ano(cras_2013, Região, "2013")) %>%
+  # bind_rows(f_quantitativo_regiao_ano(cras_2014, Região, "2014")) %>%
+  # bind_rows(f_quantitativo_regiao_ano(cras_2015, Região, "2015")) %>%
+  #bind_rows(f_quantitativo_regiao_ano(cras_2016, Região, "2016")) %>%
+  #bind_rows(f_quantitativo_regiao_ano(cras_2017, Região, "2017")) %>%
+   bind_rows(f_quantitativo_regiao_ano(cras_2018, IBGE, "2018")) %>%
+  # bind_rows(f_quantitativo_regiao_ano(cras_2019, IBGE, "2019")) %>%
+  # bind_rows(f_quantitativo_regiao_ano(cras_2020, IBGE, "2020")) %>%
+  # bind_rows(f_quantitativo_regiao_ano(cras_2021, IBGE, "2021")) %>%
+  #bind_rows(f_quantitativo_regiao_ano(cras_2022, IBGE, "2022")) %>%
+  bind_rows(f_quantitativo_regiao_ano(cras_2023, IBGE, "2023")) %>%
+  f_grafico_col_group_numero(Região, n, Ano, 1)
+
+grafico
+```
+
+
 A Expansão do número de CRAS evidencia a consolidação das unidades públicas de Assistência Social como referência em todo o todo território nacional. De acordo com os dados, 99,37% municípios possuem CRAS, ou seja, apenas 34 municípios no Brasil não dispõem desta unidade pública[^unidades-1].
 
 [^unidades-1]: estas informações são referentes ao preenchimento do Censo SUAS, é possível que no determinado período esta unidade pública não tenha preenchido o forumulário
@@ -90,7 +115,7 @@ ATUALIZAÇÃO: O problema era que em 2022 Fernando de Noronha estava sem o códi
 <!-- Sobre o número de famílias referenciadas a PNAS^[PNAS/2004 - Política Nacional de Assistência Social] deternima de acordo com portes populacionais dos municípios, são eles: PPI: 2.500 famílias referenciadas por CRAS, PPII: 3.500 famílias referenciadas, Médio/Grande/Metrópole: 5000 famílias referencia por CRAS.
 CRAS -->
 ```
-```{r fig-CRAS-porte, fig.cap = "Percentual de municípios por número de CRAS no município, segundo porte populacional estimado do município - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios"}
+```{r fig-CRAS-porte, fig.cap = "Percentual de municípios por número de CRAS no município, segundo porte populacional estimado do município - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios", eval=FALSE}
 
 cras_municipios <- cras_2022 %>%
   select(IBGE7) %>%
@@ -139,6 +164,59 @@ grafico <- dados %>%
 grafico
 ```
 
+```{r fig-CRAS-porte, fig.cap = "Percentual de municípios por número de CRAS no município, segundo porte populacional estimado do município - Brasil, 2023", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios"}
+
+cras_municipios <- cras_2023 %>%
+  select(IBGE7) %>%
+  group_by(IBGE7) %>%
+  summarise(n_cras=n())
+
+porte_municipios <- pop_municipios_2021 %>%
+  f_porte_populacional(`POPULAÇÃO ESTIMADA`) %>%
+  mutate(IBGE7 = as.numeric(paste0(`COD. UF`, `COD. MUNIC`))) %>%
+  select(IBGE7, Porte)
+
+dados <- cras_municipios %>%
+  full_join(porte_municipios, by = c("IBGE7" = "IBGE7")) %>%
+  mutate(grupo = case_when(is.na(n_cras)~"Nenhum CRAS",
+                            n_cras == 0~"Nenhum CRAS",
+                            n_cras == 1~"1 CRAS",
+                            n_cras <= 3~"De 2 a 3 CRAS",
+                            n_cras <= 6~"De 4 a 6 CRAS",
+                            n_cras <= 10~"De 7 a 10 CRAS",
+                            n_cras > 10~"Mais de 10 CRAS",
+                            TRUE~as.character(n_cras))) %>%
+  mutate(grupo = factor(grupo, levels = c("Nenhum CRAS",
+                                            "1 CRAS",
+                                            "De 2 a 3 CRAS",
+                                            "De 4 a 6 CRAS",
+                                            "De 7 a 10 CRAS",
+                                            "Mais de 10 CRAS"))) %>%
+  group_by(Porte, grupo) %>%
+  summarise(n=n()) #%>%
+#  complete(grupo, fill = list(n=0))
+
+niveis_porte <- dados$Porte %>%
+  levels() %>%
+  append("Brasil")
+
+grafico <- dados %>%
+  spread(Porte, n, fill = 0) %>%
+  mutate("Brasil" = rowSums(.[2:6])) %>%
+  gather("Porte","n",-grupo) %>%
+  mutate(Porte = factor(Porte, levels = niveis_porte)) %>%
+  group_by(Porte) %>%
+  mutate("Percentual" = n/sum(n)) %>%
+
+  f_grafico_col_stack_percent(Porte, Percentual, grupo, 2)
+
+grafico
+```
+
+
+
+
+
 No que se refere ao imóvel de funcionamento do CRAS, é possível notar no @fig-CRAS-imovel, que no período entre 2008 e 2022 o movimento foi de:
 
 Aumento das unidades que funcionam em imóvel próprio. No primeiro ano da série histórica, o percentual era de 44% chegando a 60% em 2022;
@@ -149,7 +227,7 @@ Aumento das unidades funcionando em imóveis cedidos, evoluindo de 6,9% para 10%
 
 [^unidades-3]: Para os anos de 2018 e 2019 esse dado não foi coletado no Censo SUAS
 
-```{r fig-CRAS-imovel, fig.cap = "Evolução dos CRAS segundo situação do imóvel – Brasil, 2007 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r fig-CRAS-imovel, fig.cap = "Evolução dos CRAS segundo situação do imóvel – Brasil, 2007 a 2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
 
 grafico <- f_equip_imovel(cras_2008, `situacao_imovel`, "2008") %>%
   #bind_rows(f_equip_imovel(cras_2007, v15, "2007")) %>%
@@ -176,6 +254,37 @@ grafico <- f_equip_imovel(cras_2008, `situacao_imovel`, "2008") %>%
 
 grafico
 ```
+
+```{r fig-CRAS-imovel, fig.cap = "Evolução dos CRAS segundo situação do imóvel – Brasil, 2007 a 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_equip_imovel(cras_2008, `situacao_imovel`, "2008") %>%
+  #bind_rows(f_equip_imovel(cras_2007, v15, "2007")) %>%
+  bind_rows(f_equip_imovel(cras_2009, `q5_situac_imovel`, "2009")) %>%
+  bind_rows(f_equip_imovel(cras_2010, q5, "2010")) %>%
+  bind_rows(f_equip_imovel(cras_2011, q5, "2011")) %>%
+  bind_rows(f_equip_imovel(cras_2012, q5, "2012")) %>%
+  bind_rows(f_equip_imovel(cras_2013, q5, "2013")) %>%
+  bind_rows(f_equip_imovel(cras_2014, q4, "2014")) %>%
+  bind_rows(f_equip_imovel(cras_2015, q4, "2015")) %>%
+  bind_rows(f_equip_imovel(cras_2016, q4, "2016")) %>%
+  bind_rows(f_equip_imovel(cras_2017, q4, "2017")) %>%
+  #bind_rows(f_equip_imovel(cras_2018, q4, "2017")) %>%
+  #bind_rows(f_equip_imovel(cras_2019, q4, "2017")) %>%
+  bind_rows(f_equip_imovel(cras_2020, q3, "2020")) %>%
+  bind_rows(f_equip_imovel(cras_2021, q3, "2021")) %>%
+  bind_rows(f_equip_imovel(cras_2022, q3, "2022")) %>%
+  bind_rows(f_equip_imovel(cras_2023, q3, "2023")) %>%
+  
+
+  #2018 não fazem essa pergunta
+  #2019 não fazem essa pergunta
+  #2020
+
+  f_grafico_col_stack_percent(Categoria, Percentual, Nível, 1)
+
+grafico
+```
+
 
 No tocante a acessibilidade nas unidades de CRAS, observa-se no @fig-CRAS-acessibilidade um avanço em todas as condições de acessibilidade nas unidades de CRAS.[^unidades-4] Apesar da evolução, os dados ainda apontam para desafios, sobretudo no que se refere a banheiro adaptado que possui o percentual mais baixo de unidades com essa acessibilidade.
 
@@ -233,6 +342,60 @@ grafico<-tabela %>%
 
 grafico
 ```
+
+```{r fig-CRAS-acessibilidade, fig.cap = "Evolução percentual de CRAS com condições de acessibilidade - Brasil; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+
+#tabela <- equip_acessibilidade(cras_2010, q10_1, "2010", "1") %>%
+#  bind_rows(equip_acessibilidade(cras_2010, q10_2, "2010", "2")) %>%
+#  bind_rows(equip_acessibilidade(cras_2010, q10_3, "2010", "3")) %>%
+#  bind_rows(equip_acessibilidade(cras_2010, q10_4, "2010", "4")) %>%
+#  bind_rows(equip_acessibilidade(cras_2011, q10a, "2011", "1")) %>%
+#  bind_rows(equip_acessibilidade(cras_2011, q10b, "2011", "2")) %>%
+#  bind_rows(equip_acessibilidade(cras_2011, q10c, "2011", "3")) %>%
+#  bind_rows(equip_acessibilidade(cras_2011, q10d, "2011", "4")) %>%
+tabela <- equip_acessibilidade(cras_2012, q10a, "2012", "1") %>%
+  bind_rows(equip_acessibilidade(cras_2012, q10b, "2012", "2")) %>%
+  bind_rows(equip_acessibilidade(cras_2012, q10c, "2012", "3")) %>%
+  bind_rows(equip_acessibilidade(cras_2012, q10d, "2012", "4")) %>%
+#  bind_rows(equip_acessibilidade(cras_2013, q10a, "2013", "1")) %>%
+#  bind_rows(equip_acessibilidade(cras_2013, q10b, "2013", "2")) %>%
+#  bind_rows(equip_acessibilidade(cras_2013, q10c, "2013", "3")) %>%
+#  bind_rows(equip_acessibilidade(cras_2013, q10d, "2013", "4")) %>%
+#  bind_rows(equip_acessibilidade(cras_2014, q9a, "2014", "1")) %>%
+#  bind_rows(equip_acessibilidade(cras_2014, q9b, "2014", "2")) %>%
+#  bind_rows(equip_acessibilidade(cras_2014, q9c, "2014", "3")) %>%
+#  bind_rows(equip_acessibilidade(cras_2014, q9d, "2014", "4")) %>%
+#  bind_rows(equip_acessibilidade(cras_2015, q9_1, "2015", "1")) %>%
+#  bind_rows(equip_acessibilidade(cras_2015, q9_2, "2015", "2")) %>%
+#  bind_rows(equip_acessibilidade(cras_2015, q9_3, "2015", "3")) %>%
+#  bind_rows(equip_acessibilidade(cras_2015, q9_4, "2015", "4")) %>%
+#  bind_rows(equip_acessibilidade(cras_2016, q9_1, "2016", "1")) %>%
+#  bind_rows(equip_acessibilidade(cras_2016, q9_2, "2016", "2")) %>%
+#  bind_rows(equip_acessibilidade(cras_2016, q9_3, "2016", "3")) %>%
+#  bind_rows(equip_acessibilidade(cras_2016, q9_4, "2016", "4")) %>%
+  bind_rows(equip_acessibilidade(cras_2017, q9.1, "2017", "1")) %>%
+  bind_rows(equip_acessibilidade(cras_2017, q9.2, "2017", "2")) %>%
+  bind_rows(equip_acessibilidade(cras_2017, q9.3, "2017", "3")) %>%
+  bind_rows(equip_acessibilidade(cras_2017, q9.4, "2017", "4")) %>%
+  bind_rows(equip_acessibilidade(cras_2022, q8_1, "2022", "1")) %>%
+  bind_rows(equip_acessibilidade(cras_2022, q8_2, "2022", "2")) %>%
+  bind_rows(equip_acessibilidade(cras_2022, q8_3, "2022", "3")) %>%
+  bind_rows(equip_acessibilidade(cras_2022, q8_4, "2022", "4")) %>%
+  ungroup() %>%
+  mutate(Categoria=str_wrap(Categoria,width=34))
+
+ordenado<-tabela %>%
+  filter(Ano == "2022") %>%
+  arrange(Percentual) %>%
+  pull(Categoria)
+
+grafico<-tabela %>%
+  mutate(Categoria = factor(Categoria, levels = ordenado)) %>%
+  f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
+
+grafico
+```
+
 
 Relacionando as condições de acessibilidade com a situação do imóvel através do @fig-CRAS-acessibilidade-situacao, verificou-se, em 2022, que as condições de acessibilidade em CRAS localizados em imóveis próprios possuem números significativamente elevados em relação aos imóveis alugados ou cedidos.
 
