@@ -10,13 +10,13 @@ O Sistema Único de Assistência Social (SUAS) é definido pela Lei Orgânica da
 
 [^gestao-1]: Lei nº 8.742, de 7 de dezembro de 1993: Dispõe sobre a organização da Assistência Social e dá outras providências. (<http://www.planalto.gov.br/ccivil_03/Leis/L8742compilado.htm>)
 
-A LOAS, a NOB SUAS[^gestao-2] e outros normativos que regulam a assistência social definem as responsabilidades da União, Estados, Distrito Federal e Municípios no âmbito da gestão compartilhada, que incluem o cofinanciamento de serviços, programas e ações da assistência social. Estão previstas ainda instâncias de pactuação e interlocução entre os três entes federados: a Comissão Intergestores Bipartite (CIB), da qual participam representantes de estados e municípios, e a Comissão Intergestores Tripartite (CIT), da qual participam, além de estados e municípios, representantes do governo federal.
+A LOAS, a NOB SUAS[^gestao-2] e outros normativos que regulam a assistência social definem as responsabilidades da união, estados, Distrito Federal e municípios no âmbito da gestão compartilhada, que incluem o cofinanciamento de serviços, programas e ações da assistência social. Estão previstas, ainda, instâncias de pactuação e interlocução entre os três entes federados: a Comissão Intergestores Bipartite (CIB), da qual participam representantes de estados e municípios, e a Comissão Intergestores Tripartite (CIT), da qual participam, além de estados e municípios, representantes do governo federal.
 
 [^gestao-2]: Norma Operacional Básica NOB - SUAS 2012 (<http://www.mds.gov.br/webarquivos/arquivo/assistencia_social/nob_suas.pdf>)
 
 ## Estrutura Administrativa normas e planejamento
 
-A partir das informações contidas no Censo SUAS é possível ter um panorama geral da gestão e do financiamento em estados e municípios, com a observação de aspectos como a estrutura administrativa da gestão da assistência social, a atualização de normativos, o apoio de estados aos municípios, as atividades de cofinanciamento e transferência de recursos, funcionamento das instâncias de pactuação, entre outras. Nesse sentido, esta seção apresenta os principais resultados obtidos a partir das informações dos questionários de gestão estadual e gestão municipal.
+A partir das informações contidas no Censo SUAS, é possível ter um panorama geral da gestão e do financiamento em estados e municípios, observando-se aspectos da estrutura administrativa da gestão da assistência social, a atualização de normativos, o apoio de estados aos municípios, as atividades de cofinanciamento e transferência de recursos, funcionamento das instâncias de pactuação, entre outras.
 
 A estrutura administrativa na Política de Assistência Social e Constituição de setores essenciais são elementos importantes para gestão do SUAS. No âmbito da gestão estadual, no que se refere a exclusividade da área de Assistência Social, percebe-se que nos últimos 10 anos houve uma redução de áreas específicas de Assistência Social. Em 2012 existiam 29,6%[^gestao-3] das secretarias estaduais exclusivas de Assistência Social, em 2022 esse número passa para 3,8%[^gestao-4], redução significativa de 87,2%, conforme o @fig-estados_sec_exc.
 
@@ -24,7 +24,7 @@ A estrutura administrativa na Política de Assistência Social e Constituição 
 
 [^gestao-4]: Estado do Amazonas
 
-```{r fig-estados_sec_exc, fig.cap = "Percentual de Estados quanto a caracteristica de estrutura administrativa - Brasil, 2012 a 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r fig-estados_sec_exc, fig.cap = "Percentual de Estados quanto à característica de estrutura administrativa - Brasil, 2012 a 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
 
 # Avaliar fazer o gráfico apenas com o percentual das secretarias exclusivas.
 # Avaliar fazer gráficos de estado com quantidade em vez de percentual
@@ -61,7 +61,7 @@ grafico <- estados_sec_exc(ge_2012, q1, "2012") %>%
   bind_rows(estados_sec_exc(ge_2020, q1, "2020")) %>%
   bind_rows(estados_sec_exc(ge_2021, q1, "2021")) %>%
   bind_rows(estados_sec_exc(ge_2022, q1, "2022")) %>%
-  bind_rows(estados_sec_exc(ge_2023, q1, "2023")) %>%
+  
 
   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 2)
 
@@ -274,7 +274,7 @@ No que se refere aos municípios, esse cenário nacional se configurou inverso a
 
 ```{r fig-sec-munic-exc, fig.cap = "Percentual de Secretarias Municipais quanto a caracteristica de estrutura administrativa - Brasil, 2012 a 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-#erro na função do gráfico
+#erro na função do gráfico 
 
 sec_munic_exc  = function(df, q, ano){
   q <- enquo(q)
@@ -778,7 +778,7 @@ grafico<-tabela %>%
 grafico
 ```
 
-Quando se observa a regularização destas áreas, há um grupo instituídas informalmente conforme o @fig-estados-constituicao-subdivisoes, e setores que ainda não estão constituídos em 100% dos estados, a saber Gestão do SUAS, Gestão do trabalho e regulação do SUAS.
+Quando se observa a regularização dessas áreas, percebe-se que há um grupo instituído informalmente conforme o @fig-estados-constituicao-subdivisoes, e setores que ainda não estão constituídos em 100% dos estados, a saber Gestão do SUAS, Gestão do trabalho e regulação do SUAS.
 
 ```{r fig-estados-constituicao-subdivisoes, fig.cap = "Percentual de estados segundo característica da estrutura administrativa da Secretaria Estadual de Assistência Social - Brasil,  2022", fig.footer = "Fonte: MDS, Censo SUAS.",eval=FALSE}
 
@@ -880,9 +880,9 @@ No que se refere aos municípios, a última pactuação sobre estrutura administ
 
 [^gestao-7]: 124ª reunião ordinária da CIT - Pacto de Aprimoramento do SUAS
 
--   **municípios de pequeno I e II e médio porte:** 100% dos municípios com instituição formal, na estrutura do órgão gestor de assistência social, as áreas constituídas de Proteção Social Básica, Proteção Social Especial e a área de Gestão do SUAS com competência de Vigilância Socioassistencial.
+-   **Municípios de pequeno I e II e médio porte:** 100% dos municípios com instituição formal, na estrutura do órgão gestor de assistência social, as áreas constituídas de Proteção Social Básica, Proteção Social Especial e a área de Gestão do SUAS com competência de Vigilância Socioassistencial.
 
--   **municípios de grande porte e metrópole:** 100% dos municípios com instituição formal, na estrutura do órgão gestor de assistência social, áreas constituídas de Proteção Social Básica, Proteção Social Especial, com subdivisão de Média e Alta Complexidade, Gestão Financeira e Orçamentária, Gestão de Benefícios Assistenciais e Transferência de Renda, área de Gestão do SUAS com competência de: Gestão do Trabalho, Regulação do SUAS e Vigilância Socioassistencial.
+-   **Municípios de grande porte e metrópole:** 100% dos municípios com instituição formal, na estrutura do órgão gestor de assistência social, áreas constituídas de Proteção Social Básica, Proteção Social Especial, com subdivisão de Média e Alta Complexidade, Gestão Financeira e Orçamentária, Gestão de Benefícios Assistenciais e Transferência de Renda, área de Gestão do SUAS com competência de: Gestão do Trabalho, Regulação do SUAS e Vigilância Socioassistencial.
 
 O @fig-munic_sub mostra crescimento formal de todas as áreas administrativas. As áreas do SUAS com maior percentual de constituição formal[^gestao-8] que dispõe sobre esta organização são respectivamente: Gestão do Cadastro Único e Bolsa Família, Gestão da Proteção Social Básica e Gestão do SUAS.
 
@@ -970,7 +970,7 @@ grafico<-tabela %>%
 grafico
 ```
 
-Ao considerar a instituição informal, o @fig-municipais-constituicao-subdivisoes sinaliza que a Gestão do trabalho e Vigilância Socioassistencial são os mais altos percentuais de informalidade e não constituição. Destaca-se também a proteção social especial, área recomendada existir independe da presença de unidades de CREAS.
+Quanto às subdivisões administrativas, nota-se que em relação à constituição informal ou ausência dela, as que possuem o maior percentual são a Gestão do trabalho e a Vigilância Socioassistencial. Destaca-se, também, a Proteção Social Especial, cuja existência é recomenda independente da presença de CREAS (@fig-municipais-constituicao-subdivisoes).
 
 ```{r fig-municipais-constituicao-subdivisoes, fig.cap = "Distribuição dos órgãos gestores municipais segundo constituição/formalização de subdivisões administrativas - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS";eval=FALSE}
 #| fig-height: 5
@@ -1197,11 +1197,17 @@ grafico<-tabela %>%
 grafico
 ```
 
-A uniformização da Lei do SUAS dos estados e municípios em consonâcia com a LOAS foi deliberação da X Conferência Nacional. Sobre essa disposição, observa-se que nas gestões estaduais, 58% dos estados possuem Lei Estadual de regulamentação do SUAS (total de 15 estados). As últimas atualizações ocorreram a partir de 2017 (12 estados), com exceção de Minas Gerais em 2011 Goiás em 2015 e Mato Grosso do Sul em 2016.
+A uniformização da Lei do SUAS dos estados e municípios em consonâcia com a LOAS foi deliberação da X Conferência Nacional. Sobre essa disposição, observa-se que nas gestões estaduais, 15 estados (58%) possuem Lei Estadual de regulamentação do SUAS (total de 15 estados). As últimas atualizações ocorreram a partir de 2017 (12 estados), com exceção de Minas Gerais em 2011 Goiás em 2015 e Mato Grosso do Sul em 2016.
 
-Entretando, 11 estados que não possuem Lei do SUAS. Este número está presente nas seguintes regiões do Brasil: 4 - Nordeste, 3 - Norte, 2 - Região Sul e 1 - Região Sudeste. Sudeste[^gestao-9].
+Entretando, 11 estados que não possuem Lei do SUAS. Este número está presente nas seguintes regiões do Brasil:
 
-[^gestao-9]: siglas dos Estado que não possuem Lei do SUAS - Censo SUAS 2022: RR, PA, TO, PI, RN, SE, BA, SP, PR, SC e RS
+Nordeste (4): PI, RN, SE e BA,
+
+Norte (3): RR, PA e TO
+
+Região Sul (2): PR, SC e RS
+
+Região Sudeste (1): SP.
 
 ```{r fig-estados-atualizacao-lei, fig.cap = "Quantidade de estados segundo último ano de atualização da Lei Estadual de regulamentação do Sistema Único de Assistência Social (SUAS) - Brasil, 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -1220,11 +1226,11 @@ grafico<-ge_2023 %>%
 grafico
 ```
 
-Em 2022, 75% dos municípios possuíam Lei Municipal de regulamentação do SUAS (4.170). Destes, a maioria, 91% (3.798) aprovaram/atualizaram após 2013 e 9% (372) anterior a atualização da Lei Nacional[^gestao-10] e a NOB SUAS/2012 conforme detalha o @fig-municipios-atualizacao-lei. A inexistência de Lei é encontrada em 25% (1.400) dos municípios.
+Em 2022, 75% dos municípios possuíam Lei Municipal de regulamentação do SUAS (4.170). Destes, a maioria, 91% (3.798) aprovaram e/ou atualizaram após 2013 e 9% (372) anterior a atualização da Lei Nacional[^gestao-9] e a NOB SUAS/2012 conforme detalha o @fig-municipios-atualizacao-lei. A inexistência de Lei é encontrada em 25% (1.400) dos municípios.
 
-[^gestao-10]: Lei nº 12.435, de 06/07/2011 altera a Lei Organiza da Assistência Social (LOAS) - nº 8.742, de 07/.12.1993
+[^gestao-9]: Lei nº 12.435, de 06/07/2011 altera a Lei Organiza da Assistência Social (LOAS) - nº 8.742, de 07/.12.1993
 
-```{r fig-municipios-atualizacao-lei, fig.cap = "Percentual de municípios segundo último ano de atualização da Lei Municipal de regulamentação do Sistema Único de Assistência Social (SUAS) - Brasil, 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r fig-municipios-atualizacao-lei, fig.cap = "Percentual de municípios segundo último ano de aprovação e/ou atualização da Lei Municipal de regulamentação do Sistema Único de Assistência Social (SUAS) - Brasil, 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 grafico <- gm_2023 %>%
   select(x=q4) %>%
@@ -1245,11 +1251,11 @@ grafico <- gm_2023 %>%
 grafico
 ```
 
-No que se refere ao Planejamento, trata-se de uma obrigatoriedade para existência do Sistema Único e repasse de confinanciamento. O Plano Estadual de Assistência Social (PEAS) deve ser aprovado pelo Conselho Estadual de Assistência Social (CEAS). Os dados do @fig-PEAS sinalizam que a partir de 2020 há um decréscimo desta atualização com devida aprovação do conselho[^gestao-11] [^gestao-12].
+O Plano de Assistência Social é uma obrigatoriedade para existência de confinanciamento federal. O Plano Estadual de Assistência Social (PEAS) deve ser aprovado pelo Conselho Estadual de Assistência Social (CEAS). Os dados do @fig-PEAS sinalizam que a partir de 2020 há um decréscimo desta atualização com devida aprovação do conselho[^gestao-10] [^gestao-11].
 
-[^gestao-11]: Para os anos de 2016, 2017, 2018 e 2019 as perguntas alteraram, impossibilitando a linha histórica
+[^gestao-10]: Para os anos de 2016, 2017, 2018 e 2019 as perguntas alteraram, impossibilitando a linha histórica
 
-[^gestao-12]: Para os municípios não foi possível fazer essa linha histórica em decorrência de mudanças nas perguntas
+[^gestao-11]: Para os municípios não foi possível fazer essa linha histórica em decorrência de mudanças nas perguntas
 
 ```{r fig-PEAS, fig.cap = "Percentual de Estados quanto a atualização do Plano Estadual de Assistência Social no ano do Censo - Brasil, 2020 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -1270,9 +1276,9 @@ grafico <-
 grafico
 ```
 
-O Plano de apoio técnico aos municípios também é um produto a ser realizado pelos Estados e previsto no último pacto de aprimoramento Estadual do SUAS[^gestao-13]. De acordo com Censo Suas 2022, 57,69% dos Estados possuem este plano pactuado na CIB. Este percentual reduziu em relação ao ano de 2017, na qual mais de 77% dos estados informaram possuir este documento pactuado nesta instância de comissão intergestores bipartite (CIB).
+O Plano de apoio técnico aos municípios também é um produto a ser realizado pelos Estados e previsto no último pacto de aprimoramento Estadual do SUAS[^gestao-12]. De acordo com Censo Suas 2022, 57,69% dos Estados possuem este plano pactuado na CIB. Este percentual reduziu em relação ao ano de 2017, na qual mais de 77% dos estados informaram possuir este documento pactuado nesta instância de comissão intergestores bipartite (CIB).
 
-[^gestao-13]: Resolução CNAS Nº2, de 16 de março de 2017
+[^gestao-12]: Resolução CNAS Nº2, de 16 de março de 2017
 
 ```{r fig-plan_apoio_tec, fig.cap = "Percentual de Estados que possuem Plano de Apoio Técnico pactuado na CIB - Brasil, 2013 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -1294,9 +1300,9 @@ grafico <- f_sim(ge_2013, q85, "2013") %>%
 grafico
 ```
 
-A NOB SUAS 2012 também evidencia o papel dos estados frente as atribuições de apoio técnico e financeiro aos municípios[^gestao-14] na qual compreende ações de:
+A NOB SUAS 2012 também evidencia o papel dos estados frente as atribuições de apoio técnico e financeiro aos municípios[^gestao-13] na qual compreende ações de:
 
-[^gestao-14]: Capítulo III - NOBSUAS/2012
+[^gestao-13]: Capítulo III - NOBSUAS/2012
 
 I)  Capacitação;
 II) Elaboração de normas e instrumentos;
@@ -1615,9 +1621,9 @@ grafico <- nuep(ge_2020, q47, "2020") %>%
 grafico
 ```
 
-Em relação ao Plano de Educação Permanente, de acordo com Censo SUAS de 2021, 13,9% (769) dos municípios possuem este plano. Esse percentual, como pode ser observado no @fig-PNEP_Munic, teve evolução residual últimos anos[^gestao-15].
+Em relação ao Plano de Educação Permanente, de acordo com Censo SUAS de 2021, 13,9% (769) dos municípios possuem este plano. Esse percentual, como pode ser observado no @fig-PNEP_Munic, teve evolução residual últimos anos[^gestao-14].
 
-[^gestao-15]: Para o ano de 2022 essa pergunta foi extinta
+[^gestao-14]: Para o ano de 2022 essa pergunta foi extinta
 
 ```{r fig-PNEP_Munic, fig.cap = "Percentual de municípios que possuem Plano de Capacitação e Educação Permanente, - Brasil; 2015 a 2019 e 2021", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -1716,17 +1722,15 @@ grafico
 
 ## Financiamento e Gestão Financeira
 
-O modelo de gestão do SUAS preve cofinanciamento compartilhado entre os três entes federados[^gestao-16].
+O modelo de gestão do SUAS preve cofinanciamento compartilhado entre os três entes federados[^gestao-15]. Nesta perspetiva, nos últimos 10 anos, percebe-se um avanço sobre a participação dos estados no cofinanciamento estadual com participação de 96,15% (25) dos estados que informam cofinanciar os municípios (@fig-estados-cofinanciamento-municipios).
 
-[^gestao-16]: Art. 30-A. O cofinanciamento dos serviços, programas, projetos e benefícios eventuais, no que couber, e o aprimoramento da gestão da política de assistência social no Suas se efetuam por meio de transferências automáticas entre os fundos de assistência social e mediante alocação de recursos próprios nesses fundos nas 3 (três) esferas de governo.
+[^gestao-15]: Art. 30-A. O cofinanciamento dos serviços, programas, projetos e benefícios eventuais, no que couber, e o aprimoramento da gestão da política de assistência social no Suas se efetuam por meio de transferências automáticas entre os fundos de assistência social e mediante alocação de recursos próprios nesses fundos nas 3 (três) esferas de governo.
 
-Nesta perspetiva, percebe-se um avanço nos últimos 10 anos sobre a participação dos estados no cofinanciamento estadual com participação de 96,15% (25) dos estados que informam cofinanciar os municípios (@fig-estados-cofinanciamento-municipios).
+A forma de cofinanciamento deve ser viabilizada por meio de transferência automática regular entre os fundos de assistência social (Fundo a Fundo). Sobre esse item, observa-se que em 2012, 26,63% (8) dos estados realizavam cofinanciamento na modalidade de apenas Fundo a Fundo e 25,9% (7) apenas por convenio. Em 2022, 88,46% (23) dos estados realizavam cofinanciamneto regular e automático, existindo a prática exclusiva por convênio.
 
-A forma de cofinanciamento deve ser viabilizada por meio de transferência automática regular entre os fundos de assistência social (Fundo a Fundo). Sobre esse item, observa-se que em 2012, 26,63% (8) dos estados realizavam cofinanciamento na modalidade de apenas Fundo a Fundo e 25,9% (7) apenas por convenio. Dado que avançou ao longo dos anos, em 2022, 88,46% (23) dos estados que realizam cofinanciamneto regular e automático e nenhum estado apenas por convênio.
+Apesar destes avanços, há registros de não cofinanciamento estadual, no qual caiu de 25,93% (7) no ano de 2012 para 3,85% (1) em 2022 (1)[^gestao-16].
 
-Apesar destes avanços, há registros de não cofinanciamento estadual, no qual caiu de 25,93% (7) no ano de 2012 para 3,85% (1) em 2022 (1)[^gestao-17].
-
-[^gestao-17]: o Estado do Acre não cofinancia os municípios
+[^gestao-16]: o Estado do Acre não cofinancia os municípios
 
 ```{r fig-estados-cofinanciamento-municipios, fig.cap = "Percentual de estados segundo realização de cofinanciamento aos municípios - Brasil; 2012 a 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -2163,7 +2167,7 @@ grafico <-
 grafico
 ```
 
-```{r fig-be_uf_renda, fig.cap = "Percentual de estados que possuem programa próprio de transferência de renda", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r fig-be_uf_renda, fig.cap = "Percentual de estados que possuem programa próprio de transferência de renda, Brasil, 2012 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
 grafico <- f_sim(ge_2012, q33, "2012") %>%
    bind_rows(f_sim(ge_2013, q43, "2013")) %>%
@@ -2195,21 +2199,21 @@ grafico <- f_sim(ge_2020, q11_1, "2020") %>%
 grafico
 ```
 
-## Gestão do Cadastro Único[^gestao-18]
+## Gestão do Cadastro Único[^gestao-17]
 
-[^gestao-18]: O formulário do posto do Cadastro Único foi criado em 2020, assim a maioria das informações disponíveis terão referência a partir desta data.
+[^gestao-17]: O formulário do posto do Cadastro Único foi criado em 2020, assim a maioria das informações disponíveis terão referência a partir desta data.
 
-O Cadastro Único para Programas Sociais do Governo Federal (Cadastro Único) instituído por meio do art. 6º-F da Lei nº 8.742, de 7 de dezembro de 1993 (Lei Orgânica da Assistência Social), e regulamentado por meio do Decreto nº 11.016, de 29 de março de 2022 tem a finalidade de coletar, sistematizar e disseminar informações que permitem a identificação e caracterização das condições socioeconômicas das famílias em situação de vulnerabilidade social, sobretudo para as famílias de baixa de renda.
+O Cadastro Único para Programas Sociais do Governo Federal (Cadastro Único) instituído pelo art. 6º-F da Lei nº 8.742, de 7 de dezembro de 1993 (Lei Orgânica da Assistência Social), e regulamentado pelo Decreto nº 11.016, de 29 de março de 2022 tem a finalidade de coletar, sistematizar e disseminar informações que permitem a identificação e caracterização das condições socioeconômicas das famílias em situação de vulnerabilidade social, sobretudo para as famílias de baixa de renda.
 
 O objetivo é conhecer, incluir e aprimorar as políticas sociais através do acesso a serviços, programas, benefícios, identificação das famílias e territórios vulnerabilizados, bem como ações intersetoriais.
 
-A gestão do Cadastro Único é compartilhada entre União, Estados, Municípios e Distrito Federal na qual cabe aos estados o apoio técnico, capacitação, monitoramento e avaliação. É nos municípios que estão os locais de cadastramento e toda gestão territorial da identificação das famílias neste cadastro público.
+A gestão do Cadastro Único é compartilhada entre União, estados, municípios e Distrito Federal. Cabe aos estados o apoio técnico, capacitação, monitoramento e avaliação. É nos municípios que estão os locais de cadastramento e toda gestão territorial da identificação das famílias neste cadastro público.
 
 As unidades do Cadastro Único podem ser encontradas em locais exclusivos ou na rede de atendimento socioassistencial de CRAS, CREAS, Centro POP. Dados do Censo SUAS mostram uma evolução de locais de cadastramento, sobretudo a partir de 2017.
 
-Sobre a distribuição destes locais de Cadastro Único, destaca-se que em 2022, 31% (2.892) são unidades exclusivas de Cadastro Único e 68% (6.435) estão em unidades da rede socioassistencial[^gestao-19] conforme pode ser observado na tabela @tbl-qtd_unidades.
+Sobre a distribuição destes locais de Cadastro Único, destaca-se que em 2022, 31% (2.892) são unidades exclusivas de Cadastro Único e 68% (6.435) estão em unidades da rede socioassistencial[^gestao-18] conforme pode ser observado na tabela @tbl-qtd_unidades.
 
-[^gestao-19]: CRAS, CREAS e CENTRO POP
+[^gestao-18]: CRAS, CREAS e CENTRO POP
 
 <!-- ```{=tex} -->
 
@@ -2245,13 +2249,13 @@ Sobre a distribuição destes locais de Cadastro Único, destaca-se que em 2022,
 
 <!-- ``` -->
 
-| Unidades              |   2017    |   2018    |   2019    |   2020    |   2021    |   2022    |
+| Unidades | 2017 | 2018 | 2019 | 2020 | 2021 | 2022 |
 |:----------|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
-| CRAS                  |   5.669   |   5.508   |   5.923   |   5.729   |   5.937   |   6.090   |
-| CREAS                 |    281    |    174    |    199    |    199    |    208    |    230    |
-| Centro POP            |    112    |    83     |    84     |    108    |    106    |    115    |
-| Postos Cadastro Único |    \-     |    \-     |    \-     |   2.530   |   2.695   |   2.892   |
-| **Total**             | **6.062** | **5.765** | **6.206** | **8.566** | **8.946** | **9.327** |
+| CRAS | 5.669 | 5.508 | 5.923 | 5.729 | 5.937 | 6.090 |
+| CREAS | 281 | 174 | 199 | 199 | 208 | 230 |
+| Centro POP | 112 | 83 | 84 | 108 | 106 | 115 |
+| Postos Cadastro Único | \- | \- | \- | 2.530 | 2.695 | 2.892 |
+| **Total** | **6.062** | **5.765** | **6.206** | **8.566** | **8.946** | **9.327** |
 
 : Quantidade de Unidades de Cadastro Único {#tbl-qtd_unidades}
 
@@ -2259,9 +2263,9 @@ A respeito da estrutura física das unidades exclusivas do Cadastro Único desta
 
 No que se refere a gestão territorial, cabe as coordenações do Cadastro Único dos municípios o atendimento, a supervisão, o monitoramento e a avaliação dos processos de cadastramento, seja em postos específicos ou integradas as unidades da rede socioassistencial.
 
-O @fig-gestao_cad sinaliza que, no âmbito da gestão municipal, as ações de levantamento de famílias para atualização e inclusão cadastral são a mais realizada. A menor proporção se refere a ações de elaboração de análises utilizando dados do Cadastro Único (@fig-gestao_cad)[^gestao-20].
+O @fig-gestao_cad sinaliza que, no âmbito da gestão municipal, as ações de levantamento de famílias para atualização e inclusão cadastral são a mais realizada. A menor proporção se refere a ações de elaboração de análises utilizando dados do Cadastro Único (@fig-gestao_cad)[^gestao-19].
 
-[^gestao-20]: estas informações são do formulário de Gestão Municipal, assim se referem a informações gerais que a gestão informa realizar, destaca-se também que estas informações estão disponíveis a partir do ano de 2020 entretanto, só foi possível gerar a partir de 2021 em decorrência de problemas na leitura da base
+[^gestao-19]: estas informações são do formulário de Gestão Municipal, assim se referem a informações gerais que a gestão informa realizar, destaca-se também que estas informações estão disponíveis a partir do ano de 2020 entretanto, só foi possível gerar a partir de 2021 em decorrência de problemas na leitura da base
 
 ```{r fig-gestao_cad, fig.cap = "Ações desenvolvidas no âmbito da Gestão do Cadastro Único - Brasil, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -2328,9 +2332,9 @@ grafico<-tabela %>%
 grafico
 ```
 
-O @fig-acoes_cad sinaliza que as ações de esclarecimento de dúvidas sobre serviços, programas entre outros são realizadas pela grande maioria das unidades do Cadastro Único (96,82%). Já as ações de agendamento para atendimento são realizadas por 64,35% das unidades, com redução ao longo dos anos[^gestao-21].
+O @fig-acoes_cad sinaliza que as ações de esclarecimento de dúvidas sobre serviços, programas entre outros são realizadas pela grande maioria das unidades do Cadastro Único (96,82%). Já as ações de agendamento para atendimento são realizadas por 64,35% das unidades, com redução ao longo dos anos[^gestao-20].
 
-[^gestao-21]: estas informações são dos postos que executam exclusivamente atividades do Cadastro Único
+[^gestao-20]: estas informações são dos postos que executam exclusivamente atividades do Cadastro Único
 
 ```{r fig-acoes_cad, fig.cap = "Ações desenvolvidas pelos postos do Cadastro Único - Brasil, 2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -2655,7 +2659,7 @@ grafico
 
 A Assistência Social é uma política de previsibilidade constitucional reafirmadas por lei, normas, decretos, pactos. Assim, faz-se essencial padrões de gestão e comandos únicos em todos os entes federados. Os dados históricos sinalizam avanços e desafios para gestão do SUAS.
 
-Os órgãos gestores da assistência social, tanto estaduais quanto municipais, são estruturas fundamentais para a execução desta política. O significado do direito caminham junto com o planejamento, ofertas continuadas, padrões de respostas, comandos únicos etc.
+Os órgãos gestores da assistência social, tanto estaduais quanto municipais, são estruturas fundamentais para a execução desta política. O direito devem caminham junto com o planejamento, ofertas continuadas, padrões de respostas, comandos únicos etc.
 
 Assim, para consolidação desta política que faz-se universal nos territórios, é fundamental em todos entes federados estruturas administrativas indicadas nos pactos, Lei compatível com LOAS, conforme deliberação das conferências nacionais, comando único do gestor da pasta entre outros.
 
