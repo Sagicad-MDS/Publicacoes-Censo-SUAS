@@ -647,7 +647,7 @@ grafico<-tabela %>%
 grafico
 ```
 
-Quanto às subdivisões administrativas, nota-se que em relação à constituição informal ou ausência dela, as que possuem o maior percentual são a Gestão do trabalho e a Vigilância Socioassistencial. Destaca-se, também, a Proteção Social Especial, cuja existência é recomenda independente da presença de CREAS (@fig-municipais-constituicao-subdivisoes).
+Quanto às subdivisões administrativas, nota-se que em relação à constituição informal ou ausência dela, as que possuem o maior percentual são a Gestão do trabalho e a Vigilância Socioassistencial. Destaca-se, também, a Proteção Social Especial, cuja existência é recomenda independente da presença de CREAS (@fig-municipais-constituicao-subdivisoe).
 
 ```{r fig-municipais-constituicao-subdivisoes, fig.cap = "Distribuição dos órgãos gestores municipais segundo constituição/formalização de subdivisões administrativas - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 #| fig-height: 5

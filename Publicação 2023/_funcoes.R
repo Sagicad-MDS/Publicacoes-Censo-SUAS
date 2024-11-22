@@ -755,4 +755,3 @@ f_grafico_col_stack_percent_flip_2_x_groups = function(df, x1, x2, y, grupo, leg
   df
 }
 
-

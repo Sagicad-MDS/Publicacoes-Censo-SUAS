@@ -10,7 +10,7 @@ A qualidade da oferta de serviços, programas e benefícios da assistência soci
 
 [^rh-1]: acesso através:<https://www.mds.gov.br/webarquivos/public/NOBSUAS_2012.pdf>
 
-Este capítulo apresenta um panorama geral da situação das trabalhadoras e trabalhadores do SUAS, tanto nos equipamentos da assistência social quanto nas gestões municipais e estaduais, apresentando informações sobre quantitativo, tipo de vínculo trabalhista, escolaridade, entre outros aspectos referentes à gestão do trabalho, e sua evolução ao longo dos anos.
+Esta seção apresenta um panorama geral da situação das trabalhadoras e trabalhadores do SUAS, tanto nos equipamentos da assistência social quanto nas gestões municipais e estaduais, apresentando informações sobre quantitativo, tipo de vínculo trabalhista, escolaridade, entre outros aspectos referentes à gestão do trabalho, e sua evolução ao longo dos anos.
 
 ## Evolução na quantidade de trabalhadoras/es, tipo de vínculo e escolaridade no orgão gestor
 
@@ -147,7 +147,9 @@ Os percentuais de trabalhadoras/es segundo tipo de vínculo pode ser observados 
 
 [^rh-4]: não foi possível gerar este gráficos para os anos de 2012 e 2020 em decorrência de problemas na leitura da base de dados do Censo SUAS
 
-Neste mesmo gráfico, também é possível observar, em 2022, queda nos números de empregados públicos -- CLT (5%) e outros com vínculos não permanentes (29%). O único aumento registrado foi 14 pontos percentuais no quadro de comissionados (31%).
+Este gráfico também sinaliza uma significativa diminuição no público de empregadores públicos que representa 11% das/os trabalhadoras/es no ano de 2013 e reduz para 4,7% em 2022. Dados de outros vínculos não permanente também reduz de 37% em 2013 para 29% no ano de 2022. O único dado percentual que eleva nas gestões dos municípios são referentes a cargos comissionados. Este dados avança de 17% em 2013 para 31% em 2022.
+
+Destaca-se que em outros vínculos não permanentes estão incluídos voluntários.
 
 ```{r fig-munic_trab_vin, fig.cap ="Percentual de trabalhadoras/es nas Secretarias Municipais de Assistência Social, segundo tipo de vínculo - Brasil, 2013, 2017 e 2022"}
 
@@ -231,9 +233,11 @@ grafico <- f_nomex_somay_nomegrupo(ge_2012, "2012", q55e_1, "Nível Fundamental"
 grafico
 ```
 
-O @fig-munic_trab_form mostra a evolução do número de trabalhadoras/es de nível superior, ele avança de 36% para 52% no período de 2013 [^rh-5] a 2022. Em relação a propoção de profissionais de nível médio e fundamental, há uma redução ao longo deste período com 6,3 pontos percentuais para de nível fundamental e 10 pontos percentuais para profissionais de nível médio. Assim, o Censo SUAS de 2022 sinaliza que, do total de trabalhadoras/es na gestão municipal, há 39% de nível fundamental e 8,7% de nível médio. Demais 52%, correspondem a profissionais de nível superior.[^rh-6].
+O @fig-munic_trab_form mostra a evolução do número de trabalhadoras/es de nível superior, ele avança de 36% para 52% no período de 2013 [^rh-5] a 2022. Em relação a propoção de profissionais de nível médio e fundamental, há uma redução ao longo deste período com 6,3 pontos percentuais para de nível fundamental e 10 pontos percentuais para profissionais de nível médio. Assim, o Censo SUAS de 2022 sinaliza que, do total de trabalhadoras/es na gestão municipal, há 39% de nível fundamental e 8,7% de nível médio. Demais 52%, correspondem a profissionais de nível superior.
 
 [^rh-5]: não foi possível gerar este gráficos para os anos de 2012 e 2020 em decorrência de problemas na leitura da base de dados do Censo SUAS
+
+[^rh-6].
 
 [^rh-6]: não foi possível gerar este gráficos para os anos de 2012 e 2020 em decorrência de problemas na geração dos dados
 
@@ -289,7 +293,7 @@ grafico
 
 Das/os trabalhadoras/es das Secretarias Estaduais de Assistência Social que informaram sua formação superior em 2022, destaca-se a maior presença de profissionais de serviços social com 24%, após identifica-se a proporção de profissionais de psicologia com 8,2%. O maior número de profissionais são identificados em outras profissões ou não informado.[^rh-7]
 
-[^rh-7]: O número elevado da categoria de "outro profissional não informado" se deve a soma na base de dados nas informações de outros profissionais de nível superior a profissionais "sem formação profissional". Entretanto, pela relevância desta informação mantemos o gráfico.
+[^rh-7]: O número elevado da categoria de “outro profissional não informado” se deve a soma na base de dados nas informações de outros profissionais de nível superior a profissionais “sem formação profissional”. Entretanto, pela relevância desta informação mantemos o gráfico.
 
 ```{r fig-uf_trab_prof, fig.cap ="Percentual de trabalhadoras/es de nível superior nas Secretarias Estaduais de Assistência Social, segundo área de formação - Brasil; 2012, 2017 e 2022"}
 #| fig-height: 4.5
@@ -500,7 +504,7 @@ grafico
 
 ## Evolução da quantidade de trabalhadoras/es nas Unidades do SUAS
 
-O Artigo 6º da Lei Orgânica de Assistência Social (LOAS) estabelece que os recursos do cofinanciamento do SUAS poderão ser aplicados no pagamento dos profissionais que integrarem as equipes de referência. Os dados do Censo SUAS 2022 sinalizam um total de 145.861 trabalhadoras/es sendo 115.149 nos CRAS, 27.084 nos CREAS e 36.628 nos Centro POP.
+O Artigo 6º da Lei Orgânica de Assistência Social (LOAS) estabelece que os recursos do cofinanciamento do SUAS poderão ser aplicados no pagamento dos profissionais que integrarem as equipes de referência. Os dados do Censo SUAS 2022 sinalizam um total de 145.861 trabalhadoras/es sendo 115.149 CRAS, 27.084 CREAS e 36.628 Centro POP.
 
 O @fig-trab-unidades mostra um aumento na quantidade de trabalhadoras/es nas unidades socioassistenciais no período de 2012 a 2022. Essa evolução neste período representa 69% nos CRAS, 36% nos CREAS, 122% no Centro POP.
 
@@ -559,9 +563,9 @@ grafico
 
 ## Gestão do trabalho: Concurso público
 
-A gestão do trabalho no SUAS compreende desenhos organizativos, avaliação de desempenho, adequação de perfis profissionais às necessidades das areas administrativas, mesas de negociação, plano de carreira e previsão de consursos públicos.
+A gestão do trabalho no SUAS compreende desenhos organizativos, avaliação de desempenho, adequação de perfis profissionais ás necessidades das areas administrativas, mesas de negociação, plano de carreira e previsão de consursos públicos.
 
-Em relação à realização de concursos públicos pelos entes estaduais, o @fig-conc_estado mostra a linha histórica quanto a realização de concurso para trabalhadoras/es de nível superior do SUAS. Por pelos menos 5 anos neste período, nenhum estado realizadou concurso para nível superior no SUAS.
+Em relação a realização de concursos públicos pelos entes estaduais, o @fig-conc_estado mostra a linha histórica quanto a realização de concurso para trabalhadoras/es de nível superior do SUAS. Por pelos menos 5 anos neste período, nenhum estado realizadou concurso para nível superior no SUAS.
 
 ```{r fig-conc_estado, fig.cap = "Percentual de estados que realizaram concursos para trabalhadores nível superior do SUAS - Brasil, 2013 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -581,7 +585,7 @@ grafico <- f_sim(ge_2013, q68a_1, "2013") %>%
 grafico
 ```
 
-Em relação aos municipaios, a maior realização de concurso público municipal para trabalhadoras/es de nível superior se deu nos anos de 2013 (27%) e 2015 (17%). Este dado mostra os desafios da gestão do trabalho. O @fig-conc_munic referencia a linha histórica dos últimos 10 anos.
+Em relação a realização de concurso público municipal para trabalhadoras/es de nível superior, percebe-se que os anos de 2013 e 2015 foram os anos com maior número de municípios realizaram, com dados percentuais de 27% e 17% respectivamente. Este dado mostra os desafios da gestão do trabalho. O @fig-conc_munic referencia a linha histórica dos últimos 10 anos.
 
 ```{r fig-conc_munic, fig.cap = "Percentual de municípios que realizaram concursos para trabalhadores nível superior do SUAS - Brasil, - Brasil, 2012 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -608,4 +612,4 @@ grafico
 
 ## Considerações Finais
 
-Em relação a quantidade de trabalhadoras/es do SUAS no âmbito da gestão estadual e municipal, observa-se que do período de 2018 a 2022, houve aumento nesta quantidade em nível nacional. Para as gestões estaduais o aumento foi de 7% e gestões municipais foi de 4%. Entretanto, destaca-se que, neste mesmo período, as Regiões Sudeste e Sul tiveram redução no número de trabalhadoras/es nas gestões estaduais e, no âmbito das gestões municipais, a Região Nordeste teve redução na quantidade de trabalhadoras/es. No âmbito das unidades socioassistenciais, sobretudo CRAS, CREAS e Centro POP, observa-se um aumento nos dados nacionais da rede socioassistencial. Em relação ao vínculo destes trabalhadoras/es, nas gestões estaduais houve uma redução das/os servidoras/es estatutários e empregadas/os públicas/os (CLT) e aumento no número de cargos comissionados e outros vínculos não permanentes. Nas gestões municipais, os dados sinalizam para redução da quantidade de servidoras/es estatutários, empregadas/os públicas/os (CLT) e outros vínculos não permanentes. No que se refere a escolaridade das/os trabalhadoras/es das gestões, observa-se no geral um aumento da proporção de trabalhadoras/es de nível superior. Em relação a profissão, Assistentes Sociais e psicólogos são proporcionalmente a maioria para ambos os entes. Por fim, os dados também sinalizam desafios para gestão do trabalho, sobretudo no que se refere a realização de concursos públicos
+Em relação a quantidade de trabalhadoras/es do SUAS no âmbito da gestão estadual e municipal, observa-se que do período de 2018 a 2022, houve aumento nesta quantidade em nível nacional. Para as gestões estaduais o aumento foi de 7% e gestões municipais foi de 4%. Entretanto, destaca-se que, neste mesmo período, as regiões Sudeste e Sul teve redução do número de trabalhadoras/es nas gestões estaduais e, no âmbito das gestões municipais, a região nordeste teve redução na quantidade de trabalhadoras/es. No âmbito das unidades socioassistenciais, sobretudo CRAS, CREAS e Centro POP, observa-se um aumento nos dados nacionais da rede socioassistencial. Em relação ao vínculo destes trabalhadoras/es, nas gestões estaduais houve uma redução das/os servidoras/es estatutários e empregadas/os públicas/os (CLT) e aumento no número de cargos comissionados e outros vínculos não permanentes. Nas gestões municipais, os dados sinalizam para redução da quantidade de servidoras/es estatutários, empregadas/os públicas/os (CLT) e outros vínculos não permanentes. No que se refere a escolaridade das/os trabalhadoras/es das gestões, observa-se no geral um aumento da proporção de trabalhadoras/es de nível superior. Em relação a profissão, Assistentes Sociais e psicólogos são proporcionalmente a maioria para ambos os entes. Por fim, os dados também sinalizam desafios para gestão do trabalho, sobretudo no que se refere a realização de concursos públicos

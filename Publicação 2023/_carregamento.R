@@ -614,10 +614,3 @@ pop_municipios_2016 <- read_excel("../Estimativa População IBGE/estimativa_dou
 pop_municipios_2017 <- read_excel("../Estimativa População IBGE/estimativa_dou_2017.xls", sheet = "Municípios (limpo)")
 pop_municipios_2021 <- read_ods("../Estimativa População IBGE/POP2021_20230710.ods")
 
-
-# Ajuste base 2023
-names(gm_2023)[grep("Regiao", names(gm_2023))] = "Região"
-gm_2023$Região = factor(gm_2023$Região,
-                        labels = c("Região Norte", "Região Nordeste", "Região Centro-Oeste", "Região Sudeste", "Região Sul"),
-                        levels = c("Região Norte", "Região Nordeste", "Região Centro Oeste", "Região Sudeste", "Região Sul"))
-
