@@ -61,7 +61,7 @@ grafico <- estados_sec_exc(ge_2012, q1, "2012") %>%
   bind_rows(estados_sec_exc(ge_2020, q1, "2020")) %>%
   bind_rows(estados_sec_exc(ge_2021, q1, "2021")) %>%
   bind_rows(estados_sec_exc(ge_2022, q1, "2022")) %>%
-  
+  bind_rows(estados_sec_exc(ge_2023, q1, "2023")) %>%
 
   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 2)
 
@@ -828,7 +828,7 @@ grafico
 
 ```{r fig-estados-constituicao-subdivisoes, fig.cap = "Percentual de estados segundo característica da estrutura administrativa da Secretaria Estadual de Assistência Social - Brasil,  2023", fig.footer = "Fonte: MDS, Censo SUAS.", fig.height = 7}
 
-#corrigir função
+
 
 tabela<-ge_2023 %>%
 # Questionário 2023:
@@ -952,6 +952,19 @@ munic_sub= function(df, q, ano, cod_categoria){
   bind_rows(munic_sub(gm_2022,q1_9,"2022","7")) %>%
   bind_rows(munic_sub(gm_2022,q1_8,"2022","8")) %>%
   bind_rows(munic_sub(gm_2022,q1_4,"2022","9")) %>%
+   
+  bind_rows(munic_sub(gm_2023,q3_1,"2023","1")) %>%
+  bind_rows(munic_sub(gm_2023,q3_2,"2023","2")) %>%
+  bind_rows(munic_sub(gm_2023,q3_3,"2023","3")) %>%
+  bind_rows(munic_sub(gm_2023,q3_5,"2023","4")) %>%
+  bind_rows(munic_sub(gm_2023,q3_6,"2023","5")) %>%
+  bind_rows(munic_sub(gm_2023,q3_7,"2023","6")) %>%
+  bind_rows(munic_sub(gm_2023,q3_9,"2023","7")) %>%
+  bind_rows(munic_sub(gm_2023,q3_8,"2023","8")) %>%
+  bind_rows(munic_sub(gm_2023,q3_4,"2023","9")) %>%
+
+   
+   #inserir todos os anos
 
 
 
@@ -959,7 +972,7 @@ munic_sub= function(df, q, ano, cod_categoria){
   mutate(Categoria=str_wrap(Categoria,width=49))
 
 ordenado<-tabela %>%
-  filter(Ano == "2022") %>%
+  filter(Ano == "2023") %>%
   arrange(Percentual) %>%
   pull(Categoria)
 
@@ -1114,17 +1127,20 @@ grafico
 ```{r fig-municipais-constituicao-subdivisoes_2012, fig.cap = "Distribuição dos órgãos gestores municipais segundo constituição/formalização de subdivisões administrativas - Brasil, 2012", fig.footer = "Fonte: MDS, Censo SUAS", eval=FALSE}
 
 # Questionários 2012:
-tabela<-gm_2012 %>%
-  select("Proteção Social Básica"=q3a,
-         "Proteção Social Especial"=q3b,
-         "Gestão de Benefícios Assistenciais (Bolsa Família, BPC, Benefícios Eventuais)"=q3e,
-          "Gestão do Bolsa Família)"=q3d,
-         "Gestão do SUAS"=q3f,
-         "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q3i,
-         "Monitoramento e avaliação)"=q3j,
-         "Gestão do Trabalho"=q3g,
-         "Regulação do SUAS"=q3h,
-         "Gestão Financeira e Orçamentária"=q3c) %>%
+#tabela<-gm_2012 %>%
+#  select("Proteção Social Básica"=q3a,
+#         "Proteção Social Especial"=q3b,
+#         "Gestão de Benefícios Assistenciais (Bolsa Família, BPC, Benefícios Eventuais)"=q3e,
+#          "Gestão do Bolsa Família)"=q3d,
+#         "Gestão do SUAS"=q3f,
+#         "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q3i,
+#         "Monitoramento e avaliação)"=q3j,
+#         "Gestão do Trabalho"=q3g,
+#         "Regulação do SUAS"=q3h,
+#         "Gestão Financeira e Orçamentária"=q3c) %>%
+ 
+
+  
 # Questionários 2016:
 #tabela<-gm_2016 %>%
 #  select("Proteção Social Básica"=q3_1,
@@ -1411,11 +1427,25 @@ tabela <- ge_apoio_tecnico(ge_2022, q21_1, "2022", "1") %>%
   bind_rows(ge_apoio_tecnico(ge_2022, q21_10, "2022", "10")) %>%
   bind_rows(ge_apoio_tecnico(ge_2022, q21_99, "2022", "11")) %>%
 
-  ungroup() %>%
+  
+  bind_rows(ge_apoio_tecnico(ge_2023, q14_2, "2023", "2")) %>%
+  bind_rows(ge_apoio_tecnico(ge_2023, q14_3, "2023", "3")) %>%
+  bind_rows(ge_apoio_tecnico(ge_2023, q14_4, "2023", "4")) %>%
+  bind_rows(ge_apoio_tecnico(ge_2023, q14_5, "2023", "5")) %>%
+  bind_rows(ge_apoio_tecnico(ge_2023, q14_6, "2023", "6")) %>%
+  bind_rows(ge_apoio_tecnico(ge_2023, q14_7, "2023", "7")) %>%
+  bind_rows(ge_apoio_tecnico(ge_2023, q14_8, "2023", "8")) %>%
+  bind_rows(ge_apoio_tecnico(ge_2023, q14_9, "2023", "9")) %>%
+  bind_rows(ge_apoio_tecnico(ge_2023, q14_10, "2023", "10")) %>%
+  bind_rows(ge_apoio_tecnico(ge_2023, q14_99, "2023", "11")) %>%
+
+  
+  
+   ungroup() %>%
   mutate(Categoria=str_wrap(Categoria,width=51))
 
 ordenado<-tabela %>%
-  filter(Ano == "2022") %>%
+  filter(Ano == "2023") %>%
   arrange(Percentual) %>%
   pull(Categoria)
 
@@ -1838,21 +1868,23 @@ tabela <- ge_destinacao_recursos(ge_2012, q65_1, "2012", "1") %>%
   bind_rows(ge_destinacao_recursos(ge_2017, q43_3, "2017", "3")) %>%
   bind_rows(ge_destinacao_recursos(ge_2017, q43_4, "2017", "4")) %>%
   bind_rows(ge_destinacao_recursos(ge_2017, q43_5, "2017", "5")) %>%
+  
   bind_rows(ge_destinacao_recursos(feas_2022, q13_1, "2022", "1")) %>%
   bind_rows(ge_destinacao_recursos(feas_2022, q13_2, "2022", "2")) %>%
   bind_rows(ge_destinacao_recursos(feas_2022, q13_3, "2022", "3")) %>%
   bind_rows(ge_destinacao_recursos(feas_2022, q13_4, "2022", "4")) %>%
-  bind_rows(ge_destinacao_recursos(feas_2022, q13_5, "2022", "5"))
- # bind_rows(ge_destinacao_recursos(feas_2023, q13_1, "2023", "1")) %>%
- # bind_rows(ge_destinacao_recursos(feas_2023, q13_2, "2023", "2")) %>%
- # bind_rows(ge_destinacao_recursos(feas_2023, q13_3, "2023", "3")) %>%
- # bind_rows(ge_destinacao_recursos(feas_2023, q13_4, "2023", "4")) %>%
- # bind_rows(ge_destinacao_recursos(feas_2023, q13_5, "2023", "5"))
+  bind_rows(ge_destinacao_recursos(feas_2022, q13_5, "2022", "5")) %>%
+  
+  bind_rows(ge_destinacao_recursos(feas_2023, q10_1, "2023", "1")) %>%
+  bind_rows(ge_destinacao_recursos(feas_2023, q10_2, "2023", "2")) %>%
+  bind_rows(ge_destinacao_recursos(feas_2023, q10_3, "2023", "3")) %>%
+  bind_rows(ge_destinacao_recursos(feas_2023, q10_4, "2023", "4")) %>%
+  bind_rows(ge_destinacao_recursos(feas_2023, q10_5, "2023", "5")) 
     
-#feas não está rodando
+
 
 ordenado<-tabela %>%
-  filter(Ano == "2023") %>%
+  filter(Ano == "2022") %>%
   arrange(n) %>%
   pull(Categoria)
 
@@ -2029,7 +2061,7 @@ grafico <- ord_despesa(ge_2012, q44, "2012") %>%
   bind_rows(ord_despesa(feas_2022, q2, "2022")) %>%
   bind_rows(ord_despesa(feas_2023, q2, "2023")) %>% 
  
-  #feas não está rodando
+  #2023 não tem as categorias Secretária/o ou técnica/o de outra área;"O/A Governador/a"
   
   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 2)
 
@@ -2105,7 +2137,12 @@ grafico
 #  mutate(Região = str_replace(Região, "Região ", "")) %>%
 #-------------------
 # Questionários 2022:
-grafico <- fmas_2022 %>%
+#grafico <- fmas_2022 %>%
+#  select(Regiao, "resposta" = q4) %>%
+#  mutate(Região = str_replace(Regiao, "Região ", "")) %>%
+#-------------------
+# Questionários 2023:
+ grafico <- fmas_2023 %>%
   select(Regiao, "resposta" = q4) %>%
   mutate(Região = str_replace(Regiao, "Região ", "")) %>%
 #-------------------
@@ -2158,6 +2195,8 @@ grafico <-
    bind_rows(f_sim(ge_2020, q10, "2020")) %>%
    bind_rows(f_sim(ge_2021, q10, "2021")) %>%
    bind_rows(f_sim(ge_2022, q10, "2022")) %>%
+  
+  #2023 não tem essa pergunta
 
   #até 2019 a pergunta era execução própria, transferencia de renda e, a partir de 2020 a pergunta muda para programas de execução própria
 # ATUALIZAÇÃO: na verdade a partir de 2020 tem as duas perguntas: programa próprio de transferência de renda e programas de execução própria. Mantidos nesse gráfico apenas os anos com a pergunta sobre programas de execução própria e criado outro gráfico apenas com as perguntas sobre programa próprio de transferência de renda.
@@ -2180,8 +2219,9 @@ grafico <- f_sim(ge_2012, q33, "2012") %>%
    bind_rows(f_sim(ge_2020, q9, "2020")) %>%
    bind_rows(f_sim(ge_2021, q9, "2021")) %>%
    bind_rows(f_sim(ge_2022, q9, "2022")) %>%
-
-  f_grafico_col_percent(Categoria, Percentual)
+   bind_rows(f_sim(ge_2023, q7, "2023")) %>%
+ 
+   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 ```
@@ -2194,6 +2234,8 @@ grafico <- f_sim(ge_2020, q11_1, "2020") %>%
    bind_rows(f_sim(ge_2021, q11_1, "2021")) %>%
    bind_rows(f_sim(ge_2022, q11_1, "2022")) %>%
 
+  #2023 não tem essa pergunta
+  
    f_grafico_col_percent(Categoria, Percentual)
 
 grafico
@@ -2315,7 +2357,7 @@ gestao_cad= function(df, q, ano, cod_categoria){
   bind_rows(gestao_cad(gm_2022,q52_4,"2022","4")) %>%
 
 
-
+#2023 não tem essa pergunta
 
   ungroup() %>%
   mutate(Categoria=str_wrap(Categoria,width=51))
