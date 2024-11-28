@@ -1,8 +1,10 @@
+lang: pt   
+
 project:
   type: book
 
 book:
-  title: "CENSO SUAS 2022"
+  title: "CENSO SUAS 2023"
   subtitle: ANÁLISE DOS COMPONENTES DA POLÍTICA NACIONAL DE ASSISTÊNCIA SOCIAL
   author:
     - Secretaria de Avaliação, Gestão da Informação e Cadastro Único
