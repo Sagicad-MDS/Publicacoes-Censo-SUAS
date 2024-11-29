@@ -6,10 +6,10 @@ project:
 book:
   title: "CENSO SUAS 2022"
   subtitle: ANÁLISE DOS COMPONENTES DA POLÍTICA NACIONAL DE ASSISTÊNCIA SOCIAL
-  author:
-    - Secretaria de Avaliação, Gestão da Informação e Cadastro Único
-    - Secretaria Nacional de Assistência Social
-    - Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome
+#  author:
+#    - Secretaria de Avaliação, Gestão da Informação e Cadastro Único
+#    - Secretaria Nacional de Assistência Social
+#    - Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome
 #  date: "21/06/2024"
   cover-image: cover.png
   favicon: cover.png
