@@ -1088,8 +1088,6 @@ grafico
 ```{r fig-municipais-constituicao-subdivisoes, fig.cap = "Distribuição dos órgãos gestores municipais segundo constituição/formalização de subdivisões administrativas - Brasil, 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
 #| fig-height: 5
 
-#conversar com  Shirley e Valdson para resolver esse gráfico
-
 # Questionários 2016:
 #tabela<-gm_2016 %>%
 #  select("Proteção Social Básica"=q3_1,
@@ -1115,7 +1113,7 @@ grafico
 #-------------------
 # Questionário 2022:
 #tabela<-gm_2022 %>%
- # select("Gestão do SUAS"=q1_1,
+#  select("Gestão do SUAS"=q1_1,
 #         "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q1_2,
 #         "Gestão do Trabalho"=q1_3,
 #         "Regulação do SUAS"=q1_4,
@@ -1142,6 +1140,7 @@ tabela<-gm_2023 %>%
   mutate(Nível = case_when(Nível=="Sim, na estrutura formal do órgão gestor"~"Constituída formalmente",
                            Nível=="Sim, de maneira informal"~"Constituída informalmente",
                            TRUE ~ Nível)) %>%
+  filter(!is.na(Nível)) %>%
   group_by(Categoria, Nível) %>%
   summarise(n=n()) %>%
   group_by(Categoria) %>%
