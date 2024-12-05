@@ -512,34 +512,25 @@ grafico
 ```
 
 
-```{r fig-CRAS-internet-percentual, fig.cap = "Evolução percentual de CRAS com computadores com acesso à internet – Brasil; 2007, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
-
-grafico <- f_maior0_regiao_ano(cras_2007, `Acesso a Internet`, ibge, "2007") %>%
-  bind_rows(f_maior0_regiao_ano(cras_2012, q13b, Região, "2012")) %>%
-  bind_rows(f_maior0_regiao_ano(cras_2017, q12.2, Região, "2017")) %>%
-  bind_rows(f_maior0_regiao_ano(cras_2022, q11_2, IBGE, "2022")) %>%
-
-  f_grafico_col_group_percent(Região, Percentual, Ano, 1)
-
-grafico
-```
-
-
-```{r fig-CRAS-internet-percentual, fig.cap = "Evolução percentual de CRAS com computadores com acesso à internet – Brasil; 2007, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
-
-#REVISAR
+```{r fig-CRAS-internet-percentual, fig.cap = "Evolução percentual de CRAS com computadores com acesso à internet – Brasil; 2007, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS.",}
 
 grafico <-
-  #f_maior0_regiao_ano(cras_2007, `Acesso a Internet`, ibge, "2007") %>%
- # f_maior0_regiao_ano(cras_2008, `Acesso a Internet`, ibge, "2008") %>%
-  bind_rows(f_maior0_regiao_ano(cras_2013, q12_2, Região, "2013")) %>%
-  bind_rows(f_maior0_regiao_ano(cras_2018, q_11_2, Região, "2018")) %>%
-  bind_rows(f_maior0_regiao_ano(cras_2023, q_11_2, IBGE, "2023")) %>%
 
+ # f_maior0_regiao_ano(cras_2007, `Acesso a Internet`, ibge, "2007") %>%
+ # bind_rows(cras_2012, q13b, Região, "2012")) %>%
+   f_maior0_regiao_ano(cras_2013, q12_2, Região, "2013") %>%
+ # bind_rows(f_maior0_regiao_ano(cras_2017, q12.2, Região, "2017")) %>%
+   bind_rows(f_maior0_regiao_ano(cras_2018, q_11_2, Regiao, "2018")) %>%
+ # bind_rows(f_maior0_regiao_ano(cras_2022, q11_2, IBGE, "2022")) %>%
+   bind_rows(f_maior0_regiao_ano(cras_2023, q11_2, IBGE, "2023")) %>%
+  
   f_grafico_col_group_percent(Região, Percentual, Ano, 1)
 
 grafico
 ```
+
+
+
 
 Em relação aos CRAS com locais para Cadastro Único, o dado abaixo tráz o percentual destas informações e a disposição de equipes para esta finalidade. Nota-se o aumento ao longo dos anos, das unidades de CRAS que possuem Cadastro Único com equipe exclusiva, chegando no Censo SUAS de 2022 com 59% (@fig-equip-cadunico-cras).
 
@@ -667,7 +658,7 @@ Os Centros de Convivência podem ser unidades públicas ou vinculadas a entidade
 
 ```{r fig-centro-conv-natureza, fig.cap = "Quantitativo de Centros de Convivência por Natureza da Unidade - BRASIL; 2016 a 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
-#revisar
+
 
 centro  = function(df, q, ano){
   q <- enquo(q)
@@ -676,7 +667,8 @@ centro  = function(df, q, ano){
   df %>%
     select(!! ano := !! q) %>%
     gather("Categoria","Nível") %>%
-    mutate(Nível = case_when(Nível == "Não Governamental"~"Não Governamental/Organização da Sociedade Civil",
+    mutate(Nível = case_when(Nível == "Não Governamental"|
+                             Nível == "Organização da Sociedade Civil" ~"Não Governamental/Organização da Sociedade Civil",
                              TRUE ~ Nível)) %>%
     filter(!is.na(Nível)) %>%
     mutate(Nível = factor(Nível, levels = c("Governamental",
@@ -807,17 +799,17 @@ grafico
 #REVISAR
 
 creas_municipios <- creas_2023 %>%
-  select(IBGE7) %>%
-  group_by(IBGE7) %>%
+  select(IBGE) %>%
+  group_by(IBGE) %>%
   summarise(n_creas=n())
 
 porte_municipios <- pop_municipios_2017 %>%
   f_porte_populacional(`POPULAÇÃO ESTIMADA`) %>%
-  mutate(IBGE7 = as.numeric(paste0(`COD. UF`, `COD. MUNIC`))) %>%
-  select(IBGE7, Porte)
+  mutate(IBGE = as.numeric(paste0(`COD. UF`, `COD. MUNIC`))) %>%
+  select(IBGE, Porte)
 
 dados <- creas_municipios %>%
-  full_join(porte_municipios, by = c("IBGE7" = "IBGE7")) %>%
+  full_join(porte_municipios, by = c("IBGE" = "IBGE")) %>%
   mutate(grupo = case_when(is.na(n_creas)~"Nenhum CREAS",
                             n_creas == 0~"Nenhum CREAS",
                             n_creas == 1~"1 CREAS",
