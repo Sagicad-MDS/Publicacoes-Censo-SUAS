@@ -13,6 +13,7 @@ book:
 #  date: "21/06/2024"
   cover-image: cover.png
   favicon: cover.png
+  repo-url: https://github.com/Sagicad-MDS/Publicacoes-Censo-SUAS
   chapters:
     - index.qmd
     - prefacio.qmd
