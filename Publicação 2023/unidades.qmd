@@ -531,23 +531,20 @@ grafico
 
 De acordo com o porte populacional, o @fig-CREAS-porte mostra o número de unidades de CREAS por município. É possível notar que os de Pequeno Porte I e II possuem, respectivamente, 77% e 5,3% de municípios com nenhum CREAS. Em nível nacional este valor é de 54%.
 
-```{r fig-CREAS-porte, fig.cap = "Percentual de municípios por número de CREAS, segundo porte populacional - Brasil, 2023", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios"}
-
-
-#REVISAR
+```{r fig-CREAS-porte, fig.cap = "Percentual de municípios por número de CREAS, segundo porte populacional, excluídos os CREAS regionais - Brasil, 2023", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios"}
 
 creas_municipios <- creas_2023 %>%
   select(IBGE) %>%
   group_by(IBGE) %>%
   summarise(n_creas=n())
 
-porte_municipios <- pop_municipios_2017 %>%
-  f_porte_populacional(`POPULAÇÃO ESTIMADA`) %>%
+populacao <- pop_municipios_2017 %>%
+  mutate(`COD. MUNIC` = str_sub(`COD. MUNIC`, end = 4)) %>%
   mutate(IBGE = as.numeric(paste0(`COD. UF`, `COD. MUNIC`))) %>%
-  select(IBGE, Porte)
+  select(IBGE, `POPULAÇÃO ESTIMADA`)
 
 dados <- creas_municipios %>%
-  full_join(porte_municipios, by = c("IBGE" = "IBGE")) %>%
+  full_join(populacao, by = c("IBGE" = "IBGE")) %>%
   mutate(grupo = case_when(is.na(n_creas)~"Nenhum CREAS",
                             n_creas == 0~"Nenhum CREAS",
                             n_creas == 1~"1 CREAS",
@@ -562,6 +559,8 @@ dados <- creas_municipios %>%
                                             "De 4 a 6 CREAS",
                                             "De 7 a 10 CREAS",
                                             "Mais de 10 CREAS"))) %>%
+  filter(!is.na(`POPULAÇÃO ESTIMADA`)) %>%
+  f_porte_populacional(`POPULAÇÃO ESTIMADA`) %>%
   group_by(Porte, grupo) %>%
   summarise(n=n()) #%>%
 #  complete(grupo, fill = list(n=0))
