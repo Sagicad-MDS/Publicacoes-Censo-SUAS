@@ -8,14 +8,16 @@ f_porte_populacional = function(df, populacao){
                                !! populacao <= 50000~"Pequeno II",
                                !! populacao <= 100000~"Médio",
                                !! populacao <= 900000~"Grande",
-                               !! populacao > 900000~"Metrópole")) %>%
+                               !! populacao > 900000~"Metrópole",
+                               is.na(!! populacao)~"Município não especificado")) %>%
     mutate(Porte = factor(Porte, levels = c("Pequeno I",
                                             "Pequeno II",
                                             "Médio",
                                             "Grande",
-                                            "Metrópole")))
+                                            "Metrópole",
+                                            "Município não especificado")))
 }
-
+  
 f_selecao_regiao_ano_com_na = function(df, q, selecao, regiao, ano){
   q <- enquo(q)
   ano <- quo_name(ano)
