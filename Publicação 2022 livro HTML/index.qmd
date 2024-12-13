@@ -1,65 +1,23 @@
-## Expediente {.unnumbered}
+# Prefácio {.unnumbered}
 
-Presidente da República Federativa do Brasil\
-**Luiz Inácio Lula da Silva**
+A gestão de informação contribui tanto para a transparência dos resultados em relação à evolução da política, bem como para subsidiar o planejamento e aprimoramento da política pública. Um dos principais objetivos da série histórica da publicação Censo SUAS, uma análise dos componentes da política de Assistência Social.
 
-Ministro de Estado do Desenvolvimento e Assistência Social, Família e Combate à Fome\
-**Wellington Dias**
+A publicação do Censo SUAS teve sua primeira edição em 2010. Publicado nos anos subsequentes, o caderno tem como objetivo apurar e evidenciar uma série de dados e de informações sobre gestão e financiamento, Cadastro Único, aspectos de infraestrutura, gestão do trabalho e educação permanente, serviços, benefícios, e participação social no âmbito da assistência social. Esses dados e informações subsidiam gestores, técnicos e pesquisadores envolvidos no SUAS, além de aprimorar ações, identificar êxitos e reestruturar pontos que não tenham atingido os resultados planejados.
 
-Secretário-Executivo\
-**Osmar Ribeiro de Almeida Júnior**
+Em 2018 a publicação do Censo SUAS foi interrompida. Após 5 anos a SAGICAD retoma o caderno, resgatando as informações anteriores e garantindo continuidade às informações do SUAS. Reforçando, com isso, o papel estratégico da produção de dados, do monitoramento e da análise de políticas, superando a perda na qualidade da informação, o apagão dos dados, a falta de transparência e o negacionismo.
 
-Secretária de Avaliação, Gestão da Informação e Cadastro Único\
-**Letícia Bartholo de Oliveira e Silva**
+Os dados aqui publicados são coletados através do formulário do Censo do Sistema Único de Assistência Social (Censo SUAS), realizado anualmente desde 2007, reune informações sobre serviços, programas e projetos de assistência social realizados pelas unidades públicas e pela Rede Socioassistencial Privada do SUAS.
 
-Secretária Nacional de Renda de Cidadania\
-**Eliane Aquino Custodio**
+Os principais resultados do Censo SUAS 2022, estão organizadas segundo as temáticas: Gestão e Financiamento, Cadastro Único, Unidades, Serviços e Benefícios, Gestão do Trabalho e Participação e Controle Social.
 
-Secretário Nacional de Assistência Social\
-**André Quintão Silva**
+Esta edição lança olhar sob a luz do II Plano Decenal, dando continuidade à maior parte dos conteúdos históricos, e acrescentando temas como atenção à situação de imigração, regionalização, bem como oferta de serviços tal qual o serviço de proteção social no domicílio, família acolhedora entre outros. Adicionalmente, são analisados aspectos da gestão do Cadastro Único para programas sociais no SUAS.
 
-Secretária Extraordinária de Combate à Pobreza e à Fome\
-**Valéria Torres Amaral Burity**
+Realizada numa ação conjunta entre a Secretaria de Avaliação, Gestão da Informação e Cadastro Único (SAGICAD) e a Secretaria Nacional de Assistência Social (SNAS), a consolidação das análises reflete o esforço contínuo de aperfeiçoamento do levantamento das informações, assim, esperamos que os resultados apresentados possam dar continuidade ao papel de subsidiar o debate qualificado e construtivo a respeito do SUAS para resultar em seu aprimoramento.
 
-Secretária Nacional de Segurança Alimentar e Nutricional\
-**Lilian dos Santos Rahal**
+Letícia Bartholo
 
-Secretário de Inclusão Socioeconômica\
-**Luiz Carlos Everton de Farias**
+Secretária de Avaliação, Gestão da Informação e Cadastro Único
 
-Secretária Nacional de Cuidados e Família\
-**Laís Wendel Abramo**
+André Quintão
 
-## Ficha Técnica {.unnumbered}
-
-### Coordenação-geral da Publicação do Censo SUAS 2022 {.unnumbered}
-
-**Diretoria de Monitoramento e Avaliação - DMA/SAGICAD:**
-
--   Joana Simões de Melo Costa: Diretora de Monitoramento e Avaliação
--   Shirley de Lima Samico: Assessora Técnica do SUAS
-
-**Diretoria de Gestão do SUAS -- DGSUAS/SNAS**
-
--   Clara Carolina de Sá: Diretoria de Gestão do SUAS
--   Elizangela Cardoso de Araujo Silva: Coordenadora Geral de Vigilância Socioassistencial
-
-### Concepção, Planejamento e participação em reuniões {.unnumbered}
-
-Ana Angelica Campelo de Albuquerque e Melo, Ana Carolina Cambeses, Ana Gabriela Sambiase, Ana Paula Campos, Clara Carolina de Sá, Dionara Borges, Edgilson Tavares de Araujo, Elizangela Cardoso de Araujo Silva, Fabio Santos de Gusmão Lobo, Ieda Castro, Joana Simões de Melo Costa, Lais Maranhão Santos Mendonça, Lucas Loureiro Lino, Luciano Márcio Freitas de Oliveira, Marcelo Gomes Gadelha, Marcelo Sebatião de Oliveira, Marcílio Marquesini Ferrari, Mariana Peixoto, Paulo Clemente, Raimundo Nonato, Raquel Maria Soares Freitas, Ricardo Lovatel, Rogério Schmidt Campos, Sabrina Medeiros Borges, Shirley Samico, Simone Alburquerque, Simone de Castro Holanda, Thiago Silvino Rocha Oliveira, Ullysses da Silva Ferreira, Valdson Silva Cleto, Vinicius Pawlowski e Zilane Cristina Oliveira de Andrade.
-
-### Desenvolvimento de aplicativos informatizados, coleta e tratamento de dados {.unnumbered}
-
-Caio Nakashima, Carlos Henrique Santana, Carlos Brasileiro, Cristiane Silva de Moura, Danilo Galvão da Cunha, Davi Lopes Carvalho, Dionara Borges, Érika Paes Latim Castro, Frederico Palma, Marcelo do Nascimento Saraiva, Marcelo Gadelha, Marcos Coimbra, Murilo da Silva Mascarenhas de Morais, Paulo Clemente, Pedro Henrique Ribeiro Ferreira, Ricardo Carvalho, Roberto Wagner, Tiago Hackbarth.
-
-### Desenvolvimento de projeto de programação para análise de dados e produção da publicação {.unnumbered}
-
-Valdson Silva Cleto
-
-### Concepção e organização de textos: {.unnumbered}
-
-Clara Carolina de Sá, Elizangela Cardoso de Araújo Silva e Shirley Samico.
-
-### Elaboração e revisão dos textos {.unnumbered}
-
-Shirley Samico, Valdson Silva Cleto, Erica Moreira e Zilane Andrade.
+Secretária Nacional de Assistência Social

@@ -16,7 +16,6 @@ book:
   repo-url: https://github.com/Sagicad-MDS/Publicacoes-Censo-SUAS
   chapters:
     - index.qmd
-    - prefacio.qmd
     - apresentacao.qmd
     - metodologia.qmd
     - gestao.qmd
@@ -25,6 +24,7 @@ book:
     - rh.qmd
     - participacao.qmd
     - references.qmd
+    - creditos.qmd
 
 bibliography: references.bib
 
