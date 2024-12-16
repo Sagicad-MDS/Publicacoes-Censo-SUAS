@@ -35,7 +35,9 @@ grafico <- f_quantitativo_regiao_ano (cest_2012, IBGE, "2012") %>%
 #  bind_rows(f_quantitativo_regiao_ano(cest_2022, IBGE, "2020")) %>%
 #  bind_rows(f_quantitativo_regiao_ano(cest_2022, IBGE, "2021")) %>%
   bind_rows(f_quantitativo_regiao_ano(cest_2022, IBGE, "2022")) %>%
-  f_grafico_col_group_numero(Região, n, Ano, 1)
+  bind_rows(f_quantitativo_regiao_ano(cest_2023, IBGE, "2023")) %>%
+  
+   f_grafico_col_group_numero(Região, n, Ano, 1)
 
 grafico
 ```
@@ -44,17 +46,20 @@ Em relação aos Conselhos Municipais, o percentual de municípios que responder
 
 ```{r fig-qtd-cmas, fig.cap = "Quantidade de Conselhos Municipais de Assistência Social que preencheram Censo SUAS"}
 
-grafico <- f_quantitativo_regiao_ano (cmun_2012, Região, "2012") %>%
-#  bind_rows(f_quantitativo_regiao_ano(cmun_2013, IBGE, "2013")) %>%
+grafico <- f_quantitativo_regiao_ano (cmun_2013, Região, "2013") %>%
+  
+   
 #  bind_rows(f_quantitativo_regiao_ano(cmun_2014, IBGE, "2014")) %>%
 #  bind_rows(f_quantitativo_regiao_ano(cmun_2015, IBGE, "2015")) %>%
 #  bind_rows(f_quantitativo_regiao_ano(cmun_2016, IBGE, "2016")) %>%
-  bind_rows(f_quantitativo_regiao_ano(cmun_2017, IBGE, "2017")) %>%
-#  bind_rows(f_quantitativo_regiao_ano(cmun_2018, IBGE, "2018")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(cmun_2017, IBGE, "2017")) %>%
+   bind_rows(f_quantitativo_regiao_ano(cmun_2018, IBGE, "2018")) %>%
 #  bind_rows(f_quantitativo_regiao_ano(cmun_2019, IBGE, "2019")) %>%
 #  bind_rows(f_quantitativo_regiao_ano(cmun_2020, IBGE, "2020")) %>%
 #  bind_rows(f_quantitativo_regiao_ano(cmun_2021, IBGE, "2021")) %>%
-  bind_rows(f_quantitativo_regiao_ano(cmun_2022, IBGE, "2022")) %>%
+#  bind_rows(f_quantitativo_regiao_ano(cmun_2022, IBGE, "2022")) %>%
+   bind_rows(f_quantitativo_regiao_ano(cmun_2023, IBGE, "2023")) %>%
+  
   f_grafico_col_group_numero(Região, n, Ano, 1)
 
 grafico
@@ -76,8 +81,8 @@ grafico <- f_sim(cest_2012, q8, "2012") %>%
     bind_rows(f_sim(cest_2019, q6, "2019")) %>%
     bind_rows(f_sim(cest_2020, q6, "2020")) %>%
     bind_rows(f_sim(cest_2021, q6, "2021")) %>%
-   bind_rows(f_sim(cest_2022, q6, "2022")) %>%
-
+    bind_rows(f_sim(cest_2022, q6, "2022")) %>%
+    bind_rows(f_sim(cest_2023, q6, "2023")) %>%
 
   f_grafico_col_percent(Categoria, Percentual)
 
@@ -99,7 +104,7 @@ grafico <- f_sim(cmun_2012, q8, "2012") %>%
    bind_rows(f_sim(cmun_2020, q6, "2020")) %>%
    bind_rows(f_sim(cmun_2021, q6, "2021")) %>%
    bind_rows(f_sim(cmun_2022, q6, "2022")) %>%
-
+   bind_rows(f_sim(cmun_2023, q6, "2023")) %>%
 
   f_grafico_col_percent(Categoria, Percentual)
 
@@ -121,7 +126,8 @@ grafico <- f_sim(cest_2012, q13, "2012") %>%
    bind_rows(f_sim(cest_2020, q13, "2020")) %>%
    bind_rows(f_sim(cest_2021, q13, "2021")) %>%
    bind_rows(f_sim(cest_2022, q13, "2022")) %>%
-
+   bind_rows(f_sim(cest_2023, q13, "2023")) %>%
+  
   #2013 as variaveis estão "" ver como ajeitar para leitura
   #2012, 2017 é perguntado apenas se existe SE, não pergunta de forma exclusiva então retirei
   #2015 pergunta é igual das demais, SE exclusiva
@@ -149,7 +155,7 @@ grafico <- f_sim(cmun_2013, q14, "2013") %>%
     bind_rows(f_sim(cmun_2020, q12, "2020")) %>%
     bind_rows(f_sim(cmun_2021, q12, "2021")) %>%
     bind_rows(f_sim(cmun_2022, q12, "2022")) %>%
-
+    bind_rows(f_sim(cmun_2023, q12, "2023")) %>%
   
   f_grafico_col_percent(Categoria, Percentual)
 
@@ -158,7 +164,7 @@ grafico
 
 Em relação a dinâmica de funcionamento, o plenário deve, obrigatoriamente, funcionar uma vez ao mês e, extraordinariamente, sempre que necessário. Assim, destaca-se que 77% dos conselhos estaduais realizaram no último ano de 9 a 16 reuniões. O percentual de 3,8% (1 CEAS) realizou igual ou abaixo de 8 reuniões. Já 19,2% dos Conselhos Estaduais realizaram acima de 17 reuniões no ano de 2022, conforme mostra o @fig-qtdceas_reuniao.
 
-```{r fig-qtdceas_reuniao, fig.cap = "Proporção conselhos estaduais quanto a realização de reuniões plenárias no ano anterior"}
+```{r fig-qtdceas_reuniao, fig.cap = "Proporção conselhos estaduais quanto a realização de reuniões plenárias no ano anterior";eval=FALSE}
 
 
 grafico <- cest_2022 %>%
@@ -184,14 +190,68 @@ grafico <- cest_2022 %>%
 grafico
 ```
 
+```{r fig-qtdceas_reuniao, fig.cap = "Proporção conselhos estaduais quanto a realização de reuniões plenárias no ano anterior"}
+
+
+grafico <- cest_2023 %>%
+#-------------------
+# Questionários 2023:
+  select(x=d22) %>%
+#-------------------
+# Censo 2022:
+  mutate(x = case_when(x <= 8~"De 0 a 8 reuniões",
+                       x <= 16~"De 9 a 16 reuniões",
+                       x <= 20~"De 17 a 20 reuniões",
+                       x <= 30~"De 21 a 30 reuniões",
+                       x <= 40~"De 31 a 40 reuniões",
+                       TRUE ~ as.character(x))) %>%
+  mutate(x = factor(x, levels = c("De 0 a 8 reuniões","De 9 a 16 reuniões", "De 17 a 20 reuniões", "De 21 a 30 reuniões", "De 31 a 40 reuniões"))) %>%
+#-------------------
+  group_by(x) %>%
+  summarise(n=n()) %>%
+  mutate(Percentual = n/sum(n)) %>%
+
+  f_grafico_col_percent(x, Percentual)
+
+grafico
+```
+
+
+
+
 No tocante a realização de reuniões pelos Conselhos Municipais, o @fig-qtdcmas_reuniao sinaliza que 42% dos CMAS realizaram menos de 8 reuniões no ano, sendo 14% deles inferior a 5 reuniões. A periodicidade mensal de reuniões deve estar prevista em regimento interno do respectivo conselho, conforme é sinalizado na Resolução CNAS nº 100/2023.
 
-```{r fig-qtdcmas_reuniao, fig.cap = "Proporção de Conselhos Municipais quanto a quantidade de realização de reuniões plenárias do Conselho (ordinárias e extraordinárias)"}
+```{r fig-qtdcmas_reuniao, fig.cap = "Proporção de Conselhos Municipais quanto a quantidade de realização de reuniões plenárias do Conselho (ordinárias e extraordinárias)";eval=FALSE}
 
 grafico <- cmun_2022 %>%
 #-------------------
 # Questionários 2022:
   select(x=q25) %>%
+#-------------------
+# Censo 2022:
+  mutate(x = case_when(x <= 5~"Até 5",
+                       x <= 8~"Entre 6 e 8",
+                       x <= 12~"Entre 9 e 12",
+                       x > 12~"Acima de 12",
+                       TRUE ~ as.character(x))) %>%
+  mutate(x = factor(x, levels = c("Até 5","Entre 6 e 8", "Entre 9 e 12", "Acima de 12"))) %>%
+#-------------------
+  group_by(x) %>%
+  summarise(n=n()) %>%
+  mutate(Percentual = n/sum(n)) %>%
+  f_grafico_col_percent(x, Percentual)
+
+grafico
+```
+
+```{r fig-qtdcmas_reuniao, fig.cap = "Proporção de Conselhos Municipais quanto a quantidade de realização de reuniões plenárias do Conselho (ordinárias e extraordinárias)"}
+
+#revisar
+
+grafico <- cmun_2023 %>%
+#-------------------
+# Questionários 2023:
+  select(x=q22) %>%
 #-------------------
 # Censo 2022:
   mutate(x = case_when(x <= 5~"Até 5",
@@ -406,7 +466,8 @@ grafico <- f_sim(cest_2012, q7, "2012") %>%
    bind_rows(f_sim(cest_2020, q20, "2020")) %>%
    bind_rows(f_sim(cest_2021, q20, "2021")) %>%
    bind_rows(f_sim(cest_2022, q20, "2022")) %>%
-
+   bind_rows(f_sim(cest_2023, q17, "2023")) %>%
+  
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
@@ -427,7 +488,8 @@ grafico <- f_sim(cmun_2012, q7, "2012") %>%
    bind_rows(f_sim(cmun_2020, q20, "2020")) %>%
    bind_rows(f_sim(cmun_2021, q20, "2021")) %>%
    bind_rows(f_sim(cmun_2022, q20, "2022")) %>%
-
+   bind_rows(f_sim(cmun_2023, q17, "2023")) %>%
+  
   #fazer a seleção das variaveis
 
   f_grafico_col_percent(Categoria, Percentual)
@@ -454,7 +516,7 @@ grafico <- f_sim(cest_2012, q39, "2012") %>%
    bind_rows(f_sim(cest_2020, q40, "2020")) %>%
    bind_rows(f_sim(cest_2021, q40, "2021")) %>%
    bind_rows(f_sim(cest_2022, q40, "2022")) %>%
-
+   bind_rows(f_sim(cest_2023, q34, "2023")) %>%
  
   f_grafico_col_percent(Categoria, Percentual)
 
@@ -476,7 +538,7 @@ grafico <- f_sim(cmun_2012, q35_1, "2012") %>%
   bind_rows(f_sim(cmun_2020, q40, "2020")) %>%
   bind_rows(f_sim(cmun_2021, q40, "2021")) %>%
   bind_rows(f_sim(cmun_2022, q40, "2022")) %>%
-
+  bind_rows(f_sim(cmun_2023, q34, "2023")) %>%
  
   f_grafico_col_percent(Categoria, Percentual)
 
@@ -505,7 +567,8 @@ grafico <- f_sim(cest_2012, q29, "2012") %>%
      bind_rows(f_sim(cest_2020, q49_4, "2020")) %>%
      bind_rows(f_sim(cest_2021, q49_4, "2021")) %>%
      bind_rows(f_sim(cest_2022, q33_4, "2022")) %>%
-
+     bind_rows(f_sim(cest_2023, q28_4, "2023")) %>%
+  
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
@@ -528,7 +591,7 @@ grafico <- f_sim(cmun_2012, q28, "2012") %>%
   bind_rows(f_sim(cmun_2020, q33_4, "2020")) %>%
   bind_rows(f_sim(cmun_2021, q33_4, "2021")) %>%
   bind_rows(f_sim(cmun_2022, q33_4, "2022")) %>%
-
+  bind_rows(f_sim(cmun_2023, q28_4, "2023")) %>%
  
   f_grafico_col_percent(Categoria, Percentual)
 
@@ -551,7 +614,8 @@ grafico <- f_sim(cest_2012, q29, "2012") %>%
    bind_rows(f_sim(cest_2020, q34, "2020")) %>%
    bind_rows(f_sim(cest_2021, q34, "2021")) %>%
    bind_rows(f_sim(cest_2022, q34, "2022")) %>%
-
+   bind_rows(f_sim(cest_2023, q29, "2023")) %>%
+  
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
@@ -572,7 +636,8 @@ grafico <- f_sim(cmun_2012, q38, "2012") %>%
   bind_rows(f_sim(cmun_2020, q34, "2020")) %>%
   bind_rows(f_sim(cmun_2021, q34, "2021")) %>%
   bind_rows(f_sim(cmun_2022, q34, "2022")) %>%
-
+  bind_rows(f_sim(cmun_2023, q29, "2023")) %>%
+  
   #2013 as variaveis estão "" ver como ajeitar para leitura
 
   f_grafico_col_percent(Categoria, Percentual)
@@ -601,8 +666,9 @@ A concessão e o valor dos Benefícios Eventuais devem ser definidos pelos Munic
    bind_rows(f_sim(cest_2020, q36, "2020")) %>%
    bind_rows(f_sim(cest_2021, q36, "2021")) %>%
    bind_rows(f_sim(cest_2022, q36, "2022")) %>%
-
-
+  
+  #2023 não teve essa pergunta
+  
     f_grafico_col_percent(Categoria, Percentual)
 
 grafico
@@ -624,7 +690,8 @@ Em relação aos Conselhos Municipais, destaca-se através do @fig-cmas_be que 7
    bind_rows(f_sim(cmun_2021, q37, "2021")) %>%
    bind_rows(f_sim(cmun_2022, q36, "2022")) %>%
 
- 
+ #2023 não teve essa pergunta
+  
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
@@ -707,11 +774,20 @@ usu_ceas= function(df, q, ano, cod_categoria){
   bind_rows(usu_ceas(cest_2022,q78_6,"2022","6")) %>%
   bind_rows(usu_ceas(cest_2022,q78_99,"2022","7")) %>%
 
+  bind_rows(usu_ceas(cest_2023,q65_1,"2023","1")) %>%
+  bind_rows(usu_ceas(cest_2023,q65_2,"2023","2")) %>%
+  bind_rows(usu_ceas(cest_2023,q65_3,"2023","3")) %>%
+  bind_rows(usu_ceas(cest_2023,q65_4,"2023","4")) %>%
+  bind_rows(usu_ceas(cest_2023,q65_5,"2023","5")) %>%
+  bind_rows(usu_ceas(cest_2023,q65_6,"2023","6")) %>%
+  bind_rows(usu_ceas(cest_2023,q65_99,"2023","7")) %>%
+ 
+   
   ungroup() %>%
   mutate(Categoria=str_wrap(Categoria,width=51))
 
 ordenado<-tabela %>%
-  filter(Ano == "2022") %>%
+  filter(Ano == "2023") %>%
   arrange(Percentual) %>%
   pull(Categoria)
 
@@ -778,8 +854,6 @@ foram a Proteção Social Básica (77%), Programa Bolsa Família (70%) e BPC (43
   bind_rows(usu_cmun(cmun_2020,q78_6,"2020","6")) %>%
   bind_rows(usu_cmun(cmun_2020,q78_99,"2020","7")) %>%
    
-   
-   
   bind_rows(usu_cmun(cmun_2021,q78_1,"2021","1")) %>%
   bind_rows(usu_cmun(cmun_2021,q78_2,"2021","2")) %>%
   bind_rows(usu_cmun(cmun_2021,q78_3,"2021","3")) %>%
@@ -796,13 +870,20 @@ foram a Proteção Social Básica (77%), Programa Bolsa Família (70%) e BPC (43
   bind_rows(usu_cmun(cmun_2022,q78_6,"2022","6")) %>%
   bind_rows(usu_cmun(cmun_2022,q78_99,"2022","7")) %>%
 
-  
+  bind_rows(usu_cmun(cmun_2023,q65_1,"2023","1")) %>%
+  bind_rows(usu_cmun(cmun_2023,q65_2,"2023","2")) %>%
+  bind_rows(usu_cmun(cmun_2023,q65_3,"2023","3")) %>%
+  bind_rows(usu_cmun(cmun_2023,q65_4,"2023","4")) %>%
+  bind_rows(usu_cmun(cmun_2023,q65_5,"2023","5")) %>%
+  bind_rows(usu_cmun(cmun_2023,q65_6,"2023","6")) %>%
+  bind_rows(usu_cmun(cmun_2023,q65_99,"2023","7")) %>%
+
 
   ungroup() %>%
   mutate(Categoria=str_wrap(Categoria,width=51))
 
 ordenado<-tabela %>%
-  filter(Ano == "2021") %>%
+  filter(Ano == "2023") %>%
   arrange(Percentual) %>%
   pull(Categoria)
 
@@ -881,16 +962,19 @@ trab_rep= function(df, q, ano, cod_categoria){
   bind_rows(trab_rep(cest_2022,q79_99,"2022","5")) %>%
   bind_rows(trab_rep(cest_2022,q79_0,"2022","6")) %>%
   
-
-
-
-
+  bind_rows(trab_rep(cest_2023,q66_1,"2023","1")) %>%
+  bind_rows(trab_rep(cest_2023,q66_2,"2023","2")) %>%
+  bind_rows(trab_rep(cest_2023,q66_3,"2023","3")) %>%
+  bind_rows(trab_rep(cest_2023,q66_4,"2023","4")) %>%
+  bind_rows(trab_rep(cest_2023,q66_99,"2023","5")) %>%
+  bind_rows(trab_rep(cest_2023,q66_0,"2023","6")) %>%
+  
 
   ungroup() %>%
   mutate(Categoria=str_wrap(Categoria,width=51))
 
 ordenado<-tabela %>%
-  filter(Ano == "2022") %>%
+  filter(Ano == "2023") %>%
   arrange(Percentual) %>%
   pull(Categoria)
 
@@ -940,7 +1024,6 @@ trab_cmun= function(df, q, ano, cod_categoria){
   bind_rows(trab_cmun(cmun_2018,q_69_99,"2018","5")) %>%
   bind_rows(trab_cmun(cmun_2018,q_69_0,"2018","6")) %>%
   
- 
    
   bind_rows(trab_cmun(cmun_2019,q65_1,"2019","1")) %>%
   bind_rows(trab_cmun(cmun_2019,q65_2,"2019","2")) %>%
@@ -950,15 +1033,12 @@ trab_cmun= function(df, q, ano, cod_categoria){
   bind_rows(trab_cmun(cmun_2019,q65_0,"2019","6")) %>%
 
 
-
   bind_rows(trab_cmun(cmun_2020,q79_1,"2020","1")) %>%
   bind_rows(trab_cmun(cmun_2020,q79_2,"2020","2")) %>%
   bind_rows(trab_cmun(cmun_2020,q79_3,"2020","3")) %>%
   bind_rows(trab_cmun(cmun_2020,q79_4,"2020","4")) %>%
   bind_rows(trab_cmun(cmun_2020,q79_99,"2020","5")) %>%
   bind_rows(trab_cmun(cmun_2020,q79_0,"2020","6")) %>%
-   
-   
    
   bind_rows(trab_cmun(cmun_2021,q79_1,"2021","1")) %>%
   bind_rows(trab_cmun(cmun_2021,q79_2,"2021","2")) %>%
@@ -974,14 +1054,20 @@ trab_cmun= function(df, q, ano, cod_categoria){
   bind_rows(trab_cmun(cmun_2022,q79_99,"2022","5")) %>%
   bind_rows(trab_cmun(cmun_2022,q79_0,"2022","6")) %>%
  
-
+  bind_rows(trab_cmun(cmun_2023,q66_1,"2023","1")) %>%
+  bind_rows(trab_cmun(cmun_2023,q66_2,"2023","2")) %>%
+  bind_rows(trab_cmun(cmun_2023,q66_3,"2023","3")) %>%
+  bind_rows(trab_cmun(cmun_2023,q66_4,"2023","4")) %>%
+  bind_rows(trab_cmun(cmun_2023,q66_99,"2023","5")) %>%
+  bind_rows(trab_cmun(cmun_2023,q66_0,"2023","6")) %>%
+ 
 
 
   ungroup() %>%
   mutate(Categoria=str_wrap(Categoria,width=51))
 
 ordenado<-tabela %>%
-  filter(Ano == "2022") %>%
+  filter(Ano == "2023") %>%
   arrange(Percentual) %>%
   pull(Categoria)
 
@@ -1031,7 +1117,7 @@ grafico <- pub_cmas(cmun_2017, q36, "2017") %>%
   bind_rows(pub_cmas(cmun_2020, q27, "2020")) %>%
   bind_rows(pub_cmas(cmun_2021, q27, "2021")) %>%
   bind_rows(pub_cmas(cmun_2022, q27, "2022")) %>%
-
+#  bind_rows(pub_cmas(cmun_2023, q24, "2023")) %>%
 
   # fazer para anos anteriores
 
@@ -1055,7 +1141,8 @@ grafico <- f_sim(cest_2012, q29, "2012") %>%
   #bind_rows(f_sim(cest_2020, q37, "2020")) %>%
   #bind_rows(f_sim(cest_2021, q37, "2021")) %>%
    bind_rows(f_sim(cest_2022, q34, "2022")) %>%
-
+  
+  
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
