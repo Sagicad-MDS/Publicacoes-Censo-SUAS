@@ -624,35 +624,35 @@ O dado proporcional menos presente nas unidades de CREAS é o Banheiro adaptado.
 [^unidades-7]: foram considerados acesso adptado os imóveis que informam possuir acessibilidade, de acordo com a norma ABNT ou não
 
 
-```{r fig-creas-acessibilidade, fig.cap = "Evolução percentual de CREAS com condições de acessibilidade - Brasil; 2013, 2018 e 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r fig-creas-acessibilidade, fig.cap = "Evolução percentual de CREAS com condições de acessibilidade - Brasil; 2012, 2018 e 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
-#revisar (2013 não aparece no gráfico)
+#(2013 com outros padrões)
 
-tabela <-
+
   #tabela <- equip_acessibilidade(creas_2010, q9_1, "2010", "1") %>%
 #  bind_rows(equip_acessibilidade(creas_2010, q9_2, "2010", "2")) %>%
 #  bind_rows(equip_acessibilidade(creas_2010, q9_3, "2010", "3")) %>%
 #  bind_rows(equip_acessibilidade(creas_2010, q9_4, "2010", "4")) %>%
-  #tabela <- equip_acessibilidade(creas_2012, q10a, "2012", "1") %>%
- # bind_rows(equip_acessibilidade(creas_2012, q10b, "2012", "2")) %>%
- # bind_rows(equip_acessibilidade(creas_2012, q10c, "2012", "3")) %>%
- # bind_rows(equip_acessibilidade(creas_2012, q10d, "2012", "4")) %>%
-  equip_acessibilidade(creas_2013, q10a, "2013", "1") %>%
-  bind_rows(equip_acessibilidade(creas_2013, q10b, "2013", "2")) %>%
-  bind_rows(equip_acessibilidade(creas_2013, q10c, "2013", "3")) %>%
-  bind_rows(equip_acessibilidade(creas_2013, q10d, "2013", "4")) %>%
-  # bind_rows(equip_acessibilidade(creas_2017, q9.1, "2017", "1")) %>%
- # bind_rows(equip_acessibilidade(creas_2017, q9.2, "2017", "2")) %>%
- # bind_rows(equip_acessibilidade(creas_2017, q9.3, "2017", "3")) %>%
- # bind_rows(equip_acessibilidade(creas_2017, q9.4, "2017", "4")) %>%
+  tabela <- equip_acessibilidade(creas_2012, q10a, "2012", "1") %>%
+  bind_rows(equip_acessibilidade(creas_2012, q10b, "2012", "2")) %>%
+  bind_rows(equip_acessibilidade(creas_2012, q10c, "2012", "3")) %>%
+  bind_rows(equip_acessibilidade(creas_2012, q10d, "2012", "4")) %>%
+#  bind_rows(equip_acessibilidade(creas_2013, q10a, "2013", "1") %>%
+#  bind_rows(equip_acessibilidade(creas_2013, q10b, "2013", "2")) %>%
+#  bind_rows(equip_acessibilidade(creas_2013, q10c, "2013", "3")) %>%
+#  bind_rows(equip_acessibilidade(creas_2013, q10d, "2013", "4")) %>%
+#  bind_rows(equip_acessibilidade(creas_2017, q9.1, "2017", "1")) %>%
+#  bind_rows(equip_acessibilidade(creas_2017, q9.2, "2017", "2")) %>%
+#  bind_rows(equip_acessibilidade(creas_2017, q9.3, "2017", "3")) %>%
+#  bind_rows(equip_acessibilidade(creas_2017, q9.4, "2017", "4")) %>%
   bind_rows(equip_acessibilidade(creas_2018, q7_1, "2018", "1")) %>%
   bind_rows(equip_acessibilidade(creas_2018, q7_2, "2018", "2")) %>%
   bind_rows(equip_acessibilidade(creas_2018, q7_3, "2018", "3")) %>%
   bind_rows(equip_acessibilidade(creas_2018, q7_4, "2018", "4")) %>%
-  # bind_rows(equip_acessibilidade(creas_2022, q9_1, "2022", "1")) %>%
- # bind_rows(equip_acessibilidade(creas_2022, q9_2, "2022", "2")) %>%
- # bind_rows(equip_acessibilidade(creas_2022, q9_3, "2022", "3")) %>%
- # bind_rows(equip_acessibilidade(creas_2022, q9_4, "2022", "4")) %>%
+#  bind_rows(equip_acessibilidade(creas_2022, q9_1, "2022", "1")) %>%
+#  bind_rows(equip_acessibilidade(creas_2022, q9_2, "2022", "2")) %>%
+#  bind_rows(equip_acessibilidade(creas_2022, q9_3, "2022", "3")) %>%
+#  bind_rows(equip_acessibilidade(creas_2022, q9_4, "2022", "4")) %>%
   bind_rows(equip_acessibilidade(creas_2023, q8_1, "2023", "1")) %>%
   bind_rows(equip_acessibilidade(creas_2023, q8_2, "2023", "2")) %>%
   bind_rows(equip_acessibilidade(creas_2023, q8_3, "2023", "3")) %>%
@@ -770,17 +770,17 @@ A oferta regionalizada de CREAS é uma estratégia que objetiva garantir a unive
 
 ```{r fig-creas-regionais, fig.cap = "Evolução do quantitativo de CREAS Regionais, Brasil e grandes regiões - 2013, 2018 e 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
-#revisar
+#não possui creas regional 2023
 
 grafico <-
   f_selecao_regiao_ano(creas_2013, q1, "Regional", Região, "2013") %>%
-#  bind_rows(f_selecao_regiao_ano(creas_2017, q2, "Regional", Região, "2017")) %>%
+  bind_rows(f_selecao_regiao_ano(creas_2017, q2, "Regional", Região, "2017")) %>%
   bind_rows(f_selecao_regiao_ano(creas_2018, q1, "Regional", Região, "2018")) %>%
-#  bind_rows(f_selecao_regiao_ano(creas_2019, q1, "Regional", Região, "2019")) %>%
-#  bind_rows(f_selecao_regiao_ano(creas_2020, q1, "Regional", Região, "2020")) %>%
-#  bind_rows(f_selecao_regiao_ano(creas_2021, q1, "Regional", Regiao, "2021")) %>%
-#  bind_rows(f_selecao_regiao_ano(creas_2022, q1, "Regional", Região, "2022")) %>%
-  bind_rows(f_selecao_regiao_ano(creas_2023, q1, "Regional", Região, "2023")) %>%
+  bind_rows(f_selecao_regiao_ano(creas_2019, q1, "Regional", Regiao, "2019")) %>%
+ # bind_rows(f_selecao_regiao_ano(creas_2020, q1, "Regional", Regiao, "2020")) %>%
+  bind_rows(f_selecao_regiao_ano(creas_2021, q1, "Regional", Regiao, "2021")) %>%
+  bind_rows(f_selecao_regiao_ano(creas_2022, q1, "Regional", Região, "2022")) %>%
+   bind_rows(f_selecao_regiao_ano(creas_2023, q1, "Regional", Regiao, "2023")) %>%
   f_grafico_col_group_numero(Região, n, Ano, 1)
 
 grafico
@@ -1111,20 +1111,19 @@ Para os municípios menores, a Resolução CNAS nº31/2013 aprova parametros par
 
 ```{r fig-unac-porte, fig.cap = "Unidades de Acolhimento e estimativas da população para os municípios, segundo porte populacional - Brasil, 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-#revisar
 
 unac_municipios <- unac_2023 %>%
-  select(IBGE7) %>%
-  group_by(IBGE7) %>%
+  select(IBGE) %>%
+  group_by(IBGE) %>%
   summarise(n_unac=n())
 
-porte_municipios <- pop_municipios_2017 %>%
-  f_porte_populacional(`POPULAÇÃO ESTIMADA`) %>%
-  mutate(IBGE7 = as.numeric(paste0(`COD. UF`, `COD. MUNIC`))) %>%
-  select(IBGE7, Porte)
+populacao <- pop_municipios_2017 %>%
+  mutate(`COD. MUNIC` = str_sub(`COD. MUNIC`, end = 4)) %>%
+  mutate(IBGE = as.numeric(paste0(`COD. UF`, `COD. MUNIC`))) %>%
+  select(IBGE, `POPULAÇÃO ESTIMADA`)
 
 dados <- unac_municipios %>%
-  full_join(porte_municipios, by = c("IBGE7" = "IBGE7")) %>%
+  full_join(populacao, by = c("IBGE" = "IBGE")) %>%
   mutate(grupo = case_when(is.na(n_unac)~"Nenhuma Unidade de Acolhimento",
                             n_unac == 0~"Nenhuma Unidade de Acolhimento",
                             n_unac == 1~"1 Unidade de Acolhimento",
@@ -1139,6 +1138,8 @@ dados <- unac_municipios %>%
                                             "De 4 a 6 Unidades de Acolhimento",
                                             "De 7 a 10 Unidades de Acolhimento",
                                             "Mais de 10 Unidades de Acolhimento"))) %>%
+  filter(!is.na(`POPULAÇÃO ESTIMADA`)) %>%
+  f_porte_populacional(`POPULAÇÃO ESTIMADA`) %>%
   group_by(Porte, grupo) %>%
   summarise(n=n()) #%>%
 #  complete(grupo, fill = list(n=0))
@@ -1248,12 +1249,14 @@ grafico
 Em relação ao acesso à internet, é possível notar uma evolução nos últimos 10 anos. Em 2012 62,2% das unidades possuem acesso à internet, o Censo SUAS de 2022 destaca que 100% dos computadores das unidades possuem acesso à internet conforme o @fig-unac-internet.
 
 ```{r fig-unac-internet, fig.cap = "Percentual de Computadores nas unidades de Acolhimento com acesso à internet, 2013, 2018 e 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
-#Revisar
+
+#Revisar pois nos dados gerais não tem a questão, somente no arquivo tabelas
+
 grafico <-
   #f_maior0_regiao_ano(unac_2012, q34a_2, Região, "2012") %>%
   f_maior0_regiao_ano(unac_2013, q35b_2, Região, "2013") %>%
   #bind_rows(f_maior0_regiao_ano(unac_2017, q36.20, IBGE, "2017")) %>%
-  bind_rows(f_maior0_regiao_ano(unac_2018, q39, IBGE, "2018")) %>% 
+  bind_rows(f_maior0_regiao_ano(unac_2018, q_39_1_23, IBGE, "2018")) %>% 
   # bind_rows(f_maior0_regiao_ano(unac_2022, q40_25, IBGE, "2022")) %>%
   bind_rows(f_maior0_regiao_ano(unac_2023, q48_27, IBGE, "2023")) %>%
 
@@ -1287,6 +1290,7 @@ O @fig-posto_cadunico mostra o local onde estão estas unidades. A maioria delas
 
 ```{r fig-posto_cadunico, fig.cap = "Distribuição dos Postos do Cadastro Único - Brasil, 2020 a 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 #| fig-height: 5
+
 #revisar
 
 posto_cadunico = function(df, q, ano){
