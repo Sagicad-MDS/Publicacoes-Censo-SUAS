@@ -36,7 +36,7 @@ A respeito das principais ações desenvolvidas no âmbito do PAIF, destaca-se q
 
 A tônica do vínculo é um fator de Segurança Social. O SCFV no âmbito do SUAS é um serviço tipificado e realizado através de grupos na qual objetiva garantir aquisições progressivas aos cidadãos usuários do SUAS. Trata-se de serviço que afirma da natureza relacional no processo de proteção e complementar ao trabalho social com família e atua de forma preventiva a ocorrências de situações de risco social. De acordo com o @fig-CRAS-SCFV, 82% dos CRAS possuem a oferta deste serviço na sua unidade. Há também esta oferta por meio de Unidades de Centro de Convivência conforme já mencionado<!-- (@fig-quantitativo-CentroConv)--><!--^[o @fig-CRAS-SCFV não possui informação do ano de 2023 devido a ausencia desta pergunta no formulário no ano supracitado]. -->.
 
-```{r fig-CRAS-SCFV, fig.cap = "Percentual de CRAS que executavam diretamente os Serviços de Convivência e Fortalecimento de Vínculos - Brasil, 2014 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r fig-CRAS-SCFV, fig.cap = "Percentual de CRAS que executavam diretamente os Serviços de Convivência e Fortalecimento de Vínculos - Brasil, 2014 a 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
 
 grafico <- f_sim(cras_2012, q19_1a, "2012") %>%
   #bind_rows(f_sim(cras_201, q19, "2013")) %>%
@@ -49,6 +49,7 @@ grafico <- f_sim(cras_2012, q19_1a, "2012") %>%
   bind_rows(f_sim(cras_2020, q17, "2020")) %>%
   bind_rows(f_sim(cras_2021, q17, "2021")) %>%
   bind_rows(f_sim(cras_2022, q17, "2022")) %>%
+  bind_rows(f_sim(cras_2022, q17, "2023")) %>%
 
   f_grafico_col_percent(Categoria, Percentual)
 
@@ -65,13 +66,14 @@ Os Serviços de Proteção Social Básica no Domicílio para Pessoas Idosas e co
 
 [^servicos-4]: essa pergunta surge a partir de 2018
 
-```{r fig-CRAS-PSB, fig.cap = "Percentual de CRAS que executavam diretamente os Serviços de Proteção Social Básica nos domicílios - Brasil, 2014 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r fig-CRAS-PSB, fig.cap = "Percentual de CRAS que executavam diretamente os Serviços de Proteção Social Básica nos domicílios - Brasil, 2014 a 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
 
 grafico <- f_sim(cras_2018, q_24, "2018") %>%
   bind_rows(f_sim(cras_2019, q23, "2019")) %>%
    bind_rows(f_sim(cras_2020, q24, "2020")) %>%
    bind_rows(f_sim(cras_2021, q24, "2021")) %>%
    bind_rows(f_sim(cras_2022, q24, "2022")) %>%
+  bind_rows(f_sim(cras_2022, q24, "2023")) %>%
 
   f_grafico_col_percent(Categoria, Percentual)
 
@@ -96,7 +98,7 @@ Essa seção se dedica a identificar as situações atendidas pelo PAEFI em rela
 
 O @fig-paefi_creas mostra que os principais atendimentos, no período de 2019 a 2022, são os seguintes: abuso e violência sexual, violência contra mulher, crianças e adolescentes, situações de negligência e abandono.
 
-```{r fig-paefi_creas, fig.cap = "Atendimentos realizados pelo PAEFI/CREAS por situações de riscos em decorrência de situações e ciclos de vida - Brasil  2022"}
+```{r fig-paefi_creas, fig.cap = "Atendimentos realizados pelo PAEFI/CREAS por situações de riscos em decorrência de situações e ciclos de vida - Brasil  2023"}
 #| fig-height: 4.5
 
 paefi_creas= function(df, q, ano, cod_categoria){
@@ -104,7 +106,7 @@ paefi_creas= function(df, q, ano, cod_categoria){
   ano <- quo_name(ano)
   cod_categoria <- quo_name(cod_categoria)
 
-#2022
+#2022 revisar
   categoria <- case_when(!! cod_categoria == "1"~"Violência Física - Criança e Adolescente",
                          !! cod_categoria == "2"~"Violência Física - Mulheres",
                          !! cod_categoria == "3"~"Violência Física - Pessoas Idosas",
@@ -125,14 +127,23 @@ paefi_creas= function(df, q, ano, cod_categoria){
 
 }
 
- tabela <- paefi_creas (creas_2022,q16_1_1,"2022","1") %>%
-  bind_rows(paefi_creas(creas_2022,q16_1_2,"2022","2")) %>%
-  bind_rows(paefi_creas(creas_2022,q16_1_4,"2022","3")) %>%
-  bind_rows(paefi_creas(creas_2022,q16_3_1,"2022","4")) %>%
-  bind_rows(paefi_creas(creas_2022,q16_5_4,"2022","5")) %>%
-  bind_rows(paefi_creas(creas_2022,q16_7_1,"2022","6")) %>%
-  bind_rows(paefi_creas(creas_2022,q16_7_2,"2022","7")) %>%
-  bind_rows(paefi_creas(creas_2022,q16_7_3,"2022","0")) %>% 
+tabela <- 
+  paefi_creas (creas_2023,q16_1_1,"2023","1") %>%
+  bind_rows(paefi_creas(creas_2023,q16_1_2,"2023","2")) %>%
+  bind_rows(paefi_creas(creas_2023,q16_1_4,"2023","3")) %>%
+  bind_rows(paefi_creas(creas_2023,q16_3_1,"2023","4")) %>%
+  bind_rows(paefi_creas(creas_2023,q16_5_4,"2023","5")) %>%
+  bind_rows(paefi_creas(creas_2023,q16_7_1,"2023","6")) %>%
+  bind_rows(paefi_creas(creas_2023,q16_7_2,"2023","7")) %>%
+  bind_rows(paefi_creas(creas_2023,q16_7_3,"2023","0")) %>% 
+  
+ #tabela <- paefi_creas (creas_2022,q16_1_1,"2022","1") %>%
+  #bind_rows(paefi_creas(creas_2022,q16_1_4,"2022","3")) %>%
+  #bind_rows(paefi_creas(creas_2022,q16_3_1,"2022","4")) %>%
+  #bind_rows(paefi_creas(creas_2022,q16_5_4,"2022","5")) %>%
+  #bind_rows(paefi_creas(creas_2022,q16_7_1,"2022","6")) %>%
+  #bind_rows(paefi_creas(creas_2022,q16_7_2,"2022","7")) %>%
+  #bind_rows(paefi_creas(creas_2022,q16_7_3,"2022","0")) %>% 
    
   #bind_rows(paefi_creas(creas_2021,q16_1_1,"2021","1") %>%
   # bind_rows(paefi_creas(creas_2021,q16_1_2,"2021","2")) %>%
@@ -166,7 +177,7 @@ paefi_creas= function(df, q, ano, cod_categoria){
   mutate(Categoria=str_wrap(Categoria,width=51))
 
 ordenado<-tabela %>%
-  filter(Ano == "2022") %>%
+  filter(Ano == "2023") %>%
   arrange(Percentual) %>%
   pull(Categoria)
 
@@ -183,7 +194,7 @@ Em relação a violação decorrente de trabalho análogo a escravidão é defin
 
 [^servicos-7]: esse gráfico é a partir do ano de 2020 em decorrência do início da pergunta no formulário do Censo SUAS
 
-```{r fig-paefi2_creas, fig.cap = "Atendimentos realizados pelo PAEFI/CREAS por situações de riscos em decorrência trabalho análogo a escravidão e trabalho infantil - Brasil  2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r fig-paefi2_creas, fig.cap = "Atendimentos realizados pelo PAEFI/CREAS por situações de riscos em decorrência trabalho análogo a escravidão e trabalho infantil - Brasil  2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 
 paefi2_creas= function(df, q, ano, cod_categoria){
@@ -208,7 +219,14 @@ paefi2_creas= function(df, q, ano, cod_categoria){
     mutate("Categoria" = categoria, "Ano" = !! ano)
 }
 
- tabela <- paefi2_creas(creas_2022,q16_8_1,"2022","1") %>%
+ tabela <- 
+   paefi2_creas(creas_2023,q16_8_1,"2023","1") %>%
+  bind_rows(paefi2_creas(creas_2023,q16_8_2,"2023","2")) %>%
+  bind_rows(paefi2_creas(creas_2023,q16_8_3,"2023","3")) %>%
+  bind_rows(paefi2_creas(creas_2023,q16_8_4,"2023","4")) %>%
+  bind_rows(paefi2_creas(creas_2023,q16_9_1,"2023","6")) %>%
+   
+   paefi2_creas(creas_2022,q16_8_1,"2022","1") %>%
   bind_rows(paefi2_creas(creas_2022,q16_8_2,"2022","2")) %>%
   bind_rows(paefi2_creas(creas_2022,q16_8_3,"2022","3")) %>%
   bind_rows(paefi2_creas(creas_2022,q16_8_4,"2022","4")) %>%
