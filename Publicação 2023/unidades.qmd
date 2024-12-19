@@ -14,8 +14,6 @@ Os Centros de Referência de Assistência Social (CRAS) são definidos pelo Art.
 
 No Censo SUAS de 2022 identificou, em 5.535 municípios, um aumento de undiades de CRAS entre os anos de 2007 e 2022, passando de 4.182 para 8.557. Número que mostra a existência de, pelo menos, um CRAS em 99,37% dos municípios brasileiros conforme @fig-quantitativo-CRAS.
 
-
-
 ```{r fig-quantitativo-CRAS, fig.cap = "Evolução do quantitativo de CRAS, segundo grandes regiões; 2007, 2012, 2017 e 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 grafico <- 
@@ -40,7 +38,6 @@ grafico <-
 
 grafico
 ```
-
 
 A Expansão do número de CRAS evidencia a consolidação das unidades públicas de Assistência Social como referência em todo o todo território nacional. De acordo com os dados, 99,37% municípios possuem CRAS, ou seja, apenas 34 municípios no Brasil não dispõem desta unidade pública[^unidades-1].
 
@@ -144,10 +141,6 @@ grafico <- dados %>%
 grafico
 ```
 
-
-
-
-
 No que se refere ao imóvel de funcionamento do CRAS, é possível notar no @fig-CRAS-imovel, que no período entre 2008 e 2022 o movimento foi de:
 
 Aumento das unidades que funcionam em imóvel próprio. No primeiro ano da série histórica, o percentual era de 44% chegando a 60% em 2022;
@@ -157,7 +150,6 @@ Decréscimo das unidades com funcionamento em imóveis alugados, passando de 48%
 Aumento das unidades funcionando em imóveis cedidos, evoluindo de 6,9% para 10%, o maior valor da série histórica.[^unidades-3]
 
 [^unidades-3]: Para os anos de 2018 e 2019 esse dado não foi coletado no Censo SUAS
-
 
 ```{r fig-CRAS-imovel, fig.cap = "Evolução dos CRAS segundo situação do imóvel – Brasil, 2007 a 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -188,7 +180,6 @@ grafico <- f_equip_imovel(cras_2008, `situacao_imovel`, "2008") %>%
 
 grafico
 ```
-
 
 No tocante a acessibilidade nas unidades de CRAS, observa-se no @fig-CRAS-acessibilidade um avanço em todas as condições de acessibilidade nas unidades de CRAS.[^unidades-4] Apesar da evolução, os dados ainda apontam para desafios, sobretudo no que se refere a banheiro adaptado que possui o percentual mais baixo de unidades com essa acessibilidade.
 
@@ -255,7 +246,6 @@ grafico<-tabela %>%
 grafico
 ```
 
-
 Relacionando as condições de acessibilidade com a situação do imóvel através do @fig-CRAS-acessibilidade-situacao, verificou-se, em 2022, que as condições de acessibilidade em CRAS localizados em imóveis próprios possuem números significativamente elevados em relação aos imóveis alugados ou cedidos.
 
 ```{r fig-CRAS-acessibilidade-situacao, fig.cap = "Percentual de CRAS com condições de acessibilidade por situação do imóvel – Brasil, 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -288,7 +278,6 @@ grafico<-tabela %>%
 
 grafico
 ```
-
 
 Em relação a conectividade, em especial o acesso à internet, o percentual de CRAS com acesso à internet aumentou significativamente desde 2007, chegando no último ano desta série com mais de 99% das unidades com computadores com acesso à internet, conforme o @fig-CRAS-internet-percentual.
 
@@ -361,7 +350,6 @@ grafico
 grafico
 ```
 
-
 ```{r fig-CRAS-internet-percentual, fig.cap = "Evolução percentual de CRAS com computadores com acesso à internet – Brasil; 2007, 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS.",}
 
 grafico <-
@@ -378,9 +366,6 @@ grafico <-
 
 grafico
 ```
-
-
-
 
 Em relação aos CRAS com locais para Cadastro Único, o dado abaixo tráz o percentual destas informações e a disposição de equipes para esta finalidade. Nota-se o aumento ao longo dos anos, das unidades de CRAS que possuem Cadastro Único com equipe exclusiva, chegando no Censo SUAS de 2022 com 59% (@fig-equip-cadunico-cras).
 
@@ -429,11 +414,9 @@ grafico <- equip_cadunico(cras_2010, q43, "2010") %>%
 grafico
 ```
 
-
 ## Centros de Convivência
 
 Os Centros de Convivência, são unidades que executam o Serviço de Convivência e Fortalecimento de Vínculos (SCFV) e compõem a Rede de Proteção Social Básica. Desde 2014 o número de Centros de Convivência no Brasil vem aumentando, passando de 7.882 unidades em 2014 para 8.454 em 2016, acréscimo de 572 unidades. A Região Norte tem a menor quantidade de unidades (238 ou 2,8% do total), seguida do Centro-Oeste com 568 Unidades (ou 6,7% do total). A região Sudeste tem o maior número de Centros de Convivência, com 4.035 Unidades (47,7% do total).
-
 
 ```{r fig-quantitativo-CentroConv, fig.cap = "Evolução do quantitativo de Centro de Convivência, segundo grandes regiões; 2014, 2016, 2018, 2020, 2022 e 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -453,12 +436,9 @@ grafico <-
 grafico
 ```
 
-
 Os Centros de Convivência podem ser unidades públicas ou vinculadas a entidades de assistência social inscritas nos Conselhos de Assistência Social do município ou do Distrito Federal. Em 2022, 44% dos Centros de Convivência eram governamentais e 56% das unidades eram não governamentais. [^unidades-5]
 
 [^unidades-5]: os dados de 2016 não foi possível de ser coletato devido a dificuldades de leitura da base de dados
-
-
 
 ```{r fig-centro-conv-natureza, fig.cap = "Quantitativo de Centros de Convivência por Natureza da Unidade - BRASIL; 2016 a 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -500,13 +480,11 @@ grafico <-
 grafico
 ```
 
-
 ## Centro de Referência Especializada de Assistência Social (CREAS)
 
 Os Centros de Referência Especializados de Assistência Social (CREAS) são unidades públicas estatais que ofertam serviços da Proteção Social Especial à pessoas e famílias em situação de risco pessoal ou social e/ou em situação de violação de direitos.
 
 O Censo SUAS 2022 registrou 2.846 CREAS no país: um incremento de 679 novas unidades em relação aos últimos 10 anos. O @fig-creas-quantitativo sinaliza essa evolução por Regiões do país.
-
 
 ```{r fig-creas-quantitativo, fig.cap = "Evolução do quantitativo de CREAS, segundo grandes regiões - Brasil; 2013, 2018 e 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -527,7 +505,6 @@ O Censo SUAS 2022 registrou 2.846 CREAS no país: um incremento de 679 novas uni
 
 grafico
 ```
-
 
 De acordo com o porte populacional, o @fig-CREAS-porte mostra o número de unidades de CREAS por município. É possível notar que os de Pequeno Porte I e II possuem, respectivamente, 77% e 5,3% de municípios com nenhum CREAS. Em nível nacional este valor é de 54%.
 
@@ -582,11 +559,9 @@ grafico <- dados %>%
 grafico
 ```
 
-
 Ao observar a série histórica do @fig-creas-situacao sobre o funcionamento dos CREAS, que pode ser em imóvel próprio, alugado ou cedido. É possível notar um aumento de 10 pontos percentuais, entre os anos de 2012 e 2022, em unidades com funcionamento em imóveis próprios. Em contrapartida, há um decréscimo, também de 10% de unidades em imóveis alugados. Quanto às unidades em funcionamento em imóveis cedidos, percebe-se um leve aumento ao longo dos anos[^unidades-6].
 
 [^unidades-6]: Para os anos de 2018 e 2019 esse dado não foi computado no Censo SUAS
-
 
 ```{r fig-creas-situacao, fig.cap = "Evolução dos CREAS segundo situação do imóvel – Brasil; 2012 a 2023",fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -616,13 +591,11 @@ grafico <- f_equip_imovel(creas_2012, q5, "2012") %>%
 grafico
 ```
 
-
 De acordo com os dados do Censo SUAS do período de 2012 a 2022, houve aumento das condições de acessibilidade em vários itens dos CREAS. O @fig-creas-acessibilidade sinaliza que a presença do acesso principal adaptado com rota ascessível aos espaços (recepção, salas de atendimento e espaços de uso coletivo) é a mais presente nas unidades de CREAS, com destaque para 83% no CENSO SUAS de 2022.
 
 O dado proporcional menos presente nas unidades de CREAS é o Banheiro adaptado. Em de 2012, 33% dos CREAS foram identificados com banheiro adaptado. Esse mesmo dado em 2022 chegou a 55% dos CREAS. Destaca-se um crescimento de 22 pontos percentuais em relação ao ano de 2012. [^unidades-7].
 
 [^unidades-7]: foram considerados acesso adptado os imóveis que informam possuir acessibilidade, de acordo com a norma ABNT ou não
-
 
 ```{r fig-creas-acessibilidade, fig.cap = "Evolução percentual de CREAS com condições de acessibilidade - Brasil; 2012, 2018 e 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -672,9 +645,7 @@ grafico<-tabela %>%
 grafico
 ```
 
-
 O @fig-CREAS-acessibilidade-situacao mostra a presença de condições de acessibilidade segundo a situação do imóvel. Os dados sinalizam que a acessibilidade é significativamente mais presente em imovéis próprios.
-
 
 ```{r fig-CREAS-acessibilidade-situacao, fig.cap = "Evolução percentual de CREAS com condições de acessibilidade por situação do imóvel – Brasil, 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -696,7 +667,6 @@ grafico<-tabela %>%
 grafico
 ```
 
-
 A existência de computadores com acesso à internet é um importante aspecto a ser observado quando se avalia a infraestrutura dos CREAS. No período de 2012 a 2022, observa-se que este item avançou de 89% para 99% dos CREAS que possuem computadores com acesso à internet conforme o @fig-CREAS-internet-percentual.
 
 Esses números avançaram em todas as regiões, em especial, na Região Norte conforme pode ser observado no @fig-CREAS-internet-percentual.
@@ -717,7 +687,6 @@ grafico <-
 
 grafico
 ```
-
 
 ```{r fig-creas-qtd_munic, fig.cap = "Evolução do quantitativo de CREAS; Brasil e grandes regiões; 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
 
@@ -754,8 +723,6 @@ grafico <- f_percentual_municipios_regiao_ano(creas_2012, IBGE, "2012") %>%
 grafico
 ```
 
-
-
 ```{r fig-CREAS-quantidade-municipios, fig.cap = "Evolução do quantitativo de municípios com CREAS, Brasil e grandes regiões - 2012, 2017 e 2022", fig.footer = "Fonte: MDS, Censo SUAS", eval=FALSE}
 
 grafico <- f_percentual_municipios_regiao_ano(creas_2012, IBGE, "2012") %>%
@@ -773,26 +740,25 @@ A oferta regionalizada de CREAS é uma estratégia que objetiva garantir a unive
 #não possui creas regional 2023
 
 grafico <-
-  f_selecao_regiao_ano(creas_2013, q1, "Regional", Região, "2013") %>%
+  f_selecao_regiao_ano(creas_2012, q2, "Regional", Região, "2012") %>%
+  bind_rows(f_selecao_regiao_ano(creas_2013, q1, "Regional", Região, "2013")) %>%
   bind_rows(f_selecao_regiao_ano(creas_2017, q2, "Regional", Região, "2017")) %>%
   bind_rows(f_selecao_regiao_ano(creas_2018, q1, "Regional", Região, "2018")) %>%
-  bind_rows(f_selecao_regiao_ano(creas_2019, q1, "Regional", Regiao, "2019")) %>%
+  bind_rows(f_selecao_regiao_ano(creas_2019, q1, "Regional", IBGE, "2019")) %>%
  # bind_rows(f_selecao_regiao_ano(creas_2020, q1, "Regional", Regiao, "2020")) %>%
-  bind_rows(f_selecao_regiao_ano(creas_2021, q1, "Regional", Regiao, "2021")) %>%
+  bind_rows(f_selecao_regiao_ano(creas_2021, q1, "Regional", IBGE, "2021")) %>%
   bind_rows(f_selecao_regiao_ano(creas_2022, q1, "Regional", Região, "2022")) %>%
-   bind_rows(f_selecao_regiao_ano(creas_2023, q1, "Regional", Regiao, "2023")) %>%
+  bind_rows(f_selecao_regiao_ano(creas_2023, q1, "Regional", Regiao, "2023")) %>%
   f_grafico_col_group_numero(Região, n, Ano, 1)
 
 grafico
 ```
-
 
 ## Centro de Referência Especializado para População em Situação de Rua (Centro POP)
 
 Os Centros de Referência Especializados para População em Situação de Rua (Centros POP) são unidades públicas que oferecem atendimento especializado para a população em situação de rua, no âmbito da proteção social especial de média complexidade.
 
 No período de 2012 a 2022, houve um importante aumento de 105 para 237 unidades, respectivamente, de Centros POP em nível nacional. Entre as regiões, a que apresentou maior aumento, no mesmo período, foi a do Sudeste, passando de 50 para 114 unidades (@fig-quantitativo-CentroPop).
-
 
 ```{r fig-quantitativo-CentroPop, fig.cap = "Evolução do quantitativo de Centro Pop - Brasil, 2013, 2018 e 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -814,7 +780,6 @@ grafico <-
 
 grafico
 ```
-
 
 Quanto à localização, a maior concentração de Centros POP está nos municípios de grande porte e metrópoles. Nos municípios de grande porte, 59% possuem ao menos 1 unidade. Nas metrópoles, 59% possuem de 2 a 3 unidades, 18% de 4 a 6 e 24% possuem 1 unidade. Com menor percentual, destacam-se os municípios de porte médio, onde 5,9% das unidades possuem, ao menos, 1 Centro POP (@fig-cpop-porte).
 
@@ -867,7 +832,6 @@ grafico <- dados %>%
 grafico
 ```
 
-
 Considerando a acessibilidade, nota-se que as unidades instaladas em imóveis próprios apresentam, no geral, adaptações superiores quando comparadas aos alugados. Nos, sobressaindo aos demais, o banheiro adaptado é o que apresenta maior percentual (@fig-cpop-acessibilidade-situacao).
 
 ```{r fig-cpop-acessibilidade-situacao, fig.cap = "Percentual de Centros POP com condições de acessibilidade segundo situação do imóvel – Brasil, 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -890,10 +854,7 @@ grafico<-tabela %>%
 grafico
 ```
 
-
 No tocante a computador conectado à internet, o Censo SUAS 2022 mostra que 100% dos Centros POP do Centro-Oeste e do Sul estão conectados. Por outro lado, revelando-se um desafio, está a Região Norte com menor percentual (Gráfico 46) (@fig-cpop-internet-percentual).
-
-
 
 ```{r fig-cpop-internet-percentual, fig.cap = "Percentual de Computadores nos Centro Pop com acesso à internet, 2013 a 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -909,7 +870,6 @@ grafico <-
 
 grafico
 ```
-
 
 ## Centro-Dia
 
@@ -932,11 +892,9 @@ grafico <-
 grafico
 ```
 
-
 Em relação a natureza destas unidades, é possível notar que os Centros-Dia mantém-se majoritariamente, desde 2015, localizados em unidades das Organizações da Sociedade Civil (OSC) conforme o @fig-cdia-natureza.[^unidades-8]
 
 [^unidades-8]: não foi identificado essa pergunta para o ano de 2017 e para o ano de 2022 não foi possível gerar a informação a partir do banco de dados disponível
-
 
 ```{r fig-cdia-natureza, fig.cap = "Quantitativo de Centros Dia por Natureza da Unidade - BRASIL, 2015 a 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -978,9 +936,7 @@ grafico <- centrodia(cedia_2015, q6, "2015") %>%
 grafico
 ```
 
-
 Em relação a acessibilidade destas unidades, o banheiro acessivel é a adaptação mais nestas unidades chegando nos registros do Censo SUAS de 2022 com 73%. Como trata-se de unidades especializadas para atenção a pessoas com deficiência, esse item é de fundamental importância para assegurar acolhida e segurança a este público e suas famílias. O @fig-cdia-acessibilidade sinaliza os locais e composição de acessibilidade, estes dados sinalizam um desafio para garantir as condições físicas de acesso ao público de pessoas com deficiência nas unidades de Centro-Dia.
-
 
 ```{r fig-cdia-acessibilidade, fig.cap = "Evolução percentual de Centro-Dia com condições de acessibilidade - Brasil; 2015, 2018 e 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -1015,10 +971,7 @@ grafico<-tabela %>%
 grafico
 ```
 
-
 Além disto, há outras adaptações importantes nestas unidades, como tecnologias assistidas, suportes com materiais em braile, profissionais com conhecimento em Libras entre outros destacados no @fig-cdia_adaptacoes.
-
-
 
 ```{r fig-cdia_adaptacoes, fig.cap = "Quantidade de Centro-Dia, segundo outras adaptações - Brasil, 2015, 2018 e 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 #| fig-height: 5
@@ -1100,7 +1053,6 @@ grafico<-tabela %>%
 grafico
 ```
 
-
 ## Unidades de Alta Complexidade
 
 As Unidades de Acolhimento tem o objetivo de ofertar serviços de Proteção Social Especial de Alta Complexidade, com atenção a pessoas e/ou famílias com vínculos rompidos ou fragilizados, ou que estejam em situação de abandono, ameaça ou violação de direitos, de forma a garantir sua proteção integral.
@@ -1161,9 +1113,7 @@ grafico <- dados %>%
 grafico
 ```
 
-
 Quanto a natureza do acolhimento, a maioria das Unidades de Acolhimento são executadas por Organizações da Sociedade Cívil (Osc). Esse percentual teve uma redução entre 2012 e 2022. Em 2012 estes dados sinalizam percentual de 66,4% das unidades de acolhimento com execução de OSC, registrando em 2022 63,4% conforme o @fig-acolh_nat.
-
 
 ```{r fig-acolh_nat, fig.cap = "Quantitativo de Acolhimento Institucional por Natureza da Unidade - BRASIL, 2012 a 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -1207,9 +1157,7 @@ grafico <- acolh_nat(unac_2012, q4, "2012") %>%
 grafico
 ```
 
-
 No que se refere às condições de acessibilidade, é possível notar no decorrer dos anos, em especial no ano de 2022. Entre as adaptação analisadas, as mais observadas são: rota acessível ao banheiro, presente em 50,9% das Unidades, e a menos observada é o acesso principal adaptado com rampas e rota acessível desde a calçada até o interior da unidade, presentes em 49,2% das Unidades. O banheiro adaptado para pessoas com deficiência e/ou mobilidade reduzida, presente em 47,9% das unidades em 2022 e no que se refere ao acesso principal adaptado com rampas e e rota acessivel para o Censo SUAS 2022 observa-se presente em 45,6% das unidades conforme o @fig-unac_acessibilidade.
-
 
 ```{r fig-unac_acessibilidade, fig.cap = "Evolução percentual de Unidades de Acolhimento Municipais com condições de acessibilidade - Brasil; 2017 e 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -1245,7 +1193,6 @@ grafico<-tabela %>%
 grafico
 ```
 
-
 Em relação ao acesso à internet, é possível notar uma evolução nos últimos 10 anos. Em 2012 62,2% das unidades possuem acesso à internet, o Censo SUAS de 2022 destaca que 100% dos computadores das unidades possuem acesso à internet conforme o @fig-unac-internet.
 
 ```{r fig-unac-internet, fig.cap = "Percentual de Computadores nas unidades de Acolhimento com acesso à internet, 2013, 2018 e 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -1264,11 +1211,9 @@ grafico <-
 grafico
 ```
 
-
 ## Unidades do Cadastro Único
 
 Quanto a presença de unidades do Cadastro Único, os dados do Censo SUAS 2022 sinalizam 2.892 unidades, conforme pode ser observado através do @fig-postos-cadunico.
-
 
 ```{r fig-postos-cadunico, fig.cap = "Evolução de Postos do Cadastro Único - 2020 - 2021 - 2022 - 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -1283,9 +1228,7 @@ grafico <- f_quantitativo_regiao_ano(posto_cadunico_2020, Regiao, "2020") %>%
 grafico
 ```
 
-
 O @fig-posto_cadunico mostra o local onde estão estas unidades. A maioria delas, 61%, encontra-se na secretaria de Assistência Social. A segunda proporção são postos exclusivos, com destaque para algumas unidades presentes em escolas, conselhos e OSCS.
-
 
 ```{r fig-posto_cadunico, fig.cap = "Distribuição dos Postos do Cadastro Único - Brasil, 2020 a 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 #| fig-height: 5
@@ -1304,7 +1247,8 @@ posto_cadunico = function(df, q, ano){
       Eixo_x == "Outra unidade administrativa (Sede da Prefeitura, Sede de Outra Secretaria, Administração Regional, Sub-Prefeituras," |
       Eixo_x == "Outra unidade administrativa (Sede da Prefeitura, Sede de Outra Secretaria, Administração Regional, Sub-Prefeituras, Un"~"Outra unidade administrativa (Sede da Prefeitura, Sede de Outra Secretaria, Administração Regional, Sub-Prefeituras, Unidades de outras políticas públicas, etc.)",
       Eixo_x == "Posto exclusivo para atendimento do Cadastro Único;"~"Posto exclusivo para atendimento do Cadastro Único",
-      Eixo_x == "Serviço Integrado para o Cidadão (Na Hora, Vapt Vupt, Poupa Tempo, etc);"~"Serviço Integrado para o Cidadão (Na Hora, Vapt Vupt, Poupa Tempo, etc)",
+      Eixo_x == "Serviço Integrado para o Cidadão (Na Hora, Vapt Vupt, Poupa Tempo, etc);"|
+      Eixo_x == "Serviço Integrado para o Cidadão (Na Hora, Vapt Vupt, Descomplica SP, etc);"~"Serviço Integrado para o Cidadão (Na Hora, Vapt Vupt, Poupa Tempo, Descomplica SP, etc)",
       Eixo_x == "Escola"~"Escola",
       Eixo_x == "Entidade privada, Associação Comunitária ou ONG;"~"Entidade privada, Associação Comunitária ou ONG",
       Eixo_x == "Conselho Municipal de Assistência Social, Conselho Tutelar ou outro conselho municipal;"~"Conselho Municipal de Assistência Social, Conselho Tutelar ou outro conselho municipal",
@@ -1335,9 +1279,7 @@ grafico<-tabela %>%
 grafico
 ```
 
-
 A acessibilidade nas unidades de Cadastro Único possuem pequeno avanço nos últimos anos, com execeção da rota acessível aos principais espaços, os demais itens de acessibilidade avançaram conforme pode ser observado através do @fig-postcad-acessibilidade.
-
 
 ```{r fig-postcad-acessibilidade, fig.cap = "Evolução percentual de postos do Cadastro Único com condições de acessibilidade - Brasil; 2020, 2021, 2022 e 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -1377,7 +1319,6 @@ grafico<-tabela %>%
 grafico
 ```
 
-
 Em relação aos espaços de acessibilidade comparada a situação do imóvel, destaca-se que os postos do Cadastro Único próprios ou cedidos, possuem significativamente mais acessibilidade que os imóveis alugados (@fig-postcad-acessibilidade-situacao).
 
 ```{r fig-postcad-acessibilidade-situacao, fig.cap = "Percentual de Postos do Cadastro Único com condições de acessibilidade segundo situação do imóvel – Brasil, 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
@@ -1399,9 +1340,7 @@ grafico<-tabela %>%
 grafico
 ```
 
-
 Em relação a computadores com acesso à internet, os dados do Censo SUAS 2022 sinaliza que 99% das unidades dispõe de equipamentos com esta estrutura, conforme pode ser observado no @fig-postcad-internet-percentual.
-
 
 ```{r fig-postcad-internet-percentual, fig.cap = "Evolução percentual de Postos do Cadastro Único com computadores com acesso à internet – Brasil;  2020, 2021, 2022 e 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -1414,7 +1353,6 @@ grafico <- f_maior0_regiao_ano(posto_cadunico_2020, q10_2, IBGE, "2020") %>%
 
 grafico
 ```
-
 
 ## Considerações Finais
 
