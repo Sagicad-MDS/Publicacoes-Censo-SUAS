@@ -1250,13 +1250,12 @@ Em relação ao acesso à internet, é possível notar uma evolução nos últim
 
 ```{r fig-unac-internet, fig.cap = "Percentual de Computadores nas unidades de Acolhimento com acesso à internet, 2013, 2018 e 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
-#Revisar pois nos dados gerais não tem a questão, somente no arquivo tabelas
 
 grafico <-
   #f_maior0_regiao_ano(unac_2012, q34a_2, Região, "2012") %>%
   f_maior0_regiao_ano(unac_2013, q35b_2, Região, "2013") %>%
   #bind_rows(f_maior0_regiao_ano(unac_2017, q36.20, IBGE, "2017")) %>%
-  bind_rows(f_maior0_regiao_ano(unac_2018, q_39_1_23, IBGE, "2018")) %>% 
+  bind_rows(f_maior0_regiao_ano(unac_2018, q_39_23, IBGE, "2018")) %>% 
   # bind_rows(f_maior0_regiao_ano(unac_2022, q40_25, IBGE, "2022")) %>%
   bind_rows(f_maior0_regiao_ano(unac_2023, q48_27, IBGE, "2023")) %>%
 
