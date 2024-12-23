@@ -25,6 +25,7 @@ book:
     - participacao.qmd
     - references.qmd
     - creditos.qmd
+    - ficha.qmd
 
 bibliography: references.bib
 
