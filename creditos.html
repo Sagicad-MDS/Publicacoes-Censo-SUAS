@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt" xml:lang="pt"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./ficha.html" rel="next">
 <link href="./references.html" rel="prev">
 <link href="./cover.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -37,10 +38,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-d163b47acd662c59ef78d86c1bdc41dd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -169,6 +170,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Créditos</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ficha.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ficha Catalográfica</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -189,7 +196,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#concepção-e-organização-de-textos" id="toc-concepção-e-organização-de-textos" class="nav-link" data-scroll-target="#concepção-e-organização-de-textos">Concepção e organização de textos:</a></li>
   <li><a href="#elaboração-e-revisão-dos-textos" id="toc-elaboração-e-revisão-dos-textos" class="nav-link" data-scroll-target="#elaboração-e-revisão-dos-textos">Elaboração e revisão dos textos</a></li>
   </ul></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
   </ul>
 </nav>
     </div>
@@ -272,15 +278,9 @@ ul.task-list li input[type="checkbox"] {
 <section id="elaboração-e-revisão-dos-textos" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="elaboração-e-revisão-dos-textos">Elaboração e revisão dos textos</h3>
 <p>Shirley Samico, Valdson Silva Cleto, Erica Moreira e Zilane Andrade.</p>
-</section>
-</section>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
-<p>Publicação: <strong>Brasil. Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome. Secretaria Nacional de Assistência Social. Secretaria de Avaliação, Gestão da Informação e Cadastro Único.</strong></p>
-<p>Censo SUAS 2022: análise dos componentes sistêmicos da Política Nacional de Assistência Social</p>
-<p>Versão digital: ISBN: 978-65-01-01956-7</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -366,8 +366,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -478,7 +476,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -711,6 +708,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./ficha.html" class="pagination-link" aria-label="Ficha Catalográfica">
+        <span class="nav-page-text">Ficha Catalográfica</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
