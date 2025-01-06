@@ -42,7 +42,7 @@ gerh_2022 <- read_excel("../Censo SUAS 2022/10 - GESTAO ESTADUAL/Censo_SUAS_2022
 
 ge_2023 <- read_csv2("../Censo SUAS 2023/10 - GESTAO ESTADUAL/Censo_SUAS_2023_Gestão_Estadual_Dados_Gerais.csv", locale = locale(encoding = "latin1"))
 
-gerh_2023 <- read_csv2("../Publicacoes-Censo-SUAS/Censo SUAS 2023/10 - GESTAO ESTADUAL/Censo_SUAS_2023_Gestão_Estadual_RH.csv", locale = locale(encoding = "latin1"))
+gerh_2023 <- read_csv2("../Censo SUAS 2023/10 - GESTAO ESTADUAL/Censo_SUAS_2023_Gestão_Estadual_RH.csv", locale = locale(encoding = "latin1"))
 
 gm_2010 <- read_excel("../Censo SUAS 2010/Gestão Municipal/Censo SUAS 2010_Gestão Municipal_DIVULGAÇÃO.xlsx", sheet = "Censo SUAS 2010 GestãoMunicipal")
 
