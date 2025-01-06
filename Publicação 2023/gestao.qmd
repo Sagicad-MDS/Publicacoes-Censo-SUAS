@@ -1392,8 +1392,8 @@ ge_apoio_tecnico = function(df, q, ano, cod_categoria){
                          !! cod_categoria == "7"~"Centrais de relacionamento",
                          !! cod_categoria == "8"~"Elaboração de orientações técnicas e materiais informativos",
                          !! cod_categoria == "9"~"Videoconferências e transmissões ao vivo",
-                         !! cod_categoria == "10"~"Sítios eletrônicos e aplicativos",
-                         !! cod_categoria == "11"~"Outras formas")
+                         !! cod_categoria == "10"~"Sítios eletrônicos e aplicativos")
+                         
 
   df %>%
     select(!! q) %>%
@@ -1461,9 +1461,9 @@ tabela <- ge_apoio_tecnico(ge_2022, q21_1, "2022", "1") %>%
   bind_rows(ge_apoio_tecnico(ge_2022, q21_8, "2022", "8")) %>%
   bind_rows(ge_apoio_tecnico(ge_2022, q21_9, "2022", "9")) %>%
   bind_rows(ge_apoio_tecnico(ge_2022, q21_10, "2022", "10")) %>%
-  bind_rows(ge_apoio_tecnico(ge_2022, q21_99, "2022", "11")) %>%
 
   
+  bind_rows(ge_apoio_tecnico(ge_2023, q14_1, "2023", "1")) %>%
   bind_rows(ge_apoio_tecnico(ge_2023, q14_2, "2023", "2")) %>%
   bind_rows(ge_apoio_tecnico(ge_2023, q14_3, "2023", "3")) %>%
   bind_rows(ge_apoio_tecnico(ge_2023, q14_4, "2023", "4")) %>%
@@ -1473,7 +1473,6 @@ tabela <- ge_apoio_tecnico(ge_2022, q21_1, "2022", "1") %>%
   bind_rows(ge_apoio_tecnico(ge_2023, q14_8, "2023", "8")) %>%
   bind_rows(ge_apoio_tecnico(ge_2023, q14_9, "2023", "9")) %>%
   bind_rows(ge_apoio_tecnico(ge_2023, q14_10, "2023", "10")) %>%
-  bind_rows(ge_apoio_tecnico(ge_2023, q14_99, "2023", "11")) %>%
 
   
   
