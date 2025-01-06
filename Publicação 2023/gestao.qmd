@@ -2329,7 +2329,7 @@ Sobre a distribuição destes locais de Cadastro Único, destaca-se que em 2022,
 <!-- ``` -->
 
 | Unidades              |   2017    |   2018    |   2019    |   2020    |   2021    |   2022    | 2023      |
-|:----------|:--------:|:--------:|:--------:|:-----:|:-----:|:------:|-------|
+|:--------|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|---------|
 | CRAS                  |   5.669   |   5.508   |   5.923   |   5.729   |   5.937   |   6.090   | 6.140     |
 | CREAS                 |    281    |    174    |    199    |    199    |    208    |    230    | 191       |
 | Centro POP            |    112    |    83     |    84     |    108    |    106    |    115    | 131       |
@@ -2346,7 +2346,7 @@ O @fig-gestao_cad sinaliza que, no âmbito da gestão municipal, as ações de l
 
 [^gestao-19]: estas informações são do formulário de Gestão Municipal, assim se referem a informações gerais que a gestão informa realizar, destaca-se também que estas informações estão disponíveis a partir do ano de 2020 entretanto, só foi possível gerar a partir de 2021 em decorrência de problemas na leitura da base
 
-```{r fig-gestao_cad, fig.cap = "Ações desenvolvidas no âmbito da Gestão do Cadastro Único - Brasil, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r fig-gestao_cad, fig.cap = "Ações desenvolvidas no âmbito da Gestão do Cadastro Único - Brasil, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
 
 gestao_cad= function(df, q, ano, cod_categoria){
   q <- enquo(q)
@@ -2411,11 +2411,64 @@ grafico<-tabela %>%
 grafico
 ```
 
+```{r fig-capac_cad, fig.cap = "Ações de capacitação sobre Cadastro Único realziadas pelo município - Brasil, 2021 e 2023", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
+
+capac_cad= function(df, q, ano, cod_categoria){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+  cod_categoria <- quo_name(cod_categoria)
+
+#2020
+  categoria <- case_when(!! cod_categoria == "1"~"ofertada pelo próprio gestor do Cadastro Único",
+                         !! cod_categoria == "2"~"por servidores da equipe do Cadastro Único e/ou Assistencia Social",
+                         !! cod_categoria == "3"~"Sim, por consultores externos",
+                         !! cod_categoria == "4"~"por instituições de ensino",
+                         !! cod_categoria == "5"~"Outros",
+                         !! cod_categoria == "6"~"Não realiza")
+
+
+
+  df %>%
+    select(!! q) %>%
+    filter(!is.na(!! q)) %>%
+    group_by(!! q) %>%
+    summarise(n=n()) %>%
+    mutate(Percentual = n/sum(n)) %>%
+    filter(!! q == "Sim") %>%
+    mutate("Categoria" = categoria, "Ano" = !! ano)
+}
+
+ tabela <- capac_cad(gm_2023,q58_1,"2023","1") %>%
+
+    bind_rows(capac_cad(gm_2023,q58_2,"2023","2")) %>%
+    bind_rows(capac_cad(gm_2023,q58_3,"2023","3")) %>%
+    bind_rows(capac_cad(gm_2023,q58_4,"2023","4")) %>%
+    bind_rows(capac_cad(gm_2023,q58_99,"2023","5")) %>%
+    bind_rows(capac_cad(gm_2023,q58_0,"2023","6")) %>%
+
+   
+
+
+  ungroup() %>%
+  mutate(Categoria=str_wrap(Categoria,width=51))
+
+ordenado<-tabela %>%
+  filter(Ano == "2023") %>%
+  arrange(Percentual) %>%
+  pull(Categoria)
+
+grafico<-tabela %>%
+  mutate(Categoria = factor(Categoria, levels = ordenado)) %>%
+  f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
+
+grafico
+```
+
 O @fig-acoes_cad sinaliza que as ações de esclarecimento de dúvidas sobre serviços, programas entre outros são realizadas pela grande maioria das unidades do Cadastro Único (96,82%). Já as ações de agendamento para atendimento são realizadas por 64,35% das unidades, com redução ao longo dos anos[^gestao-20].
 
 [^gestao-20]: estas informações são dos postos que executam exclusivamente atividades do Cadastro Único
 
-```{r fig-acoes_cad, fig.cap = "Ações desenvolvidas pelos postos do Cadastro Único - Brasil, 2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r fig-acoes_cad, fig.cap = "Ações desenvolvidas pelos postos do Cadastro Único - Brasil, 2020, 2021 e 2022", fig.footer = "Fonte: MDS, Censo SUAS.",eval=FALSE}
 
 acoes_cad= function(df, q, ano, cod_categoria){
   q <- enquo(q)
