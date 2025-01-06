@@ -2411,7 +2411,7 @@ grafico<-tabela %>%
 grafico
 ```
 
-```{r fig-capac_cad, fig.cap = "Ações de capacitação sobre Cadastro Único realziadas pelo município - Brasil, 2021 e 2023", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
+```{r fig-capac_cad, fig.cap = "Ações de capacitação sobre Cadastro Único realziadas pelo município - Brasil, 2021 e 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 capac_cad= function(df, q, ano, cod_categoria){
   q <- enquo(q)
@@ -2460,6 +2460,16 @@ ordenado<-tabela %>%
 grafico<-tabela %>%
   mutate(Categoria = factor(Categoria, levels = ordenado)) %>%
   f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
+
+grafico
+```
+
+```{r fig-BPC_cadunico, fig.cap = "Ações sobre BPC e acompanhamentoatualziação e inclussão no Cadastro único", fig.footer = "Fonte: MDS, Censo SUAS"}
+
+grafico <- f_sim(gm_2023, q59_6, "2023") %>%
+  
+  
+   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 ```
@@ -2597,7 +2607,7 @@ grafico
 
 Em relação as informações de unidades de Postos do Cadasto Único e o atendimento de Grupos Populacionais Tradicionais e Específicos - GPTEs, destaca-se através do @fig-gptes-cadunico o percentual de unidades de postos do Cadastro Único que informam atender no período de 2020 a 2022.
 
-```{r fig-gptes-cadunico, fig.cap = "Unidades que realizam cadastramento de famílias pertencentes a Grupos Tradicionais e Específicos (GPTEs) - Brasil, 2020 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r fig-gptes-cadunico, fig.cap = "Unidades que realizam cadastramento de famílias pertencentes a Grupos Tradicionais e Específicos (GPTEs) - Brasil, 2020 a 2022", fig.footer = "Fonte: MDS, Censo SUAS",eval=FALSE}
 
 grafico <- f_sim(posto_cadunico_2020,q20_1,"2020") %>%
           bind_rows(f_sim(posto_cadunico_2021,q20_1,"2021"))%>%
@@ -2767,7 +2777,7 @@ O @fig-igdbolsa sinaliza sobre a existência da participação das unidades do C
 
 Trata-se de um recurso repassado aos estados e municípios para apoio a gestão do Cadastro Único e Bolsa Família. Esta informação é referente a respostas do formulário dos postos de cadastramento em âmbito dos municípios.
 
-```{r fig-igdbolsa, fig.cap = "Unidades de Postos do Cadastro Único quanto a participação no planejamento do IGD Bolsa Família - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r fig-igdbolsa, fig.cap = "Unidades de Postos do Cadastro Único quanto a participação no planejamento do IGD Bolsa Família - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS",eval=FALSE}}
 
 igd_pbf  = function(df, q, ano){
   q <- enquo(q)
