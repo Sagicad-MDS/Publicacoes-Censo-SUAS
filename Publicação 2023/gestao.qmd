@@ -874,8 +874,6 @@ grafico<-tabela %>%
 grafico
 ```
 
-
-
 No que se refere aos municípios, a última pactuação sobre estrutura administrativa a partir dos portes populacionais dos municípios[^gestao-7] prevê:
 
 [^gestao-7]: 124ª reunião ordinária da CIT - Pacto de Aprimoramento do SUAS
@@ -1160,7 +1158,6 @@ grafico<-tabela %>%
 grafico
 ```
 
-
 ```{r fig-municipais-constituicao-subdivisoes_2012, fig.cap = "Distribuição dos órgãos gestores municipais segundo constituição/formalização de subdivisões administrativas - Brasil, 2012", fig.footer = "Fonte: MDS, Censo SUAS", eval=FALSE}
 
 # Questionários 2012:
@@ -1304,13 +1301,13 @@ grafico <- gm_2023 %>%
 grafico
 ```
 
-O Plano de Assistência Social é uma obrigatoriedade para existência de confinanciamento federal. O Plano Estadual de Assistência Social (PEAS) deve ser aprovado pelo Conselho Estadual de Assistência Social (CEAS). Os dados do @fig-PEAS sinalizam que a partir de 2020 há um decréscimo desta atualização com devida aprovação do conselho[^gestao-10] [^gestao-11].
+sublinhar este texto ... O Plano de Assistência Social é uma obrigatoriedade para existência de confinanciamento federal. O Plano Estadual de Assistência Social (PEAS) deve ser aprovado pelo Conselho Estadual de Assistência Social (CEAS). Os dados do @fig-PEAS sinalizam que a partir de 2020 há um decréscimo desta atualização com devida aprovação do conselho[^gestao-10] [^gestao-11].
 
 [^gestao-10]: Para os anos de 2016, 2017, 2018 e 2019 as perguntas alteraram, impossibilitando a linha histórica
 
 [^gestao-11]: Para os municípios não foi possível fazer essa linha histórica em decorrência de mudanças nas perguntas
 
-```{r fig-PEAS, fig.cap = "Percentual de Estados quanto a atualização do Plano Estadual de Assistência Social no ano do Censo - Brasil, 2020 a 2022", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r fig-PEAS, fig.cap = "Percentual de Estados quanto a atualização do Plano Estadual de Assistência Social no ano do Censo - Brasil, 2020 a 2022", fig.footer = "Fonte: MDS, Censo SUAS",eval=FALSE}
 
 grafico <-
 # de 2012 a 2015 a pergunta não é sobre atualização, é sobre ter o plano. Precisaria pegar a informação sobre atualização no ano do Censo da pergunta sobre o último ano de atualização.
@@ -1322,6 +1319,8 @@ grafico <-
   f_sim(ge_2020,q5,"2020") %>%
   bind_rows(f_sim(ge_2021,q5,"2021")) %>%
   bind_rows(f_sim(ge_2022,q5,"2022")) %>%
+
+  #retirei essa questão
   #2023 não tem essa pergunta
   #anos que as questões mudam: 2016, 2017,2018,2019
   f_grafico_col_percent(Categoria, Percentual)
@@ -1692,7 +1691,7 @@ Em relação ao Plano de Educação Permanente, de acordo com Censo SUAS de 2021
 
 [^gestao-14]: Para o ano de 2022 essa pergunta foi extinta
 
-```{r fig-PNEP_Munic, fig.cap = "Percentual de municípios que possuem Plano de Capacitação e Educação Permanente, - Brasil; 2015 a 2019, 2021 e 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r fig-PNEP_Munic, fig.cap = "Percentual de municípios que possuem Plano de Capacitação e Educação Permanente, - Brasil; 2015 a 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
 
 grafico <- f_sim(gm_2015, q40, "2015") %>%
     bind_rows(f_sim(gm_2016, q20, "2016")) %>%
@@ -1839,7 +1838,7 @@ grafico <- ge_cofinanciamento(ge_2012, q64_0, "2012", codigo_ibge) %>%
   bind_rows(ge_cofinanciamento(ge_2015, q32, "2015", IBGE)) %>%
   bind_rows(ge_cofinanciamento(ge_2016, q30, "2016", IBGE)) %>%
   bind_rows(ge_cofinanciamento(ge_2017, q39, "2017", IBGE)) %>%
-  bind_rows(ge_cofinanciamento(feas_2018, q_6, "2018", IBGE)) %>%
+  (ge_cofinanciamento(feas_2018, q_6, "2018", IBGE)) %>%
   bind_rows(ge_cofinanciamento(feas_2019, q9, "2019", IBGE)) %>%
   bind_rows(ge_cofinanciamento(feas_2020, q9, "2020", IBGE)) %>%
   bind_rows(ge_cofinanciamento(feas_2021, q9, "2021", IBGE)) %>%
@@ -2330,13 +2329,13 @@ Sobre a distribuição destes locais de Cadastro Único, destaca-se que em 2022,
 
 <!-- ``` -->
 
-| Unidades | 2017 | 2018 | 2019 | 2020 | 2021 | 2022 |
+| Unidades              |   2017    |   2018    |   2019    |   2020    |   2021    |   2022    |
 |:----------|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
-| CRAS | 5.669 | 5.508 | 5.923 | 5.729 | 5.937 | 6.090 |
-| CREAS | 281 | 174 | 199 | 199 | 208 | 230 |
-| Centro POP | 112 | 83 | 84 | 108 | 106 | 115 |
-| Postos Cadastro Único | \- | \- | \- | 2.530 | 2.695 | 2.892 |
-| **Total** | **6.062** | **5.765** | **6.206** | **8.566** | **8.946** | **9.327** |
+| CRAS                  |   5.669   |   5.508   |   5.923   |   5.729   |   5.937   |   6.090   |
+| CREAS                 |    281    |    174    |    199    |    199    |    208    |    230    |
+| Centro POP            |    112    |    83     |    84     |    108    |    106    |    115    |
+| Postos Cadastro Único |    \-     |    \-     |    \-     |   2.530   |   2.695   |   2.892   |
+| **Total**             | **6.062** | **5.765** | **6.206** | **8.566** | **8.946** | **9.327** |
 
 : Quantidade de Unidades de Cadastro Único {#tbl-qtd_unidades}
 
