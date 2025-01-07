@@ -82,7 +82,7 @@ gmrh_2022 <- read_excel("../Censo SUAS 2022/9 - GESTÃO MUNICIPAL/Censo_SUAS_202
 
 gm_2023 <- read_csv2("../Censo SUAS 2023/9 - GESTÃO MUNICIPAL/Censo_SUAS_2023_Gestão_Municipal_Dados_Gerais.csv", locale = locale(encoding = "latin1"))
 
-gmrh_2023 <- read_csv2("../Publicacoes-Censo-SUAS/Censo SUAS 2023/9 - GESTÃO MUNICIPAL/Censo_SUAS_2023_Gestão_Municipal_RH.csv", locale = locale(encoding = "latin1"))
+gmrh_2023 <- read_csv2("../Censo SUAS 2023/9 - GESTÃO MUNICIPAL/Censo_SUAS_2023_Gestão_Municipal_RH.csv", locale = locale(encoding = "latin1"))
 
 cras_2007 <- read_excel("../Censo SUAS 2007/CRAS/Censo SUAS CRAS 2007.xls")
 
