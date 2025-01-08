@@ -66,6 +66,8 @@ Clara Carolina de Sá, Elizangela Cardoso de Araújo Silva e Shirley Samico.
 
 Shirley Samico, Valdson Silva Cleto, Erica Moreira e Zilane Andrade.
 
+## Ficha Catalográfica {.unnumbered}
+
 ```{=html}
 <!-- Created by pdf2htmlEX (https://github.com/pdf2htmlEX/pdf2htmlEX) -->
 <html xmlns="http://www.w3.org/1999/xhtml">
