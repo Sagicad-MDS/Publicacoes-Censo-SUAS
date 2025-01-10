@@ -2438,8 +2438,25 @@ capac_cad= function(df, q, ano, cod_categoria){
     mutate("Categoria" = categoria, "Ano" = !! ano)
 }
 
- tabela <- capac_cad(gm_2023,q58_1,"2023","1") %>%
+ tabela <-
+   
+     
+  #  capac_cad(gm_2021,q54_1,"2021","1") %>%
+  #  bind_rows(capac_cad(gm_2021,q54_2,"2021","2")) %>%
+  #  bind_rows(capac_cad(gm_2021,q54_3,"2021","3")) %>%
+  #  bind_rows(capac_cad(gm_2021,q54_4,"2021","4")) %>%
+  #  bind_rows(capac_cad(gm_2021,q54_99,"2021","5")) %>%
+  #  bind_rows(capac_cad(gm_2021,q54_0,"2021","6")) %>%
+    
+      
+  #  capac_cad(gm_2022,q54_1,"2022","1") %>%
+  #  bind_rows(capac_cad(gm_2022,q54_2,"2022","2")) %>%
+  #  bind_rows(capac_cad(gm_2022,q54_3,"2022","3")) %>%
+  #  bind_rows(capac_cad(gm_2022,q54_4,"2022","4")) %>%
+  #  bind_rows(capac_cad(gm_2022,q54_99,"2022","5")) %>%
+  #  bind_rows(capac_cad(gm_2022,q54_0,"2022","6")) %>%
 
+    capac_cad(gm_2023,q58_1,"2023","1") %>%
     bind_rows(capac_cad(gm_2023,q58_2,"2023","2")) %>%
     bind_rows(capac_cad(gm_2023,q58_3,"2023","3")) %>%
     bind_rows(capac_cad(gm_2023,q58_4,"2023","4")) %>%
@@ -2466,7 +2483,11 @@ grafico
 
 ```{r fig-BPC_cadunico, fig.cap = "Ações sobre BPC e acompanhamentoatualziação e inclussão no Cadastro único", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-grafico <- f_sim(gm_2023, q59_6, "2023") %>%
+grafico <-
+  f_sim(gm_2023, q59_6, "2023") %>%
+  #f_sim(gm_2022, q55_6, "2022") %>%
+  #f_sim(gm_2021, q55_6, "2021") %>%
+  #f_sim(gm_2020, q59_6, "2020") %>%
   
   
    f_grafico_col_percent(Categoria, Percentual)
