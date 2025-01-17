@@ -316,6 +316,9 @@ grafico <-
   bind_rows(sec_munic_exc(gm_2017, q1, "2017")) %>%
   bind_rows(sec_munic_exc(gm_2018, q_1,"2018")) %>%
   bind_rows(sec_munic_exc(gm_2019, q1, "2019")) %>%
+ # bind_rows(sec_munic_exc(gm_2020, q1, "2020")) %>% 
+ # bind_rows(sec_munic_exc(gm_2021, q1, "2021")) %>% 
+ # bind_rows(sec_munic_exc(gm_2022, q1, "2022")) %>% 
   bind_rows(sec_munic_exc(gm_2023, q1, "2023")) %>% 
  
 
