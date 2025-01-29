@@ -16,15 +16,15 @@ A LOAS, a NOB SUAS[^gestao-2] e outros normativos que regulam a assistência soc
 
 ## Estrutura Administrativa normas e planejamento
 
-A partir das informações contidas no Censo SUAS, é possível ter um panorama geral da gestão e do financiamento em estados e municípios, observando-se aspectos da estrutura administrativa da gestão da assistência social, a atualização de normativos, o apoio de estados aos municípios, as atividades de cofinanciamento e transferência de recursos, funcionamento das instâncias de pactuação, entre outras.
+A partir das informações contidas no Censo SUAS, é possível ter um panorama geral da gestão e do financiamento em estados e municípios, observando-se aspectos da estrutura administrativa da gestão da Assistência Social, a atualização de normativos, o apoio de estados aos municípios, as atividades de cofinanciamento e transferência de recursos, funcionamento das instâncias de pactuação, entre outras.
 
-A estrutura administrativa na Política de Assistência Social e Constituição de setores essenciais são elementos importantes para gestão do SUAS. No âmbito da gestão estadual, no que se refere a exclusividade da área de Assistência Social, percebe-se que nos últimos 10 anos houve uma redução de áreas específicas de Assistência Social. Em 2012 existiam 29,6%[^gestao-3] das secretarias estaduais exclusivas de Assistência Social, em 2022 esse número passa para 3,8%[^gestao-4], redução significativa de 87,2%, conforme o @fig-estados_sec_exc.
+A estrutura administrativa na Política de Assistência Social e Constituição de setores essenciais são elementos importantes para gestão do SUAS. No âmbito da gestão estadual, no que se refere a exclusividade da área de Assistência Social, percebe-se que a partir de 2012 houve uma redução de áreas específicas de Assistência Social. Em 2012 existiam 29,6%[^gestao-3] das secretarias estaduais exclusivas de Assistência Social, em 2023 esse número passa para 3,8%[^gestao-4], redução significativa de 87,2%, conforme o @fig-estados_sec_exc.
 
 [^gestao-3]: Estados: Amazonas, Acre, Pará, Amapá, Piauí, Paraíba, Sergipe e São Paulo
 
 [^gestao-4]: Estado do Amazonas
 
-```{r fig-estados_sec_exc, fig.cap = "Percentual de Estados quanto à característica de estrutura administrativa - Brasil, 2012 a 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r fig-estados_sec_exc, fig.cap = "Percentual de Estados quanto à característica de estrutura administrativa de Assistência Social - Brasil, 2012 a 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
 
 # Avaliar fazer o gráfico apenas com o percentual das secretarias exclusivas.
 # Avaliar fazer gráficos de estado com quantidade em vez de percentual
@@ -67,6 +67,8 @@ grafico <- estados_sec_exc(ge_2012, q1, "2012") %>%
 
 grafico
 ```
+
+Em relação à incorporação de outras políticas setoriais na pasta da Assistência Social, os dados de 2023 indicam que a maioria das secretarias estaduais integra de duas a três políticas setoriais adicionais confore pode ser observado através @fig-estados-caracteristica-secretaria-2023.
 
 ```{r fig-estados-caracteristica-secretaria-2022, fig.cap = "Percentual de Secretarias Estaduais de acordo com composição administrativa relacionada a outras políticas - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
 
@@ -268,7 +270,7 @@ grafico <- ge_2013 %>%
 grafico
 ```
 
-No que se refere aos municípios, esse cenário nacional se configurou inverso ao das gestões Estaduais. Observa-se através do @fig-sec-munic-exc um aumento de 217 municípios (1,5 pontos percentuais) com secretarias exclusivas de Assistência Social do período de 2012 a 2019[^gestao-5].
+No que se refere aos municípios e a estrutura administrativa da Assistência Social, esse cenário nacional se configurou inverso ao das gestões Estaduais. Observa-se através do @fig-sec-munic-exc um aumento de 217 municípios (1,5 pontos percentuais) com secretarias exclusivas de Assistência Social do período de 2012 a 2019[^gestao-5].
 
 [^gestao-5]: a partir de 2019 essa pergunta foi retirada do formulário de gestão municipal
 
@@ -2329,7 +2331,7 @@ Sobre a distribuição destes locais de Cadastro Único, destaca-se que em 2022,
 <!-- ``` -->
 
 | Unidades              |   2017    |   2018    |   2019    |   2020    |   2021    |   2022    | 2023      |
-|:----------------------|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|-----------|
+|:--------|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|---------|
 | CRAS                  |   5.669   |   5.508   |   5.923   |   5.729   |   5.937   |   6.090   | 6.140     |
 | CREAS                 |    281    |    174    |    199    |    199    |    208    |    230    | 191       |
 | Centro POP            |    112    |    83     |    84     |    108    |    106    |    115    | 131       |
@@ -2411,7 +2413,7 @@ grafico<-tabela %>%
 grafico
 ```
 
-```{r fig-capac_cad, fig.cap = "Ações de capacitação sobre Cadastro Único realziadas pelo município - Brasil, 2021 e 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r fig-capac_cad, fig.cap = "Ações de capacitação sobre Cadastro Único realizadas pelo município - Brasil, 2021 e 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 capac_cad= function(df, q, ano, cod_categoria){
   q <- enquo(q)
@@ -2464,7 +2466,7 @@ grafico<-tabela %>%
 grafico
 ```
 
-```{r fig-BPC_cadunico, fig.cap = "Ações sobre BPC e acompanhamentoatualziação e inclussão no Cadastro único", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r fig-BPC_cadunico, fig.cap = "Ações sobre BPC e acompanhamento e atualização e inclusão no Cadastro Único", fig.footer = "Fonte: MDS, Censo SUAS"}
 
 grafico <- f_sim(gm_2023, q59_6, "2023") %>%
   
