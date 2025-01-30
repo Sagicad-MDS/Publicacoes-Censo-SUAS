@@ -357,8 +357,8 @@ grafico <-
  # f_maior0_regiao_ano(cras_2007, `Acesso a Internet`, ibge, "2007") %>%
  # bind_rows(cras_2012, q13b, Região, "2012")) %>%
    f_maior0_regiao_ano(cras_2013, q12_2, Região, "2013") %>%
- # bind_rows(f_maior0_regiao_ano(cras_2017, q12.2, Região, "2017")) %>%
-   bind_rows(f_maior0_regiao_ano(cras_2018, q_11_2, Regiao, "2018")) %>%
+# bind_rows(f_maior0_regiao_ano(cras_2017, q12.2, Região, "2017")) %>%
+  bind_rows(f_maior0_regiao_ano(cras_2018, q_11_2, IBGE, "2018")) %>%
  # bind_rows(f_maior0_regiao_ano(cras_2022, q11_2, IBGE, "2022")) %>%
    bind_rows(f_maior0_regiao_ano(cras_2023, q11_2, IBGE, "2023")) %>%
   
