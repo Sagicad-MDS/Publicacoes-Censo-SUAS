@@ -14,6 +14,9 @@ book:
   cover-image: cover.png
   favicon: cover.png
   repo-url: https://github.com/Sagicad-MDS/Publicacoes-Censo-SUAS
+  repo-branch: master
+  repo-subdir: "Publicação 2022 livro HTML"
+  repo-actions: [source, issue]
   chapters:
     - index.qmd
     - apresentacao.qmd
