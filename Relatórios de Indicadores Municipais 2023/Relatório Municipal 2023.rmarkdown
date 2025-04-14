@@ -1,0 +1,2568 @@
+---
+lang: pt   
+
+title: Relatório Municipal de Indicadores 2023
+author: "SAGICAD e SNAS / MDS"
+
+number-sections: true
+execute:
+  echo: false
+  message: false
+  warning: false
+  cache: false
+fig-cap-location: top
+crossref:
+  fig-title: Gráfico     # (default is "Figure")
+  tbl-title: Tabela     # (default is "Table")
+  title-delim: "."      # (default is ":")
+  fig-prefix: Gráfico   # (default is "Figure")
+  tbl-prefix: Tabela    # (default is "Table")
+#  ref-hyperlink: false # (default is true)
+format:
+  html:
+    embed-resources: true
+    template-partials:
+      - title-block.html
+params:
+  municipio: FALSE
+# municipio: 355030 # São Paulo
+# municipio: 316660 # Menor Município
+# municipio: 330455 # Rio de Janeiro
+# municipio: 110028 # CRAS EF nível 1
+# municipio: 110005 # CRAS EF nível 3, Serviços nível 1
+# municipio: 110007 # CRAS EF nível 4
+# municipio: 110012 # CRAS Serviços nível 1 município Grande
+  pacotes_carregados: FALSE
+---
+
+```{r pacotes, include=FALSE, cache=params$pacotes_carregados}
+lista.de.pacotes = c("tinytex","tidyr", "purrr", "dplyr",
+                     "lubridate","janitor","readxl","readr","readODS","stringr",
+                     "repmis","scales",
+                     "ggrepel","renv","knitr","quarto") # escreva a lista de pacotes
+
+novos.pacotes <- lista.de.pacotes[!(lista.de.pacotes %in%
+                                      installed.packages()[,"Package"])]
+
+if(length(novos.pacotes) > 0) {install.packages(novos.pacotes, repos = "http://cran.us.r-project.org")}
+lapply(lista.de.pacotes, require, character.only=T)
+rm(lista.de.pacotes,novos.pacotes)
+gc()
+```
+
+```{r carregamento, cache=TRUE}
+
+idconselho_2014 <- read_excel("../ID CONSELHO/IDConselho2014_alterado_08-12-2016.xlsx")
+idconselho_2015 <- read_excel("../ID CONSELHO/ID CONSELHO - 2015.xlsx")
+idconselho_2016 <- read_excel("../ID CONSELHO/ID CONSELHO - 2016.xlsx")
+idconselho_2017 <- read_excel("../ID CONSELHO/ID CONSELHO - 2017.xlsx")
+idconselho_2018 <- read_excel("../ID CONSELHO/ID CONSELHO - 2018.xlsx")
+idconselho_2019 <- read_excel("../ID CONSELHO/ID CONSELHO - 2019.xlsx",guess_max=7)
+idconselho_2020 <- read_excel("../ID CONSELHO/ID CONSELHO - 2020.xlsx",guess_max=12)
+idconselho_2021 <- read_excel("../ID CONSELHO/IDCONSELHO_2021_divulgacao.xlsx",guess_max=140)
+idconselho_2022 <- read_excel("../ID CONSELHO/IDConselho_Municipal_2022_divulgacao.xlsx")
+idconselho_2023 <- read_excel("../ID CONSELHO/IDConselho_Municipal_2023_divulgacao.xlsx", skip=4)
+
+idcras_2014 <- read_excel("../ID CRAS/NOVO_IDCRAS_2014_divulgação_retificado_07_10_2016.xlsx")
+idcras_2015 <- read_excel("../ID CRAS/NOVO_IDCRAS_2015_divulgação_retificado_07_10_2016.xlsx")
+idcras_2016 <- read_excel("../ID CRAS/IDCRAS_2016_FINAL_(01062017).xlsx")
+idcras_2017 <- read_excel("../ID CRAS/IDCRAS_2017_DIVULGAÇÃO_atualizado__030523.xlsx",sheet = 2, skip=6)
+idcras_2018 <- read_excel("../ID CRAS/IDCRAS_2018_DIVULGAÇÃO_atualizado_280423.xlsx")
+idcras_2019 <- read_excel("../ID CRAS/IDCRAS_2019_DIVULGAÇÃO_atualizado_280423.xlsx")
+idcras_2020 <- read_excel("../ID CRAS/IDCRAS_2020_DIVULGAÇÃO_atualizado_280423(1).xlsx")
+idcras_2021 <- read_excel("../ID CRAS/IDCRAS_2021_DIVULGAÇÃO_atulaizado_280423(1).xlsx")
+
+idcras_2022 <- read_excel("../ID CRAS/IDCRAS_2022_DIVULGAÇÃO_atualizado_280423(1).xlsx")
+cras_2022 <- read_excel("../Censo SUAS 2022/1_CRAS/Censo_SUAS_2022_CRAS_Dados_Gerais_Divulgação.xlsx") %>%
+              select(NU_IDENTIFICADOR, q1)
+idcras_2022 <- idcras_2022 %>%
+                merge(cras_2022, by.x = "Nº IDENTIFICADOR do CRAS", by.y = "NU_IDENTIFICADOR")
+
+idcras_2023 <- read_excel("../ID CRAS/IDCRAS_2023_DIVULGAÇÃO_retificado EV_260824(1).xlsx", skip=6) %>%
+               mutate(Porte = case_when(Porte == 1~"Pequeno I",
+                                        Porte == 2~"Pequeno II",
+                                        Porte == 3~"Médio",
+                                        Porte == 4~"Grande",
+                                        Porte == 5~"Metrópole"))
+cras_2023 <- read_csv2("../Censo SUAS 2023/1 - CRAS/Censo_SUAS_2023_CRAS_Dados_Gerais.csv", locale = locale(encoding = "latin1")) %>%
+              select(NU_IDENTIFICADOR, q1)
+idcras_2023 <- idcras_2023 %>%
+                merge(cras_2023, by.x = "Nº IDENTIFICADOR do CRAS", by.y = "NU_IDENTIFICADOR")
+
+idcreas_2014 <- read_excel("../ID CREAS/IDCREAS_2014_DIVULGACAO_site.xlsx")
+idcreas_2015 <- read_excel("../ID CREAS/ID_CREAS_2015_divulgacao_site.xlsx",)
+idcreas_2016 <- read_excel("../ID CREAS/IDCREAS_2016_DIVULGAÇÃO.xlsx")
+idcreas_2017 <- read_excel("../ID CREAS/IDCREAS_2017_DIVULGAÇÃO (2).xlsx")
+idcreas_2018 <- read_excel("../ID CREAS/IDCREAS2018_divulgacao(2).xlsx")
+idcreas_2019 <- read_excel("../ID CREAS/IDCREAS2019_divulgacao.xlsx")
+idcreas_2020 <- read_excel("../ID CREAS/IDCREAS2020_divulgacao.xlsx")
+idcreas_2021 <- read_excel("../ID CREAS/IDCREAS2021_divulgacao_retificado191022(1) (1).xlsx")
+idcreas_2022 <- read_excel("../ID CREAS/IDCREAS2022_divulgacao_retificado270923.xlsx")
+idcreas_2023 <- read_ods("../ID CREAS/IDCREAS2023_divulgacao_retificado090824.ods", skip=6)
+
+niveis_ID <- c(1, 2, 3, 4, 5)
+```
+
+```{r setup-municipio}
+# Município
+municipio <- params$municipio
+dados_municipio <- read_excel("../RELATORIO_DTB_BRASIL_MUNICIPIO.xls", skip = 6) %>%
+                    mutate(`Código Município` = substr(`Código Município Completo`,1,6)) %>%
+                    filter(`Código Município` == municipio)
+
+nome_municipio <- dados_municipio %>% pull(Nome_Município)
+uf_municipio <- dados_municipio %>% pull(Nome_UF)
+
+porte_cras <- idcras_2023  %>%
+                filter(`Código IBGE` == municipio)  %>%
+                select(Porte)
+porte_creas <- idcreas_2023  %>%
+                filter(`Código IBGE` == municipio)  %>%
+                select(Porte)
+porte_conselho <- idconselho_2023  %>%
+                filter(IBGE == municipio)  %>%
+                select(Porte)
+porte_municipio <- porte_cras %>%
+                    bind_rows(porte_creas) %>%
+                    bind_rows(porte_conselho) %>%
+                    mutate(Porte = factor(Porte, levels = c("Pequeno I",
+                                                            "Pequeno II",
+                                                            "Médio",
+                                                            "Grande",
+                                                            "Metrópole"), ordered=TRUE))
+factor_porte <- max(porte_municipio$Porte, na.rm = T)
+porte <- sprintf("em município de porte %s", as.character(factor_porte))
+```
+
+---
+subtitle: "`r nome_municipio`, `r uf_municipio`"
+---
+
+```{r funcoes}
+
+f_quantitativo_niveis_filtro = function(df, q_filtro, filtro, q_grupo, eixo_x, niveis){
+  q_filtro <- enquo(q_filtro)
+  filtro <- quo_name(filtro)
+  q_grupo <- enquo(q_grupo)
+  eixo_x <- quo_name(eixo_x)
+
+  df %>%
+    filter(!! q_filtro == !! filtro) %>% 
+    select(!! q_grupo) %>% 
+    mutate(!! q_grupo := factor(!! q_grupo, levels = niveis)) %>% 
+    count(!! q_grupo, name = "n", .drop = F) %>%
+    mutate("Eixo_X" = !! eixo_x) %>%  
+    mutate("Grupo" = !! q_grupo) 
+}
+
+f_selecao_grupo_media = function(df, q_selecao, selecao, q_media, grupo, eixo_x){
+  q_selecao <- enquo(q_selecao)
+  grupo <- quo_name(grupo)
+  selecao <- quo_name(selecao)
+  q_media <- enquo(q_media)
+  eixo_x <- quo_name(eixo_x)
+
+  df %>%
+    select(!! q_selecao, !! q_media) %>% 
+    filter(!! q_selecao == !! selecao) %>% 
+    filter(!is.na(!! q_media)) %>% 
+    summarise(m=mean(!! q_media)) %>% 
+    mutate("Eixo_X" = !! eixo_x) %>% 
+    mutate("Grupo" = !! grupo) 
+}
+
+```
+
+# ID CRAS: Indice de Desenvolvimento do CRAS
+
+O ID CRAS é um indicador composto por três dimensões. Cada dimensão possui uma nota na qual quanto mais próxima de 5, melhor o índice e, do contrário, insatisfatório.
+
+O @fig-ID-CRAS mostra a evolução das médias do ID CRAS ao longo dos anos no município de `r nome_municipio`, `r uf_municipio`.
+
+```{r fig-ID-CRAS, fig.cap = sprintf(" Evolução das médias do ID CRAS, 2014 a 2023: %s, %s", nome_municipio, uf_municipio), fig.footer = "Fonte: MDS, Censo SUAS."}
+
+grafico <- f_selecao_grupo_media(idcras_2014, IBGE, municipio, `IDCRAS 2014sintético`, "ID CRAS", "2014") %>%
+  bind_rows(f_selecao_grupo_media(idcras_2014, IBGE, municipio, `Dimensão Estrutura Física`, "Estrutura Física", "2014")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2014, IBGE, municipio, `Dimensão Recursos Humanos`, "Recursos Humanos", "2014")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2014, IBGE, municipio, `Dimensão Serviços & Benefícios`, "Serviços & Benefícios", "2014")) %>%
+
+  bind_rows(f_selecao_grupo_media(idcras_2015, IBGE, municipio, `IDCRAS 2015 sintético`, "ID CRAS", "2015")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2015, IBGE, municipio, `Dimensão Estrutura Física`, "Estrutura Física", "2015")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2015, IBGE, municipio, `Dimensão Recursos Humanos`, "Recursos Humanos", "2015")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2015, IBGE, municipio, `Dimensão Serviços & Benefícios`, "Serviços & Benefícios", "2015")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idcras_2016, IBGE, municipio, `IDCRAS 2016sintético`, "ID CRAS", "2016")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2016, IBGE, municipio, `Dimensão Estrutura Física`, "Estrutura Física", "2016")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2016, IBGE, municipio, `Dimensão Recursos Humanos`, "Recursos Humanos", "2016")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2016, IBGE, municipio, `Dimensão Serviços & Benefícios`, "Serviços & Benefícios", "2016")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idcras_2017, `Código IBGE`, municipio, IDCRAS, "ID CRAS", "2017")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2017, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física", "2017")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2017, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos", "2017")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2017, `Código IBGE`, municipio, `Serviços `, "Serviços & Benefícios", "2017")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idcras_2018, `Código IBGE`, municipio, IDCRAS, "ID CRAS", "2018")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2018, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física", "2018")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2018, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos", "2018")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2018, `Código IBGE`, municipio, `Serviços `, "Serviços & Benefícios", "2018")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idcras_2019, `Código IBGE`, municipio, IDCRAS, "ID CRAS", "2019")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2019, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física", "2019")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2019, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos", "2019")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2019, `Código IBGE`, municipio, `Serviços `, "Serviços & Benefícios", "2019")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idcras_2020, `Código IBGE`, municipio, IDCRAS, "ID CRAS", "2020")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2020, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física", "2020")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2020, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos", "2020")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2020, `Código IBGE`, municipio, `Serviços `, "Serviços & Benefícios", "2020")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idcras_2021, `Código IBGE`, municipio, IDCRAS, "ID CRAS", "2021")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2021, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física", "2021")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2021, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos", "2021")) %>%
+  bind_rows(f_selecao_grupo_media(idcras_2021, `Código IBGE`, municipio, `Serviços `, "Serviços & Benefícios", "2021")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idcras_2022, `Código IBGE`, municipio, IDCRAS, "ID CRAS", "2022")) %>% 
+  bind_rows(f_selecao_grupo_media(idcras_2022, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física", "2022")) %>% 
+  bind_rows(f_selecao_grupo_media(idcras_2022, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos", "2022")) %>% 
+  bind_rows(f_selecao_grupo_media(idcras_2022, `Código IBGE`, municipio, `Serviços `, "Serviços & Benefícios", "2022")) %>% 
+
+  bind_rows(f_selecao_grupo_media(idcras_2023, `Código IBGE`, municipio, IDCRAS, "ID CRAS", "2023")) %>% 
+  bind_rows(f_selecao_grupo_media(idcras_2023, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física", "2023")) %>% 
+  bind_rows(f_selecao_grupo_media(idcras_2023, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos", "2023")) %>% 
+  bind_rows(f_selecao_grupo_media(idcras_2023, `Código IBGE`, municipio, `Serviços `, "Serviços & Benefícios", "2023")) %>% 
+
+  mutate(Grupo = factor(Grupo, levels = c("Estrutura Física",
+                                          "Recursos Humanos",
+                                          "Serviços & Benefícios",
+                                          "ID CRAS"))) %>% 
+
+  ggplot(aes(x = Eixo_X, y = m, group = Grupo)) +
+  geom_col(aes(fill = Grupo), position="dodge") +
+#  geom_text(aes(label = sprintf("%0.2f", m), y=m+0.3), position = position_dodge(width = 0.9), angle = 90, size = 3) +
+  geom_text(aes(label = format(m, digits=3), y=m+0.3), position = position_dodge(width = 0.9), angle = 90, size = 3) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  scale_fill_viridis_d(option = "E") +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+```
+
+```{r}
+unidades_municipio <- idcras_2023 %>%
+                       filter(`Código IBGE` == municipio)
+
+n_unidades_municipio <- nrow(unidades_municipio)
+```
+
+```{r fig-ID-CRAS-nivel, fig.cap = sprintf("Quantidade de CRAS em cada nível de ID, 2023: %s, %s", nome_municipio, uf_municipio), fig.footer = "Fonte: MDS, Censo SUAS.", eval=n_unidades_municipio>1}
+
+grafico <- f_quantitativo_niveis_filtro(idcras_2023, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física", niveis_ID) %>% 
+  bind_rows(f_quantitativo_niveis_filtro(idcras_2023, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos", niveis_ID)) %>%
+  bind_rows(f_quantitativo_niveis_filtro(idcras_2023, `Código IBGE`, municipio, `Serviços `, "Serviços & Benefícios", niveis_ID)) %>% 
+
+  mutate(Eixo_X = factor(Eixo_X, levels = c("Estrutura Física",
+                                            "Recursos Humanos",
+                                            "Serviços & Benefícios"))) %>% 
+
+  ggplot(aes(x = Eixo_X, y = n, group = Grupo)) +
+  geom_col(aes(fill = Grupo), position="dodge") +
+  geom_text(aes(label = sprintf("%d", n)), position = position_dodge(width = 0.9), vjust = -0.5) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  scale_fill_viridis_d(option = "E") +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+```
+
+```{r tbl-cras-por-capacidade, fig.align='center'}
+unidades_municipio <- unidades_municipio %>%
+                        mutate(q1 = factor(q1, levels = c("2.500 famílias referenciadas",
+                                                          "3.500 famílias referenciadas",
+                                                          "5.000 famílias referenciadas"))) 
+
+unidades_2500 <- unidades_municipio %>%
+                  filter(q1 == "2.500 famílias referenciadas")
+unidades_3500 <- unidades_municipio %>%
+                  filter(q1 == "3.500 famílias referenciadas")
+unidades_2500_3500 <- unidades_municipio %>%
+                  filter(q1 == "2.500 famílias referenciadas" | q1 == "3.500 famílias referenciadas")
+unidades_5000 <- unidades_municipio %>%
+                  filter(q1 == "5.000 famílias referenciadas")
+
+equipamento <- "CRAS"
+
+tabela <- unidades_municipio %>%
+            tabyl(q1) %>%
+            select(q1, n) %>%
+            kable(caption=sprintf("Quantidade de %s em 2023 no município de %s por capacidade de referenciamento.", equipamento, nome_municipio),
+                  col.names=c("Capacidade de até:", "Quantidade"))
+tabela  
+```
+
+```{r eval=(n_unidades_municipio>0), results='asis'}
+
+cat("As seções a seguir apresentam os resultados do município de", nome_municipio, "em cada uma das dimensões do ID CRAS, bem como os requisitos para se alcançar os níveis superiores.")
+```
+
+```{asis, echo=(n_unidades_municipio>0)}
+
+## ID CRAS: Dimensão Estrutura Física
+```
+
+```{r}
+
+  dimensao <- "Estrutura Física"
+```
+
+```{asis, echo=(n_unidades_municipio>0)}
+
+### CRAS com capacidade de referenciamento para até 2.500 ou 3.500 famílias
+```
+
+```{r}
+
+  n_unidades <- nrow(unidades_2500_3500)
+
+  capacidade <- "com capacidade de referenciamento para até 2.500 ou 3.500 famílias"
+```
+
+```{r eval=(n_unidades_municipio>0 && !n_unidades), results='asis'}
+
+cat(nome_municipio, " não tem ", equipamento, " ", capacidade, ".", sep="")
+```
+
+```{r eval=(n_unidades>0)}
+
+  menor_nivel <- min(unidades_2500_3500$`Estrutura Física`, na.rm = T)
+  maior_nivel <- max(unidades_2500_3500$`Estrutura Física`, na.rm = T)
+```
+
+```{r eval=(n_unidades==1), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID do ", equipamento, " ", capacidade, " no município de ", nome_municipio, " é ",  menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel==maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " ", capacidade, " no município de ", nome_municipio, " é ", menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel<maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " ", capacidade, " no município de ", nome_municipio, " varia de ", menor_nivel, " a ", maior_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("O ", equipamento, " de **nível 1**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Possui **menos de 2 salas de atendimento**; ou
+* **Não possui banheiro**; ou
+* Funciona em **prédio compartilhado com ONG, ou com compartilhamento de todas as salas de atendimento**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("Para alcançar o **nível 2** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Possuir no mínimo **2 salas de atendimento**; e
+* Possuir pelo menos **1 banheiro**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==2), results='asis'}
+
+cat("O ", equipamento, " de **nível 2**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==2)}
+
+* Possui no mínimo **2 salas de atendimento**; e
+* Possui pelo menos **1 banheiro**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<3 && maior_nivel>1), results='asis'}
+
+cat("Para alcançar o **nível 3** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos requisitos do nível 2:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1)}
+
+* Possuir **recepção**; e
+* Possuir **acessibiliadade, ao menos parcial**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==3), results='asis'}
+
+cat("O ", equipamento, " de **nível 3**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==3)}
+
+* Possui **recepção**; e
+* Possui no mínimo **2 salas de atendimento**; e
+* Possui pelo menos **1 banheiro**; e
+* Possui **acessibiliadade, ao menos parcial**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<4 && maior_nivel>2), results='asis'}
+
+cat("Para alcançar o **nível 4** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos resquisitos do nível 3:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2)}
+
+* Possuir **pelo menos 1 das salas de atendimento com capacidade para 15 ou mais pessoas**; e
+* Possuir no mínimo **2 banheiros**; e
+* Possuir **pelo menos 1 computador conectado à internet**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==4), results='asis'}
+
+cat("O ", equipamento, " de **nível 4**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==4)}
+
+* Possui **recepção**; e
+* Possui no mínimo **2 salas de atendimento**, sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**; e
+* Possui no mínimo **2 banheiros**; e
+* Possui **acessibiliadade, ao menos parcial**; e
+* Possui **pelo menos 1 computador conectado à internet**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<5 && maior_nivel>3), results='asis'}
+
+cat("Para alcançar o **nível 5** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos requisitos do nível 4:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3)}
+
+* Possuir no mínimo **1 sala administrativa**; e
+* Possuir **acessibilidade**; e
+* Possuir conjunto de equipamentos que inclua, no mínimo: **2 computadores conectados à internet, impressora, telefone e veículo exclusivo ou compartilhado**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==5), results='asis'}
+
+cat("O ", equipamento, " de **nível 5**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==5)}
+
+* Possui **recepção**; e
+* Possui no mínimo **2 salas de atendimento**, sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**; e
+* Possui no mínimo **1 sala administrativa**; e
+* Possui no mínimo **2 banheiros**; e
+* Possui **acessibilidade**; e
+* Possui conjunto de equipamentos que inclua, no mínimo: **2 computadores conectados à internet, impressora, telefone e veículo exclusivo ou compartilhado**.
+```
+
+```{asis, echo=(n_unidades_municipio>0)}
+
+### CRAS com capacidade de referenciamento para até 5.000 famílias
+```
+
+```{r}
+
+  n_unidades <- nrow(unidades_5000)
+
+  capacidade <- "com capacidade de referenciamento para até 5.000 famílias"
+```
+
+```{r eval=(n_unidades_municipio>0 && !n_unidades), results='asis'}
+
+cat(nome_municipio, " não tem ", equipamento, " ", capacidade, ".", sep="")
+```
+
+```{r eval=(n_unidades>0)}
+
+  menor_nivel <- min(unidades_5000$`Estrutura Física`, na.rm = T)
+  maior_nivel <- max(unidades_5000$`Estrutura Física`, na.rm = T)
+```
+
+```{r eval=(n_unidades==1), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID do ", equipamento, " ", capacidade, " no município de ", nome_municipio, " é ",  menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel==maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " ", capacidade, " no município de ", nome_municipio, " é ", menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel<maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " ", capacidade, " no município de ", nome_municipio, " varia de ", menor_nivel, " a ", maior_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("O ", equipamento, " de **nível 1**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Possui **menos de 3 salas de atendimento**; ou
+* **Não possui banheiro**; ou
+* Funciona em **prédio compartilhado com ONG, ou com compartilhamento de todas as salas de atendimento**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("Para alcançar o **nível 2** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Possuir no mínimo **3 salas de atendimento**; e
+* Possuir pelo menos **1 banheiro**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==2), results='asis'}
+
+cat("O ", equipamento, " de **nível 2**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==2)}
+
+* Possui no mínimo **3 salas de atendimento**; e
+* Possui pelo menos **1 banheiro**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<3 && maior_nivel>1), results='asis'}
+
+cat("Para alcançar o **nível 3** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos requisitos do nível 2:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1)}
+
+* Possuir **recepção**; e
+* Possuir **pelo menos 1 das salas de atendimento com capacidade para 15 ou mais pessoas**; e
+* Possuir **acessibiliadade, ao menos parcial**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==3), results='asis'}
+
+cat("O ", equipamento, " de **nível 3**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==3)}
+
+* Possui **recepção**; e
+* Possui no mínimo **3 salas de atendimento**, sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**; e
+* Possui pelo menos **1 banheiro**; e
+* Possui **acessibiliadade, ao menos parcial**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<4 && maior_nivel>2), results='asis'}
+
+cat("Para alcançar o **nível 4** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos resquisitos do nível 3:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2)}
+
+* Possuir no mínimo **4 salas de atendimento** (sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**); e
+* Possuir no mínimo **2 banheiros**; e
+* Possuir **pelo menos 2 computadores conectados à internet**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==4), results='asis'}
+
+cat("O ", equipamento, " de **nível 4**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==4)}
+
+* Possui **recepção**; e
+* Possui no mínimo **4 salas de atendimento**, sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**; e
+* Possui no mínimo **2 banheiros**; e
+* Possui **acessibilidade, ao menos parcial**; e
+* Possui **pelo menos 2 computadores conectados à internet**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<5 && maior_nivel>3), results='asis'}
+
+cat("Para alcançar o **nível 5** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos requisitos do nível 4:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3)}
+
+* Possuir no mínimo **1 sala administrativa**; e
+* Possuir **acessibilidade**; e
+* Possuir conjunto de equipamentos que inclua, no mínimo: **3 computadores conectados à internet, impressora, telefone e veículo exclusivo ou compartilhado**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==5), results='asis'}
+
+cat("O ", equipamento, " de **nível 5**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==5)}
+
+* Possui **recepção**; e
+* Possui no mínimo **4 salas de atendimento**, sendo **pelo menos 1 com capacidade para 15 ou mais pessoas**; e
+* Possui no mínimo **1 sala administrativa**; e
+* Possui no mínimo **2 banheiros**; e
+* Possui **acessibilidade**; e
+* Possui conjunto de equipamentos que inclua, no mínimo: **3 computadores conectados à internet, impressora, telefone e veículo exclusivo ou compartilhado**.
+```
+
+```{asis, echo=(n_unidades_municipio>0)}
+
+## ID CRAS: Dimensão Recursos Humanos
+```
+
+```{r}
+
+  dimensao <- "Recursos Humanos"
+```
+
+```{asis, echo=(n_unidades_municipio>0)}
+
+### CRAS com capacidade de referenciamento para até 2.500 famílias
+```
+
+```{r}
+
+  n_unidades <- nrow(unidades_2500)
+
+  capacidade <- "com capacidade de referenciamento para até 2.500 famílias"
+```
+
+```{r eval=(n_unidades_municipio>0 && !n_unidades), results='asis'}
+
+cat(nome_municipio, " não tem ", equipamento, " ", capacidade, ".", sep="")
+```
+
+```{r eval=(n_unidades>0)}
+
+  menor_nivel <- min(unidades_2500$`Recursos Humanos`, na.rm = T)
+  maior_nivel <- max(unidades_2500$`Recursos Humanos`, na.rm = T)
+```
+
+```{r eval=(n_unidades==1), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID do ", equipamento, " ", capacidade, " no município de ", nome_municipio, " é ",  menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel==maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " ", capacidade, " no município de ", nome_municipio, " é ", menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel<maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " ", capacidade, " no município de ", nome_municipio, " varia de ", menor_nivel, " a ", maior_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("O ", equipamento, " de **nível 1**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Possui **menos de 3 profissionais**; ou
+* **Não possui Assistente Social nem Psicólogo**. 
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("Para alcançar o **nível 2** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Possuir no mínimo **3** profissionais, sendo pelo menos **2** com nível superior; e 
+* Possuir pelo menos **1 Assistente Social ou 1 Psicólogo**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==2), results='asis'}
+
+cat("O ", equipamento, " de **nível 2**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==2)}
+
+* Possui no mínimo **3** profissionais, sendo, pelo menos **2** com nível superior*; e
+* Possui pelo menos **1 Assistente Social ou 1 Psicólogo**.  
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<3 && maior_nivel>1), results='asis'}
+
+cat("Para alcançar o **nível 3** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos requisitos do nível 2:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1)}
+
+* Possuir no mínimo **4** (6, se EV) profissionais, sendo pelo menos **2** (4, se EV) com nível superior; e
+* Possuir no mínimo **1 Assistente Social** (2, se EV).
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==3), results='asis'}
+
+cat("O ", equipamento, " de **nível 3**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==3)}
+
+* Possui no mínimo **4** (6, se EV) profissionais, sendo pelo menos **2** (4, se EV) com nível superior; e
+* Possui no mínimo **1 Assistente Social** (2, se EV).
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<4 && maior_nivel>2), results='asis'}
+
+cat("Para alcançar o **nível 4** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos resquisitos do nível 3:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2)}
+
+* Possuir no mínimo **4** (7, se EV) profissionais, sendo pelo menos **3** (5, se EV) com nível superior; e
+* Possuir **coordenador** com nível superior.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==4), results='asis'}
+
+cat("O ", equipamento, " de **nível 4**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==4)}
+
+* Possui no mínimo **4** (7, se EV) profissionais, sendo pelo menos **3** (5, se EV) com nível superior; e
+* Possui no mínimo **1 Assistente Social** (2, se EV); e 
+* Possui **coordenador** com nível superior.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<5 && maior_nivel>3), results='asis'}
+
+cat("Para alcançar o **nível 5** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos requisitos do nível 4:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3)}
+
+* Possuir no mínimo **5** (9, se EV) **profissionais** (sendo pelo menos **3** (5, se EV) com **nível superior**); e 
+* Possuir no mínimo **1 Psicólogo**; e 
+* Possuir no mínimo **1** profissional de nível superior com **vínculo estatutário ou empregado público celetista**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==5), results='asis'}
+
+cat("O ", equipamento, " de **nível 5**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==5)}
+
+* Possui no mínimo **5** (9, se EV) **profissionais**, sendo pelo menos **3** (5, se EV) com **nível superior**; e
+* Possui no mínimo **1 Assistente Social** (2, se EV) e **1 Psicólogo**; e 
+* Possui no mínimo **1** profissional de nível superior com **vínculo estatutário ou empregado público celetista**; e
+* Possui **coordenador** com nível superior.
+```
+
+```{asis, echo=(n_unidades_municipio>0)}
+
+### CRAS com capacidade de referenciamento para até 3.500 famílias
+```
+
+```{r}
+
+  n_unidades <- nrow(unidades_3500)
+
+  capacidade <- "com capacidade de referenciamento para até 3.500 famílias"
+```
+
+```{r eval=(n_unidades_municipio>0 && !n_unidades), results='asis'}
+
+cat(nome_municipio, " não tem ", equipamento, " ", capacidade, ".", sep="")
+```
+
+```{r eval=(n_unidades>0)}
+
+  menor_nivel <- min(unidades_3500$`Recursos Humanos`, na.rm = T)
+  maior_nivel <- max(unidades_3500$`Recursos Humanos`, na.rm = T)
+```
+
+```{r eval=(n_unidades==1), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID do ", equipamento, " ", capacidade, " no município de ", nome_municipio, " é ",  menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel==maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " ", capacidade, " no município de ", nome_municipio, " é ", menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel<maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " ", capacidade, " no município de ", nome_municipio, " varia de ", menor_nivel, " a ", maior_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("O ", equipamento, " de **nível 1**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Possui **menos de 5 profissionais**; ou
+* **Não possui Assistente Social nem Psicólogo**. 
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("Para alcançar o **nível 2** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Possuir no mínimo **5** profissionais, sendo pelo menos **2** com nível superior; e
+* Possuir pelo menos **1 Assistente Social ou 1 Psicólogo**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==2), results='asis'}
+
+cat("O ", equipamento, " de **nível 2**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==2)}
+
+* Possui no mínimo **5** profissionais, sendo, pelo menos **2** com nível superior*; e
+* Possui pelo menos **1 Assistente Social ou 1 Psicólogo**.  
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<3 && maior_nivel>1), results='asis'}
+
+cat("Para alcançar o **nível 3** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos requisitos do nível 2:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1)}
+
+* Possuir no mínimo **6** (8, se EV) profissionais, sendo pelo menos **3** (4, se EV) com nível superior; e
+* Possuir no mínimo **2 Assistentes Sociais** (3, se EV).
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==3), results='asis'}
+
+cat("O ", equipamento, " de **nível 3**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==3)}
+
+* Possui no mínimo **6** (8, se EV) profissionais, sendo pelo menos **3** (4, se EV) com nível superior; e
+* Possui no mínimo **2 Assistentes Sociais** (3, se EV).
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<4 && maior_nivel>2), results='asis'}
+
+cat("Para alcançar o **nível 4** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos resquisitos do nível 3:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2)}
+
+* Possuir no mínimo **6** (9, se EV) profissionais, sendo pelo menos **4** (6, se EV) com nível superior; e
+* Possuir **coordenador** com nível superior.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==4), results='asis'}
+
+cat("O ", equipamento, " de **nível 4**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==4)}
+
+* Possui no mínimo **6** (9, se EV) profissionais, sendo pelo menos **4** (6, se EV) com nível superior; e
+* Possui no mínimo **2 Assistentes Sociais** (3, se EV); e 
+* Possui **coordenador** com nível superior.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<5 && maior_nivel>3), results='asis'}
+
+cat("Para alcançar o **nível 5** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos requisitos do nível 4:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3)}
+
+* Possuir no mínimo **7** (11, se EV) **profissionais** (sendo pelo menos **4** (6, se EV) com **nível superior**); e
+* Possuir no mínimo **1 Psicólogo**; e 
+* Possuir no mínimo **1** profissional de nível superior com **vínculo estatutário ou empregado público celetista**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==5), results='asis'}
+
+cat("O ", equipamento, " de **nível 5**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==5)}
+
+* Possui no mínimo **7** (11, se EV) **profissionais**, sendo pelo menos **4** (6, se EV) com **nível superior**; e
+* Possui no mínimo **2 Assistentes Sociais** (3, se EV) e **1 Psicólogo**; e 
+* Possui no mínimo **1** profissional de nível superior com **vínculo estatutário ou empregado público celetista**; e
+* Possui **coordenador** com nível superior.
+```
+
+```{asis, echo=(n_unidades_municipio>0)}
+
+### CRAS com capacidade de referenciamento para até 5.000 famílias
+```
+
+```{r}
+
+  n_unidades <- nrow(unidades_5000)
+
+  capacidade <- "com capacidade de referenciamento para até 5.000 famílias"
+```
+
+```{r eval=(n_unidades_municipio>0 && !n_unidades), results='asis'}
+
+cat(nome_municipio, " não tem ", equipamento, " ", capacidade, ".", sep="")
+```
+
+```{r eval=(n_unidades>0)}
+
+  menor_nivel <- min(unidades_5000$`Recursos Humanos`, na.rm = T)
+  maior_nivel <- max(unidades_5000$`Recursos Humanos`, na.rm = T)
+```
+
+```{r eval=(n_unidades==1), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID do ", equipamento, " ", capacidade, " no município de ", nome_municipio, " é ",  menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel==maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " ", capacidade, " no município de ", nome_municipio, " é ", menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel<maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " ", capacidade, " no município de ", nome_municipio, " varia de ", menor_nivel, " a ", maior_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("O ", equipamento, " de **nível 1**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Possui **menos de 6 profissionais ao todo, ou menos de 3 com nível superior**; ou
+* **Não possui Assistente Social nem Psicólogo**. 
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("Para alcançar o **nível 2** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Possuir no mínimo **6** profissionais, sendo pelo menos **3** com nível superior; e
+* Possuir pelo menos **1 Assistente Social ou 1 Psicólogo**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==2), results='asis'}
+
+cat("O ", equipamento, " de **nível 2**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==2)}
+
+* Possui no mínimo **6** profissionais, sendo pelo menos **3** com nível superior; e
+* Possui pelo menos **1 Assistente Social ou 1 Psicólogo**.  
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<3 && maior_nivel>1), results='asis'}
+
+cat("Para alcançar o **nível 3** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos requisitos do nível 2:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1)}
+
+* Possuir no mínimo **7** (9, se EV) profissionais, sendo pelo menos **4** (6, se EV) com nível superior; e
+* Possuir no mínimo **2 Assistentes Sociais** (3, se EV).
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==3), results='asis'}
+
+cat("O ", equipamento, " de **nível 3**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==3)}
+
+* Possui no mínimo **7** (9, se EV) profissionais, sendo pelo menos **4** (6, se EV) com nível superior; e
+* Possui no mínimo **2 Assistentes Sociais** (3, se EV).
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<4 && maior_nivel>2), results='asis'}
+
+cat("Para alcançar o **nível 4** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos resquisitos do nível 3:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2)}
+
+* Possuir no mínimo **7** (10, se EV) profissionais, sendo pelo menos **5** (7, se EV) com nível superior; e
+* Possuir no mínimo **1 Psicólogo**; e 
+* Possuir **coordenador** com nível superior.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==4), results='asis'}
+
+cat("O ", equipamento, " de **nível 4**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==4)}
+
+* Possui no mínimo **7** (10, se EV) profissionais, sendo pelo menos **5** (7, se EV) com nível superior; e 
+* Possui no mínimo **2 Assistentes Sociais** (3, se EV) e **1 Psicólogo**; e 
+* Possui **coordenador** com nível superior.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<5 && maior_nivel>3), results='asis'}
+
+cat("Para alcançar o **nível 5** na dimensão ", dimensao, ", o ", equipamento, " ", capacidade, " precisa, além dos requisitos do nível 4:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3)}
+
+* Possuir no mínimo **9** (13, se EV) **profissionais** (sendo pelo menos **5** (7, se EV) com **nível superior**); e
+* Possuir no mínimo **2** profissionais de nível superior com **vínculo estatutário ou empregado público celetista**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==5), results='asis'}
+
+cat("O ", equipamento, " de **nível 5**, ", capacidade, ", na dimensão ", dimensao, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==5)}
+
+* Possui no mínimo **9** (13, se EV) **profissionais**, sendo pelo menos **5** (7, se EV) com **nível superior**; e
+* Possui no mínimo **2 Assistentes Sociais** (3, se EV) e **1 Psicólogo**; e 
+* Possui no mínimo **2** profissionais de nível superior com **vínculo estatutário ou empregado público celetista**; e
+* Possui **coordenador** com nível superior.
+```
+
+```{asis, echo=(n_unidades_municipio>0)}
+
+## ID CRAS: Dimensão Serviços & Benefícios
+```
+
+```{r}
+
+  dimensao <- "Serviços & Benefícios"
+  n_unidades <- n_unidades_municipio
+```
+
+```{r eval=(n_unidades>0)}
+
+  menor_nivel <- min(unidades_municipio$`Serviços `, na.rm = T)
+  maior_nivel <- max(unidades_municipio$`Serviços `, na.rm = T)
+```
+
+```{r eval=(n_unidades==1), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID do ", equipamento, " no município de ", nome_municipio, " é ",  menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel==maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " no município de ", nome_municipio, " é ", menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel<maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " no município de ", nome_municipio, " varia de ", menor_nivel, " a ", maior_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("O ", equipamento, " de **nível 1** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==1 && factor_porte=="Pequeno I")}
+
+* **Não realiza** alguma(s) das seguintes atividades essenciais do PAIF: **acompanhamento de famílias, e/ou grupo/oficina com famílias, e/ou visitas domiciliares, e/ou orientação**; ou
+* Possui **articulação frágil ou inexistente** com os Serviços de Educação e com os Serviços de Saúde; ou
+* Não possui profissionais de Serviço Social nem de Psicologia.
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==1 && factor_porte>"Pequeno I")}
+
+* **Não realiza** alguma(s) das seguintes atividades essenciais do PAIF: **acompanhamento de famílias, e/ou grupo/oficina com famílias, e/ou visitas domiciliares, e/ou orientação**; ou
+* Possui **articulação frágil ou inexistente** com os Serviços de Educação, com os Serviços de Saúde e com os CREAS; ou 
+* Não possui profissionais de Serviço Social nem de Psicologia.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("Para alcançar o **nível 2** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==1 && factor_porte=="Pequeno I")}
+
+* **Executar o PAIF**, realizando no mínimo as seguintes atividades: **acompanhamento de famílias, grupo/oficina com famílias e visitas domiciliares**; e 
+* Possuir **forte articulação com pelo menos um dos seguintes Serviços: Serviços de Educação e Serviços de Saúde**. 
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==1 && factor_porte>"Pequeno I")}
+
+* **Executar o PAIF**, realizando no mínimo as seguintes atividades: **acompanhamento de famílias, grupo/oficina com famílias e visitas domiciliares**; e 
+* Possuir **forte articulação com pelo menos um dos seguintes Serviços: Serviços de Educação, Serviços de Saúde e CREAS**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==2), results='asis'}
+
+cat("O ", equipamento, " de **nível 2** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==2 && factor_porte=="Pequeno I")}
+
+* **Executa o PAIF**, realizando no mínimo as seguintes atividades: **acompanhamento de famílias, grupo/oficina com famílias e visitas domiciliares**; e 
+* Possui **forte articulação com pelo menos um dos seguintes Serviços: Serviços de Educação e Serviços de Saúde**. 
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==2 && factor_porte>"Pequeno I")}
+
+* **Executa o PAIF**, realizando no mínimo as seguintes atividades: **acompanhamento de famílias, grupo/oficina com famílias e visitas domiciliares**; e 
+* Possui **forte articulação com pelo menos um dos seguintes Serviços: Serviços de Educação, Serviços de Saúde e CREAS**.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<3 && maior_nivel>1), results='asis'}
+
+cat("Para alcançar o **nível 3** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 2:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1 && factor_porte=="Pequeno I")}
+
+* **Executar o PAIF** realizando **orientação/acompanhamento para inserção no BPC**, além das atividades exigidas para o nível 2; e
+* Possuir oferta de Serviço de Convivência **pelo menos para um ciclo de vida** (oferta direta do CRAS ou por meio de unidades a ele referenciadas); e
+* Possuir **forte articulação com os Serviços de Educação e Saúde** no território. 
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1 && factor_porte>"Pequeno I")}
+
+* **Executar o PAIF** realizando **orientação/acompanhamento para inserção no BPC**, além das atividades exigidas para o nível 2; e
+* Possuir oferta de Serviço de Convivência **pelo menos para um ciclo de vida** (oferta direta do CRAS ou por meio de unidades a ele referenciadas); e
+* Possuir **forte articulação com o(s) CREAS e com os Serviços de Educação e Saúde** no território.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==3), results='asis'}
+
+cat("O ", equipamento, " de **nível 3** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==3 && factor_porte=="Pequeno I")}
+
+* **Executa o PAIF** realizando no mínimo as seguintes atividades: **acompanhamento de famílias, grupo/oficina com famílias, visitas domiciliares e orientação/acompanhamento para inserção no BPC**; e
+* Possui oferta de Serviço de Convivência **pelo menos para um ciclo de vida** (oferta direta do CRAS ou por meio de unidades a ele referenciadas); e
+* Possui **forte articulação com os Serviços de Educação e Saúde** no território. 
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==3 && factor_porte>"Pequeno I")}
+
+* **Executa o PAIF** realizando no mínimo as seguintes atividades: **acompanhamento de famílias, grupo/oficina com famílias, visitas domiciliares e orientação/acompanhamento para inserção no BPC**; e
+* Possui oferta de Serviço de Convivência **pelo menos para um ciclo de vida** (oferta direta do CRAS ou por meio de unidades a ele referenciadas); e
+* Possui **forte articulação com o(s) CREAS e com os Serviços de Educação e Saúde** no território.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<4 && maior_nivel>2), results='asis'}
+
+cat("Para alcançar o **nível 4** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 3:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2)}
+
+* Ter **quantidade média de famílias em acompanhamento no mês, dividida pela equipe técnica** (Assistentes Sociais e Psicólogos) não inferior a 20 nem superior a 100; e
+* **Executar o PAIF** realizando **palestras, campanhas ou eventos comunitários e acompanhamento dos encaminhamentos realizados**, além das atividades exigidas para o nível 3; e
+* Possuir oferta de Serviço de Convivência **para no mínimo dois ciclos de vida** (oferta direta do CRAS ou por meio de unidades a ele referenciadas); e
+* **Funcionar** no mínimo **5 dias** por semana e **40 horas** semanais.  
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==4), results='asis'}
+
+cat("O ", equipamento, " de **nível 4** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==4 && factor_porte=="Pequeno I")}
+
+* Tem **quantidade média de famílias em acompanhamento no mês, dividida pela equipe técnica** (Assistentes Sociais e Psicólogos) não inferior a 20 nem superior a 100; e
+* **Executa o PAIF** realizando no mínimo as seguintes atividades: **acompanhamento de famílias; grupo/oficina com famílias; visitas domiciliares; palestras, campanhas ou eventos comunitários; orientação/acompanhamento para inserção no BPC e acompanhamento dos encaminhamentos realizados**; e
+* Possui oferta de Serviço de Convivência **para no mínimo dois ciclos de vida** (oferta direta do CRAS ou por meio de unidades a ele referenciadas); e
+* Possui **forte articulação com os Serviços de Educação e Saúde** no território; e
+* **Funciona** no mínimo **5 dias** por semana e **40 horas** semanais.
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==4 && factor_porte>"Pequeno I")}
+
+* Tem **quantidade média de famílias em acompanhamento no mês, dividida pela equipe técnica** (Assistentes Sociais e Psicólogos) não inferior a 20 nem superior a 100; e
+* **Executa o PAIF** realizando no mínimo as seguintes atividades: **acompanhamento de famílias; grupo/oficina com famílias; visitas domiciliares; palestras, campanhas ou eventos comunitários; orientação/acompanhamento para inserção no BPC e acompanhamento dos encaminhamentos realizados**; e
+* Possui oferta de Serviço de Convivência **para no mínimo dois ciclos de vida** (oferta direta do CRAS ou por meio de unidades a ele referenciadas); e
+* Possui **forte articulação com o(s) CREAS e com os Serviços de Educação e Saúde** no território; e
+* **Funciona** no mínimo **5 dias** por semana e **40 horas** semanais.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<5 && maior_nivel>3), results='asis'}
+
+cat("Para alcançar o **nível 5** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 4:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3 && factor_porte=="Pequeno I")}
+
+* Possuir profissionais de Serviço Social e/ou de Psicologia; e 
+* Possuir oferta de Serviço de Convivência, **para no mínimo três ciclos de vida** (oferta direta do CRAS ou por meio de unidades a ele referenciadas); e
+* **Realizar no próprio CRAS o cadastramento/atualização cadastral do CadÚnico**, sem utilizar para isso os profissionais de nível superior do PAIF.
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3 && factor_porte>"Pequeno I")}
+
+* Possuir profissionais de Serviço Social e de Psicologia; e
+* Possuir oferta de Serviço de Convivência, **para no mínimo três ciclos de vida** (oferta direta do CRAS ou por meio de unidades a ele referenciadas); e
+* **Realizar no próprio CRAS o cadastramento/atualização cadastral do CadÚnico**, sem utilizar para isso os profissionais de nível superior do PAIF.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==5), results='asis'}
+
+cat("O ", equipamento, " de **nível 5** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==5 && factor_porte=="Pequeno I")}
+
+* Tem **quantidade média de famílias em acompanhamento no mês, dividida pela equipe técnica** (Assistentes Sociais e Psicólogos) não inferior a 20 nem superior a 100; e
+* **Executa o PAIF** realizando no mínimo as seguintes atividades: **acompanhamento de famílias; grupo/oficina com famílias; visitas domiciliares; palestras, campanhas ou eventos comunitários; orientação/acompanhamento para inserção no BPC e acompanhamento dos encaminhamentos realizados**; e
+* Possui profissionais de Serviço Social e/ou de Psicologia; e 
+* Possui oferta de Serviço de Convivência, **para no mínimo três ciclos de vida** (oferta direta do CRAS ou por meio de unidades a ele referenciadas); e
+* **Realiza no próprio CRAS o cadastramento/atualização cadastral do CadÚnico**, sem utilizar para isso os profissionais de nível superior do PAIF; e
+* Possui **forte articulação com os Serviços de Educação e Saúde** no território; e
+* **Funciona** no mínimo **5 dias** por semana e **40 horas** semanais.
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==5 && factor_porte>"Pequeno I")}
+
+* Tem **quantidade média de famílias em acompanhamento no mês, dividida pela equipe técnica** (Assistentes Sociais e Psicólogos) não inferior a 20 nem superior a 100; e
+* **Executa o PAIF** realizando no mínimo as seguintes atividades: **acompanhamento de famílias; grupo/oficina com famílias; visitas domiciliares; palestras, campanhas ou eventos comunitários; orientação/acompanhamento para inserção no BPC e acompanhamento dos encaminhamentos realizados**; e
+* Possui profissionais de Serviço Social e de Psicologia; e
+* Possui oferta de Serviço de Convivência, **para no mínimo três ciclos de vida** (oferta direta do CRAS ou por meio de unidades a ele referenciadas); e
+* **Realiza no próprio CRAS o cadastramento/atualização cadastral do CadÚnico**, sem utilizar para isso os profissionais de nível superior do PAIF; e
+* Possui **forte articulação com o(s) CREAS e com os Serviços de Educação e Saúde** no território; e
+* **Funciona** no mínimo **5 dias** por semana e **40 horas** semanais.
+```
+
+# ID CREAS: Indice de Desenvolvimento do CREAS
+
+O ID CREAS é um indicador composto por três dimensões. Cada dimensão possui uma nota na qual quanto mais próxima de 5, melhor o índice e, do contrário, insatisfatório.
+
+```{r ID-CREAS-tabela}
+
+tabela <- f_selecao_grupo_media(idcreas_2014, `Código IBGE`, municipio, `IDCREAS sintético`, "ID CREAS", "2014") %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2014, `Código IBGE`, municipio, `Dimensão Estrutura Física`, "Estrutura Física", "2014")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2014, `Código IBGE`, municipio, `Dimensão Recursos Humanos`, "Recursos Humanos", "2014")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2014, `Código IBGE`, municipio, `Dimensão Serviços`, "Serviços & Benefícios", "2014")) %>%
+
+  bind_rows(f_selecao_grupo_media(idcreas_2015, IBGE6, municipio, `IDCREAS sintético`, "ID CREAS", "2015")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2015, IBGE6, municipio, `Dimensão Estrutura Física`, "Estrutura Física", "2015")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2015, IBGE6, municipio, `Dimensão Recursos Humanos`, "Recursos Humanos", "2015")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2015, IBGE6, municipio, `Dimensão Serviços`, "Serviços & Benefícios", "2015")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idcreas_2016, IBGE, municipio, `IDCREAS 2016`, "ID CREAS", "2016")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2016, IBGE, municipio, `Dimensão Estrutura Física`, "Estrutura Física", "2016")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2016, IBGE, municipio, `Dimensão Recursos Humanos`, "Recursos Humanos", "2016")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2016, IBGE, municipio, `Dimensão Serviços`, "Serviços & Benefícios", "2016")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idcreas_2017, `Código IBGE`, municipio, IDCREAS, "ID CREAS", "2017")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2017, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física", "2017")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2017, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos", "2017")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2017, `Código IBGE`, municipio, `Serviços `, "Serviços & Benefícios", "2017")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idcreas_2018, IBGE, municipio, ID_CREAS, "ID CREAS", "2018")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2018, IBGE, municipio, EF, "Estrutura Física", "2018")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2018, IBGE, municipio, `RH`, "Recursos Humanos", "2018")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2018, IBGE, municipio, `SERV`, "Serviços & Benefícios", "2018")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idcreas_2019, IBGE, municipio, ID_CREAS, "ID CREAS", "2019")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2019, IBGE, municipio, `EF`, "Estrutura Física", "2019")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2019, IBGE, municipio, `RH`, "Recursos Humanos", "2019")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2019, IBGE, municipio, `SERV`, "Serviços & Benefícios", "2019")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idcreas_2020, IBGE, municipio, ID_CREAS, "ID CREAS", "2020")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2020, IBGE, municipio, `EF`, "Estrutura Física", "2020")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2020, IBGE, municipio, `RH`, "Recursos Humanos", "2020")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2020, IBGE, municipio, `SERV`, "Serviços & Benefícios", "2020")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idcreas_2021, IBGE, municipio, ID_CREAS, "ID CREAS", "2021")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2021, IBGE, municipio, `EF`, "Estrutura Física", "2021")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2021, IBGE, municipio, `RH`, "Recursos Humanos", "2021")) %>%
+  bind_rows(f_selecao_grupo_media(idcreas_2021, IBGE, municipio, `SERV`, "Serviços & Benefícios", "2021")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idcreas_2022, `Código IBGE`, municipio, idcreas, "ID CREAS", "2022")) %>% 
+  bind_rows(f_selecao_grupo_media(idcreas_2022, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física", "2022")) %>% 
+  bind_rows(f_selecao_grupo_media(idcreas_2022, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos", "2022")) %>% 
+  bind_rows(f_selecao_grupo_media(idcreas_2022, `Código IBGE`, municipio, `Serviços `, "Serviços & Benefícios", "2022")) %>% 
+
+  bind_rows(f_selecao_grupo_media(idcreas_2023, `Código IBGE`, municipio, IDCREAS, "ID CREAS", "2023")) %>% 
+  bind_rows(f_selecao_grupo_media(idcreas_2023, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física", "2023")) %>% 
+  bind_rows(f_selecao_grupo_media(idcreas_2023, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos", "2023")) %>% 
+  bind_rows(f_selecao_grupo_media(idcreas_2023, `Código IBGE`, municipio, `Serviços`, "Serviços & Benefícios", "2023")) %>% 
+
+  mutate(Grupo = factor(Grupo, levels = c("Estrutura Física",
+                                          "Recursos Humanos",
+                                          "Serviços & Benefícios",
+                                          "ID CREAS")))
+```
+
+```{r}
+
+  equipamento <- "CREAS"
+  existe_equipamento <- nrow(tabela %>% filter(!is.na(m)))
+```
+
+```{r eval=!existe_equipamento, results='asis'}
+
+cat(nome_municipio, " não tem ", equipamento, ".", sep="")
+```
+
+```{r eval=(existe_equipamento>0), results='asis'}
+
+cat("O @fig-ID-CREAS mostra a evolução das médias do ID CREAS ao longo dos anos no município de ", nome_municipio, ", ", uf_municipio, ".", sep="")
+```
+
+```{r fig-ID-CREAS, fig.cap = sprintf(" Evolução das médias do ID CREAS, 2014 a 2023: %s, %s", nome_municipio, uf_municipio), fig.footer = "Fonte: MDS, Censo SUAS.", eval=(existe_equipamento>0)}
+
+grafico <- tabela %>% 
+  ggplot(aes(x = Eixo_X, y = m, group = Grupo)) +
+  geom_col(aes(fill = Grupo), position="dodge") +
+  geom_text(aes(label = format(m, digits=3), y=m+0.3), position = position_dodge(width = 0.9), angle = 90, size = 3) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  scale_fill_viridis_d(option = "E") +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+```
+
+```{r}
+unidades_municipio <- idcreas_2023 %>%
+                       filter(`Código IBGE` == municipio)
+
+n_unidades_municipio <- nrow(unidades_municipio)
+n_unidades <- n_unidades_municipio
+```
+
+```{r fig-ID-CREAS-nivel, fig.cap = sprintf("Quantidade de CREAS em cada nível de ID, 2023: %s, %s", nome_municipio, uf_municipio), fig.footer = "Fonte: MDS, Censo SUAS.", eval=n_unidades_municipio>1}
+
+grafico <- f_quantitativo_niveis_filtro(idcreas_2023, `Código IBGE`, municipio, `Estrutura Física`, "Estrutura Física", niveis_ID) %>% 
+  bind_rows(f_quantitativo_niveis_filtro(idcreas_2023, `Código IBGE`, municipio, `Recursos Humanos`, "Recursos Humanos", niveis_ID)) %>%
+  bind_rows(f_quantitativo_niveis_filtro(idcreas_2023, `Código IBGE`, municipio, `Serviços`, "Serviços & Benefícios", niveis_ID)) %>% 
+
+  mutate(Eixo_X = factor(Eixo_X, levels = c("Estrutura Física",
+                                            "Recursos Humanos",
+                                            "Serviços & Benefícios"))) %>% 
+
+  ggplot(aes(x = Eixo_X, y = n, group = Grupo)) +
+  geom_col(aes(fill = Grupo), position="dodge") +
+  geom_text(aes(label = sprintf("%d", n)), position = position_dodge(width = 0.9), vjust = -0.5) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  scale_fill_viridis_d(option = "E") +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=1,byrow=TRUE))
+
+grafico
+```
+
+```{r eval=(n_unidades_municipio>0), results='asis'}
+
+cat("As seções a seguir apresentam os resultados do município de", nome_municipio, "em cada uma das dimensões do ID CREAS, bem como os requisitos para se alcançar os níveis superiores.")
+```
+
+```{asis, echo=(n_unidades_municipio>0)}
+
+## ID CREAS: Dimensão Estrutura Física
+```
+
+```{r}
+
+  dimensao <- "Estrutura Física"
+```
+
+```{r eval=(n_unidades>0)}
+
+  menor_nivel <- min(unidades_municipio$`Estrutura Física`, na.rm = T)
+  maior_nivel <- max(unidades_municipio$`Estrutura Física`, na.rm = T)
+```
+
+```{r eval=(n_unidades==1), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID do ", equipamento, " no município de ", nome_municipio, " é ",  menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel==maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " no município de ", nome_municipio, " é ", menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel<maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " no município de ", nome_municipio, " varia de ", menor_nivel, " a ", maior_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("O ", equipamento, " de **nível 1** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Possui menos de 3 salas; e/ou
+* Não possui banheiro; e/ou
+* Faz compartilhamento dos espaços de atendimento.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("Para alcançar o **nível 2** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Possuir no mínimo 3 salas (atendimento e/ou administrativa); e
+* Possuir no mínimo 1 banheiro.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==2), results='asis'}
+
+cat("O ", equipamento, " de **nível 2** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==2)}
+
+* Possui no mínimo 3 salas (atendimento e/ou administrativa); e
+* Possui no mínimo 1 banheiro.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<3 && maior_nivel>1), results='asis'}
+
+cat("Para alcançar o **nível 3** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 2:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1)}
+
+* Possuir recepção; e
+* Possuir acessibilidade, ao menos parcial. 
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==3), results='asis'}
+
+cat("O ", equipamento, " de **nível 3** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==3)}
+
+* Possui no mínimo 3 salas (atendimento e/ou administrativa); e
+* Possui recepção; e
+* Possui no mínimo 1 banheiro; e
+* Possui acessibilidade, ao menos parcial. 
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<4 && maior_nivel>2), results='asis'}
+
+cat("Para alcançar o **nível 4** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 3:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2 && factor_porte<"Grande")}
+
+* Possuir no mínimo 2 banheiros; e
+* Possuir 1 ou mais computadores com Internet; e
+* Possuir veículo próprio ou compartilhado; e
+* Possuir 3 salas ou mais para atendimento (5 se CREAS Regional).
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2 && factor_porte>"Médio")}
+
+* Possuir no mínimo 2 banheiros; e
+* Possuir 1 ou mais computadores com Internet; e
+* Possuir veículo próprio ou compartilhado; e
+* Possuir 5 salas ou mais para atendimento.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==4), results='asis'}
+
+cat("O ", equipamento, " de **nível 4** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==4 && factor_porte<"Grande")}
+
+* Possui recepção; e
+* Possui no mínimo 2 banheiros; e
+* Possui 1 ou mais computadores com Internet; e
+* Possui veículo próprio ou compartilhado; e
+* Possui acessibilidade, ao menos parcial; e
+* Possui 3 salas ou mais para atendimento (5 se CREAS Regional).
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==4 && factor_porte>"Médio")}
+
+* Possui recepção; e
+* Possui no mínimo 2 banheiros; e
+* Possui 1 ou mais computadores com Internet; e
+* Possui veículo próprio ou compartilhado; e
+* Possui acessibilidade, ao menos parcial; e
+* Possui 5 salas ou mais para atendimento.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<5 && maior_nivel>3), results='asis'}
+
+cat("Para alcançar o **nível 5** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 4:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3)}
+
+* Possuir 1 ou mais sala Administrativa; e
+* Possuir kit equipamento: Telefone, Impressora, 2 ou mais computadores com Internet, além de Veículo próprio ou compartilhado; e
+* Possuir acessibilidade (com ou sem ABNT); e
+* Possuir pelo menos 1 das salas para atendimento com capacidade para 15 ou mais pessoas.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==5), results='asis'}
+
+cat("O ", equipamento, " de **nível 5** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==5 && factor_porte<"Grande")}
+
+* Possui recepção; e
+* Possui no mínimo 2 banheiros; e
+* Possui 1 ou mais sala Administrativa; e
+* Possui kit equipamento: Telefone, Impressora, 2 ou mais computadores com Internet e Veículo próprio ou compartilhado; e
+* Possui acessibilidade (com ou sem ABNT); e
+* Possui 3 salas ou mais para atendimento (5 se CREAS Regional), sendo pelo menos 1 com capacidade para 15 ou mais pessoas.
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==5 && factor_porte>"Médio")}
+
+* Possui recepção; e
+* Possui no mínimo 2 banheiros; e
+* Possui 1 ou mais sala Administrativa; e
+* Possui kit equipamento: Telefone, Impressora, 2 ou mais computadores com Internet e Veículo próprio ou compartilhado; e
+* Possui acessibilidade (com ou sem ABNT); e
+* Possui 5 salas ou mais para atendimento, sendo pelo menos 1 com capacidade para 15 ou mais pessoas.
+```
+
+```{asis, echo=(n_unidades_municipio>0)}
+
+## ID CREAS: Dimensão Recursos Humanos
+```
+
+```{r}
+
+  dimensao <- "Recursos Humanos"
+```
+
+```{r eval=(n_unidades>0)}
+
+  menor_nivel <- min(unidades_municipio$`Recursos Humanos`, na.rm = T)
+  maior_nivel <- max(unidades_municipio$`Recursos Humanos`, na.rm = T)
+```
+
+```{r eval=(n_unidades==1), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID do ", equipamento, " no município de ", nome_municipio, " é ",  menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel==maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " no município de ", nome_municipio, " é ", menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel<maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " no município de ", nome_municipio, " varia de ", menor_nivel, " a ", maior_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("O", equipamento, "de **nível 1** na dimensão", dimensao, porte, "se caracteriza por:")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==1 && factor_porte<"Grande")}
+
+* Inexistência de Assistente Social ou de Psicólogo; ou
+* Possuir menos de 3 trabalhadores (6, se CREAS Regional).
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==1 && factor_porte>"Médio")}
+
+* Inexistência de Assistente Social ou de Psicólogo; ou
+* Possuir menos de 6 trabalhadores; ou
+* Possuir menos de 4 profissionais das áreas de serviço social e psicologia.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("Para alcançar o **nível 2** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==1 && factor_porte<"Grande")}
+
+* Ter quantidade total de trabalhadores (nível superior e médio) maior ou igual a 3 (6, se CREAS Regional); e
+* Possuir no mínimo 1 Assistente Social e 1 Psicólogo (além disso, se for CREAS Regional, o total de Assistentes Sociais mais Psicólogos deve ser maior ou igual a 4).
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==1 && factor_porte>"Médio")}
+
+* Ter quantidade total de trabalhadores (nível superior e médio) maior ou igual a 6; e 
+* Ter quantidade total de Assistentes Sociais mais Psicólogos maior ou igual a 4, sendo obrigatória a presença de profissionais destas duas áreas.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==2), results='asis'}
+
+cat("O ", equipamento, " de **nível 2** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==2 && factor_porte<"Grande")}
+
+* Tem quantidade total de trabalhadores (nível superior e médio) maior ou igual a 3 (6, se CREAS Regional); e
+* Possui no mínimo 1 Assistente Social e 1 Psicólogo (além disso, se for CREAS Regional, o total de Assistentes Sociais mais Psicólogos deve ser maior ou igual a 4).
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==2 && factor_porte>"Médio")}
+
+* Tem quantidade total de trabalhadores (nível superior e médio) maior ou igual a 6; e 
+* Tem quantidade total de Assistentes Sociais mais Psicólogos maior ou igual a 4, sendo obrigatória a presença de profissionais destas duas áreas.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<3 && maior_nivel>1), results='asis'}
+
+cat("Para alcançar o **nível 3** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 2:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1 && factor_porte<"Grande")}
+
+* Possuir Coordenador com nível superior; e
+* Ter quantidade total de trabalhadores (nível superior e médio) maior ou igual a 5 (10, se CREAS Regional), sendo no mínimo 3 (5, se CREAS Regional) deles de nível superior.
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1 && factor_porte>"Médio")}
+
+* Possuir Coordenador com nível superior; e
+* Ter quantidade total de trabalhadores (nível superior e médio) maior ou igual a 10, sendo no mínimo 5 deles de nível superior. 
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==3), results='asis'}
+
+cat("O ", equipamento, " de **nível 3** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==3 && factor_porte<"Grande")}
+
+* Possui Coordenador com nível superior; e
+* Tem quantidade total de trabalhadores (nível superior e médio) maior ou igual a 5 (10, se CREAS Regional), sendo no mínimo 3 (5, se CREAS Regional) deles de nível superior; e
+* Possui no mínimo 1 Assistente Social e 1 Psicólogo (além disso, se for CREAS Regional, o total de Assistentes Sociais mais Psicólogos deve ser maior ou igual a 4).
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==3 && factor_porte>"Médio")}
+
+* Possui Coordenador com nível superior; e
+* Tem quantidade total de trabalhadores (nível superior e médio) maior ou igual a 10, sendo no mínimo 5 deles de nível superior; e 
+* Tem quantidade total de Assistentes Sociais, mais Psicólogos, maior ou igual a 4, sendo obrigatória a presença de profissionais destas duas áreas.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<4 && maior_nivel>2), results='asis'}
+
+cat("Para alcançar o **nível 4** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 3:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2 && factor_porte<"Grande")}
+
+* Possuir no mínimo 1 Advogado; e
+* Ter no mínimo 4 trabalhadores de nível superior (6, se CREAS Regional).
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2 && factor_porte>"Médio")}
+
+* Possuir no mínimo 1 Advogado; e
+* Ter no mínimo 6 trabalhadores de nível superior.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==4), results='asis'}
+
+cat("O ", equipamento, " de **nível 4** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==4 && factor_porte<"Grande")}
+
+* Possui no mínimo 1 Advogado; e
+* Possui Coordenador com nível superior; e
+* Tem quantidade total de trabalhadores (nível superior e médio) maior ou igual a 5 (10, se CREAS Regional), sendo no mínimo 4 (6, se CREAS Regional) deles de nível superior; e
+* Possui no mínimo 1 Assistente Social e 1 Psicólogo (além disso, se for CREAS Regional, o total de Assistentes Sociais mais Psicólogos deve ser maior ou igual a 4).
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==4 && factor_porte>"Médio")}
+
+* Possui no mínimo 1 Advogado; e
+* Possui Coordenador com nível superior; e
+* Tem quantidade total de trabalhadores (nível superior e médio) maior ou igual a 10, sendo no mínimo 6 deles de nível superior; e 
+* Tem quantidade total de Assistentes Sociais, mais Psicólogos, maior ou igual a 4, sendo obrigatória a presença de profissionais destas duas áreas.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<5 && maior_nivel>3), results='asis'}
+
+cat("Para alcançar o **nível 5** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 4:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3 && factor_porte<"Grande")}
+
+* Ter quantidade total de trabalhadores (nível superior e médio) maior ou igual a 7 (14, se CREAS Regional, sendo neste caso no mínimo 7 de nível superior); e
+* Se for CREAS Regional, possuir no mínimo 2 Assistentes Sociais; e
+* Se for CREAS Regional, possuir no mínimo 2 Psicólogos; e
+* Possuir no mínimo 1 (2, se CREAS Regional) trabalhador de nível superior com vínculo estatutário ou empregado público celetista.
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3 && factor_porte>"Médio")}
+
+* Ter quantidade total de trabalhadores (nível superior e médio) maior ou igual a 14, sendo no mínimo 7 deles de nível superior; e
+* Possuir no mínimo 2 Assistentes Sociais; e
+* Possuir no mínimo 2 Psicólogos; e
+* Possuir no mínimo 2 trabalhadores de nível superior com vínculo estatutário ou empregado público celetista. 
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==5), results='asis'}
+
+cat("O ", equipamento, " de **nível 5** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==5 && factor_porte<"Grande")}
+
+* Possui no mínimo 1 Advogado; e
+* Possui Coordenador com nível superior; e
+* Tem quantidade total de trabalhadores (nível superior e médio) maior ou igual a 7 (14, se CREAS Regional), sendo no mínimo 4 (7, se CREAS Regional) deles de nível superior; e
+* Possui no mínimo 1 Assistente Social (2, se CREAS Regional); e
+* Possui no mínimo 1 Psicólogos (2, se CREAS Regional); e
+* Possui no mínimo 1 trabalhador de nível superior com vínculo estatutário ou empregado público celetista (2, se CREAS Regional).
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==5 && factor_porte>"Médio")}
+
+* Possui no mínimo 1 Advogado; e
+* Possui Coordenador com nível superior; e
+* Tem quantidade total de trabalhadores (nível superior e médio) maior ou igual a 14, sendo no mínimo 7 deles de nível superior; e 
+* Possui no mínimo 2 Assistentes Sociais; e
+* Possui no mínimo 2 Psicólogos; e
+* Possui no mínimo 2 trabalhadores de nível superior com vínculo estatutário ou empregado público celetista. 
+```
+
+```{asis, echo=(n_unidades_municipio>0)}
+
+## ID CREAS: Dimensão Serviços & Benefícios
+```
+
+```{r}
+
+  dimensao <- "Serviços & Benefícios"
+```
+
+```{r eval=(n_unidades>0)}
+
+  menor_nivel <- min(unidades_municipio$`Serviços`, na.rm = T)
+  maior_nivel <- max(unidades_municipio$`Serviços`, na.rm = T)
+```
+
+```{r eval=(n_unidades==1), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID do ", equipamento, " no município de ", nome_municipio, " é ",  menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel==maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " no município de ", nome_municipio, " é ", menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel<maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " no município de ", nome_municipio, " varia de ", menor_nivel, " a ", maior_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("O", equipamento, "de **nível 1** na dimensão", dimensao, porte, "se caracteriza por:")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Não realizar alguma(s) das seguintes atividades essenciais do PAEFI: Entrevistas de acolhida para avaliação inicial dos casos, Atendimento psicossocial individual/familiar, Visitas domiciliares, Elaboração de relatórios técnicos sobre casos em acompanhamento; ou
+* Ter articulação frágil ou inexistente com o CRAS; ou
+* Não possuir Assistente Social nem Psicólogo. 
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("Para alcançar o **nível 2** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Ofertar o PAEFI assegurando a realização, pelo menos, das seguintes atividades: Entrevistas de acolhida para avaliação inicial dos casos, Atendimento psicossocial individual/familiar, Visitas domiciliares e Elaboração de relatórios técnicos sobre casos em acompanhamento; e
+* Possuir forte articulação com o CRAS.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==2), results='asis'}
+
+cat("O ", equipamento, " de **nível 2** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==2)}
+
+* Oferta o PAEFI assegurando a realização, pelo menos, das seguintes atividades: Entrevistas de acolhida para avaliação inicial dos casos, Atendimento psicossocial individual/familiar, Visitas domiciliares e Elaboração de relatórios técnicos sobre casos em acompanhamento; e
+* Possui forte articulação com o CRAS.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<3 && maior_nivel>1), results='asis'}
+
+cat("Para alcançar o **nível 3** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 2:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1 && factor_porte<"Grande")}
+
+* Ofertar o PAEFI assegurando a realização da Construção de Plano Individual e/ou Familiar de atendimento (além da realização das atividades exigidas no nível 2); e
+* Possuir forte articulação com o Conselho Tutelar; e
+* Ofertar atendimento para variadas situações de violência ou violação de direitos e para os diferentes ciclos de vida; e
+* Ofertar o Serviço de MSE (APLICA-SE SOMENTE SE O MUNICÍPIO RECEBER COFINANCIAMENTO ou se for CREAS Regional).
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1 && factor_porte>"Médio")}
+
+* Ofertar o PAEFI assegurando a realização da Construção de Plano Individual e/ou Familiar de atendimento (além da realização das atividades exigidas no nível 2); e
+* Possuir forte articulação com o Conselho Tutelar; e
+* Ofertar atendimento para variadas situações de violência ou violação de direitos e para os diferentes ciclos de vida; e
+* Ofertar o Serviço de MSE.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==3), results='asis'}
+
+cat("O ", equipamento, " de **nível 3** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==3 && factor_porte<"Grande")}
+
+* Oferta o PAEFI assegurando a realização, pelo menos, das seguintes atividades: Entrevistas de acolhida para avaliação inicial dos casos, Atendimento psicossocial individual/familiar, Construção de Plano Individual e/ou Familiar de atendimento, Visitas domiciliares e Elaboração de relatórios técnicos sobre casos em acompanhamento; e
+* Possui forte articulação com o CRAS e com o Conselho Tutelar; e
+* Oferta atendimento para variadas situações de violência ou violação de direitos e para os diferentes ciclos de vida; e
+* Oferta o Serviço de MSE (APLICA-SE SOMENTE SE O MUNICÍPIO RECEBER COFINANCIAMENTO ou se for CREAS Regional).
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==3 && factor_porte>"Médio")}
+
+* Oferta o PAEFI assegurando a realização, pelo menos, das seguintes atividades: Entrevistas de acolhida para avaliação inicial dos casos, Atendimento psicossocial individual/familiar, Construção de Plano Individual e/ou Familiar de atendimento, Visitas domiciliares e Elaboração de relatórios técnicos sobre casos em acompanhamento; e
+* Possui forte articulação com o CRAS e com o Conselho Tutelar; e
+* Oferta atendimento para variadas situações de violência ou violação de direitos e para os diferentes ciclos de vida; e
+* Oferta o Serviço de MSE.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<4 && maior_nivel>2), results='asis'}
+
+cat("Para alcançar o **nível 4** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 3:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2 && factor_porte<"Grande")}
+
+* Ofertar o PAEFI assegurando a realização da atividade de Atendimento psicossocial em grupo (além da realização das atividades exigidas no nível 3); e
+* Ter quantidade média de casos em acompanhamento no mês, dividida pela equipe técnica (AS + PSI) menor ou igual a 50 casos; e
+* Ofertar o Serviço de MSE assegurando a elaboração do Plano Individual de Atendimento (PIA) do adolescente (APLICA-SE SOMENTE SE O MUNICÍPIO RECEBER COFINANCIAMENTO ou se for CREAS Regional); e
+* Ofertar o Serviço de Abordagem ou ter o Serviço referenciado (APLICA-SE SOMENTE SE O MUNICÍPIO RECEBER COFINANCIAMENTO ou se for CREAS Regional).
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2 && factor_porte>"Médio")}
+
+* Ofertar o PAEFI assegurando a realização da atividade de Atendimento psicossocial em grupo (além da realização das atividades exigidas no nível 3); e
+* Ter quantidade média de casos em acompanhamento no mês, dividida pela equipe técnica (AS + PSI) menor ou igual a 50 casos; e
+* Ofertar o Serviço de MSE assegurando a elaboração do Plano Individual de Atendimento (PIA) do adolescente; e
+* Ofertar o Serviço de Abordagem ou ter o Serviço referenciado.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==4), results='asis'}
+
+cat("O ", equipamento, " de **nível 4** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==4 && factor_porte<"Grande")}
+
+* Oferta o PAEFI assegurando a realização, pelo menos, das seguintes atividades: Entrevistas de acolhida para avaliação inicial dos casos, Atendimento psicossocial em grupo, Atendimento psicossocial individual/familiar, Construção de Plano Individual e/ou Familiar de atendimento, Visitas domiciliares e Elaboração de relatórios técnicos sobre casos em acompanhamento; e
+* Tem quantidade média de casos em acompanhamento no mês, dividida pela equipe técnica (AS + PSI) menor ou igual a 50 casos; e
+* Oferta atendimento para variadas situações de violência ou violação de direitos e para os diferentes ciclos de vida; e
+* Possui forte articulação com o CRAS e com o Conselho Tutelar; e
+* Oferta o Serviço de MSE assegurando a elaboração do Plano Individual de Atendimento (PIA) do adolescente (APLICA-SE SOMENTE SE O MUNICÍPIO RECEBER COFINANCIAMENTO ou se for CREAS Regional); e
+* Oferta o Serviço de Abordagem ou tem o Serviço referenciado (APLICA-SE SOMENTE SE O MUNICÍPIO RECEBER COFINANCIAMENTO ou se for CREAS Regional).
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==4 && factor_porte>"Médio")}
+
+* Oferta o PAEFI assegurando a realização, pelo menos, das seguintes atividades: Entrevistas de acolhida para avaliação inicial dos casos, Atendimento psicossocial em grupo, Atendimento psicossocial individual/familiar, Construção de Plano Individual e/ou Familiar de atendimento, Visitas domiciliares e Elaboração de relatórios técnicos sobre casos em acompanhamento; e
+* Tem quantidade média de casos em acompanhamento no mês, dividida pela equipe técnica (AS + PSI) menor ou igual a 50 casos; e
+* Oferta atendimento para variadas situações de violência ou violação de direitos e para os diferentes ciclos de vida; e
+* Possui forte articulação com o CRAS e com o Conselho Tutelar; e
+* Oferta o Serviço de MSE assegurando a elaboração do Plano Individual de Atendimento (PIA) do adolescente; e
+* Oferta o Serviço de Abordagem ou tem o Serviço referenciado.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<5 && maior_nivel>3), results='asis'}
+
+cat("Para alcançar o **nível 5** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 4:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3 && factor_porte<"Grande")}
+
+* Ofertar o PAEFI assegurando a realização de Ações de mobilização e sensibilização para o enfrentamento das situações de violação de direitos (além da realização das atividades exigidas no nível 4); e
+* Ter quantidade média de casos em acompanhamento no mês, dividida pela equipe técnica (AS + PSI) menor ou igual a 30 casos; e
+* Possuir Assistente Social e Psicólogo; e
+* Funcionar no mínimo 5 dias por semana e 40 horas semanais; e
+* Ofertar o Serviço de MSE assegurando a realização, pelo menos, das seguintes atividades, além das atividades exigidas no nível 4: Ofertar LA e PSC; Acompanhamento de LA e PSC, com frequência de atendimento semanal ou quinzenal e Atendimento do adolescente em grupos (APLICA-SE SOMENTE SE O MUNICÍPIO RECEBER COFINANCIAMENTO ou se for CREAS Regional).
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3 && factor_porte>"Médio")}
+
+* Ofertar o PAEFI assegurando a realização de Ações de mobilização e sensibilização para o enfrentamento das situações de violação de direitos (além da realização das atividades exigidas no nível 4); e
+* Ter quantidade média de casos em acompanhamento no mês, dividida pela equipe técnica (AS + PSI) menor ou igual a 30 casos; e
+* Possuir Assistente Social e Psicólogo; e
+* Funcionar no mínimo 5 dias por semana e 40 horas semanais; e
+* Ofertar o Serviço de MSE assegurando a realização, pelo menos, das seguintes atividades, além das atividades exigidas no nível 4: Ofertar LA e PSC; Acompanhamento de LA e PSC, com frequência de atendimento semanal ou quinzenal e Atendimento do adolescente em grupos; e
+* Manter forte articulação com Serviços de Acolhimento.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==5), results='asis'}
+
+cat("O ", equipamento, " de **nível 5** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==5 && factor_porte<"Grande")}
+
+* Oferta o PAEFI assegurando a realização, pelo menos, das seguintes atividades: Entrevistas de acolhida para avaliação inicial dos casos, Atendimento psicossocial em grupo, Atendimento psicossocial individual/familiar, Construção de Plano Individual e/ou Familiar de atendimento, Visitas domiciliares, Ações de mobilização e sensibilização para o enfrentamento das situações de violação de direitos e Elaboração de relatórios técnicos sobre casos em acompanhamento; e
+* Oferta atendimento para variadas situações de violência ou violação de direitos e para os diferentes ciclos de vida; e
+* Tem quantidade média de casos em acompanhamento no mês, dividida pela equipe técnica (AS + PSI) menor ou igual a 30 casos; e
+* Possui Assistente Social e Psicólogo; e
+* Funciona no mínimo 5 dias por semana e 40 horas semanais; e
+* Oferta o Serviço de MSE assegurando a realização, pelo menos, das seguintes atividades: Ofertar LA e PSC; Acompanhamento de LA e PSC, com frequência de atendimento semanal ou quinzenal; Elaboração do Plano Individual de Atendimento (PIA) do adolescente e Atendimento do adolescente em grupos (APLICA-SE SOMENTE SE O MUNICÍPIO RECEBER COFINANCIAMENTO ou se for CREAS Regional); e
+* Oferta o Serviço de Abordagem ou tem o Serviço referenciado (APLICA-SE SOMENTE SE O MUNICÍPIO RECEBER COFINANCIAMENTO ou se for CREAS Regional); e
+* Mantém forte articulação com o CRAS e com o Conselho Tutelar.
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==5 && factor_porte>"Médio")}
+
+* Oferta o PAEFI assegurando a realização, pelo menos, das seguintes atividades: Entrevistas de acolhida para avaliação inicial dos casos, Atendimento psicossocial em grupo, Atendimento psicossocial individual/familiar, Construção de Plano Individual e/ou Familiar de atendimento, Visitas domiciliares, Ações de mobilização e sensibilização para o enfrentamento das situações de violação de direitos e Elaboração de relatórios técnicos sobre casos em acompanhamento; e
+* Oferta atendimento para variadas situações de violência ou violação de direitos e para os diferentes ciclos de vida; e
+* Tem quantidade média de casos em acompanhamento no mês, dividida pela equipe técnica (AS + PSI) menor ou igual a 30 casos; e
+* Possui Assistente Social e Psicólogo; e
+* Funciona no mínimo 5 dias por semana e 40 horas semanais; e
+* Oferta o Serviço de MSE assegurando a realização, pelo menos, das seguintes atividades: Ofertar LA e PSC; Acompanhamento de LA e PSC, com frequência de atendimento semanal ou quinzenal; Elaboração do Plano Individual de Atendimento (PIA) do adolescente e Atendimento do adolescente em grupos; e
+* Mantém forte articulação com o CRAS, com o Conselho Tutelar e com Serviços de Acolhimento; e
+* Oferta o Serviço de Abordagem ou tem o Serviço referenciado.
+```
+
+# ID Conselho: Indice de Desenvolvimento dos Conselhos de Assistência Social
+
+O ID Conselho é indicador desenvolvimento com o objetivo de avaliar o controle social no SUAS. Ele possui três dimensões. Cada dimensão possui uma nota na qual quanto mais próxima de 5, melhor o índice e, do contrário, insatisfatório.
+
+```{r ID-conselho-tabela}
+
+tabela <- f_selecao_grupo_media(idconselho_2014, IBGE, municipio, IDConselho, "ID Conselho", "2014") %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2014, IBGE, municipio, `Estrutura Administrativa`, "Estrutura Administrativa", "2014")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2014, IBGE, municipio, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2014")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2014, IBGE, municipio, `Composição do Conselho`, "Composição do Conselho", "2014")) %>%
+
+  bind_rows(f_selecao_grupo_media(idconselho_2015, IBGE, municipio, `IDConselho - 2015`, "ID Conselho", "2015")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2015, IBGE, municipio, `Estrutura Administrativa`, "Estrutura Administrativa", "2015")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2015, IBGE, municipio, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2015")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2015, IBGE, municipio, `Composição do Conselho`, "Composição do Conselho", "2015")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idconselho_2016, IBGE, municipio, IDConselho, "ID Conselho", "2016")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2016, IBGE, municipio, `Estrutura Administrativa`, "Estrutura Administrativa", "2016")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2016, IBGE, municipio, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2016")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2016, IBGE, municipio, `Composição do Conselho`, "Composição do Conselho", "2016")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idconselho_2017, IBGE, municipio, IDConselho, "ID Conselho", "2017")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2017, IBGE, municipio, `Estrutura Administrativa`, "Estrutura Administrativa", "2017")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2017, IBGE, municipio, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2017")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2017, IBGE, municipio, `Composição do Conselho`, "Composição do Conselho", "2017")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idconselho_2018, IBGE, municipio, IDConselho, "ID Conselho", "2018")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2018, IBGE, municipio, `Estrutura Administrativa`, "Estrutura Administrativa", "2018")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2018, IBGE, municipio, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2018")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2018, IBGE, municipio, `Composição do Conselho`, "Composição do Conselho", "2018")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idconselho_2019, IBGE, municipio, IDConselho, "ID Conselho", "2019")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2019, IBGE, municipio, `Estrutura Administrativa`, "Estrutura Administrativa", "2019")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2019, IBGE, municipio, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2019")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2019, IBGE, municipio, `Composição do Conselho`, "Composição do Conselho", "2019")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idconselho_2020, IBGE, municipio, IDConselho, "ID Conselho", "2020")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2020, IBGE, municipio, `Estrutura Administrativa`, "Estrutura Administrativa", "2020")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2020, IBGE, municipio, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2020")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2020, IBGE, municipio, `Composição do Conselho`, "Composição do Conselho", "2020")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idconselho_2021, IBGE, municipio, IDConselho, "ID Conselho", "2021")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2021, IBGE, municipio, `Estrutura Administrativa`, "Estrutura Administrativa", "2021")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2021, IBGE, municipio, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2021")) %>%
+  bind_rows(f_selecao_grupo_media(idconselho_2021, IBGE, municipio, `Composição do Conselho`, "Composição do Conselho", "2021")) %>%
+  
+  bind_rows(f_selecao_grupo_media(idconselho_2022, IBGE7, municipio, IDConselho, "ID Conselho", "2022")) %>% 
+  bind_rows(f_selecao_grupo_media(idconselho_2022, IBGE7, municipio, `Estrutura Administrativa`, "Estrutura Administrativa", "2022")) %>% 
+  bind_rows(f_selecao_grupo_media(idconselho_2022, IBGE7, municipio, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2022")) %>% 
+  bind_rows(f_selecao_grupo_media(idconselho_2022, IBGE7, municipio, `Composição do Conselho`, "Composição do Conselho", "2022")) %>% 
+
+  bind_rows(f_selecao_grupo_media(idconselho_2023, IBGE, municipio, IDConselho, "ID Conselho", "2023")) %>% 
+  bind_rows(f_selecao_grupo_media(idconselho_2023, IBGE, municipio, `Estrutura Administrativa`, "Estrutura Administrativa", "2023")) %>% 
+  bind_rows(f_selecao_grupo_media(idconselho_2023, IBGE, municipio, `Dinâmica de Funcionamento`, "Dinâmica de Funcionamento", "2023")) %>% 
+  bind_rows(f_selecao_grupo_media(idconselho_2023, IBGE, municipio, `Composição do Conselho`, "Composição do Conselho", "2023")) %>% 
+
+  mutate(Grupo = factor(Grupo, levels = c("Estrutura Administrativa",
+                                          "Dinâmica de Funcionamento",
+                                          "Composição do Conselho",
+                                          "ID Conselho")))
+
+```
+
+```{r}
+
+  equipamento <- "Conselho"
+  existe_equipamento <- nrow(tabela %>% filter(!is.na(m)))
+```
+
+```{r eval=!existe_equipamento, results='asis'}
+
+cat(nome_municipio, " não tem ", equipamento, ".", sep="")
+```
+
+```{r eval=(existe_equipamento>0), results='asis'}
+
+cat("O @fig-ID-conselho mostra a evolução das médias do ID Conselho ao longo dos anos no município de ", nome_municipio, ", ", uf_municipio, ".", sep="")
+```
+
+```{r fig-ID-conselho, fig.cap = sprintf(" Evolução das médias do ID Conselho, 2014 a 2023: %s, %s", nome_municipio, uf_municipio), fig.footer = "Fonte: MDS, Censo SUAS.", eval=(existe_equipamento>0)}
+
+grafico <- tabela %>%
+  ggplot(aes(x = Eixo_X, y = m, group = Grupo)) +
+  geom_col(aes(fill = Grupo), position="dodge") +
+  geom_text(aes(label = format(m, digits=3), y=m+0.3), position = position_dodge(width = 0.9), angle = 90, size = 3) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .1))) +
+  scale_fill_viridis_d(option = "E") +
+  theme(legend.position="bottom",
+        legend.title = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(),
+        panel.background = element_blank()) +
+  guides(fill=guide_legend(nrow=2,byrow=TRUE))
+
+grafico
+```
+
+```{r}
+unidades_municipio <- idconselho_2023 %>%
+                       filter(IBGE == municipio)
+
+n_unidades_municipio <- nrow(unidades_municipio)
+n_unidades <- n_unidades_municipio
+```
+
+```{r eval=(n_unidades_municipio>0), results='asis'}
+
+cat("As seções a seguir apresentam os resultados do município de", nome_municipio, "em cada uma das dimensões do ID Conselho, bem como os requisitos para se alcançar os níveis superiores.")
+```
+
+```{asis, echo=(n_unidades_municipio>0)}
+
+## ID Conselho: Dimensão Estrutura Administrativa
+```
+
+```{r}
+
+  dimensao <- "Estrutura Administrativa"
+```
+
+```{r eval=(n_unidades>0)}
+
+  menor_nivel <- min(unidades_municipio$`Estrutura Administrativa`, na.rm = T)
+  maior_nivel <- max(unidades_municipio$`Estrutura Administrativa`, na.rm = T)
+```
+
+```{r eval=(n_unidades==1), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID do ", equipamento, " no município de ", nome_municipio, " é ",  menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel==maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " no município de ", nome_municipio, " é ", menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel<maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " no município de ", nome_municipio, " varia de ", menor_nivel, " a ", maior_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("O ", equipamento, " de **nível 1** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* **Não** possui previsão de recursos na Lei Orçamentária Anual e **não** utiliza para as despesas de seu funcionamento o mínimo de 3% do IGD; ou 
+* **Não** possui sala (exclusiva ou compartilhada); ou 
+* **Não** possui Secretaria Executiva.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("Para alcançar o **nível 2** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Possuir previsão de recursos na Lei Orçamentária Anual ou utilizar para as despesas de seu funcionamento o mínimo de 3% do IGD; e
+* Possuir uma ou mais salas de uso exclusivo ou compartilhado; e
+* Possuir Secretaria Executiva. 
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==2), results='asis'}
+
+cat("O ", equipamento, " de **nível 2** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==2)}
+
+* Possui previsão de recursos na Lei Orçamentária Anual ou utiliza para as despesas de seu funcionamento o mínimo de 3% do IGD; e
+* Possui uma ou mais salas de uso exclusivo ou compartilhado; e
+* Possui Secretaria Executiva. 
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<3 && maior_nivel>1), results='asis'}
+
+cat("Para alcançar o **nível 3** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 2:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1)}
+
+* Possuir um ou mais computadores conectados à internet; e
+* Possuir telefone de uso exclusivo ou compartilhado.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==3), results='asis'}
+
+cat("O ", equipamento, " de **nível 3** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==3)}
+
+* Possui previsão de recursos na Lei Orçamentária Anual ou utiliza para as despesas de seu funcionamento o mínimo de 3% do IGD; e
+* Possui Secretaria Executiva; e 
+* Possui um ou mais computadores conectados à internet; e
+* Possui telefone de uso exclusivo ou compartilhado; e
+* Possui uma ou mais salas de uso exclusivo ou compartilhado.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<4 && maior_nivel>2), results='asis'}
+
+cat("Para alcançar o **nível 4** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 3:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2)}
+
+* Possuir uma ou mais salas de uso exclusivo.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==4), results='asis'}
+
+cat("O ", equipamento, " de **nível 4** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==4)}
+
+* Possui previsão de recursos na Lei Orçamentária Anual ou utiliza para as despesas de seu funcionamento o mínimo de 3% do IGD; e
+* Possui Secretaria Executiva; e 
+* Possui um ou mais computadores conectados à internet; e
+* Possui telefone de uso exclusivo ou compartilhado; e
+* Possui uma ou mais salas de uso exclusivo.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<5 && maior_nivel>3), results='asis'}
+
+cat("Para alcançar o **nível 5** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 4:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3 && factor_porte<"Grande")}
+* Possuir previsão de recursos específicos na Lei Orçamentária Anual; e
+* Utilizar para as despesas de seu funcionamento o mínimo de 3% do IGD; e
+* Ter veículo exclusivo ou compartilhado.
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3 && factor_porte>"Médio")}
+* Possuir previsão de recursos específicos na Lei Orçamentária Anual; e
+* Utilizar para as despesas de seu funcionamento o mínimo de 3% do IGD; e
+* Ter veículo exclusivo ou compartilhado; e
+* Possuir telefone de uso exclusivo do Conselho; e
+* Que o Secretário Executivo seja exclusivo do Conselho de Assistência Social.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==5), results='asis'}
+
+cat("O ", equipamento, " de **nível 5** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==5 && factor_porte<"Grande")}
+
+* Possui previsão de recursos específicos na Lei Orçamentária Anual; e
+* Utiliza para as despesas de seu funcionamento o mínimo de 3% do IGD; e
+* Possui uma ou mais salas de uso exclusivo; e
+* Possui Secretaria Executiva; e 
+* Possui kit equipamento (veículo exclusivo ou compartilhado e um ou mais computadores conectados à internet); e
+* Possui telefone de uso exclusivo ou compartilhado.
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==5 && factor_porte>"Médio")}
+
+* Possui previsão de recursos específicos na Lei Orçamentária Anual; e
+* Utiliza para as despesas de seu funcionamento o mínimo de 3% do IGD; e
+* Possui uma ou mais salas de uso exclusivo; e
+* Possui Secretaria Executiva; e 
+* Possui kit equipamento (veículo exclusivo ou compartilhado e um ou mais computadores conectados à internet); e
+* Possui telefone de uso exclusivo do Conselho; e
+* Tem Secretário Executivo exclusivo do Conselho de Assistência Social.
+```
+
+```{asis, echo=(n_unidades_municipio>0)}
+
+## ID Conselho: Dimensão Dinâmica de Funcionamento
+```
+
+```{r}
+
+  dimensao <- "Dinâmica de Funcionamento"
+```
+
+```{r eval=(n_unidades>0)}
+
+  menor_nivel <- min(unidades_municipio$`Dinâmica de Funcionamento`, na.rm = T)
+  maior_nivel <- max(unidades_municipio$`Dinâmica de Funcionamento`, na.rm = T)
+```
+
+```{r eval=(n_unidades==1), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID do ", equipamento, " no município de ", nome_municipio, " é ",  menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel==maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " no município de ", nome_municipio, " é ", menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel<maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " no município de ", nome_municipio, " varia de ", menor_nivel, " a ", maior_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("O ", equipamento, " de **nível 1** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* **Não** realizou 6 ou mais reuniões plenárias no ano anterior (ordinárias e extraordinárias); ou
+* **Não** deliberou sobre o Plano de Assistência Social.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("Para alcançar o **nível 2** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Realizar 6 ou mais reuniões plenárias no ano anterior (ordinárias e extraordinárias); e
+* Deliberar sobre o Plano de Assistência Social.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==2), results='asis'}
+
+cat("O ", equipamento, " de **nível 2** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==2)}
+
+* Realizou 6 ou mais reuniões plenárias no ano anterior (ordinárias e extraordinárias); e
+* Deliberou sobre o Plano de Assistência Social.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<3 && maior_nivel>1), results='asis'}
+
+cat("Para alcançar o **nível 3** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 2:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1)}
+
+* Possuir Regimento Interno; e
+* Acompanhar o cumprimento de deliberações da Conferência Municipal.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==3), results='asis'}
+
+cat("O ", equipamento, " de **nível 3** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==3)}
+
+* Realizou 6 ou mais reuniões plenárias no ano anterior (ordinárias e extraordinárias); e
+* Possui Regimento Interno; e
+* Deliberou sobre o Plano de Assistência Social; e
+* Acompanha o cumprimento de deliberações da Conferência Municipal.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<4 && maior_nivel>2), results='asis'}
+
+cat("Para alcançar o **nível 4** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 3:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2)}
+
+* Realizar 8 ou mais reuniões plenárias no ano anterior (ordinárias e extraordinárias); e
+* Deliberar sobre o orçamento do executivo; e
+* Ser instância de Controle Social do Bolsa Família.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==4), results='asis'}
+
+cat("O ", equipamento, " de **nível 4** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==4)}
+
+* Realizou 8 ou mais reuniões plenárias no ano anterior (ordinárias e extraordinárias); e
+* Possui Regimento Interno; e
+* Deliberou sobre o orçamento do executivo; e
+* Deliberou sobre o Plano de Assistência Social; e
+* É instância de Controle Social do Bolsa Família; e
+* Acompanha o cumprimento de deliberações da Conferência Municipal.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<5 && maior_nivel>3), results='asis'}
+
+cat("Para alcançar o **nível 5** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 4:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3)}
+
+* Realizar 10 ou mais reuniões plenárias no ano anterior (ordinárias e extraordinárias); e
+* Fiscalizar os serviços, programas e projetos da rede pública e privada (ou fiscalizar somente a rede pública quando não existe rede privada); e
+* Realizar reuniões/ações de mobilização ou descentralizadas ou ampliadas.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==5), results='asis'}
+
+cat("O ", equipamento, " de **nível 5** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==5)}
+
+* Realizou 10 ou mais reuniões plenárias no ano anterior (ordinárias e extraordinárias); e
+* Possui Regimento Interno; e
+* Deliberou sobre o orçamento do executivo; e
+* Deliberou sobre o Plano de Assistência Social; e
+* É instância de Controle Social do Bolsa Família; e
+* Acompanha o cumprimento de deliberações da Conferência Municipal; e
+* Fiscaliza os serviços, programas e projetos da rede pública e privada (ou fiscaliza somente a rede pública quando não existe rede privada); e
+* Realiza reuniões/ações de mobilização ou descentralizadas ou ampliadas.
+```
+
+```{asis, echo=(n_unidades_municipio>0)}
+
+## ID Conselho: Dimensão Composição do Conselho
+```
+
+```{r}
+
+  dimensao <- "Composição do Conselho"
+```
+
+```{r eval=(n_unidades>0)}
+
+  menor_nivel <- min(unidades_municipio$`Composição do Conselho`, na.rm = T)
+  maior_nivel <- max(unidades_municipio$`Composição do Conselho`, na.rm = T)
+```
+
+```{r eval=(n_unidades==1), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID do ", equipamento, " no município de ", nome_municipio, " é ",  menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel==maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " no município de ", nome_municipio, " é ", menor_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>1 && menor_nivel<maior_nivel), results='asis'}
+
+cat("Na dimensão ", dimensao, ", o nível de ID dos ", equipamento, " no município de ", nome_municipio, " varia de ", menor_nivel, " a ", maior_nivel, ".", sep="")
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("O ", equipamento, " de **nível 1** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Possui menos de 6 conselheiros titulares; ou 
+* **Não** possui conselheiros titulares representantes de usuários nem de organização de usuários; ou 
+* **Não** possui alternância na presidência entre os representantes de governo e os representantes da sociedade civil. 
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==1), results='asis'}
+
+cat("Para alcançar o **nível 2** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==1)}
+
+* Possuir no mínimo 6 conselheiros titulares; e
+* Possuir pelo menos um conselheiro titular representante de usuários ou organização de usuários; e
+* Possuir alternância na presidência entre os representantes de governo e os representantes da sociedade civil. 
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==2), results='asis'}
+
+cat("O ", equipamento, " de **nível 2** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==2)}
+
+* Possui no mínimo 6 conselheiros titulares; e
+* Possui pelo menos um conselheiro titular representante de usuários ou organização de usuários; e
+* Possui alternância na presidência entre os representantes de governo e os representantes da sociedade civil. 
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<3 && maior_nivel>1), results='asis'}
+
+cat("Para alcançar o **nível 3** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 2:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<3 && maior_nivel>1)}
+
+* Possuir pelo menos um conselheiro titular representante de trabalhadores do setor.
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==3), results='asis'}
+
+cat("O ", equipamento, " de **nível 3** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==3)}
+
+* Possui no mínimo 6 conselheiros titulares; e
+* Possui pelo menos um conselheiro titular representante de usuários ou organização de usuários; e
+* Possui pelo menos um conselheiro titular representante de trabalhadores do setor; e
+* Possui alternância na presidência entre os representantes de governo e os representantes da sociedade civil. 
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<4 && maior_nivel>2), results='asis'}
+
+cat("Para alcançar o **nível 4** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 3:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<4 && maior_nivel>2)}
+
+* Possuir representantes da sociedade civil eleitos por assembleias constituídas para esse fim; e
+* Possuir Presidente e Vice-Presidente eleitos em plenária; e
+* Que o Conselheiro possa ser reconduzido uma única vez. 
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==4), results='asis'}
+
+cat("O ", equipamento, " de **nível 4** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==4)}
+
+* Possui no mínimo 6 conselheiros titulares; e
+* Possui representantes da sociedade civil eleitos por assembleias constituídas para esse fim; e
+* Possui pelo menos um conselheiro titular representante de usuários ou organização de usuários; e
+* Possui pelo menos um conselheiro titular representante de trabalhadores do setor; e
+* Possui alternância na presidência entre os representantes de governo e os representantes da sociedade civil; e
+* Possui Presidente e Vice-Presidente eleitos em plenária; e
+* Permite que o Conselheiro possa ser reconduzido uma única vez. 
+```
+
+```{r eval=(n_unidades>0 && menor_nivel<5 && maior_nivel>3), results='asis'}
+
+cat("Para alcançar o **nível 5** na dimensão ", dimensao, ", o ", equipamento, " ", porte, " precisa, além dos requisitos do nível 4:", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3 && factor_porte<"Grande")}
+
+* Possuir no mínimo 8 conselheiros titulares; e
+* Possuir representação governamental da área de assistência, saúde e educação. 
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel<5 && maior_nivel>3 && factor_porte>"Médio")}
+
+* Possuir no mínimo 10 conselheiros titulares; e
+* Possuir representação governamental da área de assistência, saúde e educação. 
+```
+
+```{r eval=(n_unidades>0 && menor_nivel==5), results='asis'}
+
+cat("O ", equipamento, " de **nível 5** na dimensão ", dimensao, " ", porte, ":", sep="")
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==5 && factor_porte<"Grande")}
+
+* Possui no mínimo 8 conselheiros titulares; e
+* Possui representantes da sociedade civil eleitos por assembleias constituídas para esse fim; e
+* Possui pelo menos um conselheiro titular representante de usuários ou organização de usuários; e
+* Possui pelo menos um conselheiro titular representante de trabalhadores do setor; e
+* Possui alternância na presidência entre os representantes de governo e os representantes da sociedade civil; e
+* Possui Presidente e Vice-Presidente eleitos em plenária; e
+* Permite que o Conselheiro possa ser reconduzido uma única vez; e
+* Possui representação governamental da área de assistência, saúde e educação.
+```
+
+```{asis, echo=(n_unidades>0 && menor_nivel==5 && factor_porte>"Médio")}
+
+* Possui no mínimo 10 conselheiros titulares; e
+* Possui representantes da sociedade civil eleitos por assembleias constituídas para esse fim; e
+* Possui pelo menos um conselheiro titular representante de usuários ou organização de usuários; e
+* Possui pelo menos um conselheiro titular representante de trabalhadores do setor; e
+* Possui alternância na presidência entre os representantes de governo e os representantes da sociedade civil; e
+* Possui Presidente e Vice-Presidente eleitos em plenária; e
+* Permite que o Conselheiro possa ser reconduzido uma única vez; e
+* Possui representação governamental da área de assistência, saúde e educação.
+```
+
