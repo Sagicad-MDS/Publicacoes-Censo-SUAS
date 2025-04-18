@@ -61,7 +61,12 @@ idconselho_2019 <- read_excel("../ID CONSELHO/ID CONSELHO - 2019.xlsx",guess_max
 idconselho_2020 <- read_excel("../ID CONSELHO/ID CONSELHO - 2020.xlsx",guess_max=12)
 idconselho_2021 <- read_excel("../ID CONSELHO/IDCONSELHO_2021_divulgacao.xlsx",guess_max=140)
 idconselho_2022 <- read_excel("../ID CONSELHO/IDConselho_Municipal_2022_divulgacao.xlsx")
-idconselho_2023 <- read_excel("../ID CONSELHO/IDConselho_Municipal_2023_divulgacao.xlsx", skip=4)
+idconselho_2023 <- read_excel("../ID CONSELHO/IDConselho_Municipal_2023_divulgacao.xlsx", skip=4) %>%
+                   mutate(Porte = case_when(Porte == "Pequeno Porte I"~"Pequeno I",
+                                            Porte == "Pequeno Porte II"~"Pequeno II",
+                                            Porte == "Médio Porte"~"Médio",
+                                            Porte == "Grande Porte"~"Grande",
+                                            Porte == "Metrópole"~"Metrópole"))
 
 idcras_2014 <- read_excel("../ID CRAS/NOVO_IDCRAS_2014_divulgação_retificado_07_10_2016.xlsx")
 idcras_2015 <- read_excel("../ID CRAS/NOVO_IDCRAS_2015_divulgação_retificado_07_10_2016.xlsx")
