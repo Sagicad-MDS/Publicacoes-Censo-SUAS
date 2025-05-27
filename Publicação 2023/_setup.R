@@ -11,7 +11,7 @@ lista.de.pacotes = c("rmarkdown",
                      "readr",
                      "stringr",
                      "forcats",
-
+                     "readxl",
                      "janitor",
                      "repmis",
                      "ggrepel",
@@ -31,7 +31,7 @@ novos.pacotes <- lista.de.pacotes[!(lista.de.pacotes %in%
 if(length(novos.pacotes) > 0) {install.packages(novos.pacotes, repos = "http://cran.us.r-project.org")}
 
 # adiciona pacotes do tidyverse para serem carregados
-lista.de.pacotes <- append(lista.de.pacotes, c("readxl", "scales"))
+lista.de.pacotes <- append(lista.de.pacotes, c("scales"))
 
 lapply(lista.de.pacotes, require, character.only=T)
 rm(lista.de.pacotes,novos.pacotes)
