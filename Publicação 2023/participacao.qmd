@@ -164,36 +164,13 @@ grafico
 
 Em relação a dinâmica de funcionamento, o plenário deve, obrigatoriamente, funcionar uma vez ao mês e, extraordinariamente, sempre que necessário. Assim, destaca-se que 77% dos conselhos estaduais realizaram no último ano de 9 a 16 reuniões. O percentual de 3,8% (1 CEAS) realizou igual ou abaixo de 8 reuniões. Já 19,2% dos Conselhos Estaduais realizaram acima de 17 reuniões no ano de 2022, conforme mostra o @fig-qtdceas_reuniao.
 
-```{r fig-qtdceas_reuniao, fig.cap = "Proporção conselhos estaduais quanto a realização de reuniões plenárias no ano anterior";eval=FALSE}
-
-
-grafico <- cest_2022 %>%
-#-------------------
-# Questionários 2022:
-  select(x=d25) %>%
-#-------------------
-# Censo 2022:
-  mutate(x = case_when(x <= 8~"De 0 a 8 reuniões",
-                       x <= 16~"De 9 a 16 reuniões",
-                       x <= 20~"De 17 a 20 reuniões",
-                       x <= 30~"De 21 a 30 reuniões",
-                       x <= 40~"De 31 a 40 reuniões",
-                       TRUE ~ as.character(x))) %>%
-  mutate(x = factor(x, levels = c("De 0 a 8 reuniões","De 9 a 16 reuniões", "De 17 a 20 reuniões", "De 21 a 30 reuniões", "De 31 a 40 reuniões"))) %>%
-#-------------------
-  group_by(x) %>%
-  summarise(n=n()) %>%
-  mutate(Percentual = n/sum(n)) %>%
-
-  f_grafico_col_percent(x, Percentual)
-
-grafico
-```
-
 ```{r fig-qtdceas_reuniao, fig.cap = "Proporção conselhos estaduais quanto a realização de reuniões plenárias no ano anterior"}
 
 
 grafico <- cest_2023 %>%
+#-------------------
+# Questionários 2022:
+#  select(x=d25) %>%
 #-------------------
 # Questionários 2023:
   select(x=d22) %>%
@@ -216,39 +193,16 @@ grafico <- cest_2023 %>%
 grafico
 ```
 
-
-
-
 No tocante a realização de reuniões pelos Conselhos Municipais, o @fig-qtdcmas_reuniao sinaliza que 42% dos CMAS realizaram menos de 8 reuniões no ano, sendo 14% deles inferior a 5 reuniões. A periodicidade mensal de reuniões deve estar prevista em regimento interno do respectivo conselho, conforme é sinalizado na Resolução CNAS nº 100/2023.
-
-```{r fig-qtdcmas_reuniao, fig.cap = "Proporção de Conselhos Municipais quanto a quantidade de realização de reuniões plenárias do Conselho (ordinárias e extraordinárias)";eval=FALSE}
-
-grafico <- cmun_2022 %>%
-#-------------------
-# Questionários 2022:
-  select(x=q25) %>%
-#-------------------
-# Censo 2022:
-  mutate(x = case_when(x <= 5~"Até 5",
-                       x <= 8~"Entre 6 e 8",
-                       x <= 12~"Entre 9 e 12",
-                       x > 12~"Acima de 12",
-                       TRUE ~ as.character(x))) %>%
-  mutate(x = factor(x, levels = c("Até 5","Entre 6 e 8", "Entre 9 e 12", "Acima de 12"))) %>%
-#-------------------
-  group_by(x) %>%
-  summarise(n=n()) %>%
-  mutate(Percentual = n/sum(n)) %>%
-  f_grafico_col_percent(x, Percentual)
-
-grafico
-```
 
 ```{r fig-qtdcmas_reuniao, fig.cap = "Proporção de Conselhos Municipais quanto a quantidade de realização de reuniões plenárias do Conselho (ordinárias e extraordinárias)"}
 
 #revisar
 
 grafico <- cmun_2023 %>%
+#-------------------
+# Questionários 2022:
+#  select(x=q25) %>%
 #-------------------
 # Questionários 2023:
   select(x=q22) %>%
@@ -798,8 +752,7 @@ grafico<-tabela %>%
 grafico
 ```
 
-Nos Conselhos Municipais as maiores representações, segundo o Censo SUAS 2022,
-foram a Proteção Social Básica (77%), Programa Bolsa Família (70%) e BPC (43%). Quando comparadas, as representações que apresentaram maior crescimento, 9 pontos, foram: Proteção Social Básica, Proteção Social Especial e Pessoas ou famílias de Beneficiários do BPC (@fig-usu_cmun).
+Nos Conselhos Municipais as maiores representações, segundo o Censo SUAS 2022, foram a Proteção Social Básica (77%), Programa Bolsa Família (70%) e BPC (43%). Quando comparadas, as representações que apresentaram maior crescimento, 9 pontos, foram: Proteção Social Básica, Proteção Social Especial e Pessoas ou famílias de Beneficiários do BPC (@fig-usu_cmun).
 
 ```{r fig-usu_cmun, fig.cap = "Representantes de usuárias/os nos Conselhos Municipais de Assistência Social - Brasil, 2018 a 2022", fig.footer = "Fonte: MDS, Censo SUAS."}
 #| fig-height: 6.5
