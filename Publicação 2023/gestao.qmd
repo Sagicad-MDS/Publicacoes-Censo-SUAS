@@ -785,52 +785,6 @@ grafico
 
 Quando se observa a regularização dessas áreas, percebe-se que há um grupo instituído informalmente conforme o @fig-estados-constituicao-subdivisoes, e setores que ainda não estão constituídos em 100% dos estados, a saber Gestão do SUAS, Gestão do trabalho e regulação do SUAS.
 
-```{r fig-estados-constituicao-subdivisoes, fig.cap = "Percentual de estados segundo característica da estrutura administrativa da Secretaria Estadual de Assistência Social - Brasil,  2022", fig.footer = "Fonte: MDS, Censo SUAS.",eval=FALSE}
-
-tabela<-ge_2022 %>%
-# Questionário 2022:
-  select(
-    "Gestão do SUAS"=q3_1,
-    "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q3_2,
-    "Gestão do Trabalho"=q3_3,
-    "Regulação do SUAS"=q3_4,
-    "Gestão Financeira e Orçamentária"=q3_5,
-    "Proteção Social Básica"=q3_6,
-    "Proteção Social Especial"=q3_7,
-    "Gestão do Cadastro Único e Programa Bolsa Família"=q3_8,
-    "Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais)"=q3_9,
-    "Programa Criança Feliz"=q3_10) %>%
-
-#-------------------
-  gather("Categoria","Nível") %>%
-  mutate(Categoria=str_wrap(Categoria,width=26)) %>%
-  mutate(Nível = case_when(
-    Nível=="Sim, na estrutura formal do órgão gestor"~"Constituída formalmente",
-    Nível=="Sim, de maneira informal"~"Constituída informalmente",
-    TRUE ~ Nível)) %>%
-  mutate(Nível = factor(Nível, levels = c(
-    "Constituída formalmente",
-    "Constituída informalmente",
-    "Não constituída"))) %>%
-  group_by(Categoria, Nível) %>%
-  summarise(n=n()) %>%
-  group_by(Categoria) %>%
-  mutate(Percentual = n/sum(n))
-
-ordenado<-tabela %>%
-  filter(Nível == "Constituída formalmente") %>%
-  arrange(Percentual) %>%
-  pull(Categoria)
-
-grafico<-tabela %>%
-  ungroup() %>%
-  mutate(Categoria = factor(Categoria, levels = ordenado)) %>%
-  mutate(Nível=str_wrap(Nível,width=22)) %>%
-  f_grafico_col_stack_percent_flip(Categoria, Percentual, Nível, 1)
-
-grafico
-```
-
 ```{r fig-estados-constituicao-subdivisoes, fig.cap = "Percentual de estados segundo característica da estrutura administrativa da Secretaria Estadual de Assistência Social - Brasil,  2023", fig.footer = "Fonte: MDS, Censo SUAS.", fig.height = 7}
 
 
@@ -1025,68 +979,6 @@ grafico
 ```
 
 Quanto às subdivisões administrativas, nota-se que em relação à constituição informal ou ausência dela, as que possuem o maior percentual são a Gestão do trabalho e a Vigilância Socioassistencial. Destaca-se, também, a Proteção Social Especial, cuja existência é recomenda independente da presença de CREAS (@fig-municipais-constituicao-subdivisoes).
-
-```{r fig-municipais-constituicao-subdivisoes, fig.cap = "Distribuição dos órgãos gestores municipais segundo constituição/formalização de subdivisões administrativas - Brasil, 2022", fig.footer = "Fonte: MDS, Censo SUAS";eval=FALSE}
-#| fig-height: 5
-
-# Questionários 2016:
-#tabela<-gm_2016 %>%
-#  select("Proteção Social Básica"=q3_1,
-#         "Proteção Social Especial"=q3_2,
-#         "Gestão de Benefícios Assistenciais (Bolsa Família, BPC, Benefícios Eventuais)"=q3_3,
-#         "Gestão do SUAS"=q3_4,
-#         "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q3_5,
-#         "Gestão do Trabalho"=q3_6,
-#         "Regulação do SUAS"=q3_7,
-#         "Gestão Financeira e Orçamentária"=q3_8) %>%
-#-------------------
-# Questionário 2017:
-#tabela<-gm_2017 %>%
-#  select("Gestão do SUAS"=q3.1,
-#         "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q3.2,
-#         "Gestão do Trabalho"=q3.3,
-#         "Regulação do SUAS"=q3.4,
-#         "Gestão Financeira e Orçamentária"=q3.5,
-#         "Proteção Social Básica"=q3.6,
-#         "Proteção Social Especial"=q3.7,
-#         "Gestão do Cadastro Único e Programa Bolsa Família"=q3.8,
-#         "Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais)"=q3.9) %>%
-#-------------------
-# Questionário 2022:
-tabela<-gm_2022 %>%
-  select("Gestão do SUAS"=q1_1,
-         "Vigilância Socioassistencial (inclusive áreas de monitoramento e avaliação)"=q1_2,
-         "Gestão do Trabalho"=q1_3,
-         "Regulação do SUAS"=q1_4,
-         "Gestão Financeira e Orçamentária"=q1_5,
-         "Proteção Social Básica"=q1_6,
-         "Proteção Social Especial"=q1_7,
-         "Gestão do Cadastro Único e Programa Bolsa Família"=q1_8,
-         "Gestão de Benefícios Assistenciais (BPC, Benefícios Eventuais)"=q1_9) %>%
-#-------------------
-  gather("Categoria","Nível") %>%
-  mutate(Categoria=str_wrap(Categoria,width=28)) %>%
-  mutate(Nível = case_when(Nível=="Sim, na estrutura formal do órgão gestor"~"Constituída formalmente",
-                           Nível=="Sim, de maneira informal"~"Constituída informalmente",
-                           TRUE ~ Nível)) %>%
-  group_by(Categoria, Nível) %>%
-  summarise(n=n()) %>%
-  group_by(Categoria) %>%
-  mutate(Percentual = n/sum(n))
-
-ordenado<-tabela %>%
-  filter(Nível == "Constituída formalmente") %>%
-  arrange(Percentual) %>%
-  pull(Categoria)
-
-grafico<-tabela %>%
-  ungroup() %>%
-  mutate(Categoria = factor(Categoria, levels = ordenado)) %>%
-  mutate(Nível=str_wrap(Nível,width=22)) %>%
-  f_grafico_col_stack_percent_flip(Categoria, Percentual, Nível, 1)
-
-grafico
-```
 
 ```{r fig-municipais-constituicao-subdivisoes, fig.cap = "Distribuição dos órgãos gestores municipais segundo constituição/formalização de subdivisões administrativas - Brasil, 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
 #| fig-height: 5
@@ -1842,7 +1734,7 @@ grafico <- ge_cofinanciamento(ge_2012, q64_0, "2012", codigo_ibge) %>%
   bind_rows(ge_cofinanciamento(ge_2015, q32, "2015", IBGE)) %>%
   bind_rows(ge_cofinanciamento(ge_2016, q30, "2016", IBGE)) %>%
   bind_rows(ge_cofinanciamento(ge_2017, q39, "2017", IBGE)) %>%
-  (ge_cofinanciamento(feas_2018, q_6, "2018", IBGE)) %>%
+  bind_rows(ge_cofinanciamento(feas_2018, q_6, "2018", IBGE)) %>%
   bind_rows(ge_cofinanciamento(feas_2019, q9, "2019", IBGE)) %>%
   bind_rows(ge_cofinanciamento(feas_2020, q9, "2020", IBGE)) %>%
   bind_rows(ge_cofinanciamento(feas_2021, q9, "2021", IBGE)) %>%
@@ -2803,7 +2695,7 @@ O @fig-igdbolsa sinaliza sobre a existência da participação das unidades do C
 
 Trata-se de um recurso repassado aos estados e municípios para apoio a gestão do Cadastro Único e Bolsa Família. Esta informação é referente a respostas do formulário dos postos de cadastramento em âmbito dos municípios.
 
-```{r fig-igdbolsa, fig.cap = "Unidades de Postos do Cadastro Único quanto a participação no planejamento do IGD Bolsa Família - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS",eval=FALSE}}
+```{r fig-igdbolsa, fig.cap = "Unidades de Postos do Cadastro Único quanto a participação no planejamento do IGD Bolsa Família - Brasil, 2020 - 2021 - 2022", fig.footer = "Fonte: MDS, Censo SUAS",eval=FALSE}
 
 igd_pbf  = function(df, q, ano){
   q <- enquo(q)
