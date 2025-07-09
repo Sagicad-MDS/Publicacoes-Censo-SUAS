@@ -88,10 +88,12 @@ No que se refere ao porte do municípios, verifica-se que os de Pequeno Porte I 
 <!--esse grafico tana com dado de 2017, daí troquei para 2022 e desconfigurou
 ATUALIZAÇÃO: O problema era que em 2022 Fernando de Noronha estava sem o código IBGE na base de CRAS, daí não era possivel determinar o porte do município e gerava uma categoria de município sem porte, e isto desconfigurava o gráfico gerado. Arrumada a base de CRAS de 2022 com inserção do código IBGE de Fernando de Noronha. Também foi atualizada a estimativa populacional para 2021. Dados do Censo de 2022 não foram encontrados em formato facilmente utilizável.-->
 ```
+
 ```{=html}
 <!-- Sobre o número de famílias referenciadas a PNAS^[PNAS/2004 - Política Nacional de Assistência Social] deternima de acordo com portes populacionais dos municípios, são eles: PPI: 2.500 famílias referenciadas por CRAS, PPII: 3.500 famílias referenciadas, Médio/Grande/Metrópole: 5000 famílias referencia por CRAS.
 CRAS -->
 ```
+
 ```{r fig-CRAS-porte, fig.cap = "Percentual de municípios por número de CRAS no município, segundo porte populacional estimado do município - Brasil, 2023", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios"}
 
 cras_municipios <- cras_2023 %>%
@@ -1145,7 +1147,7 @@ grafico <- acolh_nat(unac_2012, q4, "2012") %>%
       bind_rows(acolh_nat(unac_2015, q5, "2015")) %>%
       bind_rows(acolh_nat(unac_2016, q4, "2016")) %>%
       bind_rows(acolh_nat(unac_2017, q3, "2017")) %>%
-      bind_rows(acolh_nat(unac_2018, q_3, "2018")) %>%
+#      bind_rows(acolh_nat(unac_2018, q_3, "2018")) %>%
       bind_rows(acolh_nat(unac_2019, q3, "2019")) %>%
       bind_rows(acolh_nat(unac_2020, q3, "2020")) %>%
       bind_rows(acolh_nat(unac_2021, q3, "2021")) %>%
