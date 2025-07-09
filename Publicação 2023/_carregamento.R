@@ -616,7 +616,7 @@ municipios_2022 <- c(450, 1794, 1668, 1191, 467, 5570)
 # População dos municípios estimada pelo IBGE
 pop_municipios_2016 <- read_excel("../Estimativa População IBGE/estimativa_dou_2016_20160913.xlsx", sheet = "Municípios (limpo)")
 pop_municipios_2017 <- read_excel("../Estimativa População IBGE/estimativa_dou_2017.xls", sheet = "Municípios (limpo)")
-pop_municipios_2021 <- read_ods("../Estimativa População IBGE/POP2021_20230710.ods")
+pop_municipios_2021 <- read_ods("../Estimativa População IBGE/estimativa_dou_2021.ods", sheet = "Municípios (limpo)")
 
 
 # Ajuste base 2023
