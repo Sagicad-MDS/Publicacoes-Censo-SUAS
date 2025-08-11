@@ -1,6 +1,10 @@
 # Metodologia
 
-Os caminhos metodológicos para a publicação do Censo SUAS trazem a construção coletiva dos entes federados. O Censo SUAS se consolida em três grandes processos :
+<!-- O Censo SUAS foi instituído legalmente pelo [Decreto nº 7.334, de 19 de outubro de 2010](https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2010/decreto/d7334.htm) com a finalidade de coletar informações sobre os serviços, programas e projetos de assistência social realizados no âmbito das unidades públicas, entidades e organizações de assistência social, bem como sobre a atuação dos Conselhos de Assistência Social.  -->
+
+O Censo SUAS é realizado anualmente desde 2007, por meio de uma ação integrada entre a Secretaria Nacional de Assistência Social (SNAS) e a Secretaria de Avaliação, Gestão da Informação e Cadastro Único (SAGICAD), em regime de colaboração entre a União, os Estados, o Distrito Federal e os Municípios, mediante coleta descentralizada de dados, operacionalizada por meio de sistema eletrônico de informações.
+
+Podemos dividir a realização do Censo SUAS em três etapas principais:
 
 a)  Ciclo da preparação,
 b)  Preenchimento dos formulários, e
@@ -8,53 +12,384 @@ c)  Tabulação dos dados e análise.
 
 ## Ciclo da preparação
 
-A preparação se caracteriza como um momento em que as questões são revisadas. Parte de um processo coordenado pela Secretaria de Avaliação, Gestão da Informação e Cadastro Único (SAGICAD) e Secretaria Nacional de Assistência Social (SNAS). Cada alteração tem como objetivo aprimorar e adequar as questões a partir das demandas da conjuntura.
+Nessa etapa as questões dos formulários do Censo são revisadas com o objetivo de aprimorar as questões, adequá-las às mudanças de conjuntura e atender a novas demandas.
 
-O primeiro formulário do Censo SUAS foi criado em 2007 como uma ficha de registro de caracterização básica dos CRAS, o levantamento passou a ser denominado de Censo CRAS. O SUAS foi expandindo as suas entregas, tipificando novos serviços e consequentemente a necessidade de conhecer melhor a execução do SUAS. Atualmente são 14 formulários com aproximadamente 6 mil variáveis. A @tbl-formularios mostra esse percurso histórico da inclusão dos formulários temáticos.
+O primeiro formulário do Censo SUAS foi criado em 2007 como uma ficha de registro de caracterização básica dos CRAS, e foi denominado Censo CRAS. O SUAS foi expandindo as suas entregas e tipificando novos serviços, sendo necessário ampliar o Censo e criar novos formulários para obtenção de dados sobre essas novas entregas e serviços. Atualmente o Censo SUAS é composto por 14 formulários contendo aproximadamente 6 mil variáveis! A @tbl-formularios mostra esse percurso histórico da inclusão dos formulários temáticos.
 
-![Histórico de inclusão dos formulários temáticos](Imagem_his_censosuas.jpeg){#tbl-formularios width="6.5in"}
+::: {#tbl-formularios}
+```{=html}
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-imi1{background-color:#aaaaaa;border-color:#000000;text-align:left;vertical-align:top}
+.tg .tg-wp8o{border-color:#000000;text-align:center;vertical-align:top}
+.tg .tg-nlcr{background-color:#aaaaaa;border-color:#000000;text-align:center;vertical-align:top}
+.tg .tg-73oq{border-color:#000000;text-align:left;vertical-align:top}
+</style>
+<table class="tg"><thead>
+  <tr>
+    <th class="tg-nlcr"><span style="font-weight:bold;font-style:italic">FORMULÁRIOS</span></th>
+    <th class="tg-wp8o"><span style="font-style:italic">2007</span>-2008</th>
+    <th class="tg-wp8o"><span style="font-style:italic">2009</span></th>
+    <th class="tg-wp8o"><span style="font-style:italic">2010</span></th>
+    <th class="tg-wp8o"><span style="font-style:italic">2011</span></th>
+    <th class="tg-wp8o"><span style="font-style:italic">2012</span>-2013</th>
+    <th class="tg-wp8o"><span style="font-style:italic">2014</span></th>
+    <th class="tg-wp8o"><span style="font-style:italic">2015-2016</span></th>
+    <th class="tg-wp8o"><span style="font-style:italic">2017</span></th>
+    <th class="tg-wp8o"><span style="font-style:italic">2018</span>-2019</th>
+    <th class="tg-wp8o"><span style="font-style:italic">2020</span>-2023</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td class="tg-wp8o">CRAS</td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+  </tr>
+  <tr>
+    <td class="tg-wp8o">CREAS</td>
+    <td class="tg-73oq"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+  </tr>
+  <tr>
+    <td class="tg-wp8o">Gestão Estadual/Municipal</td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+  </tr>
+  <tr>
+    <td class="tg-wp8o">Conselho Estadual/Municipal</td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+  </tr>
+  <tr>
+    <td class="tg-wp8o">Rede Privada</td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+  </tr>
+  <tr>
+    <td class="tg-wp8o">Centro POP</td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+  </tr>
+  <tr>
+    <td class="tg-wp8o">Acolhimento</td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+  </tr>
+  <tr>
+    <td class="tg-wp8o">Centro de Convivência</td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+  </tr>
+  <tr>
+    <td class="tg-wp8o">Centro Dia e Similares</td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+  </tr>
+  <tr>
+    <td class="tg-wp8o">Família Acolhedora</td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+  </tr>
+  <tr>
+    <td class="tg-wp8o">Fundo de Assistência Social Estadual/Municipal</td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-imi1"></td>
+    <td class="tg-imi1"></td>
+  </tr>
+  <tr>
+    <td class="tg-wp8o">Postos do Cadastro Único</td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-73oq"></td>
+    <td class="tg-imi1"></td>
+  </tr>
+</tbody></table>
+```
 
-Ao longo desses dezesseis anos, o Censo SUAS tem como principal finalidade retratar as estruturas de gestão e de oferta de serviços do SUAS, produzindo informações que subsidiem o planejamento da política, o aperfeiçoamento do sistema, a formação dos trabalhadores e a prestação de contas à sociedade. Assim, é possível, a partir de seus resultados, monitorar e gerar ações e medidas que objetivam a resolução de dificuldades e o aprimoramento da gestão. Cabe destacar que o Censo SUAS foi uma das iniciativas premiadas[^metodologia-1] na publicação de registro das dez ações premiadas no 16º Concurso Inovação na Gestão Pública Federal, há um breve relato histórico do Censo SUAS.
+Histórico de inclusão dos formulários temáticos
+:::
 
-[^metodologia-1]: Em ENAP (2011)
+<!-- Ao longo desses 17 anos o Censo SUAS tem como principal finalidade retratar as estruturas de gestão e de oferta de serviços do SUAS, produzindo informações que subsidiem o planejamento da política, o aperfeiçoamento do sistema, a formação dos trabalhadores e a prestação de contas à sociedade. Assim, é possível, a partir de seus resultados, monitorar e gerar ações e medidas que objetivam a resolução de dificuldades e o aprimoramento da gestão. Cabe destacar que o Censo SUAS foi uma das iniciativas premiadas[^metodologia-1] na publicação de registro das dez ações premiadas no 16º Concurso Inovação na Gestão Pública Federal, há um breve relato histórico do Censo SUAS. -->
 
-Sobre o conteúdo dos formulários destacados na ilustração histórica, destaca-se os seguintes a partir da última publicação:
+<!-- [^metodologia-1]: Em ENAP (2011) -->
 
--   **Questionário Gestão Municipal:** 8 Blocos: Identificação do Órgão Gestor; Estrutura Administrativa, Gestão do SUAS; Serviços; Programas e outras Ações Socioassistenciais; Benefícios Socioassistenciais, CadÚnico e Transferência de Renda; Atuação durante a pandemia de Covid-19 e Gestão do Trabalho.
+<!-- Listamos abaixo os blocos de conteúdo de cada formulário do Censo SUAS 2023, destacando as mudanças em relação aos formulários do Censo SUAS 2022: -->
+Listamos abaixo os blocos de conteúdo de cada formulário do Censo SUAS 2023:
 
--   **Questionário Gestão Estadual :** 7 Blocos: Identificação do Órgão Gestor; Estrutura Administrativa e Gestão do SUAS; Serviços e Benefícios; Regionalização dos Serviços de Média e Alta Complexidade; Plano de Providência e Apoio Técnico; Comissão Intergestores Bipartite (CIB); Funcionamento durante a pandemia de Covid 19 e Gestão do Trabalho.
+1. **Questionário Gestão Municipal** 
+   i) Identificação do Órgão Gestor
+      <!-- * Removido o número de Fax -->
+   i) Estrutura Administrativa
+      <!-- * Incluída pergunta sobre caracterização do órgão gestor de assistência social de acordo com a estrutura administrativa do município, com as opções: -->
+      <!--   - Secretaria municipal exclusiva da área de Assistência Social -->
+      <!--   - Secretaria municipal em conjunto com outras políticas setoriais -->
+      <!--   - Fundação Pública -->
+      <!--   - Setor/Coordenadoria/Assessoria subordinado diretamente ao Gabinete da(o) Prefeita(o) -->
+      <!-- * Para o caso de "Secretaria municipal em conjunto com outras políticas setoriais", incluída pergunta para listar a quais secretarias a assistência social está associada, com as opções: -->
+      <!--   - Educação -->
+      <!--   - Planejamento -->
+      <!--   - Saúde -->
+      <!--   - Habitação -->
+      <!--   - Segurança Alimentar -->
+      <!--   - Trabalho e/ou Emprego -->
+      <!--   - Direitos Humanos -->
+      <!--   - Outra. Qual? -->
+      <!-- * Na pergunta sobre constituição de áreas como subdivisões administrativas (departamentos, gerências, coordenações, etc.) na estrutura do órgão gestor, foram removidas as áreas de Ações Estratégicas do Programa de Erradicação do Trabalho Infantil e do Programa Criança Feliz -->
+      <!-- * Foi removida pergunta sobre existência de desmembramento entre Alta e Média Complexidade no caso de haver subdivisão administrativa de Proteção Social Especial -->
+   i) Gestão do SUAS
+      <!-- * Removidas as perguntas sobre existência e ações do Plano Municipal de Promoção, Proteção e Defesa do Direito à Convivência Familiar e Comunitária de Crianças e adolescentes (PMCFC) -->
+      <!-- * Removida a pergunta sobre inclusão do município no Plano de Apoio Técnico e/ou Plano de Providências do estado -->
+      <!-- * Na pergunta sobre formas de apoio técnico que o município recebeu do estado nos últimos 12 meses, removida a opção sobre se "acessou sítios eletrônicos e aplicativos do estado" e também a opção para especificar outras formas diferentes das listadas -->
+      <!-- * Incluída pergunta sobre existência no município de Plano Municipal de Assistência Social (PMAS) vigente (2021-2024) aprovado pelo CMAS -->
+      <!-- * Incluída pergunta sobre existência no município de ouvidoria ou canal de recebimento de denúncias -->
+      <!-- * Incluída pergunta sobre existência e vinculação administrativa dos Conselhos de Direitos do município -->
+      <!-- * Removida pergunta sobre quantidade de reuniões da CIB (Comissão Intergestores Bipartite) no ano anterior em que houve participação de algum representante do município -->
+      <!-- * Na pergunta sobre existência no órgão gestor de levantamento ou pesquisa nos últimos doze meses que aponte o número de pessoas em situação de rua no município, acresentada explicação de que deve ser considerada apenas realização de pesquisa (censo) da população em situação de rua, e não a existência de registros administrativos, como dados do Cadastro Único ou das equipes de abordagem -->
+      <!-- * Removidas as perguntas sobre existência no município de definição de fluxos de Notificação Compulsória das situações de violência e violação de direitos atendidos e sobre como o município registra os casos de violação de direitos atendidos -->
+      <!-- * Incluídas perguntas sobre utilização pelo órgão gestor de sistema de informação próprio para gerenciar a política de Assistência Social e sobre as funcionalidades permitidas pelo(s) sistema(s) utilizado(s) -->
+      <!-- * Incluidas perguntas sobre se o município faz parte de consórcio público com outros municípios na área de assistência social e sobre as principais atividades envolvidas nessa atuação em consórcio -->
+      <!-- * Incluída pergunta sobre se a Assistência Social identificou a existência de locais de exploração sexual de crianças e adolescentes no município -->
+      <!-- * Incluídas perguntas sobre se a Assistência Social identificou a existência de locais ou atividades com ocorrência de Trabalho Infantil no município e sobre quais foram esses locais ou atividades identificados -->
+      <!-- * Incluídas perguntas sobre existência de Conselho Tutelar no município, sobre sua vinculação administrativa ao Órgão Gestor da Assistência Social e sobre a quantidade de Conselheiros Tutelares existentes no município -->
+      <!-- * Incluída pergunta sobre se a Assistência Social do município tem articulação com o Órgão Municipal de Defesa Civil -->
+      <!-- * Incluídas perguntas sobre se o município possui programa PRÓPRIO de transferência de renda (transferência de recursos municipais de forma constante a um público específico) e sobre se este Programa está sob gestão do órgão gestor da assistência social -->
+      <!-- * Incluídas perguntas sobre se o órgão gestor possui diagnóstico socioterritorial do município e sobre qual o ano de elaboração (ou atualização) desse diagnóstico -->
+      <!-- * Incluídas perguntas sobre se a Assistência Social desenvolve ações, programas ou projetos voltados à organização de Cooperativas ou de Empreendimentos de Economia Solidária e sobre o tipo/natureza/objeto da(s) Cooperativa(s) ou Empreendimento(s) Solidário(s) -->
+      <!-- * Incluída pergunta sobre se a Assistência Social desenvolve ações, programas ou projetos de formação, qualificação ou capacitação profissional para os usuários -->
+      <!-- * Incluída pergunta sobre se o município realiza acompanhamento contínuo da execução do Plano Municipal de assistência social -->
+      <!-- * Incluída pergunta sobre se o planejamento de utilização dos recursos do IGD-SUAS foi aprovado pelo CMAS -->
+      <!-- * Incluida pergunta sobre quais foram as principais ações realizadas no ano anterior com recursos do Índice de Gestão Descentralizada – IGDSUAS -->
+   i) Serviços
+      <!-- * Removida pergunta sobre número de pessoas que foram atendidas pelo Serviço de Proteção Social Básica no Domicílio para Pessoas com deficiência e pessoas idosas no município -->
+      <!-- * Na pergunta sobre como o município atende adolescentes em cumprimento de Medida Socioeducativa de LA e PSC, removidas as perguntas sobre número de unidades que executam atendimento nos casos em que existe atendimento em: -->
+      <!--   - Entidades no município -->
+      <!--   - Outra unidade pública da Assistência Social (exceto CREAS) de acompanhamento de adolescentes em cumprimento de Medida Socioeducativa (LA ou PSC) do município -->
+      <!--   - Unidades de outras políticas públicas do município (saúde, educação, direitos humanos etc.) -->
+      <!-- * Removida a pergunta para indicação de quais são as principais atividades realizadas pelos adolescentes na PSC -->
+      <!-- * Na pergunta sobre se o município oferta Serviço Especializado em Abordagem Social, foi adicionada explicação de que se trata de serviço para pessoas em situação de rua -->
+      <!-- * Na pergunta sobre em quais unidades o Serviço Especializado em Abordagem Social é ofertado, foram removidas as perguntas sobre número de unidades que ofertam o serviço nos casos em que o serviço é ofertado em: -->
+      <!--   - Outra unidade pública diferente de CREAS, Centro POP ou sede/órgão gestor do município -->
+      <!--   - Entidade ou Organização da Sociedade Civil -->
+   i) Programas e outras Ações Socioassistenciais
+   i) Benefícios Socioassistenciais, CadÚnico e Transferência de Renda
+   i) Gestão do Trabalho
+   i) Responsável pelo Preenchimento
+1. **Questionário Gestão Estadual**
+   i) Identificação do Órgão Gestor
+   i) Estrutura Administrativa e Gestão do SUAS
+   i) Serviços e Benefícios
+   i) Regionalização dos Serviços de Média e Alta Complexidade
+   i) Plano de Providência e Apoio Técnico
+   i) Comissão Intergestores Bipartite (CIB)
+   i) Gestão do Trabalho
+   i) Responsável pelo Preenchimento
+1. **Questionário Fundo Municipal**
+   i) Identificação do Fundo de Assistência Social
+   i) Gestão Orçamentária
+   i) Gestão de Recursos
+   i) Recursos Humanos
+   i) Responsável pelo Preenchimento
+1. **Questionário Fundo Estadual**
+   i) Identificação do Fundo de Assistência Social
+   i) Gestão Orçamentária
+   i) Cofinanciamento Estadual
+   i) Índice de Gestão Descentralizada do Programa Bolsa Família IGD-PBF
+   i) Gestão de Recursos
+   i) Recursos Humanos
+   i) Responsável pelo Preenchimento
+1. **Questionário Centro de Referência de Assistência Social (CRAS)**
+   i) Identificação do CRAS
+   i) Estrutura Física do CRAS
+   i) Serviço de Proteção e Atendimento Integral à Família (PAIF)
+   i) Serviço de Convivência e Fortalecimento de Vínculos (SCFV)
+   i) Serviços de PSB no Domicílio para Pessoas com Deficiência e Idosas
+   i) Equipe Volante
+   i) Benefícios Socioassistenciais
+   i) Cadastro Único
+   i) Programa Bolsa Família
+   i) Gestão e Território
+   i) Gestão de Pessoas
+1. **Questionário Centro de Convivência**
+   i) Identificação da Unidade
+   i) Caracterização da Unidade
+   i) Serviços e Atividades
+   i) Gestão
+   i) Gestão do Trabalho
+   i) Responsável pelo Preenchimento
+1. **Questionário Centro de Referência Especializado em Assistência Social (CREAS)**
+   i) Identificação do CREAS
+   i) Estrutura Física do CREAS
+   i) Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos (PAEFI)
+   i) Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC)
+   i) Serviço Especializado em Abordagem Social
+   i) Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosas e suas Famílias
+   i) Benefícios e Cadastro Único
+   i) Gestão e Território
+   i) Articulação
+   i) Gestão de Pessoas
+1. **Questionário Centro de Referência Especializado para Pessoas em Situação de Rua (Centro POP)**
+   i) Identificação
+   i) Estrutura Física
+   i) Serviço Especializado para Pessoas em Situação de Rua
+   i) Serviço Especializado em Abordagem Social
+   i) Benefícios, Cadastro Único e Participação de Usuárias/os
+   i) Articulação
+   i) Gestão de Pessoas
+1. **Questionário Centro Dia e similares**
+   i) Identificação da Unidade
+   i) Caracterização da Unidade
+   i) Estrutura Física
+   i) Serviços e Atividades
+   i) Perfil das/os Usuárias/os
+   i) Gestão de Pessoas
+   i) Responsável pelo Preenchimento
+1. **Questionário Unidades de Acolhimento**
+   i) Identificação da Unidade de Acolhimento
+   i) Caracterização da Unidade
+   i) Características das/os Usuárias/os
+   i) Serviço de Acolhimento
+   i) Estrutura Física e Área de Localização da Unidade
+   i) Gestão de Pessoas
+1. **Questionário Unidades Executoras do Serviço de Acolhimento em Família Acolhedora**
+   i) Identificação da Unidade
+   i) Caracterização da Unidade
+   i) Características das/os Acolhidas/os
+   i) Serviço de Acolhimento
+   i) Famílias Acolhedoras
+   i) Estrutura Física do Serviço
+   i) Gestão de Pessoas
+1. **Questionário Posto de Cadastro Único**
+   i) Identificação do Posto do Cadastro Único
+   i) Estrutura Física
+   i) Cadastro Único
+   i) Programa Bolsa Família
+   i) Outras Atividades
+   i) Gestão de Pessoas
+1. **Questionário Conselhos Municipais de Assistência Social (CMAS) e Conselho de Assistência Social do Distrito Federal (CAS/DF)**
+   i) Identificação do Conselho
+   i) Regulação
+   i) Infraestrutura do Conselho
+   i) Secretaria Executiva
+   i) Dinâmica de Funcionamento
+   i) Rede Socioassistencial
+   i) Composição do Conselho
+   i) Conselheiras/os
+   i) Responsável pelo Preenchimento
+1. **Questionário Conselhos Estaduais de Assistência Social (CEAS)**
+   i) Identificação do Conselho
+   i) Regulação
+   i) Infraestrutura do Conselho
+   i) Secretaria Executiva
+   i) Dinâmica de Funcionamento
+   i) Rede Socioassistencial
+   i) Composição do Conselho
+   i) Conselheiras/os
+   i) Responsável pelo Preenchimento
 
--   **Questionário Fundo Municipal:** 5 Blocos: Identificação do Fundo de Assistência Social; Gestão de Recursos; Recursos Humanos e Responsável pelo preenchimento.
-
--   **Questionário Fundo Estadual:** 6 Blocos: Identificação do fundo Estadual de Assistência Social; Cofinanciamento Estadual; Índice de Gestão Descentralizada do Programa Auxílio Brasil; Gestão de Recursos; Recursos Humanos e Responsável pelo preenchimento.
-
--   **Questionário Centro de Referência de Assistência Social (CRAS):** 13 Blocos: Identificação do CRAS; Estrutura Física; Serviço de Proteção e Atendimento Integral a Família (PAIF); Serviço de Convivência e Fortalecimento de Vínculos (SCFV); Serviços de PSB no Domicílio para pessoas com Deficiência e idosas; Equipe Volante; Benefícios socioassistenciais; Cadastro Único; Programa Auxílio Brasil; Funcionamento do CRAS durante a pandemia de Covid 19; Programa Criança Feliz; Gestão e Território e Gestão de Pessoas.
-
--   **Questionário Centro de Convivência:** 7 Blocos: Identificação; Caracterização da Unidade; Serviços e Atividades; Gestão; Gestão do trabalho; Recursos Humanos e Responsável pelo preenchimento.
-
--   **Questionário Centro de Referência Especializado de Assistência Social (CREAS):** 10 Blocos: Identificação; Estrutura Física; Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos (PAEFI); Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC); Serviço Especializado em Abordagem Social; Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosas e suas Famílias; Benefícios e Cadastro Único; Gestão e território; Funcionamento durante a pandemia de Covid-19; Articulação e Gestão de Pessoas, Recursos Humanos e Responsável pelo preenchimento..
-
--   **Questionário Centro de Referência Especializado para População em Situação de Rua (Centro POP):** 7 Blocos: Identificação; Estrutura Física; Funcionamento durante a pandemia de COVID-19; Serviço Especializado para Pessoas em Situação de Rua; Serviço Especializado em Abordagem Social; Benefícios, Cadastro Único Gestão e Participação de Usuárias/os; Articulação e Gestão de Pessoas.
-
--   **Questionário do Centro-Dia e similares:** 7 Blocos: Identificação, Caracterização da Unidade, Serviços e atividades; Estrutura Física; Perfil dos usuários; Funcionamento durante a pandemia de Covid 19; Articulação; Serviços e Atividades e Gestão de Pessoas, ecursos Humanos e Responsável pelo preenchimento.
-
--   **Questionário Unidades de Acolhimento:** 6 Blocos: Identificação; Caracterização da Unidade; Características das/os usuárias/os; Serviço de Acolhimento; Estrutura Física e Área de Localização da Unidade; Funcionamento deste acolhimento durante a pandemia de Covid 19 e Recursos Humanos.
-
--   **Questionário Família Acolhedora:** 4 Blocos: Identificação, Característica das/os Acolhidas/os; Serviços de Acolhimento; Funcionamento durante a pandemia de Covid 19; Articulação; Gestão de Famílias Acolhedoras e Gestão de Pessoas e Responsável pelo preenchimento.
-
--   **Questionário Postos de Cadastro Único:** 7 Blocos: Identificação, Estrutura Física; Cadastro Único; Programa Bolsa Família; Outras Atividades; Funcionamento dos postos e Gestão de Pessoas.
-
--   **Questionário Conselhos Municipais de Assistência Social (CMAS) e Conselho de Assistência Social do Distrito Federal (CAS/DF):** 10 Blocos: Identificação; Regulação; Infraestrutura do Conselho; Secretaria Executiva; Orçamento dos Conselhos; Dinâmica de Funcionamento; Rede Socioassistencial; Composição do Conselho; Conselheiras/os e Responsável pelo Preenchimento.
-
--   **Questionário Conselhos Estaduais de Assistência Social (CEAS):** 9 Blocos: Identificação; Regulação; Infraestrutura do Conselho; Secretaria Executiva; Orçamento dos Conselhos; Dinâmica de Funcionamento; Rede Socioassistencial; Composição do Conselho; Conselheiras/os e Responsável pelo Preenchimento.
-
-Após essa fase, os formulários são tabulados e geração de códigos. É importante destacar que os códigos das variáveis mudam conforme alteração das perguntas (inclusão e exclusão). Este processo é um desafio para o acompanhamento das respostas ao longo dos anos, haja vista a inexistência de um código para a mesma variável.
+<!-- Após essa fase, os formulários são tabulados e geração de códigos. É importante destacar que os códigos das variáveis mudam conforme alteração das perguntas (inclusão e exclusão). Este processo é um desafio para o acompanhamento das respostas ao longo dos anos, haja vista a inexistência de um código para a mesma variável. -->
 
 ## Preenchimento dos formulários
 
-A coleta de dados envolve vários agentes públicos municipais e estaduais das gestões e controle social do SUAS. De acordo com a Norma Operacional Básica do Sisma Único de Assistência Social / 2012 (NOBSUAS/2012) o processo de realização do Censo SUAS deve ser coordenado pela vigilância socioassistencial deve apoiar no preenchimento zelando pela qualidade das informações coletadas.
+A coleta de dados envolve vários agentes públicos municipais e estaduais das gestões e do controle social do SUAS. De acordo com a Norma Operacional Básica do Sistema Único de Assistência Social (NOB/SUAS 2012), a coordenação do processo de realização anual do Censo SUAS é de responsabilidades da área de  Vigilância Socioassistencial da União, dos Estados, do Distrito Federal e dos Municípios, que devem zelar pela qualidade das informações coletadas.
 
-O Censo SUAS 2022, seguindo a tradição anual, por meio de questionários eletrônicos disponíveis no portal da SAGICAD. O preenchimento em meio eletrônico é realizado apenas pelos órgãos gestores (estaduais e municipais) e conselhos de assistência social (estaduais e municipais). Destaca-se que, para preenchimento dos questionários, o usuário deve estar devidamente cadastrado na Rede SUAS e possuir uma senha de acesso. Os questionários, depois de preenchidos, devem ser salvos pelo respondente. O período de coleta foi entre outubro e dezembro de 2022, conforme cronograma da @tbl-cronograma.
+Os questionários são disponibilizados por meio de formulários eletrônico no portal SAGICAD. O preenchimento é realizado pelos órgãos gestores (estaduais e municipais) e conselhos de assistência social (estaduais e municipais), por meio de usuários cadastrados na Rede SUAS. O prazo inicial para o preenchimento dos formulários foram os indicados na @tbl-cronograma.
 
 ::: {#tbl-cronograma}
 ```{=html}
@@ -83,14 +418,14 @@ th {
   <tbody>
     <tr>
       <td>CRAS</td>
-      <td rowspan="11">06/Out/2022</td>
-      <td rowspan="11">02/dez/2022</td>
+      <td rowspan="11" style="vertical-align: middle;">23/out/2023</td>
+      <td rowspan="11" style="vertical-align: middle;">05/dez/2023</td>
     </tr>
     <tr>
       <td>Centros de Convivência</td>
     </tr>
     <tr>
-      <td>CREAS (municipal e estadual)</td>
+      <td>CREAS (municipal e regional)</td>
     </tr>
     <tr>
       <td>Centro POP</td>
@@ -108,53 +443,58 @@ th {
       <td>Posto de Cadastramento</td>
     </tr>
     <tr>
-      <td>Fundos de Assistência social (municipal e estadual)</td>
+      <td>Fundos de Assistência (municipal e estadual)</td>
     </tr>
     <tr>
       <td>Gestão (municipal e estadual)</td>
     </tr>
     <tr>
-      <td>Conselhos (municipal e estadual)</td>
+      <td>Conselho (municipal e estadual)</td>
     </tr>
   </tbody>
   <tbody>
     <tr>
-      <td>Período de Retificação</td>
-      <td>05/Dez/2022</td>
-      <td>16/Dez/2022</td>
+      <td>Período de Retificação - todos os questionários abertos</td>
+      <td>05/dez/2023</td>
+      <td>08/dez/2023</td>
     </tr>
   </tbody>
 </table>
 </body>
 </html>
 ```
-Cronograma de preenchimento do Censo SUAS 2022 por questionário.
+
+Cronograma de preenchimento do Censo SUAS 2023 por questionário.
 :::
+
+Posteriormente o prazo foi prorrogado, primeiro até o dia 19/dez/2023, e depois até o dia 29/dez/2023.
 
 ## Tabulação dos dados e análise
 
-Aproximadamente 45 mil questionários foram coletadas. Os bancos de dados resultantes da coleta foram então submetidos a procedimentos de análise da integridade e consistência, bem como de limpeza de dados e de organização da estrutura final e da documentação das bases. Para cada base resultante de um tipo de questionário, foram realizados procedimentos de limpeza e organização específicos. Inicialmente, pretendeu-se manter o maior número possível de respondentes válidos. Para isso, foram considerados como válidos:
+Os dados coletados foram analisados quanto à integridade e consistência, e submetidos a processos de limpeza de dados e de organização da estrutura final. As bases de dados produzidas foram documentadas e disponibilizadas no [sítio do MDS](https://aplicacoes.mds.gov.br/sagi/snas/vigilancia/index2.php).
 
--   Questionários totalmente preenchidos e devidamente salvos pelos respondentes;
+Na análise dos resultados do Censo SUAS 2023 compreende-se o SUAS como política social por meio dos componentes sistêmicos da Polícica Nacional de Assistência Social (PNAS), conforme seu estágio de institucionalização, considerando o II Plano Decenal. Dessa forma, esta publicação foi organizada nos seguintes eixos de análise:
 
--   Questionários preenchidos em sua totalidade, mas não devidamente salvos por razões de sistema; e
+-   **Gestão e Financiamento do SUAS:** panorama geral da gestão e do financiamento em estados e municípios, observando aspectos como a estrutura administrativa da gestão da assistência social, a atualização de normativos, o apoio de estados aos municípios, as atividades de cofinanciamento e transferência de recursos, funcionamento das instâncias de pactuação, entre outras.
 
--   Questionários preenchidos até 90% de sua totalidade com pelo menos um trabalhador registrado no bloco de Recursos Humanos do questionário.
+-   **Unidades do SUAS:** apresenta informações a respeito das unidades da Assistência Social e sua evolução ao longo do tempo, sua estrutura e condições na perspectiva de acessibilidade e equipamentos disponíveis.
 
-<!-- Nas bases de dados de Recursos Humanos foram descartados, ainda, casos de questionários duplicados ou duplicação do registro dos trabalhadores. Além disso, foi realizada uma verificação de consistência que identificou divergência de informações ligadas à escolaridade e à profissão do trabalhador, prevalecendo escolaridade^[Por exemplo: Profissionais que assinalaram possuir ensino superior completo, mas foram identificados como profissional de nível médio ou sem formação profissional, prevaleceu a escolaridade e o campo profissão permaneceu em branco. Da mesma maneira, um trabalhador que assinalou possuir escolaridade mais baixa à formação, prevaleceu a escolaridade, de tal forma que a profissão permaneceu em branco.]. -->
+-   **Serviços e Benefícios ofertados pelo SUAS:** A integração dos Serviços do SUAS no âmbito das proteções sociais, considerando a relação com o Cadastro Único, com os benefícios do SUAS e com os programas. Também é abordada a regionalização da Proteção Social Especial.
 
-A análise dos resultados do Censo SUAS 2022 compreende o SUAS como política social por meio dos componentes sistêmicos da PNAS, conforme seu estágio de institucionalização. Para essa versão consideramos o II Plano Descenal. A exposição da análise do Censo SUAS será realizada de acordo com seis eixos de análise, a saber[^metodologia-2]:
-
-[^metodologia-2]: A forma de organização processual destas informações foram através do "R Markdown". Tal metodologia foi inovadora para o ano de 2022 que antes era realizado a partir de planilhas e gráficos gerados pelo Excel. Tal percurso representa maior confiabilidade nas informações, amplia as possibilidades de produção de gráficos, ganho no tempo para próximas publicações entre outras.
-
--   **Gestão e Financiamento do SUAS:** panorama geral da gestão e do financiamento em estados e municípios, com a observação de aspectos como a estrutura administrativa da gestão da assistência social, a atualização de normativos, o apoio de estados aos municípios, as atividades de cofinanciamento e transferência de recursos, funcionamento das instâncias de pactuação, entre outras.
-
--   **Unidades do SUAS:** presenta informações a respeito das undiades da Assistência Social e sua evolução ao longo do tempo, sua estrutura e condições na perspectiva de acessibilidade e equipamentos disponíveis.
-
--   **Serviços e Benefícios ofertados pelo SUAS:** A integração dos Serviços do SUAS no âmbito das proteções sociais, relação com o Cadastro Único, Benefícios do SUAS, bem como Programas. Também aborda-se sobre a Regionalização da proteção social Especial.
-
--   **Gestão do Trabalho e Recursos Humanos no SUAS:** apresenta um panorama geral da situação das trabalhadoras e trabalhadores do SUAS tanto nos equipamentos da assistência social quanto nas gestões municipais e estaduais, apresentando informações sobre quantitativo, tipo de vínculo trabalhista, escolaridade, entre outros aspectos referentes à gestão do trabalho, e sua evolução ao longo dos anos.
+-   **Gestão do Trabalho e Recursos Humanos no SUAS:** apresenta um panorama geral da situação das trabalhadoras e trabalhadores do SUAS tanto nos equipamentos da assistência social quanto nas gestões municipais e estaduais, apresentando informações sobre quantitativo, tipo de vínculo trabalhista, escolaridade e outros aspectos referentes à gestão do trabalho e sua evolução ao longo dos anos.
 
 -   **Participação e Controle Social no SUAS:** apresenta os resultados apurados pelo Censo SUAS para os Conselhos Municipais e Estaduais de Assistência Social, considerando a estrutura administrativa, a dinâmica de funcionamento e a composição.
 
-Espera-se que, a partir de uma avaliação direcionada à análise integrada do SUAS com base nos dados dos órgãos de gestão das unidades de atendimento públicas e privadas e das instâncias administrativas e deliberativas, seja possível retratar o seu funcionamento e evolução como política social. Ampliando, assim, a compreensão acerca da rede de assistência social por parte dos gestores, trabalhadores e sociedade civil, permitindo uma apreensão crítica de seu funcionamento.
+### Produção da publicação
+
+A partir da retomada em 2022 desta série anual de publicações sobre o Censo SUAS (após uma pausa a partir de 2018) a publicação passou a ser produzida em "R Markdown" (posteriormente evoluindo para a ferramenta ["Quarto"](quarto.org)). Esta inovação teve como objetivo garantir maior consistência dos dados e gráficos produzidos ao longo dos anos, pelo registro exato, na linguagem R, do processo utilizado na geração de cadda dado e cada gráfico. Teve como objetivo também facilitar a produção da publicação pela integração do código para geração dos dados e gráficos com os textos, facilitando também a correção de erros e a atualização da publicação.
+
+A publicação é escrita em arquivos no formato de documento do Quarto (.qmd), que contém texto no formato Markdown mesclado com pedaços de código em R para geração dos dados e gráficos. Cada capítulo da publicação está em um arquivo ".qmd", e esses arquivos são partes de um projeto que gera a publicação completa, pronta, como você está visualizando. 
+
+Além disso, a publicação do Censo SUAS 2022 foi lançado em uma versão eletrônica publicada online, além da versão impressa tradicional até então. Já esta versão do Censo SUAS 2023 está sendo publicada apenas na versão eletrônica online. Estas publicações eletrônicas no formato HTML são mais adequadas para leitura em telas, pois se ajustam ao tamanho e formato da tela utilizada.
+
+O formato eletrônico utilizado possibilita também a integração de outras funcionalidades, como o acesso ao código fonte utilizado para geração da publicação, que está disponibilizado em um repositório de acesso público na plataforma GitHub. O ícone do GitHub junto ao título da publicação dá acesso à pasta do repositório que contém todo o código desta publicação. Também é possível acessar diretamente o arquivo específico com o código da página sendo visualizada, pelo "link" embaixo do índice da página (à direita) que diz "Ver o código fonte".
+
+Quem tem conhecimento da linguagem R pode verificar os códigos utilizados para geração da publicação e utilizá-los para gerar novos gráficos atendendo a necessidades específicas. Também foi adicionado à publicação um "link", logo abaixo de "Ver o código fonte", chamado "Criar uma issue", através do qual é possível colaborar com a publicação apontando algum problema no código R, no texto, ou fazer sugestões de melhorias ou acréscimos.
+
+A ferramenta utilizada, "RMarkdown/Quarto", foi escolhida também por ser de Software Livre, facilitando essa troca colaborativa por não demandar a compra de ferramentas de código proprietário específicas.
