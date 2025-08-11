@@ -11,12 +11,14 @@ book:
 #    - Secretaria Nacional de Assistência Social
 #    - Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome
 #  date: "21/06/2024"
-  cover-image: cover.png
-  favicon: cover.png
+  cover-image: "CapaCensoSUAS2023imagem 1.png"
+  favicon: "CapaCensoSUAS2023imagem 1.png"
   repo-url: https://github.com/Sagicad-MDS/Publicacoes-Censo-SUAS
+  repo-branch: master
+  repo-subdir: "Publicação 2023"
+  repo-actions: [source, issue]
   chapters:
     - index.qmd
-    - prefacio.qmd
     - apresentacao.qmd
     - metodologia.qmd
     - gestao.qmd
@@ -25,6 +27,7 @@ book:
     - rh.qmd
     - participacao.qmd
     - references.qmd
+    - creditos.qmd
 
 bibliography: references.bib
 
