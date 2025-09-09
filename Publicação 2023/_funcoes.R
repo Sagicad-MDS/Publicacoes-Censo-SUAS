@@ -354,14 +354,15 @@ f_sim  = function(df, q, ano){
   df %>%
     select(!! q) %>%
     mutate(!! q := case_when(!! q == "sim" |
-                               !! q == '    "Sim"'~"Sim",
+                               !! q == '    "Sim"' |
+                               !! q == 1 ~"Sim",
                              !! q == "Não possui" |
                                !! q == "não" |
                                !! q == '    "Não"'~"Não",
                              !! q == "Não Sabe" |
                                !! q == '    "Não sabe"' |
                                !! q == "99" ~ "Não sabe",
-                             TRUE ~ !! q)) %>%
+                             TRUE ~ as.character(!! q))) %>%
     mutate(!! q := factor(!! q, levels = c("Sim",
                                            "Não",
                                            "Não sabe"))) %>%
@@ -422,12 +423,40 @@ f_grafico_col_numero = function(df, x, y){
                     position = position_dodge(width = 0.9),
                     point.size = NA) +
     scale_y_continuous(expand = expansion(mult = c(0, .15))) +
-    scale_fill_viridis_c() +
+    scale_fill_viridis_c(option = color.map.option) +
     theme(legend.position="none",
           axis.title = element_blank(),
           axis.ticks = element_blank(),
           axis.text.y = element_blank(),
           axis.line.x = element_line(),
+          panel.background = element_blank())
+  if(gera.graficos.office) {
+    df %>% graph2office(file=arquivo_graficos, append = arquivo_graficos_criado, paper = "A4", orient = "portrait")
+    arquivo_graficos_criado <<- TRUE
+  }
+  df
+}
+
+f_grafico_col_numero_flip = function(df, x, y){
+  x <- enquo(x)
+  y <- enquo(y)
+  
+  df <- df %>%
+    ggplot(aes(x = !! x, y = !! y)) +
+    geom_col(aes(fill = !! y), position="dodge") +
+    geom_text(aes(label = format(!! y, big.mark=".", digits = 3, decimal.mark = ",")),
+              hjust = -0.1,
+#              vjust = -0.5,
+              position = position_dodge(width = 0.9)) +
+#             point.size = NA) +
+    scale_y_continuous(expand = expansion(mult = c(0, .1))) +
+    scale_fill_viridis_c(option = color.map.option) +
+    coord_flip() +
+    theme(legend.position="none",
+          axis.title = element_blank(),
+          axis.ticks = element_blank(),
+          axis.text.x = element_blank(),
+          axis.line.y = element_line(),
           panel.background = element_blank())
   if(gera.graficos.office) {
     df %>% graph2office(file=arquivo_graficos, append = arquivo_graficos_criado, paper = "A4", orient = "portrait")
@@ -450,7 +479,7 @@ f_grafico_col_group_numero = function(df, x, y, grupo, legend_nrow){
                     angle = 90,
                     point.size = NA) +
     scale_y_continuous(expand = expansion(mult = c(0, .25))) +
-    scale_fill_viridis_d() +
+    scale_fill_viridis_d(option = color.map.option) +
     theme(legend.position="bottom",
           legend.title = element_blank(),
           axis.title = element_blank(),
@@ -466,7 +495,7 @@ f_grafico_col_group_numero = function(df, x, y, grupo, legend_nrow){
   df
 }
 
-f_grafico_col_numero_flip = function(df, x, y, grupo, legend_nrow){
+f_grafico_col_group_numero_flip = function(df, x, y, grupo, legend_nrow){
   x <- enquo(x)
   y <- enquo(y)
   grupo <- enquo(grupo)
@@ -479,7 +508,7 @@ f_grafico_col_numero_flip = function(df, x, y, grupo, legend_nrow){
               position = position_dodge(width = 0.9),
               check_overlap = TRUE) +
     scale_y_continuous(expand = expansion(mult = c(0, .1))) +
-    scale_fill_viridis_d() +
+    scale_fill_viridis_d(option = color.map.option) +
     coord_flip() +
     theme(legend.position="bottom",
           legend.title = element_blank(),
@@ -511,7 +540,7 @@ f_grafico_col_numero_flip_2_x = function(df, x1, y, x2){
     facet_wrap(vars(!! x1), strip.position = "left", ncol = 1) +
     scale_x_discrete(expand = expansion(add = 1)) +
     scale_y_continuous(expand = expansion(mult = c(0, .1))) +
-    scale_fill_viridis_d() +
+    scale_fill_viridis_d(option = color.map.option) +
     coord_flip() +
     theme(legend.position="none",
           axis.title = element_blank(),
@@ -547,7 +576,7 @@ f_grafico_col_numero_flip_3_groups = function(df, x1, x2, y, grupo){
     facet_wrap(vars(!! x1), strip.position = "left", ncol = 1) +
     scale_x_discrete(expand = expansion(add = 1)) +
     scale_y_continuous(expand = expansion(mult = c(0, .1))) +
-    scale_fill_viridis_d() +
+    scale_fill_viridis_d(option = color.map.option) +
     coord_flip() +
     theme(legend.position="right",
           legend.title = element_blank(),
@@ -581,7 +610,7 @@ f_grafico_col_percent = function(df, x, y){
                     position = position_dodge(width = 0.9),
                     point.size = NA) +
     scale_y_continuous(expand = expansion(mult = c(0, .1))) +
-    scale_fill_viridis_c() +
+    scale_fill_viridis_c(option = color.map.option) +
     theme(legend.position="none",
           axis.title = element_blank(),
           axis.ticks = element_blank(),
@@ -610,7 +639,7 @@ f_grafico_col_group_percent = function(df, x, y, grupo, legend_nrow){
                     angle = 90,
                     point.size = NA) +
     scale_y_continuous(expand = expansion(mult = c(0, .22))) +
-    scale_fill_viridis_d() +
+    scale_fill_viridis_d(option = color.map.option) +
     theme(legend.position="bottom",
           legend.title = element_blank(),
           axis.title = element_blank(),
@@ -626,6 +655,23 @@ f_grafico_col_group_percent = function(df, x, y, grupo, legend_nrow){
   df
 }
 
+f_grafico_pizza_percent = function(df, y, grupo){
+  y <- enquo(y)
+  grupo <- enquo(grupo)
+  
+  df <- df %>%
+    mutate(precisao = ifelse(!! y < 0.0995, 0.1, 1)) %>%
+    ggplot(aes(x = "", y = !! y, group = !! grupo)) +
+    geom_bar(aes(fill = !! grupo), stat="identity") +
+    geom_text_repel(aes(label = label_percent(accuracy = precisao, decimal.mark = ",")(!! y)),
+                    position = position_stack(vjust = 0.5)) +
+    coord_polar(theta = "y", direction = -1) +
+    scale_fill_viridis_d(option = color.map.option) +
+    theme_void() +
+    theme(legend.title = element_blank(),
+          legend.key.size = unit(2, 'lines'))
+}  
+
 f_grafico_col_percent_flip = function(df, x, y, grupo, legend_nrow){
   x <- enquo(x)
   y <- enquo(y)
@@ -640,7 +686,7 @@ f_grafico_col_percent_flip = function(df, x, y, grupo, legend_nrow){
               position = position_dodge(width = 0.9),
               check_overlap = TRUE) +
     scale_y_continuous(expand = expansion(mult = c(0, .12))) +
-    scale_fill_viridis_d() +
+    scale_fill_viridis_d(option = color.map.option) +
     coord_flip() +
     theme(legend.position="bottom",
           legend.title = element_blank(),
@@ -671,7 +717,7 @@ f_grafico_col_stack_percent = function(df, x, y, grupo, legend_nrow){
                     point.size = NA,
                     segment.colour = NA) +
     scale_y_continuous(expand = expansion(mult = c(0, .1))) +
-    scale_fill_viridis_d() +
+    scale_fill_viridis_d(option = color.map.option) +
     theme(legend.position="bottom",
           legend.title = element_blank(),
           axis.title = element_blank(),
@@ -701,7 +747,7 @@ f_grafico_col_stack_percent_flip = function(df, x, y, grupo, legend_nrow){
               position = position_stack(reverse = TRUE, vjust = .5),
               check_overlap = TRUE) +
     scale_y_continuous(expand = expansion(mult = c(0, 0.05))) +
-    scale_fill_viridis_d() +
+    scale_fill_viridis_d(option = color.map.option) +
     coord_flip() +
     theme(legend.position="bottom",
           legend.title = element_blank(),
@@ -735,7 +781,7 @@ f_grafico_col_stack_percent_flip_2_x_groups = function(df, x1, x2, y, grupo, leg
     facet_wrap(vars(fct_rev(!! x1)), strip.position = "left", ncol = 1) +
     scale_x_discrete(expand = expansion(add = 1)) +
     scale_y_continuous(expand = expansion(mult = c(0, 0.05))) +
-    scale_fill_viridis_d() +
+    scale_fill_viridis_d(option = color.map.option) +
     coord_flip() +
     theme(legend.position="bottom",
           legend.title = element_blank(),
