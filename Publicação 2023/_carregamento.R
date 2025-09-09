@@ -28,10 +28,10 @@ ge_2020 <- read_excel("../Censo SUAS 2020/10_GESTAO_ESTADUAL/Censo_SUAS_2020_dad
 
 gerh_2020 <- read_excel("../Censo SUAS 2020/10_GESTAO_ESTADUAL/Censo_SUAS_2020_RH_Gestão_Estadual.xlsx")
 
-ge_2021 <- read_excel("../Censo SUAS 2021/8 - Gestão Estadual/Censo_SUAS_2021_Gestão_Estadual_Dados_Gerais_Divulgaçao.xlsx") %>%
+ge_2021 <- read_excel("../Censo SUAS 2021/10 - GESTAO ESTADUAL/Censo_SUAS_2021_Gestão_Estadual_Dados_Gerais_Divulgaçao.xlsx") %>%
   filter(IBGE < 53) # No arquivo tem uma linha em branco com o código do município de Fortaleza
 
-gerh_2021 <- read_excel("../Censo SUAS 2021/8 - Gestão Estadual/Censo_SUAS_2021_Gestão_Estadual_RH.xlsx")
+gerh_2021 <- read_excel("../Censo SUAS 2021/10 - GESTAO ESTADUAL/Censo_SUAS_2021_Gestão_Estadual_RH.xlsx")
 
 # ATENÇÃO: Verificar por que no arquivo de RH de 2021 têm dados com o código do município de Fortaleza-CE, além dos dados com o código do Ceará
 #gerh_2021 <- read_excel("../Censo SUAS 2021/8 - Gestão Estadual/Censo_SUAS_2021_Gestão_Estadual_RH.xlsx")
@@ -68,9 +68,9 @@ gm_2019 <- read_excel("../Censo SUAS 2018/Censo_SUAS_2019_Gestão_Municipal_dado
 
 gm_rh_2019 <- read_excel("../Censo SUAS 2019/7 - Gestão Municipal/Censo_SUAS_2019_Gestao_Municipal_RH_divulgacao.xlsx",sheet = 1)
 
-gm_2020 <- read_excel("../Censo SUAS 2020/9 - Gestão Municipal/Censo_SUAS_2020_Gestão_Municipal_dados gerais.xls")
+gm_2020 <- read_excel("../Censo SUAS 2020/9_GESTAO_MUNICIPAL/Censo_SUAS_2020_Gestão_Municipal_dados gerais.xlsx")
 
-gm_rh_2020 <- read_excel("../Censo SUAS 2020/9 - Gestão Municipal/Censo_SUAS_2020_Gestão_Municipal_RH.xlsx")
+gm_rh_2020 <- read_excel("../Censo SUAS 2020/9_GESTAO_MUNICIPAL/Censo_SUAS_2020_Gestão_Municipal_RH.xlsx")
 
 gm_2021 <- read_excel("../Censo SUAS 2021/3 - Gestao Municipal/Censo_SUAS_2021_Gestão_Municipal_Dados_Gerais_Divulgação.xlsx")
 
