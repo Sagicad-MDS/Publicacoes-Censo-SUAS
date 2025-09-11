@@ -407,9 +407,9 @@ unac_2019 <- read_excel("../Censo SUAS 2019/5 - Unidade de acolhimento/Censo_SUA
 
 unacrh_2019 <- read_excel("../Censo SUAS 2019/5 - Unidade de acolhimento/Censo_SUAS_2019_RH_Acolhimento.xlsx")
 
-unac_2020 <- read_excel("../Censo SUAS 2020/Unidade_de_Acolhimento/Censo_SUAS_2020_DG_Acolhimento.xlsx")
+unac_2020 <- read_excel("../Censo SUAS 2020/Censo_SUAS_2020_Unidade_de_Acolhimento/Censo_SUAS_2020_DG_Acolhimento.xlsx")
 
-unacrh_2020 <- read_excel("../Censo SUAS 2020/Unidade_de_Acolhimento/Censo_SUAS_2020_RH_Acolhimento.xlsx")
+unacrh_2020 <- read_excel("../Censo SUAS 2020/Censo_SUAS_2020_Unidade_de_Acolhimento/Censo_SUAS_2020_RH_Acolhimento.xlsx")
 
 unac_2021 <- read_excel("../Censo SUAS 2021/7 - Unidade de acolhimento/Censo_SUAS_2021_Unidade_Acolhimento_Dados_Gerais_Divulgação.xlsx")
 
@@ -439,6 +439,8 @@ ceconvrh_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Centro_Convivenc
 
 ceconv_2018 <- read_excel("../Censo SUAS 2018/6 - Centro Convivência/CENSO_SUAS_2018_Centro_Convivencia_Dados_gerais_divulgacao.xls")
 
+ceconv_2019 <- read_tsv("../Censo SUAS 2019/Centro_Convivencia_Divulgação/Censo_SUAS_2019_Centro_Convivencia_Dados_Gerais.csv", locale = locale(encoding = "latin1"))
+
 ceconv_2020 <- read_excel("../Censo SUAS 2020/5_CENTRO_CONVIVENCIA/Censo_SUAS_2020_Centro_Convivencia_dados_gerais.xlsx")
 
 ceconvrh_2020 <- read_excel("../Censo SUAS 2020/5_CENTRO_CONVIVENCIA/Censo_SUAS_2020_Centro_Convivencia_RH.xlsx")
@@ -467,9 +469,9 @@ cedia_2017 <- read_excel("../Censo SUAS 2017/Censo SUAS 2017_Centro DIA/CensoSUA
 
 cediarh_2017 <- read_excel("../Censo SUAS 2017/Censo SUAS 2017_Centro DIA/CensoSUAS2017_CentroDIA_RH_divulgacao.xlsx", sheet = "Base de dados")
 
-cedia_2018 <- read_excel("../Censo SUAS 2018/5 - Centro Dia/Censo_SUAS_2018_Centro_DIA_dados_gerais_divulgacao.xlsx")
+cedia_2018 <- read_excel("../Censo SUAS 2018/5.Centro dia/Censo_SUAS_2018_Centro_DIA_dados_gerais_divulgacao.xlsx")
 
-cediarh_2018 <- read_excel("../Censo SUAS 2018/5 - Centro Dia/Censo_SUAS_2018_Centro_DIA_RH_divulgacao.xlsx")
+cediarh_2018 <- read_excel("../Censo SUAS 2018/5.Centro dia/Censo_SUAS_2018_Centro_DIA_RH_divulgacao.xlsx")
 
 cedia_2019 <- read_excel("../Censo SUAS 2019/6 - Centro Dia/Censo_SUAS_2019_Dados_Gerais_RH_Centro_DIA_divulgação.xlsx")
 
@@ -594,7 +596,7 @@ idcreas_2022 <- read_excel("../ID CREAS/IDCREAS2022_divulgacao_retificado270923.
 
 niveis_ID <- c(1, 2, 3, 4, 5)
 
-#Número de municipios no Brasil e por região. Fonte: Anuários Estatístico do Brasil 2017, IBGE.
+#Número de municipios no Brasil e por região. Fonte: Anuário Estatístico do Brasil 2017, IBGE.
 #c(Norte, Nordeste, Sudeste, Sul, Centro-Oeste, Brasil)
 municipios_2007 <- c(449, 1793, 1668, 1188, 466, 5564)
 municipios_2008 <- c(449, 1793, 1668, 1188, 466, 5564)
@@ -612,6 +614,7 @@ municipios_2019 <- c(450, 1794, 1668, 1191, 467, 5570)
 municipios_2020 <- c(450, 1794, 1668, 1191, 467, 5570)
 municipios_2021 <- c(450, 1794, 1668, 1191, 467, 5570)
 municipios_2022 <- c(450, 1794, 1668, 1191, 467, 5570)
+municipios_2023 <- c(450, 1794, 1668, 1191, 467, 5570) # Ainda não disponível oficialmente no Anuário Estatístico do Brasil, consultado no site do IBGE em 9/9/2025
 
 # População dos municípios estimada pelo IBGE
 pop_municipios_2016 <- read_excel("../Estimativa População IBGE/estimativa_dou_2016_20160913.xlsx", sheet = "Municípios (limpo)")
