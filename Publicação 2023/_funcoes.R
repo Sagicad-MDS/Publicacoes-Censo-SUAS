@@ -118,23 +118,25 @@ f_percentual_municipios_regiao_ano = function(df, municipio, ano){
   ano <- quo_name(ano)
   municipio <- enquo(municipio)
   
-  total_municipios <-case_when(!! ano == "2007"~municipios_2007,
-                               !! ano == "2008"~municipios_2008,
-                               !! ano == "2009"~municipios_2009,
-                               !! ano == "2010"~municipios_2010,
-                               !! ano == "2011"~municipios_2011,
-                               !! ano == "2012"~municipios_2012,
-                               !! ano == "2013"~municipios_2013,
-                               !! ano == "2014"~municipios_2014,
-                               !! ano == "2015"~municipios_2015,
-                               !! ano == "2016"~municipios_2016,
-                               !! ano == "2017"~municipios_2017,
-                               !! ano == "2018"~municipios_2018,
-                               !! ano == "2019"~municipios_2019,
-                               !! ano == "2020"~municipios_2020,
-                               !! ano == "2021"~municipios_2021,
-                               !! ano == "2022"~municipios_2022)
-  
+  total_municipios <-case_when(
+    !! ano == "2007"~municipios_2007,
+    !! ano == "2008"~municipios_2008,
+    !! ano == "2009"~municipios_2009,
+    !! ano == "2010"~municipios_2010,
+    !! ano == "2011"~municipios_2011,
+    !! ano == "2012"~municipios_2012,
+    !! ano == "2013"~municipios_2013,
+    !! ano == "2014"~municipios_2014,
+    !! ano == "2015"~municipios_2015,
+    !! ano == "2016"~municipios_2016,
+    !! ano == "2017"~municipios_2017,
+    !! ano == "2018"~municipios_2018,
+    !! ano == "2019"~municipios_2019,
+    !! ano == "2020"~municipios_2020,
+    !! ano == "2021"~municipios_2021,
+    !! ano == "2022"~municipios_2022,
+    !! ano == "2023"~municipios_2023)
+
   df %>%
     select(!! municipio) %>%
     distinct(!! municipio) %>%
@@ -160,26 +162,34 @@ f_situacao = function(df, situacao){
   situacao <- enquo(situacao)
   
   df %>%
-    mutate(!! situacao := case_when(!! situacao == "próprio da Prefeitura Municipal"~"Próprio",
-                                    !! situacao == "Próprio da Prefeitura Municipal"~"Próprio",
-                                    !! situacao == "Próprio da Prefeitura Municipal ou do governo do DF"~"Próprio",
-                                    !! situacao == "Próprio da Prefeitura Municipal/DF"~"Próprio",
-                                    !! situacao == "Próprio do Governo Estadual"~"Próprio",
-                                    !! situacao == "alugado pela Prefeitura Municipal"~"Alugado",
-                                    !! situacao == "Alugado pela Prefeitura Municipal"~"Alugado",
-                                    !! situacao == "Alugado pela Prefeitura Municipal ou pelo governo do DF"~"Alugado",
-                                    !! situacao == "Alugado pela Prefeitura Municipal/DF"~"Alugado",
-                                    !! situacao == "Alugado pelo Governo Estadual"~"Alugado",
-                                    !! situacao == "cedido para a Prefeitura Municipal"~"Cedido",
-                                    !! situacao == "Cedido para a Prefeitura Municipal"~"Cedido",
-                                    !! situacao == "Cedido para a Prefeitura Municipal ou pelo governo do DF"~"Cedido",
-                                    !! situacao == "Cedido para a Prefeitura Municipal/DF por órgãos/unidades públicas"~"Cedido",
-                                    !! situacao == "Cedido para a Prefeitura Municipal/DF por entidades/instituições privadas"~"Cedido",
-                                    !! situacao == "outro"~"Outro ou não informou",
-                                    !! situacao == "Outro"~"Outro ou não informou",
-                                    !! situacao == "Outros"~"Outro ou não informou",
-                                    is.na(!! situacao)~"Outro ou não informou",
-                                    TRUE ~ as.character(!! situacao))) %>%
+    mutate(!! situacao := case_when(
+      !! situacao == "próprio da Prefeitura Municipal" |
+      !! situacao == "Próprio da Prefeitura Municipal" |
+      !! situacao == "Próprio da Prefeitura Municipal ou do governo do DF" |
+      !! situacao == "Próprio da Prefeitura Municipal/DF" |
+      !! situacao == '    "Próprio da Prefeitura Municipal DF"' |
+      !! situacao == "Próprio do Governo Estadual" |
+      !! situacao == '    "Próprio do Governo Estadual"'~"Próprio",
+      !! situacao == "alugado pela Prefeitura Municipal" |
+      !! situacao == "Alugado pela Prefeitura Municipal" |
+      !! situacao == "Alugado pela Prefeitura Municipal ou pelo governo do DF"|
+      !! situacao == '    "Alugado pela Prefeitura Municipal DF"' |
+      !! situacao == "Alugado pela Prefeitura Municipal/DF" |
+      !! situacao == "Alugado pelo Governo Estadual"|
+      !! situacao == '    "Alugado pelo Governo Estadual"'~"Alugado",
+      !! situacao == "cedido para a Prefeitura Municipal" |
+      !! situacao == "Cedido para a Prefeitura Municipal" |
+      !! situacao == "Cedido para a Prefeitura Municipal ou pelo governo do DF" |
+      !! situacao == "Cedido para a Prefeitura Municipal/DF por órgãos/unidades públicas" |
+      !! situacao == '    "Cedido para a Prefeitura Municipal DF por órgãos unidades públicas"' |
+      !! situacao == "Cedido para a Prefeitura Municipal/DF por entidades/instituições privadas" |
+      !! situacao == '    "Cedido para a Prefeitura Municipal DF por entidades instituições privadas"'~"Cedido",
+      !! situacao == "outro" |
+      !! situacao == "Outro" |
+      !! situacao == "Outros" |
+      !! situacao == '    "Outros"' |
+      is.na(!! situacao)~"Outro ou não informou",
+      TRUE ~ as.character(!! situacao))) %>%
     mutate(!! situacao := factor(!! situacao, levels = c("Próprio",
                                                          "Alugado",
                                                          "Cedido",
@@ -631,6 +641,37 @@ f_grafico_col_group_percent = function(df, x, y, grupo, legend_nrow){
   
   df <- df %>%
     mutate(precisao = ifelse(!! y < 0.0995, 0.1, 1)) %>%
+    ggplot(aes(x = !! x, y = !! y, group = !! grupo)) +
+    geom_col(aes(fill = !! grupo), position = "dodge") +
+    geom_text_repel(aes(label = label_percent(accuracy = precisao, decimal.mark = ",")(!! y)),
+                    hjust = -0.01,
+                    position = position_dodge(width = 0.9),
+                    angle = 90,
+                    point.size = NA) +
+    scale_y_continuous(expand = expansion(mult = c(0, .22))) +
+    scale_fill_viridis_d(option = color.map.option) +
+    theme(legend.position="bottom",
+          legend.title = element_blank(),
+          axis.title = element_blank(),
+          axis.ticks = element_blank(),
+          axis.text.y = element_blank(),
+          axis.line.x = element_line(),
+          panel.background = element_blank()) +
+    guides(fill=guide_legend(nrow=legend_nrow, byrow=TRUE))
+  if(gera.graficos.office) {
+    df %>% graph2office(file=arquivo_graficos, append = arquivo_graficos_criado, paper = "A4", orient = "portrait")
+    arquivo_graficos_criado <<- TRUE
+  }
+  df
+}
+
+f_grafico_col_group_percent_decimal = function(df, x, y, grupo, legend_nrow){
+  x <- enquo(x)
+  y <- enquo(y)
+  grupo <- enquo(grupo)
+  
+  df <- df %>%
+    mutate(precisao = ifelse(!! y < 0.0995, 0.01, ifelse(!! y < 1, 0.1, 1))) %>%
     ggplot(aes(x = !! x, y = !! y, group = !! grupo)) +
     geom_col(aes(fill = !! grupo), position = "dodge") +
     geom_text_repel(aes(label = label_percent(accuracy = precisao, decimal.mark = ",")(!! y)),
