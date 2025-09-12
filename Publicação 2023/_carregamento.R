@@ -60,21 +60,21 @@ gm_2016 <- read_excel("../Censo SUAS 2016/Gestão Municipal/Censo_SUAS_2016_Gest
 
 gm_2017 <- read_excel("../Censo SUAS 2017/Censo_SUAS_2017_Gestão_Municipal/Censo_SUAS_2017_Gestao_Municipal_divulgação.xlsx", sheet = 1)
 
-gm_2018 <- read_excel("../Censo SUAS 2018/10 - Gestao Municipal/Censo SUAS 2018_Gestao_Municipal_Dados_Gerais_divulgacao.xlsx")
+gm_2018 <- read_excel("../Censo SUAS 2018/8.Gest╞o Municipal/Censo SUAS 2018_Gestao_Municipal_Dados_Gerais_divulgacao.xlsx")
 
-gm_rh_2018 <- read_excel("../Censo SUAS 2018/10 - Gestao Municipal/Censo_SUAS_2018_Gestao_Municipal_RH_divulgacao.xlsx",sheet = 1)
+gmrh_2018 <- read_excel("../Censo SUAS 2018/8.Gest╞o Municipal/Censo_SUAS_2018_Gestao_Municipal_RH_divulgacao.xlsx",sheet = 1)
 
-gm_2019 <- read_excel("../Censo SUAS 2018/Censo_SUAS_2019_Gestão_Municipal_dados_gerais_divulgacao.xlsx",sheet = 1)
+gm_2019 <- read_excel("../Censo SUAS 2019/Censo_SUAS_2019_Gestão_Municipal_divulgacao/Censo_SUAS_2019_Gest╞o_Municipal_dados_gerais_divulgacao.xlsx",sheet = 1)
 
-gm_rh_2019 <- read_excel("../Censo SUAS 2019/7 - Gestão Municipal/Censo_SUAS_2019_Gestao_Municipal_RH_divulgacao.xlsx",sheet = 1)
+gmrh_2019 <- read_excel("../Censo SUAS 2019/Censo_SUAS_2019_Gestão_Municipal_divulgacao/Censo_SUAS_2019_Gestao_Municipal_RH_divulgacao.xlsx",sheet = 1)
 
 gm_2020 <- read_excel("../Censo SUAS 2020/9_GESTAO_MUNICIPAL/Censo_SUAS_2020_Gestão_Municipal_dados gerais.xlsx")
 
-gm_rh_2020 <- read_excel("../Censo SUAS 2020/9_GESTAO_MUNICIPAL/Censo_SUAS_2020_Gestão_Municipal_RH.xlsx")
+gmrh_2020 <- read_excel("../Censo SUAS 2020/9_GESTAO_MUNICIPAL/Censo_SUAS_2020_Gestão_Municipal_RH.xlsx")
 
 gm_2021 <- read_excel("../Censo SUAS 2021/3 - Gestao Municipal/Censo_SUAS_2021_Gestão_Municipal_Dados_Gerais_Divulgação.xlsx")
 
-gm_rh_2021 <- read_excel("../Censo SUAS 2021/3 - Gestao Municipal/Censo_SUAS_Gestão_Municipal_RH.xlsx",sheet = 1)
+gmrh_2021 <- read_excel("../Censo SUAS 2021/3 - Gestao Municipal/Censo_SUAS_Gestão_Municipal_RH.xlsx",sheet = 1)
 
 gm_2022 <- read_excel("../Censo SUAS 2022/9 - GESTÃO MUNICIPAL/Censo_SUAS_2022_Gestão_Municipal_dados_gerais.xlsx",sheet = 1)
 

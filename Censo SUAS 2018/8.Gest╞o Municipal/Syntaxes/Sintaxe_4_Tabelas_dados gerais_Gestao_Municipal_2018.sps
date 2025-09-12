@@ -1,0 +1,238 @@
+﻿* Encoding: UTF-8.
+**DADOS GERAIS Gestão Municipal**
+
+***q_1
+
+FREQUENCIES VARIABLES= q_1 
+  /ORDER=ANALYSIS.
+
+***q_2
+
+MULT RESPONSE GROUPS=$mr2 'q_2_A qual secretaria a assistência social está associada?' (q_2_1 q_2_2 q_2_3 q_2_4 q_2_5 q_2_6 q_2_7 q_2_8 (1))
+ /FREQUENCIES=$mr2.
+
+***q_3
+
+CTABLES
+  /VLABELS VARIABLES=q_3_1 q_3_2 q_3_3 q_3_4 q_3_5 q_3_6 q_3_7 q_3_8 q_3_9 DISPLAY=LABEL
+  /TABLE q_3_1 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_3_2 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_3_3 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_3_4 [C][COUNT 
+    F40.0, ROWPCT.COUNT PCT40.1] + q_3_5 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_3_6 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_3_7 [C][COUNT 
+    F40.0, ROWPCT.COUNT PCT40.1] + q_3_8 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_3_9 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1]
+  /CLABELS ROWLABELS=OPPOSITE
+  /CATEGORIES VARIABLES=q_3_1 [0, 1, 2, OTHERNM] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q_3_2 [0, 1, 2, OTHERNM] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q_3_3 [0, 1, 2, OTHERNM] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q_3_4 [0, 1, 2, OTHERNM] EMPTY=INCLUDE
+ /CATEGORIES VARIABLES=q_3_5 [0, 1, 2, OTHERNM] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q_3_6 [0, 1, 2, OTHERNM] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q_3_7 [0, 1, 2, OTHERNM] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q_3_8 [0, 1, 2, OTHERNM] EMPTY=INCLUDE
+ /CATEGORIES VARIABLES=q_3_9 [0, 1, 2, OTHERNM] EMPTY=INCLUDE
+  /TITLES
+    TITLE='Indique se as áreas abaixo estão constituídas como subdivisões administrativas na estrutura do órgão gestor'.
+
+***q_4 e q_5
+
+FREQUENCIES VARIABLES= q_4 q_5 q_5_0 d_5
+  /ORDER=ANALYSIS.
+
+***q_6
+
+MULT RESPONSE GROUPS=$mr6 'q_6_Informe o conteúdo previsto na Lei Municipal de de regulamentação do SUAS' (q_6_1 q_6_2 q_6_3 q_6_4 q_6_5 q_6_6 q_6_7 q_6_8 q_6_9 q_6_10 q_6_11 q_6_12 q_6_13 q_6_14 q_6_15 q_6_16
+ q_6_17 q_6_18 q_6_19 q_6_20 q_6_21 q_6_22 q_6_99 (1))
+ /FREQUENCIES=$mr6.
+
+***q_7, q_8 e q_9
+
+FREQUENCIES VARIABLES= q_7 q_7_99 d_7 q_8 q_9 
+  /ORDER=ANALYSIS.
+
+***q_10
+
+MULT RESPONSE GROUPS=$mr10 'q_10_Nos últimos 12 meses, quais formas de apoio técnico o município recebeu do estado?' (q_10_1 q_10_2 q_10_3 q_10_4 q_10_5 q_10_6 q_10_7 q_10_8 q_10_99 (1))
+ /FREQUENCIES=$mr10.
+
+***q_11
+
+FREQUENCIES VARIABLES= q_11 
+  /ORDER=ANALYSIS.
+
+***q_12
+
+CTABLES
+  /VLABELS VARIABLES=q_12_1 q_12_2 q_12_3 q_12_4 q_12_5 q_12_6 q_12_7 q_12_8 q_12_9 q_12_10 q_12_11 q_12_12 q_12_13 q_12_14 q_12_15 q_12_16  DISPLAY=LABEL
+  /TABLE q_12_1 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_12_2 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_12_3 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_12_4 [C][COUNT 
+    F40.0, ROWPCT.COUNT PCT40.1] + q_12_5 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_12_6 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_12_7 [C][COUNT 
+    F40.0, ROWPCT.COUNT PCT40.1] + q_12_8 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_12_9 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_12_10 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_12_11 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] 
++ q_12_12 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_12_13 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_12_14 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_12_15 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_12_16 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1]
+  /CLABELS ROWLABELS=OPPOSITE
+  /CATEGORIES VARIABLES=q_12_1 [0, 1, OTHERNM] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q_12_2 [0, 1, OTHERNM] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q_12_3 [0, 1, OTHERNM] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q_12_4 [0, 1, OTHERNM] EMPTY=INCLUDE
+ /CATEGORIES VARIABLES=q_12_5 [0, 1, OTHERNM] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q_12_6 [0, 1, OTHERNM] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q_12_7 [0, 1, OTHERNM] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q_12_8 [0, 1, OTHERNM] EMPTY=INCLUDE
+ /CATEGORIES VARIABLES=q_12_9 [0, 1, OTHERNM] EMPTY=INCLUDE
+/CATEGORIES VARIABLES=q_12_10 [0, 1, OTHERNM] EMPTY=INCLUDE
+/CATEGORIES VARIABLES=q_12_11 [0, 1, OTHERNM] EMPTY=INCLUDE
+/CATEGORIES VARIABLES=q_12_12 [0, 1, OTHERNM] EMPTY=INCLUDE
+/CATEGORIES VARIABLES=q_12_13 [0, 1, OTHERNM] EMPTY=INCLUDE
+/CATEGORIES VARIABLES=q_12_14 [0, 1, OTHERNM] EMPTY=INCLUDE
+/CATEGORIES VARIABLES=q_12_15 [0, 1, OTHERNM] EMPTY=INCLUDE
+/CATEGORIES VARIABLES=q_12_16 [0, 1, OTHERNM] EMPTY=INCLUDE
+  /TITLES
+    TITLE='Informe a exixtência e vinculação administrativa dos conselhos de direitos do município abaixo relacionados'.
+
+***q_13 q_14 d_14 q_15 q_16 q_17 q_18 q_19 
+
+FREQUENCIES VARIABLES= q_13 q_14 d_14 q_15 q_16 q_17 q_18 q_19 q_19_99 d_19
+  /ORDER=ANALYSIS.
+
+***q_20
+
+MULT RESPONSE GROUPS=$mr20 'q_20_Como a Assistência Social atende questões de violações de direitos no município?' (q_20_1 q_20_2 q_20_3 q_20_4 q_20_5 q_20_6 q_20_0 q_20_99 (1))
+ /FREQUENCIES=$mr20.
+
+***q_21
+
+MULT RESPONSE GROUPS=$mr21 'q_21_Como o município atende adolescentes em cumprimento de Medida Socioeducativa de LA e PSC?' (q_21_1 q_21_2 q_21_3 q_21_4 q_21_5 q_21_6 q_21_0 q_21_99 q_21_0 (1))
+ /FREQUENCIES=$mr21.
+
+***q_22
+
+MULT RESPONSE GROUPS=$mr22 'q_22_Como a Assistência Social atende questões de violações de direitos no município?' (q_22_1 q_22_2 q_22_3 q_22_4 q_22_5 q_22_6 q_22_7 q_22_8 q_22_99 (1))
+ /FREQUENCIES=$mr22.
+
+***q_23
+
+FREQUENCIES VARIABLES= q_23 
+  /ORDER=ANALYSIS.
+
+***q_24
+
+MULT RESPONSE GROUPS=$mr24 'q_24_Em quais unidades o serviço é ofertado?' (q_24_1 q_24_2 q_24_3 q_24_4 q_24_5 (1))
+ /FREQUENCIES=$mr24.
+
+***q_25 a q_26 q_27 q_28 q_29 d_29 q_30 d_30 q_31
+
+FREQUENCIES VARIABLES= q_25 q_26 q_27 q_28 q_29 d_29 q_30 d_30 q_31
+  /ORDER=ANALYSIS.
+
+***q_32  
+
+MULT RESPONSE GROUPS=$mr32 'q_32_Quais atividades são realizadas pelo Programa de Guarda Subsidiada do município?' (q_32_1 q_32_2 q_32_3 q_32_4 q_32_5 q_32_0 (1))
+ /FREQUENCIES=$mr32.
+
+***q_33 
+
+MULT RESPONSE GROUPS=$mr33 'q_33_Nos casos de acolhimento de criança e adolescente, quais atividades de gestão e monitoramento são realizadas pelo órgão gestor da assistência social?' (q_33_1 q_33_2 q_33_3 q_33_4 q_33_5 q_33_6 q_33_0 (1))
+ /FREQUENCIES=$mr33.
+
+***q_34 q_35 d_35 q_36 q_37 d_37 q_38 q_39
+
+FREQUENCIES VARIABLES=  q_34 q_35 d_35 q_36 q_37 d_37 q_38 q_39
+  /ORDER=ANALYSIS.
+
+***q_40
+
+MULT RESPONSE GROUPS=$mr40 'q_40_Para quais oportunidades do mundo do trabalho o município encaminha, de forma rotineira, as usuárias da assistência social?' (q_40_1 q_40_2 q_40_3 q_40_4 q_40_5 q_40_6 q_40_7 q_40_8 q_40_99 (1))
+ /FREQUENCIES=$mr40.
+
+***q_41  
+
+MULT RESPONSE GROUPS=$mr41 'q_41_Existe delimitação de usuárias prioritárias para o atendimento do Acessuas Trabalho?' (q_41_1 q_41_2 q_41_3 q_41_4 q_41_5 q_41_6 q_41_7 q_41_8 q_41_9 q_41_10 q_41_11 q_41_12 q_41_99 (1))
+ /FREQUENCIES=$mr41.
+
+****q_42  
+
+MULT RESPONSE GROUPS=$mr42 'q_42_Especifique quais as ações relativas ao BPC são desenvolvidas pela assistência social no município' (q_42_0 q_42_1 q_42_2 q_42_3 q_42_4 q_42_5 q_42_6 q_42_7 q_42_8 q_42_9 q_42_99 (1))
+ /FREQUENCIES=$mr42.
+
+***q_43 
+
+FREQUENCIES VARIABLES= q_43_1 q_43_2 q_43_4 q_43_5 q_43_6 q_43_8 q_43_9 q_43_10 q_43_12 q_43_13 q_43_14 q_43_16
+  /ORDER=ANALYSIS.
+
+CTABLES
+  /VLABELS VARIABLES=q_43_1 q_43_2 q_43_3 q_43_4 q_43_5 q_43_6 q_43_7 q_43_8 q_43_9 q_43_10 q_43_11 q_43_12 q_43_13 q_43_14 q_43_15 q_43_16  DISPLAY=LABEL
+  /TABLE q_43_1 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_43_2 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_43_3 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_43_4 [C][COUNT 
+    F40.0, ROWPCT.COUNT PCT40.1] + q_43_5 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_43_6 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_43_7 [C][COUNT 
+    F40.0, ROWPCT.COUNT PCT40.1] + q_43_8 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_43_9 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_43_10 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_43_11 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] 
++ q_43_12 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_43_13 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_43_14 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_43_15 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1] + q_43_16 [C][COUNT F40.0, ROWPCT.COUNT PCT40.1]
+  /CLABELS ROWLABELS=OPPOSITE
+  /CATEGORIES VARIABLES=q_43_1 [0, 1, OTHERNM] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q_43_2 [0, 1, OTHERNM] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q_43_3 [0, 1, OTHERNM] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q_43_4 [0, 1, OTHERNM] EMPTY=INCLUDE
+ /CATEGORIES VARIABLES=q_43_5 [0, 1, OTHERNM] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q_43_6 [0, 1, OTHERNM] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q_43_7 [0, 1, OTHERNM] EMPTY=INCLUDE
+  /CATEGORIES VARIABLES=q_43_8 [0, 1, OTHERNM] EMPTY=INCLUDE
+ /CATEGORIES VARIABLES=q_43_9 [0, 1, OTHERNM] EMPTY=INCLUDE
+/CATEGORIES VARIABLES=q_43_10 [0, 1, OTHERNM] EMPTY=INCLUDE
+/CATEGORIES VARIABLES=q_43_11 [0, 1, OTHERNM] EMPTY=INCLUDE
+/CATEGORIES VARIABLES=q_43_12 [0, 1, OTHERNM] EMPTY=INCLUDE
+/CATEGORIES VARIABLES=q_43_13 [0, 1, OTHERNM] EMPTY=INCLUDE
+/CATEGORIES VARIABLES=q_43_14 [0, 1, OTHERNM] EMPTY=INCLUDE
+/CATEGORIES VARIABLES=q_43_15 [0, 1, OTHERNM] EMPTY=INCLUDE
+/CATEGORIES VARIABLES=q_43_16 [0, 1, OTHERNM] EMPTY=INCLUDE
+  /TITLES
+    TITLE='Informe quais e como são concedidos os benefícios eventuais no município'.
+
+***q_44 
+
+FREQUENCIES VARIABLES= q_44_1_1 q_44_1_2 q_44_1_3 q_44_1_4 q_44_1_0 q_44_2_1 q_44_2_2 q_44_2_3 q_44_2_4 q_44_2_5  q_44_3_1 q_44_3_2 q_44_3_3 q_44_3_4 q_44_3_5 q_44_4_1 q_44_4_2 q_44_4_3 q_44_4_4 q_44_4_5 q_44_5_1 q_44_5_2 q_44_5_3 q_44_5_4 q_44_5_5 
+q_44_6_1 q_44_6_2 q_44_6_3 q_44_6_4 q_44_6_5 q_44_7_1 q_44_7_2 q_44_7_3 q_44_7_4 q_44_7_5 q_44_8_1 q_44_8_2 q_44_8_3 q_44_8_4 q_44_8_5
+  /ORDER=ANALYSIS.
+
+***q_45 e q_46
+
+FREQUENCIES VARIABLES=  q_45 q_46 
+  /ORDER=ANALYSIS.
+
+***q_47
+
+MULT RESPONSE GROUPS=$mr47 'q_47_Quais estratégias de fomento à participação de cidadã e usuária são utilizadas pelo órgão gestor da assistência social no município?' (q_47_0 q_47_1 q_47_2 q_47_3 q_47_4 q_47_5 q_47_6 q_47_7 q_47_8 q_47_9 q_47_99 (1))
+ /FREQUENCIES=$mr47.
+
+***q_48
+
+FREQUENCIES VARIABLES=  q_48 
+  /ORDER=ANALYSIS.
+
+***q_49
+
+MULT RESPONSE GROUPS=$mr49 'q_49_Indique os conteúdos/temas das ações de comunicação realizadas pelo órgão gestor da assistência social em 2017' (q_49_1 q_49_2 q_49_3 q_49_4 q_49_5 q_49_6
+ q_49_7 q_49_8 q_49_9 q_49_10 q_49_11 q_49_12 q_49_13 q_49_14 q_49_15 q_49_99 (1))
+ /FREQUENCIES=$mr49.
+
+***q_50 d_50_superior d_50superior_posse d_50_medio d_50medio_posse
+
+FREQUENCIES VARIABLES=  q_50_1 q_50_2 d_50_superior d_50superior_posse d_50_medio d_50medio_posse
+  /ORDER=ANALYSIS.
+
+***q_51 q_52 q_53 d_53 q_54
+
+FREQUENCIES VARIABLES=  q_51 q_52 q_53 d_53 q_54
+  /ORDER=ANALYSIS.
+
+***q_55 d_55profissional d_55conselheiras
+
+FREQUENCIES VARIABLES=  q_55_1_99 q_55_2_99 d_55profissional d_55conselheiras
+  /ORDER=ANALYSIS.
+
+***q_56 q_57 d_57 q_58 q_59 q_60
+
+FREQUENCIES VARIABLES=  q_56 q_57_99 d_57 q_58 q_59 q_60
+  /ORDER=ANALYSIS.
+
+***q_61
+
+FREQUENCIES VARIABLES=  q_61 d_61
+  /ORDER=ANALYSIS.
+
+
+
+
