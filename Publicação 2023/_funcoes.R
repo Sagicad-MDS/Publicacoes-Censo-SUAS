@@ -277,6 +277,45 @@ f_equip_imovel = function(df, q, ano){
     mutate(Percentual = n/sum(n))
 }
 
+f_vinculo = function(df, vinculo){
+  vinculo <- enquo(vinculo)
+  
+  df %>%
+    mutate(!! vinculo := case_when(
+      !! vinculo == "Estatutários" |
+      !! vinculo == "Servidor(a)/Estatutária(o)" |
+      !! vinculo == "Servidor Estatutário"~"Servidoras/es Estatutárias/os",
+      !! vinculo == "Celetistas" |
+      !! vinculo == "Empregada(o) Pública(o) (CLT)" |
+      !! vinculo == "Empregado Público (CLT)"~"Empregadas/os Públicas/os (CLT)",
+      !! vinculo == "Somente Comissionados" |
+      !! vinculo == "Comissionada(o)" |
+      !! vinculo == "Comissionado"~"Comissionadas/os",
+      !! vinculo == "Servidor(a) Temporária(o)"~"Servidoras/es Temporárias/os",
+      !! vinculo == "Terceirizada(o)"~"Terceirizadas/os",
+      !! vinculo == "Trabalhador(a) de Empresa/ Cooperativa/ Entidade Prestadora de Serviços"~"Trabalhadoras/es de Empresa, Cooperativa ou Entidade Prestadora de Serviços",
+      !! vinculo == "Voluntária(o)" |
+      !! vinculo == "Outros Vínculos" |
+      !! vinculo == "Outro vínculo não permanente" |
+      !! vinculo == "Sem vínculo"~"Outros vínculos não permanentes",
+      TRUE ~ as.character(!! vinculo))) %>%
+    mutate(!! vinculo := str_wrap(!! vinculo, width=40))
+}
+
+f_nivel_ensino = function(df, nivel_ensino){
+  nivel_ensino <- enquo(nivel_ensino)
+  
+  df %>%
+    mutate(!! nivel_ensino := case_when(
+      !! nivel_ensino == "Nível fundamental"~"Nível Fundamental",
+      TRUE ~ !! nivel_ensino)) %>%
+
+    mutate(!! nivel_ensino := factor(!! nivel_ensino, levels = c("Nível Fundamental",
+                                                                 "Nível Médio",
+                                                                 "Nível Superior")))
+}
+
+
 f_grupo_media = function(df, q_media, grupo, eixo_x){
   grupo <- quo_name(grupo)
   q_media <- enquo(q_media)
