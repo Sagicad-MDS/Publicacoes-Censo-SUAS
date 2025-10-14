@@ -1,26 +1,22 @@
 # Classificação do porte populacional dos municípios.
 # Fonte: PNAS 2004
-f_porte_populacional = function(df, populacao){
-  populacao <- enquo(populacao)
+  
+f_completa_tabela = function(df, x1, x2, y){
+  x1 <- enquo(x1)
+  x2 <- enquo(x2)
+  y <- enquo(y)
+  nome_x2 <- quo_name(x2)
+  nome_y <- quo_name(y)
   
   df %>%
-    mutate("Porte" = case_when(!! populacao <= 20000~"Pequeno I",
-                               !! populacao <= 50000~"Pequeno II",
-                               !! populacao <= 100000~"Médio",
-                               !! populacao <= 900000~"Grande",
-                               !! populacao > 900000~"Metrópole",
-                               is.na(!! populacao)~"Município não especificado")) %>%
-    mutate(Porte = factor(Porte, levels = c("Pequeno I",
-                                            "Pequeno II",
-                                            "Médio",
-                                            "Grande",
-                                            "Metrópole",
-                                            "Município não especificado")))
+    select(!! x1, !! x2, !! y) %>%
+    spread(!! x2, !! y, fill = 0) %>%
+    gather(!! nome_x2, !! nome_y, -!! x1)
 }
-  
-f_selecao_regiao_ano_com_na = function(df, q, selecao, regiao, ano){
+
+f_selecao_regiao_grupo_com_na = function(df, q, selecao, regiao, grupo){
   q <- enquo(q)
-  ano <- quo_name(ano)
+  grupo <- quo_name(grupo)
   regiao <- enquo(regiao)
   selecao <- quo_name(selecao)
   
@@ -40,26 +36,26 @@ f_selecao_regiao_ano_com_na = function(df, q, selecao, regiao, ano){
     group_by(Região) %>%
     mutate("Percentual" = n/sum(n)) %>%
     filter(!! q == !! selecao) %>%
-    mutate("Ano" = !! ano)
+    mutate("Grupo" = !! grupo)
 }
 
-f_selecao_regiao_ano = function(df, q, selecao, regiao, ano){
+f_selecao_regiao_grupo = function(df, q, selecao, regiao, grupo){
   q <- enquo(q)
   regiao <- enquo(regiao)
   
   df %>%
     filter(!is.na(!! q)) %>%
-    f_selecao_regiao_ano_com_na(!! q, selecao, !! regiao, ano)
+    f_selecao_regiao_grupo_com_na(!! q, selecao, !! regiao, grupo)
 }
 
-f_maior0_regiao_ano = function(df, q, regiao, ano){
+f_maior0_regiao_grupo = function(df, q, regiao, grupo){
   q <- enquo(q)
   regiao <- enquo(regiao)
   
   df %>%
     mutate(!! q := case_when(!! q > 0~"S",
                              TRUE ~ as.character(!! q))) %>%
-    f_selecao_regiao_ano_com_na(!! q, "S", !! regiao, ano)
+    f_selecao_regiao_grupo_com_na(!! q, "S", !! regiao, grupo)
 }
 
 f_quantitativo_regiao_ano = function(df, regiao, ano){
@@ -139,6 +135,8 @@ f_percentual_municipios_regiao_ano = function(df, municipio, ano){
 
   df %>%
     select(!! municipio) %>%
+    filter(!is.na(!! municipio)) %>%
+    filter(str_length(!! municipio) >= 6) %>%
     distinct(!! municipio) %>%
     mutate(regiao := substr(!! municipio,1,1)) %>%
     select(regiao) %>%
