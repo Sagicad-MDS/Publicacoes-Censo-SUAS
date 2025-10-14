@@ -6,41 +6,312 @@ source("_funcoes.R")
 
 # Serviços e Benefícios ofertados pelo SUAS
 
-## Proteção Social
+A Assistência Social organiza-se por dois tipos de proteção:
 
-A Assistência Social organiza-se por dois tipos de proteção: a Proteção Social Básica, definida no Art. 6º-A da Lei Orgânica da Assistência Social (LOAS) como um "conjunto de serviços, programas, projetos e benefícios da assistência social que visa a prevenção de situações de vulnerabilidade e risco social por meio do desenvolvimento de potencialidades e aquisições e do fortalecimento de vínculos familiares e comunitários" e a Proteção Social Especial, definida como "conjunto de serviços, programas e projetos que tem por objetivo contribuir para a reconstrução de vínculos familiares e comunitários, a defesa de direito, o fortalecimento das potencialidades e aquisições e a proteção de famílias e indivíduos para o enfrentamento das situações de violação de direitos"[^servicos-1].
+- a Proteção Social Básica, definida no Art. 6º-A da [Lei Orgânica da Assistência Social (LOAS)](http://www.planalto.gov.br/ccivil_03/Leis/L8742compilado.htm) como um "conjunto de serviços, programas, projetos e benefícios da assistência social que visa a prevenção de situações de vulnerabilidade e risco social por meio do desenvolvimento de potencialidades e aquisições e do fortalecimento de vínculos familiares e comunitários" e
+- a Proteção Social Especial, definida como "conjunto de serviços, programas e projetos que tem por objetivo contribuir para a reconstrução de vínculos familiares e comunitários, a defesa de direito, o fortalecimento das potencialidades e aquisições e a proteção de famílias e indivíduos para o enfrentamento das situações de violação de direitos".
 
-[^servicos-1]: Lei nº 8.742, de 7 de dezembro de 1993 (Lei Orgânica da Assistência Social): Dispõe sobre a organização da Assistência Social e dá outras providências (<http://www.planalto.gov.br/ccivil_03/Leis/L8742compilado.htm>).
+Este capítulo apresenta alguns dados do Censo SUAS relativos à oferta de serviços e benefícios da Assistência Social no âmbito da Proteção Social Básica e da Proteção Social Especial.
 
-Nesse contexto, este eixo de unidades, serviços e benefícíos da Assistência Social tem o objetivo de apresentar informações sobre a oferta das unidades da Proteção Social Básica e Especial do SUAS integrada aos serviços e benefícios desta política.
+## Serviços da Proteção Social Básica
 
-Para isso, os dados históricos desta publicação nos ajudam a identificar os avanços e tendências ao longo dos anos em relação a estrutura física destes equipamentos, oferta dos serviços e benefícios, demandas e perfis de públicos atendidos, oferta regionalizada a partir da Resolução CIT 33/2013, integração com Cadastro Único para Programas Sociais, natureza da oferta das unidades. Este conteúdo está dividido por proteções a saber:
+A Proteção Social Básica destina-se à população que vive em situação de vulnerabilidade social decorrente da pobreza, privação de renda, falta de acesso a serviços públicos, fragilização de vínculos familiares e de pertencimento social (discriminação etárias, étnicas, de gênero ou por deficiência), dentre outros. Beneficiários do Programa Bolsa Família e do Benefício de Prestação Continuada são públicos prioritários da Proteção Social Básica.
 
--   **Proteção Social Básica:** PAIF (Serviço de Proteção e Atendimento Integral à Família), SCFV (Serviços de Convivência e Fortalecimento de Vínculos), Proteção Social Básica no Domicílio para pessoas idosas e com deficiência,
+Os serviços do SUAS no âmbito da Proteção Social Básica são:
 
--   **Proteção Social Especial Média Complexidadade:** PAEFI (Serviço de Atendimento Especializado a Famílias e Indivíduos), Proteção Social Especial no Domicílio para pessoas idosas e com Deficiência, Abordagem Social, MSE (Medidas Socioeducativas em meio aberto), Serviço para situações de emergência e/ou calamidade pública.
-
--   **Proteção Social Especial Alta Complexidade:** Tipos de unidades de Serviço de Acolhimento Institucional, oferta de Serviços de Família Acolhedora, bem como do Programa de Família Guardiã ou Extensa, Serviço ofertado em Centro-Dia.
-
-## Proteção Social Básica
+- Serviço de Proteção e Atendimento Integral à Família (PAIF);
+- Serviço de Convivência e Fortalecimento de Vínculos;
+- Serviço de Proteção Social Básica no Domicílio para Pessoas com Deficiência e Idosas. 
 
 ### Serviço de Proteção e Atendimento Integral à Família (PAIF)
 
-O PAIF compõe um conjunto de ações conjugada àsseguranças sociais referenciadas a unidades de CRAS. De acordo com Tipificação Nacional dos Serviços Socioassistenciais, o PAIF "consiste no trabalho social com família, de caráter continuado, com a finalidade de fortalecer a função protetiva das famílias, prevenir a ruptura dos seus vínculos, promover seu acesso e usufruto do direito" [^servicos-2].
+O Serviço de Proteção e Atendimento Integral à Família (PAIF) é oferecido em todos os Centros de Referência da Assistência Social (CRAS).
 
-[^servicos-2]: Resolução nº 109/2009 / CNAS
+De acordo com a [Tipificação Nacional dos Serviços Socioassistenciais](https://www.mds.gov.br/webarquivos/publicacao/assistencia_social/Normativas/tipificacao.pdf), o PAIF consiste no trabalho social com famílias, de caráter continuado, com a finalidade de fortalecer a função protetiva das famílias, prevenir a ruptura dos seus vínculos, promover seu acesso e usufruto de direitos e contribuir na melhoria de sua qualidade de vida. Prevê o desenvolvimento de potencialidades e aquisições das famílias e o fortalecimento de vínculos familiares e comunitários, por meio de ações de caráter preventivo, protetivo e proativo. O trabalho social do PAIF deve utilizar-se também de ações nas áreas culturais para o cumprimento de seus objetivos, de modo a ampliar universo informacional e proporcionar novas vivências às famílias usuárias do serviço. As ações do PAIF não devem possuir caráter terapêutico.
 
-A respeito das principais ações desenvolvidas no âmbito do PAIF, destaca-se que as três atividades mais realizadas pelas unidades são visitas domiciliares, encaminhamento para o Cadastro Único e acolhida particularizada. <!--não achei o grafico, tava nas versões anteriores--> <!--O grafico xxx também destaca que 91% das unidades informam que usam Prontuário para o acompanhamento das famílias. Destaca-se que o registro do acompanhamento familiar é obrigatório através do Prontuário--><!--não identificar estas informações no pdf anterior-->.
+O @fig-paif_cras_maiores mostra as atividades no âmbito do PAIF com maiores percentuais de unidades de CRAS que as realizaram em 2023, com destaque para visitas domiciliares e encaminhamento para o Cadastro Único, com 99% das unidades relatando o desenvolvimento dessas atividades.
 
-### Serviços de Convivência e Fortalecimento de Vínculos (SCFV)
+```{r}
+paif_cras= function(df, q, ano, cod_categoria){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+  cod_categoria <- quo_name(cod_categoria)
 
-A tônica do vínculo é um fator de Segurança Social. O SCFV no âmbito do SUAS é um serviço tipificado e realizado através de grupos na qual objetiva garantir aquisições progressivas aos cidadãos usuários do SUAS. Trata-se de serviço que afirma da natureza relacional no processo de proteção e complementar ao trabalho social com família e atua de forma preventiva a ocorrências de situações de risco social. De acordo com o @fig-CRAS-SCFV, 82% dos CRAS possuem a oferta deste serviço na sua unidade. Há também esta oferta por meio de Unidades de Centro de Convivência conforme já mencionado<!-- (@fig-quantitativo-CentroConv)--><!--^[o @fig-CRAS-SCFV não possui informação do ano de 2023 devido a ausencia desta pergunta no formulário no ano supracitado]. -->.
+  categoria <- case_when(
+    !! cod_categoria == "1"~"Acolhida em Grupo realizada por profissional de nível superior",
+    !! cod_categoria == "2"~"Acolhida Particularizada realizada por técnica/o de nível superior",
+    !! cod_categoria == "3"~"Acompanhamento de famílias",
+    !! cod_categoria == "4"~"Acompanhamento dos encaminhamentos realizados",
+    !! cod_categoria == "5"~"Atendimento particularizado de famílias ou indivíduos",
+    !! cod_categoria == "6"~"Registro dos acompanhamentos familiares em prontuário ou registro das famílias acompanhadas",
+    !! cod_categoria == "7"~"Elaboração do Plano de Acompanhamento Familiar",
+    !! cod_categoria == "8"~"Grupo/oficina com famílias",
+    !! cod_categoria == "9"~"Visitas Domiciliares",
+    !! cod_categoria == "10"~"Palestras",
+    !! cod_categoria == "11"~"Campanhas ou eventos comunitários",
+    !! cod_categoria == "12"~"Apoio para obtenção de Documentação pessoal",
+    !! cod_categoria == "13"~"Orientação/acompanhamento para inserção no BPC",
+    !! cod_categoria == "14"~"Encaminhamento de famílias ou indivíduos para a rede de serviço socioassistencial",
+    !! cod_categoria == "15"~"Encaminhamento de famílias ou indivíduos para outras políticas públicas (educação, habitação, saúde, trabalho, etc.)",
+    !! cod_categoria == "16"~"Oferta de Benefícios Eventuais",
+    !! cod_categoria == "17"~"Encaminhamento para inserção/atualização de famílias no Cadastro Único",
+    !! cod_categoria == "8A"~"Busca Ativa para inserção e/ou adesão de famílias ao acompanhamento familiar",
+    !! cod_categoria == "10A"~"Encaminhamento de famílias com gestantes e criança na primeira infância para o PCF",
+    !! cod_categoria == "12A"~"Encaminhamentos para acesso a qualificação profissional e serviços de intermediação de mão-de-obra",
+    !! cod_categoria == "13A"~"Encaminhamento para o Programa ACESSUAS Trabalho",
+    !! cod_categoria == "18"~"Atendimento e acompanhamentos de famílias em descumprimento de condicionalidades do PBF",
+    !! cod_categoria == "19"~"Registro dos atendimentos/família atendidas em prontuário",
+    !! cod_categoria == "21"~"Registro do atendimento e do acompanhamento das famílias beneficiárias do Programa Bolsa Família no Sistema de Condicionalidades (Sicon)",
+    !! cod_categoria == "23"~"Orientação e emissão da carteira do Idoso",
+    !! cod_categoria == "25"~"Orientação e apoio a famílias atendidas pelo Programa Criança Feliz",
+    !! cod_categoria == "26"~"Orientação e apoio a famílias com crianças e adolescente BPC- Escola",
+    !! cod_categoria == "27"~"Atenção a famílias de mulheres em cumprimento de prisão domiciliar",
+    !! cod_categoria == "28"~"Atenção a famílias de mulheres presas em flagrantes com crianças, filhos com deficiência, grávidas e lactantes",
+    !! cod_categoria == "29"~"Escuta qualificada/especializada diante da identificação de relato livre, sinais ou suspeita de situações de violências envolvendo crianças e adolescentes e suas famílias",
+    !! cod_categoria == "30"~"Compartilhamento de informações com a rede de proteção por meio de relatórios, conforme previsto em Orientações Técnicas",
+    !! cod_categoria == "99"~"Outros")
+  
+  df %>%
+    select(!! q) %>%
+    group_by(!! q) %>%
+    summarise(n=n()) %>%
+    mutate(Percentual = n/sum(n)) %>%
+    filter(!! q == "Sim" | !! q == 1) %>%
+    select(!(!! q)) %>%
+    mutate("Categoria" = categoria, "Ano" = !! ano)
+}
+```
 
-```{r fig-CRAS-SCFV, fig.cap = "Percentual de CRAS que executavam diretamente os Serviços de Convivência e Fortalecimento de Vínculos - Brasil, 2014 a 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r fig-paif_cras_maiores, fig.cap = "Percentual de CRAS que desenvolvem atividades no âmbito do PAIF, atividades com maiores percentuaia em 2023 - Brasil, 2015, 2022 e 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
+# #| fig-height: 30
 
-grafico <- f_sim(cras_2012, q19_1a, "2012") %>%
-  #bind_rows(f_sim(cras_201, q19, "2013")) %>%
-  bind_rows(f_sim(cras_2014, q19, "2014")) %>%
+ tabela <- 
+#  paif_cras (cras_2015,q13_1,"2015","1") %>%
+  paif_cras(cras_2015,q13_2,"2015","2") %>%
+  bind_rows(paif_cras(cras_2015,q13_3,"2015","3")) %>%
+  bind_rows(paif_cras(cras_2015,q13_4,"2015","4")) %>%
+  bind_rows(paif_cras(cras_2015,q13_5,"2015","5")) %>%
+#  bind_rows(paif_cras(cras_2015,q13_6,"2015","6")) %>%
+#  bind_rows(paif_cras(cras_2015,q13_7,"2015","7")) %>%
+#  bind_rows(paif_cras(cras_2015,q13_8,"2015","8")) %>% 
+  bind_rows(paif_cras(cras_2015,q13_9,"2015","9")) %>% 
+#  bind_rows(paif_cras(cras_2015,q13_10,"2015","10")) %>% 
+#  bind_rows(paif_cras(cras_2015,q13_11,"2015","11")) %>% 
+  bind_rows(paif_cras(cras_2015,q13_12,"2015","12")) %>% 
+#  bind_rows(paif_cras(cras_2015,q13_13,"2015","13")) %>% 
+  bind_rows(paif_cras(cras_2015,q13_14,"2015","14")) %>% 
+  bind_rows(paif_cras(cras_2015,q13_15,"2015","15")) %>% 
+#  bind_rows(paif_cras(cras_2015,q13_16,"2015","16")) %>% 
+  bind_rows(paif_cras(cras_2015,q13_17,"2015","17")) %>%
+
+#  bind_rows(paif_cras(cras_2022,q13_1,"2022","1")) %>%
+  bind_rows(paif_cras(cras_2022,q13_2,"2022","2")) %>%
+  bind_rows(paif_cras(cras_2022,q13_3,"2022","5")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_4,"2022","8")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_5,"2022","10")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_6,"2022","11")) %>%
+  bind_rows(paif_cras(cras_2022,q13_7,"2022","9")) %>%
+  bind_rows(paif_cras(cras_2022,q13_8,"2022","8A")) %>%
+  bind_rows(paif_cras(cras_2022,q13_9,"2022","14")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_10,"2022","10A")) %>%
+  bind_rows(paif_cras(cras_2022,q13_11,"2022","15")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_12,"2022","12A")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_13,"2022","13A")) %>%
+  bind_rows(paif_cras(cras_2022,q13_14,"2022","17")) %>%
+  bind_rows(paif_cras(cras_2022,q13_15,"2022","4")) %>%
+  bind_rows(paif_cras(cras_2022,q13_16,"2022","3")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_17,"2022","7")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_18,"2022","18")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_19,"2022","19")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_20,"2022","6")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_21,"2022","21")) %>%
+  bind_rows(paif_cras(cras_2022,q13_22,"2022","12")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_23,"2022","23")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_24,"2022","16")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_25,"2022","25")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_26,"2022","26")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_27,"2022","27")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_28,"2022","28")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_29,"2022","29")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_30,"2022","30")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_99,"2022","99")) %>%
+
+#  bind_rows(paif_cras(cras_2023,q12_1,"2023","1")) %>%
+  bind_rows(paif_cras(cras_2023,q12_2,"2023","2")) %>%
+  bind_rows(paif_cras(cras_2023,q12_3,"2023","5")) %>%
+#  bind_rows(paif_cras(cras_2023,q12_4,"2023","8")) %>%
+#  bind_rows(paif_cras(cras_2023,q12_5,"2023","10")) %>%
+#  bind_rows(paif_cras(cras_2023,q12_6,"2023","11")) %>%
+  bind_rows(paif_cras(cras_2023,q12_7,"2023","9")) %>%
+  bind_rows(paif_cras(cras_2023,q12_8,"2023","8A")) %>%
+  bind_rows(paif_cras(cras_2023,q12_9,"2023","14")) %>%
+  bind_rows(paif_cras(cras_2023,q12_10,"2023","15")) %>%
+  bind_rows(paif_cras(cras_2023,q12_11,"2023","17")) %>%
+  bind_rows(paif_cras(cras_2023,q12_12,"2023","4")) %>%
+  bind_rows(paif_cras(cras_2023,q12_13,"2023","3")) %>%
+#  bind_rows(paif_cras(cras_2023,q12_14,"2023","7")) %>%
+#  bind_rows(paif_cras(cras_2023,q12_15,"2023","18")) %>%
+#  bind_rows(paif_cras(cras_2023,q12_16,"2023","6")) %>%
+  bind_rows(paif_cras(cras_2023,q12_17,"2023","12")) %>%
+#  bind_rows(paif_cras(cras_2023,q12_18,"2023","23")) %>%
+#  bind_rows(paif_cras(cras_2023,q12_19,"2023","16")) %>%
+#  bind_rows(paif_cras(cras_2023,q12_99,"2023","99")) %>%
+
+  ungroup() %>%
+  mutate(Categoria=str_wrap(Categoria,width=62))
+
+ordenado<-tabela %>%
+  filter(Ano == "2023") %>%
+  arrange(Percentual) %>%
+  pull(Categoria)
+
+grafico<-tabela %>%
+  mutate(Categoria = factor(Categoria, levels = ordenado)) %>%
+  f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
+
+grafico
+```
+
+Já o @fig-paif_cras-menores mostra as atividades no âmbito do PAIF com os menores percentuais de unidades de CRAS que as desenvolviam em 2023, com destaque para a elaboração do Plano de Acompanhamento Familiar, atividade realizada por 80% das unidades de CRAS, e para o registro em prontuário do acompanhamento das famílias, realizado em 2023 por 92% das unidades de CRAS (aumento de 1 ponto percentual em relação a 2022), sendo que o registro do acompanhamento familiar através de prontuário é obrigatório.
+
+```{r fig-paif_cras-menores, fig.cap = "Percentual de CRAS que desenvolvem atividades no âmbito do PAIF, atividades com menores percentuaia em 2023 - Brasil, 2015, 2022 e 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
+# #| fig-height: 30
+
+ tabela <- 
+   paif_cras (cras_2015,q13_1,"2015","1") %>%
+#  bind_rows(paif_cras(cras_2015,q13_2,"2015","2")) %>%
+#  bind_rows(paif_cras(cras_2015,q13_3,"2015","3")) %>%
+#  bind_rows(paif_cras(cras_2015,q13_4,"2015","4")) %>%
+#  bind_rows(paif_cras(cras_2015,q13_5,"2015","5")) %>%
+  bind_rows(paif_cras(cras_2015,q13_6,"2015","6")) %>%
+  bind_rows(paif_cras(cras_2015,q13_7,"2015","7")) %>%
+  bind_rows(paif_cras(cras_2015,q13_8,"2015","8")) %>% 
+#  bind_rows(paif_cras(cras_2015,q13_9,"2015","9")) %>% 
+  bind_rows(paif_cras(cras_2015,q13_10,"2015","10")) %>% 
+  bind_rows(paif_cras(cras_2015,q13_11,"2015","11")) %>% 
+#  bind_rows(paif_cras(cras_2015,q13_12,"2015","12")) %>% 
+#  bind_rows(paif_cras(cras_2015,q13_13,"2015","13")) %>% 
+#  bind_rows(paif_cras(cras_2015,q13_14,"2015","14")) %>% 
+#  bind_rows(paif_cras(cras_2015,q13_15,"2015","15")) %>% 
+  bind_rows(paif_cras(cras_2015,q13_16,"2015","16")) %>% 
+#  bind_rows(paif_cras(cras_2015,q13_17,"2015","17")) %>%
+
+  bind_rows(paif_cras(cras_2022,q13_1,"2022","1")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_2,"2022","2")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_3,"2022","5")) %>%
+  bind_rows(paif_cras(cras_2022,q13_4,"2022","8")) %>%
+  bind_rows(paif_cras(cras_2022,q13_5,"2022","10")) %>%
+  bind_rows(paif_cras(cras_2022,q13_6,"2022","11")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_7,"2022","9")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_8,"2022","8A")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_9,"2022","14")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_10,"2022","10A")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_11,"2022","15")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_12,"2022","12A")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_13,"2022","13A")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_14,"2022","17")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_15,"2022","4")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_16,"2022","3")) %>%
+  bind_rows(paif_cras(cras_2022,q13_17,"2022","7")) %>%
+  bind_rows(paif_cras(cras_2022,q13_18,"2022","18")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_19,"2022","19")) %>%
+  bind_rows(paif_cras(cras_2022,q13_20,"2022","6")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_21,"2022","21")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_22,"2022","12")) %>%
+  bind_rows(paif_cras(cras_2022,q13_23,"2022","23")) %>%
+  bind_rows(paif_cras(cras_2022,q13_24,"2022","16")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_25,"2022","25")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_26,"2022","26")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_27,"2022","27")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_28,"2022","28")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_29,"2022","29")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_30,"2022","30")) %>%
+#  bind_rows(paif_cras(cras_2022,q13_99,"2022","99")) %>%
+
+  bind_rows(paif_cras(cras_2023,q12_1,"2023","1")) %>%
+#  bind_rows(paif_cras(cras_2023,q12_2,"2023","2")) %>%
+#  bind_rows(paif_cras(cras_2023,q12_3,"2023","5")) %>%
+  bind_rows(paif_cras(cras_2023,q12_4,"2023","8")) %>%
+  bind_rows(paif_cras(cras_2023,q12_5,"2023","10")) %>%
+  bind_rows(paif_cras(cras_2023,q12_6,"2023","11")) %>%
+#  bind_rows(paif_cras(cras_2023,q12_7,"2023","9")) %>%
+#  bind_rows(paif_cras(cras_2023,q12_8,"2023","8A")) %>%
+#  bind_rows(paif_cras(cras_2023,q12_9,"2023","14")) %>%
+#  bind_rows(paif_cras(cras_2023,q12_10,"2023","15")) %>%
+#  bind_rows(paif_cras(cras_2023,q12_11,"2023","17")) %>%
+#  bind_rows(paif_cras(cras_2023,q12_12,"2023","4")) %>%
+#  bind_rows(paif_cras(cras_2023,q12_13,"2023","3")) %>%
+  bind_rows(paif_cras(cras_2023,q12_14,"2023","7")) %>%
+  bind_rows(paif_cras(cras_2023,q12_15,"2023","18")) %>%
+  bind_rows(paif_cras(cras_2023,q12_16,"2023","6")) %>%
+#  bind_rows(paif_cras(cras_2023,q12_17,"2023","12")) %>%
+  bind_rows(paif_cras(cras_2023,q12_18,"2023","23")) %>%
+  bind_rows(paif_cras(cras_2023,q12_19,"2023","16")) %>%
+#  bind_rows(paif_cras(cras_2023,q12_99,"2023","99")) %>%
+
+  ungroup() %>%
+  mutate(Categoria=str_wrap(Categoria,width=62))
+
+ordenado<-tabela %>%
+  filter(Ano == "2023") %>%
+  arrange(Percentual) %>%
+  pull(Categoria)
+
+grafico<-tabela %>%
+  mutate(Categoria = factor(Categoria, levels = rev(ordenado))) %>%
+  f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
+
+grafico
+```
+
+<!--Em relação a atendimento Povos e comunidades Tradicionais, \footnote{a partir de 2019 a pergunta foi alterada} em 2018, 31% dos CRAS informaram que possuem povos e comunidades tradicionais em seu território de abrangência. Esse dado avança em relação ao ano de 2012..-->. 
+
+```{r povos-tradicionais_cras, fig.cap = "Percentual de CRAS que possuem povos e comunidades tradicionais no território de abrangencia, 2012 - 2018", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
+
+grafico <- f_sim(cras_2012, q40, "2012") %>%
+  bind_rows(f_sim(cras_2013, q51, "2013")) %>%
+  bind_rows(f_sim(cras_2014, q52, "2014")) %>%
+  bind_rows(f_sim(cras_2015, q44, "2015")) %>%
+  bind_rows(f_sim(cras_2016, q37, "2016")) %>%
+  bind_rows(f_sim(cras_2017, q42, "2017")) %>%
+  bind_rows(f_sim(cras_2018, q_47, "2018")) %>%
+ 
+  f_grafico_col_percent(Categoria, Percentual)
+
+grafico
+```
+
+<!-- Em relação as especifidades de Povos e comunidades Tradicionais atendidos pelo PAIF e PAEFI, destaca-se que dos seis povos e comunidades destacadas, os maiores registros de atendimento no PAIF são Públicos de comnunidades quilombolas com 72% dos CRAS e Ribeirinhos com registros de 70% das undiades conforme pode ser observado no \Cref{fig:CRAS-tradicionais}.
+
+No que se refere as regiões, destaca que o Nordeste, Sudeste e Sul registram maior demanda de atendimento do público de comunidades quilombolas sendo respectivamente 78%, 70% e 67% das undiades com registros deste publico. A Região Norte e Centro Oeste tem maior número de atendimento a públicos de comunidades ribeirinhas com 72% e 64% respectivamente . -->
+
+```{r CRAS-tradicionais, fig.cap = "Percentual de CRAS que atendem povos e comunidades tradicionais, por grupos , Brasil e grandes regiões, 2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
+
+# Pergunta mudou em 2023
+
+grafico <- f_selecao_regiao_grupo (cras_2022, q65_1_1, "Sim", IBGE, "Povos Indígenas")%>%
+    bind_rows(f_selecao_regiao_grupo(cras_2022, q65_2_1, "Sim", IBGE, "Comunidade Quilombola"))%>%
+    bind_rows(f_selecao_regiao_grupo(cras_2022, q65_3_1, "Sim", IBGE, "Comunidade Ribeirinha"))%>%
+    bind_rows(f_selecao_regiao_grupo(cras_2022, q65_4_1, "Sim", IBGE, "Povos Ciganos"))%>%
+    bind_rows(f_selecao_regiao_grupo(cras_2022, q65_5_1, "Sim", IBGE, "Povos de Matriz Africana e de terreiro"))%>%
+    bind_rows(f_selecao_regiao_grupo(cras_2022, q65_6_1, "Sim", IBGE, "Comunidades Extrativistas"))%>%
+    bind_rows(f_selecao_regiao_grupo(cras_2022, q65_9_1, "Sim", IBGE, "outros povos e comunidades tradicionais"))%>%
+
+  f_grafico_col_group_percent(Região, Percentual, Grupo, 4)
+
+grafico
+```
+
+### Serviço de Convivência e Fortalecimento de Vínculos (SCFV)
+
+O Serviço de Convivência e Fortalecimento de Vínculos (SCFV) é tipificado como serviço realizado em grupos, organizado a partir de percursos, de modo a garantir aquisições progressivas aos seus usuários, de acordo com o seu ciclo de vida, a fim de complementar o trabalho social com famílias e prevenir a ocorrência de situações de risco social.
+
+O @fig-CRAS-SCFV mostra o percentual de CRAS que executam diretamente os Serviços de Convivência e Fortalecimento de Vínculos. Em 2023 registrou-se a manutenção do percentual de 2022, quando 82% dos CRAS relataram executar diretamente este serviço. Percebe-se na série histórica, começando em 2014, uma tendência de redução gradual do percentual de CRAS que executam diretamente o SCFV, exceto pelos anos de 2021 e 2022, quando houve uma recuperação após uma queda acentuada em 2020, ano da pandemia de COVID-19. Vale lembrar que o SCFV pode também ser ofertado nas Unidades de Centro de Convivência.
+
+```{r fig-CRAS-SCFV, fig.cap = "Percentual de CRAS que executam diretamente os Serviços de Convivência e Fortalecimento de Vínculos - Brasil, 2014 a 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
+
+grafico <- 
+  f_sim(cras_2014, q19, "2014") %>%
   bind_rows(f_sim(cras_2015, q16, "2015")) %>%
   bind_rows(f_sim(cras_2016, q15, "2016")) %>%
   bind_rows(f_sim(cras_2017, q16, "2017")) %>%
@@ -49,73 +320,92 @@ grafico <- f_sim(cras_2012, q19_1a, "2012") %>%
   bind_rows(f_sim(cras_2020, q17, "2020")) %>%
   bind_rows(f_sim(cras_2021, q17, "2021")) %>%
   bind_rows(f_sim(cras_2022, q17, "2022")) %>%
-  bind_rows(f_sim(cras_2022, q17, "2023")) %>%
+  bind_rows(f_sim(cras_2023, q15, "2023")) %>%
 
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 ```
 
-Dos 2.122 CRAS que informaram que havia povos e comunidades tradicionais em seu território de abrangência, 896 informaram ter atendido Comunidades Quilombolas (38,4%), seguidos por 615 CRAS que informaram ter atendido Comunidades Ribeirinhas (26,3%) e 611 que informaram ter atendido Povos Indígenas (26,2%) (Gráfico 27).
+<!-- Dos 2.122 CRAS que informaram que havia povos e comunidades tradicionais em seu território de abrangência, 896 informaram ter atendido Comunidades Quilombolas (38,4%), seguidos por 615 CRAS que informaram ter atendido Comunidades Ribeirinhas (26,3%) e 611 que informaram ter atendido Povos Indígenas (26,2%) (Gráfico 27). -->
 
-### Serviços de Proteção Social Básica no domicílio para Pessoas Idosas e com Deficiência
+### Serviço de Proteção Social Básica no Domicílio para Pessoas com Deficiência e Idosas 
 
-Os Serviços de Proteção Social Básica no Domicílio para Pessoas Idosas e com Deficiência estão previstos na Tipificação dos Serviços Socioassistenciais. Recentemente a Resolução CNAS nº 117/2023 atualizou a tipificação, incluindo crianças e gestantes como público alvo da modalidade destes serviços.[^servicos-3]. Os dados do @fig-CRAS-PSB mostram um aumento de 3 pontos percentuais no período de 2018 a 2022.[^servicos-4]. Atualmente 73% das unidades informam possuir a oferta desses serviços.
+O Serviço de Proteção Social Básica no Domicílio para Pessoas com Deficiência e Idosas está previsto na Tipificação dos Serviços Socioassistenciais como o serviço que tem por finalidade a prevenção de agravos que possam provocar o rompimento de vínculos familiares e sociais dos usuários. Visa a garantia de direitos, o desenvolvimento de mecanismos para a inclusão social, a equiparação de oportunidades e a participação e o desenvolvimento da autonomia das pessoas com deficiência e pessoas idosas, a partir de suas necessidades e potencialidades individuais e sociais, prevenindo situações de risco, a exclusão e o isolamento.
 
-[^servicos-3]: RESOLUÇÃO CNAS/MDS Nº 117, DE 28 DE AGOSTO DE 2023
+O @fig-CRAS-PSB mostra uma redução a partir de 2021 no percentual de CRAS que executam diretamente o Serviço de Proteção Social Básica no Domicílio para Pessoas com Deficiência e Idosas, de 30% entre 2018 e 2020 para 26% em 2023.
 
-[^servicos-4]: essa pergunta surge a partir de 2018
-
-```{r fig-CRAS-PSB, fig.cap = "Percentual de CRAS que executavam diretamente os Serviços de Proteção Social Básica nos domicílios - Brasil, 2014 a 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r fig-CRAS-PSB, fig.cap = "Percentual de CRAS que executam diretamente o Serviço de Proteção Social Básica no Domicílio para Pessoas com Deficiência e Idosas - Brasil, 2018 a 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
 
 grafico <- f_sim(cras_2018, q_24, "2018") %>%
   bind_rows(f_sim(cras_2019, q23, "2019")) %>%
    bind_rows(f_sim(cras_2020, q24, "2020")) %>%
    bind_rows(f_sim(cras_2021, q24, "2021")) %>%
    bind_rows(f_sim(cras_2022, q24, "2022")) %>%
-  bind_rows(f_sim(cras_2022, q24, "2023")) %>%
+  bind_rows(f_sim(cras_2023, q22, "2023")) %>%
 
   f_grafico_col_percent(Categoria, Percentual)
 
 grafico
 ```
 
-## Proteção Social Especial
+Recentemente, a Resolução CNAS/MDS Nº 117, de 28 de Agosto de 2023, atualizou a tipificação, incluindo crianças e gestantes como público alvo do Serviço de Proteção Social Básica no Domicílio.
 
-### Serviços de Proteção Social Especial -- Média Compexidade
+## Serviços da Proteção Social Especial - Média Compexidade
 
 A Proteção Social Especial de Média Complexidade organiza a oferta de serviços, programas e projetos de caráter especializado que requerem maior estruturação técnica e operativa, com competências e atribuições definidas, destinados ao atendimento a famílias e indivíduos em situação de risco pessoal e social, por violação de direitos.
 
-É ofertada pelos Centros de Referência Especializados de Assistência Social (CREAS), pelos Centros de Referência Especializados para População em Situação de Rua (Centro POP), e pelos Centro-Dia. No nível de Média Complexidade, são ofertados o Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos (PAEFI); o Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida e de Prestação de Serviços à Comunidade; o Serviço Especializado em Abordagem Social; o Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosos e suas Famílias e o Serviço Especializado para Pessoas em Situação de Rua.
+É ofertada pelos seguintes equipamentos do SUAS: 
 
-### Serviço de Proteção e Atendimento e Atendimento Especializado a Famílias e Indivíduos (PAEFI)
+- Centros de Referência Especializados de Assistência Social (CREAS),
+- Centros de Referência Especializados para População em Situação de Rua (Centro POP), e 
+- Centro-Dia.
 
-O PAEFI é definido na Tipificação Nacional de Serviços Socioassistenciais como sendo o "serviço de apoio, orientação e acompanhamento a famílias com um ou mais de seus membros em situação de ameaça ou violação de direitos. Compreende atenções e orientações direcionadas para a promoção de direitos, a preservação e o fortalecimento de vínculos familiares, comunitários e sociais e para o fortalecimento da função protetiva das famílias diante do conjunto de condições que as vulnerabilizam e/ou as submetem a situações de risco pessoal e social."
+Os serviços de Proteção Social Especial ofertados no nível de Média Complexidade são:
 
-Essa seção se dedica a identificar as situações atendidas pelo PAEFI em relação aos as situações de violências e violações de direitos relacionadas aos ciclos de vida, trabalho, gênero e discriminações por raça e etnia e situações de pessoas com deficiência. [^servicos-5]
+- Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos (PAEFI);
+- Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida e de Prestação de Serviços à Comunidade;
+- Serviço Especializado em Abordagem Social;
+- Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosos e suas Famílias e 
+- Serviço Especializado para Pessoas em Situação de Rua.
 
-[^servicos-5]: todos os gráficos são a partir do ano de 2019 em decorrência do início da modalidade da pergunta no formulário do Censo SUAS
+### Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos (PAEFI)
 
-O @fig-paefi_creas mostra que os principais atendimentos, no período de 2019 a 2022, são os seguintes: abuso e violência sexual, violência contra mulher, crianças e adolescentes, situações de negligência e abandono.
+O PAEFI é definido na Tipificação Nacional de Serviços Socioassistenciais como sendo o "serviço de apoio, orientação e acompanhamento a famílias com um ou mais de seus membros em situação de ameaça ou violação de direitos", e que "compreende atenções e orientações direcionadas para a promoção de direitos, a preservação e o fortalecimento de vínculos familiares, comunitários e sociais e para o fortalecimento da função protetiva das famílias diante do conjunto de condições que as vulnerabilizam e/ou as submetem a situações de risco pessoal e social".
 
-```{r fig-paefi_creas, fig.cap = "Atendimentos realizados pelo PAEFI/CREAS por situações de riscos em decorrência de situações e ciclos de vida - Brasil  2023"}
-#| fig-height: 4.5
+O @fig-paefi_creas mostra as situações e perfis com os maiores percentuais de CREAS que relataram ter realizado atendimento nessas situações e perfis em 2023. Todos os percentuais deste gráfico caíram em 2023 em relação a 2019, e a maioria caiu também em relação a 2022. As situações e perfis com maiores percentuais de CREAS que realizaram atendimento foram as situações de abuso e violência sexual e as de violência psicológica contra crianças e adolesecente, e as situações de violência psicológica e de violência física contra mulheres, com mais de 90% dos CREAS tendo relatado a realização de atendimentos dessas situações e perfis.
 
-paefi_creas= function(df, q, ano, cod_categoria){
+```{r}
+paefi_creas= function(df, q, ano, cod_categoria_A, cod_categoria_B){
   q <- enquo(q)
   ano <- quo_name(ano)
-  cod_categoria <- quo_name(cod_categoria)
+  cod_categoria_A <- quo_name(cod_categoria_A)
+  cod_categoria_B <- quo_name(cod_categoria_B)
 
-#2022 revisar
-  categoria <- case_when(!! cod_categoria == "1"~"Violência Física - Criança e Adolescente",
-                         !! cod_categoria == "2"~"Violência Física - Mulheres",
-                         !! cod_categoria == "3"~"Violência Física - Pessoas Idosas",
-                         !! cod_categoria == "4"~"Abuso e Violência Sexual - Criança e Adolescente",
-                         !! cod_categoria == "5"~"Negligência e abandono - Pessoas Idosas",
-                         !! cod_categoria == "6"~"Tráfico de Pessoas - Crianças e Adolescentes",
-                         !! cod_categoria == "7"~"Tráfico de Pessoas - Mulheres",
-                         !! cod_categoria == "0"~"Tráfico de Pessoas - Homens")
+  categoria <- case_when(
+    !! cod_categoria_A == "1"~"Violência Física",
+    !! cod_categoria_A == "2"~"Violência Psicológica",
+    !! cod_categoria_A == "3"~"Abuso ou Violência Sexual",
+    !! cod_categoria_A == "4"~"Exploração sexual",
+    !! cod_categoria_A == "5"~"Negligência ou abandono",
+    !! cod_categoria_A == "6"~"Violência Patrimonial",
+    !! cod_categoria_A == "7"~"Tráfico de pessoas",
+    !! cod_categoria_A == "8"~"Trabalho em condição análoga à escravidão",
+    !! cod_categoria_A == "9"~"Trabalho infantil",
+    !! cod_categoria_A == "10"~"Situação de Rua",
+    !! cod_categoria_A == "11"~"Discriminação em decorrência da orientação sexual de gays, lésbicas ou outras",
+    !! cod_categoria_A == "12"~"Discriminação em decorrência da identidade de gênero de travestis, mulher trans, homem trans ou outras",
+    !! cod_categoria_A == "13"~"Discriminação em decorrência da raça/etnia",
+    !! cod_categoria_A == "14"~"Pessoas com deficiência vítimas de violência/violação de direitos",
+    !! cod_categoria_A == "15"~"Pessoas em situação de imigração (internacional) e/ou refúgio") %>%
 
+    str_c(case_when(
+      !! cod_categoria_B == "1"~"Crianças e Adolescentes",
+      !! cod_categoria_B == "2"~"Mulheres",
+      !! cod_categoria_B == "3"~"Homens",
+      !! cod_categoria_B == "4"~"Pessoas Idosas",
+      !! cod_categoria_B == "0"~"Não atende este tipo de situação"),
+      sep = " - ")
 
   df %>%
     select(!! q) %>%
@@ -124,56 +414,99 @@ paefi_creas= function(df, q, ano, cod_categoria){
     mutate(Percentual = n/sum(n)) %>%
     filter(!! q == "Sim" | !! q == 1) %>%
     mutate("Categoria" = categoria, "Ano" = !! ano)
-
 }
+```
 
-tabela <- 
-  paefi_creas (creas_2023,q12_1_1,"2023","1") %>%
- bind_rows(paefi_creas(creas_2023,q12_1_2,"2023","2")) %>%
- bind_rows(paefi_creas(creas_2023,q12_1_4,"2023","3")) %>%
- bind_rows(paefi_creas(creas_2023,q12_3_1,"2023","4")) %>%
- bind_rows(paefi_creas(creas_2023,q12_5_4,"2023","5")) %>%
- bind_rows(paefi_creas(creas_2023,q12_13_1,"2023","6")) %>%
- bind_rows(paefi_creas(creas_2023,q12_13_2,"2023","7")) %>%
- bind_rows(paefi_creas(creas_2023,q12_13_3,"2023","0")) %>% 
-  
-# paefi_creas (creas_2022,q16_1_1,"2022","1") %>%
-# bind_rows(paefi_creas(creas_2022,q16_1_2,"2022","2")) %>%
-# bind_rows(paefi_creas(creas_2022,q16_1_4,"2022","3")) %>%
-# bind_rows(paefi_creas(creas_2022,q16_5_1,"2022","4")) %>%
-# bind_rows(paefi_creas(creas_2022,q16_9_2,"2022","5")) %>%
-# bind_rows(paefi_creas(creas_2022,q16_13_1,"2022","6")) %>%
-# bind_rows(paefi_creas(creas_2022,q16_13_2,"2022","7")) %>%
-# bind_rows(paefi_creas(creas_2022,q16_13_3,"2022","0")) %>% 
-   
-  #bind_rows(paefi_creas(creas_2021,q16_1_1,"2021","1") %>%
-  # bind_rows(paefi_creas(creas_2021,q16_1_2,"2021","2")) %>%
-  # bind_rows(paefi_creas(creas_2021,q16_1_4,"2021","3")) %>%
-  # bind_rows(paefi_creas(creas_2021,q16_3_1,"2021","4")) %>%
-  # bind_rows(paefi_creas(creas_2021,q16_5_4,"2021","5")) %>%
-  # bind_rows(paefi_creas(creas_2021,q16_7_1,"2021","6")) %>%
-  # bind_rows(paefi_creas(creas_2021,q16_7_2,"2021","7")) %>%
-  # bind_rows(paefi_creas(creas_2021,q16_7_3,"2021","0")) %>%
-  
-  
-  # bind_rows(paefi_creas(creas_2020,q16_1_1,"2020","1")) %>%
-  # bind_rows(paefi_creas(creas_2020,q16_1_2,"2020","2")) %>%
-  # bind_rows(paefi_creas(creas_2020,q16_1_4,"2020","3")) %>%
-  # bind_rows(paefi_creas(creas_2020,q16_3_1,"2020","4")) %>%
-  # bind_rows(paefi_creas(creas_2020,q16_5_4,"2020","5")) %>%
-  # bind_rows(paefi_creas(creas_2020,q16_7_1,"2020","6")) %>%
-  # bind_rows(paefi_creas(creas_2020,q16_7_2,"2020","7")) %>%
-  # bind_rows(paefi_creas(creas_2020,q16_7_3,"2020","0")) %>%
-   
-  bind_rows(paefi_creas(creas_2019,q12_1_1,"2019","1")) %>%
-  bind_rows(paefi_creas(creas_2019,q12_1_2,"2019","2")) %>%
-  bind_rows(paefi_creas(creas_2019,q12_1_4,"2019","3")) %>%
-  bind_rows(paefi_creas(creas_2019,q12_3_1,"2019","4")) %>%
-  bind_rows(paefi_creas(creas_2019,q12_5_4,"2019","5")) %>%
-  bind_rows(paefi_creas(creas_2019,q12_7_1,"2019","6")) %>%
-  bind_rows(paefi_creas(creas_2019,q12_7_2,"2019","7")) %>%
-  bind_rows(paefi_creas(creas_2019,q12_7_3,"2019","0")) %>%
- 
+```{r fig-paefi_creas, fig.cap = "Percentual de CREAS que realizaram atendimentos do PAEFI segundo situações de riscos e perfil atendido, maiores percentuais em 2023 - Brasil, 2019, 2022 e 2023"}
+# #| fig-height: 4.5
+
+  tabela <- 
+  paefi_creas(creas_2019,q12_1_1,"2019","1","1") %>%
+  bind_rows(paefi_creas(creas_2019,q12_1_2,"2019","1","2")) %>%
+#  bind_rows(paefi_creas(creas_2019,q12_1_4,"2019","1","4")) %>%
+  bind_rows(paefi_creas(creas_2019,q12_2_1,"2019","2","1")) %>%
+  bind_rows(paefi_creas(creas_2019,q12_2_2,"2019","2","2")) %>%
+  bind_rows(paefi_creas(creas_2019,q12_2_4,"2019","2","4")) %>%
+  bind_rows(paefi_creas(creas_2019,q12_3_1,"2019","3","1")) %>%
+  bind_rows(paefi_creas(creas_2019,q12_5_1,"2019","5","1")) %>%
+  bind_rows(paefi_creas(creas_2019,q12_5_4,"2019","5","4")) %>%
+  bind_rows(paefi_creas(creas_2019,q12_6_4,"2019","6","4")) %>%
+#  bind_rows(paefi_creas(creas_2019,q12_8_1,"2019","9","1")) %>%
+#  bind_rows(paefi_creas(creas_2019,q12_9_3,"2019","10","3")) %>%
+#  bind_rows(paefi_creas(creas_2019,q12_12_2,"2019","14","2")) %>%
+#  bind_rows(paefi_creas(creas_2019,q12_12_4,"2019","14","4")) %>%
+
+  bind_rows(paefi_creas(creas_2022,q16_1_1,"2022","1","1")) %>%
+  bind_rows(paefi_creas(creas_2022,q16_1_2,"2022","1","2")) %>%
+#  bind_rows(paefi_creas(creas_2022,q16_1_4,"2022","1","4")) %>%
+  bind_rows(paefi_creas(creas_2022,q16_2_1,"2022","2","1")) %>%
+  bind_rows(paefi_creas(creas_2022,q16_2_2,"2022","2","2")) %>%
+  bind_rows(paefi_creas(creas_2022,q16_2_4,"2022","2","4")) %>%
+  bind_rows(paefi_creas(creas_2022,q16_3_1,"2022","3","1")) %>%
+#  bind_rows(paefi_creas(creas_2022,q16_4_1,"2022","4","1")) %>%
+  bind_rows(paefi_creas(creas_2022,q16_5_1,"2022","5","1")) %>%
+  bind_rows(paefi_creas(creas_2022,q16_5_4,"2022","5","4")) %>%
+  bind_rows(paefi_creas(creas_2022,q16_6_4,"2022","6","4")) %>%
+#  bind_rows(paefi_creas(creas_2022,q16_9_1,"2022","9","1")) %>%
+#  bind_rows(paefi_creas(creas_2022,q16_10_3,"2022","10","3")) %>%
+#  bind_rows(paefi_creas(creas_2022,q16_13_2,"2022","14","2")) %>%
+#  bind_rows(paefi_creas(creas_2022,q16_13_4,"2022","14","4")) %>%
+
+  bind_rows(paefi_creas(creas_2023,q12_1_1,"2023","1","1")) %>%
+  bind_rows(paefi_creas(creas_2023,q12_1_2,"2023","1","2")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_1_3,"2023","1","3")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_1_4,"2023","1","4")) %>%
+  bind_rows(paefi_creas(creas_2023,q12_2_1,"2023","2","1")) %>%
+  bind_rows(paefi_creas(creas_2023,q12_2_2,"2023","2","2")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_2_3,"2023","2","3")) %>%
+  bind_rows(paefi_creas(creas_2023,q12_2_4,"2023","2","4")) %>%
+  bind_rows(paefi_creas(creas_2023,q12_3_1,"2023","3","1")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_3_2,"2023","3","2")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_3_3,"2023","3","3")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_3_4,"2023","3","4")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_4_1,"2023","4","1")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_4_2,"2023","4","2")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_4_3,"2023","4","3")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_4_4,"2023","4","4")) %>%
+  bind_rows(paefi_creas(creas_2023,q12_5_1,"2023","5","1")) %>%
+  bind_rows(paefi_creas(creas_2023,q12_5_4,"2023","5","4")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_6_2,"2023","6","2")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_6_3,"2023","6","3")) %>%
+  bind_rows(paefi_creas(creas_2023,q12_6_4,"2023","6","4")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_7_1,"2023","7","1")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_7_2,"2023","7","2")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_7_3,"2023","7","3")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_7_4,"2023","7","4")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_8_1,"2023","8","1")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_8_2,"2023","8","2")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_8_3,"2023","8","3")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_8_4,"2023","8","4")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_9_1,"2023","9","1")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_10_1,"2023","10","1")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_10_2,"2023","10","2")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_10_3,"2023","10","3")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_10_4,"2023","10","4")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_11_1,"2023","11","1")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_11_2,"2023","11","2")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_11_3,"2023","11","3")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_11_4,"2023","11","4")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_12_1,"2023","12","1")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_12_2,"2023","12","2")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_12_3,"2023","12","3")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_12_4,"2023","12","4")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_13_1,"2023","13","1")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_13_2,"2023","13","2")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_13_3,"2023","13","3")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_13_4,"2023","13","4")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_14_1,"2023","14","1")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_14_2,"2023","14","2")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_14_3,"2023","14","3")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_14_4,"2023","14","4")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_15_1,"2023","15","1")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_15_2,"2023","15","2")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_15_3,"2023","15","3")) %>%
+#  bind_rows(paefi_creas(creas_2023,q12_15_4,"2023","15","4")) %>%
+
   ungroup() %>%
   mutate(Categoria=str_wrap(Categoria,width=51))
 
@@ -189,70 +522,33 @@ grafico<-tabela %>%
 grafico
 ```
 
-Em relação a violação decorrente de trabalho análogo a escravidão é definida como toda atividade forçada desenvolvida sob condições degradantes ou em jornadas exaustivas e quando a pessoa é impedida de deixar o seu local de trabalho [^servicos-6]. O @fig-paefi2_creas também traz as situações de trabalho infantil. Observa-se que a maior demanda atendida pelos CREAS, entre o período de 2020 e 2022,[^servicos-7] através do PAEFI é trabalho infantil presente em 68% dos CREAS. Entretanto as situações de situações de trabalho análogo a escravidão é presente em média 13% dos CREAS.
+A seguir destacamos algumas situações atendidas no PAEFI que não estão entre as situações com maiores percentuais de CREAS que realizaram atendimento.
 
-[^servicos-6]: Artigo 149 do Código Penal
+O @fig-paefi2_creas mostra os percentuais de CREAS que realizaram atendimentos do PAEFI em situações de trabalho em condição análoga à escravidão e de trabalho infantil. Os percentuais de CREAS que realizaram atendimentos nestas situações caiu em 2023. 
 
-[^servicos-7]: esse gráfico é a partir do ano de 2020 em decorrência do início da pergunta no formulário do Censo SUAS
+```{r fig-paefi2_creas, fig.cap = "Percentual de CREAS que realizaram atendimentos do PAEFI em situações de trabalho em condição análoga à escravidão e de trabalho infantil - Brasil, 2020, 2022 e 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
-```{r fig-paefi2_creas, fig.cap = "Atendimentos realizados pelo PAEFI/CREAS por situações de riscos em decorrência trabalho análogo a escravidão e trabalho infantil - Brasil  2022", fig.footer = "Fonte: MDS, Censo SUAS."}
+tabela <- 
+  paefi_creas(creas_2020,q16_8_1,"2020","8","1") %>%
+  bind_rows(paefi_creas(creas_2020,q16_8_2,"2020","8","2")) %>%
+  bind_rows(paefi_creas(creas_2020,q16_8_3,"2020","8","3")) %>%
+  bind_rows(paefi_creas(creas_2020,q16_8_4,"2020","8","4")) %>%
+  bind_rows(paefi_creas(creas_2020,q16_9_1,"2020","9","1")) %>%
 
+  bind_rows(paefi_creas(creas_2022,q16_8_1,"2022","8","1")) %>% 
+  bind_rows(paefi_creas(creas_2022,q16_8_2,"2022","8","2")) %>%
+  bind_rows(paefi_creas(creas_2022,q16_8_3,"2022","8","3")) %>%
+  bind_rows(paefi_creas(creas_2022,q16_8_4,"2022","8","4")) %>%
+  bind_rows(paefi_creas(creas_2022,q16_9_1,"2022","9","1")) %>%
 
-paefi2_creas= function(df, q, ano, cod_categoria){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-  cod_categoria <- quo_name(cod_categoria)
-
-#2022 revisar
-  categoria <- case_when(!! cod_categoria == "1"~"Trabalho em condição análoga à escravidão - Criança e Adolescente",
-                         !! cod_categoria == "2"~"Trabalho em condição análoga à escravidão - Mulheres adultas",
-                         !! cod_categoria == "3"~"Trabalho em condição análoga à escravidão - Homens adultos",
-                         !! cod_categoria == "4"~"Trabalho em condição análoga à escravidão - Pessoas Idosas",
-                         !! cod_categoria == "6"~"Trabalho infantil - Crianças e Adolescentes")
-
-
-  df %>%
-    select(!! q) %>%
-    group_by(!! q) %>%
-    summarise(n=n()) %>%
-    mutate(Percentual = n/sum(n)) %>%
-    filter(!! q == "Sim" | !! q == 1) %>%
-    mutate("Categoria" = categoria, "Ano" = !! ano)
-}
-
- tabela <- 
-   paefi2_creas(creas_2023,q12_7_1,"2023","1") %>%
-  bind_rows(paefi2_creas(creas_2023,q12_7_2,"2023","2")) %>%
-  bind_rows(paefi2_creas(creas_2023,q12_7_3,"2023","3")) %>%
-  bind_rows(paefi2_creas(creas_2023,q12_7_4,"2023","4")) %>%
-  bind_rows(paefi2_creas(creas_2023,q12_8_1,"2023","6")) %>%
+  bind_rows(paefi_creas(creas_2023,q12_8_1,"2023","8","1")) %>%
+  bind_rows(paefi_creas(creas_2023,q12_8_2,"2023","8","2")) %>%
+  bind_rows(paefi_creas(creas_2023,q12_8_3,"2023","8","3")) %>%
+  bind_rows(paefi_creas(creas_2023,q12_8_4,"2023","8","4")) %>%
+  bind_rows(paefi_creas(creas_2023,q12_9_1,"2023","9","1")) %>%
    
-  bind_rows(paefi2_creas(creas_2022,q16_8_1,"2022","1")) %>% 
-  bind_rows(paefi2_creas(creas_2022,q16_8_2,"2022","2")) %>%
-  bind_rows(paefi2_creas(creas_2022,q16_8_3,"2022","3")) %>%
-  bind_rows(paefi2_creas(creas_2022,q16_8_4,"2022","4")) %>%
-  bind_rows(paefi2_creas(creas_2022,q16_9_1,"2022","6")) %>%
-
-
-
-  # bind_rows(paefi2_creas(creas_2021,q16_8_1,"2021","1")) %>%
-  # bind_rows(paefi2_creas(creas_2021,q16_8_2,"2021","2")) %>%
-  # bind_rows(paefi2_creas(creas_2021,q16_8_3,"2021","3")) %>%
-  # bind_rows(paefi2_creas(creas_2021,q16_8_4,"2021","4")) %>%
-  # bind_rows(paefi2_creas(creas_2021,q16_9_1,"2021","6")) %>%
-
-
-  bind_rows(paefi2_creas(creas_2020,q16_8_1,"2020","1")) %>%
-  bind_rows(paefi2_creas(creas_2020,q16_8_2,"2020","2")) %>%
-  bind_rows(paefi2_creas(creas_2020,q16_8_3,"2020","3")) %>%
-  bind_rows(paefi2_creas(creas_2020,q16_8_4,"2020","4")) %>%
-  bind_rows(paefi2_creas(creas_2020,q16_9_1,"2020","6")) %>%
-
-
-
-
   ungroup() %>%
-  mutate(Categoria=str_wrap(Categoria,width=51))
+  mutate(Categoria=str_wrap(Categoria,width=45))
 
 ordenado<-tabela %>%
   filter(Ano == "2023") %>%
@@ -268,43 +564,18 @@ grafico
 
 ```{r fig-paefi3_creas, fig.cap = "Atendimentos realizados pelo PAEFI/CREAS por situações de rua - Brasil  2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
 
-paefi3_creas= function(df, q, ano, cod_categoria){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-  cod_categoria <- quo_name(cod_categoria)
+ tabela <- 
+  paefi_creas(creas_2019,q12_9_1,"2019","10","1") %>%
+  bind_rows(paefi_creas(creas_2019,q12_9_2,"2019","10","2")) %>%
+  bind_rows(paefi_creas(creas_2019,q12_9_3,"2019","10","3")) %>%
+  bind_rows(paefi_creas(creas_2019,q12_9_4,"2019","10","4")) %>%
+  bind_rows(paefi_creas(creas_2019,q12_9_0,"2019","10","0")) %>%
 
-#2022
-  categoria <- case_when(!! cod_categoria == "1"~"Situação de rua - Criança e Adolescente",
-                         !! cod_categoria == "2"~"Situação de rua - Mulheres adultas",
-                         !! cod_categoria == "3"~"Situação de rua - Homens adultos",
-                         !! cod_categoria == "4"~"Situação de rua - Pessoas Idosas",
-                         !! cod_categoria == "5"~"Situação de rua - não atende esse tipo de situação")
-
-
-  df %>%
-    select(!! q) %>%
-    group_by(!! q) %>%
-    summarise(n=n()) %>%
-    mutate(Percentual = n/sum(n)) %>%
-    filter(!! q == "Sim" | !! q == 1) %>%
-    mutate("Categoria" = categoria, "Ano" = !! ano)
-}
-
- tabela <- paefi3_creas (creas_2022,q16_10_1,"2022","1") %>%
-  bind_rows(paefi3_creas(creas_2022,q16_10_2,"2022","2")) %>%
-  bind_rows(paefi3_creas(creas_2022,q16_10_3,"2022","3")) %>%
-  bind_rows(paefi3_creas(creas_2022,q16_10_4,"2022","4")) %>%
-  bind_rows(paefi3_creas(creas_2022,q16_10_0,"2022","5")) %>%
-
-
-
-  bind_rows(paefi3_creas(creas_2019,q12_9_1,"2019","1")) %>%
-  bind_rows(paefi3_creas(creas_2019,q12_9_2,"2019","2")) %>%
-  bind_rows(paefi3_creas(creas_2019,q12_9_3,"2019","3")) %>%
-  bind_rows(paefi3_creas(creas_2019,q12_9_4,"2019","4")) %>%
-  bind_rows(paefi3_creas(creas_2019,q12_9_0,"2019","5")) %>%
-
-
+  bind_rows(paefi_creas(creas_2022,q16_10_1,"2022","10","1")) %>%
+  bind_rows(paefi_creas(creas_2022,q16_10_2,"2022","10","2")) %>%
+  bind_rows(paefi_creas(creas_2022,q16_10_3,"2022","10","3")) %>%
+  bind_rows(paefi_creas(creas_2022,q16_10_4,"2022","10","4")) %>%
+  bind_rows(paefi_creas(creas_2022,q16_10_0,"2022","10","0")) %>%
 
   ungroup() %>%
   mutate(Categoria=str_wrap(Categoria,width=51))
@@ -323,42 +594,18 @@ grafico
 
 ```{r fig-paefi4_creas, fig.cap = "Atendimentos realizados pelo PAEFI/CREAS por discriminação em decorrência de raça/etnia - Brasil  2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
 
-paefi4_creas= function(df, q, ano, cod_categoria){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-  cod_categoria <- quo_name(cod_categoria)
+ tabela <- 
+  paefi_creas(creas_2019,q12_11_1,"2019","13","1") %>%
+  bind_rows(paefi_creas(creas_2019,q12_11_2,"2019","13","2")) %>%
+  bind_rows(paefi_creas(creas_2019,q12_11_3,"2019","13","3")) %>%
+  bind_rows(paefi_creas(creas_2019,q12_11_4,"2019","13","4")) %>%
+  bind_rows(paefi_creas(creas_2019,q12_11_0,"2019","13","0")) %>%
 
-#2022
-  categoria <- case_when(!! cod_categoria == "1"~"Discriminação em decorrência de raça/etnia - Criança e Adolescente",
-                         !! cod_categoria == "2"~"Discriminação em decorrência de raça/etnia - Mulheres adultas",
-                         !! cod_categoria == "3"~"Discriminação em decorrência de raça/etnia - Homens adultos",
-                         !! cod_categoria == "4"~"Discriminação em decorrência de raça/etnia - Pessoas Idosas",
-                         !! cod_categoria == "5"~"Discriminação em decorrência de raça/etnia - não atende esse tipo de situação")
-
-
-  df %>%
-    select(!! q) %>%
-    group_by(!! q) %>%
-    summarise(n=n()) %>%
-    mutate(Percentual = n/sum(n)) %>%
-    filter(!! q == "Sim" | !! q == 1) %>%
-    mutate("Categoria" = categoria, "Ano" = !! ano)
-}
-
- tabela <- paefi4_creas (creas_2022,q16_12_1,"2022","1") %>%
-  bind_rows(paefi4_creas(creas_2022,q16_12_2,"2022","2")) %>%
-  bind_rows(paefi4_creas(creas_2022,q16_12_3,"2022","3")) %>%
-  bind_rows(paefi4_creas(creas_2022,q16_12_4,"2022","4")) %>%
-  bind_rows(paefi4_creas(creas_2022,q16_12_0,"2022","5")) %>%
-
-
-  bind_rows(paefi4_creas(creas_2019,q12_11_1,"2019","1")) %>%
-  bind_rows(paefi4_creas(creas_2019,q12_11_2,"2019","2")) %>%
-  bind_rows(paefi4_creas(creas_2019,q12_11_3,"2019","3")) %>%
-  bind_rows(paefi4_creas(creas_2019,q12_11_4,"2019","4")) %>%
-  bind_rows(paefi4_creas(creas_2019,q12_11_0,"2019","5")) %>%
-
-
+  bind_rows(paefi_creas(creas_2022,q16_12_1,"2022","13","1")) %>%
+  bind_rows(paefi_creas(creas_2022,q16_12_2,"2022","13","2")) %>%
+  bind_rows(paefi_creas(creas_2022,q16_12_3,"2022","13","3")) %>%
+  bind_rows(paefi_creas(creas_2022,q16_12_4,"2022","13","4")) %>%
+  bind_rows(paefi_creas(creas_2022,q16_12_0,"2022","13","0")) %>%
 
   ungroup() %>%
   mutate(Categoria=str_wrap(Categoria,width=51))
@@ -377,44 +624,18 @@ grafico
 
 ```{r fig-paefi5-creas, fig.cap = "Atendimentos realizados pelo PAEFI/CREAS por situações violência/violação de direitos por Pessoas com Deficiência - Brasil  2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
 
+ tabela <- 
+  paefi_creas(creas_2019,q12_12_1,"2019","14","1") %>%
+  bind_rows(paefi_creas(creas_2019,q12_12_2,"2019","14","2")) %>%
+  bind_rows(paefi_creas(creas_2019,q12_12_3,"2019","14","3")) %>%
+  bind_rows(paefi_creas(creas_2019,q12_12_4,"2019","14","4")) %>%
+  bind_rows(paefi_creas(creas_2019,q12_12_0,"2019","14","0")) %>%
 
-paefi5_creas= function(df, q, ano, cod_categoria){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-  cod_categoria <- quo_name(cod_categoria)
-
-#2022
-  categoria <- case_when(!! cod_categoria == "1"~"Pessoas com deficiência vítimas de violência/violação de direitos - Criança e Adolescente",
-                         !! cod_categoria == "2"~"Pessoas com deficiência vítimas de violência/violação de direitos - Mulheres adultas",
-                         !! cod_categoria == "3"~"Pessoas com deficiência vítimas de violência/violação de direitos - Homens adultos",
-                         !! cod_categoria == "4"~"Pessoas com deficiência vítimas de violência/violação de direitos - Pessoas Idosas",
-                         !! cod_categoria == "5"~"Pessoas com deficiência vítimas de violência/violação de direitos - não atende esse tipo de situação")
-
-
-  df %>%
-    select(!! q) %>%
-    group_by(!! q) %>%
-    summarise(n=n()) %>%
-    mutate(Percentual = n/sum(n)) %>%
-    filter(!! q == "Sim" | !! q == 1) %>%
-    mutate("Categoria" = categoria, "Ano" = !! ano)
-}
-
- tabela <- paefi5_creas(creas_2022,q16_13_1,"2022","1") %>%
-  bind_rows(paefi5_creas(creas_2022,q16_13_2,"2022","2")) %>%
-  bind_rows(paefi5_creas(creas_2022,q16_13_3,"2022","3")) %>%
-  bind_rows(paefi5_creas(creas_2022,q16_13_4,"2022","4")) %>%
-  bind_rows(paefi5_creas(creas_2022,q16_13_0,"2022","5")) %>%
-
-
-
-  bind_rows(paefi5_creas(creas_2019,q12_12_1,"2019","1")) %>%
-  bind_rows(paefi5_creas(creas_2019,q12_12_2,"2019","2")) %>%
-  bind_rows(paefi5_creas(creas_2019,q12_12_3,"2019","3")) %>%
-  bind_rows(paefi5_creas(creas_2019,q12_12_4,"2019","4")) %>%
-  bind_rows(paefi5_creas(creas_2019,q12_12_0,"2019","5")) %>%
-
-
+  bind_rows(paefi_creas(creas_2022,q16_13_1,"2022","14","1")) %>%
+  bind_rows(paefi_creas(creas_2022,q16_13_2,"2022","14","2")) %>%
+  bind_rows(paefi_creas(creas_2022,q16_13_3,"2022","14","3")) %>%
+  bind_rows(paefi_creas(creas_2022,q16_13_4,"2022","14","4")) %>%
+  bind_rows(paefi_creas(creas_2022,q16_13_0,"2022","14","0")) %>%
 
   ungroup() %>%
   mutate(Categoria=str_wrap(Categoria,width=51))
@@ -431,56 +652,29 @@ grafico<-tabela %>%
 grafico
 ```
 
-As situações de imigração / refúgio vem crescendo no âmbito das demandas do PAEFI, os dados do período de 2020 e 2022[^servicos-8] (@fig-paefi6_creas) sinaliza que todos os públicos aumentam ao longo destes dois anos.
+Os percentuais de CREAS que realizaram atendimento do PAEFI para pessoas em situação de imigração (internacional) e/ou refúgio reduziram em 2023 em relação a 2022 (@fig-paefi6_creas).
 
-[^servicos-8]: esse gráfico é a partir do ano de 2020 em decorrência do início da pergunta no formulário do Censo SUAS
-
-```{r fig-paefi6_creas, fig.cap = "Atendimentos realizados pelo PAEFI/CREAS - Pessoas em situação de imigração / refúgio - Brasil  2023", fig.footer = "Fonte: MDS, Censo SUAS."}
-
-paefi6_creas= function(df, q, ano, cod_categoria){
-  q <- enquo(q)
-  ano <- quo_name(ano)
-  cod_categoria <- quo_name(cod_categoria)
-
-#2022
-  categoria <- case_when(!! cod_categoria == "1"~"Pessoas em situação de imigração (internacional) e/ou refúgio - Criança e Adolescente",
-                         !! cod_categoria == "2"~"Pessoas em situação de imigração (internacional) e/ou refúgio - Mulheres adultas",
-                         !! cod_categoria == "3"~"Pessoas em situação de imigração (internacional) e/ou refúgio - Homens adultos",
-                         !! cod_categoria == "4"~"Pessoas em situação de imigração (internacional) e/ou refúgio - Pessoas Idosas",
-                         !! cod_categoria == "5"~"Pessoas em situação de imigração (internacional) e/ou refúgio - não atende esse tipo de situação")
-
-
-  df %>%
-    select(!! q) %>%
-    group_by(!! q) %>%
-    summarise(n=n()) %>%
-    mutate(Percentual = n/sum(n)) %>%
-    filter(!! q == "Sim" | !! q == 1) %>%
-    mutate("Categoria" = categoria, "Ano" = !! ano)
-}
+```{r fig-paefi6_creas, fig.cap = "Percentual de CREAS que realizaram atendimentos do PAEFI para pessoas em situação de imigração (internacional) e/ou refúgio - Brasil,  2020, 2022 e 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
  tabela <-
-    paefi6_creas (creas_2023,q12_15_1,"2023","1") %>%
-  bind_rows(paefi6_creas(creas_2023,q12_15_2,"2023","2")) %>%
-  bind_rows(paefi6_creas(creas_2023,q12_15_3,"2023","3")) %>%
-  bind_rows(paefi6_creas(creas_2023,q12_15_4,"2023","4")) %>%
-  bind_rows(paefi6_creas(creas_2023,q12_15_0,"2023","5")) %>%
+  paefi_creas(creas_2020,q16_14_1,"2020","15","1") %>%
+  bind_rows(paefi_creas(creas_2020,q16_14_2,"2020","15","2")) %>%
+  bind_rows(paefi_creas(creas_2020,q16_14_3,"2020","15","3")) %>%
+  bind_rows(paefi_creas(creas_2020,q16_14_4,"2020","15","4")) %>%
+  bind_rows(paefi_creas(creas_2020,q16_14_0,"2020","15","0")) %>%
+
+  bind_rows(paefi_creas(creas_2022,q16_14_1,"2022","15","1")) %>% 
+  bind_rows(paefi_creas(creas_2022,q16_14_2,"2022","15","2")) %>%
+  bind_rows(paefi_creas(creas_2022,q16_14_3,"2022","15","3")) %>%
+  bind_rows(paefi_creas(creas_2022,q16_14_4,"2022","15","4")) %>%
+  bind_rows(paefi_creas(creas_2022,q16_14_0,"2022","15","0")) %>%
+
+  bind_rows(paefi_creas(creas_2023,q12_15_1,"2023","15","1")) %>%
+  bind_rows(paefi_creas(creas_2023,q12_15_2,"2023","15","2")) %>%
+  bind_rows(paefi_creas(creas_2023,q12_15_3,"2023","15","3")) %>%
+  bind_rows(paefi_creas(creas_2023,q12_15_4,"2023","15","4")) %>%
+  bind_rows(paefi_creas(creas_2023,q12_15_0,"2023","15","0")) %>%
    
-  bind_rows(paefi6_creas(creas_2022,q16_14_1,"2022","1")) %>% 
-  bind_rows(paefi6_creas(creas_2022,q16_14_2,"2022","2")) %>%
-  bind_rows(paefi6_creas(creas_2022,q16_14_3,"2022","3")) %>%
-  bind_rows(paefi6_creas(creas_2022,q16_14_4,"2022","4")) %>%
-  bind_rows(paefi6_creas(creas_2022,q16_14_0,"2022","5")) %>%
-
-
-  bind_rows(paefi6_creas(creas_2020,q16_14_1,"2020","1")) %>%
-  bind_rows(paefi6_creas(creas_2020,q16_14_2,"2020","2")) %>%
-  bind_rows(paefi6_creas(creas_2020,q16_14_3,"2020","3")) %>%
-  bind_rows(paefi6_creas(creas_2020,q16_14_4,"2020","4")) %>%
-  bind_rows(paefi6_creas(creas_2020,q16_14_0,"2020","5")) %>%
-
-
-
   ungroup() %>%
   mutate(Categoria=str_wrap(Categoria,width=51))
 
@@ -496,22 +690,35 @@ grafico<-tabela %>%
 grafico
 ```
 
-No que se refere ao atendimento de violências e violações a povos e comunidades tradicionais o @fig-creas-tradicionais destaca-se que dos seis povos e comunidades destacadas, as maiores demandas estão para os públicos de comunidades quilombolas com 36%, povos indígenas com 35% e ribeirinhos com 29%.
+O @fig-creas-tradicionais mostra os percentuais de CREAS segundo realização de atendimento de povos e comunidades tradicionais. Os Povos Indígenas são o grupo com maior percentual de CREAS que os atenderam (17%), percentual puxado pelos CREAS da Região Norte (36% dos CREAS), Sul (34%) e Centro-Oeste (30%).
 
-As regiões Sul e Centro Oeste possuem maior demanda de atendimento do público povos indígenas sendo respectivamente 72% e 59% respectivamente. A região Nordeste se destaca com atendimento de comunidades quilombolas com 55% e a Região Norte com 74% de demandas de comunidades ribeirinhas.
+Logo em seguida observamos as Comunidades Quilombolas, puxado pelo alto percentual de CREAS que os atenderam na Região Nordeste (26%).
 
-```{r fig-creas-tradicionais, fig.cap = "Percentual de CREAS que atendem povos e comunidades tradicionais -  por grupos , Região - 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
-#| fig-height: 8
+Destaca-se o alto percentual de CREAS da Região Norte que atenderam Comunidades Ribeirinhas (51%).
 
-grafico <- 
-  f_selecao_regiao_ano (creas_2023, q42_1, "Sim", Regiao, "Povos Indígenas") %>%
-    bind_rows(f_selecao_regiao_ano(creas_2023, q42_2, "Sim", Regiao, "Comunidade Quilombola")) %>%
-    bind_rows(f_selecao_regiao_ano(creas_2023, q42_4, "Sim", Regiao, "Comunidade Ribeirinha")) %>%
-    bind_rows(f_selecao_regiao_ano(creas_2023, q42_5, "Sim", Regiao, "Povos de Matriz Africana e de terreiro")) %>%
-    bind_rows(f_selecao_regiao_ano(creas_2023, q42_6, "Sim", Regiao, "Comunidades Extrativistas")) %>%
-    bind_rows(f_selecao_regiao_ano(creas_2023, q42_99, "Sim", Regiao, "Outros povos e comunidades tradicionais")) %>%
+```{r fig-creas-tradicionais, fig.cap = "Percentual de CREAS segundo realização de atendimento de povos e comunidades tradicionais - Brasil e Grandes Regiões, 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
+# #| fig-height: 8
 
-  f_grafico_col_percent_flip(fct_rev(Região), Percentual, Ano, 3)
+tabela <- 
+  f_selecao_regiao_grupo_com_na (creas_2023, q42_1, "Sim", Regiao, "Povos Indígenas") %>%
+  bind_rows(f_selecao_regiao_grupo_com_na(creas_2023, q42_2, "Sim", Regiao, "Comunidade Quilombola")) %>%
+  bind_rows(f_selecao_regiao_grupo_com_na(creas_2023, q42_4, "Sim", Regiao, "Povos Ciganos")) %>%
+  bind_rows(f_selecao_regiao_grupo_com_na(creas_2023, q42_3, "Sim", Regiao, "Comunidade Ribeirinha")) %>%
+  bind_rows(f_selecao_regiao_grupo_com_na(creas_2023, q42_5, "Sim", Regiao, "Povos de Matriz Africana e de terreiro")) %>%
+  bind_rows(f_selecao_regiao_grupo_com_na(creas_2023, q42_6, "Sim", Regiao, "Comunidades Extrativistas")) %>%
+  bind_rows(f_selecao_regiao_grupo_com_na(creas_2023, q42_99, "Sim", Regiao, "Outros povos e comunidades tradicionais")) %>%
+#  bind_rows(f_selecao_regiao_grupo_com_na(creas_2023, q42_0, "Sim", Regiao, "Não atendeu")) %>%
+
+  mutate(Grupo=str_wrap(Grupo,width=38))
+
+ordenado<-tabela %>%
+  filter(Região == "Brasil") %>%
+  arrange(Percentual) %>%
+  pull(Grupo)
+
+grafico<-tabela %>%
+  mutate(Grupo = factor(Grupo, levels = rev(ordenado))) %>%
+  f_grafico_col_percent_flip(fct_rev(Região), Percentual, Grupo, 3)
 
 grafico
 ```
@@ -574,7 +781,7 @@ grafico
 
 O Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC), segundo definido na Tipificação Nacional de Serviços Socioassistenciais, "tem por finalidade prover atenção socioassistencial e acompanhamento a adolescentes e jovens em cumprimento de medidas socioeducativas em meio aberto, determinadas judicialmente". Deve contribuir para o acesso a direitos e para a resignificação de valores na vida pessoal e social dos adolescentes e jovens. Para a oferta do serviço faz-se necessário a observância da responsabilização face ao ato infracional praticado, cujos direitos e obrigações devem ser assegurados de acordo com as legislações e normativas específicas para o cumprimento da medida.
 
-Em 2017, 81% dos municípios ofertavam o Serviço de Medidas Socioeducativas em Meio Aberto (MSE) de Liberdade Assistida (LA) e Prestação de Serviço à Comunidade (PSC) através dos CREAS. Esse percentual aumentou nos últimos anos, conforme pode ser observado no @fig-CREAS-MSE. O aumento foi de 8 pontos percentuais. O Censo SUAS de 2022 mostra que 89% dos CREAS ofertam este serviço. O principal objetivo desta oferta é assegurar a função protetiva destes jovens em situação de cumprimento de MSE e suas respectivas famílias em conjunto com Sistema de Garantias de Direitos (SGC).
+Desde 2019 observamos no @fig-CREAS-MSE uma relativa estabilidade, em torno de 88%, no percentual de CREAS que realizam o Serviço de Proteção Social a Adolescentes em cumprimento de Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC).
 
 ```{r fig-CREAS-MSE, fig.cap = "Percentual de CREAS que realizam o Serviço de Proteção Social a Adolescentes em cumprimento de Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC) - Brasil, 2017 a 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
 
@@ -592,16 +799,14 @@ grafico <-
 grafico
 ```
 
-### Serviço de Proteção Social Especial para Pessoas com Deficiência e Pessoas Idosas e suas famílias
+### Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosas e suas Famílias
 
-O Serviço de Proteção Social Especial para Pessoas com Deficiência e Pessoas Idosas e suas famílias é definido na Tipificação Nacional de Serviços Socioassistenciais como sendo o "serviço para a oferta de atendimento especializado a famílias com pessoas com deficiência e idosos com algum grau de dependência, que tiveram suas limitações agravadas por violações de direitos, tais como: exploração da imagem, isolamento, confinamento, atitudes discriminatórias e preconceituosas no seio da família, falta de cuidados adequados por parte do cuidador, alto grau de estresse do cuidador, desvalorização da potencialidade/capacidade da pessoa, dentre outras que agravam a dependência e comprometem o desenvolvimento da autonomia."
+O Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosas e suas Famílias é definido na Tipificação Nacional de Serviços Socioassistenciais como sendo o "serviço para a oferta de atendimento especializado a famílias com pessoas com deficiência e idosos com algum grau de dependência, que tiveram suas limitações agravadas por violações de direitos, tais como: exploração da imagem, isolamento, confinamento, atitudes discriminatórias e preconceituosas no seio da família, falta de cuidados adequados por parte do cuidador, alto grau de estresse do cuidador, desvalorização da potencialidade/capacidade da pessoa, dentre outras que agravam a dependência e comprometem o desenvolvimento da autonomia."
 
-No que se refere às ações e atividades no âmbito do CREAS[^servicos-9], o @fig-creas-pse-domicilio mostra redução na quantidade de Serviço de Proteção Social Especial para Pessoas com Deficiência e Pessoas Idosas com equipe específica para sua execução. Em concomitante, aumenta a oferta sem equipe exclusiva. Os dados também destacam que há redução em relação aos municípios que deixam de ofertar este serviços que vai de 20% em 2018 para 31% em 2022. Outro movimento é o aumento dos municípios que realizam a oferta do serviço em outra unidade além do CREAS.
+No @fig-creas-pse-domicilio vemos que o percentual de CREAS que ofertam Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosas e suas Famílias vem reduzindo, tanto para os CREAS que ofertam com equipe específica para o serviço, quanto para os que ofertam sem equipe específica para o serviço.
 
-[^servicos-9]: gráficos são a partir do ano de 2018 em decorrência do início da modalidade da pergunta no formulário do Censo SUAS
-
-```{r fig-creas-pse-domicilio, fig.cap = "Percentual de CREAS que realizam Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosas e suas Famílias, 2018 a 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
-#| fig-height: 4.5
+```{r fig-creas-pse-domicilio, fig.cap = "Percentual de CREAS segundo oferta do Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosas e suas Famílias, 2018 a 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
+# #| fig-height: 4.5
 
 creas_pse = function(df, q, ano){
   q <- enquo(q)
@@ -609,38 +814,35 @@ creas_pse = function(df, q, ano){
 
   df %>%
     select(!! ano := !! q) %>%
-    gather("Grupo","Eixo_x") %>%
-    mutate(Eixo_x = case_when(
-      Eixo_x == "Sim, sem equipe específica para o serviço;"~"Sim, sem equipe específica",
-      #Eixo_x == "Não realiza, nem possui o Serviço no município;"~"Não realiza, nem possui o Serviço no município",
-      #Eixo_x == "Não realiza com a equipe deste CREAS, mas no município existe o Serviço"~"Não realiza com a equipe deste CREAS, mas no município existe o Serviço",
-      #Eixo_x == "Sim, com equipe específica para o serviço",
-      #Eixo_x == "Conselho Municipal de Assistência Social, Conselho Tutelar ou outro conselho municipal;"~"Conselho Municipal de Assistência Social, Conselho Tutelar ou outro conselho municipal",
-      #Eixo_x == "Outro."~"Outro",
-      TRUE ~ Eixo_x)) %>%
-    filter(!is.na(Eixo_x)) %>%
-    group_by(Grupo, Eixo_x) %>%
+    gather("Ano","Grupo") %>%
+    mutate(Grupo = case_when(
+      Grupo == "Sim, com equipe específica para o serviço"~"Oferta com equipe específica para o serviço",
+      Grupo == "Sim, sem equipe específica para o serviço"~"Oferta sem equipe específica para o serviço",
+      Grupo == "Não realiza com a equipe deste CREAS, mas no município existe o Serviço" |
+      Grupo == "Não realiza, nem possui o Serviço no município" ~"Não realiza",
+      TRUE ~ Grupo)) %>%
+    filter(!is.na(Grupo)) %>%
+    group_by(Ano, Grupo) %>%
     summarise(n=n()) %>%
     mutate(Percentual = n/sum(n))
 }
 
-tabela <- creas_pse(creas_2018,q35,"2018") %>%
+tabela <- 
+  creas_pse(creas_2018,q35,"2018") %>%
   bind_rows(creas_pse(creas_2019, q33, "2019")) %>%
   bind_rows(creas_pse(creas_2020, q38, "2020")) %>%
   bind_rows(creas_pse(creas_2021, q38, "2021")) %>%
   bind_rows(creas_pse(creas_2022, q38, "2022")) %>%
-  bind_rows(creas_pse(creas_2022, q38, "2023")) %>%
-
-  mutate(Eixo_x=str_wrap(Eixo_x,width=58))
+  bind_rows(creas_pse(creas_2023, q30, "2023"))
 
 ordenado<-tabela %>%
-  filter(Grupo == "2023") %>%
+  filter(Ano == "2023") %>%
   arrange(Percentual) %>%
-  pull(Eixo_x)
+  pull(Grupo)
 
 grafico<-tabela %>%
-  mutate(Eixo_x = factor(Eixo_x, levels = ordenado)) %>%
-  f_grafico_col_percent_flip(Eixo_x, Percentual, Grupo, 2)
+  mutate(Grupo = factor(Grupo, levels = ordenado)) %>%
+  f_grafico_col_stack_percent(Ano, Percentual, Grupo, 3)
 
 grafico
 ```
@@ -664,11 +866,9 @@ grafico
 
 O Serviço Especializado em Abordagem Social consiste na identificação, por equipes de educadores sociais, de pessoas e famílias em situação de risco pessoal nos ambientes públicos. São considerados situações de risco: trabalho infantil, situação de rua, uso abusivo de drogas, exploração sexual de crianças e adolescentes, dentre outras. A abordagem é realizada em praças, feiras, locais de intensa circulação de pessoas e com existência de comércio, ruas, prédios abandonados, dentre outros espaços, e tem por objetivo garantir direitos por meio de inclusão em rede de serviços socioassistenciais e em outras políticas públicas.
 
-No @fig-CREAS-abordagem-social[^servicos-10] observa-se uma redução da oferta deste serviço entre o período de 2018 a 2022. Os dados sinalizam que aumenta o número de CREAS que deixam de ofertar este serviço nesta unidade, esse evolui de 14% para 17% das unidades. O número de municípios que deixam de ofertar este serviços também aumenta de 20% para 31%. Concomitante a estas informações, reduz-se o número de municípios que ofertam, seja com equipe ou sem equipe exclusiva para execução dos serviços.
+Os percentuais de CREAS que realizaram o Serviço Especializado em Abordagem Social, mostrados no @fig-CREAS-abordagem-social, permaneceram relativamente estáveis de 2019 a 2023, com pequenas oscilações.
 
-[^servicos-10]: gráfico a partir do ano de 2018 em decorrência do início da modalidade da pergunta no formulário do Censo SUAS
-
-```{r fig-CREAS-abordagem-social, fig.cap = "Quantidade de CREAS que realizam o Serviço Especializado em Abordagem Social, Brasil, 2018 - 2020 e 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
+```{r fig-CREAS-abordagem-social, fig.cap = "Percentual de CREAS que realizam o Serviço Especializado em Abordagem Social - Brasil, 2019 a 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
 
 creas_psee  = function(df, q, ano){
   q <- enquo(q)
@@ -677,14 +877,18 @@ creas_psee  = function(df, q, ano){
   df %>%
     select(!! ano := !! q) %>%
     gather("Categoria","Nível") %>%
-    mutate(Nível = case_when(Nível == "Sim, sem equipe específica para o serviço"~"Sim, sem equipe específica para o serviço",
-                             TRUE ~ Nível)) %>%
+    mutate(Nível = case_when(
+      Nível == "Sim, com equipe exclusiva para Abordagem"~"Realiza com equipe exclusiva para Abordagem",
+      Nível == "Sim, sem equipe exclusiva para Abordagem"~"Realiza sem equipe exclusiva para Abordagem",
+      Nível == "Não realiza com a equipe deste CREAS, mas no município existe o Serviço referenciado a este CREAS"~"Não realiza com a equipe do CREAS, mas no município existe o Serviço referenciado ao CREAS",
+      Nível == "Não realiza, nem possui o Serviço referenciado a este CREAS"~"Não realiza, nem possui o Serviço referenciado ao CREAS",
+     TRUE ~ Nível)) %>%
     filter(!is.na(Nível)) %>%
-    mutate(Nível = factor(Nível, levels = c("Sim, sem equipe específica para o serviço",
-                                            "Sim, com equipe específica para o serviço",
-                                            "Não realiza com a equipe deste CREAS, mas no município existe o Serviço",
-                                            "Não realiza",
-                                             "Não realiza, nem possui o Serviço no município"))) %>%
+    mutate(Nível = factor(Nível, levels = c(
+      "Realiza com equipe exclusiva para Abordagem",
+      "Realiza sem equipe exclusiva para Abordagem",
+      "Não realiza com a equipe do CREAS, mas no município existe o Serviço referenciado ao CREAS",
+      "Não realiza, nem possui o Serviço referenciado ao CREAS"))) %>%
 
     group_by(Categoria, Nível) %>%
     summarise(n=n()) %>%
@@ -692,56 +896,42 @@ creas_psee  = function(df, q, ano){
     mutate(Percentual = n/sum(n))
 }
 
-grafico <- creas_psee(creas_2018, q35, "2018") %>%
-  bind_rows(creas_psee(creas_2019, q33, "2019")) %>%
-  bind_rows(creas_psee(creas_2020, q38, "2020")) %>%
-  #bind_rows(creas_psee(creas_2021, q39, "2021")) %>%
-  bind_rows(creas_psee(creas_2022, q38, "2022")) %>%
-  bind_rows(creas_psee(creas_2023, q30, "2023")) %>%
-
+grafico <- 
+#  creas_psee(creas_2018, q29, "2018") %>% # Em 2018 o formato dos dados era outro, precisaria ajustar
+  creas_psee(creas_2019, q27, "2019") %>%
+  bind_rows(creas_psee(creas_2020, q30, "2020")) %>%
+  bind_rows(creas_psee(creas_2021, q30, "2021")) %>%
+  bind_rows(creas_psee(creas_2022, q30, "2022")) %>%
+  bind_rows(creas_psee(creas_2023, q22, "2023")) %>%
 
   f_grafico_col_stack_percent(Categoria, Percentual, Nível, 4)
 
 grafico
 ```
 
-## Proteção Social Especial de Alta Complexidade
+## Serviços da Proteção Social Especial - Alta Complexidade
 
-Os Serviços de Proteção Social Especial de Alta Complexidade destinam-se a famílias e/ou indivíduos afastados temporariamente do núcleo familiar e/ou comunitário de origem. Estes Serviços são organizados em diferentes regulamentações, modalidades e públicos. Os públicos dos serviços tipificados são:
-
--   **Crianças e Adolescentes:** Unidade residencial e unidades institucional;
--   **Pessoas Idosas:** Unidade residencial e unidades institucional;
--   **Adultos e famílias:** Unidade residencial tipo de residência e unidade institucional e passagem;
--   **Jovens e Adultos com deficiência:** residência Inclusiva
--   **Mulheres:** Unidade residencial.
+Os Serviços de Proteção Social Especial de Alta Complexidade destinam-se a famílias e/ou indivíduos afastados temporariamente do núcleo familiar e/ou comunitário de origem. Estes Serviços são organizados em diferentes regulamentações, modalidades e públicos.
 
 ### Serviço de Acolhimento em Família Acolhedora
 
 O Serviço de Acolhimento em Família Acolhedora "organiza o acolhimento de crianças e adolescentes, afastados da família de origem ou extensa por medida de proteção, em residência de famílias acolhedoras cadastradas. É previsto até que seja possível o retorno à família de origem ou, na sua impossibilidade, o encaminhamento para adoção. O serviço é o responsável por selecionar, capacitar, cadastrar e acompanhar as famílias acolhedoras, bem como realizar o acompanhamento da criança e/ou do adolescente acolhido e da sua família de origem."
 
-No território Nacional há 54% dos municípios informaram possuir o serviço conforme dados de 2022. Essa proporção cresceu em relação ao ano de 2017, conforme pode ser observado no @fig-fam_acolhedora. O gráfico também referencia a oferta destes serviços por grandes regiões, as regiões Sul e Sudeste se destacam como o maior número quantitativo e a Região Nordeste em termos de crescimento proporcional neste período. AS Regiões Centro Oeste e Norte foram as que menos tiveram crescimento da oferta do Serviço de Acolhimento em Família Acolhedora no âmbito dos municípios.
+O @fig-fam_acolhedora mostra um contínuo crescimento do percentual de Municípios com unidades municipais executoras do Serviço de Acolhimento de Família Acolhedora, chegando a 10% dos Municípios brasileiros em 2023, com destaque para a Região Sul, cujo percentual chegou a 23%.
 
-<!--tem algum erro no grafico, acho que é algo em relação a função, mas não consegui identificar, se colocar o nome percentual no lugar do "N" ele não roda-->
+```{r fig-fam_acolhedora, fig.cap = "Percentual de Municípios com unidades municipais executoras do Serviço de Acolhimento de Família Acolhedora - Brasil, 2017 a 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
+# #| fig-height: 6.5
 
-.
-
-```{r fig-fam_acolhedora, fig.cap = "Percentual de municípios com Serviços de Família Acolhedora - Brasil, 2017 a 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
-#| fig-height: 6.5
-
-
-#revisar 2022
-
-grafico <- f_quantitativo_regiao_ano(famacolfam_2017, IBGE, "2017") %>%
-   bind_rows(f_quantitativo_regiao_ano(famacolfam_2018, IBGE, "2018")) %>%
-   bind_rows(f_quantitativo_regiao_ano(famacolfam_2019, IBGE, "2019")) %>%
-   bind_rows(f_quantitativo_regiao_ano(famacolfam_2020, codigo_ibge, "2020")) %>%
-   bind_rows(f_quantitativo_regiao_ano(famacolfam_2021, codigo_ibge, "2021")) %>%
-   bind_rows(f_quantitativo_regiao_ano(famacolfam_2022, IBGE7, "2022")) %>%
-   bind_rows(f_quantitativo_regiao_ano(famacolfam_2023, IBGE, "2023")) %>%
+grafico <- 
+  f_percentual_municipios_regiao_ano(famacolfam_2017, IBGE, "2017") %>%
+#  bind_rows(f_percentual_municipios_regiao_ano(famacolfam_2018, IBGE, "2018")) %>%
+  bind_rows(f_percentual_municipios_regiao_ano(famacolfam_2019, IBGE, "2019")) %>%
+#  bind_rows(f_percentual_municipios_regiao_ano(famacolfam_2020, codigo_ibge, "2020")) %>%
+  bind_rows(f_percentual_municipios_regiao_ano(famacolfam_2021, codigo_ibge, "2021")) %>%
+  bind_rows(f_percentual_municipios_regiao_ano(famacolfam_2022, IBGE7, "2022")) %>%
+  bind_rows(f_percentual_municipios_regiao_ano(famacolfam_2023, IBGE, "2023")) %>%
    
-  
-  f_grafico_col_numero_flip_2_x(Região, n, Ano)
-
+  f_grafico_col_group_percent(Região, Percentual, Ano, 1)
 
 grafico
 ```
@@ -783,90 +973,154 @@ grafico
 
 ## Benefícios Eventuais
 
-Os Benefícios Benefícios Eventuais, são previsões do SUAS e suas ofertas devem ser garantidas "em sua integralidade -- benefícios, serviços e programas -- de forma que a capacidade protetiva do Estado seja efetivada de forma a fortalecer a autonomia das famílias, garantindo os encaminhamentos necessários". [^servicos-11]
+Os [Benefícios Eventuais](https://www.mds.gov.br/webarquivos/publicacao/assistencia_social/Cadernos/SNAS_Cartilha_Par%C3%A2metros_Atua%C3%A7%C3%A3o_SUAS.pdf) são um tipo de proteção social que se caracteriza por sua oferta de natureza temporária para prevenir e enfrentar situações provisórias de vulnerabilidade decorrentes ou agravadas por nascimentos, mortes, vulnerabilidades temporárias e calamidades.
 
-[^servicos-11]: Orientações técnicas sobre Benefícios Eventuais no SUAS, acesso através: https://www.sigas.pe.gov.br/files/01282019120030-orientacoes.tecnias.sobre.beneficios.eventuais.no.suas.pdf
+Destaca-se que a oferta dos Benefícios Eventuais caracteriza-se como direito, portanto diferencia-se de doação. A forma e critérios de sua concessão devem ser deliberadas pelo Conselho de Assistência Social local.
 
-São concedidos em casos de nascimento, morte, situações de vulnerabilidade provisória e de calamidade pública.
+Observamos no @fig-be-munic que em 2023 se manteve o percentual de Municípios de 2022 que concediam Benefícios Eventuais, exceto em situações de calamidade pública, em que houve um recuo de 2 pontos percentuais.
 
-Destaca-se que a oferta deste Benefício Eventual caracteriza-se como um direito, portanto diferencia-se de doação. A forma e critérios de sua concessão devem ser deliberadas pelo Conselho de Assistência Social local.
+```{r fig-be-munic, fig.cap = "Percentual de Municípios que concedem Benefícios Eventuais, segundo situação de vulnerabilidade - Brasil, 2012, 2017, 2022 e 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
-Dados de 2022 informa que 98% dos municípios concedem este Benefício Eventual para situações de vulerabildiade temporária e de Morte. Em seguida, 90% dos entes municipais informam para situações de calamidade pública e 87% dos municípios em situação de natalidade conforme o @fig-be-munic.
+beneficios_eventuais = function(df, q, ano, cod_categoria){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+  cod_categoria <- quo_name(cod_categoria)
 
-```{r fig-be-munic, fig.cap = "Percentual de municípios que concedem Benefícios Eventuais - Brasil, 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
+  categoria <- case_when(
+    !! cod_categoria == "1"~"Situação de Morte",
+    !! cod_categoria == "2"~"Situação de Natalidade",
+    !! cod_categoria == "3"~"Situação de Calamidade Pública",
+    !! cod_categoria == "4"~"Situação de Vulnerabilidade Temporária")
 
-tabela<-gm_2023 %>%
-# Questionário 2022:
-  select("Situação de Morte"=q60_1,
-         "Situação de Natalidade"=q60_2,
-         "Situação de Calamidade Pública"=q60_3,
-         "Situação de Vulnerabilidade Temporária"=q60_4) %>%
-#-------------------
-  gather("Categoria","Nível") %>%
-  mutate(Categoria=str_wrap(Categoria,width=39)) %>%
-  mutate(Nível = case_when(Nível=="Sim"~"Concede no Município",
-                           Nível=="Não"~"Não Concede no Município",
-                           is.na(Nível)~"Não informou",
-                           TRUE ~ Nível)) %>%
-  group_by(Categoria, Nível) %>%
-  summarise(n=n()) %>%
-  group_by(Categoria) %>%
-  mutate(Percentual = n/sum(n))
+  df %>%
+    select(!! q) %>%
+    group_by(!! q) %>%
+    summarise(n=n()) %>%
+    mutate(Percentual = n/sum(n)) %>%
+    filter(!! q == "Sim" | !! q == 1) %>%
+    select(!(!! q)) %>%
+    mutate("Categoria" = categoria, "Ano" = !! ano)
+}
+
+ tabela <- 
+  beneficios_eventuais(gm_2012,q71_1,"2012","1") %>%
+  bind_rows(beneficios_eventuais(gm_2012,q71_2,"2012","2")) %>%
+  bind_rows(beneficios_eventuais(gm_2012,q71_3,"2012","3")) %>%
+  bind_rows(beneficios_eventuais(gm_2012,q71_4,"2012","4")) %>%
+
+  bind_rows(beneficios_eventuais(gm_2017,q80.1.1,"2017","1")) %>%
+  bind_rows(beneficios_eventuais(gm_2017,q80.2.1,"2017","2")) %>%
+  bind_rows(beneficios_eventuais(gm_2017,q80.3.1,"2017","3")) %>%
+  bind_rows(beneficios_eventuais(gm_2017,q80.4.1,"2017","4")) %>%
+
+  bind_rows(beneficios_eventuais(gm_2022,q56_1_1,"2022","1")) %>%
+  bind_rows(beneficios_eventuais(gm_2022,q56_2_1,"2022","2")) %>%
+  bind_rows(beneficios_eventuais(gm_2022,q56_3_1,"2022","3")) %>%
+  bind_rows(beneficios_eventuais(gm_2022,q56_4_1,"2022","4")) %>%
+
+  bind_rows(beneficios_eventuais(gm_2023,q60_1,"2023","1")) %>%
+  bind_rows(beneficios_eventuais(gm_2023,q60_2,"2023","2")) %>%
+  bind_rows(beneficios_eventuais(gm_2023,q60_3,"2023","3")) %>%
+  bind_rows(beneficios_eventuais(gm_2023,q60_4,"2023","4")) %>%
+
+  ungroup()
 
 ordenado<-tabela %>%
-  filter(Nível == "Concede no Município") %>%
+  filter(Ano == "2023") %>%
   arrange(Percentual) %>%
   pull(Categoria)
 
 grafico<-tabela %>%
-  ungroup() %>%
   mutate(Categoria = factor(Categoria, levels = ordenado)) %>%
-  mutate(Nível=str_wrap(Nível,width=22)) %>%
-  f_grafico_col_stack_percent_flip(Categoria, Percentual, Nível, 1)
+  f_grafico_col_percent_flip(Categoria, Percentual, Ano, 1)
 
 grafico
 ```
 
-Em relação ao local da oferta destes Benefícios Eventuais, destaca-se no @fig-be-local que há três locais descritos pelos gestores municipais, são eles: oferta na sede do orgão gestor, oferta nas unidades da rede socioassistencial e, em ambos. Para as situações de morte, os dados apontam que 40% desta oferta é realizada no orgão gestor municipal. Em caso de nascimento e situação de vulnerabilidade temporária a maior proporção encontra-se nas unidades da rede socioassistencial com 42% e 37% respectivamente.
+Em relação aos locais onde os benefícios são concedidos nos Municípios, @fig-be-local, vemos uma redução na concessão realizada apenas na sede do Órgão Gestor, com aumento da concessão realizada em unidades da rede socioassistencial ou em ambos os locais.
 
-```{r fig-be-local, fig.cap = "Percentual de local onde os benefícios eventuais são concedidos nos municípios - 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
+```{r fig-be-local, fig.cap = "Percentual dos locais onde os benefícios são concedidos nos Municípios que concedem Benefícios Eventuais, segundo situação de vulnerabilidade - Brasil, 2013, 2018, 2022 e 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
-grafico <- gm_2023 %>%
-# Questionário 2022:
-  select("Situação de Morte"=q60_1_1,
-         "Situação de Natalidade"=q60_2_1,
-         "Situação de Calamidade Pública"=q60_3_1,
-         "Situação de Vulnerabildiade Temporária"=q60_4_1) %>%
+w_grupo <- 36
 
-#-------------------
-  gather("Categoria","Nível", na.rm=TRUE, factor_key=TRUE) %>%
-  mutate(Nível = case_when(Nível=="Em ambas"~"Em ambas",
-                           Nível=="Na sede"~"Na sede do órgão gestor",
-                           Nível=="Unidades"~"Em unidades da rede socioassistencial",
-                           TRUE ~ Nível)) %>%
-  mutate(Nível = factor(Nível, levels = c("Na sede do órgão gestor",
-                                          "Em unidades da rede socioassistencial",
-                                          "Em ambas"))) %>%
-  group_by(Categoria, Nível) %>%
-  summarise(n=n()) %>%
-  group_by(Categoria) %>%
-  mutate(Percentual = n/sum(n)) %>%
+f_local = function(df, q, ano, cod_categoria){
+  q <- enquo(q)
+  ano <- quo_name(ano)
+  cod_categoria <- quo_name(cod_categoria)
 
-  f_grafico_col_stack_percent_flip(fct_rev(Categoria), Percentual, Nível, 3)
+  categoria <- case_when(
+    !! cod_categoria == "1"~"Situação de Morte",
+    !! cod_categoria == "2"~"Situação de Natalidade",
+    !! cod_categoria == "3"~"Situação de Calamidade Pública",
+    !! cod_categoria == "4"~"Situação de Vulnerabilidade Temporária")
+
+  df %>%
+    select("Grupo" = !! q) %>%
+    filter(!is.na(Grupo)) %>%
+    filter(Grupo != "Não concedido no município") %>%
+    group_by(Grupo) %>%
+    summarise(n=n()) %>%
+    mutate(Percentual = n/sum(n)) %>%
+    mutate(Grupo = case_when(
+      Grupo=="Em unidades da rede socioassistenciais"~"Em unidades da rede socioassistencial",
+      TRUE ~ Grupo)) %>%
+    mutate(Grupo=str_wrap(Grupo, width=w_grupo)) %>%
+    mutate(Grupo = factor(Grupo, levels = str_wrap(c(
+      "Na sede do órgão gestor",
+      "Em unidades da rede socioassistencial",
+      "Em ambas"),
+      width=w_grupo))) %>%
+    mutate("Categoria" = categoria, "Ano" = !! ano)
+}
+
+tabela <- 
+  f_local(gm_2013,q76a_4,"2013","1") %>%
+  bind_rows(f_local(gm_2013,q76b_4,"2013","2")) %>%
+  bind_rows(f_local(gm_2013,q76c_4,"2013","3")) %>%
+  bind_rows(f_local(gm_2013,q76d_4,"2013","4")) %>%
+
+#  bind_rows(f_local(gm_2017,q80.1.4,"2017","1")) %>%
+#  bind_rows(f_local(gm_2017,q80.2.4,"2017","2")) %>%
+#  bind_rows(f_local(gm_2017,q80.3.4,"2017","3")) %>%
+#  bind_rows(f_local(gm_2017,q80.4.4,"2017","4")) %>%
+
+  bind_rows(f_local(gm_2018,q_43_4,"2018","1")) %>%
+  bind_rows(f_local(gm_2018,q_43_8,"2018","2")) %>%
+  bind_rows(f_local(gm_2018,q_43_12,"2018","3")) %>%
+  bind_rows(f_local(gm_2018,q_43_16,"2018","4")) %>%
+
+  bind_rows(f_local(gm_2022,q56_1_3,"2022","1")) %>%
+  bind_rows(f_local(gm_2022,q56_2_3,"2022","2")) %>%
+  bind_rows(f_local(gm_2022,q56_3_3,"2022","3")) %>%
+  bind_rows(f_local(gm_2022,q56_4_3,"2022","4")) %>%
+
+  bind_rows(f_local(gm_2023,q60_1_1,"2023","1")) %>%
+  bind_rows(f_local(gm_2023,q60_2_1,"2023","2")) %>%
+  bind_rows(f_local(gm_2023,q60_3_1,"2023","3")) %>%
+  bind_rows(f_local(gm_2023,q60_4_1,"2023","4")) %>%
+
+  mutate(Categoria = factor(Categoria, levels = c(
+    "Situação de Natalidade",
+    "Situação de Calamidade Pública",
+    "Situação de Morte",
+    "Situação de Vulnerabilidade Temporária")))
+
+grafico<-tabela %>%
+  f_grafico_col_stack_percent_flip_2_x_groups(Categoria, Ano, Percentual, Grupo, 1)
 
 grafico
 ```
 
-## Considerações Finais
+<!-- ## Considerações Finais -->
 
-O Censo SUAS 2022 sinaliza que ações como visitas domiciliares, encaminhamento para inserção/atualização e acolhida particularizada são as principais ações realizadas pelos PAIF sendo a primeira em 100% das unidades de serviços. O atendimento em comunidades tradicionais se destaca com especificidades regionais. Dois públicos são predominantes, para regiões Nordeste, Sudeste e Sul são as comunidades quilombolas e para as regiões Norte e Centro Oeste os públicos de comunidades ribeirinhas são proporcionalmente mais presentes nos atendimentos dos PAIF nos CRAS.
+<!-- O Censo SUAS 2022 sinaliza que ações como visitas domiciliares, encaminhamento para inserção/atualização e acolhida particularizada são as principais ações realizadas pelos PAIF sendo a primeira em 100% das unidades de serviços. O atendimento em comunidades tradicionais se destaca com especificidades regionais. Dois públicos são predominantes, para regiões Nordeste, Sudeste e Sul são as comunidades quilombolas e para as regiões Norte e Centro Oeste os públicos de comunidades ribeirinhas são proporcionalmente mais presentes nos atendimentos dos PAIF nos CRAS. -->
 
-Em relação a oferta de SCFV, os dados mostram que 82% dos CRAS ofertam diretamente este serviço. Dado que cresceu em relação aos dois últimos anos do censo, entretanto comparado a partir de 2014, teve redução de 7 pontos percentuais. Já o Serviço de Proteção Social Básica no Domicílio, é um dado que decresceu ao longo dos últimos 4 anos. O último Censo SUAS sinaliza que 27% dos CRAS ofertam este serviço em domicílio.
+<!-- Em relação a oferta de SCFV, os dados mostram que 82% dos CRAS ofertam diretamente este serviço. Dado que cresceu em relação aos dois últimos anos do censo, entretanto comparado a partir de 2014, teve redução de 7 pontos percentuais. Já o Serviço de Proteção Social Básica no Domicílio, é um dado que decresceu ao longo dos últimos 4 anos. O último Censo SUAS sinaliza que 27% dos CRAS ofertam este serviço em domicílio. -->
 
-Na Proteção Social Especial através do PAEFI, destaca-se que violência contra criança e adolescentes e contra mulher são as demandas mais presentes no âmbito do PAEFI. Em relação a violações, o trabalho infantil é identificado em 68% dos atendimentos dos CREAS. No aspecto migratório, essa demanda aumento nos últimos anos, sobretudo no perfil de pessoas adultas (homens e mulheres).
+<!-- Na Proteção Social Especial através do PAEFI, destaca-se que violência contra criança e adolescentes e contra mulher são as demandas mais presentes no âmbito do PAEFI. Em relação a violações, o trabalho infantil é identificado em 68% dos atendimentos dos CREAS. No aspecto migratório, essa demanda aumento nos últimos anos, sobretudo no perfil de pessoas adultas (homens e mulheres). -->
 
-Em relação ao atendimento de povos e comunidades tradicionais netas unidades, destaca-se que os dados variam conforme região, sendo hegemonicamente mais presente os públicos de Comunidades Quilombolas, Povos Indígenas e Ribeirinhos. A oferta de Serviços de MSE em meio aberto pelos CREAS cresceu nos últimos anos 8 pontos percentuais. Já o Serviço PSE para Pessoas com deficiência e idosas diminuiu nos últimos 4 anos, chegando em 2022 com 31% dos municípios que não é realizado nem pelo CREAS, nem em nenhuma outra unidade no município. O Serviços de abordagem social também reduz nos últimos 4 anos, chegando a 31% dos municípios que não realiza no CREAS e não possui em nenhumas outras unidades do município.
+<!-- Em relação ao atendimento de povos e comunidades tradicionais netas unidades, destaca-se que os dados variam conforme região, sendo hegemonicamente mais presente os públicos de Comunidades Quilombolas, Povos Indígenas e Ribeirinhos. A oferta de Serviços de MSE em meio aberto pelos CREAS cresceu nos últimos anos 8 pontos percentuais. Já o Serviço PSE para Pessoas com deficiência e idosas diminuiu nos últimos 4 anos, chegando em 2022 com 31% dos municípios que não é realizado nem pelo CREAS, nem em nenhuma outra unidade no município. O Serviços de abordagem social também reduz nos últimos 4 anos, chegando a 31% dos municípios que não realiza no CREAS e não possui em nenhumas outras unidades do município. -->
 
-No que se refere a Proteção Social Especial de Alta Complexidade, destaca-se aumento nos municípios que informam ofertar o serviço de família acolhedora, atualmente 54,3% dos municípios informam realizar esta oferta, dado que cresceu 27 pontos percentuais de 2017 a 2022.
+<!-- No que se refere a Proteção Social Especial de Alta Complexidade, destaca-se aumento nos municípios que informam ofertar o serviço de família acolhedora, atualmente 54,3% dos municípios informam realizar esta oferta, dado que cresceu 27 pontos percentuais de 2017 a 2022. -->
 
-No que se refere a oferta de Benefícios Eventuais, dados de 2022 apontam que a maior concessão nos municípios é para as situações de vulnerabilidade temporária e de morte (98% dos municípios). Sobre o local da oferta eles variam, sendo que na oferta por situação de morte a maior proporção é no órgão gestor da política de Assistência Social, com 40% dos municípios que ofertam. Benefícios eventuais em situação de vulnerabilidade temporária e natalidade está mais presente na rede socioassistencial, com 37% e 42% respectivamente. 34% dos municípios informam ofertar benefícios em situação de calamidade pública pelo órgão gestor, e este mesmo percentual (34%) de municípios informa ofertar em unidades da rede socioassistencial.
+<!-- No que se refere a oferta de Benefícios Eventuais, dados de 2022 apontam que a maior concessão nos municípios é para as situações de vulnerabilidade temporária e de morte (98% dos municípios). Sobre o local da oferta eles variam, sendo que na oferta por situação de morte a maior proporção é no órgão gestor da política de Assistência Social, com 40% dos municípios que ofertam. Benefícios eventuais em situação de vulnerabilidade temporária e natalidade está mais presente na rede socioassistencial, com 37% e 42% respectivamente. 34% dos municípios informam ofertar benefícios em situação de calamidade pública pelo órgão gestor, e este mesmo percentual (34%) de municípios informa ofertar em unidades da rede socioassistencial. -->
