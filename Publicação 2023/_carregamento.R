@@ -307,9 +307,9 @@ cmun_2020 <- read_excel("../Censo SUAS 2020/Conselho Municipal/Censo_SUAS_2020_C
 
 cmunrh_2020 <- read_excel("../Censo SUAS 2020/Conselho Municipal/Censo_SUAS_2020_Conselho_municipal_RH.xlsx")
 
-cmun_2021 <- read_excel("../Censo SUAS 2021/12 - CMAS/Censo_SUAS_2021_Conselho_Municipal_Dados_Gerais_Divulgação.xlsx")
+cmun_2021 <- read_excel("../Censo SUAS 2021/13 - CONSELHO MUNICIPAL/Censo_SUAS_2021_Conselho_Municipal_Dados_Gerais_Divulgação.xlsx")
 
-cmunrh_2021 <- read_excel("../Censo SUAS 2021/12 - CMAS/Censo_SUAS_2021_Conselho_Municipal_RH.xlsx")
+cmunrh_2021 <- read_excel("../Censo SUAS 2021/13 - CONSELHO MUNICIPAL/Censo_SUAS_2021_Conselho_Municipal_RH.xlsx")
 
 cmun_2022 <- read_excel("../Censo SUAS 2022/13 - CONSELHO MUNICIPAL/Censo_SUAS_2022_Conselho_Municipal_Dados_gerais.xlsx")
 
@@ -621,6 +621,29 @@ pop_municipios_2016 <- read_excel("../Estimativa População IBGE/estimativa_dou
 pop_municipios_2017 <- read_excel("../Estimativa População IBGE/estimativa_dou_2017.xls", sheet = "Municípios (limpo)")
 pop_municipios_2021 <- read_ods("../Estimativa População IBGE/estimativa_dou_2021.ods", sheet = "Municípios (limpo)")
 
+f_porte_populacional = function(df, populacao){
+  populacao <- enquo(populacao)
+  
+  df %>%
+    mutate("Porte" = case_when(!! populacao <= 20000~"Pequeno I",
+                               !! populacao <= 50000~"Pequeno II",
+                               !! populacao <= 100000~"Médio",
+                               !! populacao <= 900000~"Grande",
+                               !! populacao > 900000~"Metrópole",
+                               is.na(!! populacao)~"Município não especificado")) %>%
+    mutate(Porte = factor(Porte, levels = c("Pequeno I",
+                                            "Pequeno II",
+                                            "Médio",
+                                            "Grande",
+                                            "Metrópole",
+                                            "Município não especificado")))
+}
+
+porte_municipios <- pop_municipios_2021 %>%
+  f_porte_populacional(`POPULAÇÃO ESTIMADA`) %>%
+  mutate(IBGE = as.numeric(paste0(`COD. UF`, `COD. MUNIC`))) %>%
+  mutate(IBGE = str_sub(IBGE, end = 6)) %>%
+  select(IBGE, Porte)
 
 # Ajuste base 2023
 names(gm_2023)[grep("Regiao", names(gm_2023))] = "Região"
