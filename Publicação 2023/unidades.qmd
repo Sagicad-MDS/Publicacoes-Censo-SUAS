@@ -80,18 +80,13 @@ CRAS -->
 
 ```{r fig-CRAS-porte, fig.cap = "Percentual de municípios por número de CRAS no município, segundo porte populacional estimado do município - Brasil, 2023", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios"}
 
-cras_municipios <- cras_2023 %>%
-  select(IBGE7) %>%
-  group_by(IBGE7) %>%
-  summarise(n_cras=n())
-
-porte_municipios <- pop_municipios_2021 %>%
-  f_porte_populacional(`POPULAÇÃO ESTIMADA`) %>%
-  mutate(IBGE7 = as.numeric(paste0(`COD. UF`, `COD. MUNIC`))) %>%
-  select(IBGE7, Porte)
-
-dados <- cras_municipios %>%
-  full_join(porte_municipios, by = c("IBGE7" = "IBGE7")) %>%
+dados <- cras_2023 %>%
+  select(IBGE) %>%
+  mutate(IBGE = as.character(IBGE)) %>%
+  filter(str_length(IBGE) >= 6) %>%
+  group_by(IBGE) %>%
+  summarise(n_cras=n()) %>%
+  full_join(porte_municipios, by = c("IBGE" = "IBGE")) %>%
   mutate(grupo = case_when(is.na(n_cras)~"Nenhum CRAS",
                             n_cras == 0~"Nenhum CRAS",
                             n_cras == 1~"1 CRAS",
@@ -277,15 +272,15 @@ Em 2023, o percentual de CRAS com acesso à internet chegou a 99,5%, e em todas 
 ```{r fig-CRAS-internet-percentual, fig.cap = "Evolução percentual de CRAS com computadores com acesso à internet – Brasil; 2007, 2012, 2017, 2022 e 2023", fig.footer = "Fonte: MDS, Censo SUAS.",}
 
 grafico <-
-  f_maior0_regiao_ano(cras_2007, `Acesso a Internet`, ibge, "2007") %>%
-  bind_rows(f_maior0_regiao_ano(cras_2012, q13b, Região, "2012"))  %>%
-#  f_maior0_regiao_ano(cras_2013, q12_2, Região, "2013") %>%
-  bind_rows(f_maior0_regiao_ano(cras_2017, q12.2, Região, "2017")) %>%
-#  bind_rows(f_maior0_regiao_ano(cras_2018, q_11_2, IBGE, "2018")) %>%
-  bind_rows(f_maior0_regiao_ano(cras_2022, q11_2, IBGE, "2022")) %>%
-  bind_rows(f_maior0_regiao_ano(cras_2023, q11_2, IBGE, "2023")) %>%
+  f_maior0_regiao_grupo(cras_2007, `Acesso a Internet`, ibge, "2007") %>%
+  bind_rows(f_maior0_regiao_grupo(cras_2012, q13b, Região, "2012"))  %>%
+#  f_maior0_regiao_grupo(cras_2013, q12_2, Região, "2013") %>%
+  bind_rows(f_maior0_regiao_grupo(cras_2017, q12.2, Região, "2017")) %>%
+#  bind_rows(f_maior0_regiao_grupo(cras_2018, q_11_2, IBGE, "2018")) %>%
+  bind_rows(f_maior0_regiao_grupo(cras_2022, q11_2, IBGE, "2022")) %>%
+  bind_rows(f_maior0_regiao_grupo(cras_2023, q11_2, IBGE, "2023")) %>%
   
-  f_grafico_col_group_percent_decimal(Região, Percentual, Ano, 1)
+  f_grafico_col_group_percent_decimal(Região, Percentual, Grupo, 1)
 
 grafico
 ```
@@ -442,18 +437,13 @@ Quando observamos o número de unidades de CREAS em cada Município segundo o po
 
 ```{r fig-CREAS-porte, fig.cap = "Percentual de municípios por número de CREAS, segundo porte populacional, excluídos os CREAS regionais - Brasil, 2023", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios"}
 
-creas_municipios <- creas_2023 %>%
+dados <- creas_2023 %>%
   select(IBGE) %>%
+  mutate(IBGE = as.character(IBGE)) %>%
+  filter(str_length(IBGE) >= 6) %>%
   group_by(IBGE) %>%
-  summarise(n_creas=n())
-
-populacao <- pop_municipios_2021 %>%
-  mutate(`COD. MUNIC` = str_sub(`COD. MUNIC`, end = 4)) %>%
-  mutate(IBGE = as.numeric(paste0(`COD. UF`, `COD. MUNIC`))) %>%
-  select(IBGE, `POPULAÇÃO ESTIMADA`)
-
-dados <- creas_municipios %>%
-  full_join(populacao, by = c("IBGE" = "IBGE")) %>%
+  summarise(n_creas=n()) %>%
+  full_join(porte_municipios, by = c("IBGE" = "IBGE")) %>%
   mutate(grupo = case_when(is.na(n_creas)~"Nenhum CREAS",
                             n_creas == 0~"Nenhum CREAS",
                             n_creas == 1~"1 CREAS",
@@ -468,8 +458,6 @@ dados <- creas_municipios %>%
                                             "De 4 a 6 CREAS",
                                             "De 7 a 10 CREAS",
                                             "Mais de 10 CREAS"))) %>%
-  filter(!is.na(`POPULAÇÃO ESTIMADA`)) %>%
-  f_porte_populacional(`POPULAÇÃO ESTIMADA`) %>%
   group_by(Porte, grupo) %>%
   summarise(n=n()) #%>%
 #  complete(grupo, fill = list(n=0))
@@ -610,14 +598,14 @@ A existência de computadores com acesso à internet é um importante aspecto a 
 
 
 grafico <- 
-  f_maior0_regiao_ano(creas_2012, q14, Região, "2012") %>%
-#  f_maior0_regiao_ano(creas_2013, q13, Região, "2013") %>%
-  bind_rows(f_maior0_regiao_ano(creas_2017, q13, IBGE, "2017")) %>%
-#  bind_rows(f_maior0_regiao_ano(creas_2018, q10_2, IBGE, "2018")) %>%
-  bind_rows(f_maior0_regiao_ano(creas_2022, q12_2, IBGE, "2022")) %>%
-  bind_rows(f_maior0_regiao_ano(creas_2023, q10_2, IBGE, "2023")) %>%
+  f_maior0_regiao_grupo(creas_2012, q14, Região, "2012") %>%
+#  f_maior0_regiao_grupo(creas_2013, q13, Região, "2013") %>%
+  bind_rows(f_maior0_regiao_grupo(creas_2017, q13, IBGE, "2017")) %>%
+#  bind_rows(f_maior0_regiao_grupo(creas_2018, q10_2, IBGE, "2018")) %>%
+  bind_rows(f_maior0_regiao_grupo(creas_2022, q12_2, IBGE, "2022")) %>%
+  bind_rows(f_maior0_regiao_grupo(creas_2023, q10_2, IBGE, "2023")) %>%
 
-  f_grafico_col_group_percent_decimal(Região, Percentual, Ano, 1)
+  f_grafico_col_group_percent_decimal(Região, Percentual, Grupo, 1)
 
 grafico
 ```
@@ -629,16 +617,16 @@ grafico
 #não possui creas regional 2023
 
 grafico <-
-  f_selecao_regiao_ano(creas_2012, q2, "Regional", Região, "2012") %>%
-  bind_rows(f_selecao_regiao_ano(creas_2013, q1, "Regional", Região, "2013")) %>%
-  bind_rows(f_selecao_regiao_ano(creas_2017, q2, "Regional", Região, "2017")) %>%
-  bind_rows(f_selecao_regiao_ano(creas_2018, q1, "Regional", Região, "2018")) %>%
-  bind_rows(f_selecao_regiao_ano(creas_2019, q1, "Regional", IBGE, "2019")) %>%
- # bind_rows(f_selecao_regiao_ano(creas_2020, q1, "Regional", Regiao, "2020")) %>%
-  bind_rows(f_selecao_regiao_ano(creas_2021, q1, "Regional", IBGE, "2021")) %>%
-  bind_rows(f_selecao_regiao_ano(creas_2022, q1, "Regional", Região, "2022")) %>%
-  bind_rows(f_selecao_regiao_ano(creas_2023, q1, "Regional", Regiao, "2023")) %>%
-  f_grafico_col_group_numero(Região, n, Ano, 1)
+  f_selecao_regiao_grupo(creas_2012, q2, "Regional", Região, "2012") %>%
+  bind_rows(f_selecao_regiao_grupo(creas_2013, q1, "Regional", Região, "2013")) %>%
+  bind_rows(f_selecao_regiao_grupo(creas_2017, q2, "Regional", Região, "2017")) %>%
+  bind_rows(f_selecao_regiao_grupo(creas_2018, q1, "Regional", Região, "2018")) %>%
+  bind_rows(f_selecao_regiao_grupo(creas_2019, q1, "Regional", IBGE, "2019")) %>%
+ # bind_rows(f_selecao_regiao_grupo(creas_2020, q1, "Regional", Regiao, "2020")) %>%
+  bind_rows(f_selecao_regiao_grupo(creas_2021, q1, "Regional", IBGE, "2021")) %>%
+  bind_rows(f_selecao_regiao_grupo(creas_2022, q1, "Regional", Região, "2022")) %>%
+  bind_rows(f_selecao_regiao_grupo(creas_2023, q1, "Regional", Regiao, "2023")) %>%
+  f_grafico_col_group_numero(Região, n, Grupo, 1)
 
 grafico
 ```
@@ -675,18 +663,13 @@ Observamos no @fig-cpop-porte que não existem Centros POP em Municipios de Pequ
 
 ```{r fig-cpop-porte, fig.cap = "Percentual de municípios por número de Centro POP, segundo porte populacional - Brasil, 2023", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios"}
 
-cpop_municipios <- cpop_2023 %>%
-  select(IBGE7) %>%
-  group_by(IBGE7) %>%
-  summarise(n_centropop=n())
-
-porte_municipios <- pop_municipios_2021 %>%
-  f_porte_populacional(`POPULAÇÃO ESTIMADA`) %>%
-  mutate(IBGE7 = as.numeric(paste0(`COD. UF`, `COD. MUNIC`))) %>%
-  select(IBGE7, Porte)
-
-dados <- cpop_municipios %>%
-  full_join(porte_municipios, by = c("IBGE7" = "IBGE7")) %>%
+dados <- cpop_2023 %>%
+  select(IBGE) %>%
+  mutate(IBGE = as.character(IBGE)) %>%
+  filter(str_length(IBGE) >= 6) %>%
+  group_by(IBGE) %>%
+  summarise(n_centropop=n()) %>%
+  full_join(porte_municipios, by = c("IBGE" = "IBGE")) %>%
   mutate(grupo = case_when(is.na(n_centropop)~"Nenhum Centro POP",
                             n_centropop == 0~"Nenhum Centro POP",
                             n_centropop == 1~"1 Centro POP",
@@ -755,14 +738,14 @@ Registra-se no Censo SUAS 2023 o atingimento de 100% dos Centros POP no Brasil c
 ```{r fig-cpop-internet-percentual, fig.cap = "Percentual de Centros POP que possuem computadores com acesso à internet - Brasil e grandes regiões, 2012, 2017, 2022 e 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 grafico <- 
-  f_maior0_regiao_ano(cpop_2012, q14_2, Região, "2012") %>%
+  f_maior0_regiao_grupo(cpop_2012, q14_2, Região, "2012") %>%
 #  f_maior0_regiao_ano(cpop_2013, q13_2, Região, "2013") %>%
-  bind_rows(f_maior0_regiao_ano(cpop_2017, q11.2, IBGE, "2017")) %>%
-#  bind_rows(f_maior0_regiao_ano(cpop_2018, q9_2, IBGE, "2018")) %>%
-  bind_rows(f_maior0_regiao_ano(cpop_2022, q10_2, IBGE, "2022")) %>%
-  bind_rows(f_maior0_regiao_ano(cpop_2023, q10, IBGE, "2023")) %>%
+  bind_rows(f_maior0_regiao_grupo(cpop_2017, q11.2, IBGE, "2017")) %>%
+#  bind_rows(f_maior0_regiao_grupo(cpop_2018, q9_2, IBGE, "2018")) %>%
+  bind_rows(f_maior0_regiao_grupo(cpop_2022, q10_2, IBGE, "2022")) %>%
+  bind_rows(f_maior0_regiao_grupo(cpop_2023, q10, IBGE, "2023")) %>%
 
-  f_grafico_col_group_percent_decimal(Região, Percentual, Ano, 1)
+  f_grafico_col_group_percent_decimal(Região, Percentual, Grupo, 1)
 
 grafico
 ```
@@ -982,19 +965,13 @@ Para os municípios menores, a Resolução CNAS nº31/2013 aprova parâmetros pa
 
 ```{r fig-unac-porte, fig.cap = "Percentuais de Municípios segundo quantidade de Unidades de Acolhimento e porte populacional - Brasil, 2023", fig.footer = "Fonte: MDS, Censo SUAS"}
 
-
-unac_municipios <- unac_2023 %>%
+dados <- unac_2023 %>%
   select(IBGE) %>%
+  mutate(IBGE = as.character(IBGE)) %>%
+  filter(str_length(IBGE) >= 6) %>%
   group_by(IBGE) %>%
-  summarise(n_unac=n())
-
-populacao <- pop_municipios_2021 %>%
-  mutate(`COD. MUNIC` = str_sub(`COD. MUNIC`, end = 4)) %>%
-  mutate(IBGE = as.numeric(paste0(`COD. UF`, `COD. MUNIC`))) %>%
-  select(IBGE, `POPULAÇÃO ESTIMADA`)
-
-dados <- unac_municipios %>%
-  full_join(populacao, by = c("IBGE" = "IBGE")) %>%
+  summarise(n_unac=n()) %>%
+  full_join(porte_municipios, by = c("IBGE" = "IBGE")) %>%
   mutate(grupo = case_when(is.na(n_unac)~"Nenhuma Unidade de Acolhimento",
                             n_unac == 0~"Nenhuma Unidade de Acolhimento",
                             n_unac == 1~"1 Unidade de Acolhimento",
@@ -1009,8 +986,6 @@ dados <- unac_municipios %>%
                                             "De 4 a 6 Unidades de Acolhimento",
                                             "De 7 a 10 Unidades de Acolhimento",
                                             "Mais de 10 Unidades de Acolhimento"))) %>%
-  filter(!is.na(`POPULAÇÃO ESTIMADA`)) %>%
-  f_porte_populacional(`POPULAÇÃO ESTIMADA`) %>%
   group_by(Porte, grupo) %>%
   summarise(n=n()) #%>%
 #  complete(grupo, fill = list(n=0))
@@ -1133,14 +1108,14 @@ Quanto à existência de computadores com acesso à internet, manteve-se em 2023
 ```{r fig-unac-internet, fig.cap = "Percentual de Unidades de Acolhimento com computadores com acesso à internet - Brasil, 2012, 2017, 2022 e 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
 grafico <-
-  f_maior0_regiao_ano(unac_2012, q34a_2, Região, "2012") %>%
-#  f_maior0_regiao_ano(unac_2013, q35b_2, Região, "2013") %>%
-  bind_rows(f_maior0_regiao_ano(unac_2017, q36.20, IBGE, "2017")) %>%
-#  bind_rows(f_maior0_regiao_ano(unac_2018, q_39_23, IBGE, "2018")) %>% 
-  bind_rows(f_maior0_regiao_ano(unac_2022, q40_25, IBGE, "2022")) %>%
-  bind_rows(f_maior0_regiao_ano(unac_2023, q48_27, IBGE, "2023")) %>%
+  f_maior0_regiao_grupo(unac_2012, q34a_2, Região, "2012") %>%
+#  f_maior0_regiao_grupo(unac_2013, q35b_2, Região, "2013") %>%
+  bind_rows(f_maior0_regiao_grupo(unac_2017, q36.20, IBGE, "2017")) %>%
+#  bind_rows(f_maior0_regiao_grupo(unac_2018, q_39_23, IBGE, "2018")) %>% 
+  bind_rows(f_maior0_regiao_grupo(unac_2022, q40_25, IBGE, "2022")) %>%
+  bind_rows(f_maior0_regiao_grupo(unac_2023, q48_27, IBGE, "2023")) %>%
 
-  f_grafico_col_group_percent_decimal(Região, Percentual, Ano, 1)
+  f_grafico_col_group_percent_decimal(Região, Percentual, Grupo, 1)
 
 grafico
 ```
@@ -1282,12 +1257,12 @@ Em relação à existência de computadores com acesso à internet nos Postos de
 
 ```{r fig-postcad-internet-percentual, fig.cap = "Percentual de Postos de Cadastro Único que possuem computadores com acesso à internet – Brasil, 2020 a 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
-grafico <- f_maior0_regiao_ano(posto_cadunico_2020, q10_2, IBGE, "2020") %>%
-  bind_rows(f_maior0_regiao_ano(posto_cadunico_2021, q10_2, IBGE, "2021")) %>%
-  bind_rows(f_maior0_regiao_ano(posto_cadunico_2022, q10_2, IBGE, "2022")) %>%
-  bind_rows(f_maior0_regiao_ano(posto_cadunico_2023, q8_2, IBGE, "2023")) %>%
+grafico <- f_maior0_regiao_grupo(posto_cadunico_2020, q10_2, IBGE, "2020") %>%
+  bind_rows(f_maior0_regiao_grupo(posto_cadunico_2021, q10_2, IBGE, "2021")) %>%
+  bind_rows(f_maior0_regiao_grupo(posto_cadunico_2022, q10_2, IBGE, "2022")) %>%
+  bind_rows(f_maior0_regiao_grupo(posto_cadunico_2023, q8_2, IBGE, "2023")) %>%
 
-  f_grafico_col_group_percent_decimal(Região, Percentual, Ano, 1)
+  f_grafico_col_group_percent_decimal(Região, Percentual, Grupo, 1)
 
 grafico
 ```
