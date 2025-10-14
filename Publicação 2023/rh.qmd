@@ -201,7 +201,6 @@ Para as/os trabalhadoras/es nas Secretarias municipais observa-se cenário parec
 
 Apesar das semelhanças nas tendências, observa-se uma diferença significativa na distribuição por escolaridade entre as/os trabalhadoras/es das Secretarias estaduais e as/os das Secretarias municipais, com o percentual das/os trabalhadoras/es com Nível Superior nas Secretarias estaduais sendo 11 pontos percentuais superior ao percentual dessas/es trabalhadoras/es nas Secretarias municipais. O percentual das/os trabalhadoras/es com Nível Médio é 10 pontos percentuais maior nas Secretarias municipais do que nas Secretarias estaduais, e com Nível Fundamental é 1,8 pontos percentuais maior nas Secretarias municipais também.
 
-
 ```{r fig-munic_trab_form, fig.cap ="Percentual de trabalhadoras/es nas Secretarias municipais, segundo escolaridade - Brasil, 2018 a 2023"}
 
  grafico <- 
@@ -381,6 +380,7 @@ grafico <- tabela %>%
 
 grafico
 ```
+
 No @fig-munic_trab_prof, vemos a mesma informação sobre as áreas de formação das/os trabalhadoras/es, das formações mais frequentes, mas agora para as/os trabalhadoras/es das Secretarias municipais de Assistência Social. Assim como nos Estados, a formação mais frequente, de Assistente Social, é quase 1/5 das/os trabalhadoras/es. Vemos em 2023 uma pequena redução no percentual da segunda formação mais frequente, a de pedagogas/os, indo de 5,4% para 5,2%. As/os psicólogas/os, que são a segunda formação mais frequente nos Estados, ocupam a terceira posição nos Municípios, mas o percentual delas/es vem crescendo e chegou a 4,3% em 2023. Assim como nos Estados, as/os administradoras/es são a quarta formação mais frequente nos Municípios, mas com um percentual em torno de 1 ponto percentual menor. As/os advogadas/os também ocupam a mesma posição nos Estados e Municípios, sendo a quinta formação mais frequente, mas nos Municípios a tendência parece ser de crescimento, enquanto nos Estados parece ser de queda. Ainda assim o percentual de advogadas/os nos Estados, 3,2%, é um pouco maior que nos Municípios, 3,0%.
 
 Uma grande diferença na formação das/os trabalhadoras/es dos Municípios para as/os trabalhadoras/es do Estado é que a formação de socióloga/o, sexta mais frequenta nos Estados, não aparece entre as formações mais frequentes nos Municípios, e outras 5 formações são mais frequentes nos Municípios do que a formação de socióloga/o (Administrador/a Público/a ou Gestor/a Público/a, Contador/a, Nutricionista, Enfermeira/o e Profissional de Educação Física).
@@ -605,6 +605,8 @@ grafico <- f_sim(gm_2012, q43a_1, "2012") %>%
 grafico
 ```
 
+```{=html}
 <!-- ## Considerações Finais
 
 Em relação a quantidade de trabalhadoras/es do SUAS no âmbito da gestão estadual e municipal, observa-se que do período de 2018 a 2022, houve aumento nesta quantidade em nível nacional. Para as gestões estaduais o aumento foi de 7% e gestões municipais foi de 4%. Entretanto, destaca-se que, neste mesmo período, as Regiões Sudeste e Sul tiveram redução no número de trabalhadoras/es nas gestões estaduais e, no âmbito das gestões municipais, a Região Nordeste teve redução na quantidade de trabalhadoras/es. No âmbito das unidades socioassistenciais, sobretudo CRAS, CREAS e Centro POP, observa-se um aumento nos dados nacionais da rede socioassistencial. Em relação ao vínculo destes trabalhadoras/es, nas gestões estaduais houve uma redução das/os servidoras/es estatutários e empregadas/os públicas/os (CLT) e aumento no número de cargos comissionados e outros vínculos não permanentes. Nas gestões municipais, os dados sinalizam para redução da quantidade de servidoras/es estatutários, empregadas/os públicas/os (CLT) e outros vínculos não permanentes. No que se refere a escolaridade das/os trabalhadoras/es das gestões, observa-se no geral um aumento da proporção de trabalhadoras/es de nível superior. Em relação a profissão, Assistentes Sociais e psicólogos são proporcionalmente a maioria para ambos os entes. Por fim, os dados também sinalizam desafios para gestão do trabalho, sobretudo no que se refere a realização de concursos públicos -->
+```
