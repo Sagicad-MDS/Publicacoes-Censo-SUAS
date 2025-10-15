@@ -211,185 +211,137 @@ Histórico de inclusão dos formulários temáticos
 <!-- [^metodologia-1]: Em ENAP (2011) -->
 
 <!-- Listamos abaixo os blocos de conteúdo de cada formulário do Censo SUAS 2023, destacando as mudanças em relação aos formulários do Censo SUAS 2022: -->
+
 Listamos abaixo os blocos de conteúdo de cada formulário do Censo SUAS 2023:
 
-1. **Questionário Gestão Municipal** 
-   i) Identificação do Órgão Gestor
-      <!-- * Removido o número de Fax -->
-   i) Estrutura Administrativa
-      <!-- * Incluída pergunta sobre caracterização do órgão gestor de assistência social de acordo com a estrutura administrativa do município, com as opções: -->
-      <!--   - Secretaria municipal exclusiva da área de Assistência Social -->
-      <!--   - Secretaria municipal em conjunto com outras políticas setoriais -->
-      <!--   - Fundação Pública -->
-      <!--   - Setor/Coordenadoria/Assessoria subordinado diretamente ao Gabinete da(o) Prefeita(o) -->
-      <!-- * Para o caso de "Secretaria municipal em conjunto com outras políticas setoriais", incluída pergunta para listar a quais secretarias a assistência social está associada, com as opções: -->
-      <!--   - Educação -->
-      <!--   - Planejamento -->
-      <!--   - Saúde -->
-      <!--   - Habitação -->
-      <!--   - Segurança Alimentar -->
-      <!--   - Trabalho e/ou Emprego -->
-      <!--   - Direitos Humanos -->
-      <!--   - Outra. Qual? -->
-      <!-- * Na pergunta sobre constituição de áreas como subdivisões administrativas (departamentos, gerências, coordenações, etc.) na estrutura do órgão gestor, foram removidas as áreas de Ações Estratégicas do Programa de Erradicação do Trabalho Infantil e do Programa Criança Feliz -->
-      <!-- * Foi removida pergunta sobre existência de desmembramento entre Alta e Média Complexidade no caso de haver subdivisão administrativa de Proteção Social Especial -->
-   i) Gestão do SUAS
-      <!-- * Removidas as perguntas sobre existência e ações do Plano Municipal de Promoção, Proteção e Defesa do Direito à Convivência Familiar e Comunitária de Crianças e adolescentes (PMCFC) -->
-      <!-- * Removida a pergunta sobre inclusão do município no Plano de Apoio Técnico e/ou Plano de Providências do estado -->
-      <!-- * Na pergunta sobre formas de apoio técnico que o município recebeu do estado nos últimos 12 meses, removida a opção sobre se "acessou sítios eletrônicos e aplicativos do estado" e também a opção para especificar outras formas diferentes das listadas -->
-      <!-- * Incluída pergunta sobre existência no município de Plano Municipal de Assistência Social (PMAS) vigente (2021-2024) aprovado pelo CMAS -->
-      <!-- * Incluída pergunta sobre existência no município de ouvidoria ou canal de recebimento de denúncias -->
-      <!-- * Incluída pergunta sobre existência e vinculação administrativa dos Conselhos de Direitos do município -->
-      <!-- * Removida pergunta sobre quantidade de reuniões da CIB (Comissão Intergestores Bipartite) no ano anterior em que houve participação de algum representante do município -->
-      <!-- * Na pergunta sobre existência no órgão gestor de levantamento ou pesquisa nos últimos doze meses que aponte o número de pessoas em situação de rua no município, acresentada explicação de que deve ser considerada apenas realização de pesquisa (censo) da população em situação de rua, e não a existência de registros administrativos, como dados do Cadastro Único ou das equipes de abordagem -->
-      <!-- * Removidas as perguntas sobre existência no município de definição de fluxos de Notificação Compulsória das situações de violência e violação de direitos atendidos e sobre como o município registra os casos de violação de direitos atendidos -->
-      <!-- * Incluídas perguntas sobre utilização pelo órgão gestor de sistema de informação próprio para gerenciar a política de Assistência Social e sobre as funcionalidades permitidas pelo(s) sistema(s) utilizado(s) -->
-      <!-- * Incluidas perguntas sobre se o município faz parte de consórcio público com outros municípios na área de assistência social e sobre as principais atividades envolvidas nessa atuação em consórcio -->
-      <!-- * Incluída pergunta sobre se a Assistência Social identificou a existência de locais de exploração sexual de crianças e adolescentes no município -->
-      <!-- * Incluídas perguntas sobre se a Assistência Social identificou a existência de locais ou atividades com ocorrência de Trabalho Infantil no município e sobre quais foram esses locais ou atividades identificados -->
-      <!-- * Incluídas perguntas sobre existência de Conselho Tutelar no município, sobre sua vinculação administrativa ao Órgão Gestor da Assistência Social e sobre a quantidade de Conselheiros Tutelares existentes no município -->
-      <!-- * Incluída pergunta sobre se a Assistência Social do município tem articulação com o Órgão Municipal de Defesa Civil -->
-      <!-- * Incluídas perguntas sobre se o município possui programa PRÓPRIO de transferência de renda (transferência de recursos municipais de forma constante a um público específico) e sobre se este Programa está sob gestão do órgão gestor da assistência social -->
-      <!-- * Incluídas perguntas sobre se o órgão gestor possui diagnóstico socioterritorial do município e sobre qual o ano de elaboração (ou atualização) desse diagnóstico -->
-      <!-- * Incluídas perguntas sobre se a Assistência Social desenvolve ações, programas ou projetos voltados à organização de Cooperativas ou de Empreendimentos de Economia Solidária e sobre o tipo/natureza/objeto da(s) Cooperativa(s) ou Empreendimento(s) Solidário(s) -->
-      <!-- * Incluída pergunta sobre se a Assistência Social desenvolve ações, programas ou projetos de formação, qualificação ou capacitação profissional para os usuários -->
-      <!-- * Incluída pergunta sobre se o município realiza acompanhamento contínuo da execução do Plano Municipal de assistência social -->
-      <!-- * Incluída pergunta sobre se o planejamento de utilização dos recursos do IGD-SUAS foi aprovado pelo CMAS -->
-      <!-- * Incluida pergunta sobre quais foram as principais ações realizadas no ano anterior com recursos do Índice de Gestão Descentralizada – IGDSUAS -->
-   i) Serviços
-      <!-- * Removida pergunta sobre número de pessoas que foram atendidas pelo Serviço de Proteção Social Básica no Domicílio para Pessoas com deficiência e pessoas idosas no município -->
-      <!-- * Na pergunta sobre como o município atende adolescentes em cumprimento de Medida Socioeducativa de LA e PSC, removidas as perguntas sobre número de unidades que executam atendimento nos casos em que existe atendimento em: -->
-      <!--   - Entidades no município -->
-      <!--   - Outra unidade pública da Assistência Social (exceto CREAS) de acompanhamento de adolescentes em cumprimento de Medida Socioeducativa (LA ou PSC) do município -->
-      <!--   - Unidades de outras políticas públicas do município (saúde, educação, direitos humanos etc.) -->
-      <!-- * Removida a pergunta para indicação de quais são as principais atividades realizadas pelos adolescentes na PSC -->
-      <!-- * Na pergunta sobre se o município oferta Serviço Especializado em Abordagem Social, foi adicionada explicação de que se trata de serviço para pessoas em situação de rua -->
-      <!-- * Na pergunta sobre em quais unidades o Serviço Especializado em Abordagem Social é ofertado, foram removidas as perguntas sobre número de unidades que ofertam o serviço nos casos em que o serviço é ofertado em: -->
-      <!--   - Outra unidade pública diferente de CREAS, Centro POP ou sede/órgão gestor do município -->
-      <!--   - Entidade ou Organização da Sociedade Civil -->
-   i) Programas e outras Ações Socioassistenciais
-   i) Benefícios Socioassistenciais, CadÚnico e Transferência de Renda
-   i) Gestão do Trabalho
-   i) Responsável pelo Preenchimento
-1. **Questionário Gestão Estadual**
-   i) Identificação do Órgão Gestor
-   i) Estrutura Administrativa e Gestão do SUAS
-   i) Serviços e Benefícios
-   i) Regionalização dos Serviços de Média e Alta Complexidade
-   i) Plano de Providência e Apoio Técnico
-   i) Comissão Intergestores Bipartite (CIB)
-   i) Gestão do Trabalho
-   i) Responsável pelo Preenchimento
-1. **Questionário Fundo Municipal**
-   i) Identificação do Fundo de Assistência Social
-   i) Gestão Orçamentária
-   i) Gestão de Recursos
-   i) Recursos Humanos
-   i) Responsável pelo Preenchimento
-1. **Questionário Fundo Estadual**
-   i) Identificação do Fundo de Assistência Social
-   i) Gestão Orçamentária
-   i) Cofinanciamento Estadual
-   i) Índice de Gestão Descentralizada do Programa Bolsa Família IGD-PBF
-   i) Gestão de Recursos
-   i) Recursos Humanos
-   i) Responsável pelo Preenchimento
-1. **Questionário Centro de Referência de Assistência Social (CRAS)**
-   i) Identificação do CRAS
-   i) Estrutura Física do CRAS
-   i) Serviço de Proteção e Atendimento Integral à Família (PAIF)
-   i) Serviço de Convivência e Fortalecimento de Vínculos (SCFV)
-   i) Serviços de PSB no Domicílio para Pessoas com Deficiência e Idosas
-   i) Equipe Volante
-   i) Benefícios Socioassistenciais
-   i) Cadastro Único
-   i) Programa Bolsa Família
-   i) Gestão e Território
-   i) Gestão de Pessoas
-1. **Questionário Centro de Convivência**
-   i) Identificação da Unidade
-   i) Caracterização da Unidade
-   i) Serviços e Atividades
-   i) Gestão
-   i) Gestão do Trabalho
-   i) Responsável pelo Preenchimento
-1. **Questionário Centro de Referência Especializado em Assistência Social (CREAS)**
-   i) Identificação do CREAS
-   i) Estrutura Física do CREAS
-   i) Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos (PAEFI)
-   i) Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC)
-   i) Serviço Especializado em Abordagem Social
-   i) Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosas e suas Famílias
-   i) Benefícios e Cadastro Único
-   i) Gestão e Território
-   i) Articulação
-   i) Gestão de Pessoas
-1. **Questionário Centro de Referência Especializado para Pessoas em Situação de Rua (Centro POP)**
-   i) Identificação
-   i) Estrutura Física
-   i) Serviço Especializado para Pessoas em Situação de Rua
-   i) Serviço Especializado em Abordagem Social
-   i) Benefícios, Cadastro Único e Participação de Usuárias/os
-   i) Articulação
-   i) Gestão de Pessoas
-1. **Questionário Centro Dia e similares**
-   i) Identificação da Unidade
-   i) Caracterização da Unidade
-   i) Estrutura Física
-   i) Serviços e Atividades
-   i) Perfil das/os Usuárias/os
-   i) Gestão de Pessoas
-   i) Responsável pelo Preenchimento
-1. **Questionário Unidades de Acolhimento**
-   i) Identificação da Unidade de Acolhimento
-   i) Caracterização da Unidade
-   i) Características das/os Usuárias/os
-   i) Serviço de Acolhimento
-   i) Estrutura Física e Área de Localização da Unidade
-   i) Gestão de Pessoas
-1. **Questionário Unidades Executoras do Serviço de Acolhimento em Família Acolhedora**
-   i) Identificação da Unidade
-   i) Caracterização da Unidade
-   i) Características das/os Acolhidas/os
-   i) Serviço de Acolhimento
-   i) Famílias Acolhedoras
-   i) Estrutura Física do Serviço
-   i) Gestão de Pessoas
-1. **Questionário Posto de Cadastro Único**
-   i) Identificação do Posto do Cadastro Único
-   i) Estrutura Física
-   i) Cadastro Único
-   i) Programa Bolsa Família
-   i) Outras Atividades
-   i) Gestão de Pessoas
-1. **Questionário Conselhos Municipais de Assistência Social (CMAS) e Conselho de Assistência Social do Distrito Federal (CAS/DF)**
-   i) Identificação do Conselho
-   i) Regulação
-   i) Infraestrutura do Conselho
-   i) Secretaria Executiva
-   i) Dinâmica de Funcionamento
-   i) Rede Socioassistencial
-   i) Composição do Conselho
-   i) Conselheiras/os
-   i) Responsável pelo Preenchimento
-1. **Questionário Conselhos Estaduais de Assistência Social (CEAS)**
-   i) Identificação do Conselho
-   i) Regulação
-   i) Infraestrutura do Conselho
-   i) Secretaria Executiva
-   i) Dinâmica de Funcionamento
-   i) Rede Socioassistencial
-   i) Composição do Conselho
-   i) Conselheiras/os
-   i) Responsável pelo Preenchimento
+1.  **Questionário Gestão Municipal**
+    i)  Identificação do Órgão Gestor <!-- * Removido o número de Fax -->
+    ii) Estrutura Administrativa <!-- * Incluída pergunta sobre caracterização do órgão gestor de assistência social de acordo com a estrutura administrativa do município, com as opções: --> <!--   - Secretaria municipal exclusiva da área de Assistência Social --> <!--   - Secretaria municipal em conjunto com outras políticas setoriais --> <!--   - Fundação Pública --> <!--   - Setor/Coordenadoria/Assessoria subordinado diretamente ao Gabinete da(o) Prefeita(o) --> <!-- * Para o caso de "Secretaria municipal em conjunto com outras políticas setoriais", incluída pergunta para listar a quais secretarias a assistência social está associada, com as opções: --> <!--   - Educação --> <!--   - Planejamento --> <!--   - Saúde --> <!--   - Habitação --> <!--   - Segurança Alimentar --> <!--   - Trabalho e/ou Emprego --> <!--   - Direitos Humanos --> <!--   - Outra. Qual? --> <!-- * Na pergunta sobre constituição de áreas como subdivisões administrativas (departamentos, gerências, coordenações, etc.) na estrutura do órgão gestor, foram removidas as áreas de Ações Estratégicas do Programa de Erradicação do Trabalho Infantil e do Programa Criança Feliz --> <!-- * Foi removida pergunta sobre existência de desmembramento entre Alta e Média Complexidade no caso de haver subdivisão administrativa de Proteção Social Especial -->
+    iii) Gestão do SUAS <!-- * Removidas as perguntas sobre existência e ações do Plano Municipal de Promoção, Proteção e Defesa do Direito à Convivência Familiar e Comunitária de Crianças e adolescentes (PMCFC) --> <!-- * Removida a pergunta sobre inclusão do município no Plano de Apoio Técnico e/ou Plano de Providências do estado --> <!-- * Na pergunta sobre formas de apoio técnico que o município recebeu do estado nos últimos 12 meses, removida a opção sobre se "acessou sítios eletrônicos e aplicativos do estado" e também a opção para especificar outras formas diferentes das listadas --> <!-- * Incluída pergunta sobre existência no município de Plano Municipal de Assistência Social (PMAS) vigente (2021-2024) aprovado pelo CMAS --> <!-- * Incluída pergunta sobre existência no município de ouvidoria ou canal de recebimento de denúncias --> <!-- * Incluída pergunta sobre existência e vinculação administrativa dos Conselhos de Direitos do município --> <!-- * Removida pergunta sobre quantidade de reuniões da CIB (Comissão Intergestores Bipartite) no ano anterior em que houve participação de algum representante do município --> <!-- * Na pergunta sobre existência no órgão gestor de levantamento ou pesquisa nos últimos doze meses que aponte o número de pessoas em situação de rua no município, acresentada explicação de que deve ser considerada apenas realização de pesquisa (censo) da população em situação de rua, e não a existência de registros administrativos, como dados do Cadastro Único ou das equipes de abordagem --> <!-- * Removidas as perguntas sobre existência no município de definição de fluxos de Notificação Compulsória das situações de violência e violação de direitos atendidos e sobre como o município registra os casos de violação de direitos atendidos --> <!-- * Incluídas perguntas sobre utilização pelo órgão gestor de sistema de informação próprio para gerenciar a política de Assistência Social e sobre as funcionalidades permitidas pelo(s) sistema(s) utilizado(s) --> <!-- * Incluidas perguntas sobre se o município faz parte de consórcio público com outros municípios na área de assistência social e sobre as principais atividades envolvidas nessa atuação em consórcio --> <!-- * Incluída pergunta sobre se a Assistência Social identificou a existência de locais de exploração sexual de crianças e adolescentes no município --> <!-- * Incluídas perguntas sobre se a Assistência Social identificou a existência de locais ou atividades com ocorrência de Trabalho Infantil no município e sobre quais foram esses locais ou atividades identificados --> <!-- * Incluídas perguntas sobre existência de Conselho Tutelar no município, sobre sua vinculação administrativa ao Órgão Gestor da Assistência Social e sobre a quantidade de Conselheiros Tutelares existentes no município --> <!-- * Incluída pergunta sobre se a Assistência Social do município tem articulação com o Órgão Municipal de Defesa Civil --> <!-- * Incluídas perguntas sobre se o município possui programa PRÓPRIO de transferência de renda (transferência de recursos municipais de forma constante a um público específico) e sobre se este Programa está sob gestão do órgão gestor da assistência social --> <!-- * Incluídas perguntas sobre se o órgão gestor possui diagnóstico socioterritorial do município e sobre qual o ano de elaboração (ou atualização) desse diagnóstico --> <!-- * Incluídas perguntas sobre se a Assistência Social desenvolve ações, programas ou projetos voltados à organização de Cooperativas ou de Empreendimentos de Economia Solidária e sobre o tipo/natureza/objeto da(s) Cooperativa(s) ou Empreendimento(s) Solidário(s) --> <!-- * Incluída pergunta sobre se a Assistência Social desenvolve ações, programas ou projetos de formação, qualificação ou capacitação profissional para os usuários --> <!-- * Incluída pergunta sobre se o município realiza acompanhamento contínuo da execução do Plano Municipal de assistência social --> <!-- * Incluída pergunta sobre se o planejamento de utilização dos recursos do IGD-SUAS foi aprovado pelo CMAS --> <!-- * Incluida pergunta sobre quais foram as principais ações realizadas no ano anterior com recursos do Índice de Gestão Descentralizada – IGDSUAS -->
+    iv) Serviços <!-- * Removida pergunta sobre número de pessoas que foram atendidas pelo Serviço de Proteção Social Básica no Domicílio para Pessoas com deficiência e pessoas idosas no município --> <!-- * Na pergunta sobre como o município atende adolescentes em cumprimento de Medida Socioeducativa de LA e PSC, removidas as perguntas sobre número de unidades que executam atendimento nos casos em que existe atendimento em: --> <!--   - Entidades no município --> <!--   - Outra unidade pública da Assistência Social (exceto CREAS) de acompanhamento de adolescentes em cumprimento de Medida Socioeducativa (LA ou PSC) do município --> <!--   - Unidades de outras políticas públicas do município (saúde, educação, direitos humanos etc.) --> <!-- * Removida a pergunta para indicação de quais são as principais atividades realizadas pelos adolescentes na PSC --> <!-- * Na pergunta sobre se o município oferta Serviço Especializado em Abordagem Social, foi adicionada explicação de que se trata de serviço para pessoas em situação de rua --> <!-- * Na pergunta sobre em quais unidades o Serviço Especializado em Abordagem Social é ofertado, foram removidas as perguntas sobre número de unidades que ofertam o serviço nos casos em que o serviço é ofertado em: --> <!--   - Outra unidade pública diferente de CREAS, Centro POP ou sede/órgão gestor do município --> <!--   - Entidade ou Organização da Sociedade Civil -->
+    v)  Programas e outras Ações Socioassistenciais
+    vi) Benefícios Socioassistenciais, CadÚnico e Transferência de Renda
+    vii) Gestão do Trabalho
+    viii) Responsável pelo Preenchimento
+2.  **Questionário Gestão Estadual**
+    i)  Identificação do Órgão Gestor
+    ii) Estrutura Administrativa e Gestão do SUAS
+    iii) Serviços e Benefícios
+    iv) Regionalização dos Serviços de Média e Alta Complexidade
+    v)  Plano de Providência e Apoio Técnico
+    vi) Comissão Intergestores Bipartite (CIB)
+    vii) Gestão do Trabalho
+    viii) Responsável pelo Preenchimento
+3.  **Questionário Fundo Municipal**
+    i)  Identificação do Fundo de Assistência Social
+    ii) Gestão Orçamentária
+    iii) Gestão de Recursos
+    iv) Recursos Humanos
+    v)  Responsável pelo Preenchimento
+4.  **Questionário Fundo Estadual**
+    i)  Identificação do Fundo de Assistência Social
+    ii) Gestão Orçamentária
+    iii) Cofinanciamento Estadual
+    iv) Índice de Gestão Descentralizada do Programa Bolsa Família IGD-PBF
+    v)  Gestão de Recursos
+    vi) Recursos Humanos
+    vii) Responsável pelo Preenchimento
+5.  **Questionário Centro de Referência de Assistência Social (CRAS)**
+    i)  Identificação do CRAS
+    ii) Estrutura Física do CRAS
+    iii) Serviço de Proteção e Atendimento Integral à Família (PAIF)
+    iv) Serviço de Convivência e Fortalecimento de Vínculos (SCFV)
+    v)  Serviços de PSB no Domicílio para Pessoas com Deficiência e Idosas
+    vi) Equipe Volante
+    vii) Benefícios Socioassistenciais
+    viii) Cadastro Único
+    ix) Programa Bolsa Família
+    x)  Gestão e Território
+    xi) Gestão de Pessoas
+6.  **Questionário Centro de Convivência**
+    i)  Identificação da Unidade
+    ii) Caracterização da Unidade
+    iii) Serviços e Atividades
+    iv) Gestão
+    v)  Gestão do Trabalho
+    vi) Responsável pelo Preenchimento
+7.  **Questionário Centro de Referência Especializado em Assistência Social (CREAS)**
+    i)  Identificação do CREAS
+    ii) Estrutura Física do CREAS
+    iii) Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos (PAEFI)
+    iv) Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida (LA) e de Prestação de Serviços à Comunidade (PSC)
+    v)  Serviço Especializado em Abordagem Social
+    vi) Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosas e suas Famílias
+    vii) Benefícios e Cadastro Único
+    viii) Gestão e Território
+    ix) Articulação
+    x)  Gestão de Pessoas
+8.  **Questionário Centro de Referência Especializado para Pessoas em Situação de Rua (Centro POP)**
+    i)  Identificação
+    ii) Estrutura Física
+    iii) Serviço Especializado para Pessoas em Situação de Rua
+    iv) Serviço Especializado em Abordagem Social
+    v)  Benefícios, Cadastro Único e Participação de Usuárias/os
+    vi) Articulação
+    vii) Gestão de Pessoas
+9.  **Questionário Centro Dia e similares**
+    i)  Identificação da Unidade
+    ii) Caracterização da Unidade
+    iii) Estrutura Física
+    iv) Serviços e Atividades
+    v)  Perfil das/os Usuárias/os
+    vi) Gestão de Pessoas
+    vii) Responsável pelo Preenchimento
+10. **Questionário Unidades de Acolhimento**
+    i)  Identificação da Unidade de Acolhimento
+    ii) Caracterização da Unidade
+    iii) Características das/os Usuárias/os
+    iv) Serviço de Acolhimento
+    v)  Estrutura Física e Área de Localização da Unidade
+    vi) Gestão de Pessoas
+11. **Questionário Unidades Executoras do Serviço de Acolhimento em Família Acolhedora**
+    i)  Identificação da Unidade
+    ii) Caracterização da Unidade
+    iii) Características das/os Acolhidas/os
+    iv) Serviço de Acolhimento
+    v)  Famílias Acolhedoras
+    vi) Estrutura Física do Serviço
+    vii) Gestão de Pessoas
+12. **Questionário Posto de Cadastro Único**
+    i)  Identificação do Posto do Cadastro Único
+    ii) Estrutura Física
+    iii) Cadastro Único
+    iv) Programa Bolsa Família
+    v)  Outras Atividades
+    vi) Gestão de Pessoas
+13. **Questionário Conselhos Municipais de Assistência Social (CMAS) e Conselho de Assistência Social do Distrito Federal (CAS/DF)**
+    i)  Identificação do Conselho
+    ii) Regulação
+    iii) Infraestrutura do Conselho
+    iv) Secretaria Executiva
+    v)  Dinâmica de Funcionamento
+    vi) Rede Socioassistencial
+    vii) Composição do Conselho
+    viii) Conselheiras/os
+    ix) Responsável pelo Preenchimento
+14. **Questionário Conselhos Estaduais de Assistência Social (CEAS)**
+    i)  Identificação do Conselho
+    ii) Regulação
+    iii) Infraestrutura do Conselho
+    iv) Secretaria Executiva
+    v)  Dinâmica de Funcionamento
+    vi) Rede Socioassistencial
+    vii) Composição do Conselho
+    viii) Conselheiras/os
+    ix) Responsável pelo Preenchimento
 
 <!-- Após essa fase, os formulários são tabulados e geração de códigos. É importante destacar que os códigos das variáveis mudam conforme alteração das perguntas (inclusão e exclusão). Este processo é um desafio para o acompanhamento das respostas ao longo dos anos, haja vista a inexistência de um código para a mesma variável. -->
 
 ## Preenchimento dos formulários
 
-A coleta de dados envolve vários agentes públicos municipais e estaduais das gestões e do controle social do SUAS. De acordo com a Norma Operacional Básica do Sistema Único de Assistência Social (NOB/SUAS 2012), a coordenação do processo de realização anual do Censo SUAS é de responsabilidades da área de  Vigilância Socioassistencial da União, dos Estados, do Distrito Federal e dos Municípios, que devem zelar pela qualidade das informações coletadas.
+A coleta de dados envolve vários agentes públicos municipais e estaduais das gestões e do controle social do SUAS. De acordo com a Norma Operacional Básica do Sistema Único de Assistência Social (NOB/SUAS 2012), a coordenação do processo de realização anual do Censo SUAS é de responsabilidades da área de Vigilância Socioassistencial da União, dos Estados, do Distrito Federal e dos Municípios, que devem zelar pela qualidade das informações coletadas.
 
-Os questionários são disponibilizados por meio de formulários eletrônico no portal SAGICAD. O preenchimento é realizado pelos órgãos gestores (estaduais e municipais) e conselhos de assistência social (estaduais e municipais), por meio de usuários cadastrados na Rede SUAS. O prazo inicial para o preenchimento dos formulários foram os indicados na @tbl-cronograma.
+Os questionários são disponibilizados por meio de formulários eletrônico no portal SAGICAD. O preenchimento é realizado pelos órgãos gestores (estaduais, municipais e DF) e conselhos de assistência social (estaduais e municipais), por meio de usuários cadastrados na Rede SUAS. O prazo inicial para o preenchimento dos formulários foram os indicados na @tbl-cronograma.
 
 ::: {#tbl-cronograma}
 ```{=html}
@@ -481,15 +433,15 @@ Na análise dos resultados do Censo SUAS 2023 compreende-se o SUAS como polític
 
 -   **Serviços e Benefícios ofertados pelo SUAS:** A integração dos Serviços do SUAS no âmbito das proteções sociais, considerando a relação com o Cadastro Único, com os benefícios do SUAS e com os programas. Também é abordada a regionalização da Proteção Social Especial.
 
--   **Gestão do Trabalho e Recursos Humanos no SUAS:** apresenta um panorama geral da situação das trabalhadoras e trabalhadores do SUAS tanto nos equipamentos da assistência social quanto nas gestões municipais e estaduais, apresentando informações sobre quantitativo, tipo de vínculo trabalhista, escolaridade e outros aspectos referentes à gestão do trabalho e sua evolução ao longo dos anos.
+-   **Gestão do Trabalho e Recursos Humanos no SUAS:** apresenta um panorama geral da situação das trabalhadoras e trabalhadores do SUAS tanto nas unidades da assistência social quanto nas gestões municipais, estaduais e do Distrito Federal, apresentando informações sobre quantitativo, tipo de vínculo trabalhista, escolaridade e outros aspectos referentes à gestão do trabalho e sua evolução ao longo dos anos.
 
 -   **Participação e Controle Social no SUAS:** apresenta os resultados apurados pelo Censo SUAS para os Conselhos Municipais e Estaduais de Assistência Social, considerando a estrutura administrativa, a dinâmica de funcionamento e a composição.
 
 ### Produção da publicação
 
-A partir da retomada em 2022 desta série anual de publicações sobre o Censo SUAS (após uma pausa a partir de 2018) a publicação passou a ser produzida em "R Markdown" (posteriormente evoluindo para a ferramenta ["Quarto"](quarto.org)). Esta inovação teve como objetivo garantir maior consistência dos dados e gráficos produzidos ao longo dos anos, pelo registro exato, na linguagem R, do processo utilizado na geração de cadda dado e cada gráfico. Teve como objetivo também facilitar a produção da publicação pela integração do código para geração dos dados e gráficos com os textos, facilitando também a correção de erros e a atualização da publicação.
+A partir da retomada em 2022 desta série anual de publicações sobre o Censo SUAS (após uma pausa a partir de 2018) a publicação passou a ser produzida em "R Markdown" (posteriormente evoluindo para a ferramenta ["Quarto"](quarto.org)). Esta inovação teve como objetivo garantir maior consistência dos dados e gráficos produzidos ao longo dos anos, pelo registro exato, na linguagem R, do processo utilizado na geração de cada dado e cada gráfico. Teve como objetivo também facilitar a produção da publicação pela integração do código para geração dos dados e gráficos com os textos, facilitando também a correção de erros e a atualização da publicação.
 
-A publicação é escrita em arquivos no formato de documento do Quarto (.qmd), que contém texto no formato Markdown mesclado com pedaços de código em R para geração dos dados e gráficos. Cada capítulo da publicação está em um arquivo ".qmd", e esses arquivos são partes de um projeto que gera a publicação completa, pronta, como você está visualizando. 
+A publicação é escrita em arquivos no formato de documento do Quarto (.qmd), que contém texto no formato Markdown mesclado com pedaços de código em R para geração dos dados e gráficos. Cada capítulo da publicação está em um arquivo ".qmd", e esses arquivos são partes de um projeto que gera a publicação completa, pronta, como você está visualizando.
 
 Além disso, a publicação do Censo SUAS 2022 foi lançado em uma versão eletrônica publicada online, além da versão impressa tradicional até então. Já esta versão do Censo SUAS 2023 está sendo publicada apenas na versão eletrônica online. Estas publicações eletrônicas no formato HTML são mais adequadas para leitura em telas, pois se ajustam ao tamanho e formato da tela utilizada.
 
