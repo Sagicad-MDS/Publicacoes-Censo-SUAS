@@ -70,13 +70,17 @@ grafico
 
 Levando-se em conta o porte populacional dos Municípios, verifica-se, como era de se esperar, que o maior percentual de Municípios sem CRAS está entre os Municípios de Pequeno Porte I, com 1,1% destes Municípios sem CRAS. Mas ainda vemos 0,3% dos Municípios de Pequeno Porte II e também 0,3% dos Municípios de Médio Porte sem unidades de CRAS (@fig-CRAS-porte).
 
-Vemos também que 95% dos Municípios de Pequeno Porte I possuem apenas 1 CRAS, mas existem alguns Municípios desse porte com até mais do que 3 unidades de CRAS (3,6% possuem 2 a 3 CRAS). Nos Municípios de Pequeno Porte II o percentual de Municípios com apenas 1 CRAS cais para 69%, com 30% desses Municípios tendo 2 a 3 CRAS. Já entre os Municípios de Médio Porte, o percentual de Municípios com apenas 1 CRAS cai para 17%, dois terços (67%) possuem 2 a 3 CRAS, e 16% já possuem 4 a 6 CRAS. Nos de Grande Porte ainda vemos 2% com apenas 1 CRAS, a maioria (51%) com 4 a 6 CRAS, quase um quarto (24%) com 7 a 10 CRAS, e 7,8% já com mais de 10 CRAS. Todas as Metrópoles possem mais de 10 CRAS.
+Vemos também que 95% dos Municípios de Pequeno Porte I possuem apenas 1 CRAS, mas existem alguns Municípios desse porte com até mais do que 3 unidades de CRAS (3,6% possuem 2 a 3 CRAS). Nos Municípios de Pequeno Porte II o percentual de Municípios com apenas 1 CRAS cai para 69%, com 30% desses Municípios tendo 2 a 3 CRAS. Já entre os Municípios de Médio Porte, o percentual de Municípios com apenas 1 CRAS cai para 17%, dois terços (67%) possuem 2 a 3 CRAS, e 16% já possuem 4 a 6 CRAS. Nos de Grande Porte ainda vemos 2% com apenas 1 CRAS, a maioria (51%) com 4 a 6 CRAS, quase um quarto (24%) com 7 a 10 CRAS, e 7,8% já com mais de 10 CRAS. Todas as Metrópoles possem mais de 10 CRAS.
 
+```{=html}
 <!--esse grafico estava com dado de 2017, daí troquei para 2022 e desconfigurou
 ATUALIZAÇÃO: O problema era que em 2022 Fernando de Noronha estava sem o código IBGE na base de CRAS, daí não era possivel determinar o porte do município e gerava uma categoria de município sem porte, e isto desconfigurava o gráfico gerado. Arrumada a base de CRAS de 2022 com inserção do código IBGE de Fernando de Noronha. Também foi atualizada a estimativa populacional para 2021. Dados do Censo de 2022 não foram encontrados em formato facilmente utilizável.-->
+```
 
+```{=html}
 <!-- Sobre o número de famílias referenciadas a PNAS^[PNAS/2004 - Política Nacional de Assistência Social] deternima de acordo com portes populacionais dos municípios, são eles: PPI: 2.500 famílias referenciadas por CRAS, PPII: 3.500 famílias referenciadas, Médio/Grande/Metrópole: 5000 famílias referencia por CRAS.
 CRAS -->
+```
 
 ```{r fig-CRAS-porte, fig.cap = "Percentual de municípios por número de CRAS no município, segundo porte populacional estimado do município - Brasil, 2023", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios"}
 
@@ -733,7 +737,7 @@ grafico<-tabela %>%
 grafico
 ```
 
-Registra-se no Censo SUAS 2023 o atingimento de 100% dos Centros POP no Brasil com computadores com acesso à internet, conforme mostra o @fig-cpop-internet-percentual, com as regiões Nordeste, Norte e Sudeste chegando aos 100% que as regiões Centro-Oeste e Sul já tinham atingido. 
+Registra-se no Censo SUAS 2023 o atingimento de 100% dos Centros POP no Brasil com computadores com acesso à internet, conforme mostra o @fig-cpop-internet-percentual, com as regiões Nordeste, Norte e Sudeste chegando aos 100% que as regiões Centro-Oeste e Sul já tinham atingido.
 
 ```{r fig-cpop-internet-percentual, fig.cap = "Percentual de Centros POP que possuem computadores com acesso à internet - Brasil e grandes regiões, 2012, 2017, 2022 e 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
@@ -1267,6 +1271,7 @@ grafico <- f_maior0_regiao_grupo(posto_cadunico_2020, q10_2, IBGE, "2020") %>%
 grafico
 ```
 
+```{=html}
 <!-- ## Considerações Finais
 
 Na última década, o Censo SUAS 2022 revelou forte presença de unidades do SUAS no território Nacional. Foram identificadas 30.824 unidades da Assistência Social. São 8.557 CRAS, 7.837 Centro de Convivência, 2.846 CREAS, 33 CREAS Regionais, 237 Centro POP, 1.886 Centro-Dia, 2.892 unidades exclusivas de Cadastro Único e 6.536 unidades de acolhimento institucional (Crianças e adolescentes,Pessoas Idosas, Adultos e Famílias, Pessoas com deficiência, Mulheres em situação de Violência Doméstica, Jovens egressos serviços de acolhimento).Os dados mostram forte presença no território nacional com destaque para crescimentonos últimos 10 anos.
@@ -1276,3 +1281,4 @@ No âmbito da Proteção Básica houve um crescimento de 11%, nos últimos 10 an
 No que se refere à Proteção Social Especial, observou-se um crescimento das unidades CREAS (31%) e nas condições de acessibilidade, especialmente para as que possuem imóveis próprios, representando 28,4% de diferença em relação aos alugados. Os Centros POP cresceram tanto em unidades (126%) quanto na condição de acessibilidade nos imóveis próprios. Em relação às unidade de Acolhimento Institucional, 45% são da modalidade de Crianças e Adolescentes seguida de Pessoas Idosas e Adultos e Famílias. Os Centros-Dia, modalidade ofertada por 93% das OCS, também cresceram (41%), assim como suas condições de acessibilidade.
 
 A oferta do Cadastro Único, em especial nas unidades dos CRAS, avançou 3,8 pontos percentuais nos últis 10 anos, esse dado se torna significativamente maior (25%) quando relacionado com equipe exclusiva para essa finalidade que avança 25 pontos percentuais neste mesmo período. Por fim, destaca-se a inclusão digital sob a ótica do acesso à internet como algo praticamente universalizado nas unidades do SUAS. -->
+```

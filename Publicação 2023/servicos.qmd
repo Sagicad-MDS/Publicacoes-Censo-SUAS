@@ -8,20 +8,21 @@ source("_funcoes.R")
 
 A Assistência Social organiza-se por dois tipos de proteção:
 
-- a Proteção Social Básica, definida no Art. 6º-A da [Lei Orgânica da Assistência Social (LOAS)](http://www.planalto.gov.br/ccivil_03/Leis/L8742compilado.htm) como um "conjunto de serviços, programas, projetos e benefícios da assistência social que visa a prevenção de situações de vulnerabilidade e risco social por meio do desenvolvimento de potencialidades e aquisições e do fortalecimento de vínculos familiares e comunitários" e
-- a Proteção Social Especial, definida como "conjunto de serviços, programas e projetos que tem por objetivo contribuir para a reconstrução de vínculos familiares e comunitários, a defesa de direito, o fortalecimento das potencialidades e aquisições e a proteção de famílias e indivíduos para o enfrentamento das situações de violação de direitos".
+-   a Proteção Social Básica, definida no Art. 6º-A da [Lei Orgânica da Assistência Social (LOAS)](http://www.planalto.gov.br/ccivil_03/Leis/L8742compilado.htm) como um "conjunto de serviços, programas, projetos e benefícios da assistência social que visa a prevenção de situações de vulnerabilidade e risco social por meio do desenvolvimento de potencialidades e aquisições e do fortalecimento de vínculos familiares e comunitários" e
+-   a Proteção Social Especial, definida como "conjunto de serviços, programas e projetos que tem por objetivo contribuir para a reconstrução de vínculos familiares e comunitários, a defesa de direito, o fortalecimento das potencialidades e aquisições e a proteção de famílias e indivíduos para o enfrentamento das situações de violação de direitos".
 
 Este capítulo apresenta alguns dados do Censo SUAS relativos à oferta de serviços e benefícios da Assistência Social no âmbito da Proteção Social Básica e da Proteção Social Especial.
 
 ## Serviços da Proteção Social Básica
 
-A Proteção Social Básica destina-se à população que vive em situação de vulnerabilidade social decorrente da pobreza, privação de renda, falta de acesso a serviços públicos, fragilização de vínculos familiares e de pertencimento social (discriminação etárias, étnicas, de gênero ou por deficiência), dentre outros. Beneficiários do Programa Bolsa Família e do Benefício de Prestação Continuada são públicos prioritários da Proteção Social Básica.
+A Proteção Social Básica destina-se à população que vive em situação de vulnerabilidade social decorrente da pobreza, privação de renda, falta de acesso a serviços públicos, fragilização de vínculos familiares e de pertencimento social (discriminação etárias, étnicas, de gênero ou por deficiência), dentre outros.
 
 Os serviços do SUAS no âmbito da Proteção Social Básica são:
 
-- Serviço de Proteção e Atendimento Integral à Família (PAIF);
-- Serviço de Convivência e Fortalecimento de Vínculos;
-- Serviço de Proteção Social Básica no Domicílio para Pessoas com Deficiência e Idosas. 
+-   Serviço de Proteção e Atendimento Integral à Família (PAIF);
+-   Serviço de Convivência e Fortalecimento de Vínculos;
+-   Serviço de Proteção Social Básica no Domicílio para Pessoas com Deficiência e Idosas;
+-   Serviço de Proteção Social Básica no Domicílio para Gestantes e crianças de 0 a 6 anos.
 
 ### Serviço de Proteção e Atendimento Integral à Família (PAIF)
 
@@ -264,7 +265,9 @@ grafico<-tabela %>%
 grafico
 ```
 
-<!--Em relação a atendimento Povos e comunidades Tradicionais, \footnote{a partir de 2019 a pergunta foi alterada} em 2018, 31% dos CRAS informaram que possuem povos e comunidades tradicionais em seu território de abrangência. Esse dado avança em relação ao ano de 2012..-->. 
+<!--Em relação a atendimento Povos e comunidades Tradicionais, \footnote{a partir de 2019 a pergunta foi alterada} em 2018, 31% dos CRAS informaram que possuem povos e comunidades tradicionais em seu território de abrangência. Esse dado avança em relação ao ano de 2012..-->
+
+.
 
 ```{r povos-tradicionais_cras, fig.cap = "Percentual de CRAS que possuem povos e comunidades tradicionais no território de abrangencia, 2012 - 2018", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
 
@@ -281,9 +284,11 @@ grafico <- f_sim(cras_2012, q40, "2012") %>%
 grafico
 ```
 
+```{=html}
 <!-- Em relação as especifidades de Povos e comunidades Tradicionais atendidos pelo PAIF e PAEFI, destaca-se que dos seis povos e comunidades destacadas, os maiores registros de atendimento no PAIF são Públicos de comnunidades quilombolas com 72% dos CRAS e Ribeirinhos com registros de 70% das undiades conforme pode ser observado no \Cref{fig:CRAS-tradicionais}.
 
 No que se refere as regiões, destaca que o Nordeste, Sudeste e Sul registram maior demanda de atendimento do público de comunidades quilombolas sendo respectivamente 78%, 70% e 67% das undiades com registros deste publico. A Região Norte e Centro Oeste tem maior número de atendimento a públicos de comunidades ribeirinhas com 72% e 64% respectivamente . -->
+```
 
 ```{r CRAS-tradicionais, fig.cap = "Percentual de CRAS que atendem povos e comunidades tradicionais, por grupos , Brasil e grandes regiões, 2022", fig.footer = "Fonte: MDS, Censo SUAS.", eval=FALSE}
 
@@ -329,7 +334,7 @@ grafico
 
 <!-- Dos 2.122 CRAS que informaram que havia povos e comunidades tradicionais em seu território de abrangência, 896 informaram ter atendido Comunidades Quilombolas (38,4%), seguidos por 615 CRAS que informaram ter atendido Comunidades Ribeirinhas (26,3%) e 611 que informaram ter atendido Povos Indígenas (26,2%) (Gráfico 27). -->
 
-### Serviço de Proteção Social Básica no Domicílio para Pessoas com Deficiência e Idosas 
+### Serviço de Proteção Social Básica no Domicílio para Pessoas com Deficiência e Idosas
 
 O Serviço de Proteção Social Básica no Domicílio para Pessoas com Deficiência e Idosas está previsto na Tipificação dos Serviços Socioassistenciais como o serviço que tem por finalidade a prevenção de agravos que possam provocar o rompimento de vínculos familiares e sociais dos usuários. Visa a garantia de direitos, o desenvolvimento de mecanismos para a inclusão social, a equiparação de oportunidades e a participação e o desenvolvimento da autonomia das pessoas com deficiência e pessoas idosas, a partir de suas necessidades e potencialidades individuais e sociais, prevenindo situações de risco, a exclusão e o isolamento.
 
@@ -355,19 +360,19 @@ Recentemente, a Resolução CNAS/MDS Nº 117, de 28 de Agosto de 2023, atualizou
 
 A Proteção Social Especial de Média Complexidade organiza a oferta de serviços, programas e projetos de caráter especializado que requerem maior estruturação técnica e operativa, com competências e atribuições definidas, destinados ao atendimento a famílias e indivíduos em situação de risco pessoal e social, por violação de direitos.
 
-É ofertada pelos seguintes equipamentos do SUAS: 
+É ofertada pelos seguintes equipamentos do SUAS:
 
-- Centros de Referência Especializados de Assistência Social (CREAS),
-- Centros de Referência Especializados para População em Situação de Rua (Centro POP), e 
-- Centro-Dia.
+-   Centros de Referência Especializados de Assistência Social (CREAS),
+-   Centros de Referência Especializados para População em Situação de Rua (Centro POP), e
+-   Centro-Dia.
 
 Os serviços de Proteção Social Especial ofertados no nível de Média Complexidade são:
 
-- Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos (PAEFI);
-- Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida e de Prestação de Serviços à Comunidade;
-- Serviço Especializado em Abordagem Social;
-- Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosos e suas Famílias e 
-- Serviço Especializado para Pessoas em Situação de Rua.
+-   Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos (PAEFI);
+-   Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa de Liberdade Assistida e de Prestação de Serviços à Comunidade;
+-   Serviço Especializado em Abordagem Social;
+-   Serviço de Proteção Social Especial para Pessoas com Deficiência, Idosos e suas Famílias e
+-   Serviço Especializado para Pessoas em Situação de Rua.
 
 ### Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos (PAEFI)
 
@@ -524,7 +529,7 @@ grafico
 
 A seguir destacamos algumas situações atendidas no PAEFI que não estão entre as situações com maiores percentuais de CREAS que realizaram atendimento.
 
-O @fig-paefi2_creas mostra os percentuais de CREAS que realizaram atendimentos do PAEFI em situações de trabalho em condição análoga à escravidão e de trabalho infantil. Os percentuais de CREAS que realizaram atendimentos nestas situações caiu em 2023. 
+O @fig-paefi2_creas mostra os percentuais de CREAS que realizaram atendimentos do PAEFI em situações de trabalho em condição análoga à escravidão e de trabalho infantil. Os percentuais de CREAS que realizaram atendimentos nestas situações caiu em 2023.
 
 ```{r fig-paefi2_creas, fig.cap = "Percentual de CREAS que realizaram atendimentos do PAEFI em situações de trabalho em condição análoga à escravidão e de trabalho infantil - Brasil, 2020, 2022 e 2023", fig.footer = "Fonte: MDS, Censo SUAS."}
 
