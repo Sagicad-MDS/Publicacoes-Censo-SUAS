@@ -50,8 +50,14 @@ crossref:
 #  chapters: false
 
 format:
-  html:
-    theme: cosmo
+  html: 
+    mainfont: "Rawline, Raleway, sans-serif"
+    fontsize: 14px
+    fontcolor: "#333333"
+    linkcolor: "#1351B4"
+    linestretch: 1.45
+    backgroundcolor: "#ffffff"
+    include-in-header: "header.html"
 #  pdf:
 #    documentclass: scrreprt
 
