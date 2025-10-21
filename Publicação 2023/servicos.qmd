@@ -6,12 +6,13 @@ source("_funcoes.R")
 
 # Serviços e Benefícios ofertados pelo SUAS
 
-A Assistência Social organiza-se por dois tipos de proteção:
+A Assistência Social organiza-se por provisões e elas correspondem a seguranças previstas na integração de serviços e benefícios. No ambito dos Serviços, estão previstos através de dois tipos de proteção:
 
 -   a Proteção Social Básica, definida no Art. 6º-A da [Lei Orgânica da Assistência Social (LOAS)](http://www.planalto.gov.br/ccivil_03/Leis/L8742compilado.htm) como um "conjunto de serviços, programas, projetos e benefícios da assistência social que visa a prevenção de situações de vulnerabilidade e risco social por meio do desenvolvimento de potencialidades e aquisições e do fortalecimento de vínculos familiares e comunitários" e
+
 -   a Proteção Social Especial, definida como "conjunto de serviços, programas e projetos que tem por objetivo contribuir para a reconstrução de vínculos familiares e comunitários, a defesa de direito, o fortalecimento das potencialidades e aquisições e a proteção de famílias e indivíduos para o enfrentamento das situações de violação de direitos".
 
-Este capítulo apresenta alguns dados do Censo SUAS relativos à oferta de serviços e benefícios da Assistência Social no âmbito da Proteção Social Básica e da Proteção Social Especial.
+    Este capítulo apresenta alguns dados do Censo SUAS relativos à oferta de serviços e benefícios da Assistência Social no âmbito da Proteção Social Básica e da Proteção Social Especial.
 
 ## Serviços da Proteção Social Básica
 
@@ -22,13 +23,13 @@ Os serviços do SUAS no âmbito da Proteção Social Básica são:
 -   Serviço de Proteção e Atendimento Integral à Família (PAIF);
 -   Serviço de Convivência e Fortalecimento de Vínculos;
 -   Serviço de Proteção Social Básica no Domicílio para Pessoas com Deficiência e Idosas;
--   Serviço de Proteção Social Básica no Domicílio para Gestantes e crianças de 0 a 6 anos.
+-   <!--Serviço de Proteção Social Básica no Domicílio para Gestantes e crianças de 0 a 6 anos.-->
 
 ### Serviço de Proteção e Atendimento Integral à Família (PAIF)
 
 O Serviço de Proteção e Atendimento Integral à Família (PAIF) é oferecido em todos os Centros de Referência da Assistência Social (CRAS).
 
-De acordo com a [Tipificação Nacional dos Serviços Socioassistenciais](https://www.mds.gov.br/webarquivos/publicacao/assistencia_social/Normativas/tipificacao.pdf), o PAIF consiste no trabalho social com famílias, de caráter continuado, com a finalidade de fortalecer a função protetiva das famílias, prevenir a ruptura dos seus vínculos, promover seu acesso e usufruto de direitos e contribuir na melhoria de sua qualidade de vida. Prevê o desenvolvimento de potencialidades e aquisições das famílias e o fortalecimento de vínculos familiares e comunitários, por meio de ações de caráter preventivo, protetivo e proativo. O trabalho social do PAIF deve utilizar-se também de ações nas áreas culturais para o cumprimento de seus objetivos, de modo a ampliar universo informacional e proporcionar novas vivências às famílias usuárias do serviço. As ações do PAIF não devem possuir caráter terapêutico.
+De acordo com a [Tipificação Nacional dos Serviços Socioassistenciais](https://www.mds.gov.br/webarquivos/publicacao/assistencia_social/Normativas/tipificacao.pdf), o PAIF consiste no trabalho social com famílias, de caráter continuado, com a finalidade de fortalecer a função protetiva das famílias, prevenir a ruptura dos seus vínculos, promover seu acesso a direitos e contribuir na melhoria de sua qualidade de vida. Prevê o desenvolvimento de potencialidades e aquisições das famílias e o fortalecimento de vínculos familiares e comunitários, por meio de ações de caráter preventivo, protetivo e proativo. O trabalho social do PAIF deve utilizar-se de estratégias de ações e atendimentos coletivos uma vez que as causas da pobreza e desigualdades são estruturais e presentes no território.
 
 O @fig-paif_cras_maiores mostra as atividades no âmbito do PAIF com maiores percentuais de unidades de CRAS que as realizaram em 2023, com destaque para visitas domiciliares e encaminhamento para o Cadastro Único, com 99% das unidades relatando o desenvolvimento dessas atividades.
 
@@ -354,7 +355,7 @@ grafico <- f_sim(cras_2018, q_24, "2018") %>%
 grafico
 ```
 
-Recentemente, a Resolução CNAS/MDS Nº 117, de 28 de Agosto de 2023, atualizou a tipificação, incluindo crianças e gestantes como público alvo do Serviço de Proteção Social Básica no Domicílio.
+<!--Recentemente, a Resolução CNAS/MDS Nº 117, de 28 de Agosto de 2023, na qual aprovou o reordenamento e a atualização da tipificação, incluindo crianças e gestantes como público alvo do Serviço de Proteção Social Básica no Domicílio. Esta resolução foi aprovada na CIT e CNAS no ano de 2025 através das seguintes normativas: obs: vai para CNAS agora em novembro/2025, esperar validar para atualziar essa informação.-->
 
 ## Serviços da Proteção Social Especial - Média Compexidade
 
@@ -978,7 +979,7 @@ grafico
 
 ## Benefícios Eventuais
 
-Os [Benefícios Eventuais](https://www.mds.gov.br/webarquivos/publicacao/assistencia_social/Cadernos/SNAS_Cartilha_Par%C3%A2metros_Atua%C3%A7%C3%A3o_SUAS.pdf) são um tipo de proteção social que se caracteriza por sua oferta de natureza temporária para prevenir e enfrentar situações provisórias de vulnerabilidade decorrentes ou agravadas por nascimentos, mortes, vulnerabilidades temporárias e calamidades.
+Os [Benefícios Eventuais](https://www.mds.gov.br/webarquivos/publicacao/assistencia_social/Cadernos/SNAS_Cartilha_Par%C3%A2metros_Atua%C3%A7%C3%A3o_SUAS.pdf) são um tipo de proteção social que se caracteriza por sua oferta de natureza temporária para prevenir e enfrentar situações provisórias de vulnerabilidade decorrentes ou agravadas por nascimentos, mortes, vulnerabilidades temporárias e calamidades. O Conselho Nacional de Assistência Social, através de um amplo debate e processo de consulta pública atualizou a resolução prevista através: CNAS/MDS Nº 212 de outubro de 2025.
 
 Destaca-se que a oferta dos Benefícios Eventuais caracteriza-se como direito, portanto diferencia-se de doação. A forma e critérios de sua concessão devem ser deliberadas pelo Conselho de Assistência Social local.
 
