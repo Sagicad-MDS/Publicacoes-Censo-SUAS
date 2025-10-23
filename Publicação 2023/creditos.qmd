@@ -11,8 +11,8 @@ Ministro de Estado do Desenvolvimento e Assistência Social, Família e Combate 
 Secretário-Executivo\
 **Osmar Ribeiro de Almeida Júnior**
 
-Secretária de Avaliação, Gestão da Informação e Cadastro Único\
-**Letícia Bartholo de Oliveira e Silva**
+Secretário de Avaliação, Gestão da Informação e Cadastro Único\
+**Rafael Guerreiro Osório**
 
 Secretária Nacional de Renda de Cidadania\
 **Eliane Aquino Custodio**
@@ -38,42 +38,35 @@ Secretária Nacional de Cuidados e Família\
 
 **Diretoria de Monitoramento e Avaliação - DMA/SAGICAD:**
 
--   Joana Simões de Melo Costa: Diretora de Monitoramento e Avaliação
-   
+-   Geraldo Andrade Filho: Diretor de Monitoramento e Avaliação
 
 **Diretoria de Gestão do SUAS -- DGSUAS/SNAS**
 
--   Clara Carolina de Sá: Diretoria de Gestão do SUAS
+-   Clara Carolina de Sá: Diretora de Gestão do SUAS
 
+### Coordenação geral do Censo SUAS {.unnumbered}
 
-### Concepção, Planejamento e participação em reuniões {.unnumbered}
-
-Ana Angelica Campelo de Albuquerque e Melo, Ana Carolina Cambeses, Ana Gabriela Sambiase, Ana Paula Campos, Clara Carolina de Sá, Dionara Borges, Edgilson Tavares de Araujo, Fabio Santos de Gusmão Lobo, Ieda Castro, Joana Simões de Melo Costa, Lais Maranhão Santos Mendonça, Lucas Loureiro Lino, Luciano Márcio Freitas de Oliveira, Marcelo Gomes Gadelha, Marcelo Sebatião de Oliveira, Marcílio Marquesini Ferrari, Mariana Peixoto, Paulo Clemente, Raimundo Nonato, Raquel Maria Soares Freitas, Ricardo Lovatel, Rogério Schmidt Campos, Sabrina Medeiros Borges, Shirley Samico, Simone Alburquerque, Simone de Castro Holanda, Thiago Silvino Rocha Oliveira, Ullysses da Silva Ferreira, Valdson Silva Cleto, Vinicius Pawlowski e Zilane Cristina Oliveira de Andrade.
-
-### Coordenação-Geral dos Censos SUAS 2018 a 2022: {.unnumbered}
-
-Marcos Maia Antunes
-
-### Desenvolvimento de aplicativos informatizados, coleta e tratamento de dados dos Censos SUAS 2018 a 2022 {.unnumbered}
-
-André Saraiva, Caio Nakashima, Carlos Henrique Santana, Carlos Brasileiro, Cinthia Miranda, Cristiane Silva de Moura, Danilo Galvão da Cunha, Davi Lopes Carvalho, Daniela Ramos, Débora Macedo, Dionara Borges, Érika Paes Latim Castro, Frederico Palma, João Sobrinho, Lana Barbosa, Luis Otavio Farias, Marcelo do Nascimento Saraiva, Marcelo Gadelha, Marcos Coimbra, Marco Rodrigo Carvalho, Marcos Maia Antunes, Marina Brito, Murilo da Silva Mascarenhas de Morais, Paulo Clemente, Pedro Henrique Ribeiro Ferreira, Ricardo Carvalho, Roberto Wagner, Sabrina Borges,Tiago Hackbarth.
+Paulo clemente - Coordenador Geral de Vigilância Socioassistencial.
 
 ### Desenvolvimento de projeto de programação, análise de dados e produção da publicação {.unnumbered}
 
-Valdson Silva Cleto e Shirley Samico
+Valdson Silva Cleto, Shirley Samico e Lucas Abrantes.
 
+### Desenvolvimento de aplicativos informatizados, coleta e tratamento de dados dos Censos SUAS 2018 a 2023 {.unnumbered}
+
+André Saraiva, Caio Nakashima, Carlos Henrique Santana, Carlos Brasileiro, Cinthia Miranda, Cristiane Silva de Moura, Danilo Galvão da Cunha, Davi Lopes Carvalho, Daniela Ramos, Débora Macedo, Dionara Borges, Érika Paes Latim Castro, Frederico Palma, João Sobrinho, Lana Barbosa, Luis Otavio Farias, Marcelo do Nascimento Saraiva, Marcelo Gadelha, Marcos Coimbra, Marco Rodrigo Carvalho, Marcos Maia Antunes, Marina Brito, Murilo da Silva Mascarenhas de Morais, Paulo Clemente, Pedro Henrique Ribeiro Ferreira, Ricardo Carvalho, Roberto Wagner, Sabrina Borges,Tiago Hackbarth.
 
 ### Coordenação, elaboração e revisão dos textos {.unnumbered}
 
-Shirley Samico, Valdson Silva Cleto, Erica Moreira e Zilane Andrade.
+Shirley Samico, Valdson Silva Cleto, Lucas Abrantes.
 
 ## Ficha Catalográfica {.unnumbered}
 
 ```{=html}
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
 <head>
-	<link href="../Styles/idGeneratedStyles.css" rel="stylesheet" type="text/css"/>
-	<link href="../Styles/estilo_geral.css" rel="stylesheet" type="text/css"/>
+    <link href="../Styles/idGeneratedStyles.css" rel="stylesheet" type="text/css"/>
+    <link href="../Styles/estilo_geral.css" rel="stylesheet" type="text/css"/>
     
   <style>
         
@@ -82,24 +75,24 @@ p.ficha-centro {
   adobe-hyphenate: none; 
   -moz-hyphens: none; 
   hyphens: none; 
-	font-family:"Courier New", courier, monospace;
-	font-size:1em;
-	font-style:normal;
-	font-variant:normal;
-	font-weight:normal;
-	line-height:1.15;
-	margin-bottom:0;
-	margin-left:0;
-	margin-right:0;
-	margin-top:0;
-	orphans:1;
-	page-break-after:auto;
-	page-break-before:auto;
-	text-align:center;
-	text-decoration:none;
-	text-indent:0;
-	text-transform:none;
-	widows:1;
+    font-family:"Courier New", courier, monospace;
+    font-size:1em;
+    font-style:normal;
+    font-variant:normal;
+    font-weight:normal;
+    line-height:1.15;
+    margin-bottom:0;
+    margin-left:0;
+    margin-right:0;
+    margin-top:0;
+    orphans:1;
+    page-break-after:auto;
+    page-break-before:auto;
+    text-align:center;
+    text-decoration:none;
+    text-indent:0;
+    text-transform:none;
+    widows:1;
 }
         
 p.ficha-centro-11 {
@@ -107,24 +100,24 @@ p.ficha-centro-11 {
   adobe-hyphenate: none; 
   -moz-hyphens: none; 
   hyphens: none; 
-	font-family:"Courier New", courier, monospace;
-	font-size:0.917em;
-	font-style:normal;
-	font-variant:normal;
-	font-weight:normal;
-	line-height:1.15;
-	margin-bottom:0;
-	margin-left:0;
-	margin-right:0;
-	margin-top:0;
-	orphans:1;
-	page-break-after:auto;
-	page-break-before:auto;
-	text-align:center;
-	text-decoration:none;
-	text-indent:0;
-	text-transform:none;
-	widows:1;
+    font-family:"Courier New", courier, monospace;
+    font-size:0.917em;
+    font-style:normal;
+    font-variant:normal;
+    font-weight:normal;
+    line-height:1.15;
+    margin-bottom:0;
+    margin-left:0;
+    margin-right:0;
+    margin-top:0;
+    orphans:1;
+    page-break-after:auto;
+    page-break-before:auto;
+    text-align:center;
+    text-decoration:none;
+    text-indent:0;
+    text-transform:none;
+    widows:1;
 }
 
 p.ficha-esq {
@@ -132,24 +125,24 @@ p.ficha-esq {
   adobe-hyphenate: none; 
   -moz-hyphens: none; 
   hyphens: none; 
-	font-family:"Courier New", courier, monospace;
-	font-size:0.917em;
-	font-style:normal;
-	font-variant:normal;
-	font-weight:normal;
-	line-height:1.5;
-	margin-bottom:0;
-	margin-left:0;
-	margin-right:0;
-	margin-top:0;
-	orphans:1;
-	page-break-after:auto;
-	page-break-before:auto;
-	text-align:left;
-	text-decoration:none;
-	text-indent:0;
-	text-transform:none;
-	widows:1;
+    font-family:"Courier New", courier, monospace;
+    font-size:0.917em;
+    font-style:normal;
+    font-variant:normal;
+    font-weight:normal;
+    line-height:1.5;
+    margin-bottom:0;
+    margin-left:0;
+    margin-right:0;
+    margin-top:0;
+    orphans:1;
+    page-break-after:auto;
+    page-break-before:auto;
+    text-align:left;
+    text-decoration:none;
+    text-indent:0;
+    text-transform:none;
+    widows:1;
 }
         
 p.ficha-autor {
@@ -157,24 +150,24 @@ p.ficha-autor {
   adobe-hyphenate: none; 
   -moz-hyphens: none; 
   hyphens: none; 
-	font-family:"Courier New", courier, monospace;
-	font-size:0.917em;
-	font-style:normal;
-	font-variant:normal;
-	font-weight:normal;
-	line-height:1.5;
-	margin-bottom:0;
-	margin-left:4.8em;
-	margin-right:0;
-	margin-top:0;
-	orphans:1;
-	page-break-after:auto;
-	page-break-before:auto;
-	text-align:left;
-	text-decoration:none;
-	text-indent:-1.8em;
-	text-transform:none;
-	widows:1;
+    font-family:"Courier New", courier, monospace;
+    font-size:0.917em;
+    font-style:normal;
+    font-variant:normal;
+    font-weight:normal;
+    line-height:1.5;
+    margin-bottom:0;
+    margin-left:4.8em;
+    margin-right:0;
+    margin-top:0;
+    orphans:1;
+    page-break-after:auto;
+    page-break-before:auto;
+    text-align:left;
+    text-decoration:none;
+    text-indent:-1.8em;
+    text-transform:none;
+    widows:1;
 }
 
 p.ficha {
@@ -182,24 +175,24 @@ p.ficha {
   adobe-hyphenate: none; 
   -moz-hyphens: none; 
   hyphens: none; 
-	font-family:"Courier New", courier, monospace;
-	font-size:0.917em;
-	font-style:normal;
-	font-variant:normal;
-	font-weight:normal;
-	line-height:1.5;
-	margin-bottom:0;
-	margin-left:3em;
-	margin-right:0;
-	margin-top:0;
-	orphans:1;
-	page-break-after:auto;
-	page-break-before:auto;
-	text-align:left;
-	text-decoration:none;
-	text-indent:1.8em;
-	text-transform:none;
-	widows:1;
+    font-family:"Courier New", courier, monospace;
+    font-size:0.917em;
+    font-style:normal;
+    font-variant:normal;
+    font-weight:normal;
+    line-height:1.5;
+    margin-bottom:0;
+    margin-left:3em;
+    margin-right:0;
+    margin-top:0;
+    orphans:1;
+    page-break-after:auto;
+    page-break-before:auto;
+    text-align:left;
+    text-decoration:none;
+    text-indent:1.8em;
+    text-transform:none;
+    widows:1;
 }
 
 p.ficha-ca {
@@ -207,24 +200,24 @@ p.ficha-ca {
   adobe-hyphenate: none; 
   -moz-hyphens: none; 
   hyphens: none; 
-	font-family:"Courier New", courier, monospace;
-	font-size:1em;
-	font-style:normal;
-	font-variant:normal;
-	font-weight:bold;
-	line-height:1.5;
-	margin-bottom:0;
-	margin-left:0;
-	margin-right:0;
-	margin-top:0;
-	orphans:1;
-	page-break-after:auto;
-	page-break-before:auto;
-	text-align:center;
-	text-decoration:none;
-	text-indent:0;
-	text-transform:none;
-	widows:1;
+    font-family:"Courier New", courier, monospace;
+    font-size:1em;
+    font-style:normal;
+    font-variant:normal;
+    font-weight:bold;
+    line-height:1.5;
+    margin-bottom:0;
+    margin-left:0;
+    margin-right:0;
+    margin-top:0;
+    orphans:1;
+    page-break-after:auto;
+    page-break-before:auto;
+    text-align:center;
+    text-decoration:none;
+    text-indent:0;
+    text-transform:none;
+    widows:1;
 }
 
 p.ficha-center-bold-11 {
@@ -232,31 +225,31 @@ p.ficha-center-bold-11 {
   adobe-hyphenate: none; 
   -moz-hyphens: none; 
   hyphens: none; 
-	font-family:"Courier New", courier, monospace;
-	font-size:0.917em;
-	font-style:normal;
-	font-variant:normal;
-	font-weight:bold;
-	line-height:1.5;
-	margin-bottom:0;
-	margin-left:0;
-	margin-right:0;
-	margin-top:0;
-	orphans:1;
-	page-break-after:auto;
-	page-break-before:auto;
-	text-align:center;
-	text-decoration:none;
-	text-indent:0;
-	text-transform:none;
-	widows:1;
+    font-family:"Courier New", courier, monospace;
+    font-size:0.917em;
+    font-style:normal;
+    font-variant:normal;
+    font-weight:bold;
+    line-height:1.5;
+    margin-bottom:0;
+    margin-left:0;
+    margin-right:0;
+    margin-top:0;
+    orphans:1;
+    page-break-after:auto;
+    page-break-before:auto;
+    text-align:center;
+    text-decoration:none;
+    text-indent:0;
+    text-transform:none;
+    widows:1;
 }
         
 div.ficha {
-	border-width:1px;
-	border-style:solid;
+    border-width:1px;
+    border-style:solid;
   padding:0.3em;
-	margin:.8em auto 1em auto;
+    margin:.8em auto 1em auto;
 }
         
 div.caixa-ficha {
@@ -283,41 +276,41 @@ table.ficha {
 }
     
   </style>
-	</head>
+    </head>
 
 <body xmlns:xml="http://www.w3.org/XML/1998/namespace">
   <div class="caixa-ficha">
-		<div id="_idContainer004" class="grupo">
-			<p class="ficha-centro">Dados Internacionais de Catalogação na Publicação (CIP)</p>
-			<p class="ficha-ca">(BENITEZ Catalogação Ass. Editorial, MS, Brasil)</p>
-			
+        <div id="_idContainer004" class="grupo">
+            <p class="ficha-centro">Dados Internacionais de Catalogação na Publicação (CIP)</p>
+            <p class="ficha-ca">(BENITEZ Catalogação Ass. Editorial, MS, Brasil)</p>
+            
       <!-- #################### FICHA ###################### -->
       
-			<div class="ficha" id="_idContainer003">
-				<p class="ficha">	<br/></p>
-				<p class="ficha-autor">Brasil. Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome. Secretaria Nacional de Assistência Social. Secretaria de Avaliação, Gestão da Informação e Cadastro Único.</p>
-				<p class="ficha">	Censo SUAS 2022 : análise dos componentes sistêmicos da Política Nacional de Assistência Social / coordenação geral Joana Simões de Melo Costa, Shirley de Lima Samico ; concepção e organização de textos Clara Carolina de Sá e Shirley Samico. -- 1.ed. –  Brasília, DF : Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome, 2024. </p>
-				<p class="ficha">	HTML<br/><br/></p>
-				<p class="ficha">	Vários colaboradores.</p>
-				<p class="ficha">	Bibliografia.</p>
-				<p class="ficha">	ISBN 978-65-01-01956-7<br/><br/></p>
-				<p class="ficha">	1. Assistência social – Brasil. 2. Censo – Aspectos sociais. 3. Políticas públicas sociais. 4. Sistema Único de Assistência Social (SUAS). I. Costa, Joana Simões de Melo. II. Samico, Shirley de Lima. III. Sá, Clara Carolina de. IV. Silva, Elizangela Cardoso de Araújo.<br/><br/></p>
-				<p class="ficha-esq">
-				  12-2024/94
-				  <span style="float: right;">
-				    CDD 362.0981
+            <div class="ficha" id="_idContainer003">
+                <p class="ficha">   <br/></p>
+                <p class="ficha-autor">Brasil. Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome. Secretaria Nacional de Assistência Social. Secretaria de Avaliação, Gestão da Informação e Cadastro Único.</p>
+                <p class="ficha">   Censo SUAS 2022 : análise dos componentes sistêmicos da Política Nacional de Assistência Social / coordenação geral Joana Simões de Melo Costa, Shirley de Lima Samico ; concepção e organização de textos Clara Carolina de Sá e Shirley Samico. -- 1.ed. –  Brasília, DF : Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome, 2024. </p>
+                <p class="ficha">   HTML<br/><br/></p>
+                <p class="ficha">   Vários colaboradores.</p>
+                <p class="ficha">   Bibliografia.</p>
+                <p class="ficha">   ISBN 978-65-01-01956-7<br/><br/></p>
+                <p class="ficha">   1. Assistência social – Brasil. 2. Censo – Aspectos sociais. 3. Políticas públicas sociais. 4. Sistema Único de Assistência Social (SUAS). I. Costa, Joana Simões de Melo. II. Samico, Shirley de Lima. III. Sá, Clara Carolina de. IV. Silva, Elizangela Cardoso de Araújo.<br/><br/></p>
+                <p class="ficha-esq">
+                  12-2024/94
+                  <span style="float: right;">
+                    CDD 362.0981
           </span>
-				</p>
-			</div>
+                </p>
+            </div>
         
       <!-- #################### ENDEREÇO ###################### -->
-		  <div id="_idContainer005 grupo">
-				<p class="ficha">	<br/></p>
+          <div id="_idContainer005 grupo">
+                <p class="ficha">   <br/></p>
         <p class="ficha-center-bold-11">Índice para catálogo sistemático:</p>
-			  <p class="ficha-centro-11">1. Brasil : Assistência social : Políticas públicas : Problemas sociais   362.0981</p>
+              <p class="ficha-centro-11">1. Brasil : Assistência social : Políticas públicas : Problemas sociais   362.0981</p>
         <p class="ficha-center-bold-11">Aline Graziele Benitez – Bibliotecária - CRB-1/3129</p>
-		  </div>
-		</div>
-	</div>
+          </div>
+        </div>
+    </div>
 </body>
 ```

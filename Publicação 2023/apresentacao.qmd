@@ -24,8 +24,8 @@ Considerando a nova configuração da Assistência Social definida pela CRFB 88,
 
 A partir da LOAS, uma série de ferramentas de institucionalização foi organizada a fim de nortear a nova configuração da Assistência Social, como visto na @tbl-marcos.
 
-|   1993   |   1998   |   2004   |   2005    |   2006    |           2009           |           2010           |      2011       |   2012    |
-|:--------:|:--------:|:--------:|:---------:|:---------:|:------------------------:|:------------------------:|:---------------:|:---------:|
+| 1993 | 1998 | 2004 | 2005 | 2006 | 2009 | 2010 | 2011 | 2012 |
+|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
 | LOAS     | PNAS     | PNAS     | NOB/ SUAS | NOB/ RH   | Tipificação dos Serviços | Decreto 7.334 Censo SUAS | Lei 12.435 SUAS | NOB/ SUAS |
 
 : Marcos legais da Assistência Social no Brasil. {#tbl-marcos}
