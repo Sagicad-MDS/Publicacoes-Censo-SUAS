@@ -29,3 +29,7 @@ source("_setup.R")
 \_\_\_\_\_\_\_. Resolução n. 99, de 4 DE ABRIL DE 2023. Caracteriza os usuários, seus direitos, suas organizações e sua participação na Política Pública de Assistência Social e no Sistema Único de Assistência Social. CNAS, 2023.
 
 \_\_\_\_\_\_\_. Resolução n. 100, de 20 DE ABRIL DE 2023. Estabelece as diretrizes para a estruturação, reformulação, funcionamento e acompanhamento dos conselhos de assistência social dos estados, Distrito Federal e municípios, com o objetivo de fortalecer e consolidar o controle social na Política Nacional de Assistência Social. CNAS, 2023.
+
+\_\_\_\_\_\_\_. Resolução CNAS n. 220, de 20 de julho de 2025. Orienta os conselhos de assistência social, nas três esferas, quanto à sua organização e funcionamento como instância de participação e controle social do Programa Bolsa Família e do Cadastro Único de Programas Sociais do Governo Federal, bem como quanto à aplicação obrigatória dos percentuais dos índices de gestão descentralizada destinados ao controle social e dá outras providências. CNAS, 2025.
+
+\_\_\_\_\_\_\_. Resolução CNAS n. 213, de 20 de outubro de 2025. Define parametros e diretrizes para os Conselhos de Assistência Social deliberarem sobre os beneficios eventuais, garantindo acesso, transparência, agilidade e integração com os Serviços do SUAS. CNAS, 2025.
