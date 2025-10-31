@@ -8,7 +8,7 @@ source("_funcoes.R")
 
 A participação social é uma das diretrizes estabelecidas pela Constituição Federal de 1988 para a organização das ações da Assistência Social. Nesse sentido, a [Lei Orgânica da Assistência Social (LOAS)](http://www.planalto.gov.br/ccivil_03/Leis/L8742compilado.htm), que dispõe sobre a sua organização, instituiu em seu artigo 16 os Conselhos de Assistência Social em âmbito Nacional, Estadual e Municipal como instâncias de deliberação colegiada do SUAS, cuja composição deve ser paritária entre Governo e Sociedade Civil.
 
-Os Conselhos integram o Sistema Único de Assistência Social (SUAS), juntamente com o Governo e as Entidades e Organizações de Assistência Social. A [Resolução do Conselho Nacional de Assistência Social (CNAS) nº 100/2023](https://aplicacoes.mds.gov.br/snas/regulacao/visualizar.php?codigo=6470), estabelece a definição dos Conselhos de Assistência Social, suas competências, criação, estrutura e organização. Esta resolução também trata do desempenho dos conselheiros e conselheiras, bem como sua função de interesse público.
+Os Conselhos integram o Sistema Único de Assistência Social (SUAS), juntamente com o Governo e as Entidades e Organizações de Assistência Social. A [Resolução do Conselho Nacional de Assistência Social (CNAS) nº 100/2023](https://aplicacoes.mds.gov.br/snas/regulacao/visualizar.php?codigo=6470), estabelece a definição dos Conselhos de Assistência Social, suas competências, criação, estrutura e organização. Esta resolução também trata do desempenho das conselheiras e conselheiros, bem como sua função de interesse público.
 
 Outra resolução importante para organização do controle social no SUAS é a [Resolução CNAS/MDS nº 99/2023](https://www.gov.br/participamaisbrasil/blob/baixar/26373), que caracteriza os usuários, seus direitos e participação na Política de Assistência Social.
 
@@ -156,7 +156,7 @@ grafico
 
 A legislação da assistência social diz que para os Municípios de Pequeno Porte I e II, a/o secretária/o executiva/o não precisa ser exclusiva/o. Por isso vemos no @fig-CRAS-porte que apenas 10% dos Conselhos nos Municípios de Pequeno Porte I e 19% nos de Pequeno Porte II informaram possuir secretárias/os executivas/os trabalhando exclusivamente no Conselho. Nos Municípios maiores esse percentual vai crescendo junto com o Porte, mas ainda são percentuais baixos, sendo de 27% para os Municípios de Médio Porte, 50% para os Municípios de Grande Porte, e mesmo nas Metrópoles o percentual não chega a 100%, ficando em 95%.
 
-```{r fig-CRAS-porte, fig.cap = "Percentual de Conselhos Municípais que possuem secretárias/os executivas/os trabalhando exclusivamente no Conselho por porte populacional estimado dos municípios - Brasil, 2023", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios"}
+```{r fig-CRAS-porte, fig.cap = "Percentual de Conselhos Municipais que possuem secretárias/os executivas/os trabalhando exclusivamente no Conselho por porte populacional estimado dos municípios - Brasil, 2023", fig.footer = "Fonte: MDS, Censo SUAS; e IBGE, estimativas da população residente para os municípios"}
 
 dados <- cmun_2023 %>%
   mutate(q = q13) %>%
@@ -451,7 +451,7 @@ cmun_2010_regiao <- cmun_2010 %>%
 
 Os recursos do IGD Bolsa Família e IGD SUAS podem ser usados para o fortalecimento das atividades e apoio técnico e operacional do controle social do SUAS. De acordo com as [normativas do SUAS](https://www.planalto.gov.br/ccivil_03/_Ato2023-2026/2024/Decreto/D12064.htm#art6), para fins de fortalecimento das instâncias de controle social dos entes federativos, no mínimo 3% dos recursos transferidos para apoio financeiro às ações de gestão e execução descentralizada do Programa Bolsa Família e do CadÚnico serão destinados a atividades de apoio técnico e operacional ao Conselho de Assistência Social do respectivo ente federativo.
 
-O @fig-ceas_igd mostra que eu 2023 apenas 1 Estado não fez a destinação de pelo menos 3% dos recursos do IGD Bolsa Família e IGD SUAS para custear despesas do funcionamento do Conselho Estadual.
+O @fig-ceas_igd mostra que em 2023 apenas 1 Estado não fez a destinação de pelo menos 3% dos recursos do IGD Bolsa Família e IGD SUAS para custear despesas do funcionamento do Conselho Estadual.
 
 ```{r fig-ceas_igd, fig.cap = "Percentual de Conselhos Estaduais que possuem destinação de pelo menos 3% dos recursos do IGD Bolsa Família e IGD SUAS para seu funcionamento - Brasil, 2012 a 2023"}
 
@@ -497,7 +497,7 @@ grafico <- f_sim(cmun_2012, q7, "2012") %>%
 grafico
 ```
 
-De acordo com a [Resolução CNAS Nº 15/2014](https://aplicacoes.mds.gov.br/snas/regulacao/visualizar.php?codigo=4332) o Conselho de Assistência Social é a Instância do Controle Social do Programa Bolsa Família (PBF) e deve atuar nos processos de capacitação, no âmbito do PBF e do Cadastro Único; no apoio financeiro à gestão do PBF e ao Índice de Gestão Descentralizada, IGD/PBF e nas ações intersetoriais do PBF, estimulando a integração e a oferta de ações que reforcem a proteção social e conduzam à superação da condição de exclusão social enfrentada pelas famílias beneficiárias do PBF e comunicando ao MDS e às instituições integrantes de controle e fiscalização dos entes federados a existênca de eventual irregularidade no município no que se refere à gestão e execução do PBF.
+De acordo com a Resolução CNAS Nº 202/2025 o Conselho de Assistência Social é a instância de participação e controle social do Programa Bolsa Família e do Cadastro Único de Programas Sociais do Governo Federal, esta resolução também sinaliza sobre à aplicação obrigatória dos percentuais dos índices de gestão descentralizada estimados ao controle social e dá outras providências.
 
 Em 2023 manteve-se o percentual de 88% registrado em 2022 dos Conselhos Estaduais que informam ser a instância de controle social do Programa Bolsa Família. Esse percentual já foi de 100% em 2016, 2018 e 2019 e caiu para 88% em 2020 (@fig-ceas_icspbf2). Em 2023 os Conselhos Estaduais que não eram instância de controle social no Censo eram os Estados de Roraima, Paraíba e Goiás.
 
@@ -572,7 +572,7 @@ grafico
 
 Em relação aos Conselhos Municipais, vemos no @fig-cmas_plano muita variação ao longo dos anos no percentual dos que informam ter discutido sobre o Plano de Assistência Social no ano anterior, observando-se uma grande queda no Censo de 2023 em relação ao Censo de 2022, de 82% para 67%.
 
-```{r fig-cmas_plano, fig.cap = "Percntual de Conselhos Municipais que discutiram sobre o Plano de Assistência Social no ano anterior - Brasil, 2014 a 2023"}
+```{r fig-cmas_plano, fig.cap = "Percentual de Conselhos Municipais que discutiram sobre o Plano de Assistência Social no ano anterior - Brasil, 2014 a 2023"}
 
 grafico <-
   f_sim(cmun_2014, q29_3, "2014") %>%
