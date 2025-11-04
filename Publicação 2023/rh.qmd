@@ -6,9 +6,9 @@ source("_funcoes.R")
 
 # Gestão do Trabalho e Recursos Humanos no SUAS
 
-A qualidade da oferta de serviços, programas e benefícios da Assistência Social está diretamente ligada a uma adequada gestão do trabalho no âmbito do SUAS. O dimensionamento das equipes, a capacitação dos profissionais e a estruturação das condições de trabalho são fundamentais nesse sentido. Um importante normativo para a gestão do trabalho é a Norma Operacional Básica de Recursos Humanos do SUAS (NOB-RH/SUAS), que traz orientações e diretrizes, além de detalhamentos importantes sobre as equipes de referência, planos de carreira, cargos e salários, cofinanciamento, educação permanente, entre outros aspectos relevantes. A [NOB SUAS 2012](https://www.mds.gov.br/webarquivos/public/NOBSUAS_2012.pdf) em seu Capítulo VIII também trata da Gestão do Trabalho no SUAS no âmbito da União, dos Estados, do Distrito Federal e dos Municípios.
+A qualidade da oferta de serviços, programas e benefícios da Assistência Social está diretamente ligada a uma adequada gestão do trabalho no âmbito do SUAS. O dimensionamento das equipes, a capacitação dos trabalhadoras/es e a estruturação das condições de trabalho são fundamentais nesse sentido. Um importante normativo para a gestão do trabalho é a Norma Operacional Básica de Recursos Humanos do SUAS (NOB-RH/SUAS), que traz orientações e diretrizes, além de detalhamentos importantes sobre as equipes de referência, planos de carreira, cargos e salários, cofinanciamento, educação permanente, entre outros aspectos relevantes. A [NOB SUAS 2012](https://www.mds.gov.br/webarquivos/public/NOBSUAS_2012.pdf) em seu Capítulo VIII também trata da Gestão do Trabalho no SUAS no âmbito da União, dos Estados, do Distrito Federal e dos Municípios.
 
-Este capítulo apresenta um panorama geral da situação das trabalhadoras e trabalhadores do SUAS, tanto nos equipamentos da Assistência Social quanto nas gestões municipais e estaduais, apresentando informações sobre quantitativo, tipo de vínculo trabalhista, escolaridade, entre outros aspectos referentes à gestão do trabalho e sua evolução ao longo dos anos.
+Este capítulo apresenta um panorama geral da situação das trabalhadoras e trabalhadores do SUAS, tanto nas unidades da Assistência Social quanto nas gestões municipais e estaduais, apresentando informações sobre quantitativo, tipo de vínculo trabalhista, escolaridade, entre outros aspectos referentes à gestão do trabalho e sua evolução ao longo dos anos.
 
 ## Evolução na quantidade de trabalhadoras/es, tipo de vínculo e escolaridade no orgão gestor
 
@@ -31,7 +31,7 @@ grafico <- f_quantitativo_regiao_ano(gerh_2018, IBGE, "2018") %>%
 grafico
 ```
 
-Já na evolução da quantidade de trabalhadoras/es nas Secretarias Municipais de Assistência Social (@fig-qtd_trab_munic) vemos um direcionamento e um padrão bem definido a nível nacional, que se repete em todas as grandes regiões, que é um crescimento em todos os anos, exceto pelo ano de 2020, quando houve uma grande redução, com o patamar anterior a 2020 sendo praticaente retomado já em 2021.
+Já na evolução da quantidade de trabalhadoras/es nas Secretarias Municipais de Assistência Social (@fig-qtd_trab_munic) vemos um direcionamento e um padrão bem definido a nível nacional, que se repete em todas as grandes regiões, que é um crescimento em todos os anos, exceto pelo ano de 2020, quando houve uma grande redução, com o patamar anterior a 2020 sendo praticamente retomado já em 2021.
 
 ```{r fig-qtd_trab_munic, fig.cap ="Evolução da quantidade de trabalhadoras/es nas Secretarias Municipais de Assistência Social - Brasil e grandes regiões, 2018 a 2023"}
 #| fig-height: 6
