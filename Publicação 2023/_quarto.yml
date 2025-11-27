@@ -3,8 +3,13 @@ lang: pt
 project:
   type: book
   resources: 
-    - "govbr/govbr.svg"
+    - "govbr/core-init.js"
+    - "govbr/core.min.js"
     - "govbr/fontawesome/webfonts/fa-solid-900.woff2"
+    - "quarto-search/autocomplete.umd.js"
+    - "quarto-search/fuse.min.js"
+    - "quarto-search/quarto-search.js"
+
 book:
   title: "CENSO SUAS 2023"
   subtitle: ANÁLISE DOS COMPONENTES DA POLÍTICA NACIONAL DE ASSISTÊNCIA SOCIAL
@@ -13,7 +18,7 @@ book:
 #    - Secretaria Nacional de Assistência Social
 #    - Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome
 #  date: "21/06/2024"
-#  search: false
+  search: false
   cover-image: "CapaCensoSUAS2023imagem 1.png"
   favicon: "CapaCensoSUAS2023imagem 1.png"
   repo-url: https://github.com/Sagicad-MDS/Publicacoes-Censo-SUAS
@@ -66,9 +71,12 @@ format:
     linestretch: 1.45
     backgroundcolor: "#ffffff"
     include-in-header:
-#      - text: |
-#          <script src="core.min.js"></script>
+      - text: |
+          <script src="govbr/core-init.js"></script>
+          <script src="govbr/core.min.js"></script>
       - file: govbr/header.html
+    include-after-body:
+      - file: govbr/footer.html
 #  pdf:
 #    documentclass: scrreprt
 
