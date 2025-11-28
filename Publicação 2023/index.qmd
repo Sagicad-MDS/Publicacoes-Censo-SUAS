@@ -1,22 +1,20 @@
 # Prefácio {.unnumbered}
 
-A gestão de informação contribui tanto para a transparência dos resultados em relação à evolução da política, bem como para subsidiar o planejamento e aprimoramento da política pública. Um dos principais objetivos da série histórica da publicação Censo SUAS, uma análise dos componentes da política de Assistência Social.
+Ao longo de mais de três décadas desde a promulgação da Lei Orgânica da Assistência Social (LOAS) e de vinte anos da implementação do Sistema Único de Assistência Social (SUAS), a Política de Assistência Social tem consolidado avanços expressivos, perceptíveis na vida da população brasileira. Dada a importância e necessidade de aprofundamento de tais avanços, é neessário que eles sejam também mensuráveis, por meio da consolidação de processos contínuos e consistentes de gestão da informação, monitoramento e avaliação.
 
-A publicação do Censo SUAS teve sua primeira edição em 2010. Publicado nos anos subsequentes, o caderno tem como objetivo apurar e evidenciar uma série de dados e de informações sobre gestão e financiamento, Cadastro Único, aspectos de infraestrutura, gestão do trabalho e educação permanente, serviços, benefícios, e participação social no âmbito da assistência social. Esses dados e informações subsidiam gestores, técnicos e pesquisadores envolvidos no SUAS, além de aprimorar ações, identificar êxitos e reestruturar pontos que não tenham atingido os resultados planejados.
+Garantir o pleno funcionamento do ciclo das políticas públicas é um compromisso permanente do nosso governo. No âmbito da Assistência Social, essa responsabilidade é exercida por meio da Vigilância Socioassistencial, que abrange a coleta de dados, o monitoramento, a avaliação e a ampla disseminação das informações produzidas — tanto para aqueles que as geram quanto para os que as utilizam, incluindo gestores, pesquisadores, instâncias de Controle Social e a sociedade em geral. 
 
-Em 2018 a publicação do Censo SUAS foi interrompida. Após 5 anos a SAGICAD retoma o caderno, resgatando as informações anteriores e garantindo continuidade às informações do SUAS. Reforçando, com isso, o papel estratégico da produção de dados, do monitoramento e da análise de políticas, superando a perda na qualidade da informação, o apagão dos dados, a falta de transparência e o negacionismo.
+O Censo SUAS é essencial para qualificar a compreensão sobre a Política de Assistência Social. Uma fonte única de informações, ele permite o acompanhamento da gestão financeira e orçamentária, da estrutura administrativa e do funcionamento das instâncias responsáveis pelo Cadastro Único nos estados, municípios e no Distrito Federal, bem como da gestão do trabalho, da oferta e da qualidade dos serviços e unidades que compõem o SUAS.
 
-Os dados aqui publicados são coletados através do formulário do Censo do Sistema Único de Assistência Social (Censo SUAS), realizado anualmente desde 2007, reune informações sobre serviços, programas e projetos de assistência social realizados pelas unidades públicas e pela Rede Socioassistencial Privada do SUAS.
+O Censo reúne informações sobre a execução de serviços, benefícios e programas socioassistenciais, além de evidenciar o papel do Controle Social na política — contribuindo, assim, para o aprimoramento das ações e para um atendimento cada vez mais qualificado à população.
 
-Os principais resultados do Censo SUAS 2022, estão organizadas segundo as temáticas: Gestão e Financiamento, Cadastro Único, Unidades, Serviços e Benefícios, Gestão do Trabalho e Participação e Controle Social.
+Apresentando dados referentes ao ano de 2023 que garantem a atualização de informações longitudinais sobre o SUAS, esta é a décima edição da publicação, cuja primeira versão foi lançada em 2010. Nela, a gestão das informações, foi aprimorada com a adoção do sistema R Markdown, posteriormente atualizado para a ferramenta Quarto — inovação que assegura maior consistência e transparência na geração dos dados e gráficos, por meio do registro preciso, na linguagem R, de todas as etapas de produção.
 
-Esta edição lança olhar sob a luz do II Plano Decenal, dando continuidade à maior parte dos conteúdos históricos, e acrescentando temas como atenção à situação de imigração, regionalização, bem como oferta de serviços tal qual o serviço de proteção social no domicílio, família acolhedora entre outros. Adicionalmente, são analisados aspectos da gestão do Cadastro Único para programas sociais no SUAS.
+Esperamos que esta publicação sirva de subsídio a gestoras(es), trabalhadoras(es), conselheiras(os) e pesquisadoras(es) envolvidas(os) com o SUAS, contribuindo para o fortalecimento dos debates e das práticas no campo da Assistência Social. O Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome (MDS), por meio da SAGICAD e da SNAS, reafirma seu compromisso com o fortalecimento do SUAS e manifesta profunda estima a todas e todos que, cotidianamente, se dedicam à consolidação e ao avanço dessa política pública essencial.
 
-Realizada numa ação conjunta entre a Secretaria de Avaliação, Gestão da Informação e Cadastro Único (SAGICAD) e a Secretaria Nacional de Assistência Social (SNAS), a consolidação das análises reflete o esforço contínuo de aperfeiçoamento do levantamento das informações, assim, esperamos que os resultados apresentados possam dar continuidade ao papel de subsidiar o debate qualificado e construtivo a respeito do SUAS para resultar em seu aprimoramento.
+Rafael Osório
 
-Letícia Bartholo
-
-Secretária de Avaliação, Gestão da Informação e Cadastro Único
+Secretário de Avaliação, Gestão da Informação e Cadastro Único
 
 André Quintão
 
