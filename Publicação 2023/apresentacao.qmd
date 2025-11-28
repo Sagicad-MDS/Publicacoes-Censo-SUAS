@@ -1,59 +1,14 @@
 # Apresentação {.unnumbered}
 
-##  {.unnumbered}
-
 Integrante do tripé da Seguridade Social, ao lado das políticas de Saúde e de Previdência Social, a Assistência Social constitui-se como um direito do cidadão e um dever do Estado. Como toda política pública, o SUAS encontra-se em permanente processo de aprimoramento, exigindo atualizações e adequações contínuas diante das transformações sociais e das novas demandas da conjuntura.
 
 O Censo SUAS constitui o retrato mais abrangente, consistente e sistemático da Assistência Social no Brasil. Previsto no Decreto nº 7.334/2010, consolida-se como instrumento essencial de monitoramento e avaliação da política. A publicação anual de seus resultados busca oferecer um conjunto qualificado de análises e reflexões que contribuam para o aprimoramento contínuo e o fortalecimento histórico do SUAS, além de evidenciar avanços, identificar desafios e apontar caminhos para os rumos e pactos que orientam a política de Assistência Social em todo o país.
 
 Chegamos a mais de 30 anos da LOAS (Lei Orgânica da Assistência Social) com uma rede que ultrapassa 31 mil unidades públicas e conta também com a atuação de Organizações da Sociedade Civil (OSCs), reunindo **mais de 410 mil trabalhadores e trabalhadoras**. Trata-se de um sistema federativo e participativo, no qual as responsabilidades são compartilhadas entre os três entes federados, sob a direção e deliberação do controle social. A @tbl-marcos apresenta o marco normativo que institucionaliza e orienta a conformação desta política pública.
 
-<table>
-<caption>Marcos legais da Assistência Social no Brasil. {#tbl-marcos}</caption>
-<colgroup>
-<col style="width: 9%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 8%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 8%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><p>1988</p></th>
-<th style="text-align: center;"><p>1993</p></th>
-<th style="text-align: center;"><p>2001</p></th>
-<th><p>2003</p></th>
-<th style="text-align: center;"><p>2004</p></th>
-<th style="text-align: center;"><p>2005</p></th>
-<th style="text-align: center;"><p>2006</p></th>
-<th style="text-align: center;"><p>2009</p></th>
-<th style="text-align: center;"><p>2011</p></th>
-<th style="text-align: center;"><p>2012</p></th>
-<th><p>2016</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>CF</p></td>
-<td style="text-align: center;"><p>LOAS    </p></td>
-<td style="text-align: center;"><p>Cadastro Único    </p></td>
-<td><p>Programa Bolsa Família</p></td>
-<td style="text-align: center;"><p>PNAS    </p></td>
-<td style="text-align: center;"><p>NOB/ SUAS</p></td>
-<td style="text-align: center;"><p>NOB/ RH  </p></td>
-<td style="text-align: center;"><p>Tipificação dos Serviços</p></td>
-<td style="text-align: center;"><p>Lei 12.435 SUAS</p></td>
-<td style="text-align: center;"><p>NOB/ SUAS</p></td>
-<td><p>II Plano Decenal</p></td>
-</tr>
-</tbody>
-</table>
+| 1988 | 1993 | 2001 | 2003 | 2004 | 2005 | 2006 | 2009 | 2011 | 2012 | 2016 |
+|--------|:------:|:------:|--------|:------:|:------:|:------:|:------:|:------:|:------:|--------|
+| CF | LOAS     | Cadastro Único     | Programa Bolsa Família | PNAS     | NOB/ SUAS | NOB/ RH   | Tipificação dos Serviços | Lei 12.435 SUAS | NOB/ SUAS | II Plano Decenal |
 
 : Marcos legais da Assistência Social no Brasil. {#tbl-marcos}
 
