@@ -2157,7 +2157,7 @@ grafico <- f_sim(posto_cadunico_2020, q39_1, "2020") %>%
 grafico
 ```
 
-## Considerações Finais
+<!-- ## Considerações Finais
 
 A Assistência Social é uma política estabelecida na Constituição e regulamentada em lei, normas, decretos, pactos, entre outros. É importante para seu melhor funcionamento a existência de padrões de gestão em todos os entes federados. As séries de dados coletadas anualmente no Censo SUAS mostram avanços e desafios para a gestão do SUAS.
 
@@ -2171,4 +2171,4 @@ A transferência fundo-a-fundo garante maior qualidade na distribuição dos rec
 
 Quanto aos equipamentos que realizam cadastramento no Cadastro Único, observou-se em 2023 um aumento no percentual de Postos exclusivos de Cadastro Único, de 31% para 32%, com consequente redução de 69% para 68% dos outros tipos de unidades da rede socioassistencial (CRAS, CREAS e Centro POP) no total de equipamentos, número total que aumentou 1,8%, de 9.327 para 9.499.
 
-Nestes Postos exclusivos de Cadastro Único destaca-se em 2023 o aumento de 5 pontos percentuais no percentual de Postos que realizam Busca Ativa (cadastramento domiciliar, ações itinerantes, mutirões, etc) em conjunto com a rede socioassistencial, indo de 73% em 2022 para 78% dos Postos em 2023.
+Nestes Postos exclusivos de Cadastro Único destaca-se em 2023 o aumento de 5 pontos percentuais no percentual de Postos que realizam Busca Ativa (cadastramento domiciliar, ações itinerantes, mutirões, etc) em conjunto com a rede socioassistencial, indo de 73% em 2022 para 78% dos Postos em 2023. -->
