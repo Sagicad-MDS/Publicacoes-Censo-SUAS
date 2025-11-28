@@ -1,3 +1,36 @@
+<script src="quarto-search/autocomplete.umd.js"></script>
+<script src="quarto-search/fuse.min.js"></script>
+<script src="quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
 <header class="br-header">
   <div class="container-lg">
     <div class="header-top">
@@ -18,7 +51,7 @@
             <div class="header">
               <div class="title">Acesso Rápido</div>
             </div>
-            <a class="br-item" href="https://www.gov.br/mds/pt-br/orgaos/SAGICAD/estudos-e-pesquisas/censo-suas">Publicações do Censo SUAS</a>
+<!--            <a class="br-item" href="https://www.gov.br/mds/pt-br/orgaos/SAGICAD/estudos-e-pesquisas/censo-suas">Publicações do Censo SUAS</a> -->
             <a class="br-item" href="https://paineis.mds.gov.br/public/extensions/observatorio-do-censo-suas/index.html">Observatório do Censo SUAS</a>
             <a class="br-item" href="https://www.gov.br/mds/pt-br/acoes-e-programas/suas/gestao-do-suas/vigilancia-socioassistencial-1/censo-suas">Dados do Censo SUAS</a>
             <a class="br-item" href="https://aplicacoes.mds.gov.br/snas/monitorasuas/">Monitora SUAS</a>
@@ -33,20 +66,41 @@
           </button>
         </div>
         <div class="header-info">
-          <div class="header-title">Título do Header</div>
-          <div class="header-subtitle">Subtítulo do Header</div>
+          <div class="header-title">
+            <a href="https://www.gov.br/mds/pt-br/orgaos/SAGICAD/estudos-e-pesquisas/censo-suas">Publicações do Censo SUAS</a>
+          </div>
+          <div class="header-subtitle">Censo SUAS 2023</div>
         </div>
       </div>
-      <div class="header-search">
-        <div class="br-input has-icon">
-          <label for="searchbox-15468">Texto da pesquisa</label>
-          <input id="searchbox-15468" type="text" placeholder="O que você procura?"/>
-          <button class="br-button circle small" type="button" aria-label="Pesquisar"><i class="fas fa-search" aria-hidden="true"></i>
-          </button>
+        <div class="br-input">
+          <div class="sidebar-search">
+            <div id="quarto-search" class="" title="Procurar"></div>
+          </div>
         </div>
-        <button class="br-button circle search-close ml-1" type="button" aria-label="Fechar Busca" data-dismiss="search"><i class="fas fa-times" aria-hidden="true"></i>
-        </button>
-      </div>
     </div>
   </div>
 </header>
+
+<main class="d-flex flex-fill mb-5" id="main">
+  <div class="container-lg d-flex">
+    <div class="row">
+      <div class="br-menu" id="main-navigation">
+        <div class="menu-container">
+          <div class="menu-panel">
+            <div class="menu-header">
+              <div class="menu-title">Publicações do Censo SUAS</span></div>
+              <div class="menu-close">
+                <button class="br-button circle" type="button" aria-label="Fechar o menu" data-dismiss="menu"><i class="fas fa-times" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+            <nav class="menu-body" role="tree">
+              <a class="menu-item divider" href="https://sagicad-mds.github.io/Publicacoes-Censo-SUAS/" role="treeitem"><span class="content">Censo SUAS 2022</span></a>
+            </nav>
+          </div>
+          <div class="menu-scrim" data-dismiss="menu" tabindex="0"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
