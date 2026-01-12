@@ -17,6 +17,7 @@ book:
   repo-branch: master
   repo-subdir: "Publicação 2022 livro HTML"
   repo-actions: [source, issue]
+  repo-link-target: "_blank"
   chapters:
     - index.qmd
     - apresentacao.qmd
@@ -51,8 +52,17 @@ crossref:
 
 format:
   html:
-    theme: cosmo
-#  pdf:
-#    documentclass: scrreprt
+    mainfont: "Rawline, Raleway, sans-serif"
+    fontsize: 14px
+    fontcolor: "#333333"
+    linkcolor: "#1351B4"
+    linestretch: 1.45
+    backgroundcolor: "#ffffff"
+    link-external-icon: true
+    link-external-newwindow: true
+    include-in-header:
+      - text: |
+          <link href="https://fonts.cdnfonts.com/css/rawline" rel="stylesheet">
+          <script src="responsive-height.js"></script>
 
 editor: visual
