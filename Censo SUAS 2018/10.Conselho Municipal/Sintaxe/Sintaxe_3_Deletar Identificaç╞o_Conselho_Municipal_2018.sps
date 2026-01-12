@@ -1,0 +1,2 @@
+
+DELETE VARIABLES  q_76_1 q_76_2 q_76_3 q_76_4 q_76_5 q_76_6 .

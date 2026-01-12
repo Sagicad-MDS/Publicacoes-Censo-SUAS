@@ -1,0 +1,51 @@
+Variavel;Descrição
+IBGE;IBGE_codigo_ibge_IBGE
+IBGE7;IBGE7_codigo IBGE com 7 digitos
+Regiao;Regiao_Região
+UF;Nome_UF_UF
+Município;Município_Município
+areaKm2;area Km2_area Km2
+Pop_total_2010;Pop_total_2010_Pop_total_2010
+Pop_Urbana2010;Pop_Urbana2010_Pop_Urbana2010
+Pop_Rural2010;Pop_Rural2010_Pop_Rural2010
+Porte_pop2010;Porte_pop2010_Porte_pop2010
+Q_completo;Q_completo _Q_completo _questionarios completos
+q12_3;q12_3_v14509_12.3. Sexo
+q12_8;q12_8_v14514_12.8. Escolaridade
+q12_9;q12_9_v14515_12.9. Profissão
+q12_10;q12_10_v14516_12.10. Vínculo
+q12_11;q12_11_v14517_12.11. Função
+q12_12;q12_12_v14518_12.12. Carga horária SEMANAL
+q12_13;q12_13_v14519_12.13. Início do Mandato DD/MM/AAAA
+DataCenso;"COMPUTE DataCenso=""31.08.2019"""
+DataCenso_2019;DataCenso recodificada
+Idade;Idade
+Faixas_etarias;Faixas etárias dos Trabalhadores do Fundo Municipal
+d_12_8;d_12_8_Níveis de escolaridade
+d_12_8bin1;d_12_8bin1_Nível fundamental - Trabalhadores que possuem até o nível médio (inclui aqueles sem escolaridade)
+d_12_8bin2;d_12_8bin2_Nível médio - Trabalhadores com ensino superior incompleto e ensino médio completo
+d_12_8bin3;d_12_8bin3_Nível superior - inclui Trabalhadores graduados, com especialização, mestrado ou doutorado
+d_12_9;d_12_9_Profissão
+d_12_9bin1;d_12_9bin1_Pedagogo
+d_12_9bin2;d_12_9bin2_Assistente Social
+d_12_9bin3;d_12_9bin3_Antropólogo
+d_12_9bin4;d_12_9bin4_Advogado
+d_12_9bin5;d_12_9bin5_Psicologo
+d_12_10;d_12_10_Tipo de vínculo
+d_12_10bin1;d_12_10bin1_Servidor Estatutário
+d_12_10bin2; d_12_10bin2_Empregado Público (CLT)
+d_12_10bin3;d_12_10bin3_Comissionado
+d_12_10bin4;"d_12_10bin4_Outros vínculos não permanentes - inclui Trabalhador de Empresas/Cooperativa/Entidade Prestadora de Serviços; Voluntários; Servidor Temporário; Sem vínculo; Terceirizado e Outro vínculo não permanente"
+d_12_8bin1_sum;d_12_8bin1_sum_Número de trabalhadores de Nível fundamental (inclui trabalhadores sem escolaridade, fundamental incompleto e ensino médio incompleto)
+d_12_8bin2_sum;d_12_8bin2_sum_Número de trabalhadores de Nível médio (inclui trabalhadores com ensino superior incompleto)
+d_12_8bin3_sum;d_12_8bin3_sum _Número de trabalhadores de Nível superior (inclui trabalhadores com especialização, mestrado e doutorado)
+d_12_9bin1_sum;d_12_9bin1_sum_Número de Pedagogos
+d_12_9bin2_sum;d_12_9bin2_sum_Número de Assistentes Sociais
+d_12_9bin3_sum;d_12_9bin3_sum_Número de Antropólogos
+d_12_9bin4_sum;d_12_9bin4_sum _Número de Advogados
+d_12_9bin5_sum;d_12_9bin5_sum_Número de Psicólogos
+d_12_10bin1_sum; d_12_10bin1_sum _Número de Servidores Estatutários
+d_12_10bin2_sum; d_12_10bin2_sum_Número de Empregados Públicos(CLT)
+d_12_10bin3_sum;d_12_10bin3_sum_Número de Comissionados
+d_12_10bin4_sum;d_12_10bin4_sum_Número de profissionais com outros vínculos não permanentes
+nu_trabalhador;Número de trabalhadores no Fundo

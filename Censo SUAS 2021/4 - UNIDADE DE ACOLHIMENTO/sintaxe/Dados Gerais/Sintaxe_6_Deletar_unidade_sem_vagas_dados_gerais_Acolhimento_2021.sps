@@ -1,0 +1,4 @@
+****UNIDADES sem vagas  A SEREM EXCLUIDAS DA BASE
+verificadas as variaveis q10; q11; q12
+
+SELECT IF NU_IDENTIFICADOR ne 4109403300231.

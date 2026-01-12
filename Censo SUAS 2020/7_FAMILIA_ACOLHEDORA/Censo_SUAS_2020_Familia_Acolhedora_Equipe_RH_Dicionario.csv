@@ -1,0 +1,52 @@
+﻿Variável;Descrição
+IBGE;IBGE_codigo_ibge_IBGE
+Estado_Municipio;Unidade é estadual ou Municipal
+NU_IDENTIFICADOR;NU_IDENTIFICADOR_id_acolhimento_NU_IDENTIFICADOR
+q40_3;q40_3_q37_3_37.3. Sexo
+q40_9;q40_9_q37_9_37.9. Escolaridade
+q40_10;q40_10_q37_10_37.10. Profissão
+q40_11;q40_11_q37_11_37.11. Vínculo
+q40_12;q40_12_q37_12_37.12. Função
+q40_13;q40_13_q40_13_40.13. Carga horária
+q40_14;q40_14_q37_13_37.13. Início do Exercício da Função
+IBGE7;IBGE7_codigo IBGE com 7 digitos
+UF;Nome_UF_UF
+Regiao;Regiao_Região
+Município;Município_Município
+Pop_total_2010;Pop_total_2010_Pop_total_2010
+Pop_Urbana2010;Pop_Urbana2010_Pop_Urbana2010
+Pop_Rural2010;Pop_Rural2010_Pop_Rural2010
+Porte_pop2010;Porte_pop2010_Porte_pop2010
+areaKm2;area Km2_area Km2
+Q_incompleto;Q_incompleto _Q_incompleto _questionarios incompletos
+DataCenso;"COMPUTE DataCenso=""31.08.2020"""
+DataCenso_2020;DataCenso recodificada
+d40_2_Faixas_etarias;Faixa etária da equipe da Unidade executora do serviço de Familias acolhedoras
+d40_9;d40.9_Níveis de escolaridade
+d40_11;d40.11_Tipo de vínculo
+d40_9bin1;d40_9bin1_Nível fundamental - trabalhadores que possuem até o nível médio (inclui aqueles sem escolaridade)
+d40_9bin2;d40_9bin2_Nível médio - trabalhadores com ensino superior incompleto e ensino médio completo
+d40_9bin3;d40_9bin3_Nível superior - inclui trabalhadores graduados, com especialização, mestrado ou doutorado
+d40_10bin1;d40_10bin1_Pedagogo
+d40_10bin2;d40_10bin2_Assistente Social
+d40_10bin3;d40_10bin3_Antropólogo
+d40_10bin4;d40_10bin4_Advogado
+d40_10bin5;d40_10bin5_Psicólogo
+d40_11bin1;d40_11bin1_Servidor Estatutário
+d40_11bin2;d40_11bin2_Empregado Público (CLT)
+d40_11bin3;d40_11bin3_Comissionado
+d40_11bin4;"d40_11bin4_Outros vínculos não permanentes - inclui Trabalhador de Empresas/Cooperativa/Entidade Prestadora de Serviços; Voluntários; Servidor Temporário; Sem vínculo; Terceirizado e Outro vínculo não permanente"
+d40_9bin1_sum;d40_9bin1_sum_Número de trabalhadores de Nível fundamental (inclui trabalhadores sem escolaridade, fundamental incompleto e ensino médio incompleto)
+d40_9bin2_sum;d40_9bin2_sum_Número de trabalhadores de Nível médio (inclui trabalhadores com ensino superior incompleto)
+d40_9bin3_sum;d40_9bin3_sum_Número de trabalhadores de Nível superior (inclui trabalhadores com especialização, mestrado e doutorado)
+d40_10bin1_sum;d40_10bin1_sum_Número de Pedagogos
+d40_10bin2_sum;d40_10bin2_sum_Número de Assistentes Sociais
+d40_10bin3_sum;d40_10bin3_sum_Número de Antropólogos
+d40_10bin4_sum;d40_10bin4_sum_Número de Advogados
+d40_10bin5_sum;d40_10bin5_sum_Número de Psicólogos
+d40_11bin1_sum;d40_11bin1_sum_Número de Servidores Estatutários
+d40_11bin2_sum;d40_11bin2_sum_Número de Empregados Públicos(CLT)
+d40_11bin3_sum;d40_11bin3_sum_Número de Comissionados
+d40_11bin4_sum;d40_11bin4_sum_Número de profissionais com outros vínculos não permanentes
+nu_trabalhadores;numeros de trabalhadores na Equipe
+filter_$;Estado_Municipio = 2 (FILTER)

@@ -1,0 +1,4 @@
+*** Importação SPSS
+
+- Nos casos das variáveis quantitativas dos questionários incompletos, deve-se tomar cuidado com as informações ".00" que são criados na base. Para estes é necessário corrigir o valor, já que ao importar como numéricas no SPSS, os valores com "ponto" serão apagados da base;
+- Para importar a base ao SPSS, utilizar diretamente o arquivo CSV para evitar problemas de configuração das datas e dos CPFs. Deve-se tomar cuidado com os zeros à esquerda dos CPFs, para isto é necessário que o arquivo original seja importado com as variáveis de CPF do tipo sequência de caracteres (String).

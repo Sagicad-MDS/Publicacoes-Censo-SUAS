@@ -1,0 +1,2317 @@
+RENAME VARIABLES	
+id_creas_pop	=	NU_IDENTIFICADOR
+codigo_ibge	=	IBGE
+v10083	=	q0_1
+v10084	=	q0_2
+v10085	=	q0_3
+v10086	=	q0_4
+v10087	=	q0_5
+v10088	=	q0_6
+v10089	=	q0_7
+v10090	=	q0_8
+v10091	=	q0_9
+v10092	=	q0_10
+v10093	=	q0_11
+v10094	=	q0_12
+v10095	=	q0_13
+v10096	=	q0_14
+v10097	=	q0_15
+id_creas_popequip	=	q42
+p_latitude	=	q43
+p_longitude	=	q44
+v10098	=	q1_1
+v10099	=	q1_2
+v10101	=	q2
+v10102_1	=	q3_1
+v10102_2	=	q3_2
+v10102_3	=	q3_3
+v10102_4	=	q3_4
+v10102_5	=	q3_5
+v10102_6	=	q3_6
+v10102_7	=	q3_7
+v10102_8	=	q3_8
+v10102_99	=	q3_99
+v10103	=	q3_99_1
+v10104_1	=	q4_1
+v10104_2	=	q4_2
+v10104_3	=	q4_3
+v10104_4	=	q4_4
+v10104_5	=	q4_5
+v10104_6	=	q4_6
+v10104_7	=	q4_7
+v10104_8	=	q4_8
+v10104_9	=	q4_9
+v10104_10	=	q4_10
+v10104_11	=	q4_11
+v10104_12	=	q4_12
+v10104_13	=	q4_13
+v10104_14	=	q4_14
+v10104_99	=	q4_99
+v10105	=	q5_1
+v10106	=	q5_2
+v10107	=	q5_3
+v10108	=	q5_4
+v10109	=	q5_5
+v10110	=	q5_6
+v10111	=	q5_7
+v10112	=	q5_8
+v10113	=	q5_9
+v10114	=	q5_10
+v10115	=	q5_11
+v10116	=	q5_12
+v10117	=	q5_13
+v10118	=	q5_14
+v10119	=	q5_15
+v10120	=	q5_16
+v10121	=	q6_1
+v10122	=	q6_2
+v10123	=	q6_3
+v10124	=	q6_4
+v12648_1	=	q7_1
+v12648_2	=	q7_2
+v12648_3	=	q7_3
+v12648_4	=	q7_4
+v12648_5	=	q7_5
+v12648_6	=	q7_6
+v12648_0	=	q7_0
+v12649	=	q7_4_99
+v12650	=	q7_5_99
+v10125	=	q8_1_1
+v10147	=	q8_1_2
+v10126	=	q8_2_1
+v10148	=	q8_2_2
+v10127	=	q8_3_1
+v10149	=	q8_3_2
+v10128	=	q8_4_1
+v10150	=	q8_4_2
+v10129	=	q8_5_1
+v10151	=	q8_5_2
+v10130	=	q8_6_1
+v10152	=	q8_6_2
+v10132	=	q8_7_1
+v10154	=	q8_7_2
+v10134	=	q8_8_1
+v10156	=	q8_8_2
+v10135	=	q8_9_1
+v10157	=	q8_9_2
+v10136	=	q8_10_1
+v10158	=	q8_10_2
+v10137	=	q8_11_1
+v10159	=	q8_11_2
+v10138	=	q8_12_1
+v10160	=	q8_12_2
+v10139	=	q8_13_1
+v10161	=	q8_13_2
+v10140	=	q8_14_1
+v10162	=	q8_14_2
+v10141	=	q8_15_1
+v10163	=	q8_15_2
+v10142	=	q8_16_1
+v10164	=	q8_16_2
+v10143	=	q8_17_1
+v10165	=	q8_17_2
+v10144	=	q8_18_1
+v10166	=	q8_18_2
+v10145	=	q8_19_1
+v10146	=	q8_20_1
+v10167	=	q9_1
+v10168	=	q9_2
+v10169	=	q9_3
+v10170	=	q9_4
+v10171	=	q10
+v10172	=	q11_1_1
+v10177_1	=	q11_1_2_1
+v10177_2	=	q11_1_2_2
+v10177_3	=	q11_1_2_3
+v10173	=	q11_2_1
+v10178_1	=	q11_2_2_1
+v10178_2	=	q11_2_2_2
+v10178_3	=	q11_2_2_3
+v10174	=	q11_3_1
+v10179_1	=	q11_3_2_1
+v10179_2	=	q11_3_2_2
+v10179_3	=	q11_3_2_3
+v10175	=	q11_4_1
+v10180_1	=	q11_4_2_1
+v10180_2	=	q11_4_2_2
+v10180_3	=	q11_4_2_3
+v10176	=	q11_5_1
+v10181_1	=	q11_5_2_1
+v10181_2	=	q11_5_2_2
+v10181_3	=	q11_5_2_3
+v10183_1	=	q12_1
+v10183_2	=	q12_2
+v10183_3	=	q12_3
+v10183_4	=	q12_4
+v10183_5	=	q12_5
+v10183_6	=	q12_6
+v10183_7	=	q12_7
+v10183_8	=	q12_8
+v10183_9	=	q12_9
+v10183_10	=	q12_10
+v10183_11	=	q12_11
+v10183_12	=	q12_12
+v10183_13	=	q12_13
+v10183_14	=	q12_14
+v10183_15	=	q12_15
+v10183_16	=	q12_16
+v10183_17	=	q12_17
+v10183_18	=	q12_18
+v10183_19	=	q12_19
+v10183_20	=	q12_20
+v10183_21	=	q12_21
+v10183_22	=	q12_22
+v10183_23	=	q12_23
+v10183_24	=	q12_24
+v10183_99	=	q12_99
+v10534	=	q12_99_1
+v10184	=	q13
+v10185_1	=	q14_1
+v10185_2	=	q14_2
+v10185_3	=	q14_3
+v10185_4	=	q14_4
+v10185_5	=	q14_5
+v10185_6	=	q14_6
+v10185_7	=	q14_7
+v10185_8	=	q14_8
+v10185_9	=	q14_9
+v10185_10	=	q14_10
+v10185_99	=	q14_99
+v11864	=	q14_99_1
+v10186_1	=	q15_1
+v10186_2	=	q15_2
+v10186_3	=	q15_3
+v10186_4	=	q15_4
+v10186_5	=	q15_5
+v10186_6	=	q15_6
+v10186_99	=	q15_99
+v12655_1	=	q16_1
+v12655_2	=	q16_2
+v12655_99	=	q16_99
+v12655_97	=	q16_97
+v12655_0	=	q16_0
+v12657	=	q16_99_1
+v12656	=	q16_2_99
+v12659	=	q17_1
+v12667	=	q17_1_1
+v12660	=	q17_2
+v12668	=	q17_2_1
+v12661	=	q17_3
+v12669	=	q17_3_1
+v10200	=	q18
+v11865_1	=	q19_1
+v11865_2	=	q19_2
+v11865_3	=	q19_3
+v11865_4	=	q19_4
+v11865_5	=	q19_5
+v11865_6	=	q19_6
+v11865_7	=	q19_7
+v11865_8	=	q19_8
+v11865_9	=	q19_9
+v11865_10	=	q19_10
+v11865_11	=	q19_11
+v11865_12	=	q19_12
+v11865_13	=	q19_13
+v11865_14	=	q19_14
+v11865_0	=	q19_0
+v10201_1	=	q20_1
+v10201_2	=	q20_2
+v10201_3	=	q20_3
+v10201_4	=	q20_4
+v10201_5	=	q20_5
+v10201_6	=	q20_6
+v10201_7	=	q20_7
+v10201_8	=	q20_8
+v10201_9	=	q20_9
+v10201_10	=	q20_10
+v10201_11	=	q20_11
+v10201_12	=	q20_12
+v10201_13	=	q20_13
+v10201_14	=	q20_14
+v10204	=	q21
+v10205	=	q22
+v10206_1	=	q23_1
+v10206_2	=	q23_2
+v10206_3	=	q23_3
+v10206_4	=	q23_4
+v10206_5	=	q23_5
+v10206_6	=	q23_6
+v10206_7	=	q23_7
+v10206_8	=	q23_8
+v10206_9	=	q23_9
+v10206_10	=	q23_10
+v10206_11	=	q23_11
+v10206_99	=	q23_99
+v10207	=	q24
+v10208_1	=	q25_1
+v10208_2	=	q25_2
+v10208_3	=	q25_3
+v10208_4	=	q25_4
+v10209	=	q26
+v10221	=	q27
+v10222_1	=	q28_1
+v10222_2	=	q28_2
+v10222_3	=	q28_3
+v10222_4	=	q28_4
+v10222_5	=	q28_5
+v10222_6	=	q28_6
+v10222_7	=	q28_7
+v10222_8	=	q28_8
+v10222_9	=	q28_9
+v10222_10	=	q28_10
+v10222_99	=	q28_99
+v10223	=	q28_99_1
+v10224_1	=	q29_1_1
+v10224_2	=	q29_1_2
+v10224_3	=	q29_1_3
+v10224_4	=	q29_1_4
+v10224_5	=	q29_1_5
+v10224_6	=	q29_1_6
+v10224_7	=	q29_1_7
+v10224_8	=	q29_1_8
+v10224_9	=	q29_1_9
+v10224_0	=	q29_1_0
+v10224_97	=	q29_1_97
+v10225_1	=	q29_2_1
+v10225_2	=	q29_2_2
+v10225_3	=	q29_2_3
+v10225_4	=	q29_2_4
+v10225_5	=	q29_2_5
+v10225_6	=	q29_2_6
+v10225_7	=	q29_2_7
+v10225_8	=	q29_2_8
+v10225_9	=	q29_2_9
+v10225_0	=	q29_2_0
+v10225_97	=	q29_2_97
+v10226_1	=	q29_3_1
+v10226_2	=	q29_3_2
+v10226_3	=	q29_3_3
+v10226_4	=	q29_3_4
+v10226_5	=	q29_3_5
+v10226_6	=	q29_3_6
+v10226_7	=	q29_3_7
+v10226_8	=	q29_3_8
+v10226_9	=	q29_3_9
+v10226_0	=	q29_3_0
+v10226_97	=	q29_3_97
+v10227_1	=	q29_4_1
+v10227_2	=	q29_4_2
+v10227_3	=	q29_4_3
+v10227_4	=	q29_4_4
+v10227_5	=	q29_4_5
+v10227_6	=	q29_4_6
+v10227_7	=	q29_4_7
+v10227_8	=	q29_4_8
+v10227_9	=	q29_4_9
+v10227_0	=	q29_4_0
+v10227_97	=	q29_4_97
+v10228_1	=	q29_5_1
+v10228_2	=	q29_5_2
+v10228_3	=	q29_5_3
+v10228_4	=	q29_5_4
+v10228_5	=	q29_5_5
+v10228_6	=	q29_5_6
+v10228_7	=	q29_5_7
+v10228_8	=	q29_5_8
+v10228_9	=	q29_5_9
+v10228_0	=	q29_5_0
+v10228_97	=	q29_5_97
+v10229_1	=	q29_6_1
+v10229_2	=	q29_6_2
+v10229_3	=	q29_6_3
+v10229_4	=	q29_6_4
+v10229_5	=	q29_6_5
+v10229_6	=	q29_6_6
+v10229_7	=	q29_6_7
+v10229_8	=	q29_6_8
+v10229_9	=	q29_6_9
+v10229_0	=	q29_6_0
+v10229_97	=	q29_6_97
+v10231_1	=	q29_7_1
+v10231_2	=	q29_7_2
+v10231_3	=	q29_7_3
+v10231_4	=	q29_7_4
+v10231_5	=	q29_7_5
+v10231_6	=	q29_7_6
+v10231_7	=	q29_7_7
+v10231_8	=	q29_7_8
+v10231_9	=	q29_7_9
+v10231_0	=	q29_7_0
+v10231_97	=	q29_7_97
+v10232_1	=	q29_8_1
+v10232_2	=	q29_8_2
+v10232_3	=	q29_8_3
+v10232_4	=	q29_8_4
+v10232_5	=	q29_8_5
+v10232_6	=	q29_8_6
+v10232_7	=	q29_8_7
+v10232_8	=	q29_8_8
+v10232_9	=	q29_8_9
+v10232_0	=	q29_8_0
+v10232_97	=	q29_8_97
+v14444_1	=	q29_9_1
+v14444_2	=	q29_9_2
+v14444_3	=	q29_9_3
+v14444_4	=	q29_9_4
+v14444_5	=	q29_9_5
+v14444_6	=	q29_9_6
+v14444_7	=	q29_9_7
+v14444_8	=	q29_9_8
+v14444_9	=	q29_9_9
+v14444_0	=	q29_9_0
+v14444_97	=	q29_9_97
+v10234_1	=	q29_10_1
+v10234_2	=	q29_10_2
+v10234_3	=	q29_10_3
+v10234_4	=	q29_10_4
+v10234_5	=	q29_10_5
+v10234_6	=	q29_10_6
+v10234_7	=	q29_10_7
+v10234_8	=	q29_10_8
+v10234_9	=	q29_10_9
+v10234_0	=	q29_10_0
+v10234_97	=	q29_10_97
+v10235_1	=	q29_11_1
+v10235_2	=	q29_11_2
+v10235_3	=	q29_11_3
+v10235_4	=	q29_11_4
+v10235_5	=	q29_11_5
+v10235_6	=	q29_11_6
+v10235_7	=	q29_11_7
+v10235_8	=	q29_11_8
+v10235_9	=	q29_11_9
+v10235_0	=	q29_11_0
+v10235_97	=	q29_11_97
+v10236_1	=	q29_12_1
+v10236_2	=	q29_12_2
+v10236_3	=	q29_12_3
+v10236_4	=	q29_12_4
+v10236_5	=	q29_12_5
+v10236_6	=	q29_12_6
+v10236_7	=	q29_12_7
+v10236_8	=	q29_12_8
+v10236_9	=	q29_12_9
+v10236_0	=	q29_12_0
+v10236_97	=	q29_12_97
+v10237_1	=	q29_13_1
+v10237_2	=	q29_13_2
+v10237_3	=	q29_13_3
+v10237_4	=	q29_13_4
+v10237_5	=	q29_13_5
+v10237_6	=	q29_13_6
+v10237_7	=	q29_13_7
+v10237_8	=	q29_13_8
+v10237_9	=	q29_13_9
+v10237_0	=	q29_13_0
+v10237_97	=	q29_13_97
+v10240_1	=	q29_14_1
+v10240_2	=	q29_14_2
+v10240_3	=	q29_14_3
+v10240_4	=	q29_14_4
+v10240_5	=	q29_14_5
+v10240_6	=	q29_14_6
+v10240_7	=	q29_14_7
+v10240_8	=	q29_14_8
+v10240_9	=	q29_14_9
+v10240_0	=	q29_14_0
+v10240_97	=	q29_14_97
+v10241_1	=	q29_15_1
+v10241_2	=	q29_15_2
+v10241_3	=	q29_15_3
+v10241_4	=	q29_15_4
+v10241_5	=	q29_15_5
+v10241_6	=	q29_15_6
+v10241_7	=	q29_15_7
+v10241_8	=	q29_15_8
+v10241_9	=	q29_15_9
+v10241_0	=	q29_15_0
+v10241_97	=	q29_15_97
+v12805	=	q30_99_1
+v12759_1	=	q30_1
+v12759_2	=	q30_2
+v12759_3	=	q30_3
+v12759_4	=	q30_4
+v12759_5	=	q30_5
+v12759_6	=	q30_6
+v12759_7	=	q30_7
+v12759_8	=	q30_8
+v12759_9	=	q30_9
+v12759_10	=	q30_10
+v12759_11	=	q30_11
+v12759_12	=	q30_12
+v12759_13	=	q30_13
+v12759_14	=	q30_14
+v12759_99	=	q30_99
+v12759_0	=	q30_0
+v14445	=	q31
+v12760	=	q30_1_99
+v10245	=	q32
+v10261	=	q34_1
+v10262	=	q34_2
+v10263	=	q34_3
+v10264	=	q34_4
+v10265	=	q34_4_99_1
+v10266	=	q34_5
+v10267	=	q34_6
+v10268	=	q35_1
+v10269	=	q35_2
+v10270	=	q35_3
+v10271	=	q35_4
+v10272	=	q35_4_99_1
+v10273	=	q35_5
+v10274	=	q35_6.
+
+
+VARIABLE LABELS
+NU_IDENTIFICADOR'NU_IDENTIFICADOR_id_creas_pop_NU_IDENTIFICADOR'
+IBGE'IBGE_codigo_ibge_IBGE'
+q0_1'q0_1_v10083_0.1. Nome que identifica o Centro POP:'
+q0_2'q0_2_v10084_0.2. Selecione/Indique o Tipo de Logradouro (avenida, rua, etc):'
+q0_3'q0_3_v10085_0.3. Endereço:'
+q0_4'q0_4_v10086_0.4. Número:'
+q0_5'q0_5_v10087_0.5. Complemento:'
+q0_6'q0_6_v10088_0.6. Bairro:'
+q0_7'q0_7_v10089_0.7. Ponto de Referência:'
+q0_8'q0_8_v10090_0.8. CEP:'
+q0_9'q0_9_v10091_0.9. Município:'
+q0_10'q0_10_v10092_0.10. UF:'
+q0_11'q0_11_v10093_0.11. E-mail:'
+q0_12'q0_12_v10094_0.12. DDD - Telefone:'
+q0_13'q0_13_v10095_0.13. Ramal:'
+q0_14'q0_14_v10096_0.14. Fax:'
+q0_15'q0_15_v10097_0.15. Data de implantação do Centro POP:'
+q42'q42_id_creas_popequip_42. id_creas_pop equipamento'
+Latitude'Latitude_p_latitude_43. Latitude'
+Longitude'Longitude_p_longitude_44. Longitude'
+q1_1'q1_1_v10098_1.1. Horário de funcionamento - Dias por semana:'
+q1_2'q1_2_v10099_1.2. Horário de funcionamento - Horas por dia:'
+q2'q2_v10101_2. O imóvel de funcionamento desta Unidade é compartilhado?'
+q3_1'q3_1_v10102_1_3. Especifique o tipo de unidade com a qual este Centro de Referência Especializado para População em Situação de Rua compartilha o imóvel.1: Secretaria da Assistência Social ou congênere'
+q3_2'q3_2_v10102_2_3. Especifique o tipo de unidade com a qual este Centro de Referência Especializado para PopRua compartilha o imóvel.2: Outra unidade administrativa (Sede de Prefeitura, Administração Regional, Sub-Prefeitura etc)'
+q3_3'q3_3_v10102_3_3. Especifique o tipo de unidade com a qual este Centro de Referência Especializado para População em Situação de Rua compartilha o imóvel.3: Conselho Municipal de Assistência Social'
+q3_4'q3_4_v10102_4_3. Especifique o tipo de unidade com a qual este Centro de Referência Especializado para População em Situação de Rua compartilha o imóvel.4: CRAS – Centro de Referência de Assistência Social'
+q3_5'q3_5_v10102_5_3. Especifique o tipo de unidade com a qual este Centro de Referência Especializado para População em Situação de Rua compartilha o imóvel.5: CREAS – Centro de Referência Especializado de Assistência Social'
+q3_6'q3_6_v10102_6_3. Especifique o tipo de unidade com a qual este Centro de Referência Especializado para População em Situação de Rua compartilha o imóvel.6: Unidade de Acolhimento institucional (Abrigo)'
+q3_7'q3_7_v10102_7_3. Especifique o tipo de unidade com a qual este Centro de Referência Especializado para População em Situação de Rua compartilha o imóvel.7: Outra unidade pública de serviços da Assistência Social'
+q3_8'q3_8_v10102_8_3. Especifique o tipo de unidade com a qual este Centro de Referência Especializado para População em Situação de Rua compartilha o imóvel.8: Entidade e/ou Organizações da Sociedade Civil/Associação Comunitária'
+q3_99'q3_99_v10102_99_3. Especifique o tipo de unidade com a qual este Centro de Referência Especializado para População em Situação de Rua compartilha o imóvel.99: Outros'
+q3_99_1'q3_99_1_v10103_3.99.1. Qual?'
+q4_1'q4_1_v10104_1_4.Especifique espaço imóvel compartilhados entre Centro Ref PopRua e outra Un:1: Apenas o endereço é o mesmo, todos os espaços do Centro de Referência para PopRua são independentes e de uso exclusivo, inclusive a entrada'
+q4_2'q4_2_v10104_2_4. Especifique quais espaços do imóvel são compartilhados entre o Centro de Referência Especializado para População em Situação de Rua e a outra Unidade:2: Entrada / Porta de Acesso'
+q4_3'q4_3_v10104_3_4. Especifique quais espaços do imóvel são compartilhados entre o Centro de Referência Especializado para População em Situação de Rua e a outra Unidade:3: Recepção'
+q4_4'q4_4_v10104_4_4. Especifique quais espaços do imóvel são compartilhados entre o Centro de Referência Especializado para População em Situação de Rua e a outra Unidade:4: Algumas salas de atendimento'
+q4_5'q4_5_v10104_5_4. Especifique quais espaços do imóvel são compartilhados entre o Centro de Referência Especializado para População em Situação de Rua e a outra Unidade:5: Todas as salas de atendimento'
+q4_6'q4_6_v10104_6_4. Especifique quais espaços do imóvel são compartilhados entre o Centro de Referência Especializado para População em Situação de Rua e a outra Unidade:6: Salas administrativas'
+q4_7'q4_7_v10104_7_4. Especifique quais espaços do imóvel são compartilhados entre o Centro de Referência Especializado para População em Situação de Rua e a outra Unidade:7: Espaço para atividades coletivas'
+q4_8'q4_8_v10104_8_4. Especifique quais espaços do imóvel são compartilhados entre o Centro de Referência Especializado para População em Situação de Rua e a outra Unidade:8: Banheiros'
+q4_9'q4_9_v10104_9_4. Especifique quais espaços do imóvel são compartilhados entre o Centro de Referência Especializado para População em Situação de Rua e a outra Unidade:9: Copa/cozinha'
+q4_10'q4_10_v10104_10_4. Especifique quais espaços do imóvel são compartilhados entre o Centro de Referência Especializado para População em Situação de Rua e a outra Unidade:10: Área Externa'
+q4_11'q4_11_v10104_11_4. Especifique quais espaços do imóvel são compartilhados entre o Centro de Referência Especializado para População em Situação de Rua e a outra Unidade:11: Almoxarifado ou similar'
+q4_12'q4_12_v10104_12_4. Especifique quais espaços do imóvel são compartilhados entre o Centro de Referência Especializado para População em Situação de Rua e a outra Unidade:12: Refeitório'
+q4_13'q4_13_v10104_13_4. Especifique quais espaços do imóvel são compartilhados entre o Centro de Referência Especializado para População em Situação de Rua e a outra Unidade:13: Lavanderia'
+q4_14'q4_14_v10104_14_4. Especifique quais espaços do imóvel são compartilhados entre o Centro de Referência Especializado para População em Situação de Rua e a outra Unidade:14: Espaço para guarda de pertences'
+q4_99'q4_99_v10104_99_4. Especifique quais espaços do imóvel são compartilhados entre o Centro de Referência Especializado para População em Situação de Rua e a outra Unidade:99: Outros'
+q5_1'q5_1_v10105_5.1. Quantidade de Salas com capacidade máxima de 5 pessoas'
+q5_2'q5_2_v10106_5.2. Quantidade de Salas com capacidade para 6 a 14 pessoas'
+q5_3'q5_3_v10107_5.3. Quantidade de Salas com capacidade para 15 a 29 pessoas'
+q5_4'q5_4_v10108_5.4. Quantidade de Salas com capacidade para 30 ou mais pessoas'
+q5_5'q5_5_v10109_5.5. Salas exclusivas de Coordenação, equipe técnica ou administração (não são salas de atendimento!)'
+q5_6'q5_6_v10110_5.6. Banheiro de uso exclusivo das(os) trabalhadoras(es) do Centro POP'
+q5_7'q5_7_v10111_5.7. Banheiro para uso das(os) usuárias(os) do Centro POP'
+q5_8'q5_8_v10112_5.8. Espaço para higiene pessoal (Box com chuveiros individualizados)'
+q5_9'q5_9_v10113_5.9. Possui Recepção?'
+q5_10'q5_10_v10114_5.10. Possui Cozinha/Copa?'
+q5_11'q5_11_v10115_5.11. Possui Almoxarifado ou similar?'
+q5_12'q5_12_v10116_5.12. Possui espaço externo para atividades coletivas e/ou comunitárias?'
+q5_13'q5_13_v10117_5.13. Possui Refeitório?'
+q5_14'q5_14_v10118_5.14. Possui Lavanderia?'
+q5_15'q5_15_v10119_5.15. Possui espaço para guarda de pertences?'
+q5_16'q5_16_v10120_5.16. Possui espaço para animais de estimação?'
+q6_1'q6_1_v10121_6.1. Acesso principal adaptado com rampas e rota acessível desde a calçada até a recepção da Unidade'
+q6_2'q6_2_v10122_6.2. Rota acessível aos principais espaços da Unidade (recepção, sala de atendimentos e espaço(s) para atividades coletivas)'
+q6_3'q6_3_v10123_6.3. Rota acessível ao banheiro'
+q6_4'q6_4_v10124_6.4. Banheiro adaptado para pessoas com dificuldades de locomoção'
+q7_1'q7_1_v12648_1_7. Além dos itens acima, há outras adaptações para assegurar a acessibilidade desta unidade?1: Sim, suporte de profissional com conhecimento em LIBRAS'
+q7_2'q7_2_v12648_2_7. Além dos itens acima, há outras adaptações para assegurar a acessibilidade desta unidade?2: Sim, suporte de material em braille'
+q7_3'q7_3_v12648_3_7. Além dos itens acima, há outras adaptações para assegurar a acessibilidade desta unidade?3: Sim, suporte para leitores de telas de computador para pessoas com deficiência visual'
+q7_4'q7_4_v12648_4_7. Além dos itens acima, há outras adaptações para assegurar a acessibilidade desta unidade?4: Sim, outras adaptações e tecnologias assistivas para deficiência física'
+q7_5'q7_5_v12648_5_7. Além dos itens acima, há outras adaptações para assegurar a acessibilidade desta unidade?5: Sim, outras adaptações e tecnologias assistivas para deficiência intelectual e autismo'
+q7_6'q7_6_v12648_6_7. Além dos itens acima, há outras adaptações para assegurar a acessibilidade desta unidade?6: Sim, pisos especiais com relevos para sinalização voltados para pessoa com deficiência visual'
+q7_0'q7_0_v12648_0_7. Além dos itens acima, há outras adaptações para assegurar a acessibilidade desta unidade?0: Não há outras adaptações'
+q7_4_99'q7_4_99_v12649_7.4.99. Qual? - Tecnologias Assistivas para Deficiência Física'
+q7_5_99'q7_5_99_v12650_7.5.99. Qual? - Tecnologias Assistivas para Deficiência Intelectual e Autismo'
+q8_1_1'q8_1_1_v10125_8.1.1. Telefone - Disponível na Unidade'
+q8_1_2'q8_1_2_v10147_8.1.2. Telefone - Disponível às(aos) usuárias(os)'
+q8_2_1'q8_2_1_v10126_8.2.1. Impressora - Disponível na Unidade'
+q8_2_2'q8_2_2_v10148_8.2.2. Impressora - Disponível às(aos) usuárias(os)'
+q8_3_1'q8_3_1_v10127_8.3.1. Máquina Copiadora - Disponível na Unidade'
+q8_3_2'q8_3_2_v10149_8.3.2. Máquina Copiadora - Disponível às(aos) usuárias(os)'
+q8_4_1'q8_4_1_v10128_8.4.1. Televisão (TV) - Disponível na Unidade'
+q8_4_2'q8_4_2_v10150_8.4.2. Televisão (TV) - Disponível às(aos) usuárias(os)'
+q8_5_1'q8_5_1_v10129_8.5.1. Equipamento de Som - Disponível na Unidade'
+q8_5_2'q8_5_2_v10151_8.5.2. Equipamento de Som - Disponível às(aos) usuárias(os)'
+q8_6_1'q8_6_1_v10130_8.6.1. DVD - Disponível na Unidade'
+q8_6_2'q8_6_2_v10152_8.6.2. DVD - Disponível às(aos) usuárias(os)'
+q8_7_1'q8_7_1_v10132_8.7.1. Datashow - Disponível na Unidade'
+q8_7_2'q8_7_2_v10154_8.7.2. Datashow - Disponível às(aos) usuárias(os)'
+q8_8_1'q8_8_1_v10134_8.8.1. Livros - Disponível na Unidade'
+q8_8_2'q8_8_2_v10156_8.8.2. Livros - Disponível às(aos) usuárias(os)'
+q8_9_1'q8_9_1_v10135_8.9.1. Materiais socioeducativos - Disponível na Unidade'
+q8_9_2'q8_9_2_v10157_8.9.2. Materiais Socioeducativos - Disponível às(aos) usuárias(os)'
+q8_10_1'q8_10_1_v10136_8.10.1. Armários individualizados para guarda de pertences - Disponível na Unidade'
+q8_10_2'q8_10_2_v10158_8.10.2. Armários individualizados para guarda de pertences - Disponível às(aos) usuárias(os)'
+q8_11_1'q8_11_1_v10137_8.11.1. Artigos de higiene pessoal - Disponível na Unidade'
+q8_11_2'q8_11_2_v10159_8.11.2. Artigos de higiene pessoal - Disponível às(aos) usuárias(os)'
+q8_12_1'q8_12_1_v10138_8.12.1. Geladeira - Disponível na Unidade'
+q8_12_2'q8_12_2_v10160_8.12.2. Geladeira - Disponível às(aos) usuárias(os)'
+q8_13_1'q8_13_1_v10139_8.13.1. Freezer - Disponível na Unidade'
+q8_13_2'q8_13_2_v10161_8.13.2. Freezer - Disponível às(aos) usuárias(os)'
+q8_14_1'q8_14_1_v10140_8.14.1. Fogão - Disponível na Unidade'
+q8_14_2'q8_14_2_v10162_8.14.2. Fogão - Disponível às(aos) usuárias(os)'
+q8_15_1'q8_15_1_v10141_8.15.1. Micro-ondas - Disponível na Unidade'
+q8_15_2'q8_15_2_v10163_8.15.2. Micro-ondas - Disponível às(aos) usuárias(os)'
+q8_16_1'q8_16_1_v10142_8.16.1. Máquina de lavar roupas - Disponível na Unidade'
+q8_16_2'q8_16_2_v10164_8.16.2. Máquina de lavar roupas - Disponível às(aos) usuárias(os)'
+q8_17_1'q8_17_1_v10143_8.17.1. Secadora de roupas - Disponível na Unidade'
+q8_17_2'q8_17_2_v10165_8.17.2. Secadora de roupas - Disponível às(aos) usuárias(os)'
+q8_18_1'q8_18_1_v10144_8.18.1. Tanque de lavar roupas - Disponível na Unidade'
+q8_18_2'q8_18_2_v10166_8.18.2. Tanque de lavar roupas - Disponível às(aos) usuárias(os)'
+q8_19_1'q8_19_1_v10145_8.19.1. Veículo de uso exclusivo - Disponível na Unidade'
+q8_20_1'q8_20_1_v10146_8.20.1. Veículo de uso compartilhado - Disponível na Unidade'
+q9_1'q9_1_v10167_9.1. Quantidade total de computadores na unidade:'
+q9_2'q9_2_v10168_9.2. Destes, quantos estão conectados à internet?'
+q9_3'q9_3_v10169_9.3. Quantidade de computadores para utilização pelas(os) usuárias(os):'
+q9_4'q9_4_v10170_9.4. Destes, quantos estão conectados à internet?'
+q10'q10_v10171_10. Este Centro de Referência para População em Situação de Rua facilita o acesso ou oferece alimentação às(aos) usuárias(os)?'
+q11_1_1'q11_1_1_v10172_11.1.1. Refeições oferecidas - Lanche/Café da Manhã'
+q11_1_2_1'q11_1_2_1_v10177_1_11.1.2. Local de oferta de refeição - Lanche/Café da Manhã1: Restaurante Popular'
+q11_1_2_2'q11_1_2_2_v10177_2_11.1.2. Local de oferta de refeição - Lanche/Café da Manhã2: Em outra unidade pública ou privada'
+q11_1_2_3'q11_1_2_3_v10177_3_11.1.2. Local de oferta de refeição - Lanche/Café da Manhã3: No espaço deste Centro POP'
+q11_2_1'q11_2_1_v10173_11.2.1. Refeições oferecidas - Almoço'
+q11_2_2_1'q11_2_2_1_v10178_1_11.2.2. Local de oferta de refeição - Almoço1: Restaurante Popular'
+q11_2_2_2'q11_2_2_2_v10178_2_11.2.2. Local de oferta de refeição - Almoço2: Em outra unidade pública ou privada'
+q11_2_2_3'q11_2_2_3_v10178_3_11.2.2. Local de oferta de refeição - Almoço3: No espaço deste Centro POP'
+q11_3_1'q11_3_1_v10174_11.3.1. Refeições oferecidas - Lanche/Café da Tarde'
+q11_3_2_1'q11_3_2_1_v10179_1_11.3.2. Local de oferta de refeição - Lanche/Café da Tarde1: Restaurante Popular'
+q11_3_2_2'q11_3_2_2_v10179_2_11.3.2. Local de oferta de refeição - Lanche/Café da Tarde2: Em outra unidade pública ou privada'
+q11_3_2_3'q11_3_2_3_v10179_3_11.3.2. Local de oferta de refeição - Lanche/Café da Tarde3: No espaço deste Centro POP'
+q11_4_1'q11_4_1_v10175_11.4.1. Refeições oferecidas - Jantar'
+q11_4_2_1'q11_4_2_1_v10180_1_11.4.2. Local de oferta de refeição - Jantar1: Restaurante Popular'
+q11_4_2_2'q11_4_2_2_v10180_2_11.4.2. Local de oferta de refeição - Jantar2: Em outra unidade pública ou privada'
+q11_4_2_3'q11_4_2_3_v10180_3_11.4.2. Local de oferta de refeição - Jantar3: No espaço deste Centro POP'
+q11_5_1'q11_5_1_v10176_11.5.1. Refeições oferecidas - Lanche/Café da Noite'
+q11_5_2_1'q11_5_2_1_v10181_1_11.5.2. Local de oferta de refeição - Lanche/Café da Noite1: Restaurante Popular'
+q11_5_2_2'q11_5_2_2_v10181_2_11.5.2. Local de oferta de refeição - Lanche/Café da Noite2: Em outra unidade pública ou privada'
+q11_5_2_3'q11_5_2_3_v10181_3_11.5.2. Local de oferta de refeição - Lanche/Café da Noite3: No espaço deste Centro POP'
+q12_1'q12_1_v10183_1_12. Indique as ações e atividades desenvolvidas pelo Serviço Especializado para Pessoas em Situação de Rua nesta Unidade:1: Acolhida em Grupo realizada por profissional de nível superior'
+q12_2'q12_2_v10183_2_12. Indique as ações e atividades desenvolvidas pelo Serviço Especializado para Pessoas em Situação de Rua nesta Unidade:2: Acolhida Particularizada realizada por profissional de nível superior'
+q12_3'q12_3_v10183_3_12. Indique as ações e atividades desenvolvidas pelo Serviço Especializado para Pessoas em Situação de Rua nesta Unidade:3: Acompanhamento particularizado de famílias ou indivíduos'
+q12_4'q12_4_v10183_4_12. Indique as ações e atividades desenvolvidas pelo Serviço Especializado para Pessoas em Situação de Rua nesta Unidade:4: Orientação sócio-jurídica'
+q12_5'q12_5_v10183_5_12. Indique as ações e atividades desenvolvidas pelo Serviço Especializado para Pessoas em Situação de Rua nesta Unidade:5: Apoio para obtenção de documentação pessoal'
+q12_6'q12_6_v10183_6_12. Indique as ações e atividades desenvolvidas pelo Serviço Especializado para Pessoas em Situação de Rua nesta Unidade:6: Orientação e encaminhamento para acesso ao BPC'
+q12_7'q12_7_v10183_7_12. Indique as ações e atividades desenvolvidas pelo Serviço Especializado para Pessoas em Situação de Rua nesta Unidade:7: Orientação e encaminhamento para acesso a benefícios eventuais'
+q12_8'q12_8_v10183_8_12. Indique as ações e atividades desenvolvidas pelo Serviço Especializado para Pessoas em Situação de Rua nesta Unidade:8: Elaboração de Plano de Acompanhamento Individual e/ou Familiar'
+q12_9'q12_9_v10183_9_12. Indique as ações e atividades desenvolvidas pelo Serviço Especializado para Pessoas em Situação de Rua nesta Unidade:9: Ações de mobilização e participação social'
+q12_10'q12_10_v10183_10_12. Indique as ações e atividades desenvolvidas pelo Serviço Especializado para Pessoas em Situação de Rua nesta Unidade:10: Mobilização de família extensa ou ampliada'
+q12_11'q12_11_v10183_11_12. Indique as ações e atividades desenvolvidas pelo Serviço Especializado para Pessoas em Situação de Rua nesta Unidade:11: Mobilização e fortalecimento do convívio e de redes sociais de apoio'
+q12_12'q12_12_v10183_12_12. Indique as ações e atividades desenvolvidas pelo Serviço Especializado para Pessoas em Situação de Rua nesta Unidade:12: Encaminhamento para a rede de serviço socioassistencial público'
+q12_13'q12_13_v10183_13_12. Indique as ações e atividades desenvolvidas pelo Serviço Especializado para Pessoas em Situação de Rua nesta Unidade:13: Encaminhamento para a rede de serviço socioassistencial privado'
+q12_14'q12_14_v10183_14_12. Indique as ações e atividades desenvolvidas pelo Serviço Especializado para Pessoas em Situação de Rua nesta Unidade:14: Encaminhamento de usuárias(os)/dependentes de substâncias psicoativas para serviços da rede de saúde'
+q12_15'q12_15_v10183_15_12. Indique as ações e atividades desenvolvidas pelo Serviço Especializado para Pessoas em Situação de Rua nesta Unidade:15: Encaminhamento para outros serviços da rede de saúde'
+q12_16'q12_16_v10183_16_12. Indique as ações e atividades desenvolvidas pelo Serviço Especializado para Pessoas em Situação de Rua nesta Unidade:16: Encaminhamento para políticas de educação (jovens e adultos, etc.)'
+q12_17'q12_17_v10183_17_12. Indique as ações e atividades desenvolvidas pelo Serviço para PopRua nesta Unidade:17: Encaminhamento para órgãos de defesa de direitos (Defensoria Pública, Poder Judiciário, Ministério Público, Conselho Tutelar etc.)'
+q12_18'q12_18_v10183_18_12. Indique as ações e atividades desenvolvidas pelo Serviço Especializado para Pessoas em Situação de Rua nesta Unidade:18: Ações de mobilização e sensibilização para o enfrentamento das situações de violação de direitos'
+q12_19'q12_19_v10183_19_12. Indique as ações e atividades desenvolvidas pelo Serviço Especializado para Pessoas em Situação de Rua nesta Unidade:19: Encaminhamento de famílias ou indivíduos para demais políticas (trabalho, habitação, etc.)'
+q12_20'q12_20_v10183_20_12. Indique as ações e atividades desenvolvidas pelo Serviço Especializado para Pessoas em Situação de Rua nesta Unidade:20: Acompanhamento das(os) usuárias(os) encaminhados para rede'
+q12_21'q12_21_v10183_21_12. Indique as ações e atividades desenvolvidas pelo Serviço Especializado para Pessoas em Situação de Rua nesta Unidade:21: Registro dos atendimentos/acompanhamentos em prontuário'
+q12_22'q12_22_v10183_22_12. Indique as ações e atividades desenvolvidas pelo Serviço Especializado para Pessoas em Situação de Rua nesta Unidade:22: Elaboração de relatórios técnicos sobre casos em atendimento'
+q12_23'q12_23_v10183_23_12. Indique as ações e atividades desenvolvidas pelo Serviço Especializado para Pessoas em Situação de Rua nesta Unidade:23: Estudo de caso/Discussão de casos em equipe'
+q12_24'q12_24_v10183_24_12. Indique as ações e atividades desenvolvidas pelo Serviço Especializado para Pessoas em Situação de Rua nesta Unidade:24: Palestras'
+q12_99'q12_99_v10183_99_12. Indique as ações e atividades desenvolvidas pelo Serviço Especializado para Pessoas em Situação de Rua nesta Unidade:99: Outras'
+q12_99_1'q12_99_1_v10534_12.99.1. Indique as ações e atividades desenvolvidas pelo Serviço Especializado para Pessoas em Situação de Rua nesta Unidade: - Quais?'
+q13'q13_v10184_13. Este Centro realiza oficinas/atividades em grupo com temas transversais no âmbito do Serviço Especializado para Pessoas em Situação de Rua nesta Unidade?'
+q14_1'q14_1_v10185_1_14. Indique as atividades coletivas normalmente realizadas com as(os) usuárias(os) deste Centro POP:1: Atividades esportivas'
+q14_2'q14_2_v10185_2_14. Indique as atividades coletivas normalmente realizadas com as(os) usuárias(os) deste Centro POP:2: Musicalidade (cantar, tocar instrumentos, etc)'
+q14_3'q14_3_v10185_3_14. Indique as atividades coletivas normalmente realizadas com as(os) usuárias(os) deste Centro POP:3: Atividades de arte e cultura (pintura, circo, dança, teatro, trabalhos em papel, etc.)'
+q14_4'q14_4_v10185_4_14. Indique as atividades coletivas normalmente realizadas com as(os) usuárias(os) deste Centro POP:4: Artesanato (bijuterias, pintura em tecido, bordado, crochê, etc.)'
+q14_5'q14_5_v10185_5_14. Indique as atividades coletivas normalmente realizadas com as(os) usuárias(os) deste Centro POP:5: Atividades de inclusão digital'
+q14_6'q14_6_v10185_6_14. Indique as atividades coletivas normalmente realizadas com as(os) usuárias(os) deste Centro POP:6: Atividades de linguagem (produção de texto, contação de histórias, roda de conversa, etc.)'
+q14_7'q14_7_v10185_7_14. Indique as atividades coletivas normalmente realizadas com as(os) usuárias(os) deste Centro POP:7: Atividades que envolvam alimentos (culinária, alimentos, hortas, etc.)'
+q14_8'q14_8_v10185_8_14. Indique as atividades coletivas normalmente realizadas com as(os) usuárias(os) deste Centro POP:8: Jogos e Brincadeiras (jogos de tabuleiro, brincadeiras de roda, esconde-esconde, mímica, etc.)'
+q14_9'q14_9_v10185_9_14. Indique as atividades coletivas normalmente realizadas com as(os) usuárias(os) deste Centro POP:9: Atividades de orientação para o mundo do trabalho'
+q14_10'q14_10_v10185_10_14. Indique as atividades coletivas normalmente realizadas com as(os) usuárias(os) deste Centro POP:10: Prestam atividades de cuidado de vida diária'
+q14_99'q14_99_v10185_99_14. Indique as atividades coletivas normalmente realizadas com as(os) usuárias(os) deste Centro POP:99: Outros'
+q14_99_1'q14_99_1_v11864_14.99.1. Indique as atividades coletivas normalmente realizadas com as(os) usuárias(os) deste Centro POP: - Outros - Qual?'
+q15_1'q15_1_v10186_1_15. Em relação ao acesso ao mundo do trabalho, indique abaixo as ações/iniciativas deste Centro:1: Encaminhamento para capacitação profissional/curso profissionalizante'
+q15_2'q15_2_v10186_2_15. Em relação ao acesso ao mundo do trabalho, indique abaixo as ações/iniciativas deste Centro:2: Cessão de espaço físico para realização de cursos de capacitação profissional ofertados por outras instituições'
+q15_3'q15_3_v10186_3_15. Em relação ao acesso ao mundo do trabalho, indique abaixo as ações/iniciativas deste Centro:3: Cadastramento para participação em programas de qualificação profissional'
+q15_4'q15_4_v10186_4_15. Em relação ao acesso ao mundo do trabalho, indique abaixo as ações/iniciativas deste Centro:4: Encaminhamento para programas de geração de trabalho e renda'
+q15_5'q15_5_v10186_5_15. Em relação ao acesso ao mundo do trabalho, indique abaixo as ações/iniciativas deste Centro:5: Assessoramento para formação de cooperativas ou associações (unidades produtivas)'
+q15_6'q15_6_v10186_6_15. Em relação ao acesso ao mundo do trabalho, indique abaixo as ações/iniciativas deste Centro:6: Informações atualizadas sobre vagas disponíveis no mercado de trabalho'
+q15_99'q15_99_v10186_99_15. Em relação ao acesso ao mundo do trabalho, indique abaixo as ações/iniciativas deste Centro:99: Outros'
+q16_1'q16_1_v12655_1_16. Quando a(o) usuária(o) demanda acolhimento provisório (pernoite e/ou pousada temporária), esta unidade:1: Encaminha para uma unidade de acolhimento da rede Socioassistencial'
+q16_2'q16_2_v12655_2_16. Quando a(o) usuária(o) demanda acolhimento provisório (pernoite e/ou pousada temporária), esta unidade:2: Encaminha para uma unidade de outra política pública'
+q16_99'q16_99_v12655_99_16. Quando a(o) usuária(o) demanda acolhimento provisório (pernoite e/ou pousada temporária), esta unidade:99: Outro'
+q16_97'q16_97_v12655_97_16. Quando a(o) usuária(o) demanda acolhimento provisório (pernoite e/ou pousada temporária), esta unidade:97: Não encaminha para acolhimento provisório'
+q16_0'q16_0_v12655_0_16. Quando a(o) usuária(o) demanda acolhimento provisório (pernoite e/ou pousada temporária), esta unidade:0: Não há estratégias de acolhimento provisório no município'
+q16_99_1'q16_99_1_v12657_16.99.1. Qual? - Outro'
+q16_2_99'q16_2_99_v12656_16.2.99. Qual? - Encaminha para uma unidade de outra política pública'
+q17_1'q17_1_v12659_17.1. República para adultos em processo de saída das ruas - Esta unidade possui serviço de referência para encaminhar as(os) usuárias(os)?'
+q17_1_1'q17_1_1_v12667_17.1.1. República para adultos em processo de saída das ruas - Com que frequência há o encaminhamento?'
+q17_2'q17_2_v12660_17.2. Programas de Aluguel Social - Esta unidade possui serviço de referência para encaminhar as(os) usuárias(os)?'
+q17_2_1'q17_2_1_v12668_17.2.1. Programas de Aluguel Social - Com que frequência há o encaminhamento?'
+q17_3'q17_3_v12661_17.3. Programas de Habitação Popular - Esta unidade possui serviço de referência para encaminhar as(os) usuárias(os)?'
+q17_3_1'q17_3_1_v12669_17.3.1. Programas de Habitação Popular - Com que frequência há o encaminhamento?'
+q18'q18_v10200_18. Este Centro POP realiza o Serviço Especializado em Abordagem Social?'
+q19_1'q19_1_v11865_1_19. No caso da execução do Serviço de Abordagem por unidade referenciada, indique as atividades realizadas por este Centro POP:1: Cumpre função de coordenador do Serviço referenciado'
+q19_2'q19_2_v11865_2_19. No caso da execução do Serviço de Abordagem por unidade referenciada, indique as atividades realizadas por este Centro POP:2: Coleta/recebe periodicamente informações sobre dados de atendimento do Serviço'
+q19_3'q19_3_v11865_3_19. No caso da execução do Serviço de Abordagem por unidade referenciada, indique as atividades realizadas por este Centro POP:3: Realiza reuniões periódicas para avaliação do Serviço com a Unidade referenciada'
+q19_4'q19_4_v11865_4_19. No caso da execução do Serviço de Abordagem por unidade referenciada, indique as atividades realizadas por este Centro POP:4: Participa do processo de planejamento das atividades do Serviço'
+q19_5'q19_5_v11865_5_19. No caso da execução do Serviço de Abordagem por unidade referenciada, indique as atividades realizadas por este Centro POP:5: Acompanha cotidianamente as atividades do Serviço'
+q19_6'q19_6_v11865_6_19. No caso da execução do Serviço de Abordagem por unidade referenciada, indique as atividades realizadas por este Centro POP:6: Constrói estratégias metodológicas do Serviço'
+q19_7'q19_7_v11865_7_19. No caso da execução do Serviço de Abordagem por unidade referenciada, indique as atividades realizadas por este Centro POP:7: Elabora relatórios técnicos específicos sobre casos atendidos/acompanhados pelo Serviço'
+q19_8'q19_8_v11865_8_19. No caso da execução do Serviço de Abordagem por unidade referenciada, indique as atividades realizadas por este Centro POP:8: Realiza estudos de caso em parceria com o Serviço'
+q19_9'q19_9_v11865_9_19. No caso da execução do Serviço de Abordagem por unidade referenciada, indique as atividades realizadas por este Centro POP:9: Define procedimentos comuns e/ou complementares ao Serviço'
+q19_10'q19_10_v11865_10_19. No caso da execução do Serviço de Abordagem por unidade referenciada, indique as atividades realizadas por este Centro POP:10: Possui fluxos de encaminhamentos e trocas de informações com o Serviço'
+q19_11'q19_11_v11865_11_19. No caso da execução do Serviço de Abordagem por unidade referenciada, indique as atividades realizadas por este Centro POP:11: Articula com a rede de serviços socioassistenciais'
+q19_12'q19_12_v11865_12_19. No caso da execução do Serviço de Abordagem por unidade referenciada, indique as atividades realizadas por este Centro POP:12: Articula com a rede dos serviços das políticas públicas setoriais'
+q19_13'q19_13_v11865_13_19. No caso da execução do Serviço de Abordagem por unidade referenciada, indique as atividades realizadas por este Centro POP:13: Articula com os órgãos do Sistema de Justiça'
+q19_14'q19_14_v11865_14_19. No caso da exec do Serv de Abordagem por unidade ref, indique as atividades realizadas por este Centro POP:14: Articula com os órgãos de defesa de direitos (Defensoria Pública, Ministério Público, Conselho Tutelar, etc.)'
+q19_0'q19_0_v11865_0_19. No caso da execução do Serviço de Abordagem por unidade referenciada, indique as atividades realizadas por este Centro POP:0: Não realiza nenhuma das atividades acima'
+q20_1'q20_1_v10201_1_20. Quais as atividades realizadas pelo Serviço Especializado em Abordagem Social1: Identificação de situações de risco pessoal e social com direitos violados'
+q20_2'q20_2_v10201_2_20. Quais as atividades realizadas pelo Serviço Especializado em Abordagem Social2: Conhecimento/mapeamento do território'
+q20_3'q20_3_v10201_3_20. Quais as atividades realizadas pelo Serviço Especializado em Abordagem Social3: Informação, comunicação e defesa de direitos das(os) usuárias(os)'
+q20_4'q20_4_v10201_4_20. Quais as atividades realizadas pelo Serviço Especializado em Abordagem Social4: Escuta e orientação'
+q20_5'q20_5_v10201_5_20. Quais as atividades realizadas pelo Serviço Especializado em Abordagem Social5: Construção de vínculo entre a equipe de referência e usuárias(os)'
+q20_6'q20_6_v10201_6_20. Quais as atividades realizadas pelo Serviço Especializado em Abordagem Social6: Encaminhamentos para a rede de serviços locais'
+q20_7'q20_7_v10201_7_20. Quais as atividades realizadas pelo Serviço Especializado em Abordagem Social7: Articulação da rede de serviços socioassistenciais'
+q20_8'q20_8_v10201_8_20. Quais as atividades realizadas pelo Serviço Especializado em Abordagem Social8: Articulação com os serviços de políticas públicas setoriais'
+q20_9'q20_9_v10201_9_20. Quais as atividades realizadas pelo Serviço Especializado em Abordagem Social9: Articulação com os demais órgãos do Sistema de Garantia de Direitos'
+q20_10'q20_10_v10201_10_20. Quais as atividades realizadas pelo Serviço Especializado em Abordagem Social10: Articulação com os órgãos do Sistema de Justiça'
+q20_11'q20_11_v10201_11_20. Quais as atividades realizadas pelo Serviço Especializado em Abordagem Social11: Registro de atendimento das(os) usuárias(os)'
+q20_12'q20_12_v10201_12_20. Quais as atividades realizadas pelo Serviço Especializado em Abordagem Social12: Elaboração de relatórios'
+q20_13'q20_13_v10201_13_20. Quais as atividades realizadas pelo Serviço Especializado em Abordagem Social13: Ações de sensibilização para divulgação do trabalho realizado'
+q20_14'q20_14_v10201_14_20. Quais as atividades realizadas pelo Serviço Especializado em Abordagem Social14: Ações para fortalecimento de vínculos familiares e comunitários'
+q21'q21_v10204_21. Quantos dias por semana a abordagem social é realizada:'
+q22'q22_v10205_22. Em quais períodos do dia costuma ser realizada a abordagem social?'
+q23_1'q23_1_v10206_1_23. A abordagem social é realizada em parceria com:1: A Abordagem é realizada exclusivamente pela equipe do Centro Pop'
+q23_2'q23_2_v10206_2_23. A abordagem social é realizada em parceria com:2: Equipes da atenção básica de saúde'
+q23_3'q23_3_v10206_3_23. A abordagem social é realizada em parceria com:3: Equipes de saúde mental'
+q23_4'q23_4_v10206_4_23. A abordagem social é realizada em parceria com:4: Equipes de serviços de acolhimento'
+q23_5'q23_5_v10206_5_23. A abordagem social é realizada em parceria com:5: Equipes do CREAS'
+q23_6'q23_6_v10206_6_23. A abordagem social é realizada em parceria com:6: Equipes de outras unidades públicas da rede socioassistencial'
+q23_7'q23_7_v10206_7_23. A abordagem social é realizada em parceria com:7: Equipes de entidades da rede socioassistencial privada'
+q23_8'q23_8_v10206_8_23. A abordagem social é realizada em parceria com:8: Integrantes de movimentos sociais'
+q23_9'q23_9_v10206_9_23. A abordagem social é realizada em parceria com:9: Guarda municipal'
+q23_10'q23_10_v10206_10_23. A abordagem social é realizada em parceria com:10: Polícia militar'
+q23_11'q23_11_v10206_11_23. A abordagem social é realizada em parceria com:11: Órgãos de defesa de direitos'
+q23_99'q23_99_v10206_99_23. A abordagem social é realizada em parceria com:99: Outros'
+q24'q24_v10207_24. É feita concessão de Benefícios Eventuais neste CENTRO POP?'
+q25_1'q25_1_v10208_1_25. Quais são os Benefícios Eventuais concedidos neste CENTRO POP?1: Benefício Eventual em situação de morte'
+q25_2'q25_2_v10208_2_25. Quais são os Benefícios Eventuais concedidos neste CENTRO POP?2: Benefício Eventual em situação de natalidade'
+q25_3'q25_3_v10208_3_25. Quais são os Benefícios Eventuais concedidos neste CENTRO POP?3: Benefício Eventual em situação de calamidade'
+q25_4'q25_4_v10208_4_25. Quais são os Benefícios Eventuais concedidos neste CENTRO POP?4: Benefício Eventual em situação de vulnerabilidade social'
+q26'q26_v10209_26. Este CENTRO POP realiza cadastramento ou atualização do CadÚnico?'
+q27'q27_v10221_27. Há participação das(os) usuárias(os) nas atividades de planejamento deste CentroPOP?'
+q28_1'q28_1_v10222_1_28. Quais mecanismos de participação são utilizados nesta unidade?1: Convida as(os) usuárias(os) para as reuniões de planejamento desta unidade'
+q28_2'q28_2_v10222_2_28. Quais mecanismos de participação são utilizados nesta unidade?2: Apoio financeiro para a participação de reuniões de planejamento junto a esta unidade'
+q28_3'q28_3_v10222_3_28. Quais mecanismos de participação são utilizados nesta unidade?3: Existência de representante de usuárias(os) junto à unidade'
+q28_4'q28_4_v10222_4_28. Quais mecanismos de participação são utilizados nesta unidade?4: Eleição para representante de usuárias(os) junto à unidade'
+q28_5'q28_5_v10222_5_28. Quais mecanismos de participação são utilizados nesta unidade?5: Estimula a formação de coletivo/comitê de usuárias(os)'
+q28_6'q28_6_v10222_6_28. Quais mecanismos de participação são utilizados nesta unidade?6: Realiza questionário de satisfação/pesquisa de opinião (inclui urna de sugestões)'
+q28_7'q28_7_v10222_7_28. Quais mecanismos de participação são utilizados nesta unidade?7: Realiza reuniões/entrevistas especificas a fim de coletar a demanda das(os) usuárias(os)'
+q28_8'q28_8_v10222_8_28. Quais mecanismos de participação são utilizados nesta unidade?8: O Centro POP possui ouvidoria estruturada'
+q28_9'q28_9_v10222_9_28. Quais mecanismos de participação são utilizados nesta unidade?9: As(Os) usuárias(os) escolhem os temas a serem trabalhados nas ações coletivas da unidade'
+q28_10'q28_10_v10222_10_28. Quais mecanismos de participação são utilizados nesta unidade?10: Estimula a participação de usuárias(os) nos Conselhos de Assistência Social e/ou Conselho de Direitos'
+q28_99'q28_99_v10222_99_28. Quais mecanismos de participação são utilizados nesta unidade?99: Outros'
+q28_99_1'q28_99_1_v10223_28.99.1. Qual(is)?'
+q29_1_1'q29_1_1_v10224_1_29.1. Serviço Especializado em Abordagem Social (quando não ofertado pelo Centro de Referência para Pop Rua)1: Possui dados de localização (endereço, telefone, etc.)'
+q29_1_2'q29_1_2_v10224_2_29.1. Serviço Especializado em Abordagem Social (quando não ofertado pelo Centro de Referência para Pop Rua)2: Recebe usuárias(os) encaminhadas(os) por este Centro de Referência'
+q29_1_3'q29_1_3_v10224_3_29.1. Serviço Especializado em Abordagem Social (quando não ofertado pelo Centro de Referência para Pop Rua)3: Encaminha usuárias(os) para este Centro de Referência'
+q29_1_4'q29_1_4_v10224_4_29.1. Serviço Especializado em Abordagem Social (quando não ofertado pelo Centro de Referência para Pop Rua)4: Acompanha os encaminhamentos'
+q29_1_5'q29_1_5_v10224_5_29.1. Serviço Especializado em Abordagem Social (quando não ofertado pelo Centro de Referência para Pop Rua)5: Realiza reuniões periódicas'
+q29_1_6'q29_1_6_v10224_6_29.1. Serviço Especializado em Abordagem Social (quando não ofertado pelo Centro de Referência para Pop Rua)6: Troca Informações'
+q29_1_7'q29_1_7_v10224_7_29.1. Serviço Especializado em Abordagem Social (quando não ofertado pelo Centro de Referência para Pop Rua)7: Realiza estudos de caso em conjunto'
+q29_1_8'q29_1_8_v10224_8_29.1. Serviço Especializado em Abordagem Social (quando não ofertado pelo Centro de Referência para Pop Rua)8: Desenvolve atividades em parceria'
+q29_1_9'q29_1_9_v10224_9_29.1. Serviço Especializado em Abordagem Social (quando não ofertado pelo Centro de Referência para Pop Rua)9: Possui fluxo/protocolo de articulação'
+q29_1_0'q29_1_0_v10224_0_29.1. Serviço Especializado em Abordagem Social (quando não ofertado pelo Centro de Referência para Pop Rua)0: Não tem nenhuma articulação'
+q29_1_97'q29_1_97_v10224_97_29.1. Serviço Especializado em Abordagem Social (quando não ofertado pelo Centro de Referência para Pop Rua)97: Serviço ou instituição não existente no Município/DF'
+q29_2_1'q29_2_1_v10225_1_29.2. Serviços de Acolhimento (abrigos institucionais, casas de passagem, repúblicas)1: Possui dados de localização (endereço, telefone, etc.)'
+q29_2_2'q29_2_2_v10225_2_29.2. Serviços de Acolhimento (abrigos institucionais, casas de passagem, repúblicas)2: Recebe usuárias(os) encaminhadas(os) por este Centro de Referência'
+q29_2_3'q29_2_3_v10225_3_29.2. Serviços de Acolhimento (abrigos institucionais, casas de passagem, repúblicas)3: Encaminha usuárias(os) para este Centro de Referência'
+q29_2_4'q29_2_4_v10225_4_29.2. Serviços de Acolhimento (abrigos institucionais, casas de passagem, repúblicas)4: Acompanha os encaminhamentos'
+q29_2_5'q29_2_5_v10225_5_29.2. Serviços de Acolhimento (abrigos institucionais, casas de passagem, repúblicas)5: Realiza reuniões periódicas'
+q29_2_6'q29_2_6_v10225_6_29.2. Serviços de Acolhimento (abrigos institucionais, casas de passagem, repúblicas)6: Troca Informações'
+q29_2_7'q29_2_7_v10225_7_29.2. Serviços de Acolhimento (abrigos institucionais, casas de passagem, repúblicas)7: Realiza estudos de caso em conjunto'
+q29_2_8'q29_2_8_v10225_8_29.2. Serviços de Acolhimento (abrigos institucionais, casas de passagem, repúblicas)8: Desenvolve atividades em parceria'
+q29_2_9'q29_2_9_v10225_9_29.2. Serviços de Acolhimento (abrigos institucionais, casas de passagem, repúblicas)9: Possui fluxo/protocolo de articulação'
+q29_2_0'q29_2_0_v10225_0_29.2. Serviços de Acolhimento (abrigos institucionais, casas de passagem, repúblicas)0: Não tem nenhuma articulação'
+q29_2_97'q29_2_97_v10225_97_29.2. Serviços de Acolhimento (abrigos institucionais, casas de passagem, repúblicas)97: Serviço ou instituição não existente no Município/DF'
+q29_3_1'q29_3_1_v10226_1_29.3. Centro de Referência de Assistência Social (CRAS)1: Possui dados de localização (endereço, telefone, etc.)'
+q29_3_2'q29_3_2_v10226_2_29.3. Centro de Referência de Assistência Social (CRAS)2: Recebe usuárias(os) encaminhadas(os) por este Centro de Referência'
+q29_3_3'q29_3_3_v10226_3_29.3. Centro de Referência de Assistência Social (CRAS)3: Encaminha usuárias(os) para este Centro de Referência'
+q29_3_4'q29_3_4_v10226_4_29.3. Centro de Referência de Assistência Social (CRAS)4: Acompanha os encaminhamentos'
+q29_3_5'q29_3_5_v10226_5_29.3. Centro de Referência de Assistência Social (CRAS)5: Realiza reuniões periódicas'
+q29_3_6'q29_3_6_v10226_6_29.3. Centro de Referência de Assistência Social (CRAS)6: Troca Informações'
+q29_3_7'q29_3_7_v10226_7_29.3. Centro de Referência de Assistência Social (CRAS)7: Realiza estudos de caso em conjunto'
+q29_3_8'q29_3_8_v10226_8_29.3. Centro de Referência de Assistência Social (CRAS)8: Desenvolve atividades em parceria'
+q29_3_9'q29_3_9_v10226_9_29.3. Centro de Referência de Assistência Social (CRAS)9: Possui fluxo/protocolo de articulação'
+q29_3_0'q29_3_0_v10226_0_29.3. Centro de Referência de Assistência Social (CRAS)0: Não tem nenhuma articulação'
+q29_3_97'q29_3_97_v10226_97_29.3. Centro de Referência de Assistência Social (CRAS)97: Serviço ou instituição não existente no Município/DF'
+q29_4_1'q29_4_1_v10227_1_29.4. Centro de Referência Especializado de Assistência Social (CREAS)1: Possui dados de localização (endereço, telefone, etc.)'
+q29_4_2'q29_4_2_v10227_2_29.4. Centro de Referência Especializado de Assistência Social (CREAS)2: Recebe usuárias(os) encaminhadas(os) por este Centro de Referência'
+q29_4_3'q29_4_3_v10227_3_29.4. Centro de Referência Especializado de Assistência Social (CREAS)3: Encaminha usuárias(os) para este Centro de Referência'
+q29_4_4'q29_4_4_v10227_4_29.4. Centro de Referência Especializado de Assistência Social (CREAS)4: Acompanha os encaminhamentos'
+q29_4_5'q29_4_5_v10227_5_29.4. Centro de Referência Especializado de Assistência Social (CREAS)5: Realiza reuniões periódicas'
+q29_4_6'q29_4_6_v10227_6_29.4. Centro de Referência Especializado de Assistência Social (CREAS)6: Troca Informações'
+q29_4_7'q29_4_7_v10227_7_29.4. Centro de Referência Especializado de Assistência Social (CREAS)7: Realiza estudos de caso em conjunto'
+q29_4_8'q29_4_8_v10227_8_29.4. Centro de Referência Especializado de Assistência Social (CREAS)8: Desenvolve atividades em parceria'
+q29_4_9'q29_4_9_v10227_9_29.4. Centro de Referência Especializado de Assistência Social (CREAS)9: Possui fluxo/protocolo de articulação'
+q29_4_0'q29_4_0_v10227_0_29.4. Centro de Referência Especializado de Assistência Social (CREAS)0: Não tem nenhuma articulação'
+q29_4_97'q29_4_97_v10227_97_29.4. Centro de Referência Especializado de Assistência Social (CREAS)97: Serviço ou instituição não existente no Município/DF'
+q29_5_1'q29_5_1_v10228_1_29.5. Serviços de Saúde Mental (CAPS, CAPS AD, etc.)1: Possui dados de localização (endereço, telefone, etc.)'
+q29_5_2'q29_5_2_v10228_2_29.5. Serviços de Saúde Mental (CAPS, CAPS AD, etc.)2: Recebe usuárias(os) encaminhadas(os) por este Centro de Referência'
+q29_5_3'q29_5_3_v10228_3_29.5. Serviços de Saúde Mental (CAPS, CAPS AD, etc.)3: Encaminha usuárias(os) para este Centro de Referência'
+q29_5_4'q29_5_4_v10228_4_29.5. Serviços de Saúde Mental (CAPS, CAPS AD, etc.)4: Acompanha os encaminhamentos'
+q29_5_5'q29_5_5_v10228_5_29.5. Serviços de Saúde Mental (CAPS, CAPS AD, etc.)5: Realiza reuniões periódicas'
+q29_5_6'q29_5_6_v10228_6_29.5. Serviços de Saúde Mental (CAPS, CAPS AD, etc.)6: Troca Informações'
+q29_5_7'q29_5_7_v10228_7_29.5. Serviços de Saúde Mental (CAPS, CAPS AD, etc.)7: Realiza estudos de caso em conjunto'
+q29_5_8'q29_5_8_v10228_8_29.5. Serviços de Saúde Mental (CAPS, CAPS AD, etc.)8: Desenvolve atividades em parceria'
+q29_5_9'q29_5_9_v10228_9_29.5. Serviços de Saúde Mental (CAPS, CAPS AD, etc.)9: Possui fluxo/protocolo de articulação'
+q29_5_0'q29_5_0_v10228_0_29.5. Serviços de Saúde Mental (CAPS, CAPS AD, etc.)0: Não tem nenhuma articulação'
+q29_5_97'q29_5_97_v10228_97_29.5. Serviços de Saúde Mental (CAPS, CAPS AD, etc.)97: Serviço ou instituição não existente no Município/DF'
+q29_6_1'q29_6_1_v10229_1_29.6. Equipes de Saúde que atuem no espaço da rua (Consultórios na Rua ou outros)1: Possui dados de localização (endereço, telefone, etc.)'
+q29_6_2'q29_6_2_v10229_2_29.6. Equipes de Saúde que atuem no espaço da rua (Consultórios na Rua ou outros)2: Recebe usuárias(os) encaminhadas(os) por este Centro de Referência'
+q29_6_3'q29_6_3_v10229_3_29.6. Equipes de Saúde que atuem no espaço da rua (Consultórios na Rua ou outros)3: Encaminha usuárias(os) para este Centro de Referência'
+q29_6_4'q29_6_4_v10229_4_29.6. Equipes de Saúde que atuem no espaço da rua (Consultórios na Rua ou outros)4: Acompanha os encaminhamentos'
+q29_6_5'q29_6_5_v10229_5_29.6. Equipes de Saúde que atuem no espaço da rua (Consultórios na Rua ou outros)5: Realiza reuniões periódicas'
+q29_6_6'q29_6_6_v10229_6_29.6. Equipes de Saúde que atuem no espaço da rua (Consultórios na Rua ou outros)6: Troca Informações'
+q29_6_7'q29_6_7_v10229_7_29.6. Equipes de Saúde que atuem no espaço da rua (Consultórios na Rua ou outros)7: Realiza estudos de caso em conjunto'
+q29_6_8'q29_6_8_v10229_8_29.6. Equipes de Saúde que atuem no espaço da rua (Consultórios na Rua ou outros)8: Desenvolve atividades em parceria'
+q29_6_9'q29_6_9_v10229_9_29.6. Equipes de Saúde que atuem no espaço da rua (Consultórios na Rua ou outros)9: Possui fluxo/protocolo de articulação'
+q29_6_0'q29_6_0_v10229_0_29.6. Equipes de Saúde que atuem no espaço da rua (Consultórios na Rua ou outros)0: Não tem nenhuma articulação'
+q29_6_97'q29_6_97_v10229_97_29.6. Equipes de Saúde que atuem no espaço da rua (Consultórios na Rua ou outros)97: Serviço ou instituição não existente no Município/DF'
+q29_7_1'q29_7_1_v10231_1_29.7. Serviços de saúde voltados à internação1: Possui dados de localização (endereço, telefone, etc.)'
+q29_7_2'q29_7_2_v10231_2_29.7. Serviços de saúde voltados à internação2: Recebe usuárias(os) encaminhadas(os) por este Centro de Referência'
+q29_7_3'q29_7_3_v10231_3_29.7. Serviços de saúde voltados à internação3: Encaminha usuárias(os) para este Centro de Referência'
+q29_7_4'q29_7_4_v10231_4_29.7. Serviços de saúde voltados à internação4: Acompanha os encaminhamentos'
+q29_7_5'q29_7_5_v10231_5_29.7. Serviços de saúde voltados à internação5: Realiza reuniões periódicas'
+q29_7_6'q29_7_6_v10231_6_29.7. Serviços de saúde voltados à internação6: Troca Informações'
+q29_7_7'q29_7_7_v10231_7_29.7. Serviços de saúde voltados à internação7: Realiza estudos de caso em conjunto'
+q29_7_8'q29_7_8_v10231_8_29.7. Serviços de saúde voltados à internação8: Desenvolve atividades em parceria'
+q29_7_9'q29_7_9_v10231_9_29.7. Serviços de saúde voltados à internação9: Possui fluxo/protocolo de articulação'
+q29_7_0'q29_7_0_v10231_0_29.7. Serviços de saúde voltados à internação0: Não tem nenhuma articulação'
+q29_7_97'q29_7_97_v10231_97_29.7. Serviços de saúde voltados à internação97: Serviço ou instituição não existente no Município/DF'
+q29_8_1'q29_8_1_v10232_1_29.8. Serviços de educação1: Possui dados de localização (endereço, telefone, etc.)'
+q29_8_2'q29_8_2_v10232_2_29.8. Serviços de educação2: Recebe usuárias(os) encaminhadas(os) por este Centro de Referência'
+q29_8_3'q29_8_3_v10232_3_29.8. Serviços de educação3: Encaminha usuárias(os) para este Centro de Referência'
+q29_8_4'q29_8_4_v10232_4_29.8. Serviços de educação4: Acompanha os encaminhamentos'
+q29_8_5'q29_8_5_v10232_5_29.8. Serviços de educação5: Realiza reuniões periódicas'
+q29_8_6'q29_8_6_v10232_6_29.8. Serviços de educação6: Troca Informações'
+q29_8_7'q29_8_7_v10232_7_29.8. Serviços de educação7: Realiza estudos de caso em conjunto'
+q29_8_8'q29_8_8_v10232_8_29.8. Serviços de educação8: Desenvolve atividades em parceria'
+q29_8_9'q29_8_9_v10232_9_29.8. Serviços de educação9: Possui fluxo/protocolo de articulação'
+q29_8_0'q29_8_0_v10232_0_29.8. Serviços de educação0: Não tem nenhuma articulação'
+q29_8_97'q29_8_97_v10232_97_29.8. Serviços de educação97: Serviço ou instituição não existente no Município/DF'
+q29_9_1'q29_9_1_v14444_1_29.9. Políticas Culturais (ponto de cultura, entre outros)1: Possui dados de localização (endereço, telefone, etc.)'
+q29_9_2'q29_9_2_v14444_2_29.9. Políticas Culturais (ponto de cultura, entre outros)2: Recebe usuárias(os) encaminhados por este Centro de Referência'
+q29_9_3'q29_9_3_v14444_3_29.9. Políticas Culturais (ponto de cultura, entre outros)3: Encaminha usuárias(os) para este Centro de Referência'
+q29_9_4'q29_9_4_v14444_4_29.9. Políticas Culturais (ponto de cultura, entre outros)4: Acompanha os encaminhamentos'
+q29_9_5'q29_9_5_v14444_5_29.9. Políticas Culturais (ponto de cultura, entre outros)5: Realiza reuniões periódicas'
+q29_9_6'q29_9_6_v14444_6_29.9. Políticas Culturais (ponto de cultura, entre outros)6: Troca Informações'
+q29_9_7'q29_9_7_v14444_7_29.9. Políticas Culturais (ponto de cultura, entre outros)7: Realiza estudos de caso em conjunto'
+q29_9_8'q29_9_8_v14444_8_29.9. Políticas Culturais (ponto de cultura, entre outros)8: Desenvolve atividades em parceria'
+q29_9_9'q29_9_9_v14444_9_29.9. Políticas Culturais (ponto de cultura, entre outros)9: Possui fluxo/protocolo de articulação'
+q29_9_0'q29_9_0_v14444_0_29.9. Políticas Culturais (ponto de cultura, entre outros)0: Não tem nenhuma articulação'
+q29_9_97'q29_9_97_v14444_97_29.9. Políticas Culturais (ponto de cultura, entre outros)97: Serviço ou instituição não existente no Município/DF'
+q29_10_1'q29_10_1_v10234_1_29.10. Órgãos responsáveis pela emissão de documentação civil básica1: Possui dados de localização (endereço, telefone, etc.)'
+q29_10_2'q29_10_2_v10234_2_29.10. Órgãos responsáveis pela emissão de documentação civil básica2: Recebe usuárias(os) encaminhados por este Centro de Referência'
+q29_10_3'q29_10_3_v10234_3_29.10. Órgãos responsáveis pela emissão de documentação civil básica3: Encaminha usuárias(os) para este Centro de Referência'
+q29_10_4'q29_10_4_v10234_4_29.10. Órgãos responsáveis pela emissão de documentação civil básica4: Acompanha os encaminhamentos'
+q29_10_5'q29_10_5_v10234_5_29.10. Órgãos responsáveis pela emissão de documentação civil básica5: Realiza reuniões periódicas'
+q29_10_6'q29_10_6_v10234_6_29.10. Órgãos responsáveis pela emissão de documentação civil básica6: Troca Informações'
+q29_10_7'q29_10_7_v10234_7_29.10. Órgãos responsáveis pela emissão de documentação civil básica7: Realiza estudos de caso em conjunto'
+q29_10_8'q29_10_8_v10234_8_29.10. Órgãos responsáveis pela emissão de documentação civil básica8: Desenvolve atividades em parceria'
+q29_10_9'q29_10_9_v10234_9_29.10. Órgãos responsáveis pela emissão de documentação civil básica9: Possui fluxo/protocolo de articulação'
+q29_10_0'q29_10_0_v10234_0_29.10. Órgãos responsáveis pela emissão de documentação civil básica0: Não tem nenhuma articulação'
+q29_10_97'q29_10_97_v10234_97_29.10. Órgãos responsáveis pela emissão de documentação civil básica97: Serviço ou instituição não existente no Município/DF'
+q29_11_1'q29_11_1_v10235_1_29.11. Serviços/Programas de Segurança Alimentar1: Possui dados de localização (endereço, telefone, etc.)'
+q29_11_2'q29_11_2_v10235_2_29.11. Serviços/Programas de Segurança Alimentar2: Recebe usuárias(os) encaminhados por este Centro de Referência'
+q29_11_3'q29_11_3_v10235_3_29.11. Serviços/Programas de Segurança Alimentar3: Encaminha usuárias(os) para este Centro de Referência'
+q29_11_4'q29_11_4_v10235_4_29.11. Serviços/Programas de Segurança Alimentar4: Acompanha os encaminhamentos'
+q29_11_5'q29_11_5_v10235_5_29.11. Serviços/Programas de Segurança Alimentar5: Realiza reuniões periódicas'
+q29_11_6'q29_11_6_v10235_6_29.11. Serviços/Programas de Segurança Alimentar6: Troca Informações'
+q29_11_7'q29_11_7_v10235_7_29.11. Serviços/Programas de Segurança Alimentar7: Realiza estudos de caso em conjunto'
+q29_11_8'q29_11_8_v10235_8_29.11. Serviços/Programas de Segurança Alimentar8: Desenvolve atividades em parceria'
+q29_11_9'q29_11_9_v10235_9_29.11. Serviços/Programas de Segurança Alimentar9: Possui fluxo/protocolo de articulação'
+q29_11_0'q29_11_0_v10235_0_29.11. Serviços/Programas de Segurança Alimentar0: Não tem nenhuma articulação'
+q29_11_97'q29_11_97_v10235_97_29.11. Serviços/Programas de Segurança Alimentar97: Serviço ou instituição não existente no Município/DF'
+q29_12_1'q29_12_1_v10236_1_29.12. Serviços/Programas de Habitação1: Possui dados de localização (endereço, telefone, etc.)'
+q29_12_2'q29_12_2_v10236_2_29.12. Serviços/Programas de Habitação2: Recebe usuárias(os) encaminhados por este Centro de Referência'
+q29_12_3'q29_12_3_v10236_3_29.12. Serviços/Programas de Habitação3: Encaminha usuárias(os) para este Centro de Referência'
+q29_12_4'q29_12_4_v10236_4_29.12. Serviços/Programas de Habitação4: Acompanha os encaminhamentos'
+q29_12_5'q29_12_5_v10236_5_29.12. Serviços/Programas de Habitação5: Realiza reuniões periódicas'
+q29_12_6'q29_12_6_v10236_6_29.12. Serviços/Programas de Habitação6: Troca Informações'
+q29_12_7'q29_12_7_v10236_7_29.12. Serviços/Programas de Habitação7: Realiza estudos de caso em conjunto'
+q29_12_8'q29_12_8_v10236_8_29.12. Serviços/Programas de Habitação8: Desenvolve atividades em parceria'
+q29_12_9'q29_12_9_v10236_9_29.12. Serviços/Programas de Habitação9: Possui fluxo/protocolo de articulação'
+q29_12_0'q29_12_0_v10236_0_29.12. Serviços/Programas de Habitação0: Não tem nenhuma articulação'
+q29_12_97'q29_12_97_v10236_97_29.12. Serviços/Programas de Habitação97: Serviço ou instituição não existente no Município/DF'
+q29_13_1'q29_13_1_v10237_1_29.13. Serviços/Programas de Geração de Trabalho e Renda1: Possui dados de localização (endereço, telefone, etc.)'
+q29_13_2'q29_13_2_v10237_2_29.13. Serviços/Programas de Geração de Trabalho e Renda2: Recebe usuárias(os) encaminhados por este Centro de Referência'
+q29_13_3'q29_13_3_v10237_3_29.13. Serviços/Programas de Geração de Trabalho e Renda3: Encaminha usuárias(os) para este Centro de Referência'
+q29_13_4'q29_13_4_v10237_4_29.13. Serviços/Programas de Geração de Trabalho e Renda4: Acompanha os encaminhamentos'
+q29_13_5'q29_13_5_v10237_5_29.13. Serviços/Programas de Geração de Trabalho e Renda5: Realiza reuniões periódicas'
+q29_13_6'q29_13_6_v10237_6_29.13. Serviços/Programas de Geração de Trabalho e Renda6: Troca Informações'
+q29_13_7'q29_13_7_v10237_7_29.13. Serviços/Programas de Geração de Trabalho e Renda7: Realiza estudos de caso em conjunto'
+q29_13_8'q29_13_8_v10237_8_29.13. Serviços/Programas de Geração de Trabalho e Renda8: Desenvolve atividades em parceria'
+q29_13_9'q29_13_9_v10237_9_29.13. Serviços/Programas de Geração de Trabalho e Renda9: Possui fluxo/protocolo de articulação'
+q29_13_0'q29_13_0_v10237_0_29.13. Serviços/Programas de Geração de Trabalho e Renda0: Não tem nenhuma articulação'
+q29_13_97'q29_13_97_v10237_97_29.13. Serviços/Programas de Geração de Trabalho e Renda97: Serviço ou instituição não existente no Município/DF'
+q29_14_1'q29_14_1_v10240_1_29.14. Órgãos de Defesa de Direitos (Poder Judiciário, Ministério Público, Defensoria Pública, etc.)1: Possui dados de localização (endereço, telefone, etc.)'
+q29_14_2'q29_14_2_v10240_2_29.14. Órgãos de Defesa de Direitos (Poder Judiciário, Ministério Público, Defensoria Pública, etc.)2: Recebe usuárias(os) encaminhados por este Centro de Referência'
+q29_14_3'q29_14_3_v10240_3_29.14. Órgãos de Defesa de Direitos (Poder Judiciário, Ministério Público, Defensoria Pública, etc.)3: Encaminha usuárias(os) para este Centro de Referência'
+q29_14_4'q29_14_4_v10240_4_29.14. Órgãos de Defesa de Direitos (Poder Judiciário, Ministério Público, Defensoria Pública, etc.)4: Acompanha os encaminhamentos'
+q29_14_5'q29_14_5_v10240_5_29.14. Órgãos de Defesa de Direitos (Poder Judiciário, Ministério Público, Defensoria Pública, etc.)5: Realiza reuniões periódicas'
+q29_14_6'q29_14_6_v10240_6_29.14. Órgãos de Defesa de Direitos (Poder Judiciário, Ministério Público, Defensoria Pública, etc.)6: Troca Informações'
+q29_14_7'q29_14_7_v10240_7_29.14. Órgãos de Defesa de Direitos (Poder Judiciário, Ministério Público, Defensoria Pública, etc.)7: Realiza estudos de caso em conjunto'
+q29_14_8'q29_14_8_v10240_8_29.14. Órgãos de Defesa de Direitos (Poder Judiciário, Ministério Público, Defensoria Pública, etc.)8: Desenvolve atividades em parceria'
+q29_14_9'q29_14_9_v10240_9_29.14. Órgãos de Defesa de Direitos (Poder Judiciário, Ministério Público, Defensoria Pública, etc.)9: Possui fluxo/protocolo de articulação'
+q29_14_0'q29_14_0_v10240_0_29.14. Órgãos de Defesa de Direitos (Poder Judiciário, Ministério Público, Defensoria Pública, etc.)0: Não tem nenhuma articulação'
+q29_14_97'q29_14_97_v10240_97_29.14. Órgãos de Defesa de Direitos (Poder Judiciário, Ministério Público, Defensoria Pública, etc.)97: Serviço ou instituição não existente no Município/DF'
+q29_15_1'q29_15_1_v10241_1_29.15. Movimentos organizados da população em situação de rua1: Possui dados de localização (endereço, telefone, etc.)'
+q29_15_2'q29_15_2_v10241_2_29.15. Movimentos organizados da população em situação de rua2: Recebe usuárias(os) encaminhados por este Centro de Referência'
+q29_15_3'q29_15_3_v10241_3_29.15. Movimentos organizados da população em situação de rua3: Encaminha usuárias(os) para este Centro de Referência'
+q29_15_4'q29_15_4_v10241_4_29.15. Movimentos organizados da população em situação de rua4: Acompanha os encaminhamentos'
+q29_15_5'q29_15_5_v10241_5_29.15. Movimentos organizados da população em situação de rua5: Realiza reuniões periódicas'
+q29_15_6'q29_15_6_v10241_6_29.15. Movimentos organizados da população em situação de rua6: Troca Informações'
+q29_15_7'q29_15_7_v10241_7_29.15. Movimentos organizados da população em situação de rua7: Realiza estudos de caso em conjunto'
+q29_15_8'q29_15_8_v10241_8_29.15. Movimentos organizados da população em situação de rua8: Desenvolve atividades em parceria'
+q29_15_9'q29_15_9_v10241_9_29.15. Movimentos organizados da população em situação de rua9: Possui fluxo/protocolo de articulação'
+q29_15_0'q29_15_0_v10241_0_29.15. Movimentos organizados da população em situação de rua0: Não tem nenhuma articulação'
+q29_15_97'q29_15_97_v10241_97_29.15. Movimentos organizados da população em situação de rua97: Serviço ou instituição não existente no Município/DF'
+q30_99_1'q30_99_1_v12805_30.99.1. Especifique:'
+q30_1'q30_1_v12759_1_30. Nos últimos 12 meses, a Unidade proporcionou ou facilitou a participação das(os) suas/seus profissionais em capacitação sobre os seguintes temas?1: Deficiência'
+q30_2'q30_2_v12759_2_30. Nos últimos 12 meses, a Unidade proporcionou ou facilitou a participação das(os) suas/seus profissionais em capacitação sobre os seguintes temas?2: Gênero'
+q30_3'q30_3_v12759_3_30. Nos últimos 12 meses, a Unidade proporcionou ou facilitou a participação das(os) suas/seus profissionais em capacitação sobre os seguintes temas?3: População em situação de rua'
+q30_4'q30_4_v12759_4_30. Nos últimos 12 meses, a Un proporcionou ou facilit a particip das seus profs em capac sobre seguintes temas4: População LGBT, orientação sexual e identidade de gênero (Lésbicas, gays, bissexuais, transgêneros e intersexuais)'
+q30_5'q30_5_v12759_5_30. Nos últimos 12 meses, a Unidade proporcionou ou facilitou a participação das(os) suas/seus profissionais em capacitação sobre os seguintes temas?5: Álcool e outras drogas'
+q30_6'q30_6_v12759_6_30. Nos últimos 12 meses, a Un propor ou facilit a particip das suas profs em capacitação sobre os seguintes temas?6: Diversidade étnico-racial (questão racial, comunidades indígenas, povos e comunidades tradicionais etc.)'
+q30_7'q30_7_v12759_7_30. Nos últimos 12 meses, a Unidade proporcionou ou facilitou a participação das(os) suas/seus profissionais em capacitação sobre os seguintes temas?7: Violências e violações de direitos'
+q30_8'q30_8_v12759_8_30. Nos últimos 12 meses, a Unidade proporcionou ou facilitou a participação das(os) suas/seus profissionais em capacitação sobre os seguintes temas?8: Trabalho Infantil'
+q30_9'q30_9_v12759_9_30. Nos últimos 12 meses, a Unidade proporcionou ou facilitou a participação das(os) suas/seus profissionais em capacitação sobre os seguintes temas?9: Criança e adolescente'
+q30_10'q30_10_v12759_10_30. Nos últimos 12 meses, a Unidade proporcionou ou facilitou a participação das(os) suas/seus profissionais em capacitação sobre os seguintes temas?10: Juventude'
+q30_11'q30_11_v12759_11_30. Nos últimos 12 meses, a Unidade proporcionou ou facilitou a participação das(os) suas/seus profissionais em capacitação sobre os seguintes temas?11: Envelhecimento'
+q30_12'q30_12_v12759_12_30. Nos últimos 12 meses, a Unidade proporcionou ou facilitou a participação das(os) suas/seus profissionais em capacitação sobre os seguintes temas?12: Sistema Socioeducativo/ Medida Socioeducativa/ SINASE'
+q30_13'q30_13_v12759_13_30. Nos últimos 12 meses, a Unidade proporcionou ou facilitou a participação das(os) suas/seus profissionais em capacitação sobre os seguintes temas?13: Migração'
+q30_14'q30_14_v12759_14_30. Nos últimos 12 meses, a Unidade proporcionou ou facilitou a participação das(os) suas/seus profissionais em capacitação sobre os seguintes temas?14: Mundo do trabalho'
+q30_99'q30_99_v12759_99_30. Nos últimos 12 meses, a Unidade proporcionou ou facilitou a participação das(os) suas/seus profissionais em capacitação sobre os seguintes temas?99: Outros'
+q30_0'q30_0_v12759_0_30. Nos últimos 12 meses, a Unidade proporcionou ou facilitou a participação das(os) suas/seus profissionais em capacitação sobre os seguintes temas?0: Não proporcionou/facilitou a participação das(os) profissionais'
+q31'q31_v14445_31. Nesta unidade, algum(a) profissional já participou de algum curso do CAPACITASUAS?'
+q30_1_99'q30_1_99_v12760_30.1.99. Quantos?'
+q32'q32_v10245_32. O(a) coordenador(a) desta Unidade:'
+q34_1'q34_1_v10261_34.1. Responsável - Nome:'
+q34_2'q34_2_v10262_34.2. Responsável - CPF:'
+q34_3'q34_3_v10263_34.3. Responsável - Data:'
+q34_4'q34_4_v10264_34.4. Responsável - Cargo/Função:'
+q34_4_99_1'q34_4_99_1_v10265_34.4.99.1. Responsável - Especifique:'
+q34_5'q34_5_v10266_34.5. Responsável - Telefone:'
+q34_6'q34_6_v10267_34.6. Responsável - E-mail:'
+q35_1'q35_1_v10268_35.1. Responsável Órgão Gestor - Nome:'
+q35_2'q35_2_v10269_35.2. Responsável Órgão Gestor - CPF:'
+q35_3'q35_3_v10270_35.3. Responsável Órgão Gestor - Data:'
+q35_4'q35_4_v10271_35.4. Responsável Órgão Gestor - Cargo/Função:'
+q35_4_99_1'q35_4_99_1_v10272_35.4.99.1. Responsável Órgão Gestor - Especifique:'
+q35_5'q35_5_v10273_35.5. Responsável Órgão Gestor - Telefone:'
+q35_6'q35_6_v10274_35.6. Responsável Órgão Gestor - E-mail:'.
+
+VALUE LABELS
+/q0_2
+1 'Alameda'
+2 'Área'
+3 'Avenida'
+4 'Campo'
+5 'Chácara'
+6 'Colônia'
+7 'Condomínio'
+8 'Conjunto'
+9 'Distrito'
+10 'Esplanada'
+11 'Estação'
+12 'Estrada'
+13 'Favela'
+14 'Fazenda'
+15 'Feira'
+16 'Jardim'
+17 'Ladeira'
+18 'Lago'
+19 'Lagoa'
+20 'Largo'
+21 'Loteamento'
+22 'Morro'
+23 'Núcleo'
+24 'Parque'
+25 'Passarela'
+26 'Pátio'
+27 'Praça'
+28 'Quadra'
+29 'Recanto'
+30 'Residencial'
+31 'Rodovia'
+32 'Rua'
+33 'Setor'
+34 'Sítio'
+35 'Travessa'
+36 'Trecho'
+37 'Trevo'
+38 'Vale'
+39 'Vereda'
+40 'Via'
+41 'Viaduto'
+42 'Viela'
+43 'Vila'
+44 'Outros'
+/q0_10
+11
+12
+13
+14
+15
+16
+17
+21
+22
+23
+24
+25
+26
+27
+28
+29
+31
+32
+33
+35
+41
+42
+43
+50
+51
+52
+53
+/q1_1
+1' 1 dia por semana'
+2' 2 dias por semana'
+3' 3 dias por semana'
+4' 4 dias por semana'
+5' 5 dias por semana'
+6' 6 dias por semana'
+7' 7 dias por semana'
+/q1_2
+1' 1 hora por dia'
+2' 2 horas por dia'
+3' 3 horas por dia'
+4' 4 horas por dia'
+5' 5 horas por dia'
+6' 6 horas por dia'
+7' 7 horas por dia'
+8' 8 horas por dia'
+9' 9 horas por dia'
+10' 10 horas por dia'
+11' 11 horas por dia'
+12' 12 horas por dia'
+13' 13 horas por dia'
+14' 14 horas por dia'
+15' 15 horas por dia'
+16' 16 horas por dia'
+17' 17 horas por dia'
+18' 18 horas por dia'
+19' 19 horas por dia'
+20' 20 horas por dia'
+21' 21 horas por dia'
+22' 22 horas por dia'
+23' 23 horas por dia'
+24' 24 horas por dia'
+/q2
+1' Sim'
+0' Não'
+/q3_1
+1' Sim'
+0' Não'
+/q3_2
+1' Sim'
+0' Não'
+/q3_3
+1' Sim'
+0' Não'
+/q3_4
+1' Sim'
+0' Não'
+/q3_5
+1' Sim'
+0' Não'
+/q3_6
+1' Sim'
+0' Não'
+/q3_7
+1' Sim'
+0' Não'
+/q3_8
+1' Sim'
+0' Não'
+/q3_99
+1' Sim'
+0' Não'
+/q4_1
+1' Sim'
+0' Não'
+/q4_2
+1' Sim'
+0' Não'
+/q4_3
+1' Sim'
+0' Não'
+/q4_4
+1' Sim'
+0' Não'
+/q4_5
+1' Sim'
+0' Não'
+/q4_6
+1' Sim'
+0' Não'
+/q4_7
+1' Sim'
+0' Não'
+/q4_8
+1' Sim'
+0' Não'
+/q4_9
+1' Sim'
+0' Não'
+/q4_10
+1' Sim'
+0' Não'
+/q4_11
+1' Sim'
+0' Não'
+/q4_12
+1' Sim'
+0' Não'
+/q4_13
+1' Sim'
+0' Não'
+/q4_14
+1' Sim'
+0' Não'
+/q4_99
+1' Sim'
+0' Não'
+/q5_9
+1' Sim'
+0' Não'
+/q5_10
+1' Sim'
+0' Não'
+/q5_11
+1' Sim'
+0' Não'
+/q5_12
+1' Sim'
+0' Não'
+/q5_13
+1' Sim'
+0' Não'
+/q5_14
+1' Sim'
+0' Não'
+/q5_15
+1' Sim'
+0' Não'
+/q5_16
+1' Sim'
+0' Não'
+/q6_1
+1' Sim, de acordo com a norma da ABNT'
+2' Sim, mas não estão de acordo com a norma da ABNT'
+0' Não'
+/q6_2
+1' Sim, de acordo com a norma da ABNT'
+2' Sim, mas não estão de acordo com a norma da ABNT'
+0' Não'
+/q6_3
+1' Sim, de acordo com a norma da ABNT'
+2' Sim, mas não estão de acordo com a norma da ABNT'
+0' Não'
+/q6_4
+1' Sim, de acordo com a norma da ABNT'
+2' Sim, mas não estão de acordo com a norma da ABNT'
+0' Não'
+/q7_1
+1' Sim'
+0' Não'
+/q7_2
+1' Sim'
+0' Não'
+/q7_3
+1' Sim'
+0' Não'
+/q7_4
+1' Sim'
+0' Não'
+/q7_5
+1' Sim'
+0' Não'
+/q7_6
+1' Sim'
+0' Não'
+/q7_0
+1' Sim'
+0' Não'
+/q8_1_1
+1' Sim'
+0' Não'
+/q8_1_2
+1' Sim'
+0' Não'
+/q8_2_1
+1' Sim'
+0' Não'
+/q8_2_2
+1' Sim'
+0' Não'
+/q8_3_1
+1' Sim'
+0' Não'
+/q8_3_2
+1' Sim'
+0' Não'
+/q8_4_1
+1' Sim'
+0' Não'
+/q8_4_2
+1' Sim'
+0' Não'
+/q8_5_1
+1' Sim'
+0' Não'
+/q8_5_2
+1' Sim'
+0' Não'
+/q8_6_1
+1' Sim'
+0' Não'
+/q8_6_2
+1' Sim'
+0' Não'
+/q8_7_1
+1' Sim'
+0' Não'
+/q8_7_2
+1' Sim'
+0' Não'
+/q8_8_1
+1' Sim'
+0' Não'
+/q8_8_2
+1' Sim'
+0' Não'
+/q8_9_1
+1' Sim'
+0' Não'
+/q8_9_2
+1' Sim'
+0' Não'
+/q8_10_1
+1' Sim'
+0' Não'
+/q8_10_2
+1' Sim'
+0' Não'
+/q8_11_1
+1' Sim'
+0' Não'
+/q8_11_2
+1' Sim'
+0' Não'
+/q8_12_1
+1' Sim'
+0' Não'
+/q8_12_2
+1' Sim'
+0' Não'
+/q8_13_1
+1' Sim'
+0' Não'
+/q8_13_2
+1' Sim'
+0' Não'
+/q8_14_1
+1' Sim'
+0' Não'
+/q8_14_2
+1' Sim'
+0' Não'
+/q8_15_1
+1' Sim'
+0' Não'
+/q8_15_2
+1' Sim'
+0' Não'
+/q8_16_1
+1' Sim'
+0' Não'
+/q8_16_2
+1' Sim'
+0' Não'
+/q8_17_1
+1' Sim'
+0' Não'
+/q8_17_2
+1' Sim'
+0' Não'
+/q8_18_1
+1' Sim'
+0' Não'
+/q8_18_2
+1' Sim'
+0' Não'
+/q8_19_1
+1' Sim'
+0' Não'
+/q8_20_1
+1' Sim'
+0' Não'
+/q10
+1' Sim'
+0' Não'
+/q11_1_1
+1' Sim'
+0' Não'
+/q11_1_2_1
+1' Sim'
+0' Não'
+/q11_1_2_2
+1' Sim'
+0' Não'
+/q11_1_2_3
+1' Sim'
+0' Não'
+/q11_2_1
+1' Sim'
+0' Não'
+/q11_2_2_1
+1' Sim'
+0' Não'
+/q11_2_2_2
+1' Sim'
+0' Não'
+/q11_2_2_3
+1' Sim'
+0' Não'
+/q11_3_1
+1' Sim'
+0' Não'
+/q11_3_2_1
+1' Sim'
+0' Não'
+/q11_3_2_2
+1' Sim'
+0' Não'
+/q11_3_2_3
+1' Sim'
+0' Não'
+/q11_4_1
+1' Sim'
+0' Não'
+/q11_4_2_1
+1' Sim'
+0' Não'
+/q11_4_2_2
+1' Sim'
+0' Não'
+/q11_4_2_3
+1' Sim'
+0' Não'
+/q11_5_1
+1' Sim'
+0' Não'
+/q11_5_2_1
+1' Sim'
+0' Não'
+/q11_5_2_2
+1' Sim'
+0' Não'
+/q11_5_2_3
+1' Sim'
+0' Não'
+/q12_1
+1' Sim'
+0' Não'
+/q12_2
+1' Sim'
+0' Não'
+/q12_3
+1' Sim'
+0' Não'
+/q12_4
+1' Sim'
+0' Não'
+/q12_5
+1' Sim'
+0' Não'
+/q12_6
+1' Sim'
+0' Não'
+/q12_7
+1' Sim'
+0' Não'
+/q12_8
+1' Sim'
+0' Não'
+/q12_9
+1' Sim'
+0' Não'
+/q12_10
+1' Sim'
+0' Não'
+/q12_11
+1' Sim'
+0' Não'
+/q12_12
+1' Sim'
+0' Não'
+/q12_13
+1' Sim'
+0' Não'
+/q12_14
+1' Sim'
+0' Não'
+/q12_15
+1' Sim'
+0' Não'
+/q12_16
+1' Sim'
+0' Não'
+/q12_17
+1' Sim'
+0' Não'
+/q12_18
+1' Sim'
+0' Não'
+/q12_19
+1' Sim'
+0' Não'
+/q12_20
+1' Sim'
+0' Não'
+/q12_21
+1' Sim'
+0' Não'
+/q12_22
+1' Sim'
+0' Não'
+/q12_23
+1' Sim'
+0' Não'
+/q12_24
+1' Sim'
+0' Não'
+/q12_99
+1' Sim'
+0' Não'
+/q13
+1' Sim, com periodicidade programada'
+2' Sim, sem periodicidade programada'
+0' Não'
+/q14_1
+1' Sim'
+0' Não'
+/q14_2
+1' Sim'
+0' Não'
+/q14_3
+1' Sim'
+0' Não'
+/q14_4
+1' Sim'
+0' Não'
+/q14_5
+1' Sim'
+0' Não'
+/q14_6
+1' Sim'
+0' Não'
+/q14_7
+1' Sim'
+0' Não'
+/q14_8
+1' Sim'
+0' Não'
+/q14_9
+1' Sim'
+0' Não'
+/q14_10
+1' Sim'
+0' Não'
+/q14_99
+1' Sim'
+0' Não'
+/q15_1
+1' Sim'
+0' Não'
+/q15_2
+1' Sim'
+0' Não'
+/q15_3
+1' Sim'
+0' Não'
+/q15_4
+1' Sim'
+0' Não'
+/q15_5
+1' Sim'
+0' Não'
+/q15_6
+1' Sim'
+0' Não'
+/q15_99
+1' Sim'
+0' Não'
+/q16_1
+1' Sim'
+0' Não'
+/q16_2
+1' Sim'
+0' Não'
+/q16_99
+1' Sim'
+0' Não'
+/q16_97
+1' Sim'
+0' Não'
+/q16_0
+1' Sim'
+0' Não'
+/q17_1
+1' Sim'
+0' Não'
+/q17_1_1
+3' Frequentemente'
+2' Às vezes'
+1' Raramente'
+0' Nunca'
+/q17_2
+1' Sim'
+0' Não'
+/q17_2_1
+3' Frequentemente'
+2' Às vezes'
+1' Raramente'
+0' Nunca'
+/q17_3
+1' Sim'
+0' Não'
+/q17_3_1
+3' Frequentemente'
+2' Às vezes'
+1' Raramente'
+0' Nunca'
+/q18
+3' Sim, com equipe exclusiva para Abordagem'
+2' Sim, sem equipe exclusiva para Abordagem'
+1' Não realiza com a equipe deste Centro POP, mas no município existe Serviço de Abordagem referenciado a este Centro POP'
+0' Não realiza, nem possui Serviço de Abordagem referenciado a este Centro POP'
+/q19_1
+1' Sim'
+0' Não'
+/q19_2
+1' Sim'
+0' Não'
+/q19_3
+1' Sim'
+0' Não'
+/q19_4
+1' Sim'
+0' Não'
+/q19_5
+1' Sim'
+0' Não'
+/q19_6
+1' Sim'
+0' Não'
+/q19_7
+1' Sim'
+0' Não'
+/q19_8
+1' Sim'
+0' Não'
+/q19_9
+1' Sim'
+0' Não'
+/q19_10
+1' Sim'
+0' Não'
+/q19_11
+1' Sim'
+0' Não'
+/q19_12
+1' Sim'
+0' Não'
+/q19_13
+1' Sim'
+0' Não'
+/q19_14
+1' Sim'
+0' Não'
+/q19_0
+1' Sim'
+0' Não'
+/q20_1
+1' Sim'
+0' Não'
+/q20_2
+1' Sim'
+0' Não'
+/q20_3
+1' Sim'
+0' Não'
+/q20_4
+1' Sim'
+0' Não'
+/q20_5
+1' Sim'
+0' Não'
+/q20_6
+1' Sim'
+0' Não'
+/q20_7
+1' Sim'
+0' Não'
+/q20_8
+1' Sim'
+0' Não'
+/q20_9
+1' Sim'
+0' Não'
+/q20_10
+1' Sim'
+0' Não'
+/q20_11
+1' Sim'
+0' Não'
+/q20_12
+1' Sim'
+0' Não'
+/q20_13
+1' Sim'
+0' Não'
+/q20_14
+1' Sim'
+0' Não'
+/q21
+1' 1 dia por semana'
+2' 2 dias por semana'
+3' 3 dias por semana'
+4' 4 dias por semana'
+5' 5 dias por semana'
+6' 6 dias por semana'
+7' 7 dias por semana'
+0' Sem frequência regular'
+/q22
+1' Diurno'
+2' Noturno'
+3' Ambos'
+/q23_1
+1' Sim'
+0' Não'
+/q23_2
+1' Sim'
+0' Não'
+/q23_3
+1' Sim'
+0' Não'
+/q23_4
+1' Sim'
+0' Não'
+/q23_5
+1' Sim'
+0' Não'
+/q23_6
+1' Sim'
+0' Não'
+/q23_7
+1' Sim'
+0' Não'
+/q23_8
+1' Sim'
+0' Não'
+/q23_9
+1' Sim'
+0' Não'
+/q23_10
+1' Sim'
+0' Não'
+/q23_11
+1' Sim'
+0' Não'
+/q23_99
+1' Sim'
+0' Não'
+/q24
+1' Sim'
+0' Não'
+/q25_1
+1' Sim'
+0' Não'
+/q25_2
+1' Sim'
+0' Não'
+/q25_3
+1' Sim'
+0' Não'
+/q25_4
+1' Sim'
+0' Não'
+/q26
+1' Sim, com equipe exclusiva para esta finalidade'
+2' Sim, com a equipe responsável pelo Serviço Especializado para Pessoas em Situação de Rua'
+3' Sim, com outra equipe'
+4' Não, apenas encaminha a(o) usuária(o) para realização do cadastramento em outro local/unidade'
+0' Não cadastra nem encaminha usuárias(os) para o CadÚnico'
+/q27
+0' Não'
+1' Sim, porém de maneira informal e ocasional'
+2' Sim, de maneira informal, mas constante'
+3' Sim, de maneira formal e regular'
+/q28_1
+1' Sim'
+0' Não'
+/q28_2
+1' Sim'
+0' Não'
+/q28_3
+1' Sim'
+0' Não'
+/q28_4
+1' Sim'
+0' Não'
+/q28_5
+1' Sim'
+0' Não'
+/q28_6
+1' Sim'
+0' Não'
+/q28_7
+1' Sim'
+0' Não'
+/q28_8
+1' Sim'
+0' Não'
+/q28_9
+1' Sim'
+0' Não'
+/q28_10
+1' Sim'
+0' Não'
+/q28_99
+1' Sim'
+0' Não'
+/q29_1_1
+1' Sim'
+0' Não'
+/q29_1_2
+1' Sim'
+0' Não'
+/q29_1_3
+1' Sim'
+0' Não'
+/q29_1_4
+1' Sim'
+0' Não'
+/q29_1_5
+1' Sim'
+0' Não'
+/q29_1_6
+1' Sim'
+0' Não'
+/q29_1_7
+1' Sim'
+0' Não'
+/q29_1_8
+1' Sim'
+0' Não'
+/q29_1_9
+1' Sim'
+0' Não'
+/q29_1_0
+1' Sim'
+0' Não'
+/q29_1_97
+1' Sim'
+0' Não'
+/q29_2_1
+1' Sim'
+0' Não'
+/q29_2_2
+1' Sim'
+0' Não'
+/q29_2_3
+1' Sim'
+0' Não'
+/q29_2_4
+1' Sim'
+0' Não'
+/q29_2_5
+1' Sim'
+0' Não'
+/q29_2_6
+1' Sim'
+0' Não'
+/q29_2_7
+1' Sim'
+0' Não'
+/q29_2_8
+1' Sim'
+0' Não'
+/q29_2_9
+1' Sim'
+0' Não'
+/q29_2_0
+1' Sim'
+0' Não'
+/q29_2_97
+1' Sim'
+0' Não'
+/q29_3_1
+1' Sim'
+0' Não'
+/q29_3_2
+1' Sim'
+0' Não'
+/q29_3_3
+1' Sim'
+0' Não'
+/q29_3_4
+1' Sim'
+0' Não'
+/q29_3_5
+1' Sim'
+0' Não'
+/q29_3_6
+1' Sim'
+0' Não'
+/q29_3_7
+1' Sim'
+0' Não'
+/q29_3_8
+1' Sim'
+0' Não'
+/q29_3_9
+1' Sim'
+0' Não'
+/q29_3_0
+1' Sim'
+0' Não'
+/q29_3_97
+1' Sim'
+0' Não'
+/q29_4_1
+1' Sim'
+0' Não'
+/q29_4_2
+1' Sim'
+0' Não'
+/q29_4_3
+1' Sim'
+0' Não'
+/q29_4_4
+1' Sim'
+0' Não'
+/q29_4_5
+1' Sim'
+0' Não'
+/q29_4_6
+1' Sim'
+0' Não'
+/q29_4_7
+1' Sim'
+0' Não'
+/q29_4_8
+1' Sim'
+0' Não'
+/q29_4_9
+1' Sim'
+0' Não'
+/q29_4_0
+1' Sim'
+0' Não'
+/q29_4_97
+1' Sim'
+0' Não'
+/q29_5_1
+1' Sim'
+0' Não'
+/q29_5_2
+1' Sim'
+0' Não'
+/q29_5_3
+1' Sim'
+0' Não'
+/q29_5_4
+1' Sim'
+0' Não'
+/q29_5_5
+1' Sim'
+0' Não'
+/q29_5_6
+1' Sim'
+0' Não'
+/q29_5_7
+1' Sim'
+0' Não'
+/q29_5_8
+1' Sim'
+0' Não'
+/q29_5_9
+1' Sim'
+0' Não'
+/q29_5_0
+1' Sim'
+0' Não'
+/q29_5_97
+1' Sim'
+0' Não'
+/q29_6_1
+1' Sim'
+0' Não'
+/q29_6_2
+1' Sim'
+0' Não'
+/q29_6_3
+1' Sim'
+0' Não'
+/q29_6_4
+1' Sim'
+0' Não'
+/q29_6_5
+1' Sim'
+0' Não'
+/q29_6_6
+1' Sim'
+0' Não'
+/q29_6_7
+1' Sim'
+0' Não'
+/q29_6_8
+1' Sim'
+0' Não'
+/q29_6_9
+1' Sim'
+0' Não'
+/q29_6_0
+1' Sim'
+0' Não'
+/q29_6_97
+1' Sim'
+0' Não'
+/q29_7_1
+1' Sim'
+0' Não'
+/q29_7_2
+1' Sim'
+0' Não'
+/q29_7_3
+1' Sim'
+0' Não'
+/q29_7_4
+1' Sim'
+0' Não'
+/q29_7_5
+1' Sim'
+0' Não'
+/q29_7_6
+1' Sim'
+0' Não'
+/q29_7_7
+1' Sim'
+0' Não'
+/q29_7_8
+1' Sim'
+0' Não'
+/q29_7_9
+1' Sim'
+0' Não'
+/q29_7_0
+1' Sim'
+0' Não'
+/q29_7_97
+1' Sim'
+0' Não'
+/q29_8_1
+1' Sim'
+0' Não'
+/q29_8_2
+1' Sim'
+0' Não'
+/q29_8_3
+1' Sim'
+0' Não'
+/q29_8_4
+1' Sim'
+0' Não'
+/q29_8_5
+1' Sim'
+0' Não'
+/q29_8_6
+1' Sim'
+0' Não'
+/q29_8_7
+1' Sim'
+0' Não'
+/q29_8_8
+1' Sim'
+0' Não'
+/q29_8_9
+1' Sim'
+0' Não'
+/q29_8_0
+1' Sim'
+0' Não'
+/q29_8_97
+1' Sim'
+0' Não'
+/q29_9_1
+1' Sim'
+0' Não'
+/q29_9_2
+1' Sim'
+0' Não'
+/q29_9_3
+1' Sim'
+0' Não'
+/q29_9_4
+1' Sim'
+0' Não'
+/q29_9_5
+1' Sim'
+0' Não'
+/q29_9_6
+1' Sim'
+0' Não'
+/q29_9_7
+1' Sim'
+0' Não'
+/q29_9_8
+1' Sim'
+0' Não'
+/q29_9_9
+1' Sim'
+0' Não'
+/q29_9_0
+1' Sim'
+0' Não'
+/q29_9_97
+1' Sim'
+0' Não'
+/q29_10_1
+1' Sim'
+0' Não'
+/q29_10_2
+1' Sim'
+0' Não'
+/q29_10_3
+1' Sim'
+0' Não'
+/q29_10_4
+1' Sim'
+0' Não'
+/q29_10_5
+1' Sim'
+0' Não'
+/q29_10_6
+1' Sim'
+0' Não'
+/q29_10_7
+1' Sim'
+0' Não'
+/q29_10_8
+1' Sim'
+0' Não'
+/q29_10_9
+1' Sim'
+0' Não'
+/q29_10_0
+1' Sim'
+0' Não'
+/q29_10_97
+1' Sim'
+0' Não'
+/q29_11_1
+1' Sim'
+0' Não'
+/q29_11_2
+1' Sim'
+0' Não'
+/q29_11_3
+1' Sim'
+0' Não'
+/q29_11_4
+1' Sim'
+0' Não'
+/q29_11_5
+1' Sim'
+0' Não'
+/q29_11_6
+1' Sim'
+0' Não'
+/q29_11_7
+1' Sim'
+0' Não'
+/q29_11_8
+1' Sim'
+0' Não'
+/q29_11_9
+1' Sim'
+0' Não'
+/q29_11_0
+1' Sim'
+0' Não'
+/q29_11_97
+1' Sim'
+0' Não'
+/q29_12_1
+1' Sim'
+0' Não'
+/q29_12_2
+1' Sim'
+0' Não'
+/q29_12_3
+1' Sim'
+0' Não'
+/q29_12_4
+1' Sim'
+0' Não'
+/q29_12_5
+1' Sim'
+0' Não'
+/q29_12_6
+1' Sim'
+0' Não'
+/q29_12_7
+1' Sim'
+0' Não'
+/q29_12_8
+1' Sim'
+0' Não'
+/q29_12_9
+1' Sim'
+0' Não'
+/q29_12_0
+1' Sim'
+0' Não'
+/q29_12_97
+1' Sim'
+0' Não'
+/q29_13_1
+1' Sim'
+0' Não'
+/q29_13_2
+1' Sim'
+0' Não'
+/q29_13_3
+1' Sim'
+0' Não'
+/q29_13_4
+1' Sim'
+0' Não'
+/q29_13_5
+1' Sim'
+0' Não'
+/q29_13_6
+1' Sim'
+0' Não'
+/q29_13_7
+1' Sim'
+0' Não'
+/q29_13_8
+1' Sim'
+0' Não'
+/q29_13_9
+1' Sim'
+0' Não'
+/q29_13_0
+1' Sim'
+0' Não'
+/q29_13_97
+1' Sim'
+0' Não'
+/q29_14_1
+1' Sim'
+0' Não'
+/q29_14_2
+1' Sim'
+0' Não'
+/q29_14_3
+1' Sim'
+0' Não'
+/q29_14_4
+1' Sim'
+0' Não'
+/q29_14_5
+1' Sim'
+0' Não'
+/q29_14_6
+1' Sim'
+0' Não'
+/q29_14_7
+1' Sim'
+0' Não'
+/q29_14_8
+1' Sim'
+0' Não'
+/q29_14_9
+1' Sim'
+0' Não'
+/q29_14_0
+1' Sim'
+0' Não'
+/q29_14_97
+1' Sim'
+0' Não'
+/q29_15_1
+1' Sim'
+0' Não'
+/q29_15_2
+1' Sim'
+0' Não'
+/q29_15_3
+1' Sim'
+0' Não'
+/q29_15_4
+1' Sim'
+0' Não'
+/q29_15_5
+1' Sim'
+0' Não'
+/q29_15_6
+1' Sim'
+0' Não'
+/q29_15_7
+1' Sim'
+0' Não'
+/q29_15_8
+1' Sim'
+0' Não'
+/q29_15_9
+1' Sim'
+0' Não'
+/q29_15_0
+1' Sim'
+0' Não'
+/q29_15_97
+1' Sim'
+0' Não'
+/q30_1
+1' Sim'
+0' Não'
+/q30_2
+1' Sim'
+0' Não'
+/q30_3
+1' Sim'
+0' Não'
+/q30_4
+1' Sim'
+0' Não'
+/q30_5
+1' Sim'
+0' Não'
+/q30_6
+1' Sim'
+0' Não'
+/q30_7
+1' Sim'
+0' Não'
+/q30_8
+1' Sim'
+0' Não'
+/q30_9
+1' Sim'
+0' Não'
+/q30_10
+1' Sim'
+0' Não'
+/q30_11
+1' Sim'
+0' Não'
+/q30_12
+1' Sim'
+0' Não'
+/q30_13
+1' Sim'
+0' Não'
+/q30_14
+1' Sim'
+0' Não'
+/q30_99
+1' Sim'
+0' Não'
+/q30_0
+1' Sim'
+0' Não'
+/q31
+1' Sim'
+0' Não'
+/q32
+1' exerce exclusivamente a função de coordenador(a)'
+2' acumula as funções de coordenador(a) e de técnico(a) nesta Unidade'
+3' acumula as funções de coordenador(a) com outra atividade da Secretaria Municipal de Assistência Social ou do DF'
+0' não há coordenador(a) nesta Unidade'
+/q34_4
+1' Coordenador(a) do Centro de Referência Especializado para População em Situação de Rua'
+2' Técnico(a) de nível superior do Centro de Referência Especializado para População em Situação de Rua'
+99' Outros'
+/q35_4
+1' Secretário(a) Municipal/Estadual de Assistência Social ou congênere'
+2' Diretor(a)/Coordenador(a)/Responsável pela área de proteção social especial no município ou estado'
+3' Técnico(a) da Secretaria Municipal e/ou Estadual de Assistência Social ou congênere'
+99' Outros'
+/UF
+11 "Rondonia"
+12 "Acre"
+13 "Amazonas"
+14 "Roraima"
+15  "Pará"
+16 "Amapá"
+17 "Tocantins"
+21 "Maranhão"
+22 "Piaui"
+23 "Ceará"
+24 "Rio Grande do Norte"
+25 "Paraíba"
+26 "Pernambuco"
+27 "Alagoas"
+28 "Sergipe"
+29 "Bahia"
+31 "Minas gerais"
+32 "Espirito Santo"
+33 "Rio de Janeiro"
+35 "São Paulo"
+41 "Paraná"
+42 "Santa Catarina"
+43  "Rio Grande do Sul"
+50 "Mato Grosso do Sul"
+51 "Mato Grosso"
+52 "Goiás"
+53 "Distrito Federal"
+/Regiao 
+1 "Região Norte"
+2 "Região Nordeste"
+3 "Região Sudeste"
+4 "Região Sul"
+5 "Região Centro Oeste" 
+/Q_completo
+0   'completo'
+1   'incompleto'
+.

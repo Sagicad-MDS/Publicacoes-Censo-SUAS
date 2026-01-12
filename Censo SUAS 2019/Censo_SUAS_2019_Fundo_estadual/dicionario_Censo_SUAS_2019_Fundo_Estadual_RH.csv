@@ -1,0 +1,44 @@
+Variável;Rótulo
+IBGE;IBGE_codigo_ibge_IBGE
+UF;UF
+Região;Região
+Pop_Total2010;População Censo IBGE 2010
+Quant_municipios;Quantidade de municípios
+q19_3;q19_3_v14509_19.3. Sexo
+q19_8;q19_8_v14514_19.8. Escolaridade
+q19_9;q19_9_v14515_19.9. Profissão
+q19_10;q19_10_v14516_19.10. Vínculo
+q19_11;q19_11_v14517_19.11. Função
+q19_12;q19_12_v14518_19.12. Carga horária SEMANAL
+q19_13;q19_13_v14519_19.13. Início do Mandato (DD/MM/AAA)
+q19_2_rec;q19_2_data nascimento recodificada
+Idade;Idade
+Faixas_etarias;Faixas etárias dos Trabalhadores do Fundo Estadual
+d_19_8;d_19_8_Níveis de escolaridade
+d_19_8bin1;d_19_8bin1_Nível fundamental - trabalhadores que possuem até o nível médio (inclui aqueles sem escolaridade)
+d_19_8bin2;d_19_8bin2_Nível médio - trabalhadores com ensino superior incompleto e ensino médio completo
+d_19_8bin3;d_19_8bin3_Nível superior - inclui trabalhadores graduados, com especialização, mestrado ou doutorado
+d_19_9;d_19_9_Profissão
+d_19_9bin1; d_19_9bin1_Pedagogo
+d_19_9bin2;d_19_9bin2_Assistente Social
+d_19_9bin3;d_19_9bin3_Antropólogo
+d_19_9bin4;d_19_9bin4_Advogado
+d_19_9bin5;d_19_9bin5_Psicólogo
+d_19_10;d_19_10_Tipo de vínculo
+d_19_10bin1;d_19_10bin1_Servidor Estatutário
+d_19_10bin2;d_19_10bin2_Empregado Público (CLT)
+d_19_10bin3;d_19_10bin3_Comissionado
+d_19_10bin4;"d_19_10bin4_Outros vínculos não permanentes - inclui Trabalhador de Empresas/Cooperativa/Entidade Prestadora de Serviços; Voluntários; Servidor Temporário; Sem vínculo; Terceirizado e Outro vínculo não permanente"
+d_19_8bin1_sum;d_19_8bin1_sum_Número de trabalhadores de Nível fundamental (inclui trabalhadores sem escolaridade, fundamental incompleto e ensino médio incompleto)
+d_19_8bin2_sum;d_19_8bin2_sum_Número de trabalhadores de Nível médio (inclui trabalhadores com ensino superior incompleto)
+d_19_8bin3_sum;d_19_8bin3_sum_Número de trabalhadores de Nível superior (inclui trabalhadores com especialização, mestrado e doutorado)
+d_19_9bin1_sum;d_19_9bin1_sum_Número de Pedagogos
+d_19_9bin2_sum;d_19_9bin2_sum_Número de Assistentes Sociais
+d_19_9bin3_sum;d_19_9bin3_sum_Número de Antropólogos
+d_19_9bin4_sum;d_19_9bin4_sum_Número de Advogados
+d_19_9bin5_sum;d_19_9bin5_sum_Número de Psicólogos
+d_19_10bin1_sum;d_19_10bin1_sum_Número de Servidores Estatutários
+d_19_10bin2_sum;d_19_10bin2_sum_Número de Empregados Públicos(CLT)
+d_19_10bin3_sum;d_19_10bin3_sum_Número de Comissionados
+d_19_10bin4_sum;d_19_10bin4_sum_Número de profissionais com outros vínculos não permanentes
+nu_trabalhadores;Número de trabalhadores na unidade

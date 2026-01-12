@@ -352,14 +352,15 @@ f_sim  = function(df, q, ano){
   df %>%
     select(!! q) %>%
     mutate(!! q := case_when(!! q == "sim" |
-                               !! q == '    "Sim"'~"Sim",
+                               !! q == '    "Sim"' |
+                               !! q == 1 ~"Sim",
                              !! q == "Não possui" |
                                !! q == "não" |
                                !! q == '    "Não"'~"Não",
                              !! q == "Não Sabe" |
                                !! q == '    "Não sabe"' |
                                !! q == "99" ~ "Não sabe",
-                             TRUE ~ !! q)) %>%
+                             TRUE ~ as.character(!! q))) %>%
     mutate(!! q := factor(!! q, levels = c("Sim",
                                            "Não",
                                            "Não sabe"))) %>%

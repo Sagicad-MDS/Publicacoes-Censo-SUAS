@@ -38,10 +38,10 @@ A quantidade de trabalhadoras/es nas Secretarias Municipais de Assistência Soci
 ```{r fig-qtd_trab_munic, fig.cap ="Evolução da quantidade de trabalhadoras/es nas Secretarias Municipais de Assistência Social - Brasil, 2018 a 2022"}
 #| fig-height: 6
 
-grafico <- f_quantitativo_regiao_ano(gm_rh_2018, IBGE, "2018")%>%
-  bind_rows(f_quantitativo_regiao_ano(gm_rh_2019, IBGE, "2019")) %>%
-  bind_rows(f_quantitativo_regiao_ano(gm_rh_2020, IBGE, "2020")) %>%
-  bind_rows(f_quantitativo_regiao_ano(gm_rh_2021, IBGE, "2021")) %>%
+grafico <- f_quantitativo_regiao_ano(gmrh_2018, IBGE, "2018")%>%
+  bind_rows(f_quantitativo_regiao_ano(gmrh_2019, IBGE, "2019")) %>%
+  bind_rows(f_quantitativo_regiao_ano(gmrh_2020, IBGE, "2020")) %>%
+  bind_rows(f_quantitativo_regiao_ano(gmrh_2021, IBGE, "2021")) %>%
   bind_rows(f_quantitativo_regiao_ano(gmrh_2022, IBGE, "2022")) %>%
   f_grafico_col_numero_flip_2_x(Região, n, Ano)
 
@@ -267,14 +267,14 @@ O @fig-munic_trab_form mostra a evolução do número de trabalhadoras/es de ní
   bind_rows(f_nomex_somay_nomegrupo(gm_2017, "2017", q28.5.3, "Nível Superior")) %>%
 
 
- bind_rows(f_nomex_grupos_quantitativo(gm_rh_2018, "2018", d_62_9)) %>%
+ bind_rows(f_nomex_grupos_quantitativo(gmrh_2018, "2018", d_62_9)) %>%
 
- bind_rows(f_nomex_grupos_quantitativo(gm_rh_2019, "2019", d_65_9)) %>%
+ bind_rows(f_nomex_grupos_quantitativo(gmrh_2019, "2019", d_65_9)) %>%
 
 
- #bind_rows(f_nomex_grupos_quantitativo(gm_rh_2020, "2020", d81_9)) %>%
+ #bind_rows(f_nomex_grupos_quantitativo(gmrh_2020, "2020", d81_9)) %>%
 
- bind_rows(f_nomex_grupos_quantitativo(gm_rh_2021, "2021", d81_9)) %>%
+ bind_rows(f_nomex_grupos_quantitativo(gmrh_2021, "2021", d81_9)) %>%
 
  bind_rows(f_nomex_grupos_quantitativo(gmrh_2022, "2022", d81_9)) %>%
 

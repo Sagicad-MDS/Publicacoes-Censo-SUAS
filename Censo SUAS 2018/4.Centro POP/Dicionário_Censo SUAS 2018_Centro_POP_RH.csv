@@ -1,0 +1,44 @@
+Código;Nome
+id_creas_pop;id_creas_pop
+IBGE;Código IBGE do Município
+IBGE7;Código IBGE com Dígito Verificador
+Região;Grande Região
+UF;Unidade da Federação
+uf_s;Unidade da Federação
+Município;Nome do Município_Censo IBGE 2010
+Municipio_2013;Nome do Município_atualizado 2014
+area;Área Territorial Km2
+Pop_Total2010;População Total - Censo IBGE 2010
+Pop_Urbana2010;População Urbana - Censo IBGE 2010
+Pop_Rural2010;População Rural - Censo IBGE 2010
+Porte_pop2010;Porte Populacional SUAS - Censo IBGE 2010
+q34_2; q34_2_ v10247 _ Data de nascimento
+q34_3; q34_3_ v10248 _ Sexo
+q34_9; q34_9_ v10252 _ Escolaridade
+q34_10; q34_10_ v10253 _ Profissão
+q34_11; q34_11_ v10254 _ Vínculo
+q34_12; q34_12_ v10255 _ Função
+q34_13; q34_13_ v10256 _ Carga horária SEMANAL
+q34_14; q34_14_ v10257 _ Início do exercício da função
+q34_15_1; q34_15_1_ v10258 _ Serviços/Atividade a qual o profissional está vinculado - Principal serviço/atividade
+q34_15_2; q34_15_2_ v10259 _ Serviços/Atividade a qual o profissional está vinculado - Segundo principal serviço/atividade
+q34_15_3; q34_15_3_ v10260 _ Serviços/Atividade a qual o profissional está vinculado - Terceiro principal serviço/atividade
+q34_15_1.original; q34_15_1_ v10258 _ Serviços/Atividade a qual o profissional está vinculado - Principal serviço/atividade
+q34_15_2.original; q34_15_2_ v10259 _ Serviços/Atividade a qual o profissional está vinculado - Segundo principal serviço/atividade
+q34_15_3.original; q34_15_3_ v10260 _ Serviços/Atividade a qual o profissional está vinculado - Terceiro principal serviço/atividade
+D34_2;Idade em anos (data ref. 31-12-2016)
+D34_2categoria;D34_2.Idade (faixas etárias)
+D34_9;D34_9.Níveis de escolaridade
+D34_11;D34_11.Tipo de vínculo
+D34_9bin1;D34_9bin1.Nível fundamental - trabalhadores que possuem até o nível médio (inclui aqueles sem escolaridade)
+D34_9bin2;D34_9bin2.Nível médio - trabalhadores com ensino superior incompleto e ensino médio completo
+D34_9bin3;D34_9bin3.Nível superior - inclui trabalhadores graduados, com especialização, mestrado ou doutorado
+D34_10bin1;D34_10bin1.Pedagogo
+D34_10bin2;D34_10bin2.Assistente Social
+D34_10bin3;D34_10bin3.Antropólogo
+D34_10bin4;D34_10bin4.Advogado
+D34_10bin5;D34_10bin5.Psicólogo
+D34_11bin1;D34_11bin1.Servidor Estatutário
+D34_11bin2; D34_11bin2.Empregado Público (CLT)
+D34_11bin3;D34_11bin3.Comissionado
+D34_11bin4;"D34_11bin4.Outros vínculos não permanentes - inclui Trabalhador de Empresas/Cooperativa/Entidade Prestadora de Serviços; Voluntários; Servidor Temporário; Sem vínculo; Terceirizado e Outro vínculo não permanente"

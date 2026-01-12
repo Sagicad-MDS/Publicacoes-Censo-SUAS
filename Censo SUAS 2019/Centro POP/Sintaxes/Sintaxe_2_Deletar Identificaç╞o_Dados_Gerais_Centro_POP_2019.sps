@@ -1,0 +1,23 @@
+
+******antes salvar base com o nome _Original*****
+
+
+DELETE VARIABLES  
+q34_1
+q34_2
+q34_3
+q34_4
+q34_4_99_1
+q34_5
+q34_6
+q35_1
+q35_2
+q35_3
+q35_4
+q35_4_99_1
+q35_5
+q35_6.
+
+
+
+*******apos este procedimento salvar base com o nome   Censo_SUAS_2019_Centro_POP_Dados_Gerais******

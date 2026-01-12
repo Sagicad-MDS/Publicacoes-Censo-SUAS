@@ -1,0 +1,244 @@
+Variável;Descrição
+IBGE;Código IBGE do Município
+IBGE7;Código IBGE com dígito verificador
+UF;Unidade da Federação
+Município;Município
+Região;Grande Região
+Pop_Total2010;População Total do Município - Censo IBGE 2010
+Pop_Urbana2010;População Urbana do Município - Censo IBGE 2010
+Pop_Rural2010;População Rural do Município - Censo IBGE 2010
+Porte_pop2010;Porte Populacional - Censo IBGE 2010
+ident1_nome;ident1_Nome que identifica o órgão gestor
+ident2;ident2_Tipo de Logradouro (avenida, rua, etc)
+ident3;ident3_Endereço
+ident4;ident4_Número
+ident5;ident5_Complemento
+ident6_bairro;ident6_Bairro
+ident7;ident7_Ponto de Referência
+ident8_cep;ident8_CEP
+ident9_mun;ident9_Município
+ident10_uf;ident10_UF
+ident12_tel;ident12_DDD - Telefone
+ident13_ramal;ident13_Ramal
+ident14_fax;ident14_FAX
+coord_latitude;Coordenadas_Latitude
+coord_longitude;Coordenadas_Longitude
+q1;q1_De acordo com a estrutura administrativa do município o órgão gestor da assistência social caracteriza-se como:
+q2_1;q2_1_Secretaria Associada_Educação
+q2_2;q2_2_Secretaria Associada_Planejamento
+q2_3;q2_3_Secretaria Associada_Saúde
+q2_4;q2_4_Secretaria Associada_Habitação
+q2_5;q2_5_Secretaria Associada_Segurança Alimentar
+q2_6;q2_6_Secretaria Associada_Trabalho e/ou Emprego
+q2_7;q2_7_Secretaria Associada_Direitos Humanos
+q2_99;q2_99_Secretaria Associada_Outra
+q2_qual;q2_qual_Secretaria Associada_Qual?
+q3_1;q3_1_Subdivisões_Proteção Social Básica
+q3_2;q3_2_Subdivisões_Proteção Social Especial
+q3_3;q3_3_Subdivisões_Gestão de Benefícios Assistenciais (Bolsa Família, BPC, Benefícios Eventuais)
+q3_4;q3_4_Subdivisões_Gestão do SUAS
+q3_5;q3_5_Subdivisões_Vigilância Socioassistencial (Inclusive áreas de monitoramento e avaliação)
+q3_6;q3_6_Subdivisões_Gestão do Trabalho
+q3_7;q3_7_Subdivisões_Regulação do SUAS
+q3_8;q3_8_Subdivisões_Gestão Financeira e Orçamentária
+q4_1;q4_1_Locais Cadastramento_Na sede do órgão gestor/Secretaria de Assistência
+q4_2;q4_2_Locais Cadastramento_Nos CRAS
+q4_3;q4_3_Locais Cadastramento_Em unidades/postos fixos exclusivos para cadastramento
+q4_4;q4_4_Locais Cadastramento_Em unidades móveis ou postos temporários
+q4_5;q4_5_Locais Cadastramento_Em outras unidades da Assistência Social
+q4_6;q4_6_Locais Cadastramento_Em unidades de outras políticas públicas
+q4_7;q4_7_Locais Cadastramento_No domicílio das famílias
+q4_99;q4_99_Locais Cadastramento_Outros
+q5;q5_Em que ano ocorreu a última atualização da Lei Municipal de regulamentação do Sistema Único da Assistência Social - SUAS?
+q5_0;q5_0_Não possui Lei Municipal de Regulamentação do SUAS
+d5;d5_Ano da Lei Municipal de regulamentação do SUAS
+q6;q6_Em que ano ocorreu a última atualização do Plano Municipal de Assistência Social (PMAS)?
+q6_ns;q6_ns_Atualização PMAS_Não sabe
+d6;d6_Ano do Plano Municipal de Assistência Social
+q7;q7_Nos últimos 12 meses, quantas visitas de técnicos da Secretaria Estadual de Assistência Social (SEAS) o município recebeu?
+q8;q8_Nos últimos 12 meses, quantas vezes os técnicos ou gestores municipais da assistência social participaram de atividades de orientação e apoio técnico promovido pelo Estado?
+q9_1;"q9_1_Apoio Técnico_Produção e distribuição de material técnico;"
+q9_2;"q9_2_Apoio Técnico_Elaboração, pelo Estado, de normativas e instruções operacionais para orientação dos municípios;"
+q9_3;"q9_3_Apoio Técnico_Capacitações presenciais;"
+q9_4;"q9_4_Apoio Técnico_Capacitações à distância;"
+q9_5;"q9_5_Apoio Técnico_Assessoramento técnico de forma presencial no município;"
+q9_6;"q9_6_Apoio Técnico_Assessoramento técnico à distância;"
+q9_99;q9_99_Apoio Técnico_Outras formas.
+q9_qual;q9_qual_Apoio Técnico_Especifique
+q10;q10_Em quantas reuniões da CIB (Comissão Intergestores Bipartite), em 2015, houve participação de algum representante do município?
+q11;q11_O ordenador de despesa do FMAS é?
+q12;q12_O município utiliza recursos do cofinanciamento federal de serviços (pisos dos serviços) para pagamento de servidores públicos (estatutário, empregado público celetista ou concursado temporário) que integram as Equipes de Referê...
+q13;q13_Atualmente o município recebe recursos estaduais para o cofinanciamento da Assistência Social?
+q14_1;q14_1_Valor alocado referente aos recursos próprios do município
+q14_2;q14_2_Valor recebido do governo estadual (Fundo a Fundo e Convênios)
+q14_3;q14_3_Valor da despesa realizada com recursos próprios do município
+q14_4;q14_4_Valor da despesa realizada com recursos repassados pelo governo estadual
+q15;q15_O órgão gestor municipal faz transferência de recursos por convênio para ONG?s ou Entidades de Assistência Social no município?
+q16;q16_Quantas entidades recebem recurso do órgão gestor municipal por convênio?
+d16;d16_Quantidade de Entidades Conveniadas
+q17_1_1;q17_1_1_Estatutário - Ensino Fundamental
+q17_1_2;q17_1_2_Estatutário - Ensino Médio
+q17_1_3;q17_1_3_Estatutários - Ensino Superior
+q17_1_4;q17_1_4_Estatutários - Total
+q17_2_1;q17_2_1_Empregados Públicos Celetistas - Ensino Fundamental
+q17_2_2;q17_2_2_Empregados Públicos Celetistas - Ensino Médio
+q17_2_3;q17_2_3_Empregados Públicos Celetistas - Ensino Superior
+q17_2_4;q17_2_4_Empregados Públicos Celetistas - Total
+q17_3_1;q17_3_1_Somente Comissionados - Ensino Fundamental
+q17_3_2;q17_3_2_Somente Comissionados - Ensino Médio
+q17_3_3;q17_3_3_Somente Comissionados - Ensino Superior
+q17_3_4;q17_3_4_Somente Comissionados - Total
+q17_4_1;q17_4_1_Outros Vínculos - Ensino Fundamental
+q17_4_2;q17_4_2_Outros Vínculos - Ensino Médio
+q17_4_3;q17_4_3_Outros Vínculos - Ensino Superior
+q17_4_4;q17_4_4_Outros Vínculos - Total
+q17_5_1;q17_5_1_Ensino Fundamental - Total
+q17_5_2;q17_5_2_Ensino Médio - Total
+q17_5_3;q17_5_3_Ensino Superior - Total
+q17_total;q17_total_Total de Trabalhadores
+d17_total;d17_total_Quantidade de Trabalhadores - Total
+q18_1;q18_1_Quantidade_Assistente Social
+q18_2;q18_2_Quantidade_Psicólogo
+q18_3;q18_3_Quantidade_Pedagogo
+q18_4;q18_4_Quantidade_Advogado
+q18_5;q18_5_Quantidade_Antropólogo
+q18_6;q18_6_Quantidade_Sociólogo
+q18_7;q18_7_Quantidade_Terapeuta Ocupacional
+q18_8;q18_8_Quantidade_Contador
+q18_9;q18_9_Quantidade_Administrador
+q18_10;q18_10_Quantidade_Economista
+q18_11;q18_11_Quantidade_Economista Doméstico
+q18_12;q18_12_Quantidade_Estatístico
+q18_13;q18_13_Quantidade_Musicoterapeuta
+q18_14;q18_14_Quantidade_Geógrafo
+q18_15;q18_15_Quantidade_Administrador Público/Gestão Pública
+q18_16;q18_16_Quantidade_Profissional de Educação Física
+q18_99;q18_99_Quantidade_Outras Profissões de Nível Superior
+q18_total;q18_total_Total de trabalhadores com Ensino Superior
+d18_total;d18_total_Quantidade Total de Trabalhadores de Ensino Superior
+q19_1;q19_1_Realizou concurso em 2015 - Nível Superior
+q19_1_1;q19_1_1_Realizou concurso em 2015 - Nível Superior - Quantidade de vagas
+q19_1_2;q19_1_2_Realizou concurso em 2015 - Nível Superior - Data de homologação
+q19_1_3;q19_1_3_Realizou concurso em 2015 - Nível Superior - Quantidade de trabalhadores que tomaram posse
+q19_2;q19_2_Realizou concurso em 2015 - Nível Médio
+q19_2_1;q19_2_1_Realizou concurso em 2015 - Nível Médio - Quantidade de vagas
+q19_2_2;q19_2_2_Realizou concurso em 2015 - Nível Médio - Data de homologação do concurso
+q19_2_3;q19_2_3_Realizou concurso em 2015 - Nível Médio - Quantidade de trabalhadores que tomaram posse
+q20;q20_O município possui Plano de Capacitação e Educação Permanente?
+q21_1;q21_1_Violações de Direitos_Atende no CREAS do município
+q21_2;q21_2_Violações de Direitos_Encaminha para o CREAS de outro município
+q21_3;q21_3_Violações de Direitos_Encaminha para o CREAS Regional ao qual está vinculado
+q21_4;q21_4_Violações de Direitos_Encaminha para o CRAS
+q21_5;q21_5_Violações de Direitos_Encaminha para alguma entidade conveniada no município
+q21_6;q21_6_Violações de Direitos_É atendido pela equipe de referência da proteção social especial do órgão gestor
+q21_99;q21_99_Violações de Direitos_Outro
+q21_0;q21_0_Violações de Direitos_Não atende
+q21_qual;q21_qual_Violações de Direitos_Qual?
+q22;q22_O município oferta Serviço especializado em abordagem social?
+q23_1;q23_1_Oferta Serviço_No(s) CREAS
+q23_2;q23_2_Oferta Serviço_No(s) Centro POP
+q23_3;q23_3_Oferta Serviço_Na sede/órgão gestor do município
+q23_4;q23_4_Oferta Serviço_Em outra unidade pública
+q23_5;q23_5_Oferta Serviço_Em entidade conveniada
+q23_4_1;q23_4_1_Oferta Serviço_Outra Unidade_Se sim, quantas unidades?
+q23_5_1;q23_5_1_Oferta Serviço_Unidade Conveniada_Se sim, quantas unidades?
+q24_1;q24_1_Atendimento MSE_Atende no CREAS do município
+q24_2;q24_2_Atendimento MSE_Encaminha para o CREAS de outro município
+q24_3;q24_3_Atendimento MSE_Encaminha para o CREAS Regional ao qual está vinculado
+q24_4;q24_4_Atendimento MSE_Encaminha para o CRAS
+q24_5;q24_5_Atendimento MSE_Encaminha para alguma entidade conveniada no município
+q24_6;q24_6_Atendimento MSE_Atende em outra unidade pública (exceto CREAS) de acompanhamento de adolescentes em cumprimento de medida socioeducativa (LA) ou (PSC) do município
+q24_7;q24_7_Atendimento MSE_É atendido pela equipe de referência da proteção social especial do município (órgão gestor).
+q24_99;q24_99_Atendimento MSE_Outro
+q24_0;q24_0_Atendimento MSE_Não atende
+q24_5_1;q24_5_1_Atendimento MSE_Entidade Conveniada_Se sim, quantas unidades?
+q24_6_1;q24_6_1_Atendimento MSE_Outra Unidade_Se sim, quantas unidades?
+q25_0;q25_0_Ações Trabalho Infantil_Não realiza
+q25_1;q25_1_Ações Trabalho Infantil_Realiza campanhas, mobilização e sensibilização
+q25_2;q25_2_Ações Trabalho Infantil_Realiza atividades de abordagem social em espaços públicos
+q25_3;q25_3_Ações Trabalho Infantil_realiza busca ativa de famílias com situação de trabalho infantil para inclusão no Cadúnico
+q25_4;q25_4_Ações Trabalho Infantil_Encaminha/inclui crianças e adolescentes em trabalho infantil para os Serviços de Convivência
+q25_5;q25_5_Ações Trabalho Infantil_Encaminha/inclui famílias com situação de trabalho infantil para PAIF/CRAS
+q25_6;q25_6_Ações Trabalho Infantil_Encaminha/inclui famílias com situação de trabalho infantil para o PAEFI/CREAS
+q25_7;q25_7_Ações Trabalho Infantil_Encaminha famílias e indivíduos para a aplicação de medidas protetivas à família
+q25_8;q25_8_Ações Trabalho Infantil_Encaminha famílias com situação de trabalho infantil para programas e projetos de capacitação profissional
+q25_9;q25_9_Ações Trabalho Infantil_Encaminha famílias com situação de trabalho infantil para programas e projetos de inclusão produtiva e/ou geração de trabalho e renda
+q25_10;q25_10_Ações Trabalho Infantil_Encaminha famílias com situação de trabalho infantil para atendimento em outras políticas públicas
+q25_11;q25_11_Ações Trabalho Infantil_Encaminha famílias com situação de trabalho infantil para os órgãos de defesa e responsabilização
+q25_12;q25_12_Ações Trabalho Infantil_Elabora estudos e diagnósticos sobre o trabalho infantil no município
+q26;q26_O órgão gestor da Assistência Social possui equipe de gestão exclusiva da Proteção Social Especial de Alta Complexidade?
+q27;q27_O município faz parte de consórcio público com outros municípios para oferta de serviços de acolhimento?
+q28_1;q28_1_Públicos Acolhimento_Crianças / Adolescentes
+q28_2;q28_2_Públicos Acolhimento_Jovens egressos de serviços de acolhimento
+q28_3;q28_3_Públicos Acolhimento_Exclusivamente crianças/ adolescentes com deficiência
+q28_4;q28_4_Públicos Acolhimento_Exclusivamente pessoas adultas com deficiência
+q28_5;q28_5_Públicos Acolhimento_Adultos e Famílias
+q28_6;q28_6_Públicos Acolhimento_Mulheres em situação de violência
+q28_7;q28_7_Públicos Acolhimento_Pessoas idosas
+q29;q29_O município possui Serviço de Acolhimento em Família Acolhedora para Criança e Adolescente?
+q30;q30_Caso sim, o Serviço de Acolhimento em Família Acolhedora é regulamentado por lei municipal?
+q31;q31_Existe repasse de subsídio financeiro para as famílias acolhedoras?
+q32;q32_Atualmente, quantas famílias aptas a receber as crianças/adolescentes com medidas protetivas estão cadastradas pelo Serviço?
+d32;d32_Programa de Família Acolhedora - Familias Cadastradas
+q33;q33_Atualmente, quantas crianças/adolescentes estão sendo acolhidas por meio do Serviço de Família Acolhedora no município?
+d33;d33_Programa de Família Acolhedora - Crianças Acolhidas
+q34_1;q34_1_Atividades de Gestão_Controla o acesso às vagas (controle da porta de entrada), sendo responsável por indicar a Unidade de Acolhimento que receberá a criança/adolescente.
+q34_2;q34_2_Atividades de Gestão_Acompanha/monitora o fluxo de entradas e saídas de crianças e adolescentes nas Unidades
+q34_3;q34_3_Atividades de Gestão_Centraliza as informações das medidas de acolhimento determinadas pelo poder Judiciário
+q34_4;q34_4_Atividades de Gestão_Centraliza as informações dos acolhimentos emergenciais realizados pelo Conselho Tutelar
+q34_5;q34_5_Atividades de Gestão_Promove a articulação dos serviços de acolhimento com os demais serviços da rede socioassistencial
+q34_6;q34_6_Atividades de Gestão_Promove a articulação dos serviços de acolhimento com as demais políticas públicas e órgãos de defesa de direitos
+q34_7;q34_7_Atividades de Gestão_Realiza supervisão e suporte técnico aos serviços de acolhimento
+q34_8;q34_8_Atividades de Gestão_Monitora o tempo de permanência das crianças e adolescentes nos serviços de acolhimento
+q34_9;q34_9_Atividades de Gestão_Fiscaliza a qualidade dos serviços
+q34_0;q34_0_Atividades de Gestão_Não realiza nenhuma das atividades listadas acima
+q35;q35_Nos últimos 12 (doze) meses a Assistência Social do município abrigou em alojamentos provisórios pessoas atingidas por situações de emergência ou de calamidade pública?
+q36;q36_O município utiliza embarcação/lancha para o desenvolvimento de atividades/serviços da Assistência Social?
+q37;q37_A Assistência Social desenvolve ações relativas ao Benefício de Prestação Continuada (BPC)?
+q38_1;q38_1_Ações BPC_Realizar estudos sobre as condições de vulnerabilidade das famílias com idosos e pessoas com deficiência
+q38_2;q38_2_Ações BPC_Orientar a população usuária sobre seus direitos e procedimentos para acesso ao BPC
+q38_3;q38_3_Ações BPC_Encaminhar possíveis beneficiários ao INSS
+q38_4;q38_4_Ações BPC_Apoiar e acompanhar o processo de concessão do BPC
+q38_5;q38_5_Ações BPC_Distribuir aos CRAS e CREAS do município listas territorializadas das famílias com beneficiários do BPC
+q38_6;q38_6_Ações BPC_Inserir os beneficiários nos serviços socioassistenciais
+q38_7;q38_7_Ações BPC_Realizar o cadastramento dos beneficiários do BPC no Cadúnico
+q38_8;q38_8_Ações BPC_Articular com outros setores a inserção dos beneficiários nas diversas políticas sociais
+q39_1_1;q39_1_1_Auxílio Funeral - Se o Benefício é concedido no município
+q39_1_2;q39_1_2_Auxílio funeral - Se o benefício é regulamentado
+q39_1_3;q39_1_3_Auxílio funeral - Local onde o Benefício é concedido
+q39_2_1;q39_2_1_Auxílio Natalidade - Se o Benefício é concedido no município
+q39_2_2;q39_2_2_Auxílio Natalidade - Se o Benefício é regulamentado
+q39_2_3;q39_2_3_Auxílio Natalidade - Local onde o Benefício é concedido
+q39_3_1;q39_3_1_Benefício Eventual para situação de calamidade pública - Se o Benefício é concedido no município
+q39_3_2;q39_3_2_Benefício Eventual para situação de calamidade pública - Se o Benefício é regulamentado
+q39_3_3;q39_3_3_Benefício Eventual para situação de calamidade pública - Local onde o Benefício é concedido
+q39_4_1;q39_4_1_Outros Benefícios Eventuais para famílias em situação de vulnerabilidade temporária - Se o Benefício é concedido no município
+q39_4_2;q39_4_2_Outros Benefícios Eventuais para famílias em situação de vulnerabilidade temporária - Se o Benefício é regulamentado
+q39_4_3;q39_4_3_Outros Benefícios Eventuais para famílias em situação de vulnerabilidade temporária - Local onde o Benefício é concedido
+q40;q40_Qual é a Instância de Controle Social (ICS) do Programa Bolsa Família (PBF) no município?
+q41;q41_O município possui profissional(s) exclusivamente dedicado(s) às atividades de Vigilância Socioassistencial?
+q42_1;q42_1_Vigilância_Profissionais de Nível Superior
+q42_2;q42_2_Vigilância_Profissionais de Nível Médio
+q42_total;q42_3_Vigilância_Total de Profissionais
+d42_1;d42_1_Quantidade de Profissionais da Vigilância de Nível Superior
+d42_2;d42_2_Quantidade de Profissionais da Vigilância de Nível Médio
+d42_total;d42_total_Quantidade Total de Profissionais da Vigilância
+q43;q43_O órgão gestor possui levantamento ou pesquisa nos últimos doze meses que aponte o número de pessoas em situação de rua no município?
+q44;q44_Situação de Rua_Caso sim, quantas pessoas?
+d44;d44_Quantidade de Pessoas em Situação de Rua
+q45;q45_Situação de Rua_Como foi realizado este levantamento ou pesquisa?
+q46;q46_O órgão gestor possui levantamento ou pesquisa que aponte a existência de locais de exploração sexual de crianças e adolescentes no município?
+q47;q47_Exploração Sexual_Como foi realizado este levantamento ou pesquisa?
+q48;q48_O órgão gestor possui levantamento ou pesquisa sobre a incidência de Trabalho Infantil no município?
+q49;q49_Trabalho Infantil_Como foi realizado este levantamento ou pesquisa?
+q50;q50_Nos últimos 12 meses, o órgão gestor promoveu reunião/capacitação com os técnicos dos CRAS e CREAS para implantação do Prontuário SUAS?
+q51;q51_O município possui definição de instrumentos e fluxos de Notificação Compulsória das situações de violência e violação de direitos atendidos?
+q52_1;q52_1_Atividades de Monitoramento_Realiza visitas técnicas à rede socioassistencial
+q52_2;q52_2_Atividades de Monitoramento_Realiza a gestão/validação das informações prestadas sobre as unidades, como o preenchimento do Registro Mensal de Atendimentos, Censo SUAS e demais instrumentais nacionais, estaduais ou municipais
+q52_3;q52_3_Atividades de Monitoramento_Possui instrumentos de coleta de dados próprios para levantamento de informações junto aos serviços
+q52_4;q52_4_Atividades de Monitoramento_Produção de Indicadores próprios para aferição volume e qualidade dos serviços socioassistenciais
+resp_data;Responsável_Data
+resp_cargo;Responsável_Cargo/Função
+rep_vig_n_possui;Representante Vigilância_Não há representante da Vigilância designado no município
+rep_vig_cargo;Representante Vigilância_Cargo/Função
+Incompletos;Questionários incompletos incorporados à base final

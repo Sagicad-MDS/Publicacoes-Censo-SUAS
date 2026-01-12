@@ -1,0 +1,93 @@
+* Encoding: UTF-8.
+
+**CENSO SUAS 2018 - CRAS**
+
+
+FREQUENCIES VARIABLES=Região  UF
+  /ORDER=ANALYSIS.
+
+***BLOCO 1 - IDENTIFICAÇÃO DO CRAS**
+
+FREQUENCIES VARIABLES=q_1 q_2 q_3 q_4 
+  /ORDER=ANALYSIS.
+
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=Região q_5_1 q_5_2 q_5_3 q_5_4 q_5_5_rec DISPLAY=LABEL
+  /TABLE Região [C] BY q_5_1 [S][SUM] + q_5_2 [S][SUM] + q_5_3 [S][SUM] + q_5_4 [S][SUM] + q_5_5_rec [S][SUM]
+  /CATEGORIES VARIABLES=Região [1, 2, 3, 4, 5, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER.
+
+
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=Porte_pop2010 q_5_1 q_5_2 q_5_3 q_5_4 q_5_5_rec DISPLAY=LABEL
+  /TABLE Porte_pop2010 BY q_5_1 [S][SUM] + q_5_2 [S][SUM] + q_5_3 [S][SUM] + q_5_4 [S][SUM] + q_5_5_rec [S][SUM]
+  /CATEGORIES VARIABLES=Porte_pop2010 ORDER=A KEY=VALUE EMPTY=EXCLUDE TOTAL=YES POSITION=AFTER.
+
+
+FREQUENCIES VARIABLES= q_6 q_7 q_8  q_9 
+  /ORDER=ANALYSIS.
+
+
+
+MULT RESPONSE GROUPS=$mr.10 'O cofinanciamento realizado (fundo-a-fundo e convênio) é destinado a'
+(q_10_1 q_10_2 q_10_3 q_10_4 q_10_5 q_10_99 (1))
+/FREQUENCIES=$mr.10.
+
+
+FREQUENCIES VARIABLES= q_11 q_12 
+  /ORDER=ANALYSIS.
+
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=Região q_13_1_1 q_13_2_1 q_13_3_1 q_13_4_1 DISPLAY=LABEL
+  /TABLE Região [C] BY q_13_1_1 [S][SUM, COUNT F40.0] + q_13_2_1 [S][SUM, COUNT F40.0] + q_13_3_1 
+    [S][SUM, COUNT F40.0] + q_13_4_1 [S][SUM, COUNT F40.0]
+  /CATEGORIES VARIABLES=Região [1, 2, 3, 4, 5, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER.
+
+
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=Região q_13_1_2 q_13_2_2 q_13_3_2 q_13_4_2 DISPLAY=LABEL
+  /TABLE Região [C] BY q_13_1_2 [S][SUM, COUNT F40.0] + q_13_2_2 [S][SUM, COUNT F40.0] + q_13_3_2 
+    [S][SUM, COUNT F40.0] + q_13_4_2 [S][SUM, COUNT F40.0]
+  /CATEGORIES VARIABLES=Região [1, 2, 3, 4, 5, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER.
+
+
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=Região q_13_1_3 q_13_2_3  q_13_3_3  q_13_4_3  DISPLAY=LABEL
+  /TABLE Região [C] BY q_13_1_3 [S][SUM, COUNT F40.0] + q_13_2_3 [S][SUM, COUNT F40.0] + q_13_3_3
+    [S][SUM, COUNT F40.0] + q_13_4_3 [S][SUM, COUNT F40.0]
+  /CATEGORIES VARIABLES=Região [1, 2, 3, 4, 5, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER.
+
+
+
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=Região q_14_1  q_14_2 q_14_3 DISPLAY=LABEL
+  /TABLE Região [C] BY  q_14_1  [S][SUM, COUNT F40.0] + q_14_2 [S][SUM, COUNT F40.0] + q_14_3 
+    [S][SUM, COUNT F40.0] 
+  /CATEGORIES VARIABLES=Região [1, 2, 3, 4, 5, OTHERNM] EMPTY=INCLUDE TOTAL=YES POSITION=AFTER.
+
+
+
+
+* Custom Tables.
+CTABLES
+  /VLABELS VARIABLES=q_15_1_1 q_15_2_1 q_15_3_1 q_15_1_2 q_15_2_2 q_15_3_2 q_15_1_3 q_15_2_3 
+    q_15_3_3 q_15_1_4 q_15_2_4 q_15_3_4 q_15_1_5 q_15_2_5 q_15_3_5 q_15_1_6 q_15_2_6 q_15_3_6 
+    DISPLAY=LABEL
+  /TABLE q_15_1_1 [S][MEAN] + q_15_2_1 [S][MEAN] + q_15_3_1 [S][MEAN] + q_15_1_2 [S][MEAN] + 
+    q_15_2_2 [S][MEAN] + q_15_3_2 [S][MEAN] + q_15_1_3 [S][MEAN] + q_15_2_3 [S][MEAN] + q_15_3_3 
+    [S][MEAN] + q_15_1_4 [S][MEAN] + q_15_2_4 [S][MEAN] + q_15_3_4 [S][MEAN] + q_15_1_5 [S][MEAN] + 
+    q_15_2_5 [S][MEAN] + q_15_3_5 [S][MEAN] + q_15_1_6 [S][MEAN] + q_15_2_6 [S][MEAN] + q_15_3_6 
+    [S][MEAN].
+
+
